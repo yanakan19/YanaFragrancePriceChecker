@@ -18,17 +18,46 @@ export interface RobotsRules {
   sitemaps: string[];
   /** Seconds the site asks us to wait between requests, when stated. */
   crawlDelaySeconds: number | null;
-  /** True when we could not read the file at all. Absence is not permission. */
+  /**
+   * True only when the server failed in a way that means we must hold off:
+   * a 5xx or a network error. RFC 9309 is explicit that these are different
+   * cases from a missing file.
+   */
   unavailable: boolean;
 }
 
-export const EMPTY_ROBOTS: RobotsRules = {
+/**
+ * No robots.txt could be reached because the server errored.
+ *
+ * RFC 9309 §2.3.1.4: an unreachable status means assume complete disallow. A
+ * struggling server is not an invitation.
+ */
+export const UNREACHABLE_ROBOTS: RobotsRules = {
   disallow: [],
   allow: [],
   sitemaps: [],
   crawlDelaySeconds: null,
   unavailable: true,
 };
+
+/**
+ * The file is absent, 404 or 403.
+ *
+ * RFC 9309 §2.3.1.3: an unavailable status (4xx) means the crawler may access
+ * any resource. A shop with no robots.txt has stated no restrictions, and
+ * treating that as a refusal is our mistake rather than their instruction.
+ * Getting this backwards silently disabled five shops.
+ */
+export const NO_RESTRICTIONS: RobotsRules = {
+  disallow: [],
+  allow: [],
+  sitemaps: [],
+  crawlDelaySeconds: null,
+  unavailable: false,
+};
+
+/** Kept for callers that predate the distinction. */
+export const EMPTY_ROBOTS = UNREACHABLE_ROBOTS;
 
 /**
  * Parse robots.txt, keeping the groups that apply to us.

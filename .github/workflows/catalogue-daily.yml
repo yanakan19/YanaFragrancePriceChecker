@@ -21,6 +21,14 @@ on:
         description: 'Run the adaptive retrieval probe instead of the crawl.'
         type: boolean
         default: false
+      harvest:
+        description: 'Harvest real listings through each shop sitemap.'
+        type: boolean
+        default: false
+      harvest_max:
+        description: 'Product pages to fetch per shop during a harvest.'
+        type: string
+        default: '40'
 
 permissions:
   contents: write
@@ -72,21 +80,45 @@ jobs:
           git commit -m "Probe: what the crawler learned $(date -u +%Y-%m-%d)"
           git push
 
+      # The route the probe proved works: ask the sitemap instead of guessing.
+      - name: Harvest via sitemap
+        if: ${{ inputs.harvest }}
+        run: npm run harvest -- --max=${{ inputs.harvest_max || '40' }}
+
+      - name: Rebuild the app from harvested prices
+        if: ${{ inputs.harvest }}
+        run: |
+          npm run catalogue:demo
+          npm run demo
+
+      - name: Commit harvested prices
+        if: ${{ inputs.harvest }}
+        run: |
+          git config user.name 'scentday-bot'
+          git config user.email 'bot@users.noreply.github.com'
+          git add data/catalogue demo/catalogue.generated.ts demo/index.html
+          if git diff --cached --quiet; then
+            echo 'Nothing changed.'
+            exit 0
+          fi
+          git commit -m "Harvest: real prices $(date -u +%Y-%m-%d)"
+          git push
+
       - name: Crawl
-        if: ${{ !inputs.probe }}
+        if: ${{ !inputs.probe && !inputs.harvest }}
         run: |
           npm run catalogue -- \
             --source=${{ inputs.source || 'live' }} \
             ${{ inputs.dry_run && '--dry-run' || '' }}
 
       - name: Rebuild the app from the new snapshots
-        if: ${{ !inputs.dry_run && !inputs.probe }}
+        if: ${{ !inputs.dry_run && !inputs.probe && !inputs.harvest }}
         run: |
           npm run catalogue:demo
           npm run demo
 
       - name: Commit what changed
-        if: ${{ !inputs.dry_run && !inputs.probe }}
+        if: ${{ !inputs.dry_run && !inputs.probe && !inputs.harvest }}
         run: |
           git config user.name 'scentday-bot'
           git config user.email 'bot@users.noreply.github.com'

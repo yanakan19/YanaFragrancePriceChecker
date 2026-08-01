@@ -2,7 +2,9 @@ import { describe, expect, it } from 'vitest';
 import {
   EMPTY_MEMORY, planFor, record, score, getRecord, explain,
 } from '../src/catalogue/strategy.js';
-import { parseRobots, isAllowed, EMPTY_ROBOTS } from '../src/catalogue/robots.js';
+import {
+  parseRobots, isAllowed, UNREACHABLE_ROBOTS, NO_RESTRICTIONS,
+} from '../src/catalogue/robots.js';
 
 const NOW = '2026-08-01T12:00:00Z';
 /** Deterministic, and above any exploration rate, so no random promotion. */
@@ -125,8 +127,15 @@ Disallow: /nothing-for-us
     expect(isAllowed(r, 'https://s.example/tmp/x/private')).toBe(false);
   });
 
-  it('refuses when robots.txt could not be read, because silence is not consent', () => {
-    expect(isAllowed(EMPTY_ROBOTS, 'https://shop.example/anything')).toBe(false);
+  it('holds off when the server errored, per RFC 9309', () => {
+    // A 5xx or network failure means wait, not proceed.
+    expect(isAllowed(UNREACHABLE_ROBOTS, 'https://shop.example/anything')).toBe(false);
+  });
+
+  it('allows everything when robots.txt is simply absent', () => {
+    // RFC 9309 §2.3.1.3: a 4xx means no restrictions apply. Reading this
+    // backwards silently disabled five shops, so it is pinned by a test.
+    expect(isAllowed(NO_RESTRICTIONS, 'https://shop.example/fragrance')).toBe(true);
   });
 
   it('allows everything when the file is present but empty', () => {

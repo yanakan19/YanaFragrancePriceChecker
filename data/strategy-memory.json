@@ -139,10 +139,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:19:17.886Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "boots::section-browser-headers": {
       "strategyId": "section-browser-headers",
@@ -151,10 +151,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:19:20.386Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "boots::sitemap-discovery": {
       "strategyId": "sitemap-discovery",
@@ -175,10 +175,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:19:25.391Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "boots::homepage-probe": {
       "strategyId": "homepage-probe",
@@ -187,10 +187,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:19:27.894Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "the-fragrance-shop::sitemap-discovery": {
       "strategyId": "sitemap-discovery",
@@ -211,10 +211,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:19:31.938Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "the-fragrance-shop::section-browser-headers": {
       "strategyId": "section-browser-headers",
@@ -223,10 +223,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:19:33.439Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "the-fragrance-shop::search-page": {
       "strategyId": "search-page",
@@ -235,10 +235,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:19:34.941Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "the-fragrance-shop::homepage-probe": {
       "strategyId": "homepage-probe",
@@ -247,10 +247,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:19:36.443Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "the-perfume-shop::section-plain": {
       "strategyId": "section-plain",
@@ -259,10 +259,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:19:37.994Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "the-perfume-shop::section-browser-headers": {
       "strategyId": "section-browser-headers",
@@ -271,10 +271,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:19:39.495Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "the-perfume-shop::sitemap-discovery": {
       "strategyId": "sitemap-discovery",
@@ -295,10 +295,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:19:42.499Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "the-perfume-shop::homepage-probe": {
       "strategyId": "homepage-probe",
@@ -307,10 +307,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:19:44.000Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "john-lewis::section-plain": {
       "strategyId": "section-plain",
@@ -451,10 +451,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:22:44.651Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "superdrug::section-browser-headers": {
       "strategyId": "section-browser-headers",
@@ -463,10 +463,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:22:46.652Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "superdrug::sitemap-discovery": {
       "strategyId": "sitemap-discovery",
@@ -487,10 +487,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:22:50.655Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "superdrug::homepage-probe": {
       "strategyId": "homepage-probe",
@@ -499,10 +499,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:22:52.657Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "selfridges::section-plain": {
       "strategyId": "section-plain",
@@ -511,10 +511,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:22:54.727Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "selfridges::section-browser-headers": {
       "strategyId": "section-browser-headers",
@@ -523,10 +523,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:22:57.228Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "selfridges::sitemap-discovery": {
       "strategyId": "sitemap-discovery",
@@ -547,10 +547,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:23:02.231Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "selfridges::homepage-probe": {
       "strategyId": "homepage-probe",
@@ -559,10 +559,10 @@
       "successes": 0,
       "listingsFound": 0,
       "lastStatus": null,
-      "lastError": "disallowed by robots.txt",
+      "lastError": "robots.txt unreachable (since corrected)",
       "lastTriedAt": "2026-08-01T21:23:04.734Z",
       "lastSucceededAt": null,
-      "ruledOut": "robots.txt unreadable, so we cannot establish permission"
+      "ruledOut": null
     },
     "harvey-nichols::homepage-probe": {
       "strategyId": "homepage-probe",
