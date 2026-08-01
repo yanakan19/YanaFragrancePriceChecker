@@ -35,17 +35,25 @@ export interface ComparisonOptions {
 /**
  * Sort weight for stock state.
  *
- * Anything with a positive or unread signal sits above anything explicitly
- * unavailable. `unknown` ranks below confirmed availability but above
- * out-of-stock, because a page we could not parse is not evidence the product
- * is gone — demoting it to the bottom would misrepresent the retailer.
+ * Only three tiers, and the coarseness is the point. Every state that is a
+ * positive signal of availability shares tier 0, so price decides between them
+ * — an earlier version ranked `lowStock` below `inStock`, which buried a
+ * cheaper low-stock listing beneath a dearer in-stock one and made the table
+ * look broken (£108 above £105). Low stock is still stock.
+ *
+ * `unknown` sits below confirmed availability but above out-of-stock: a page we
+ * could not parse is not evidence the product is gone, so demoting it to the
+ * bottom would misrepresent the retailer, while promoting it to compete on
+ * price would overstate what we know.
+ *
+ * Only an explicit out-of-stock signal reaches the bottom.
  */
 const STOCK_RANK: Record<StockState, number> = {
   inStock: 0,
-  lowStock: 1,
-  preOrder: 2,
-  unknown: 3,
-  outOfStock: 4,
+  lowStock: 0,
+  preOrder: 0,
+  unknown: 1,
+  outOfStock: 2,
 };
 
 /** Only an explicit out-of-stock signal makes a row unbuyable. */
