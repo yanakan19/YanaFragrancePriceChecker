@@ -116,9 +116,10 @@ export const RETAILERS: readonly Retailer[] = [
     tiers: ['designer', 'niche', 'mideast'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
-    // markup was served. Bot mitigation, not a parsing problem. Needs an
-    // affiliate feed or a managed scraper. See docs/SPIKE-RESULTS.md.
-    adapter: 'headless',
+    // markup was served. Bot mitigation, not a parsing problem. Prefer an
+    // affiliate feed; paid residential retrieval is the fallback.
+    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md.
+    adapter: 'proxied',
     currency: 'GBP',
     shipping: {
       standardGbp: 2.99,
@@ -151,9 +152,10 @@ export const RETAILERS: readonly Retailer[] = [
     tiers: ['designer'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
-    // markup was served. Bot mitigation, not a parsing problem. Needs an
-    // affiliate feed or a managed scraper. See docs/SPIKE-RESULTS.md.
-    adapter: 'headless',
+    // markup was served. Bot mitigation, not a parsing problem. Prefer an
+    // affiliate feed; paid residential retrieval is the fallback.
+    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md.
+    adapter: 'proxied',
     currency: 'GBP',
     shipping: {
       standardGbp: 3.95,
@@ -179,9 +181,10 @@ export const RETAILERS: readonly Retailer[] = [
     tiers: ['designer', 'mideast'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
-    // markup was served. Bot mitigation, not a parsing problem. Needs an
-    // affiliate feed or a managed scraper. See docs/SPIKE-RESULTS.md.
-    adapter: 'headless',
+    // markup was served. Bot mitigation, not a parsing problem. Prefer an
+    // affiliate feed; paid residential retrieval is the fallback.
+    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md.
+    adapter: 'proxied',
     currency: 'GBP',
     shipping: {
       standardGbp: 3.49,
@@ -211,9 +214,10 @@ export const RETAILERS: readonly Retailer[] = [
     tiers: ['designer'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
-    // markup was served. Bot mitigation, not a parsing problem. Needs an
-    // affiliate feed or a managed scraper. See docs/SPIKE-RESULTS.md.
-    adapter: 'headless',
+    // markup was served. Bot mitigation, not a parsing problem. Prefer an
+    // affiliate feed; paid residential retrieval is the fallback.
+    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md.
+    adapter: 'proxied',
     currency: 'GBP',
     shipping: {
       standardGbp: 3.5,
@@ -332,9 +336,10 @@ export const RETAILERS: readonly Retailer[] = [
     tiers: ['designer'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
-    // markup was served. Bot mitigation, not a parsing problem. Needs an
-    // affiliate feed or a managed scraper. See docs/SPIKE-RESULTS.md.
-    adapter: 'headless',
+    // markup was served. Bot mitigation, not a parsing problem. Prefer an
+    // affiliate feed; paid residential retrieval is the fallback.
+    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md.
+    adapter: 'proxied',
     currency: 'GBP',
     shipping: {
       standardGbp: 4.5,
@@ -377,9 +382,10 @@ export const RETAILERS: readonly Retailer[] = [
     tiers: ['niche'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
-    // markup was served. Bot mitigation, not a parsing problem. Needs an
-    // affiliate feed or a managed scraper. See docs/SPIKE-RESULTS.md.
-    adapter: 'headless',
+    // markup was served. Bot mitigation, not a parsing problem. Prefer an
+    // affiliate feed; paid residential retrieval is the fallback.
+    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md.
+    adapter: 'proxied',
     currency: 'GBP',
     shipping: {
       standardGbp: 6.99,
