@@ -25,6 +25,12 @@ function arg(name: string, fallback: string): string {
 }
 
 const source = arg('source', 'fixtures');
+/**
+ * Fetch and parse, report, write nothing. This is how a live crawl is safely
+ * pointed at real shops for the first time: the section URLs have never been
+ * confirmed, so the first run is a survey, not an update.
+ */
+const dryRun = process.argv.includes('--dry-run');
 const fixtureDir = arg('fixtures', 'fixtures/catalogue/day1');
 const dateArg = arg('date', '');
 const now = dateArg ? new Date(dateArg) : new Date();
@@ -37,10 +43,21 @@ if (Number.isNaN(now.getTime())) {
 const fetchPage =
   source === 'live' ? liveFetcher() : fixtureFetcher(resolve(root, fixtureDir));
 
-const store = new CatalogueStore(resolve(root, 'data/catalogue'));
+const realStore = new CatalogueStore(resolve(root, 'data/catalogue'));
+
+// In a dry run the store still reads, so comparisons against held data work,
+// but every write is dropped on the floor.
+const store = dryRun
+  ? ({
+      read: (id: string) => realStore.read(id),
+      write: () => {},
+      hasBaseline: (id: string) => realStore.hasBaseline(id),
+    } as unknown as CatalogueStore)
+  : realStore;
 
 console.log(`\nScentDay catalogue crawl`);
 console.log(`source   ${source}${source === 'fixtures' ? ` (${fixtureDir})` : ''}`);
+if (dryRun) console.log(`mode     dry run, nothing will be written`);
 console.log(`as of    ${now.toISOString()}`);
 console.log(`shops    ${RETAILERS.filter((r) => r.enabled && r.catalogue).length} configured\n`);
 
@@ -52,7 +69,10 @@ let totalNew = 0;
 for (const retailer of RETAILERS) {
   if (!retailer.enabled || !retailer.catalogue) continue;
 
-  const run = await crawlRetailer({ retailer, fetchPage, store, now });
+  const run = await crawlRetailer({
+    retailer, fetchPage, store, now,
+    source: source === 'live' ? 'live' : 'fixtures',
+  });
 
   if (run.status === 'failed') failed++;
   else ok++;

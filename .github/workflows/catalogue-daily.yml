@@ -13,6 +13,10 @@ on:
         type: choice
         options: [live, fixtures]
         default: live
+      dry_run:
+        description: 'Fetch and report without writing. Use this the first time.'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -46,14 +50,19 @@ jobs:
         run: npm test
 
       - name: Crawl
-        run: npm run catalogue -- --source=${{ inputs.source || 'live' }}
+        run: |
+          npm run catalogue -- \
+            --source=${{ inputs.source || 'live' }} \
+            ${{ inputs.dry_run && '--dry-run' || '' }}
 
       - name: Rebuild the app from the new snapshots
+        if: ${{ !inputs.dry_run }}
         run: |
           npm run catalogue:demo
           npm run demo
 
       - name: Commit what changed
+        if: ${{ !inputs.dry_run }}
         run: |
           git config user.name 'scentday-bot'
           git config user.email 'bot@users.noreply.github.com'

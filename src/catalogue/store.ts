@@ -14,9 +14,17 @@ import type { CatalogueRun, StoredListing } from './types.js';
  * and makes the diff on a daily commit readable.
  */
 
+export type CrawlSource = 'live' | 'fixtures';
+
 export interface CatalogueSnapshot {
   retailerId: string;
   updatedAt: string;
+  /**
+   * Which kind of run produced this. Fixture data must never seed a live crawl:
+   * the SKUs differ, so every real listing would look new and every saved one
+   * would look delisted on the first live run.
+   */
+  source?: CrawlSource;
   listings: StoredListing[];
   runs: CatalogueRun[];
 }

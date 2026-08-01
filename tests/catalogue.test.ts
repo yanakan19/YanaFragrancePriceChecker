@@ -384,3 +384,113 @@ describe('daysSinceFirstSeen', () => {
     expect(daysSinceFirstSeen(stored({ firstSeenAt: '2026-09-01T00:00:00Z' }), NOW)).toBe(0);
   });
 });
+
+/* ── crawl safety guards ───────────────────────────────────────────────────── */
+
+import { crawlRetailer } from '../src/catalogue/crawl.js';
+import type { CatalogueSnapshot } from '../src/catalogue/store.js';
+import { getRetailer } from '../src/config/retailers.js';
+
+/** In memory stand in for the file store. */
+function fakeStore(initial?: Partial<CatalogueSnapshot>) {
+  let snap: CatalogueSnapshot = {
+    retailerId: 'boots',
+    updatedAt: DAY1,
+    listings: [],
+    runs: [],
+    ...initial,
+  };
+  return {
+    read: () => snap,
+    write: (s: CatalogueSnapshot) => {
+      snap = s;
+    },
+    hasBaseline: () => snap.listings.length > 0,
+    get current() {
+      return snap;
+    },
+  };
+}
+
+function pageWith(count: number): string {
+  return page(
+    Array.from({ length: count }, (_, i) => ({
+      '@type': 'Product', name: `P${i}`, sku: `p${i}`, offers: { price: '10.00' },
+    })),
+  );
+}
+
+const boots = getRetailer('boots')!;
+
+describe('crawl safety guards', () => {
+  it('refuses to write when a catalogue collapses', async () => {
+    // Ten held, one found. A shop has not cleared its shelves overnight.
+    const held = Array.from({ length: 10 }, (_, i) =>
+      stored({ retailerId: 'boots', retailerSku: `p${i}` }),
+    );
+    const store = fakeStore({ listings: held, source: 'live' });
+
+    const run = await crawlRetailer({
+      retailer: boots,
+      fetchPage: async (url) => ({ ok: true, html: url.includes('1') ? pageWith(1) : '', status: 200 }),
+      store: store as never,
+      source: 'live',
+      sleep: async () => {},
+    });
+
+    expect(run.status).toBe('failed');
+    expect(run.errors[0]).toContain('Refusing to write');
+    // The previous snapshot survives intact.
+    expect(store.current.listings).toHaveLength(10);
+  });
+
+  it('allows a normal sized crawl through', async () => {
+    const held = Array.from({ length: 10 }, (_, i) =>
+      stored({ retailerId: 'boots', retailerSku: `p${i}` }),
+    );
+    const store = fakeStore({ listings: held, source: 'live' });
+
+    const run = await crawlRetailer({
+      retailer: boots,
+      fetchPage: async (url) => ({ ok: true, html: url.includes('1') ? pageWith(10) : '', status: 200 }),
+      store: store as never,
+      source: 'live',
+      sleep: async () => {},
+    });
+
+    expect(run.status).toBe('ok');
+    expect(run.listingsSeen).toBe(10);
+  });
+
+  it('refuses to mix fixture data into a live crawl', async () => {
+    // Fixture SKUs are invented, so reconciling would delist everything held
+    // and flag the whole real catalogue as new.
+    const store = fakeStore({ listings: [stored({ retailerId: 'boots' })], source: 'fixtures' });
+
+    const run = await crawlRetailer({
+      retailer: boots,
+      fetchPage: async () => ({ ok: true, html: pageWith(50), status: 200 }),
+      store: store as never,
+      source: 'live',
+      sleep: async () => {},
+    });
+
+    expect(run.status).toBe('failed');
+    expect(run.errors[0]).toContain('clean baseline');
+  });
+
+  it('lets a clean baseline run on any source', async () => {
+    const store = fakeStore({ listings: [] });
+    const run = await crawlRetailer({
+      retailer: boots,
+      fetchPage: async (url) => ({ ok: true, html: url.includes('1') ? pageWith(5) : '', status: 200 }),
+      store: store as never,
+      source: 'live',
+      sleep: async () => {},
+    });
+
+    expect(run.status).toBe('ok');
+    expect(run.baseline).toBe(true);
+    expect(run.newListings).toBe(0);
+  });
+});
