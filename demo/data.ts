@@ -1,5 +1,6 @@
 import type { RawOffer } from '../src/types/offer.js';
 import type { RetailerTier } from '../src/types/retailer.js';
+import type { BottleArt } from './art.js';
 
 /**
  * ─────────────────────────────────────────────────────────────────────────────
@@ -8,13 +9,12 @@ import type { RetailerTier } from '../src/types/retailer.js';
  *
  * There is no fetching layer yet (that is the Phase 0 spike), so these offers
  * are hand-written to exercise the presentation logic. They are plausible but
- * invented, and must never be presented to an end user as live pricing.
+ * invented, and must never be presented to an end user as live pricing. The
+ * demo page labels this on every screen.
  *
- * The demo page labels this prominently. On a site whose entire value is price
- * honesty, showing fabricated numbers without that label would be the exact
- * failure the codebase is built to prevent.
- *
- * Each scenario below is chosen to exercise a specific rule — see `note`.
+ * `popularity` stands in for the `search_events`-derived score in the data
+ * model sketch. Seeded by hand here exactly as the plan intends: a manual
+ * top-N list until there is real traffic to count.
  */
 
 export interface DemoFragrance {
@@ -24,17 +24,19 @@ export interface DemoFragrance {
   concentration: string;
   sizeMl: number;
   tier: RetailerTier;
-  /** What this scenario is designed to demonstrate. */
-  note: string;
+  /** Higher ranks earlier in the popular scroller. Hand-seeded. */
+  popularity: number;
+  art: BottleArt;
+  /** One line for the detail page. */
+  blurb: string;
   offers: RawOffer[];
 }
 
-/** Offers are captured at varying ages to exercise the staleness label. */
 function ago(minutes: number): string {
   return new Date(Date.now() - minutes * 60_000).toISOString();
 }
 
-function offer(
+function o(
   retailerId: string,
   price: number,
   stock: RawOffer['stock'],
@@ -52,10 +54,9 @@ function offer(
   };
 }
 
-function build(
-  id: string,
-  rows: Omit<RawOffer, 'variantId'>[],
-): RawOffer[] {
+const soon = (hours: number) => new Date(Date.now() + hours * 3_600_000).toISOString();
+
+function build(id: string, rows: Omit<RawOffer, 'variantId'>[]): RawOffer[] {
   return rows.map((r) => ({ ...r, variantId: id }));
 }
 
@@ -67,16 +68,16 @@ export const DEMO_FRAGRANCES: DemoFragrance[] = [
     concentration: 'Eau de Parfum',
     sizeMl: 100,
     tier: 'designer',
-    note:
-      'The delivered-price case. Boots has the lowest item price at £24.99 but ' +
-      'misses its own £25 free-delivery threshold by a penny, so it finishes last.',
+    popularity: 100,
+    blurb: 'Bergamot and pepper over a warm amber base.',
+    art: { shape: 'classic', glass: ['#5C7FB8', '#1E3560'], cap: '#22304A', collar: '#9AA6B8', label: '#DCE4F0' },
     offers: build('sauvage-edp-100', [
-      offer('boots', 24.99, 'inStock', 4),
-      offer('lookfantastic', 26.0, 'inStock', 12),
-      offer('superdrug', 25.5, 'inStock', 3),
-      offer('the-perfume-shop', 27.95, 'inStock', 41),
-      offer('notino-uk', 23.9, 'inStock', 8),
-      offer('john-lewis', 22.5, 'outOfStock', 19),
+      o('boots', 24.99, 'inStock', 4),
+      o('lookfantastic', 26.0, 'inStock', 12),
+      o('superdrug', 25.5, 'inStock', 3),
+      o('the-perfume-shop', 27.95, 'inStock', 41),
+      o('notino-uk', 23.9, 'inStock', 8),
+      o('john-lewis', 22.5, 'outOfStock', 19),
     ]),
   },
   {
@@ -86,20 +87,16 @@ export const DEMO_FRAGRANCES: DemoFragrance[] = [
     concentration: 'Eau de Parfum',
     sizeMl: 100,
     tier: 'designer',
-    note:
-      'Discount presentation. The Fragrance Shop published a was/now pair with a ' +
-      'real end time, so a countdown is allowed. Justmylook has a stale RRP at or ' +
-      'below its selling price, so no badge is drawn at all.',
+    popularity: 96,
+    blurb: 'Citrus opening, dry cedar and sandalwood underneath.',
+    art: { shape: 'classic', glass: ['#3A4356', '#12161F'], cap: '#0C0F15', label: '#E8EAEE' },
     offers: build('bleu-edp-100', [
-      offer('the-fragrance-shop', 88.4, 'inStock', 6, {
-        wasPrice: 110.0,
-        promoEndsAt: new Date(Date.now() + 62 * 3_600_000).toISOString(),
-      }),
-      offer('justmylook', 94.0, 'inStock', 22, { wasPrice: 94.0 }),
-      offer('john-lewis', 108.0, 'inStock', 9),
-      offer('boots', 105.0, 'lowStock', 15),
-      offer('allbeauty', 91.75, 'inStock', 2, { wasPrice: 99.0 }),
-      offer('the-perfume-shop', 99.99, 'unknown', 88),
+      o('the-fragrance-shop', 88.4, 'inStock', 6, { wasPrice: 110.0, promoEndsAt: soon(62) }),
+      o('justmylook', 94.0, 'inStock', 22, { wasPrice: 94.0 }),
+      o('john-lewis', 108.0, 'inStock', 9),
+      o('boots', 105.0, 'lowStock', 15),
+      o('allbeauty', 91.75, 'inStock', 2, { wasPrice: 99.0 }),
+      o('the-perfume-shop', 99.99, 'unknown', 88),
     ]),
   },
   {
@@ -109,38 +106,94 @@ export const DEMO_FRAGRANCES: DemoFragrance[] = [
     concentration: 'Eau de Parfum',
     sizeMl: 100,
     tier: 'niche',
-    note:
-      'Tier filtering. Boots and Superdrug do not stock niche houses, so they are ' +
-      'never queried. Harvey Nichols carries delivery because its £300 free ' +
-      'threshold is unreachable on a single bottle.',
+    popularity: 92,
+    blurb: 'Smoky pineapple and birch over musk.',
+    art: { shape: 'crest', glass: ['#4A4F55', '#181B1F'], cap: '#101215', label: '#C9CDD3' },
     offers: build('aventus-100', [
-      // Present in the raw capture but withheld by the tier filter: neither
-      // retailer stocks niche houses, so these are batch-fetch noise.
-      offer('boots', 310.0, 'inStock', 10),
-      offer('superdrug', 305.0, 'inStock', 10),
-      offer('selfridges', 335.0, 'inStock', 11),
-      offer('harvey-nichols', 330.0, 'inStock', 27),
-      offer('beautybase', 289.0, 'inStock', 5),
-      offer('allbeauty', 295.5, 'lowStock', 13),
-      offer('notino-uk', 284.0, 'inStock', 7),
-      offer('justmylook', 279.0, 'outOfStock', 33),
+      o('boots', 310.0, 'inStock', 10),
+      o('superdrug', 305.0, 'inStock', 10),
+      o('selfridges', 335.0, 'inStock', 11),
+      o('harvey-nichols', 330.0, 'inStock', 27),
+      o('beautybase', 289.0, 'inStock', 5),
+      o('allbeauty', 295.5, 'lowStock', 13),
+      o('notino-uk', 284.0, 'inStock', 7),
+      o('justmylook', 279.0, 'outOfStock', 33),
     ]),
   },
   {
-    id: 'khamrah-100',
-    brand: 'Lattafa',
-    name: 'Khamrah',
+    id: 'baccarat-540-70',
+    brand: 'Maison Francis Kurkdjian',
+    name: 'Baccarat Rouge 540',
     concentration: 'Eau de Parfum',
+    sizeMl: 70,
+    tier: 'niche',
+    popularity: 88,
+    blurb: 'Saffron and jasmine over ambergris and cedar.',
+    art: { shape: 'flat', glass: ['#E8846B', '#A32E2A'], cap: '#2B1512', collar: '#C8A24E', label: '#F6E4D6' },
+    offers: build('baccarat-540-70', [
+      o('selfridges', 245.0, 'inStock', 9),
+      o('harvey-nichols', 240.0, 'lowStock', 18),
+      o('notino-uk', 219.0, 'inStock', 6),
+      o('beautybase', 228.0, 'inStock', 24),
+      o('allbeauty', 232.5, 'inStock', 31, { wasPrice: 255.0 }),
+      o('lookfantastic', 249.0, 'outOfStock', 47),
+    ]),
+  },
+  {
+    id: 'eros-edt-100',
+    brand: 'Versace',
+    name: 'Eros',
+    concentration: 'Eau de Toilette',
     sizeMl: 100,
-    tier: 'mideast',
-    note:
-      'A thin market. Only three retailers carry the Middle Eastern tier, and one ' +
-      'of them could not be parsed — unknown stock ranks below confirmed ' +
-      'availability but above an explicit out-of-stock signal.',
-    offers: build('khamrah-100', [
-      offer('notino-uk', 21.9, 'inStock', 5),
-      offer('the-fragrance-shop', 24.99, 'inStock', 17, { wasPrice: 32.0 }),
-      offer('allbeauty', 23.45, 'unknown', 64),
+    tier: 'designer',
+    popularity: 84,
+    blurb: 'Mint and green apple with vanilla and tonka.',
+    art: { shape: 'classic', glass: ['#4FA8D8', '#15497C'], cap: '#C8A24E', collar: '#C8A24E', label: '#CFE6F4' },
+    offers: build('eros-edt-100', [
+      o('the-fragrance-shop', 42.5, 'inStock', 5, { wasPrice: 78.0, promoEndsAt: soon(19) }),
+      o('boots', 55.0, 'inStock', 13),
+      o('superdrug', 49.99, 'inStock', 7),
+      o('notino-uk', 44.9, 'inStock', 11),
+      o('the-perfume-shop', 58.0, 'lowStock', 29),
+      o('justmylook', 47.25, 'inStock', 16),
+    ]),
+  },
+  {
+    id: 'one-million-100',
+    brand: 'Paco Rabanne',
+    name: '1 Million',
+    concentration: 'Eau de Toilette',
+    sizeMl: 100,
+    tier: 'designer',
+    popularity: 80,
+    blurb: 'Blood mandarin and cinnamon over leather.',
+    art: { shape: 'ingot', glass: ['#E6C463', '#A87B21'], cap: '#6E4E12', label: '#FBF0CE' },
+    offers: build('one-million-100', [
+      o('boots', 62.0, 'inStock', 8),
+      o('superdrug', 59.99, 'inStock', 4),
+      o('the-perfume-shop', 64.0, 'inStock', 22),
+      o('lookfantastic', 57.5, 'inStock', 14, { wasPrice: 72.0 }),
+      o('the-fragrance-shop', 55.0, 'lowStock', 35),
+      o('john-lewis', 66.0, 'inStock', 26),
+    ]),
+  },
+  {
+    id: 'acqua-profumo-75',
+    brand: 'Giorgio Armani',
+    name: 'Acqua di Giò Profumo',
+    concentration: 'Parfum',
+    sizeMl: 75,
+    tier: 'designer',
+    popularity: 74,
+    blurb: 'Marine bergamot over smoky incense and patchouli.',
+    art: { shape: 'pebble', glass: ['#5E7C86', '#16262E'], cap: '#0E1A20', label: '#BFD2D8' },
+    offers: build('acqua-profumo-75', [
+      o('john-lewis', 78.0, 'inStock', 12),
+      o('boots', 82.0, 'inStock', 20),
+      o('allbeauty', 71.5, 'inStock', 6),
+      o('notino-uk', 69.9, 'inStock', 9),
+      o('lookfantastic', 74.0, 'unknown', 55),
+      o('beautybase', 76.5, 'inStock', 40),
     ]),
   },
   {
@@ -150,16 +203,32 @@ export const DEMO_FRAGRANCES: DemoFragrance[] = [
     concentration: 'Eau de Parfum',
     sizeMl: 90,
     tier: 'designer',
-    note:
-      'Free-delivery shortfall. Several listings sit just under their retailer ' +
-      "threshold, so each row shows how much more the basket needs to clear it.",
+    popularity: 70,
+    blurb: 'Lavender and orange blossom over vanilla.',
+    art: { shape: 'flat', glass: ['#F0DFAE', '#C39A3F'], cap: '#15130F', collar: '#C8A24E', label: '#FAF2DC' },
     offers: build('libre-edp-90', [
-      offer('boots', 78.0, 'inStock', 3, { wasPrice: 92.0 }),
-      offer('john-lewis', 46.5, 'inStock', 21),
-      offer('superdrug', 23.75, 'lowStock', 9),
-      offer('lookfantastic', 24.4, 'inStock', 14),
-      offer('the-perfume-shop', 82.0, 'inStock', 30),
-      offer('beautybase', 43.0, 'inStock', 52),
+      o('boots', 78.0, 'inStock', 3, { wasPrice: 92.0 }),
+      o('john-lewis', 46.5, 'inStock', 21),
+      o('superdrug', 23.75, 'lowStock', 9),
+      o('lookfantastic', 24.4, 'inStock', 14),
+      o('the-perfume-shop', 82.0, 'inStock', 30),
+      o('beautybase', 43.0, 'inStock', 52),
+    ]),
+  },
+  {
+    id: 'khamrah-100',
+    brand: 'Lattafa',
+    name: 'Khamrah',
+    concentration: 'Eau de Parfum',
+    sizeMl: 100,
+    tier: 'mideast',
+    popularity: 66,
+    blurb: 'Cinnamon and dates over tonka and praline.',
+    art: { shape: 'ornate', glass: ['#8A5C36', '#3A2013'], cap: '#C8A24E', collar: '#C8A24E', label: '#EBD9BF' },
+    offers: build('khamrah-100', [
+      o('notino-uk', 21.9, 'inStock', 5),
+      o('the-fragrance-shop', 24.99, 'inStock', 17, { wasPrice: 32.0 }),
+      o('allbeauty', 23.45, 'unknown', 64),
     ]),
   },
   {
@@ -169,13 +238,18 @@ export const DEMO_FRAGRANCES: DemoFragrance[] = [
     concentration: 'Cologne',
     sizeMl: 100,
     tier: 'niche',
-    note:
-      'Nothing buyable. Every listing is explicitly out of stock, so there is no ' +
-      'best offer — the app says so rather than headlining a price nobody can pay.',
+    popularity: 62,
+    blurb: 'Sea salt and sage over driftwood.',
+    art: { shape: 'column', glass: ['#F2EDE3', '#D5CBB8'], cap: '#1C1A16', label: '#FFFFFF' },
     offers: build('wood-sage-100', [
-      offer('selfridges', 112.0, 'outOfStock', 25),
-      offer('lookfantastic', 105.0, 'outOfStock', 40),
-      offer('beautybase', 99.0, 'outOfStock', 16),
+      o('selfridges', 112.0, 'outOfStock', 25),
+      o('lookfantastic', 105.0, 'outOfStock', 40),
+      o('beautybase', 99.0, 'outOfStock', 16),
     ]),
   },
 ];
+
+/** Popular listing order — highest hand-seeded score first. */
+export const BY_POPULARITY: DemoFragrance[] = [...DEMO_FRAGRANCES].sort(
+  (a, b) => b.popularity - a.popularity,
+);
