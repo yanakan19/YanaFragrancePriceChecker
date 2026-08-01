@@ -13,7 +13,7 @@ import type { PresentedOffer, StockState } from '../src/types/offer.js';
 import { DEMO_FRAGRANCES, BY_POPULARITY, type DemoFragrance } from './data.js';
 import { bottleSvg } from './art.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
-import { isNewAt, offersFor } from './catalogue.generated.js';
+import { isNewAt, offersFor, SHOP_COUNT, CRAWLED_AT } from './catalogue.generated.js';
 
 type View = 'home' | 'browse' | 'detail' | 'legal' | 'settings';
 type DisplayMode = 'dark' | 'light' | 'system';
@@ -135,8 +135,8 @@ function homeView(): string {
     <section class="intro">
       <p class="kicker">UK fragrance prices</p>
       <h2>See what a bottle really costs.</h2>
-      <p class="lede">ScentDay checks twelve UK shops and adds delivery to every
-      price, so the cheapest listing is genuinely the cheapest way to buy.</p>
+      <p class="lede">Real prices, harvested from ${SHOP_COUNT} UK shops and shown with
+      delivery added, so the cheapest listing is genuinely the cheapest way to buy.</p>
       <ul class="intro-points">
         <li><span>Delivery counted</span> free postage starts at £25 in Boots and £300 in Harvey Nichols</li>
         <li><span>Real reductions</span> the shop's own previous price, never one we made up</li>
@@ -254,7 +254,6 @@ function detailView(): string {
       <p class="hero-brand">${esc(frag.brand)}</p>
       <h2 class="hero-name">${esc(frag.name)}</h2>
       <p class="hero-meta">${esc(frag.concentration)}, ${frag.sizeMl}ml</p>
-      <p class="hero-blurb">${esc(frag.blurb)}</p>
       ${
         best
           ? `<p class="hero-price">${formatGbp(best.deliveredPriceGbp)}<span class="hero-at">delivered, from ${esc(best.retailer.name)}</span></p>`
@@ -393,6 +392,13 @@ function go(view: View): void {
 
 function init(): void {
   loadMode();
+
+  // State the provenance plainly. These are real prices from real shops, and
+  // the reader is told when they were taken rather than being asked to assume.
+  const when = new Date(CRAWLED_AT);
+  ($('#provenance') as HTMLElement).textContent = Number.isFinite(when.getTime())
+    ? `Real prices from ${SHOP_COUNT} UK shops, last checked ${when.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}. Always confirm on the shop's site.`
+    : `Real prices from ${SHOP_COUNT} UK shops. Always confirm on the shop's site.`;
 
   $('#search').addEventListener('input', (e) => {
     state.query = (e.target as HTMLInputElement).value;
