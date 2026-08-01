@@ -14,7 +14,20 @@ npm test                      # 71 tests
 npm run typecheck
 npm run affiliate:status      # what's still unmonetised, and the next step
 npm run shipping:staleness    # which delivery rules need confirming
+npm run demo                  # rebuild demo/index.html, then open it
 ```
+
+## Demo
+
+`demo/index.html` is a single self-contained page — open it straight from disk.
+It compiles `src/` and inlines the bundle, so the demo runs the real modules
+rather than a reimplementation and cannot drift from what ships.
+
+**Its prices are invented**, because there is no fetching layer yet. The page
+says so in a banner. Each of the six sample fragrances exercises a specific
+rule — the penny-under-threshold case, round-down discount percentages, a
+countdown that only appears because the retailer published an end time, tier
+filtering withholding retailers, and a fragrance where nothing is buyable.
 
 ## The idea
 

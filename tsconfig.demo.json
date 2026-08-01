@@ -1,0 +1,12 @@
+{
+  // The demo harness is the only part of the project that touches the DOM.
+  // It gets its own config so the core stays DOM-free and portable to the
+  // React Native client planned for Phase 6.
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "outDir": "dist-demo",
+    "types": []
+  },
+  "include": ["src/**/*.ts", "demo/**/*.ts"]
+}
