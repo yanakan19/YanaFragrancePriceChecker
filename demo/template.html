@@ -1,376 +1,238 @@
-<title>ScentDay — comparison core demo</title>
+<title>ScentDay</title>
 <style>
-  /* ── tokens ──────────────────────────────────────────────────────────────
-     Neutrals carry a slight blue bias toward the accent so they read as
-     chosen rather than inherited. Semantic colours (stock, delivery, data
-     quality) are deliberately separate from the accent hue — on a page about
-     price honesty, "this is good news" must never be confused with "this is
-     the brand colour". */
+  /* Minimal mobile web app. One narrow column, centred on wider screens so the
+     phone layout is the only layout — there is no desktop variant to maintain,
+     and a React Native client can mirror this structure directly. */
   :root {
-    --paper:      #FBFBFD;
-    --surface:    #FFFFFF;
-    --surface-2:  #F2F4F8;
-    --ink:        #12151C;
-    --ink-2:      #39414F;
-    --muted:      #646E82;
-    --line:       #DFE3EB;
-    --line-firm:  #C3CAD6;
-    --accent:     #1E4FA3;
-    --accent-2:   #EAF0FB;
-    --ok:         #1B6E45;
-    --ok-2:       #E6F3EB;
-    --warn:       #8A5A00;
-    --warn-2:     #FAF0DC;
-    --bad:        #A9362C;
-    --bad-2:      #FAEBE9;
+    --bg:      #FFFFFF;
+    --raise:   #F6F6F8;
+    --ink:     #14161A;
+    --ink-2:   #5A616E;
+    --faint:   #8B93A1;
+    --line:    #E7E8EC;
+    --accent:  #1F4FA8;
+    --ok:      #1B7048;
+    --warn:    #8A5A00;
+    --bad:     #A93A2E;
 
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --serif: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
-    --sans:  system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --mono:  ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
-
-    --r: 6px;
+    --col: 460px;
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper:     #0E1117;
-      --surface:   #151A22;
-      --surface-2: #1A202A;
-      --ink:       #E9ECF2;
-      --ink-2:     #B7BFCD;
-      --muted:     #838FA3;
-      --line:      #252D39;
-      --line-firm: #36404F;
-      --accent:    #83A9F2;
-      --accent-2:  #16233A;
-      --ok:        #58C08A;
-      --ok-2:      #13261C;
-      --warn:      #DCA84A;
-      --warn-2:    #2A2113;
-      --bad:       #EC8175;
-      --bad-2:     #2C1714;
+      --bg: #0F1115; --raise: #171A20; --ink: #ECEEF2; --ink-2: #A9B0BC;
+      --faint: #7C8493; --line: #242830; --accent: #86ABF3;
+      --ok: #56BE86; --warn: #D9A748; --bad: #EA7C6F;
     }
   }
-
-  /* The viewer's explicit toggle must win over the OS preference both ways. */
   :root[data-theme="light"] {
-    --paper: #FBFBFD; --surface: #FFFFFF; --surface-2: #F2F4F8;
-    --ink: #12151C; --ink-2: #39414F; --muted: #646E82;
-    --line: #DFE3EB; --line-firm: #C3CAD6;
-    --accent: #1E4FA3; --accent-2: #EAF0FB;
-    --ok: #1B6E45; --ok-2: #E6F3EB;
-    --warn: #8A5A00; --warn-2: #FAF0DC;
-    --bad: #A9362C; --bad-2: #FAEBE9;
+    --bg: #FFFFFF; --raise: #F6F6F8; --ink: #14161A; --ink-2: #5A616E;
+    --faint: #8B93A1; --line: #E7E8EC; --accent: #1F4FA8;
+    --ok: #1B7048; --warn: #8A5A00; --bad: #A93A2E;
   }
   :root[data-theme="dark"] {
-    --paper: #0E1117; --surface: #151A22; --surface-2: #1A202A;
-    --ink: #E9ECF2; --ink-2: #B7BFCD; --muted: #838FA3;
-    --line: #252D39; --line-firm: #36404F;
-    --accent: #83A9F2; --accent-2: #16233A;
-    --ok: #58C08A; --ok-2: #13261C;
-    --warn: #DCA84A; --warn-2: #2A2113;
-    --bad: #EC8175; --bad-2: #2C1714;
+    --bg: #0F1115; --raise: #171A20; --ink: #ECEEF2; --ink-2: #A9B0BC;
+    --faint: #7C8493; --line: #242830; --accent: #86ABF3;
+    --ok: #56BE86; --warn: #D9A748; --bad: #EA7C6F;
   }
 
   * { box-sizing: border-box; }
 
   body {
     margin: 0;
-    background: var(--paper);
+    background: var(--bg);
     color: var(--ink);
     font-family: var(--sans);
-    font-size: 15px;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 1.45;
     -webkit-font-smoothing: antialiased;
   }
 
-  .shell { max-width: 1240px; margin: 0 auto; padding: 0 20px 72px; }
+  .app { max-width: var(--col); margin: 0 auto; min-height: 100vh; }
 
-  /* ── demo notice ───────────────────────────────────────────────────────── */
-  .demo-bar {
-    background: var(--warn-2);
-    border-bottom: 1px solid color-mix(in srgb, var(--warn) 32%, transparent);
-    color: var(--warn);
-    padding: 10px 20px;
-    font-size: 13px;
-    text-align: center;
+  /* ── top bar ───────────────────────────────────────────────────────────── */
+  .bar {
+    position: sticky; top: 0; z-index: 20;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 12px 16px 10px;
   }
-  .demo-bar strong { letter-spacing: .04em; text-transform: uppercase; font-size: 12px; }
-  .demo-bar span { color: var(--ink-2); }
+  .bar-row { display: flex; align-items: center; gap: 12px; }
+  .brandmark {
+    font-family: var(--serif); font-size: 20px; font-weight: 600;
+    letter-spacing: -.01em; margin: 0; flex: 1;
+  }
+  .brandmark em { font-style: normal; color: var(--accent); }
 
-  /* ── masthead ──────────────────────────────────────────────────────────── */
-  .masthead {
-    display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px;
-    padding: 28px 0 20px;
-    border-bottom: 2px solid var(--ink);
+  .navbtn {
+    background: none; border: 0; padding: 6px 2px; cursor: pointer;
+    font: inherit; font-size: 14px; color: var(--ink-2);
+    border-bottom: 2px solid transparent;
   }
-  .wordmark {
-    font-family: var(--serif);
-    font-size: 27px; font-weight: 600; letter-spacing: -.015em; margin: 0;
-  }
-  .wordmark em { font-style: normal; color: var(--accent); }
-  .tagline { color: var(--muted); font-size: 13.5px; }
-  .masthead .spacer { flex: 1; }
-  .build-note {
-    font-family: var(--mono); font-size: 11.5px; color: var(--muted);
-    background: var(--surface-2); border: 1px solid var(--line);
-    padding: 4px 9px; border-radius: var(--r);
-  }
+  .navbtn.on { color: var(--ink); border-bottom-color: var(--accent); }
+  .navbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
 
-  /* ── layout ────────────────────────────────────────────────────────────── */
-  .grid {
-    display: grid; gap: 34px;
-    grid-template-columns: 296px minmax(0, 1fr);
-    padding-top: 26px;
-    align-items: start;
-  }
-  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; gap: 26px; } }
-  /* Grid items default to min-width:auto, so the 720px-wide table would stretch
-     its column past the viewport and scroll the whole page sideways — the
-     .table-wrap scroller only contains it once the column can shrink. */
-  .grid > * { min-width: 0; }
-
-  .rail { display: flex; flex-direction: column; gap: 22px; }
-  @media (min-width: 901px) { .rail { position: sticky; top: 16px; } }
-
-  .eyebrow {
-    font-size: 11px; font-weight: 650; letter-spacing: .09em;
-    text-transform: uppercase; color: var(--muted); margin: 0 0 9px;
-  }
-
-  /* ── search ────────────────────────────────────────────────────────────── */
   input[type="search"] {
-    width: 100%; padding: 9px 11px; font: inherit; font-size: 14px;
-    color: var(--ink); background: var(--surface);
-    border: 1px solid var(--line-firm); border-radius: var(--r);
+    width: 100%; margin-top: 10px; padding: 9px 12px;
+    font: inherit; font-size: 15px; color: var(--ink);
+    background: var(--raise); border: 1px solid var(--line); border-radius: 9px;
+    -webkit-appearance: none;
   }
-  input[type="search"]:focus-visible {
-    outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent);
+  input[type="search"]::placeholder { color: var(--faint); }
+  input[type="search"]:focus-visible { outline: 2px solid var(--accent); outline-offset: -1px; }
+
+  /* position:relative contains the visually-hidden .sr span inside. Without a
+     positioned ancestor it resolves against the viewport and can escape any
+     scroll clipping, dragging the page sideways. */
+  .chip {
+    position: relative;
+    margin-top: 9px; cursor: pointer; font: inherit; font-size: 13px;
+    background: var(--raise); color: var(--ink-2);
+    border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px;
+  }
+  .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .notice {
+    font-size: 11.5px; color: var(--warn); text-align: center;
+    padding: 6px 16px; border-bottom: 1px solid var(--line);
   }
 
-  ul.frag-list { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 3px; }
-  .frag-btn {
-    width: 100%; text-align: left; cursor: pointer;
-    background: none; border: 1px solid transparent; border-radius: var(--r);
-    padding: 7px 9px; font: inherit; color: var(--ink);
-    display: grid; grid-template-columns: 1fr auto; gap: 0 8px;
+  main { padding: 4px 16px 56px; }
+
+  /* ── home listing ──────────────────────────────────────────────────────── */
+  ul.listing, ul.offers { list-style: none; margin: 0; padding: 0; }
+
+  .card {
+    width: 100%; display: flex; align-items: center; gap: 13px;
+    background: none; border: 0; border-bottom: 1px solid var(--line);
+    padding: 13px 2px; cursor: pointer; font: inherit; color: var(--ink);
+    text-align: left;
   }
-  .frag-btn:hover { background: var(--surface-2); }
-  .frag-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
-  .frag-btn.active { background: var(--accent-2); border-color: color-mix(in srgb, var(--accent) 34%, transparent); }
-  .fb-brand { font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); grid-column: 1 / -1; }
-  .fb-name { font-family: var(--serif); font-size: 15.5px; }
-  .fb-meta { font-family: var(--mono); font-size: 11px; color: var(--muted); align-self: center; }
-  .no-match { color: var(--muted); font-size: 13.5px; padding: 8px 2px; }
-
-  /* ── controls ──────────────────────────────────────────────────────────── */
-  .controls { display: flex; flex-direction: column; gap: 7px; }
-  .ctl { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink-2); cursor: pointer; }
-  .ctl input { accent-color: var(--accent); margin: 0; }
-  .ctl input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .ctl-group { border: 1px solid var(--line); border-radius: var(--r); padding: 11px 12px; background: var(--surface); }
-  .ctl-group + .ctl-group { margin-top: 9px; }
-
-  /* ── ops panels ────────────────────────────────────────────────────────── */
-  .panel { border: 1px solid var(--line); border-radius: var(--r); padding: 13px 14px; background: var(--surface); }
-  .panel + .panel { margin-top: 12px; }
-  .panel h3 {
-    margin: 0 0 7px; font-size: 12.5px; font-weight: 650;
-    letter-spacing: .05em; text-transform: uppercase;
-    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  .card:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .card-art { flex: none; display: flex; }
+  .card-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .card-brand { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--faint); }
+  .card-name {
+    font-family: var(--serif); font-size: 17px; line-height: 1.25;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
-  .count { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--warn); }
-  .bad-count { color: var(--bad); }
-  .panel-note { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--muted); }
-  .panel code { font-family: var(--mono); font-size: 11.5px; background: var(--surface-2); padding: 1px 4px; border-radius: 3px; color: var(--ink-2); }
-  ul.mini { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; }
-  ul.mini li { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-  /* The trailing "…and N more" line is prose, not a name/pill pair — the
-     space-between rule above would tear it in half. */
-  ul.mini li.dim { display: block; }
-  .mini-name { color: var(--ink-2); }
+  .card-meta { font-size: 12.5px; color: var(--ink-2); }
+  .card-price { flex: none; text-align: right; display: flex; flex-direction: column; }
+  .from { font-size: 10.5px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+  .amt { font-size: 17px; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .amt.none { color: var(--faint); font-weight: 400; }
 
-  /* ── fragrance header ──────────────────────────────────────────────────── */
-  .frag-head { padding-bottom: 14px; border-bottom: 1px solid var(--line); }
-  .frag-brand { font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-  .frag-name { font-family: var(--serif); font-size: 34px; font-weight: 600; letter-spacing: -.02em; margin: 2px 0 4px; text-wrap: balance; }
-  .frag-meta { font-size: 13.5px; color: var(--muted); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .tier { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; border: 1px solid var(--line-firm); border-radius: 3px; padding: 1px 6px; color: var(--ink-2); }
+  .empty-note { color: var(--ink-2); font-size: 14.5px; padding: 26px 2px; text-align: center; }
 
-  /* ── headline ──────────────────────────────────────────────────────────── */
-  .headline {
-    margin-top: 18px; padding: 16px 18px;
-    background: var(--accent-2);
-    border: 1px solid color-mix(in srgb, var(--accent) 26%, transparent);
-    border-left: 3px solid var(--accent);
-    border-radius: var(--r);
+  /* ── detail ────────────────────────────────────────────────────────────── */
+  .back {
+    background: none; border: 0; padding: 12px 2px 6px; cursor: pointer;
+    font: inherit; font-size: 14px; color: var(--accent);
   }
-  .headline.empty { background: var(--surface-2); border-color: var(--line-firm); border-left-color: var(--muted); }
-  .headline-label { font-size: 11px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
-  .headline-price { font-family: var(--mono); font-size: 33px; font-weight: 600; letter-spacing: -.02em; color: var(--accent); line-height: 1.15; }
-  .headline.empty .headline-label { color: var(--ink-2); }
-  .headline-meta { font-size: 13.5px; color: var(--ink-2); max-width: 62ch; }
+  .back:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
 
-  .scenario {
-    margin: 16px 0 20px; font-size: 13.5px; line-height: 1.55;
-    color: var(--ink-2); max-width: 76ch;
-    border-left: 2px solid var(--line-firm); padding-left: 13px;
+  .hero { text-align: center; padding: 6px 0 22px; border-bottom: 1px solid var(--line); }
+  .hero-brand { font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); margin: 10px 0 0; }
+  .hero-name { font-family: var(--serif); font-size: 27px; font-weight: 600; margin: 1px 0 2px; text-wrap: balance; }
+  .hero-meta { font-size: 13.5px; color: var(--ink-2); margin: 0; }
+  .hero-price {
+    font-size: 30px; font-weight: 650; font-variant-numeric: tabular-nums;
+    margin: 16px 0 0; line-height: 1.15;
   }
-  .scenario-label { display: block; font-size: 11px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+  .hero-price.none { font-size: 20px; color: var(--ink-2); }
+  .hero-at { display: block; font-size: 12.5px; font-weight: 400; color: var(--ink-2); margin-top: 2px; }
 
-  /* ── table ─────────────────────────────────────────────────────────────── */
-  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
-  table { border-collapse: collapse; width: 100%; min-width: 720px; }
-  th {
-    text-align: left; font-size: 10.5px; font-weight: 650; letter-spacing: .085em;
-    text-transform: uppercase; color: var(--muted);
-    padding: 9px 13px; background: var(--surface-2);
-    border-bottom: 1px solid var(--line-firm); white-space: nowrap;
+  .results-head {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+    padding: 16px 2px 8px; font-size: 12px; color: var(--ink-2);
   }
-  td { padding: 11px 13px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  tbody tr:last-child td { border-bottom: none; }
-  .right { text-align: right; }
-  .sortmark { color: var(--accent); }
+  .results-head .dim { color: var(--faint); }
 
-  tr.best td { background: color-mix(in srgb, var(--accent-2) 62%, transparent); }
-  tr.unavailable td { opacity: .62; }
-
-  .cell-main { font-size: 14px; }
-  .cell-sub { font-size: 11.5px; line-height: 1.4; margin-top: 2px; }
-  .dim { color: var(--muted); }
-  .warnText { color: var(--warn); font-weight: 600; }
-  .retailer { font-weight: 600; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
-
-  /* All money is monospaced and tabular — figures that line up are the whole
-     point of a comparison table, and the mono face is the page's identity. */
-  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 14px; }
-  .num.was { text-decoration: line-through; color: var(--muted); font-size: 12px; margin-left: 5px; }
-  .num.now { color: var(--ok); font-weight: 600; }
-  .num.delivered { font-size: 15.5px; font-weight: 600; }
-
-  .tag { display: inline-block; font-size: 10.5px; font-weight: 650; letter-spacing: .03em; padding: 1px 6px; border-radius: 3px; vertical-align: middle; }
-  .tag.ok { background: var(--ok-2); color: var(--ok); }
-  .tag.sale { background: var(--ok-2); color: var(--ok); margin-left: 5px; }
-  .tag.best-tag { background: var(--accent); color: #fff; text-transform: uppercase; font-size: 9.5px; letter-spacing: .07em; }
-  :root[data-theme="dark"] .tag.best-tag { color: #0E1117; }
-  @media (prefers-color-scheme: dark) { .tag.best-tag { color: #0E1117; } }
-  :root[data-theme="light"] .tag.best-tag { color: #fff; }
-
-  .pill { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
-  .pill.ok { background: var(--ok-2); color: var(--ok); }
-  .pill.warn { background: var(--warn-2); color: var(--warn); }
-  .pill.bad { background: var(--bad-2); color: var(--bad); }
-  .pill.muted { background: var(--surface-2); color: var(--muted); }
-
-  /* position:relative makes this the containing block for the .sr span inside.
-     Without it that absolutely-positioned span resolves against the viewport,
-     escapes the table's scroll clipping, and drags the whole page sideways. */
-  .buy { position: relative; font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 38%, transparent); }
-  .buy:hover { border-bottom-color: var(--accent); }
-  .buy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
-
-  .group-break {
-    display: flex; align-items: baseline; gap: 10px;
-    margin: 26px 0 10px; padding-top: 14px;
-    border-top: 1px dashed var(--line-firm);
-    font-size: 11.5px; font-weight: 650; letter-spacing: .085em; text-transform: uppercase; color: var(--bad);
+  .offer { border-bottom: 1px solid var(--line); }
+  /* The out-of-stock heading brings its own rule; a trailing row border would
+     stack a second line against it. */
+  .offers .offer:last-child { border-bottom: 0; }
+  .offer-link {
+    display: flex; flex-direction: column; gap: 3px;
+    padding: 13px 2px; text-decoration: none; color: inherit;
   }
-  .group-break .dim { font-weight: 400; letter-spacing: 0; text-transform: none; font-size: 12px; }
+  .offer-link:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .offer-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .shop { font-size: 15.5px; font-weight: 600; }
+  .price { display: flex; align-items: baseline; gap: 7px; white-space: nowrap; }
+  .was { font-size: 12.5px; color: var(--faint); text-decoration: line-through; font-variant-numeric: tabular-nums; }
+  .now { font-size: 17px; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .now.sale { color: var(--ok); }
 
-  .footnote { margin: 14px 0 0; font-size: 12.5px; color: var(--muted); }
+  .offer-bot { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .facts { font-size: 12.5px; color: var(--ink-2); }
+  .sep { margin: 0 5px; color: var(--faint); }
+  .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; background: var(--faint); }
+  .dot.ok { background: var(--ok); }
+  .dot.warn { background: var(--warn); }
+  .dot.bad { background: var(--bad); }
+  .dot.muted { background: var(--faint); }
+  .off { font-size: 11.5px; font-weight: 650; color: var(--ok); white-space: nowrap; }
+  .ends { font-size: 11.5px; color: var(--warn); }
 
-  /* ── explainer ─────────────────────────────────────────────────────────── */
-  .explainer { margin-top: 44px; padding-top: 22px; border-top: 2px solid var(--ink); }
-  .explainer h2 { font-family: var(--serif); font-size: 21px; font-weight: 600; margin: 0 0 4px; }
-  .explainer .lede { color: var(--muted); font-size: 13.5px; margin: 0 0 20px; max-width: 72ch; }
-  /* Six rules, so column counts are pinned to divisors of six — auto-fit would
-     leave a ragged empty cell showing the grid's own background as a grey gap. */
-  .rules { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
-  @media (min-width: 560px) { .rules { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 980px) { .rules { grid-template-columns: repeat(3, 1fr); } }
-  .rule { background: var(--surface); padding: 15px 16px; }
-  .rule h4 { margin: 0 0 5px; font-size: 13.5px; font-weight: 650; }
-  .rule p { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--muted); }
-  .rule code { font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); }
+  .offer.best .shop::after {
+    content: "Cheapest"; margin-left: 7px; vertical-align: 1px;
+    font-size: 9.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--accent); border: 1px solid var(--accent); border-radius: 3px; padding: 0 4px;
+  }
+  .offer.gone { opacity: .55; }
+
+  .gone-head {
+    margin: 24px 0 0; padding-top: 14px; border-top: 1px solid var(--line);
+    font-size: 11.5px; font-weight: 650; letter-spacing: .07em;
+    text-transform: uppercase; color: var(--bad);
+  }
+
+  /* ── brand sheet ───────────────────────────────────────────────────────── */
+  .sheet-back { position: fixed; inset: 0; background: rgba(0,0,0,.32); z-index: 30; }
+  .sheet {
+    position: fixed; z-index: 31; left: 50%; transform: translateX(-50%);
+    bottom: 0; width: 100%; max-width: var(--col);
+    background: var(--bg); border-top: 1px solid var(--line);
+    border-radius: 14px 14px 0 0; padding: 8px 8px calc(16px + env(safe-area-inset-bottom));
+    max-height: 70vh; overflow-y: auto;
+  }
+  .sheet-title {
+    font-size: 11.5px; font-weight: 650; letter-spacing: .07em; text-transform: uppercase;
+    color: var(--faint); margin: 8px 10px 6px;
+  }
+  .brand-opt {
+    display: block; width: 100%; text-align: left; cursor: pointer;
+    background: none; border: 0; border-radius: 8px; padding: 11px 10px;
+    font: inherit; font-size: 15.5px; color: var(--ink);
+  }
+  .brand-opt.on { color: var(--accent); font-weight: 600; }
+  .brand-opt.on::after { content: " ✓"; }
+  .brand-opt:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
-  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
 
-<div class="demo-bar">
-  <strong>Demo data</strong> &nbsp;<span>Prices below are invented to exercise the logic. There is no fetching layer yet — nothing here is a live price.</span>
-</div>
-
-<div class="shell">
-  <div class="masthead">
-    <h1 class="wordmark">Scent<em>Day</em></h1>
-    <span class="tagline">UK fragrance price comparison — comparison core</span>
-    <span class="spacer"></span>
-    <span class="build-note">running src/ · 71 tests green</span>
-  </div>
-
-  <div class="grid">
-    <aside class="rail">
-      <div>
-        <p class="eyebrow">Search</p>
-        <input type="search" id="search" placeholder="Try “sauvage” or “creed”" aria-label="Search fragrances" />
-        <ul class="frag-list" id="frag-list"></ul>
-      </div>
-
-      <div id="controls">
-        <p class="eyebrow">Sort &amp; filter</p>
-        <div class="ctl-group">
-          <label class="ctl"><input type="radio" name="sort" id="sort-delivered" value="delivered" /> Delivered price <span class="dim">(default)</span></label>
-          <label class="ctl"><input type="radio" name="sort" id="sort-item" value="item" /> Item price only</label>
-        </div>
-        <div class="ctl-group">
-          <label class="ctl"><input type="checkbox" id="tier-filter" /> Only query retailers stocking this tier</label>
-          <label class="ctl"><input type="checkbox" id="hide-oos" /> Hide out-of-stock entirely</label>
-        </div>
-      </div>
-
-      <div id="ops"></div>
-    </aside>
-
-    <main id="results"></main>
-  </div>
-
-  <section class="explainer">
-    <h2>What the code guarantees</h2>
-    <p class="lede">
-      Every figure on this page comes from the committed modules, bundled unchanged — the demo
-      has no pricing logic of its own, so it cannot drift from what ships.
-    </p>
-    <div class="rules">
-      <div class="rule">
-        <h4>Delivered price is the default sort</h4>
-        <p>Delivery routinely exceeds the price gap, and thresholds run from £25 to £300. Switch to item price and watch Dior Sauvage reorder — Boots is cheapest per bottle and dearest delivered.</p>
-      </div>
-      <div class="rule">
-        <h4>Discounts are the retailer's, never ours</h4>
-        <p>A was/now pair is drawn only when the retailer published a reference price above what it charges. Percentages round <em>down</em> — 19.6% shows as 19%.</p>
-      </div>
-      <div class="rule">
-        <h4>No invented countdowns</h4>
-        <p>A timer appears only against a retailer-published end time. Where none exists the row says so. A fabricated deadline is pressure selling, and an ASA problem.</p>
-      </div>
-      <div class="rule">
-        <h4>Membership rates are never the headline</h4>
-        <p>Beautycard, Selfridges+, MYTFS and Premier all beat the modelled rate. None are priced in — quoting a members-only price to a non-member shows a number they cannot pay.</p>
-      </div>
-      <div class="rule">
-        <h4>Unavailable is never cheapest</h4>
-        <p>Explicit out-of-stock rows sink to the bottom and can never be the headline. <code>unknown</code> ranks between: a page we failed to parse is not proof the product is gone.</p>
-      </div>
-      <div class="rule">
-        <h4>Ranking is never for sale</h4>
-        <p>Order depends on stock and price only. No affiliate programme is live yet, so every link here is a plain retailer URL — and commission must never move a row.</p>
-      </div>
+<div class="app">
+  <div class="bar">
+    <div class="bar-row">
+      <h1 class="brandmark">Scent<em>Day</em></h1>
+      <button class="navbtn" id="nav-home">Home</button>
+      <button class="navbtn" id="nav-brand">Filter by brand</button>
     </div>
-  </section>
+    <input type="search" id="search" placeholder="Search fragrances" aria-label="Search fragrances" />
+    <div id="brand-chip"></div>
+  </div>
+
+  <p class="notice">Demo data — invented prices, not live.</p>
+
+  <main id="view"></main>
 </div>
+
+<div id="sheet-host"></div>
 
 <script>/*__BUNDLE__*/</script>

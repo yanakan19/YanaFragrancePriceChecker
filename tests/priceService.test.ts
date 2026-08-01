@@ -56,7 +56,21 @@ describe('buildComparison ordering', () => {
       { now: NOW },
     );
 
-    expect(rows.map((r) => r.stock)).toEqual(['inStock', 'lowStock', 'unknown', 'outOfStock']);
+    expect(rows.map((r) => r.stock)).toEqual(['lowStock', 'inStock', 'unknown', 'outOfStock']);
+  });
+
+  it('lets a cheaper low-stock listing beat a dearer in-stock one', () => {
+    // Low stock is still stock. Ranking it as a separate tier below inStock
+    // buried the cheaper offer and made the table look broken.
+    const rows = buildComparison(
+      [offer('john-lewis', 108, 'inStock'), offer('boots', 105, 'lowStock')],
+      { now: NOW },
+    );
+
+    expect(rows.map((r) => [r.retailer.id, r.deliveredPriceGbp])).toEqual([
+      ['boots', 105],
+      ['john-lewis', 108],
+    ]);
   });
 
   it('sorts by delivered price by default, not item price', () => {

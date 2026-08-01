@@ -3,502 +3,308 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ScentDay — comparison core demo</title>
+<title>ScentDay</title>
 <style>
-  /* ── tokens ──────────────────────────────────────────────────────────────
-     Neutrals carry a slight blue bias toward the accent so they read as
-     chosen rather than inherited. Semantic colours (stock, delivery, data
-     quality) are deliberately separate from the accent hue — on a page about
-     price honesty, "this is good news" must never be confused with "this is
-     the brand colour". */
+  /* Minimal mobile web app. One narrow column, centred on wider screens so the
+     phone layout is the only layout — there is no desktop variant to maintain,
+     and a React Native client can mirror this structure directly. */
   :root {
-    --paper:      #FBFBFD;
-    --surface:    #FFFFFF;
-    --surface-2:  #F2F4F8;
-    --ink:        #12151C;
-    --ink-2:      #39414F;
-    --muted:      #646E82;
-    --line:       #DFE3EB;
-    --line-firm:  #C3CAD6;
-    --accent:     #1E4FA3;
-    --accent-2:   #EAF0FB;
-    --ok:         #1B6E45;
-    --ok-2:       #E6F3EB;
-    --warn:       #8A5A00;
-    --warn-2:     #FAF0DC;
-    --bad:        #A9362C;
-    --bad-2:      #FAEBE9;
+    --bg:      #FFFFFF;
+    --raise:   #F6F6F8;
+    --ink:     #14161A;
+    --ink-2:   #5A616E;
+    --faint:   #8B93A1;
+    --line:    #E7E8EC;
+    --accent:  #1F4FA8;
+    --ok:      #1B7048;
+    --warn:    #8A5A00;
+    --bad:     #A93A2E;
 
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --serif: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
-    --sans:  system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --mono:  ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
-
-    --r: 6px;
+    --col: 460px;
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper:     #0E1117;
-      --surface:   #151A22;
-      --surface-2: #1A202A;
-      --ink:       #E9ECF2;
-      --ink-2:     #B7BFCD;
-      --muted:     #838FA3;
-      --line:      #252D39;
-      --line-firm: #36404F;
-      --accent:    #83A9F2;
-      --accent-2:  #16233A;
-      --ok:        #58C08A;
-      --ok-2:      #13261C;
-      --warn:      #DCA84A;
-      --warn-2:    #2A2113;
-      --bad:       #EC8175;
-      --bad-2:     #2C1714;
+      --bg: #0F1115; --raise: #171A20; --ink: #ECEEF2; --ink-2: #A9B0BC;
+      --faint: #7C8493; --line: #242830; --accent: #86ABF3;
+      --ok: #56BE86; --warn: #D9A748; --bad: #EA7C6F;
     }
   }
-
-  /* The viewer's explicit toggle must win over the OS preference both ways. */
   :root[data-theme="light"] {
-    --paper: #FBFBFD; --surface: #FFFFFF; --surface-2: #F2F4F8;
-    --ink: #12151C; --ink-2: #39414F; --muted: #646E82;
-    --line: #DFE3EB; --line-firm: #C3CAD6;
-    --accent: #1E4FA3; --accent-2: #EAF0FB;
-    --ok: #1B6E45; --ok-2: #E6F3EB;
-    --warn: #8A5A00; --warn-2: #FAF0DC;
-    --bad: #A9362C; --bad-2: #FAEBE9;
+    --bg: #FFFFFF; --raise: #F6F6F8; --ink: #14161A; --ink-2: #5A616E;
+    --faint: #8B93A1; --line: #E7E8EC; --accent: #1F4FA8;
+    --ok: #1B7048; --warn: #8A5A00; --bad: #A93A2E;
   }
   :root[data-theme="dark"] {
-    --paper: #0E1117; --surface: #151A22; --surface-2: #1A202A;
-    --ink: #E9ECF2; --ink-2: #B7BFCD; --muted: #838FA3;
-    --line: #252D39; --line-firm: #36404F;
-    --accent: #83A9F2; --accent-2: #16233A;
-    --ok: #58C08A; --ok-2: #13261C;
-    --warn: #DCA84A; --warn-2: #2A2113;
-    --bad: #EC8175; --bad-2: #2C1714;
+    --bg: #0F1115; --raise: #171A20; --ink: #ECEEF2; --ink-2: #A9B0BC;
+    --faint: #7C8493; --line: #242830; --accent: #86ABF3;
+    --ok: #56BE86; --warn: #D9A748; --bad: #EA7C6F;
   }
 
   * { box-sizing: border-box; }
 
   body {
     margin: 0;
-    background: var(--paper);
+    background: var(--bg);
     color: var(--ink);
     font-family: var(--sans);
-    font-size: 15px;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 1.45;
     -webkit-font-smoothing: antialiased;
   }
 
-  .shell { max-width: 1240px; margin: 0 auto; padding: 0 20px 72px; }
+  .app { max-width: var(--col); margin: 0 auto; min-height: 100vh; }
 
-  /* ── demo notice ───────────────────────────────────────────────────────── */
-  .demo-bar {
-    background: var(--warn-2);
-    border-bottom: 1px solid color-mix(in srgb, var(--warn) 32%, transparent);
-    color: var(--warn);
-    padding: 10px 20px;
-    font-size: 13px;
-    text-align: center;
+  /* ── top bar ───────────────────────────────────────────────────────────── */
+  .bar {
+    position: sticky; top: 0; z-index: 20;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+    padding: 12px 16px 10px;
   }
-  .demo-bar strong { letter-spacing: .04em; text-transform: uppercase; font-size: 12px; }
-  .demo-bar span { color: var(--ink-2); }
+  .bar-row { display: flex; align-items: center; gap: 12px; }
+  .brandmark {
+    font-family: var(--serif); font-size: 20px; font-weight: 600;
+    letter-spacing: -.01em; margin: 0; flex: 1;
+  }
+  .brandmark em { font-style: normal; color: var(--accent); }
 
-  /* ── masthead ──────────────────────────────────────────────────────────── */
-  .masthead {
-    display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px;
-    padding: 28px 0 20px;
-    border-bottom: 2px solid var(--ink);
+  .navbtn {
+    background: none; border: 0; padding: 6px 2px; cursor: pointer;
+    font: inherit; font-size: 14px; color: var(--ink-2);
+    border-bottom: 2px solid transparent;
   }
-  .wordmark {
-    font-family: var(--serif);
-    font-size: 27px; font-weight: 600; letter-spacing: -.015em; margin: 0;
-  }
-  .wordmark em { font-style: normal; color: var(--accent); }
-  .tagline { color: var(--muted); font-size: 13.5px; }
-  .masthead .spacer { flex: 1; }
-  .build-note {
-    font-family: var(--mono); font-size: 11.5px; color: var(--muted);
-    background: var(--surface-2); border: 1px solid var(--line);
-    padding: 4px 9px; border-radius: var(--r);
-  }
+  .navbtn.on { color: var(--ink); border-bottom-color: var(--accent); }
+  .navbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
 
-  /* ── layout ────────────────────────────────────────────────────────────── */
-  .grid {
-    display: grid; gap: 34px;
-    grid-template-columns: 296px minmax(0, 1fr);
-    padding-top: 26px;
-    align-items: start;
-  }
-  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; gap: 26px; } }
-  /* Grid items default to min-width:auto, so the 720px-wide table would stretch
-     its column past the viewport and scroll the whole page sideways — the
-     .table-wrap scroller only contains it once the column can shrink. */
-  .grid > * { min-width: 0; }
-
-  .rail { display: flex; flex-direction: column; gap: 22px; }
-  @media (min-width: 901px) { .rail { position: sticky; top: 16px; } }
-
-  .eyebrow {
-    font-size: 11px; font-weight: 650; letter-spacing: .09em;
-    text-transform: uppercase; color: var(--muted); margin: 0 0 9px;
-  }
-
-  /* ── search ────────────────────────────────────────────────────────────── */
   input[type="search"] {
-    width: 100%; padding: 9px 11px; font: inherit; font-size: 14px;
-    color: var(--ink); background: var(--surface);
-    border: 1px solid var(--line-firm); border-radius: var(--r);
+    width: 100%; margin-top: 10px; padding: 9px 12px;
+    font: inherit; font-size: 15px; color: var(--ink);
+    background: var(--raise); border: 1px solid var(--line); border-radius: 9px;
+    -webkit-appearance: none;
   }
-  input[type="search"]:focus-visible {
-    outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent);
+  input[type="search"]::placeholder { color: var(--faint); }
+  input[type="search"]:focus-visible { outline: 2px solid var(--accent); outline-offset: -1px; }
+
+  /* position:relative contains the visually-hidden .sr span inside. Without a
+     positioned ancestor it resolves against the viewport and can escape any
+     scroll clipping, dragging the page sideways. */
+  .chip {
+    position: relative;
+    margin-top: 9px; cursor: pointer; font: inherit; font-size: 13px;
+    background: var(--raise); color: var(--ink-2);
+    border: 1px solid var(--line); border-radius: 999px; padding: 3px 11px;
+  }
+  .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .notice {
+    font-size: 11.5px; color: var(--warn); text-align: center;
+    padding: 6px 16px; border-bottom: 1px solid var(--line);
   }
 
-  ul.frag-list { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 3px; }
-  .frag-btn {
-    width: 100%; text-align: left; cursor: pointer;
-    background: none; border: 1px solid transparent; border-radius: var(--r);
-    padding: 7px 9px; font: inherit; color: var(--ink);
-    display: grid; grid-template-columns: 1fr auto; gap: 0 8px;
+  main { padding: 4px 16px 56px; }
+
+  /* ── home listing ──────────────────────────────────────────────────────── */
+  ul.listing, ul.offers { list-style: none; margin: 0; padding: 0; }
+
+  .card {
+    width: 100%; display: flex; align-items: center; gap: 13px;
+    background: none; border: 0; border-bottom: 1px solid var(--line);
+    padding: 13px 2px; cursor: pointer; font: inherit; color: var(--ink);
+    text-align: left;
   }
-  .frag-btn:hover { background: var(--surface-2); }
-  .frag-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
-  .frag-btn.active { background: var(--accent-2); border-color: color-mix(in srgb, var(--accent) 34%, transparent); }
-  .fb-brand { font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); grid-column: 1 / -1; }
-  .fb-name { font-family: var(--serif); font-size: 15.5px; }
-  .fb-meta { font-family: var(--mono); font-size: 11px; color: var(--muted); align-self: center; }
-  .no-match { color: var(--muted); font-size: 13.5px; padding: 8px 2px; }
-
-  /* ── controls ──────────────────────────────────────────────────────────── */
-  .controls { display: flex; flex-direction: column; gap: 7px; }
-  .ctl { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: var(--ink-2); cursor: pointer; }
-  .ctl input { accent-color: var(--accent); margin: 0; }
-  .ctl input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .ctl-group { border: 1px solid var(--line); border-radius: var(--r); padding: 11px 12px; background: var(--surface); }
-  .ctl-group + .ctl-group { margin-top: 9px; }
-
-  /* ── ops panels ────────────────────────────────────────────────────────── */
-  .panel { border: 1px solid var(--line); border-radius: var(--r); padding: 13px 14px; background: var(--surface); }
-  .panel + .panel { margin-top: 12px; }
-  .panel h3 {
-    margin: 0 0 7px; font-size: 12.5px; font-weight: 650;
-    letter-spacing: .05em; text-transform: uppercase;
-    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  .card:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .card-art { flex: none; display: flex; }
+  .card-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .card-brand { font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--faint); }
+  .card-name {
+    font-family: var(--serif); font-size: 17px; line-height: 1.25;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
-  .count { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0; text-transform: none; color: var(--warn); }
-  .bad-count { color: var(--bad); }
-  .panel-note { margin: 0; font-size: 12.5px; line-height: 1.5; color: var(--muted); }
-  .panel code { font-family: var(--mono); font-size: 11.5px; background: var(--surface-2); padding: 1px 4px; border-radius: 3px; color: var(--ink-2); }
-  ul.mini { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 5px; font-size: 12.5px; }
-  ul.mini li { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-  /* The trailing "…and N more" line is prose, not a name/pill pair — the
-     space-between rule above would tear it in half. */
-  ul.mini li.dim { display: block; }
-  .mini-name { color: var(--ink-2); }
+  .card-meta { font-size: 12.5px; color: var(--ink-2); }
+  .card-price { flex: none; text-align: right; display: flex; flex-direction: column; }
+  .from { font-size: 10.5px; color: var(--faint); text-transform: uppercase; letter-spacing: .06em; }
+  .amt { font-size: 17px; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .amt.none { color: var(--faint); font-weight: 400; }
 
-  /* ── fragrance header ──────────────────────────────────────────────────── */
-  .frag-head { padding-bottom: 14px; border-bottom: 1px solid var(--line); }
-  .frag-brand { font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
-  .frag-name { font-family: var(--serif); font-size: 34px; font-weight: 600; letter-spacing: -.02em; margin: 2px 0 4px; text-wrap: balance; }
-  .frag-meta { font-size: 13.5px; color: var(--muted); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  .tier { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .05em; border: 1px solid var(--line-firm); border-radius: 3px; padding: 1px 6px; color: var(--ink-2); }
+  .empty-note { color: var(--ink-2); font-size: 14.5px; padding: 26px 2px; text-align: center; }
 
-  /* ── headline ──────────────────────────────────────────────────────────── */
-  .headline {
-    margin-top: 18px; padding: 16px 18px;
-    background: var(--accent-2);
-    border: 1px solid color-mix(in srgb, var(--accent) 26%, transparent);
-    border-left: 3px solid var(--accent);
-    border-radius: var(--r);
+  /* ── detail ────────────────────────────────────────────────────────────── */
+  .back {
+    background: none; border: 0; padding: 12px 2px 6px; cursor: pointer;
+    font: inherit; font-size: 14px; color: var(--accent);
   }
-  .headline.empty { background: var(--surface-2); border-color: var(--line-firm); border-left-color: var(--muted); }
-  .headline-label { font-size: 11px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); }
-  .headline-price { font-family: var(--mono); font-size: 33px; font-weight: 600; letter-spacing: -.02em; color: var(--accent); line-height: 1.15; }
-  .headline.empty .headline-label { color: var(--ink-2); }
-  .headline-meta { font-size: 13.5px; color: var(--ink-2); max-width: 62ch; }
+  .back:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
 
-  .scenario {
-    margin: 16px 0 20px; font-size: 13.5px; line-height: 1.55;
-    color: var(--ink-2); max-width: 76ch;
-    border-left: 2px solid var(--line-firm); padding-left: 13px;
+  .hero { text-align: center; padding: 6px 0 22px; border-bottom: 1px solid var(--line); }
+  .hero-brand { font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); margin: 10px 0 0; }
+  .hero-name { font-family: var(--serif); font-size: 27px; font-weight: 600; margin: 1px 0 2px; text-wrap: balance; }
+  .hero-meta { font-size: 13.5px; color: var(--ink-2); margin: 0; }
+  .hero-price {
+    font-size: 30px; font-weight: 650; font-variant-numeric: tabular-nums;
+    margin: 16px 0 0; line-height: 1.15;
   }
-  .scenario-label { display: block; font-size: 11px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+  .hero-price.none { font-size: 20px; color: var(--ink-2); }
+  .hero-at { display: block; font-size: 12.5px; font-weight: 400; color: var(--ink-2); margin-top: 2px; }
 
-  /* ── table ─────────────────────────────────────────────────────────────── */
-  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
-  table { border-collapse: collapse; width: 100%; min-width: 720px; }
-  th {
-    text-align: left; font-size: 10.5px; font-weight: 650; letter-spacing: .085em;
-    text-transform: uppercase; color: var(--muted);
-    padding: 9px 13px; background: var(--surface-2);
-    border-bottom: 1px solid var(--line-firm); white-space: nowrap;
+  .results-head {
+    display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+    padding: 16px 2px 8px; font-size: 12px; color: var(--ink-2);
   }
-  td { padding: 11px 13px; border-bottom: 1px solid var(--line); vertical-align: top; }
-  tbody tr:last-child td { border-bottom: none; }
-  .right { text-align: right; }
-  .sortmark { color: var(--accent); }
+  .results-head .dim { color: var(--faint); }
 
-  tr.best td { background: color-mix(in srgb, var(--accent-2) 62%, transparent); }
-  tr.unavailable td { opacity: .62; }
-
-  .cell-main { font-size: 14px; }
-  .cell-sub { font-size: 11.5px; line-height: 1.4; margin-top: 2px; }
-  .dim { color: var(--muted); }
-  .warnText { color: var(--warn); font-weight: 600; }
-  .retailer { font-weight: 600; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
-
-  /* All money is monospaced and tabular — figures that line up are the whole
-     point of a comparison table, and the mono face is the page's identity. */
-  .num { font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 14px; }
-  .num.was { text-decoration: line-through; color: var(--muted); font-size: 12px; margin-left: 5px; }
-  .num.now { color: var(--ok); font-weight: 600; }
-  .num.delivered { font-size: 15.5px; font-weight: 600; }
-
-  .tag { display: inline-block; font-size: 10.5px; font-weight: 650; letter-spacing: .03em; padding: 1px 6px; border-radius: 3px; vertical-align: middle; }
-  .tag.ok { background: var(--ok-2); color: var(--ok); }
-  .tag.sale { background: var(--ok-2); color: var(--ok); margin-left: 5px; }
-  .tag.best-tag { background: var(--accent); color: #fff; text-transform: uppercase; font-size: 9.5px; letter-spacing: .07em; }
-  :root[data-theme="dark"] .tag.best-tag { color: #0E1117; }
-  @media (prefers-color-scheme: dark) { .tag.best-tag { color: #0E1117; } }
-  :root[data-theme="light"] .tag.best-tag { color: #fff; }
-
-  .pill { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
-  .pill.ok { background: var(--ok-2); color: var(--ok); }
-  .pill.warn { background: var(--warn-2); color: var(--warn); }
-  .pill.bad { background: var(--bad-2); color: var(--bad); }
-  .pill.muted { background: var(--surface-2); color: var(--muted); }
-
-  /* position:relative makes this the containing block for the .sr span inside.
-     Without it that absolutely-positioned span resolves against the viewport,
-     escapes the table's scroll clipping, and drags the whole page sideways. */
-  .buy { position: relative; font-size: 13px; font-weight: 600; color: var(--accent); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--accent) 38%, transparent); }
-  .buy:hover { border-bottom-color: var(--accent); }
-  .buy:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
-
-  .group-break {
-    display: flex; align-items: baseline; gap: 10px;
-    margin: 26px 0 10px; padding-top: 14px;
-    border-top: 1px dashed var(--line-firm);
-    font-size: 11.5px; font-weight: 650; letter-spacing: .085em; text-transform: uppercase; color: var(--bad);
+  .offer { border-bottom: 1px solid var(--line); }
+  /* The out-of-stock heading brings its own rule; a trailing row border would
+     stack a second line against it. */
+  .offers .offer:last-child { border-bottom: 0; }
+  .offer-link {
+    display: flex; flex-direction: column; gap: 3px;
+    padding: 13px 2px; text-decoration: none; color: inherit;
   }
-  .group-break .dim { font-weight: 400; letter-spacing: 0; text-transform: none; font-size: 12px; }
+  .offer-link:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .offer-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+  .shop { font-size: 15.5px; font-weight: 600; }
+  .price { display: flex; align-items: baseline; gap: 7px; white-space: nowrap; }
+  .was { font-size: 12.5px; color: var(--faint); text-decoration: line-through; font-variant-numeric: tabular-nums; }
+  .now { font-size: 17px; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .now.sale { color: var(--ok); }
 
-  .footnote { margin: 14px 0 0; font-size: 12.5px; color: var(--muted); }
+  .offer-bot { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .facts { font-size: 12.5px; color: var(--ink-2); }
+  .sep { margin: 0 5px; color: var(--faint); }
+  .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; background: var(--faint); }
+  .dot.ok { background: var(--ok); }
+  .dot.warn { background: var(--warn); }
+  .dot.bad { background: var(--bad); }
+  .dot.muted { background: var(--faint); }
+  .off { font-size: 11.5px; font-weight: 650; color: var(--ok); white-space: nowrap; }
+  .ends { font-size: 11.5px; color: var(--warn); }
 
-  /* ── explainer ─────────────────────────────────────────────────────────── */
-  .explainer { margin-top: 44px; padding-top: 22px; border-top: 2px solid var(--ink); }
-  .explainer h2 { font-family: var(--serif); font-size: 21px; font-weight: 600; margin: 0 0 4px; }
-  .explainer .lede { color: var(--muted); font-size: 13.5px; margin: 0 0 20px; max-width: 72ch; }
-  /* Six rules, so column counts are pinned to divisors of six — auto-fit would
-     leave a ragged empty cell showing the grid's own background as a grey gap. */
-  .rules { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
-  @media (min-width: 560px) { .rules { grid-template-columns: repeat(2, 1fr); } }
-  @media (min-width: 980px) { .rules { grid-template-columns: repeat(3, 1fr); } }
-  .rule { background: var(--surface); padding: 15px 16px; }
-  .rule h4 { margin: 0 0 5px; font-size: 13.5px; font-weight: 650; }
-  .rule p { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--muted); }
-  .rule code { font-family: var(--mono); font-size: 11.5px; color: var(--ink-2); }
+  .offer.best .shop::after {
+    content: "Cheapest"; margin-left: 7px; vertical-align: 1px;
+    font-size: 9.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    color: var(--accent); border: 1px solid var(--accent); border-radius: 3px; padding: 0 4px;
+  }
+  .offer.gone { opacity: .55; }
+
+  .gone-head {
+    margin: 24px 0 0; padding-top: 14px; border-top: 1px solid var(--line);
+    font-size: 11.5px; font-weight: 650; letter-spacing: .07em;
+    text-transform: uppercase; color: var(--bad);
+  }
+
+  /* ── brand sheet ───────────────────────────────────────────────────────── */
+  .sheet-back { position: fixed; inset: 0; background: rgba(0,0,0,.32); z-index: 30; }
+  .sheet {
+    position: fixed; z-index: 31; left: 50%; transform: translateX(-50%);
+    bottom: 0; width: 100%; max-width: var(--col);
+    background: var(--bg); border-top: 1px solid var(--line);
+    border-radius: 14px 14px 0 0; padding: 8px 8px calc(16px + env(safe-area-inset-bottom));
+    max-height: 70vh; overflow-y: auto;
+  }
+  .sheet-title {
+    font-size: 11.5px; font-weight: 650; letter-spacing: .07em; text-transform: uppercase;
+    color: var(--faint); margin: 8px 10px 6px;
+  }
+  .brand-opt {
+    display: block; width: 100%; text-align: left; cursor: pointer;
+    background: none; border: 0; border-radius: 8px; padding: 11px 10px;
+    font: inherit; font-size: 15.5px; color: var(--ink);
+  }
+  .brand-opt.on { color: var(--accent); font-weight: 600; }
+  .brand-opt.on::after { content: " ✓"; }
+  .brand-opt:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
-  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
 
-<div class="demo-bar">
-  <strong>Demo data</strong> &nbsp;<span>Prices below are invented to exercise the logic. There is no fetching layer yet — nothing here is a live price.</span>
-</div>
-
-<div class="shell">
-  <div class="masthead">
-    <h1 class="wordmark">Scent<em>Day</em></h1>
-    <span class="tagline">UK fragrance price comparison — comparison core</span>
-    <span class="spacer"></span>
-    <span class="build-note">running src/ · 71 tests green</span>
-  </div>
-
-  <div class="grid">
-    <aside class="rail">
-      <div>
-        <p class="eyebrow">Search</p>
-        <input type="search" id="search" placeholder="Try “sauvage” or “creed”" aria-label="Search fragrances" />
-        <ul class="frag-list" id="frag-list"></ul>
-      </div>
-
-      <div id="controls">
-        <p class="eyebrow">Sort &amp; filter</p>
-        <div class="ctl-group">
-          <label class="ctl"><input type="radio" name="sort" id="sort-delivered" value="delivered" /> Delivered price <span class="dim">(default)</span></label>
-          <label class="ctl"><input type="radio" name="sort" id="sort-item" value="item" /> Item price only</label>
-        </div>
-        <div class="ctl-group">
-          <label class="ctl"><input type="checkbox" id="tier-filter" /> Only query retailers stocking this tier</label>
-          <label class="ctl"><input type="checkbox" id="hide-oos" /> Hide out-of-stock entirely</label>
-        </div>
-      </div>
-
-      <div id="ops"></div>
-    </aside>
-
-    <main id="results"></main>
-  </div>
-
-  <section class="explainer">
-    <h2>What the code guarantees</h2>
-    <p class="lede">
-      Every figure on this page comes from the committed modules, bundled unchanged — the demo
-      has no pricing logic of its own, so it cannot drift from what ships.
-    </p>
-    <div class="rules">
-      <div class="rule">
-        <h4>Delivered price is the default sort</h4>
-        <p>Delivery routinely exceeds the price gap, and thresholds run from £25 to £300. Switch to item price and watch Dior Sauvage reorder — Boots is cheapest per bottle and dearest delivered.</p>
-      </div>
-      <div class="rule">
-        <h4>Discounts are the retailer's, never ours</h4>
-        <p>A was/now pair is drawn only when the retailer published a reference price above what it charges. Percentages round <em>down</em> — 19.6% shows as 19%.</p>
-      </div>
-      <div class="rule">
-        <h4>No invented countdowns</h4>
-        <p>A timer appears only against a retailer-published end time. Where none exists the row says so. A fabricated deadline is pressure selling, and an ASA problem.</p>
-      </div>
-      <div class="rule">
-        <h4>Membership rates are never the headline</h4>
-        <p>Beautycard, Selfridges+, MYTFS and Premier all beat the modelled rate. None are priced in — quoting a members-only price to a non-member shows a number they cannot pay.</p>
-      </div>
-      <div class="rule">
-        <h4>Unavailable is never cheapest</h4>
-        <p>Explicit out-of-stock rows sink to the bottom and can never be the headline. <code>unknown</code> ranks between: a page we failed to parse is not proof the product is gone.</p>
-      </div>
-      <div class="rule">
-        <h4>Ranking is never for sale</h4>
-        <p>Order depends on stock and price only. No affiliate programme is live yet, so every link here is a plain retailer URL — and commission must never move a row.</p>
-      </div>
+<div class="app">
+  <div class="bar">
+    <div class="bar-row">
+      <h1 class="brandmark">Scent<em>Day</em></h1>
+      <button class="navbtn" id="nav-home">Home</button>
+      <button class="navbtn" id="nav-brand">Filter by brand</button>
     </div>
-  </section>
+    <input type="search" id="search" placeholder="Search fragrances" aria-label="Search fragrances" />
+    <div id="brand-chip"></div>
+  </div>
+
+  <p class="notice">Demo data — invented prices, not live.</p>
+
+  <main id="view"></main>
 </div>
 
-<script>"use strict";(()=>{var h={network:null,verified:!1,status:"not-researched",publisherId:null,deeplinkTemplate:null,signupUrl:null};function I(e){return{network:"awin",verified:!0,status:"not-applied",publisherId:null,deeplinkTemplate:null,signupUrl:`https://ui.awin.com/merchant-profile/${e}`}}var m=[{id:"allbeauty",name:"Allbeauty",domain:"allbeauty.com",homepage:"https://www.allbeauty.com",tiers:["designer","niche","mideast"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:3.95,freeOverGbp:25,estimatedDays:[3,5],membershipPerk:{scheme:"myDelivery",description:"\xA39.90/year for unlimited free delivery on any service."},verifiedAt:"2026-08-01",confidence:"unverified"},affiliate:{...h}},{id:"justmylook",name:"Justmylook",domain:"justmylook.com",homepage:"https://www.justmylook.com",tiers:["designer","niche"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:2.99,freeOverGbp:25,estimatedDays:[2,4],verifiedAt:"2026-08-01",confidence:"unverified",notes:"Free next-day (RM24 Tracked) over \xA380; standard free tier is RM48 Tracked."},affiliate:{...h}},{id:"notino-uk",name:"Notino UK",domain:"notino.co.uk",homepage:"https://www.notino.co.uk",tiers:["designer","niche","mideast"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:2.99,freeOverGbp:null,estimatedDays:[3,4],verifiedAt:"2026-08-01",confidence:"unverified",notes:"Evri home \xA32.99, DPD home \xA33.49, Evri pickup \xA32.49. Free delivery is per-product or promotional, not spend-based \u2014 model it per offer, not per retailer."},affiliate:{...h}},{id:"boots",name:"Boots",domain:"boots.com",homepage:"https://www.boots.com",tiers:["designer"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:3.95,freeOverGbp:25,estimatedDays:[3,5],verifiedAt:"2026-08-01",confidence:"unverified",notes:"Click & Collect \xA31.50, free over \xA315. Cloudflare-fronted \u2014 expect a hard scrape."},affiliate:I("2041")},{id:"the-fragrance-shop",name:"The Fragrance Shop",domain:"thefragranceshop.co.uk",homepage:"https://www.thefragranceshop.co.uk",tiers:["designer","mideast"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:3.49,freeOverGbp:40,estimatedDays:[3,5],membershipPerk:{scheme:"MYTFS / Scentaddict",description:"Free 48-hour express delivery for members."},verifiedAt:"2026-08-01",confidence:"unverified"},affiliate:{...h}},{id:"the-perfume-shop",name:"The Perfume Shop",domain:"theperfumeshop.com",homepage:"https://www.theperfumeshop.com",tiers:["designer"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:3.5,freeOverGbp:25,estimatedDays:[3,5],membershipPerk:{scheme:"Rewards",description:"Free standard delivery on all orders for Rewards members."},verifiedAt:"2026-08-01",confidence:"unverified",notes:"Click & Collect is free at any basket value."},affiliate:{...h}},{id:"john-lewis",name:"John Lewis",domain:"johnlewis.com",homepage:"https://www.johnlewis.com",tiers:["designer"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:4.5,freeOverGbp:50,estimatedDays:[2,5],verifiedAt:"2026-08-01",confidence:"unverified",notes:"Cloudflare-fronted \u2014 pair with Boots as the hard-site benchmark in Phase 0."},affiliate:{...h}},{id:"beautybase",name:"Beautybase",domain:"beautybase.com",homepage:"https://www.beautybase.com",tiers:["designer","niche"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:4.95,freeOverGbp:45,estimatedDays:[3,5],verifiedAt:"2026-08-01",confidence:"unverified",notes:"Up to 48h order processing before dispatch \u2014 the day window excludes that."},affiliate:{...h}},{id:"lookfantastic",name:"LOOKFANTASTIC",domain:"lookfantastic.com",homepage:"https://www.lookfantastic.com",tiers:["designer","niche"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:3.95,freeOverGbp:25,estimatedDays:[2,3],membershipPerk:{scheme:"Premier Delivery",description:"\xA39.90/year for unlimited free delivery over \xA310 per order."},verifiedAt:"2026-08-01",confidence:"unverified"},affiliate:I("2082")},{id:"superdrug",name:"Superdrug",domain:"superdrug.com",homepage:"https://www.superdrug.com",tiers:["designer"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:4.5,freeOverGbp:25,estimatedDays:[3,4],membershipPerk:{scheme:"Health & Beautycard",description:"Free standard and next-day delivery over \xA320 for cardholders."},verifiedAt:"2026-08-01",confidence:"unverified",notes:"Order & Collect is free at any basket value."},affiliate:{network:"awin",verified:!0,status:"not-applied",publisherId:null,deeplinkTemplate:null,signupUrl:"https://ui.awin.com/merchant-profile/search?q=Superdrug",notes:"Awin-confirmed, ~1.6% commission, 30-day cookie. The programme excludes coupon, cashback and deal sites \u2014 ScentDay is a comparison site, so expect that question during approval. Lead with the editorial/notes side of the product."}},{id:"selfridges",name:"Selfridges",domain:"selfridges.com",homepage:"https://www.selfridges.com",tiers:["niche"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:6.99,freeOverGbp:100,estimatedDays:[2,4],membershipPerk:{scheme:"Selfridges+",description:"\xA310/year for unlimited standard, nominated-day and next-day delivery."},verifiedAt:"2026-08-01",confidence:"unverified",notes:"CONFLICTING SOURCES: the free-delivery threshold is cited as both \xA3100 and \xA3150. Confirm against selfridges.com/GB/en/info/dispatch-delivery/uk-delivery/ before trusting the delivered price for this retailer."},affiliate:{...h}},{id:"harvey-nichols",name:"Harvey Nichols",domain:"harveynichols.com",homepage:"https://www.harveynichols.com",tiers:["niche"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:5.95,freeOverGbp:300,estimatedDays:[3,3],verifiedAt:"2026-08-01",confidence:"unverified",notes:"General standard delivery is \xA37.50; beauty-only orders are \xA35.95. Free over \xA3300 is effectively unreachable on a single fragrance, so this retailer will almost always carry delivery in the delivered-price sort."},affiliate:{...h}}],K=new Map(m.map(e=>[e.id,e]));function w(e){return K.get(e)}var R=[],g={enabled:!1,showUntrustedSellers:!1,authenticityDisclaimer:"TikTok Shop listings are seller-fulfilled and are not covered by the authenticity checks that apply to the retailers below. Buy at your own discretion."};function S(){return g.enabled?R.filter(e=>e.trusted||g.showUntrustedSellers):[]}function d(e){return Math.round((e+Number.EPSILON)*100)/100}function c(e){return`\xA3${d(e).toFixed(2)}`}function O(e,t){let{shipping:i}=e,n=i.membershipPerk?`${i.membershipPerk.scheme}: ${i.membershipPerk.description}`:null,a={estimatedDays:i.estimatedDays,membershipNote:n,confirmed:i.confidence==="confirmed"};return i.standardGbp===0?{...a,costGbp:0,isFree:!0,freeReason:"always-free",spendMoreForFreeGbp:null}:i.freeOverGbp===null?{...a,costGbp:i.standardGbp,isFree:!1,freeReason:null,spendMoreForFreeGbp:null}:t>=i.freeOverGbp?{...a,costGbp:0,isFree:!0,freeReason:"threshold-met",spendMoreForFreeGbp:null}:{...a,costGbp:i.standardGbp,isFree:!1,freeReason:null,spendMoreForFreeGbp:d(i.freeOverGbp-t)}}function $(e){let t=e.wasPrice;if(t==null||!Number.isFinite(t)||t<=e.price)return null;let i=d(t-e.price);if(i<.01)return null;let n=Math.floor(i/t*100);return n<1?null:{wasPrice:d(t),nowPrice:d(e.price),savingGbp:i,percentOff:n,endsAt:e.promoEndsAt??null}}function G(e,t=new Date){if(!e?.endsAt)return!1;let i=Date.parse(e.endsAt);return Number.isFinite(i)&&i>t.getTime()}function P(e,t){let{affiliate:i}=e;if(i.status!=="active"||!i.deeplinkTemplate||!i.publisherId)return{url:t,isAffiliateLink:!1};let n=i.deeplinkTemplate.replace("{{publisherId}}",encodeURIComponent(i.publisherId)).replace("{{url}}",encodeURIComponent(t));return n===i.deeplinkTemplate?{url:t,isAffiliateLink:!1}:{url:n,isAffiliateLink:!0}}function T(e=m){return e.filter(t=>t.affiliate.status!=="active").map(t=>({retailerId:t.id,retailerName:t.name,status:t.affiliate.status,network:t.affiliate.network,networkVerified:t.affiliate.verified,signupUrl:t.affiliate.signupUrl,action:U(t)}))}function U(e){switch(e.affiliate.status){case"not-researched":return`Find which network runs ${e.name}'s programme (check Awin first, then Rakuten, CJ, Partnerize, Tradedoubler).`;case"not-applied":return`Apply to the ${e.affiliate.network??"programme"} listing${e.affiliate.signupUrl?` at ${e.affiliate.signupUrl}`:""}.`;case"pending":return"Application submitted \u2014 chase approval, then fill in publisherId and deeplinkTemplate.";case"rejected":return`Rejected. Either re-apply once the site has traffic, or accept ${e.name} stays unmonetised.`;case"active":return"Live."}}var C={inStock:0,lowStock:1,preOrder:2,unknown:3,outOfStock:4};function B(e){return e!=="outOfStock"}function M(e,t,i=new Date){let n=d(e.price),a=O(t,n),p=P(t,e.url),b=Date.parse(e.fetchedAt);return{retailer:t,variantId:e.variantId,itemPriceGbp:n,deliveredPriceGbp:d(n+a.costGbp),currency:"GBP",discount:$(e),delivery:a,stock:e.stock,isPurchasable:B(e.stock),outboundUrl:p.url,isAffiliateLink:p.isAffiliateLink,imageUrl:e.imageUrl??null,fetchedAt:e.fetchedAt,ageSeconds:Number.isFinite(b)?Math.max(0,Math.round((i.getTime()-b)/1e3)):0}}function A(e,t={}){let{sortBy:i="delivered",tier:n,hideOutOfStock:a=!1,now:p=new Date}=t,b=[];for(let l of e){let f=w(l.retailerId);!f||!f.enabled||n&&!f.tiers.includes(n)||a&&l.stock==="outOfStock"||b.push(M(l,f,p))}let L=l=>i==="item"?l.itemPriceGbp:l.deliveredPriceGbp,E=l=>i==="item"?l.deliveredPriceGbp:l.itemPriceGbp;return b.sort((l,f)=>C[l.stock]-C[f.stock]||L(l)-L(f)||E(l)-E(f)||l.retailer.name.localeCompare(f.retailer.name))}function y(e){return e.filter(t=>t.isPurchasable)}function F(e){return e.filter(t=>!t.isPurchasable)}function x(e){return y(e)[0]??null}function q(e){return new Date(Date.now()-e*6e4).toISOString()}function r(e,t,i,n,a={}){return{retailerId:e,price:t,currency:"GBP",stock:i,url:`https://example-demo.invalid/${e}`,fetchedAt:q(n),...a}}function v(e,t){return t.map(i=>({...i,variantId:e}))}var k=[{id:"sauvage-edp-100",brand:"Dior",name:"Sauvage",concentration:"Eau de Parfum",sizeMl:100,tier:"designer",note:"The delivered-price case. Boots has the lowest item price at \xA324.99 but misses its own \xA325 free-delivery threshold by a penny, so it finishes last.",offers:v("sauvage-edp-100",[r("boots",24.99,"inStock",4),r("lookfantastic",26,"inStock",12),r("superdrug",25.5,"inStock",3),r("the-perfume-shop",27.95,"inStock",41),r("notino-uk",23.9,"inStock",8),r("john-lewis",22.5,"outOfStock",19)])},{id:"bleu-edp-100",brand:"Chanel",name:"Bleu de Chanel",concentration:"Eau de Parfum",sizeMl:100,tier:"designer",note:"Discount presentation. The Fragrance Shop published a was/now pair with a real end time, so a countdown is allowed. Justmylook has a stale RRP at or below its selling price, so no badge is drawn at all.",offers:v("bleu-edp-100",[r("the-fragrance-shop",88.4,"inStock",6,{wasPrice:110,promoEndsAt:new Date(Date.now()+62*36e5).toISOString()}),r("justmylook",94,"inStock",22,{wasPrice:94}),r("john-lewis",108,"inStock",9),r("boots",105,"lowStock",15),r("allbeauty",91.75,"inStock",2,{wasPrice:99}),r("the-perfume-shop",99.99,"unknown",88)])},{id:"aventus-100",brand:"Creed",name:"Aventus",concentration:"Eau de Parfum",sizeMl:100,tier:"niche",note:"Tier filtering. Boots and Superdrug do not stock niche houses, so they are never queried. Harvey Nichols carries delivery because its \xA3300 free threshold is unreachable on a single bottle.",offers:v("aventus-100",[r("boots",310,"inStock",10),r("superdrug",305,"inStock",10),r("selfridges",335,"inStock",11),r("harvey-nichols",330,"inStock",27),r("beautybase",289,"inStock",5),r("allbeauty",295.5,"lowStock",13),r("notino-uk",284,"inStock",7),r("justmylook",279,"outOfStock",33)])},{id:"khamrah-100",brand:"Lattafa",name:"Khamrah",concentration:"Eau de Parfum",sizeMl:100,tier:"mideast",note:"A thin market. Only three retailers carry the Middle Eastern tier, and one of them could not be parsed \u2014 unknown stock ranks below confirmed availability but above an explicit out-of-stock signal.",offers:v("khamrah-100",[r("notino-uk",21.9,"inStock",5),r("the-fragrance-shop",24.99,"inStock",17,{wasPrice:32}),r("allbeauty",23.45,"unknown",64)])},{id:"libre-edp-90",brand:"Yves Saint Laurent",name:"Libre",concentration:"Eau de Parfum",sizeMl:90,tier:"designer",note:"Free-delivery shortfall. Several listings sit just under their retailer threshold, so each row shows how much more the basket needs to clear it.",offers:v("libre-edp-90",[r("boots",78,"inStock",3,{wasPrice:92}),r("john-lewis",46.5,"inStock",21),r("superdrug",23.75,"lowStock",9),r("lookfantastic",24.4,"inStock",14),r("the-perfume-shop",82,"inStock",30),r("beautybase",43,"inStock",52)])},{id:"wood-sage-100",brand:"Jo Malone London",name:"Wood Sage & Sea Salt",concentration:"Cologne",sizeMl:100,tier:"niche",note:"Nothing buyable. Every listing is explicitly out of stock, so there is no best offer \u2014 the app says so rather than headlining a price nobody can pay.",offers:v("wood-sage-100",[r("selfridges",112,"outOfStock",25),r("lookfantastic",105,"outOfStock",40),r("beautybase",99,"outOfStock",16)])}];var o={fragranceId:k[0].id,sortBy:"delivered",hideOutOfStock:!1,applyTierFilter:!0,query:""},s=e=>e.replace(/[&<>"']/g,t=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[t]),u=e=>document.querySelector(e);function z(){return k.find(e=>e.id===o.fragranceId)??k[0]}var H={inStock:"In stock",lowStock:"Low stock",preOrder:"Pre-order",unknown:"Not confirmed",outOfStock:"Out of stock"},J={inStock:"ok",lowStock:"warn",preOrder:"warn",unknown:"muted",outOfStock:"bad"};function V(e){if(e<90)return"checked just now";let t=Math.round(e/60);return t<60?`checked ${t} min ago`:`checked ${Math.round(t/60)}h ago`}function Y(e){let t=Date.parse(e)-Date.now(),i=Math.floor(t/36e5);return i>=24?`ends in ${Math.floor(i/24)}d ${i%24}h`:`ends in ${i}h`}function W(e){let t=e.delivery,n=[`<div class="cell-main">${t.isFree?'<span class="tag ok">Free</span>':`<span class="num">${c(t.costGbp)}</span>`}</div>`];return t.spendMoreForFreeGbp!==null?n.push(`<div class="cell-sub">${c(t.spendMoreForFreeGbp)} more for free delivery</div>`):!t.isFree&&t.freeReason===null&&!t.spendMoreForFreeGbp&&n.push('<div class="cell-sub">no spend-based free delivery</div>'),n.push(`<div class="cell-sub dim">${t.estimatedDays[0]}\u2013${t.estimatedDays[1]} working days</div>`),t.membershipNote&&n.push(`<div class="cell-sub dim" title="${s(t.membershipNote)}">membership rate available</div>`),n.join("")}function Q(e,t){let i=e.discount,n=G(i),a=i?`<span class="num now">${c(e.itemPriceGbp)}</span>
-       <span class="num was">${c(i.wasPrice)}</span>
-       <span class="tag sale">${i.percentOff}% off</span>`:`<span class="num">${c(e.itemPriceGbp)}</span>`,p=n?`<div class="cell-sub warnText">${s(Y(i.endsAt))}</div>`:i?'<div class="cell-sub dim">no end time published</div>':"";return`
-    <tr class="${t?"best":""} ${e.isPurchasable?"":"unavailable"}">
-      <td>
-        <div class="cell-main retailer">${s(e.retailer.name)}${t?'<span class="tag best-tag">Best delivered</span>':""}</div>
-        <div class="cell-sub dim">${s(e.retailer.domain)} \xB7 ${s(V(e.ageSeconds))}</div>
-      </td>
-      <td class="right">${a}${p}</td>
-      <td class="right">${W(e)}</td>
-      <td class="right">
-        <div class="cell-main"><span class="num delivered">${c(e.deliveredPriceGbp)}</span></div>
-        ${e.delivery.confirmed?"":'<div class="cell-sub dim">rules unverified</div>'}
-      </td>
-      <td>
-        <span class="pill ${J[e.stock]}">${H[e.stock]}</span>
-      </td>
-      <td class="right">
-        <a class="buy" href="${s(e.outboundUrl)}" rel="nofollow noopener" target="_blank">
-          View${e.isAffiliateLink?"":'<span class="sr">, untracked link</span>'}
-        </a>
-        <div class="cell-sub dim">${e.isAffiliateLink?"affiliate":"direct link"}</div>
-      </td>
-    </tr>`}function N(e,t){return e.length===0?"":`
-    <div class="table-wrap">
-      <table>
-        <thead>
-          <tr>
-            <th>Retailer</th>
-            <th class="right">Item price</th>
-            <th class="right">Delivery</th>
-            <th class="right">Delivered${o.sortBy==="delivered"?' <span class="sortmark">\u2193</span>':""}</th>
-            <th>Stock</th>
-            <th class="right">Link</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${e.map(i=>Q(i,t!==null&&i===t)).join("")}
-        </tbody>
-      </table>
-    </div>`}function X(){let e=z(),t=A(e.offers,{sortBy:o.sortBy,hideOutOfStock:o.hideOutOfStock,...o.applyTierFilter?{tier:e.tier}:{}}),i=y(t),n=F(t),a=x(t),p=e.offers.length-t.length,b=a?`<div class="headline">
-         <div class="headline-label">Cheapest delivered</div>
-         <div class="headline-price num">${c(a.deliveredPriceGbp)}</div>
-         <div class="headline-meta">
-           at ${s(a.retailer.name)} \u2014
-           ${c(a.itemPriceGbp)} plus
-           ${a.delivery.isFree?"free delivery":`${c(a.delivery.costGbp)} delivery`}
-         </div>
-       </div>`:`<div class="headline empty">
-         <div class="headline-label">Nothing buyable</div>
-         <div class="headline-meta">
-           Every listing is explicitly out of stock. No price is headlined, because
-           the cheapest figure here is one nobody can actually pay.
-         </div>
-       </div>`;return`
-    <header class="frag-head">
-      <div class="frag-brand">${s(e.brand)}</div>
-      <h2 class="frag-name">${s(e.name)}</h2>
-      <div class="frag-meta">
-        ${s(e.concentration)} \xB7 ${e.sizeMl}ml
-        <span class="tier">${s(e.tier)}</span>
-      </div>
-    </header>
+<div id="sheet-host"></div>
 
-    ${b}
+<script>"use strict";(()=>{var f={network:null,verified:!1,status:"not-researched",publisherId:null,deeplinkTemplate:null,signupUrl:null};function T(e){return{network:"awin",verified:!0,status:"not-applied",publisherId:null,deeplinkTemplate:null,signupUrl:`https://ui.awin.com/merchant-profile/${e}`}}var g=[{id:"allbeauty",name:"Allbeauty",domain:"allbeauty.com",homepage:"https://www.allbeauty.com",tiers:["designer","niche","mideast"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:3.95,freeOverGbp:25,estimatedDays:[3,5],membershipPerk:{scheme:"myDelivery",description:"\xA39.90/year for unlimited free delivery on any service."},verifiedAt:"2026-08-01",confidence:"unverified"},affiliate:{...f}},{id:"justmylook",name:"Justmylook",domain:"justmylook.com",homepage:"https://www.justmylook.com",tiers:["designer","niche"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:2.99,freeOverGbp:25,estimatedDays:[2,4],verifiedAt:"2026-08-01",confidence:"unverified",notes:"Free next-day (RM24 Tracked) over \xA380; standard free tier is RM48 Tracked."},affiliate:{...f}},{id:"notino-uk",name:"Notino UK",domain:"notino.co.uk",homepage:"https://www.notino.co.uk",tiers:["designer","niche","mideast"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:2.99,freeOverGbp:null,estimatedDays:[3,4],verifiedAt:"2026-08-01",confidence:"unverified",notes:"Evri home \xA32.99, DPD home \xA33.49, Evri pickup \xA32.49. Free delivery is per-product or promotional, not spend-based \u2014 model it per offer, not per retailer."},affiliate:{...f}},{id:"boots",name:"Boots",domain:"boots.com",homepage:"https://www.boots.com",tiers:["designer"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:3.95,freeOverGbp:25,estimatedDays:[3,5],verifiedAt:"2026-08-01",confidence:"unverified",notes:"Click & Collect \xA31.50, free over \xA315. Cloudflare-fronted \u2014 expect a hard scrape."},affiliate:T("2041")},{id:"the-fragrance-shop",name:"The Fragrance Shop",domain:"thefragranceshop.co.uk",homepage:"https://www.thefragranceshop.co.uk",tiers:["designer","mideast"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:3.49,freeOverGbp:40,estimatedDays:[3,5],membershipPerk:{scheme:"MYTFS / Scentaddict",description:"Free 48-hour express delivery for members."},verifiedAt:"2026-08-01",confidence:"unverified"},affiliate:{...f}},{id:"the-perfume-shop",name:"The Perfume Shop",domain:"theperfumeshop.com",homepage:"https://www.theperfumeshop.com",tiers:["designer"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:3.5,freeOverGbp:25,estimatedDays:[3,5],membershipPerk:{scheme:"Rewards",description:"Free standard delivery on all orders for Rewards members."},verifiedAt:"2026-08-01",confidence:"unverified",notes:"Click & Collect is free at any basket value."},affiliate:{...f}},{id:"john-lewis",name:"John Lewis",domain:"johnlewis.com",homepage:"https://www.johnlewis.com",tiers:["designer"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:4.5,freeOverGbp:50,estimatedDays:[2,5],verifiedAt:"2026-08-01",confidence:"unverified",notes:"Cloudflare-fronted \u2014 pair with Boots as the hard-site benchmark in Phase 0."},affiliate:{...f}},{id:"beautybase",name:"Beautybase",domain:"beautybase.com",homepage:"https://www.beautybase.com",tiers:["designer","niche"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:4.95,freeOverGbp:45,estimatedDays:[3,5],verifiedAt:"2026-08-01",confidence:"unverified",notes:"Up to 48h order processing before dispatch \u2014 the day window excludes that."},affiliate:{...f}},{id:"lookfantastic",name:"LOOKFANTASTIC",domain:"lookfantastic.com",homepage:"https://www.lookfantastic.com",tiers:["designer","niche"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:3.95,freeOverGbp:25,estimatedDays:[2,3],membershipPerk:{scheme:"Premier Delivery",description:"\xA39.90/year for unlimited free delivery over \xA310 per order."},verifiedAt:"2026-08-01",confidence:"unverified"},affiliate:T("2082")},{id:"superdrug",name:"Superdrug",domain:"superdrug.com",homepage:"https://www.superdrug.com",tiers:["designer"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:4.5,freeOverGbp:25,estimatedDays:[3,4],membershipPerk:{scheme:"Health & Beautycard",description:"Free standard and next-day delivery over \xA320 for cardholders."},verifiedAt:"2026-08-01",confidence:"unverified",notes:"Order & Collect is free at any basket value."},affiliate:{network:"awin",verified:!0,status:"not-applied",publisherId:null,deeplinkTemplate:null,signupUrl:"https://ui.awin.com/merchant-profile/search?q=Superdrug",notes:"Awin-confirmed, ~1.6% commission, 30-day cookie. The programme excludes coupon, cashback and deal sites \u2014 ScentDay is a comparison site, so expect that question during approval. Lead with the editorial/notes side of the product."}},{id:"selfridges",name:"Selfridges",domain:"selfridges.com",homepage:"https://www.selfridges.com",tiers:["niche"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:6.99,freeOverGbp:100,estimatedDays:[2,4],membershipPerk:{scheme:"Selfridges+",description:"\xA310/year for unlimited standard, nominated-day and next-day delivery."},verifiedAt:"2026-08-01",confidence:"unverified",notes:"CONFLICTING SOURCES: the free-delivery threshold is cited as both \xA3100 and \xA3150. Confirm against selfridges.com/GB/en/info/dispatch-delivery/uk-delivery/ before trusting the delivered price for this retailer."},affiliate:{...f}},{id:"harvey-nichols",name:"Harvey Nichols",domain:"harveynichols.com",homepage:"https://www.harveynichols.com",tiers:["niche"],enabled:!0,adapter:"unknown",currency:"GBP",shipping:{standardGbp:5.95,freeOverGbp:300,estimatedDays:[3,3],verifiedAt:"2026-08-01",confidence:"unverified",notes:"General standard delivery is \xA37.50; beauty-only orders are \xA35.95. Free over \xA3300 is effectively unreachable on a single fragrance, so this retailer will almost always carry delivery in the delivered-price sort."},affiliate:{...f}}],N=new Map(g.map(e=>[e.id,e]));function S(e){return N.get(e)}function c(e){return Math.round((e+Number.EPSILON)*100)/100}function h(e){return`\xA3${c(e).toFixed(2)}`}function O(e,t){let{shipping:n}=e,r=n.membershipPerk?`${n.membershipPerk.scheme}: ${n.membershipPerk.description}`:null,o={estimatedDays:n.estimatedDays,membershipNote:r,confirmed:n.confidence==="confirmed"};return n.standardGbp===0?{...o,costGbp:0,isFree:!0,freeReason:"always-free",spendMoreForFreeGbp:null}:n.freeOverGbp===null?{...o,costGbp:n.standardGbp,isFree:!1,freeReason:null,spendMoreForFreeGbp:null}:t>=n.freeOverGbp?{...o,costGbp:0,isFree:!0,freeReason:"threshold-met",spendMoreForFreeGbp:null}:{...o,costGbp:n.standardGbp,isFree:!1,freeReason:null,spendMoreForFreeGbp:c(n.freeOverGbp-t)}}function G(e){let t=e.wasPrice;if(t==null||!Number.isFinite(t)||t<=e.price)return null;let n=c(t-e.price);if(n<.01)return null;let r=Math.floor(n/t*100);return r<1?null:{wasPrice:c(t),nowPrice:c(e.price),savingGbp:n,percentOff:r,endsAt:e.promoEndsAt??null}}function $(e,t=new Date){if(!e?.endsAt)return!1;let n=Date.parse(e.endsAt);return Number.isFinite(n)&&n>t.getTime()}function P(e,t){let{affiliate:n}=e;if(n.status!=="active"||!n.deeplinkTemplate||!n.publisherId)return{url:t,isAffiliateLink:!1};let r=n.deeplinkTemplate.replace("{{publisherId}}",encodeURIComponent(n.publisherId)).replace("{{url}}",encodeURIComponent(t));return r===n.deeplinkTemplate?{url:t,isAffiliateLink:!1}:{url:r,isAffiliateLink:!0}}var F={inStock:0,lowStock:0,preOrder:0,unknown:1,outOfStock:2};function L(e){return e!=="outOfStock"}function D(e,t,n=new Date){let r=c(e.price),o=O(t,r),b=P(t,e.url),k=Date.parse(e.fetchedAt);return{retailer:t,variantId:e.variantId,itemPriceGbp:r,deliveredPriceGbp:c(r+o.costGbp),currency:"GBP",discount:G(e),delivery:o,stock:e.stock,isPurchasable:L(e.stock),outboundUrl:b.url,isAffiliateLink:b.isAffiliateLink,imageUrl:e.imageUrl??null,fetchedAt:e.fetchedAt,ageSeconds:Number.isFinite(k)?Math.max(0,Math.round((n.getTime()-k)/1e3)):0}}function A(e,t={}){let{sortBy:n="delivered",tier:r,hideOutOfStock:o=!1,now:b=new Date}=t,k=[];for(let d of e){let u=S(d.retailerId);!u||!u.enabled||r&&!u.tiers.includes(r)||o&&d.stock==="outOfStock"||k.push(D(d,u,b))}let s=d=>n==="item"?d.itemPriceGbp:d.deliveredPriceGbp,x=d=>n==="item"?d.deliveredPriceGbp:d.itemPriceGbp;return k.sort((d,u)=>F[d.stock]-F[u.stock]||s(d)-s(u)||x(d)-x(u)||d.retailer.name.localeCompare(u.retailer.name))}function E(e){return e.filter(t=>t.isPurchasable)}function y(e){return E(e)[0]??null}function j(e){return new Date(Date.now()-e*6e4).toISOString()}function a(e,t,n,r,o={}){return{retailerId:e,price:t,currency:"GBP",stock:n,url:`https://example-demo.invalid/${e}`,fetchedAt:j(r),...o}}function w(e,t){return t.map(n=>({...n,variantId:e}))}var v=[{id:"sauvage-edp-100",brand:"Dior",name:"Sauvage",concentration:"Eau de Parfum",sizeMl:100,tier:"designer",note:"The delivered-price case. Boots has the lowest item price at \xA324.99 but misses its own \xA325 free-delivery threshold by a penny, so it finishes last.",offers:w("sauvage-edp-100",[a("boots",24.99,"inStock",4),a("lookfantastic",26,"inStock",12),a("superdrug",25.5,"inStock",3),a("the-perfume-shop",27.95,"inStock",41),a("notino-uk",23.9,"inStock",8),a("john-lewis",22.5,"outOfStock",19)])},{id:"bleu-edp-100",brand:"Chanel",name:"Bleu de Chanel",concentration:"Eau de Parfum",sizeMl:100,tier:"designer",note:"Discount presentation. The Fragrance Shop published a was/now pair with a real end time, so a countdown is allowed. Justmylook has a stale RRP at or below its selling price, so no badge is drawn at all.",offers:w("bleu-edp-100",[a("the-fragrance-shop",88.4,"inStock",6,{wasPrice:110,promoEndsAt:new Date(Date.now()+62*36e5).toISOString()}),a("justmylook",94,"inStock",22,{wasPrice:94}),a("john-lewis",108,"inStock",9),a("boots",105,"lowStock",15),a("allbeauty",91.75,"inStock",2,{wasPrice:99}),a("the-perfume-shop",99.99,"unknown",88)])},{id:"aventus-100",brand:"Creed",name:"Aventus",concentration:"Eau de Parfum",sizeMl:100,tier:"niche",note:"Tier filtering. Boots and Superdrug do not stock niche houses, so they are never queried. Harvey Nichols carries delivery because its \xA3300 free threshold is unreachable on a single bottle.",offers:w("aventus-100",[a("boots",310,"inStock",10),a("superdrug",305,"inStock",10),a("selfridges",335,"inStock",11),a("harvey-nichols",330,"inStock",27),a("beautybase",289,"inStock",5),a("allbeauty",295.5,"lowStock",13),a("notino-uk",284,"inStock",7),a("justmylook",279,"outOfStock",33)])},{id:"khamrah-100",brand:"Lattafa",name:"Khamrah",concentration:"Eau de Parfum",sizeMl:100,tier:"mideast",note:"A thin market. Only three retailers carry the Middle Eastern tier, and one of them could not be parsed \u2014 unknown stock ranks below confirmed availability but above an explicit out-of-stock signal.",offers:w("khamrah-100",[a("notino-uk",21.9,"inStock",5),a("the-fragrance-shop",24.99,"inStock",17,{wasPrice:32}),a("allbeauty",23.45,"unknown",64)])},{id:"libre-edp-90",brand:"Yves Saint Laurent",name:"Libre",concentration:"Eau de Parfum",sizeMl:90,tier:"designer",note:"Free-delivery shortfall. Several listings sit just under their retailer threshold, so each row shows how much more the basket needs to clear it.",offers:w("libre-edp-90",[a("boots",78,"inStock",3,{wasPrice:92}),a("john-lewis",46.5,"inStock",21),a("superdrug",23.75,"lowStock",9),a("lookfantastic",24.4,"inStock",14),a("the-perfume-shop",82,"inStock",30),a("beautybase",43,"inStock",52)])},{id:"wood-sage-100",brand:"Jo Malone London",name:"Wood Sage & Sea Salt",concentration:"Cologne",sizeMl:100,tier:"niche",note:"Nothing buyable. Every listing is explicitly out of stock, so there is no best offer \u2014 the app says so rather than headlining a price nobody can pay.",offers:w("wood-sage-100",[a("selfridges",112,"outOfStock",25),a("lookfantastic",105,"outOfStock",40),a("beautybase",99,"outOfStock",16)])}];var i={view:"home",fragranceId:"",brand:null,query:"",brandSheetOpen:!1},l=e=>e.replace(/[&<>"']/g,t=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[t]),m=e=>document.querySelector(e),_=[...new Set(v.map(e=>e.brand))].sort();function I(e){return A(e.offers,{sortBy:"delivered",tier:e.tier})}function M(e,t){let n=(e*47+205)%360,r=`hsl(${n} 32% 62%)`,o=`hsl(${n} 28% 38%)`;return`
+    <svg class="bottle" width="${t}" height="${t*1.32}" viewBox="0 0 100 132"
+         role="img" aria-label="Generic fragrance bottle illustration">
+      <rect x="39" y="4" width="22" height="18" rx="3" fill="${o}" />
+      <rect x="45" y="21" width="10" height="9" fill="${o}" opacity=".75" />
+      <rect x="19" y="29" width="62" height="99" rx="11" fill="${r}" />
+      <rect x="31" y="62" width="38" height="33" rx="3" fill="#fff" opacity=".82" />
+    </svg>`}var U={inStock:"In stock",lowStock:"Low stock",preOrder:"Pre-order",unknown:"Stock not confirmed",outOfStock:"Out of stock"},K={inStock:"ok",lowStock:"warn",preOrder:"warn",unknown:"muted",outOfStock:"bad"};function q(e){if(e<90)return"just now";let t=Math.round(e/60);return t<60?`${t} min ago`:`${Math.round(t/60)}h ago`}function z(e){let t=Math.floor((Date.parse(e)-Date.now())/36e5);return t>=24?`${Math.floor(t/24)}d left`:`${t}h left`}function H(){let e=i.query.trim().toLowerCase();return v.filter(t=>i.brand&&t.brand!==i.brand?!1:e?`${t.brand} ${t.name} ${t.concentration}`.toLowerCase().includes(e):!0)}function B(){let e=H();return e.length===0?'<p class="empty-note">Nothing matches that search. Try clearing the brand filter.</p>':`<ul class="listing">
+    ${e.map((t,n)=>{let r=y(I(t));return`<li>
+          <button class="card" data-frag="${t.id}">
+            <span class="card-art">${M(n+1,46)}</span>
+            <span class="card-text">
+              <span class="card-brand">${l(t.brand)}</span>
+              <span class="card-name">${l(t.name)}</span>
+              <span class="card-meta">${t.sizeMl}ml \xB7 ${l(t.concentration)}</span>
+            </span>
+            <span class="card-price">
+              ${r?`<span class="from">from</span><span class="amt">${h(r.deliveredPriceGbp)}</span>`:'<span class="amt none">\u2014</span>'}
+            </span>
+          </button>
+        </li>`}).join("")}
+  </ul>`}function C(e,t){let n=e.discount,r=[];return r.push(e.delivery.isFree?"Free delivery":`+ ${h(e.delivery.costGbp)} delivery`),e.delivery.spendMoreForFreeGbp!==null&&r.push(`${h(e.delivery.spendMoreForFreeGbp)} more for free`),`<li class="offer ${t?"best":""} ${e.isPurchasable?"":"gone"}">
+    <a class="offer-link" href="${l(e.outboundUrl)}" rel="nofollow noopener" target="_blank">
+      <span class="offer-top">
+        <span class="shop">${l(e.retailer.name)}</span>
+        <span class="price">
+          ${n?`<span class="was">${h(n.wasPrice)}</span>`:""}
+          <span class="now ${n?"sale":""}">${h(e.deliveredPriceGbp)}</span>
+        </span>
+      </span>
+      <span class="offer-bot">
+        <span class="facts">
+          <span class="dot ${K[e.stock]}"></span>${U[e.stock]}
+          <span class="sep">\xB7</span>${l(r.join(" \xB7 "))}
+        </span>
+        ${n?`<span class="off">${n.percentOff}% off</span>`:""}
+      </span>
+      ${n&&$(n)?`<span class="offer-bot"><span class="ends">Offer ${l(z(n.endsAt))}</span></span>`:""}
+    </a>
+  </li>`}function J(){let e=v.find(s=>s.id===i.fragranceId);if(!e)return B();let t=v.indexOf(e)+1,n=I(e),r=y(n),o=n.filter(s=>s.isPurchasable),b=n.filter(s=>!s.isPurchasable),k=n.length?Math.min(...n.map(s=>s.ageSeconds)):0;return`
+    <button class="back" data-back>\u2190 All fragrances</button>
 
-    <p class="scenario"><span class="scenario-label">What this case shows</span>${s(e.note)}</p>
+    <div class="hero">
+      ${M(t,108)}
+      <p class="hero-brand">${l(e.brand)}</p>
+      <h2 class="hero-name">${l(e.name)}</h2>
+      <p class="hero-meta">${l(e.concentration)} \xB7 ${e.sizeMl}ml</p>
+      ${r?`<p class="hero-price">${h(r.deliveredPriceGbp)}<span class="hero-at">delivered, at ${l(r.retailer.name)}</span></p>`:'<p class="hero-price none">Not available<span class="hero-at">every shop is out of stock</span></p>'}
+    </div>
 
-    ${N(i,a)}
+    <div class="results-head">
+      <span>${o.length} ${o.length===1?"shop":"shops"}</span>
+      <span class="dim">price incl. delivery \xB7 checked ${l(q(k))}</span>
+    </div>
 
-    ${n.length>0?`<div class="group-break">
-             <span>Out of stock</span>
-             <span class="dim">shown last, never headlined</span>
-           </div>
-           ${N(n,null)}`:""}
+    <ul class="offers">${o.map(s=>C(s,s===r)).join("")}</ul>
 
-    ${p>0?`<p class="footnote">${p} listing${p===1?"":"s"} withheld \u2014
-           ${o.applyTierFilter?`retailers that do not stock the ${s(e.tier)} tier are not queried`:"filtered out"}.</p>`:""}`}function j(){let e=o.query.trim().toLowerCase(),t=e?k.filter(i=>`${i.brand} ${i.name} ${i.concentration}`.toLowerCase().includes(e)):k;return t.length===0?`<li class="no-match">No demo fragrance matches \u201C${s(o.query)}\u201D.</li>`:t.map(i=>`
-      <li>
-        <button class="frag-btn ${i.id===o.fragranceId?"active":""}" data-frag="${i.id}">
-          <span class="fb-brand">${s(i.brand)}</span>
-          <span class="fb-name">${s(i.name)}</span>
-          <span class="fb-meta">${i.sizeMl}ml \xB7 ${s(i.tier)}</span>
-        </button>
-      </li>`).join("")}function Z(){let e=T(),t=m.filter(i=>i.shipping.confidence==="unverified");return`
-    <section class="panel">
-      <h3>Affiliate <span class="count">${e.length}/${m.length} outstanding</span></h3>
-      <p class="panel-note">
-        No programme is live, so every \u201CView\u201D link above is the plain retailer URL \u2014
-        functional, unmonetised. Filling in a publisher ID switches it over with no
-        other change.
-      </p>
-      <ul class="mini">
-        ${e.slice(0,4).map(i=>`<li>
-              <span class="mini-name">${s(i.retailerName)}</span>
-              <span class="pill ${i.networkVerified?"warn":"muted"}">${s(i.network??"network unknown")}</span>
-            </li>`).join("")}
-        <li class="dim">\u2026and ${e.length-4} more \u2014 <code>npm run affiliate:status</code></li>
-      </ul>
-    </section>
-
-    <section class="panel">
-      <h3>Shipping data <span class="count bad-count">${t.length} unverified</span></h3>
-      <p class="panel-note">
-        Delivery rules were sourced from search, not read off each retailer's own
-        page. A stale threshold produces a wrong delivered price \u2014 invisible to the
-        user and authoritative-looking, which is the worst kind of error this app
-        can make. Selfridges is the worst case: sources disagree on whether free
-        delivery starts at \xA3100 or \xA3150.
-      </p>
-    </section>
-
-    <section class="panel">
-      <h3>TikTok Shop <span class="pill muted">beta \xB7 off</span></h3>
-      <p class="panel-note">
-        Kill switch is <code>enabled: ${String(g.enabled)}</code>, and the
-        curated seller list is empty \u2014 ${S().length} sellers render.
-        Untrusted sellers are excluded outright rather than badged: a warning label
-        still gives a counterfeit a shelf next to genuine stock.
-      </p>
-    </section>`}function D(){u("#results").innerHTML=X(),u("#frag-list").innerHTML=j(),u("#sort-delivered").checked=o.sortBy==="delivered",u("#sort-item").checked=o.sortBy==="item",u("#hide-oos").checked=o.hideOutOfStock,u("#tier-filter").checked=o.applyTierFilter}function _(){u("#ops").innerHTML=Z(),u("#search").addEventListener("input",e=>{o.query=e.target.value,u("#frag-list").innerHTML=j()}),u("#frag-list").addEventListener("click",e=>{let t=e.target.closest("[data-frag]");t&&(o.fragranceId=t.getAttribute("data-frag"),D())}),u("#controls").addEventListener("change",e=>{let t=e.target;t.name==="sort"&&(o.sortBy=t.value),t.id==="hide-oos"&&(o.hideOutOfStock=t.checked),t.id==="tier-filter"&&(o.applyTierFilter=t.checked),D()}),D()}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",_):_();})();
+    ${b.length?`<p class="gone-head">Out of stock</p>
+           <ul class="offers">${b.map(s=>C(s,!1)).join("")}</ul>`:""}`}function Y(){return i.brandSheetOpen?`
+    <div class="sheet-back" data-close-sheet></div>
+    <div class="sheet" role="dialog" aria-label="Filter by brand">
+      <p class="sheet-title">Filter by brand</p>
+      <button class="brand-opt ${i.brand===null?"on":""}" data-brand="">All brands</button>
+      ${_.map(e=>`<button class="brand-opt ${i.brand===e?"on":""}" data-brand="${l(e)}">${l(e)}</button>`).join("")}
+    </div>`:""}function p(){m("#view").innerHTML=i.view==="home"?B():J(),m("#sheet-host").innerHTML=Y();let e=m("#brand-chip");e.innerHTML=i.brand?`<button class="chip" data-clear-brand>${l(i.brand)} <span aria-hidden="true">\xD7</span><span class="sr">clear brand filter</span></button>`:"",m("#nav-home").classList.toggle("on",i.view==="home"),m("#nav-brand").classList.toggle("on",i.brandSheetOpen)}function R(){m("#search").addEventListener("input",e=>{i.query=e.target.value,i.view!=="home"&&(i.view="home"),p()}),m("#nav-home").addEventListener("click",()=>{i.view="home",i.brandSheetOpen=!1,p(),window.scrollTo({top:0})}),m("#nav-brand").addEventListener("click",()=>{i.brandSheetOpen=!i.brandSheetOpen,p()}),document.addEventListener("click",e=>{let t=e.target,n=t.closest("[data-frag]");if(n){i.fragranceId=n.getAttribute("data-frag"),i.view="detail",p(),window.scrollTo({top:0});return}let r=t.closest("[data-brand]");if(r){let o=r.getAttribute("data-brand");i.brand=o===""?null:o,i.brandSheetOpen=!1,i.view="home",p();return}if(t.closest("[data-back]")){i.view="home",p(),window.scrollTo({top:0});return}if(t.closest("[data-clear-brand]")){i.brand=null,p();return}t.closest("[data-close-sheet]")&&(i.brandSheetOpen=!1,p())}),document.addEventListener("keydown",e=>{e.key==="Escape"&&i.brandSheetOpen&&(i.brandSheetOpen=!1,p())}),p()}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",R):R();})();
 </script>
 
 </html>

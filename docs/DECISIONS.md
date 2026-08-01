@@ -77,13 +77,20 @@ Superdrug is the concrete case: £20 free-delivery threshold for cardholders,
 
 ## D5 — `unknown` stock is not `outOfStock`
 
-**Decided.** Sort ranking is `inStock` → `lowStock` → `preOrder` → `unknown` →
-`outOfStock`.
+**Decided.** Three sort tiers only: `inStock`/`lowStock`/`preOrder` share the
+top tier, then `unknown`, then `outOfStock`.
 
 A page we failed to parse is not evidence a product is unavailable. Demoting it
-to the bottom would misrepresent the retailer; promoting it to the top would
-misrepresent availability. It sits between, above only the explicit
-out-of-stock signal.
+to the bottom would misrepresent the retailer; letting it compete on price would
+overstate what we know. It sits between, above only the explicit out-of-stock
+signal.
+
+**Revised 2026-08-01.** The first version gave `lowStock` its own tier below
+`inStock`. That buried a cheaper low-stock listing beneath a dearer in-stock one
+— the demo surfaced John Lewis at £108 above Boots at £105, which reads as a
+broken table. Low stock is still stock, so every positive availability signal
+now shares one tier and price decides between them. Only an explicit
+out-of-stock signal reaches the bottom, which is also what the brief asked for.
 
 Only `outOfStock` sets `isPurchasable: false`, and `bestOffer()` never returns an
 unbuyable row however cheap it is.
