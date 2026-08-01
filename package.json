@@ -17,7 +17,8 @@
     "catalogue": "tsx scripts/catalogue-run.ts",
     "catalogue:fixtures": "tsx scripts/catalogue-fixtures.ts",
     "catalogue:demo": "tsx scripts/build-demo-catalogue.ts",
-    "probe": "tsx scripts/catalogue-probe.ts"
+    "probe": "tsx scripts/catalogue-probe.ts",
+    "harvest": "tsx scripts/catalogue-harvest.ts"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",

@@ -2,7 +2,9 @@ import type { Retailer } from '../types/retailer.js';
 import type { RawListing } from './types.js';
 import type { AttemptResult, StrategyId } from './strategy.js';
 import { parseListings } from './jsonld.js';
-import { isAllowed, parseRobots, EMPTY_ROBOTS, type RobotsRules } from './robots.js';
+import {
+  isAllowed, parseRobots, UNREACHABLE_ROBOTS, NO_RESTRICTIONS, type RobotsRules,
+} from './robots.js';
 
 /**
  * Runs one retrieval strategy against one shop and reports what happened.
@@ -65,10 +67,16 @@ export interface Attempt {
 export async function loadRobots(retailer: Retailer, http: Http): Promise<RobotsRules> {
   try {
     const res = await http(`https://www.${retailer.domain}/robots.txt`, BOT_HEADERS);
-    if (!res.ok || !res.body) return EMPTY_ROBOTS;
-    return parseRobots(res.body, 'scentdaybot');
+
+    if (res.ok && res.body) return parseRobots(res.body, 'scentdaybot');
+
+    // 4xx means no file, or the bot wall answered instead of the file. Either
+    // way the shop has published no restrictions, so we are not forbidden.
+    // 5xx and network failures mean hold off until it recovers.
+    if (res.status >= 400 && res.status < 500) return NO_RESTRICTIONS;
+    return UNREACHABLE_ROBOTS;
   } catch {
-    return EMPTY_ROBOTS;
+    return UNREACHABLE_ROBOTS;
   }
 }
 
@@ -84,10 +92,12 @@ async function fetchAndParse(
         ok: false,
         status: null,
         listings: 0,
-        error: 'disallowed by robots.txt',
-        ruleOut: ctx.robots.unavailable
-          ? 'robots.txt unreadable, so we cannot establish permission'
-          : 'robots.txt disallows this path',
+        error: ctx.robots.unavailable
+          ? 'robots.txt unreachable, holding off until the server recovers'
+          : 'disallowed by robots.txt',
+        // Only an actual Disallow rule is permanent. A server that was briefly
+        // unwell must not disable a shop forever.
+        ...(ctx.robots.unavailable ? {} : { ruleOut: 'robots.txt disallows this path' }),
       },
       listings: [],
     };
