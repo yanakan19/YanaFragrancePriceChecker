@@ -365,7 +365,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> =
 };
 
 /** When the crawl that produced this data ran. */
-export const CRAWLED_AT = "2026-08-01T16:22:18.432Z";
+export const CRAWLED_AT = "2026-08-01T16:21:41.463Z";
 
 /** Offers for one fragrance, in the shape the comparison core expects. */
 export function offersFor(fragranceId: string): RawOffer[] {
