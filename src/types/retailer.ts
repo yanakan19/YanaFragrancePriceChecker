@@ -152,6 +152,15 @@ export interface CatalogueSection {
 }
 
 export interface CatalogueConfig {
+  /**
+   * The shop's own search URL, with `{q}` for the URL encoded query.
+   *
+   * A working fallback for any listing whose product URL we do not have or
+   * cannot trust. Landing someone on a shop's search results for the exact
+   * product name always works, whereas a guessed product URL is a 404 and looks
+   * broken. Marked unverified until each one is opened in a browser.
+   */
+  searchUrlTemplate: string;
   sections: CatalogueSection[];
   /** Page number the retailer's pagination starts at. Usually 1, sometimes 0. */
   firstPage: number;

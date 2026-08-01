@@ -74,6 +74,7 @@ export const RETAILERS: readonly Retailer[] = [
       confidence: 'unverified',
     },
     catalogue: {
+      searchUrlTemplate: 'https://www.allbeauty.com/uk/search?q={q}',
       sections: [
         { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.allbeauty.com/uk/fragrance?page={page}', tier: 'designer' },
       ],
@@ -101,6 +102,7 @@ export const RETAILERS: readonly Retailer[] = [
       notes: 'Free next-day (RM24 Tracked) over £80; standard free tier is RM48 Tracked.',
     },
     catalogue: {
+      searchUrlTemplate: 'https://www.justmylook.com/search?q={q}',
       sections: [
         { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.justmylook.com/collections/fragrance?page={page}', tier: 'designer' },
       ],
@@ -135,6 +137,7 @@ export const RETAILERS: readonly Retailer[] = [
         'or promotional, not spend-based — model it per offer, not per retailer.',
     },
     catalogue: {
+      searchUrlTemplate: 'https://www.notino.co.uk/search.asp?exps={q}',
       sections: [
         { id: 'womens', label: "Women's perfume", urlTemplate: 'https://www.notino.co.uk/perfumes-for-women/?f=page-{page}', tier: 'designer' },
         { id: 'mens', label: "Men's perfume", urlTemplate: 'https://www.notino.co.uk/perfumes-for-men/?f=page-{page}', tier: 'designer' },
@@ -166,6 +169,7 @@ export const RETAILERS: readonly Retailer[] = [
       notes: 'Click & Collect £1.50, free over £15. Cloudflare-fronted — expect a hard scrape.',
     },
     catalogue: {
+      searchUrlTemplate: 'https://www.boots.com/sitesearch?searchTerm={q}',
       sections: [
         { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.boots.com/fragrance?pageNo={page}', tier: 'designer' },
       ],
@@ -198,6 +202,7 @@ export const RETAILERS: readonly Retailer[] = [
       confidence: 'unverified',
     },
     catalogue: {
+      searchUrlTemplate: 'https://www.thefragranceshop.co.uk/search?q={q}',
       sections: [
         { id: 'womens', label: "Women's fragrance", urlTemplate: 'https://www.thefragranceshop.co.uk/womens-fragrance?page={page}', tier: 'designer' },
         { id: 'mens', label: "Men's fragrance", urlTemplate: 'https://www.thefragranceshop.co.uk/mens-fragrance?page={page}', tier: 'designer' },
@@ -232,6 +237,7 @@ export const RETAILERS: readonly Retailer[] = [
       notes: 'Click & Collect is free at any basket value.',
     },
     catalogue: {
+      searchUrlTemplate: 'https://www.theperfumeshop.com/search?q={q}',
       sections: [
         { id: 'womens', label: "Women's perfume", urlTemplate: 'https://www.theperfumeshop.com/womens/c/womens?page={page}', tier: 'designer' },
         { id: 'mens', label: "Men's aftershave", urlTemplate: 'https://www.theperfumeshop.com/mens/c/mens?page={page}', tier: 'designer' },
@@ -260,6 +266,7 @@ export const RETAILERS: readonly Retailer[] = [
       notes: 'Cloudflare-fronted — pair with Boots as the hard-site benchmark in Phase 0.',
     },
     catalogue: {
+      searchUrlTemplate: 'https://www.johnlewis.com/search?search-term={q}',
       sections: [
         { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.johnlewis.com/beauty/fragrance/c/e15006?page={page}', tier: 'designer' },
       ],
@@ -291,6 +298,7 @@ export const RETAILERS: readonly Retailer[] = [
       notes: 'Up to 48h order processing before dispatch — the day window excludes that.',
     },
     catalogue: {
+      searchUrlTemplate: 'https://www.beautybase.com/search?q={q}',
       sections: [
         { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.beautybase.com/fragrance-c1?page={page}', tier: 'designer' },
       ],
@@ -321,6 +329,7 @@ export const RETAILERS: readonly Retailer[] = [
       confidence: 'unverified',
     },
     catalogue: {
+      searchUrlTemplate: 'https://www.lookfantastic.com/elysium.search?search={q}',
       sections: [
         { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.lookfantastic.com/fragrance.list?pageNumber={page}', tier: 'designer' },
       ],
@@ -356,6 +365,7 @@ export const RETAILERS: readonly Retailer[] = [
       notes: 'Order & Collect is free at any basket value.',
     },
     catalogue: {
+      searchUrlTemplate: 'https://www.superdrug.com/search?text={q}',
       sections: [
         { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.superdrug.com/fragrance/c/fragrance?page={page}', tier: 'designer' },
       ],
@@ -403,6 +413,7 @@ export const RETAILERS: readonly Retailer[] = [
         'trusting the delivered price for this retailer.',
     },
     catalogue: {
+      searchUrlTemplate: 'https://www.selfridges.com/GB/en/search/?freeText={q}',
       sections: [
         { id: 'fragrance', label: 'Beauty fragrance', urlTemplate: 'https://www.selfridges.com/GB/en/cat/beauty/fragrance/?pn={page}', tier: 'niche' },
       ],
@@ -436,6 +447,7 @@ export const RETAILERS: readonly Retailer[] = [
         'always carry delivery in the delivered-price sort.',
     },
     catalogue: {
+      searchUrlTemplate: 'https://www.harveynichols.com/search/?q={q}',
       sections: [
         { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.harveynichols.com/beauty/fragrance/?page={page}', tier: 'niche' },
       ],

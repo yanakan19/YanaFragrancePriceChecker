@@ -23,6 +23,107 @@ export interface CrawledOffer {
 
 export const CRAWLED: Record<string, CrawledOffer[]> =
 {
+  "sauvage-edp-100": [
+    {
+      "retailerId": "allbeauty",
+      "price": 24.4,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.allbeauty.com/uk/search?q=Dior%20Sauvage%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "boots",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.boots.com/sitesearch?searchTerm=Dior%20Sauvage%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "john-lewis",
+      "price": 22.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.johnlewis.com/search?search-term=Dior%20Sauvage%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 25.15,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/search?q=Dior%20Sauvage%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "lookfantastic",
+      "price": 26,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/elysium.search?search=Dior%20Sauvage%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "notino-uk",
+      "price": 23.9,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.notino.co.uk/search.asp?exps=Dior%20Sauvage%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "superdrug",
+      "price": 25.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.superdrug.com/search?text=Dior%20Sauvage%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "the-fragrance-shop",
+      "price": 26.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.thefragranceshop.co.uk/search?q=Dior%20Sauvage%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "the-perfume-shop",
+      "price": 27.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.theperfumeshop.com/search?q=Dior%20Sauvage%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    }
+  ],
   "bleu-edp-100": [
     {
       "retailerId": "allbeauty",
@@ -30,8 +131,19 @@ export const CRAWLED: Record<string, CrawledOffer[]> =
       "wasPrice": 99,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://allbeauty.com/p/ab-bleu-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.allbeauty.com/uk/search?q=Chanel%20Bleu%20de%20Chanel%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "beautybase",
+      "price": 96.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/search?q=Chanel%20Bleu%20de%20Chanel%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     },
@@ -41,19 +153,41 @@ export const CRAWLED: Record<string, CrawledOffer[]> =
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://boots.com/p/10255901",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.boots.com/sitesearch?searchTerm=Chanel%20Bleu%20de%20Chanel%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     },
     {
-      "retailerId": "notino-uk",
-      "price": 99.99,
+      "retailerId": "john-lewis",
+      "price": 108,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://notino.co.uk/p/ntn-bleu-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.johnlewis.com/search?search-term=Chanel%20Bleu%20de%20Chanel%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 94,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/search?q=Chanel%20Bleu%20de%20Chanel%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "selfridges",
+      "price": 112,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.selfridges.com/GB/en/search/?freeText=Chanel%20Bleu%20de%20Chanel%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     },
@@ -61,10 +195,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> =
       "retailerId": "the-fragrance-shop",
       "price": 88.4,
       "wasPrice": 110,
-      "promoEndsAt": "2026-08-04T06:21:28.909Z",
+      "promoEndsAt": "2026-08-04T11:11:08.783Z",
       "stock": "inStock",
-      "url": "https://thefragranceshop.co.uk/p/tfs-bleu-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.thefragranceshop.co.uk/search?q=Chanel%20Bleu%20de%20Chanel%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "the-perfume-shop",
+      "price": 99.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.theperfumeshop.com/search?q=Chanel%20Bleu%20de%20Chanel%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     }
@@ -76,8 +221,41 @@ export const CRAWLED: Record<string, CrawledOffer[]> =
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://allbeauty.com/p/ab-aventus-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.allbeauty.com/uk/search?q=Creed%20Aventus%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "beautybase",
+      "price": 289,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/search?q=Creed%20Aventus%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "harvey-nichols",
+      "price": 330,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.harveynichols.com/search/?q=Creed%20Aventus%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 279,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/search?q=Creed%20Aventus%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     },
@@ -87,8 +265,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> =
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://notino.co.uk/p/ntn-aventus-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.notino.co.uk/search.asp?exps=Creed%20Aventus%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     },
@@ -98,78 +276,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> =
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://selfridges.com/p/sf-aventus-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
-      "firstSeenAt": "2026-07-31T06:00:00.000Z",
-      "isNew": false
-    }
-  ],
-  "acqua-profumo-75": [
-    {
-      "retailerId": "allbeauty",
-      "price": 71.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/p/ab-acqua-75",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
-      "firstSeenAt": "2026-07-31T06:00:00.000Z",
-      "isNew": false
-    },
-    {
-      "retailerId": "boots",
-      "price": 82,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://boots.com/p/10233190",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
-      "firstSeenAt": "2026-07-31T06:00:00.000Z",
-      "isNew": false
-    },
-    {
-      "retailerId": "notino-uk",
-      "price": 69.9,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://notino.co.uk/p/ntn-acqua-75",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
-      "firstSeenAt": "2026-07-31T06:00:00.000Z",
-      "isNew": false
-    }
-  ],
-  "khamrah-100": [
-    {
-      "retailerId": "allbeauty",
-      "price": 23.45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/p/ab-khamrah-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
-      "firstSeenAt": "2026-07-31T06:00:00.000Z",
-      "isNew": false
-    },
-    {
-      "retailerId": "notino-uk",
-      "price": 21.9,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://notino.co.uk/p/ntn-khamrah-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
-      "firstSeenAt": "2026-07-31T06:00:00.000Z",
-      "isNew": false
-    },
-    {
-      "retailerId": "the-fragrance-shop",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://thefragranceshop.co.uk/p/tfs-khamrah-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.selfridges.com/GB/en/search/?freeText=Creed%20Aventus%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     }
@@ -181,10 +289,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> =
       "wasPrice": 255,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://allbeauty.com/p/ab-baccarat-70",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
-      "firstSeenAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.allbeauty.com/uk/search?q=Maison%20Francis%20Kurkdjian%20Baccarat%20Rouge%20540%20Eau%20de%20Parfum%2070ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-08-01T21:11:31.701Z",
       "isNew": true
+    },
+    {
+      "retailerId": "beautybase",
+      "price": 228,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/search?q=Maison%20Francis%20Kurkdjian%20Baccarat%20Rouge%20540%20Eau%20de%20Parfum%2070ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "harvey-nichols",
+      "price": 240,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.harveynichols.com/search/?q=Maison%20Francis%20Kurkdjian%20Baccarat%20Rouge%20540%20Eau%20de%20Parfum%2070ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
     },
     {
       "retailerId": "notino-uk",
@@ -192,9 +322,9 @@ export const CRAWLED: Record<string, CrawledOffer[]> =
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://notino.co.uk/p/ntn-baccarat-70",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
-      "firstSeenAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.notino.co.uk/search.asp?exps=Maison%20Francis%20Kurkdjian%20Baccarat%20Rouge%20540%20Eau%20de%20Parfum%2070ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-08-01T21:11:31.701Z",
       "isNew": true
     },
     {
@@ -203,43 +333,429 @@ export const CRAWLED: Record<string, CrawledOffer[]> =
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://selfridges.com/p/sf-baccarat-70",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.selfridges.com/GB/en/search/?freeText=Maison%20Francis%20Kurkdjian%20Baccarat%20Rouge%20540%20Eau%20de%20Parfum%2070ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     }
   ],
-  "sauvage-edp-100": [
+  "eros-edt-100": [
     {
-      "retailerId": "boots",
-      "price": 24.99,
+      "retailerId": "allbeauty",
+      "price": 46.8,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://boots.com/p/10255432",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.allbeauty.com/uk/search?q=Versace%20Eros%20Eau%20de%20Toilette%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "boots",
+      "price": 55,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.boots.com/sitesearch?searchTerm=Versace%20Eros%20Eau%20de%20Toilette%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-08-01T21:11:31.701Z",
+      "isNew": true
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 47.25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/search?q=Versace%20Eros%20Eau%20de%20Toilette%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "lookfantastic",
+      "price": 51,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/elysium.search?search=Versace%20Eros%20Eau%20de%20Toilette%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     },
     {
       "retailerId": "notino-uk",
-      "price": 23.9,
+      "price": 44.9,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://notino.co.uk/p/ntn-sauvage-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.notino.co.uk/search.asp?exps=Versace%20Eros%20Eau%20de%20Toilette%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-08-01T21:11:31.701Z",
+      "isNew": true
+    },
+    {
+      "retailerId": "superdrug",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.superdrug.com/search?text=Versace%20Eros%20Eau%20de%20Toilette%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-08-01T21:11:31.701Z",
+      "isNew": true
+    },
+    {
+      "retailerId": "the-fragrance-shop",
+      "price": 42.5,
+      "wasPrice": 78,
+      "promoEndsAt": "2026-08-02T16:11:08.783Z",
+      "stock": "inStock",
+      "url": "https://www.thefragranceshop.co.uk/search?q=Versace%20Eros%20Eau%20de%20Toilette%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "the-perfume-shop",
+      "price": 58,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.theperfumeshop.com/search?q=Versace%20Eros%20Eau%20de%20Toilette%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    }
+  ],
+  "acqua-profumo-75": [
+    {
+      "retailerId": "allbeauty",
+      "price": 71.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.allbeauty.com/uk/search?q=Giorgio%20Armani%20Acqua%20di%20Gio%20Profumo%20Parfum%2075ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "beautybase",
+      "price": 76.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/search?q=Giorgio%20Armani%20Acqua%20di%20Gio%20Profumo%20Parfum%2075ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "boots",
+      "price": 82,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.boots.com/sitesearch?searchTerm=Giorgio%20Armani%20Acqua%20di%20Gio%20Profumo%20Parfum%2075ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "john-lewis",
+      "price": 78,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.johnlewis.com/search?search-term=Giorgio%20Armani%20Acqua%20di%20Gio%20Profumo%20Parfum%2075ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "lookfantastic",
+      "price": 74,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/elysium.search?search=Giorgio%20Armani%20Acqua%20di%20Gio%20Profumo%20Parfum%2075ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "notino-uk",
+      "price": 69.9,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.notino.co.uk/search.asp?exps=Giorgio%20Armani%20Acqua%20di%20Gio%20Profumo%20Parfum%2075ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    }
+  ],
+  "khamrah-100": [
+    {
+      "retailerId": "allbeauty",
+      "price": 23.45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.allbeauty.com/uk/search?q=Lattafa%20Khamrah%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "notino-uk",
+      "price": 21.9,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.notino.co.uk/search.asp?exps=Lattafa%20Khamrah%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "the-fragrance-shop",
+      "price": 24.99,
+      "wasPrice": 32,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.thefragranceshop.co.uk/search?q=Lattafa%20Khamrah%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    }
+  ],
+  "lavieestbelle-100": [
+    {
+      "retailerId": "allbeauty",
+      "price": 76.2,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.allbeauty.com/uk/search?q=Lancome%20La%20Vie%20Est%20Belle%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "boots",
+      "price": 82,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.boots.com/sitesearch?searchTerm=Lancome%20La%20Vie%20Est%20Belle%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "john-lewis",
+      "price": 88,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.johnlewis.com/search?search-term=Lancome%20La%20Vie%20Est%20Belle%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 78.9,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/search?q=Lancome%20La%20Vie%20Est%20Belle%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "lookfantastic",
+      "price": 77.5,
+      "wasPrice": 96,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/elysium.search?search=Lancome%20La%20Vie%20Est%20Belle%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "notino-uk",
+      "price": 74.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.notino.co.uk/search.asp?exps=Lancome%20La%20Vie%20Est%20Belle%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     },
     {
       "retailerId": "superdrug",
-      "price": 25.5,
+      "price": 79.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://superdrug.com/p/sd-sauvage-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.superdrug.com/search?text=Lancome%20La%20Vie%20Est%20Belle%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "the-perfume-shop",
+      "price": 85,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.theperfumeshop.com/search?q=Lancome%20La%20Vie%20Est%20Belle%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    }
+  ],
+  "libre-edp-90": [
+    {
+      "retailerId": "beautybase",
+      "price": 43,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/search?q=Yves%20Saint%20Laurent%20Libre%20Eau%20de%20Parfum%2090ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "boots",
+      "price": 78,
+      "wasPrice": 92,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.boots.com/sitesearch?searchTerm=Yves%20Saint%20Laurent%20Libre%20Eau%20de%20Parfum%2090ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "john-lewis",
+      "price": 46.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.johnlewis.com/search?search-term=Yves%20Saint%20Laurent%20Libre%20Eau%20de%20Parfum%2090ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "lookfantastic",
+      "price": 24.4,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/elysium.search?search=Yves%20Saint%20Laurent%20Libre%20Eau%20de%20Parfum%2090ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "superdrug",
+      "price": 23.75,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.superdrug.com/search?text=Yves%20Saint%20Laurent%20Libre%20Eau%20de%20Parfum%2090ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "the-perfume-shop",
+      "price": 82,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.theperfumeshop.com/search?q=Yves%20Saint%20Laurent%20Libre%20Eau%20de%20Parfum%2090ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    }
+  ],
+  "wood-sage-100": [
+    {
+      "retailerId": "beautybase",
+      "price": 99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/search?q=Jo%20Malone%20London%20Wood%20Sage%20%26%20Sea%20Salt%20Cologne%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "lookfantastic",
+      "price": 105,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.lookfantastic.com/elysium.search?search=Jo%20Malone%20London%20Wood%20Sage%20%26%20Sea%20Salt%20Cologne%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "selfridges",
+      "price": 112,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.selfridges.com/GB/en/search/?freeText=Jo%20Malone%20London%20Wood%20Sage%20%26%20Sea%20Salt%20Cologne%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    }
+  ],
+  "erbapura-100": [
+    {
+      "retailerId": "beautybase",
+      "price": 218,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/search?q=Xerjoff%20Erba%20Pura%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "harvey-nichols",
+      "price": 235,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.harveynichols.com/search/?q=Xerjoff%20Erba%20Pura%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "selfridges",
+      "price": 240,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.selfridges.com/GB/en/search/?freeText=Xerjoff%20Erba%20Pura%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     }
@@ -251,8 +767,41 @@ export const CRAWLED: Record<string, CrawledOffer[]> =
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://boots.com/p/10261188",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.boots.com/sitesearch?searchTerm=Paco%20Rabanne%201%20Million%20Eau%20de%20Toilette%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "john-lewis",
+      "price": 66,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.johnlewis.com/search?search-term=Paco%20Rabanne%201%20Million%20Eau%20de%20Toilette%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 60.4,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/search?q=Paco%20Rabanne%201%20Million%20Eau%20de%20Toilette%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "lookfantastic",
+      "price": 57.5,
+      "wasPrice": 72,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/elysium.search?search=Paco%20Rabanne%201%20Million%20Eau%20de%20Toilette%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     },
@@ -262,8 +811,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> =
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://superdrug.com/p/sd-million-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.superdrug.com/search?text=Paco%20Rabanne%201%20Million%20Eau%20de%20Toilette%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     },
@@ -273,91 +822,181 @@ export const CRAWLED: Record<string, CrawledOffer[]> =
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
-      "url": "https://thefragranceshop.co.uk/p/tfs-million-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
-      "firstSeenAt": "2026-07-31T06:00:00.000Z",
-      "isNew": false
-    }
-  ],
-  "libre-edp-90": [
-    {
-      "retailerId": "boots",
-      "price": 78,
-      "wasPrice": 92,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://boots.com/p/10277431",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.thefragranceshop.co.uk/search?q=Paco%20Rabanne%201%20Million%20Eau%20de%20Toilette%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     },
     {
-      "retailerId": "superdrug",
-      "price": 23.75,
+      "retailerId": "the-perfume-shop",
+      "price": 64,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://superdrug.com/p/sd-libre-90",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.theperfumeshop.com/search?q=Paco%20Rabanne%201%20Million%20Eau%20de%20Toilette%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     }
   ],
-  "eros-edt-100": [
+  "oudwood-50": [
     {
       "retailerId": "boots",
-      "price": 55,
+      "price": 205,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://boots.com/p/10299874",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
-      "firstSeenAt": "2026-08-01T16:21:41.463Z",
-      "isNew": true
+      "url": "https://www.boots.com/sitesearch?searchTerm=Tom%20Ford%20Oud%20Wood%20Eau%20de%20Parfum%2050ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "harvey-nichols",
+      "price": 210,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.harveynichols.com/search/?q=Tom%20Ford%20Oud%20Wood%20Eau%20de%20Parfum%2050ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "john-lewis",
+      "price": 208,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.johnlewis.com/search?search-term=Tom%20Ford%20Oud%20Wood%20Eau%20de%20Parfum%2050ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "selfridges",
+      "price": 215,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.selfridges.com/GB/en/search/?freeText=Tom%20Ford%20Oud%20Wood%20Eau%20de%20Parfum%2050ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    }
+  ],
+  "blackopium-90": [
+    {
+      "retailerId": "boots",
+      "price": 96,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.boots.com/sitesearch?searchTerm=Yves%20Saint%20Laurent%20Black%20Opium%20Eau%20de%20Parfum%2090ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "john-lewis",
+      "price": 101,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.johnlewis.com/search?search-term=Yves%20Saint%20Laurent%20Black%20Opium%20Eau%20de%20Parfum%2090ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "lookfantastic",
+      "price": 89,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/elysium.search?search=Yves%20Saint%20Laurent%20Black%20Opium%20Eau%20de%20Parfum%2090ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
     },
     {
       "retailerId": "notino-uk",
-      "price": 44.9,
+      "price": 86.9,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://notino.co.uk/p/ntn-eros-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
-      "firstSeenAt": "2026-08-01T16:21:41.463Z",
-      "isNew": true
+      "url": "https://www.notino.co.uk/search.asp?exps=Yves%20Saint%20Laurent%20Black%20Opium%20Eau%20de%20Parfum%2090ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
     },
     {
       "retailerId": "superdrug",
-      "price": 49.99,
+      "price": 92.5,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://superdrug.com/p/sd-eros-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
-      "firstSeenAt": "2026-08-01T16:21:41.463Z",
-      "isNew": true
+      "url": "https://www.superdrug.com/search?text=Yves%20Saint%20Laurent%20Black%20Opium%20Eau%20de%20Parfum%2090ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
     },
     {
       "retailerId": "the-fragrance-shop",
-      "price": 42.5,
-      "wasPrice": 78,
-      "promoEndsAt": "2026-08-02T11:21:28.909Z",
+      "price": 88,
+      "wasPrice": null,
+      "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://thefragranceshop.co.uk/p/tfs-eros-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "url": "https://www.thefragranceshop.co.uk/search?q=Yves%20Saint%20Laurent%20Black%20Opium%20Eau%20de%20Parfum%2090ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-08-01T21:11:31.701Z",
+      "isNew": true
+    },
+    {
+      "retailerId": "the-perfume-shop",
+      "price": 99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.theperfumeshop.com/search?q=Yves%20Saint%20Laurent%20Black%20Opium%20Eau%20de%20Parfum%2090ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     }
   ],
-  "wood-sage-100": [
+  "asad-100": [
     {
-      "retailerId": "selfridges",
-      "price": 112,
+      "retailerId": "notino-uk",
+      "price": 19.9,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://selfridges.com/p/sf-woodsage-100",
-      "fetchedAt": "2026-08-01T16:21:41.463Z",
+      "stock": "inStock",
+      "url": "https://www.notino.co.uk/search.asp?exps=Lattafa%20Asad%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    },
+    {
+      "retailerId": "the-fragrance-shop",
+      "price": 22.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.thefragranceshop.co.uk/search?q=Lattafa%20Asad%20Eau%20de%20Parfum%20100ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
+      "firstSeenAt": "2026-07-31T06:00:00.000Z",
+      "isNew": false
+    }
+  ],
+  "santal33-50": [
+    {
+      "retailerId": "selfridges",
+      "price": 200,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.selfridges.com/GB/en/search/?freeText=Le%20Labo%20Santal%2033%20Eau%20de%20Parfum%2050ml",
+      "fetchedAt": "2026-08-01T21:11:31.701Z",
       "firstSeenAt": "2026-07-31T06:00:00.000Z",
       "isNew": false
     }
@@ -365,7 +1004,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> =
 };
 
 /** When the crawl that produced this data ran. */
-export const CRAWLED_AT = "2026-08-01T16:21:41.463Z";
+export const CRAWLED_AT = "2026-08-01T21:11:31.701Z";
 
 /** Offers for one fragrance, in the shape the comparison core expects. */
 export function offersFor(fragranceId: string): RawOffer[] {
