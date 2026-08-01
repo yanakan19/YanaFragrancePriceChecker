@@ -58,6 +58,8 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.allbeauty.com',
     tiers: ['designer', 'niche', 'mideast'],
     enabled: true,
+    // Live spike 1 Aug 2026: HTTP 200 but no product markup found. Either
+    // the section URL is wrong or the grid is drawn by script.
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -86,6 +88,8 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.justmylook.com',
     tiers: ['designer', 'niche'],
     enabled: true,
+    // Live spike 1 Aug 2026: HTTP 200 but no product markup found. Either
+    // the section URL is wrong or the grid is drawn by script.
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -111,7 +115,10 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.notino.co.uk',
     tiers: ['designer', 'niche', 'mideast'],
     enabled: true,
-    adapter: 'unknown',
+    // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
+    // markup was served. Bot mitigation, not a parsing problem. Needs an
+    // affiliate feed or a managed scraper. See docs/SPIKE-RESULTS.md.
+    adapter: 'headless',
     currency: 'GBP',
     shipping: {
       standardGbp: 2.99,
@@ -143,7 +150,10 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.boots.com',
     tiers: ['designer'],
     enabled: true,
-    adapter: 'unknown',
+    // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
+    // markup was served. Bot mitigation, not a parsing problem. Needs an
+    // affiliate feed or a managed scraper. See docs/SPIKE-RESULTS.md.
+    adapter: 'headless',
     currency: 'GBP',
     shipping: {
       standardGbp: 3.95,
@@ -168,7 +178,10 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.thefragranceshop.co.uk',
     tiers: ['designer', 'mideast'],
     enabled: true,
-    adapter: 'unknown',
+    // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
+    // markup was served. Bot mitigation, not a parsing problem. Needs an
+    // affiliate feed or a managed scraper. See docs/SPIKE-RESULTS.md.
+    adapter: 'headless',
     currency: 'GBP',
     shipping: {
       standardGbp: 3.49,
@@ -197,7 +210,10 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.theperfumeshop.com',
     tiers: ['designer'],
     enabled: true,
-    adapter: 'unknown',
+    // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
+    // markup was served. Bot mitigation, not a parsing problem. Needs an
+    // affiliate feed or a managed scraper. See docs/SPIKE-RESULTS.md.
+    adapter: 'headless',
     currency: 'GBP',
     shipping: {
       standardGbp: 3.5,
@@ -227,6 +243,8 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.johnlewis.com',
     tiers: ['designer'],
     enabled: true,
+    // Live spike 1 Aug 2026: HTTP 404. The section URL below is wrong and
+    // needs correcting before this shop can be judged.
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -256,6 +274,8 @@ export const RETAILERS: readonly Retailer[] = [
     // it to fail — only the obligation to price it honestly.
     tiers: ['designer', 'niche'],
     enabled: true,
+    // Live spike 1 Aug 2026: HTTP 200 but no product markup found. Either
+    // the section URL is wrong or the grid is drawn by script.
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -281,6 +301,8 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.lookfantastic.com',
     tiers: ['designer', 'niche'],
     enabled: true,
+    // Live spike 1 Aug 2026: HTTP 404. The section URL below is wrong and
+    // needs correcting before this shop can be judged.
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -309,7 +331,10 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.superdrug.com',
     tiers: ['designer'],
     enabled: true,
-    adapter: 'unknown',
+    // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
+    // markup was served. Bot mitigation, not a parsing problem. Needs an
+    // affiliate feed or a managed scraper. See docs/SPIKE-RESULTS.md.
+    adapter: 'headless',
     currency: 'GBP',
     shipping: {
       standardGbp: 4.5,
@@ -351,7 +376,10 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.selfridges.com',
     tiers: ['niche'],
     enabled: true,
-    adapter: 'unknown',
+    // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
+    // markup was served. Bot mitigation, not a parsing problem. Needs an
+    // affiliate feed or a managed scraper. See docs/SPIKE-RESULTS.md.
+    adapter: 'headless',
     currency: 'GBP',
     shipping: {
       standardGbp: 6.99,
@@ -383,6 +411,8 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.harveynichols.com',
     tiers: ['niche'],
     enabled: true,
+    // Live spike 1 Aug 2026: HTTP 200 but no product markup found. Either
+    // the section URL is wrong or the grid is drawn by script.
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
