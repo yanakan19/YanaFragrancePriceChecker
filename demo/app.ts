@@ -4,23 +4,22 @@
  * Contains no pricing logic of its own — a thin renderer over the real modules
  * in `src/`, bundled unchanged, so the demo cannot drift from what ships.
  *
- * Two views: a home listing, and a fragrance detail with its results. The
- * offers it renders are invented (see `demo/data.ts`); the page says so.
+ * Views: an introductory home with a popular-fragrance scroller, a fragrance
+ * detail with its results, an all-fragrances listing, and the legal pages.
+ * The offers it renders are invented (see `demo/data.ts`); the page says so.
  */
-import {
-  buildComparison,
-  bestOffer,
-  canShowCountdown,
-  formatGbp,
-} from '../src/index.js';
+import { buildComparison, bestOffer, canShowCountdown, formatGbp } from '../src/index.js';
 import type { PresentedOffer, StockState } from '../src/types/offer.js';
-import { DEMO_FRAGRANCES, type DemoFragrance } from './data.js';
+import { DEMO_FRAGRANCES, BY_POPULARITY, type DemoFragrance } from './data.js';
+import { bottleSvg } from './art.js';
+import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 
-type View = 'home' | 'detail';
+type View = 'home' | 'browse' | 'detail' | 'legal';
 
 const state = {
   view: 'home' as View,
   fragranceId: '',
+  legalId: '',
   brand: null as string | null,
   query: '',
   brandSheetOpen: false,
@@ -35,30 +34,12 @@ const $ = (sel: string) => document.querySelector(sel)!;
 
 const BRANDS = [...new Set(DEMO_FRAGRANCES.map((f) => f.brand))].sort();
 
+/** Top ten by hand-seeded popularity — the scroller's contents. */
+const POPULAR = BY_POPULARITY.slice(0, 10);
+
 function rowsFor(frag: DemoFragrance): PresentedOffer[] {
   return buildComparison(frag.offers, { sortBy: 'delivered', tier: frag.tier });
 }
-
-/* ── generic bottle illustration ─────────────────────────────────────────────
-   A placeholder, not a product photo. Real product imagery needs a licence,
-   which comes with an affiliate feed — scraped images carry no such right — so
-   until the feeds are in place every listing gets the same generic bottle,
-   tinted so the cards stay distinguishable. */
-function bottle(seed: number, size: number): string {
-  const hue = (seed * 47 + 205) % 360;
-  const body = `hsl(${hue} 32% 62%)`;
-  const cap = `hsl(${hue} 28% 38%)`;
-  return `
-    <svg class="bottle" width="${size}" height="${size * 1.32}" viewBox="0 0 100 132"
-         role="img" aria-label="Generic fragrance bottle illustration">
-      <rect x="39" y="4" width="22" height="18" rx="3" fill="${cap}" />
-      <rect x="45" y="21" width="10" height="9" fill="${cap}" opacity=".75" />
-      <rect x="19" y="29" width="62" height="99" rx="11" fill="${body}" />
-      <rect x="31" y="62" width="38" height="33" rx="3" fill="#fff" opacity=".82" />
-    </svg>`;
-}
-
-/* ── formatting ──────────────────────────────────────────────────────────── */
 
 const STOCK_LABEL: Record<StockState, string> = {
   inStock: 'In stock',
@@ -87,31 +68,76 @@ function countdown(iso: string): string {
   return h >= 24 ? `${Math.floor(h / 24)}d left` : `${h}h left`;
 }
 
-/* ── views ───────────────────────────────────────────────────────────────── */
+/* ── home ────────────────────────────────────────────────────────────────── */
+
+const MEDALS = ['gold', 'silver', 'bronze'] as const;
+
+function popularCard(f: DemoFragrance, rank: number): string {
+  const best = bestOffer(rowsFor(f));
+  const medal = rank < 3 ? MEDALS[rank] : null;
+
+  return `<li class="pop-item">
+    <button class="pop" data-frag="${f.id}">
+      <span class="pop-art">
+        ${medal ? `<span class="medal ${medal}" aria-label="Number ${rank + 1} most popular">${rank + 1}</span>` : ''}
+        ${bottleSvg(f.art, 74, `${f.brand} ${f.name} bottle illustration`)}
+      </span>
+      <span class="pop-brand">${esc(f.brand)}</span>
+      <span class="pop-name">${esc(f.name)}</span>
+      <span class="pop-price">${best ? formatGbp(best.deliveredPriceGbp) : 'Unavailable'}</span>
+    </button>
+  </li>`;
+}
+
+function homeView(): string {
+  return `
+    <section class="intro">
+      <h2>Know what it really costs.</h2>
+      <p>ScentDay checks twelve UK fragrance retailers and shows you the price
+      including delivery — so the cheapest bottle on the list is genuinely the
+      cheapest bottle to buy.</p>
+      <ul class="intro-points">
+        <li><span>Delivery included</span> free-delivery thresholds are worked out for you</li>
+        <li><span>Real discounts only</span> the retailer's own was-price, never ours</li>
+        <li><span>Never paid for</span> commission can't move a shop up the list</li>
+      </ul>
+    </section>
+
+    <section class="pop-section">
+      <div class="section-head">
+        <h3>Most popular</h3>
+        <button class="link-btn" data-browse>See all ${DEMO_FRAGRANCES.length}</button>
+      </div>
+      <ul class="pop-rail">
+        ${POPULAR.map((f, i) => popularCard(f, i)).join('')}
+      </ul>
+    </section>`;
+}
+
+/* ── browse ──────────────────────────────────────────────────────────────── */
 
 function visibleFragrances(): DemoFragrance[] {
   const q = state.query.trim().toLowerCase();
-  return DEMO_FRAGRANCES.filter((f) => {
+  return BY_POPULARITY.filter((f) => {
     if (state.brand && f.brand !== state.brand) return false;
     if (!q) return true;
     return `${f.brand} ${f.name} ${f.concentration}`.toLowerCase().includes(q);
   });
 }
 
-function homeView(): string {
+function browseView(): string {
   const list = visibleFragrances();
-
   if (list.length === 0) {
     return `<p class="empty-note">Nothing matches that search. Try clearing the brand filter.</p>`;
   }
 
   return `<ul class="listing">
     ${list
-      .map((f, i) => {
+      .map((f) => {
         const best = bestOffer(rowsFor(f));
         return `<li>
           <button class="card" data-frag="${f.id}">
-            <span class="card-art">${bottle(i + 1, 46)}</span>
+            <span class="card-art">${bottleSvg(f.art, 40, `${f.brand} ${f.name} bottle illustration`)}</span>
             <span class="card-text">
               <span class="card-brand">${esc(f.brand)}</span>
               <span class="card-name">${esc(f.name)}</span>
@@ -131,11 +157,13 @@ function homeView(): string {
   </ul>`;
 }
 
+/* ── detail ──────────────────────────────────────────────────────────────── */
+
 function offerRow(row: PresentedOffer, isBest: boolean): string {
   const d = row.discount;
-  const sub: string[] = [];
-
-  sub.push(row.delivery.isFree ? 'Free delivery' : `+ ${formatGbp(row.delivery.costGbp)} delivery`);
+  const sub: string[] = [
+    row.delivery.isFree ? 'Free delivery' : `+ ${formatGbp(row.delivery.costGbp)} delivery`,
+  ];
   if (row.delivery.spendMoreForFreeGbp !== null) {
     sub.push(`${formatGbp(row.delivery.spendMoreForFreeGbp)} more for free`);
   }
@@ -169,7 +197,6 @@ function detailView(): string {
   const frag = DEMO_FRAGRANCES.find((f) => f.id === state.fragranceId);
   if (!frag) return homeView();
 
-  const idx = DEMO_FRAGRANCES.indexOf(frag) + 1;
   const rows = rowsFor(frag);
   const best = bestOffer(rows);
   const live = rows.filter((r) => r.isPurchasable);
@@ -177,13 +204,14 @@ function detailView(): string {
   const newest = rows.length ? Math.min(...rows.map((r) => r.ageSeconds)) : 0;
 
   return `
-    <button class="back" data-back>← All fragrances</button>
+    <button class="back" data-back>← Back</button>
 
     <div class="hero">
-      ${bottle(idx, 108)}
+      ${bottleSvg(frag.art, 132, `${frag.brand} ${frag.name} bottle illustration`)}
       <p class="hero-brand">${esc(frag.brand)}</p>
       <h2 class="hero-name">${esc(frag.name)}</h2>
       <p class="hero-meta">${esc(frag.concentration)} · ${frag.sizeMl}ml</p>
+      <p class="hero-blurb">${esc(frag.blurb)}</p>
       ${
         best
           ? `<p class="hero-price">${formatGbp(best.deliveredPriceGbp)}<span class="hero-at">delivered, at ${esc(best.retailer.name)}</span></p>`
@@ -206,6 +234,42 @@ function detailView(): string {
     }`;
 }
 
+/* ── legal ───────────────────────────────────────────────────────────────── */
+
+function legalView(): string {
+  const page = legalPage(state.legalId);
+  if (!page) return homeView();
+  return `
+    <button class="back" data-back>← Back</button>
+    <article class="doc">
+      <h2>${esc(page.title)}</h2>
+      ${page.body}
+    </article>`;
+}
+
+/* ── chrome ──────────────────────────────────────────────────────────────── */
+
+function footer(): string {
+  return `
+    <footer class="foot">
+      <p class="foot-mark">Scent<em>Day</em></p>
+      <p class="foot-line">Spotted a wrong price? Tell us — we would rather know.</p>
+      <p class="foot-mail"><a href="mailto:${COMPANY.feedbackEmail}">${COMPANY.feedbackEmail}</a></p>
+      <nav class="foot-links">
+        ${LEGAL_PAGES.map((p) => `<button class="link-btn" data-page="${p.id}">${esc(p.short)}</button>`).join('')}
+      </nav>
+      <p class="foot-legal">
+        ${esc(COMPANY.legalName)} · Company number ${esc(COMPANY.number)}<br />
+        ${esc(COMPANY.address)}
+      </p>
+      <p class="foot-legal">
+        We may earn commission on some links. It never affects the price you pay
+        or the order of results.
+      </p>
+      <p class="foot-legal dimmer">© ${new Date().getFullYear()} ${esc(COMPANY.name)}. Prices are indicative — always check on the retailer's site.</p>
+    </footer>`;
+}
+
 function brandSheet(): string {
   if (!state.brandSheetOpen) return '';
   return `
@@ -221,11 +285,19 @@ function brandSheet(): string {
 }
 
 function render(): void {
-  $('#view').innerHTML = state.view === 'home' ? homeView() : detailView();
+  const view =
+    state.view === 'home'
+      ? homeView()
+      : state.view === 'browse'
+        ? browseView()
+        : state.view === 'detail'
+          ? detailView()
+          : legalView();
+
+  $('#view').innerHTML = view + footer();
   $('#sheet-host').innerHTML = brandSheet();
 
-  const chip = $('#brand-chip') as HTMLElement;
-  chip.innerHTML = state.brand
+  ($('#brand-chip') as HTMLElement).innerHTML = state.brand
     ? `<button class="chip" data-clear-brand>${esc(state.brand)} <span aria-hidden="true">×</span><span class="sr">clear brand filter</span></button>`
     : '';
 
@@ -233,20 +305,27 @@ function render(): void {
   ($('#nav-brand') as HTMLElement).classList.toggle('on', state.brandSheetOpen);
 }
 
+function go(view: View): void {
+  state.view = view;
+  render();
+  window.scrollTo({ top: 0 });
+}
+
 /* ── wiring ──────────────────────────────────────────────────────────────── */
 
 function init(): void {
   $('#search').addEventListener('input', (e) => {
     state.query = (e.target as HTMLInputElement).value;
-    if (state.view !== 'home') state.view = 'home';
+    // Typing is a browse action wherever you are.
+    state.view = 'browse';
     render();
   });
 
   $('#nav-home').addEventListener('click', () => {
-    state.view = 'home';
     state.brandSheetOpen = false;
-    render();
-    window.scrollTo({ top: 0 });
+    state.query = '';
+    ($('#search') as HTMLInputElement).value = '';
+    go('home');
   });
 
   $('#nav-brand').addEventListener('click', () => {
@@ -260,9 +339,19 @@ function init(): void {
     const card = t.closest('[data-frag]');
     if (card) {
       state.fragranceId = card.getAttribute('data-frag')!;
-      state.view = 'detail';
-      render();
-      window.scrollTo({ top: 0 });
+      go('detail');
+      return;
+    }
+
+    const page = t.closest('[data-page]');
+    if (page) {
+      state.legalId = page.getAttribute('data-page')!;
+      go('legal');
+      return;
+    }
+
+    if (t.closest('[data-browse]')) {
+      go('browse');
       return;
     }
 
@@ -271,15 +360,12 @@ function init(): void {
       const b = brandOpt.getAttribute('data-brand')!;
       state.brand = b === '' ? null : b;
       state.brandSheetOpen = false;
-      state.view = 'home';
-      render();
+      go('browse');
       return;
     }
 
     if (t.closest('[data-back]')) {
-      state.view = 'home';
-      render();
-      window.scrollTo({ top: 0 });
+      go(state.query || state.brand ? 'browse' : 'home');
       return;
     }
 
