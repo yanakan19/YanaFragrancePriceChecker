@@ -13,7 +13,10 @@
     "test:watch": "vitest",
     "affiliate:status": "tsx scripts/affiliate-status.ts",
     "shipping:staleness": "tsx scripts/shipping-staleness.ts",
-    "demo": "tsc -p tsconfig.demo.json && esbuild dist-demo/demo/app.js --bundle --format=iife --minify --target=es2020 --outfile=dist-demo/bundle.js && tsx scripts/build-demo.ts"
+    "demo": "tsc -p tsconfig.demo.json && esbuild dist-demo/demo/app.js --bundle --format=iife --minify --target=es2020 --outfile=dist-demo/bundle.js && tsx scripts/build-demo.ts",
+    "catalogue": "tsx scripts/catalogue-run.ts",
+    "catalogue:fixtures": "tsx scripts/catalogue-fixtures.ts",
+    "catalogue:demo": "tsx scripts/build-demo-catalogue.ts"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",

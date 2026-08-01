@@ -125,6 +125,42 @@ export interface ShippingRule {
   notes?: string;
 }
 
+/**
+ * Where a retailer's fragrance catalogue lives, and how to walk it.
+ *
+ * A daily crawl needs to know which pages actually enumerate the fragrance
+ * range. Retailers split it differently: some have one /fragrance tree, some
+ * separate men's and women's, some bury niche houses in a distinct department.
+ * Each entry here is one walkable section.
+ */
+export interface CatalogueSection {
+  /** Stable key for this section, unique within the retailer. */
+  id: string;
+  /** Human label, used in run reports. */
+  label: string;
+  /** Listing page URL. `{page}` is substituted with the page number. */
+  urlTemplate: string;
+  /** Which catalogue segment this section maps to, for matching hints. */
+  tier: RetailerTier;
+}
+
+export interface CatalogueConfig {
+  sections: CatalogueSection[];
+  /** Page number the retailer's pagination starts at. Usually 1, sometimes 0. */
+  firstPage: number;
+  /**
+   * Stop after this many pages per section, however many the retailer claims.
+   * A guard against a pagination bug walking forever.
+   */
+  maxPages: number;
+  /**
+   * Minimum gap between requests to this retailer, in milliseconds. Politeness
+   * is not optional: a daily catalogue walk is thousands of requests, and the
+   * fastest way to get blocked is to arrive all at once.
+   */
+  minRequestGapMs: number;
+}
+
 export interface Retailer {
   /** Stable internal key. Never derive this from the domain — domains change. */
   id: string;
@@ -139,6 +175,11 @@ export interface Retailer {
   adapter: AdapterStrategy;
   shipping: ShippingRule;
   affiliate: AffiliateConfig;
+  /**
+   * Fragrance catalogue entry points. `null` where the section URLs have not
+   * been confirmed yet, which keeps the daily crawl from inventing paths.
+   */
+  catalogue: CatalogueConfig | null;
   /** All registry entries are UK storefronts pricing in sterling. */
   currency: 'GBP';
 }

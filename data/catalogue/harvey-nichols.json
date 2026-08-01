@@ -1,0 +1,35 @@
+{
+  "retailerId": "harvey-nichols",
+  "updatedAt": "2026-08-01T16:21:52.698Z",
+  "listings": [],
+  "runs": [
+    {
+      "runId": "harvey-nichols-2026-08-01T16:21:41.463Z",
+      "retailerId": "harvey-nichols",
+      "startedAt": "2026-08-01T16:21:41.463Z",
+      "finishedAt": "2026-08-01T16:21:52.698Z",
+      "status": "ok",
+      "baseline": true,
+      "pagesFetched": 1,
+      "listingsSeen": 0,
+      "newListings": 0,
+      "delistedListings": 0,
+      "relistedListings": 0,
+      "errors": []
+    },
+    {
+      "runId": "harvey-nichols-2026-07-31T06:00:00.000Z",
+      "retailerId": "harvey-nichols",
+      "startedAt": "2026-07-31T06:00:00.000Z",
+      "finishedAt": "2026-08-01T16:21:40.881Z",
+      "status": "ok",
+      "baseline": true,
+      "pagesFetched": 1,
+      "listingsSeen": 0,
+      "newListings": 0,
+      "delistedListings": 0,
+      "relistedListings": 0,
+      "errors": []
+    }
+  ]
+}

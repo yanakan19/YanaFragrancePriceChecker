@@ -13,6 +13,7 @@ import type { PresentedOffer, StockState } from '../src/types/offer.js';
 import { DEMO_FRAGRANCES, BY_POPULARITY, type DemoFragrance } from './data.js';
 import { bottleSvg } from './art.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
+import { isNewAt, offersFor } from './catalogue.generated.js';
 
 type View = 'home' | 'browse' | 'detail' | 'legal' | 'settings';
 type DisplayMode = 'dark' | 'light' | 'system';
@@ -41,8 +42,13 @@ const BRANDS = [...new Set(DEMO_FRAGRANCES.map((f) => f.brand))].sort();
 /** Top ten by hand seeded popularity. The contents of the rail. */
 const POPULAR = BY_POPULARITY.slice(0, 10);
 
+/**
+ * Prices come from the catalogue crawl, never from a hand written table. That
+ * is what makes them live: point the crawl at the shops themselves and these
+ * become real figures with nothing else to change.
+ */
 function rowsFor(frag: DemoFragrance): PresentedOffer[] {
-  return buildComparison(frag.offers, { sortBy: 'delivered', tier: frag.tier });
+  return buildComparison(offersFor(frag.id), { sortBy: 'delivered', tier: frag.tier });
 }
 
 /* ── display mode ────────────────────────────────────────────────────────────
@@ -206,7 +212,9 @@ function offerRow(row: PresentedOffer, isBest: boolean): string {
   return `<li class="offer ${isBest ? 'best' : ''} ${row.isPurchasable ? '' : 'unavail'}">
     <a class="offer-link" href="${esc(row.outboundUrl)}" rel="nofollow noopener" target="_blank">
       <span class="offer-top">
-        <span class="shop">${esc(row.retailer.name)}${isBest ? '<span class="tag">Cheapest</span>' : ''}</span>
+        <span class="shop">${esc(row.retailer.name)}${
+          isNewAt(row.variantId, row.retailer.id) ? '<span class="tag new">New</span>' : ''
+        }${isBest ? '<span class="tag">Cheapest</span>' : ''}</span>
         <span class="price">
           ${d ? `<span class="was">${formatGbp(d.wasPrice)}</span>` : ''}
           <span class="now ${d ? 'sale' : ''}">${formatGbp(row.deliveredPriceGbp)}</span>

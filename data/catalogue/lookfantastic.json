@@ -1,0 +1,35 @@
+{
+  "retailerId": "lookfantastic",
+  "updatedAt": "2026-08-01T16:21:48.191Z",
+  "listings": [],
+  "runs": [
+    {
+      "runId": "lookfantastic-2026-08-01T16:21:41.463Z",
+      "retailerId": "lookfantastic",
+      "startedAt": "2026-08-01T16:21:41.463Z",
+      "finishedAt": "2026-08-01T16:21:48.191Z",
+      "status": "ok",
+      "baseline": true,
+      "pagesFetched": 1,
+      "listingsSeen": 0,
+      "newListings": 0,
+      "delistedListings": 0,
+      "relistedListings": 0,
+      "errors": []
+    },
+    {
+      "runId": "lookfantastic-2026-07-31T06:00:00.000Z",
+      "retailerId": "lookfantastic",
+      "startedAt": "2026-07-31T06:00:00.000Z",
+      "finishedAt": "2026-08-01T16:21:36.374Z",
+      "status": "ok",
+      "baseline": true,
+      "pagesFetched": 1,
+      "listingsSeen": 0,
+      "newListings": 0,
+      "delistedListings": 0,
+      "relistedListings": 0,
+      "errors": []
+    }
+  ]
+}

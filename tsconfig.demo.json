@@ -8,5 +8,12 @@
     "outDir": "dist-demo",
     "types": []
   },
-  "include": ["src/**/*.ts", "demo/**/*.ts"]
+  "include": ["src/**/*.ts", "demo/**/*.ts"],
+  // The crawl runs on a server and reaches for node:fs. The browser bundle only
+  // ever reads its output, so these never belong in it.
+  "exclude": [
+    "src/catalogue/store.ts",
+    "src/catalogue/fetcher.ts",
+    "src/catalogue/crawl.ts"
+  ]
 }
