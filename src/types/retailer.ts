@@ -42,8 +42,15 @@ export type RetailerTier = 'designer' | 'niche' | 'mideast';
 export type AdapterStrategy =
   /** Retailer PDP embeds a schema.org/Product JSON-LD block: plain fetch + parse. */
   | 'json-ld'
-  /** Bot-protected or JS-rendered: needs a headless/managed scraper. */
+  /** JS rendered but reachable: a plain headless browser is enough. */
   | 'headless'
+  /**
+   * Refuses a datacentre address outright. Needs retrieval through residential
+   * addresses, which costs money per request, so this is the adapter of last
+   * resort. Prefer an affiliate feed for anything marked this way.
+   * See docs/INGESTION.md.
+   */
+  | 'proxied'
   /** Product feed from the affiliate network is the source of truth. */
   | 'affiliate-feed'
   /** Not yet determined — the Phase 0 spike has not covered this retailer. */
