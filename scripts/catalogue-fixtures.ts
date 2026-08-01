@@ -20,79 +20,148 @@ import { fixtureName } from '../src/catalogue/fetcher.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
+interface Stocked {
+  /** Which shop, and what it charges. */
+  at: string;
+  price: number;
+  inStock?: boolean;
+  was?: number;
+  promoHours?: number;
+  /** Appears on day two rather than day one. */
+  from2?: boolean;
+  /** Present on day one and gone by day two. */
+  gone2?: boolean;
+}
+
 interface FixtureProduct {
-  sku: string;
+  key: string;
   name: string;
   brand: string;
-  ean: string | null;
-  price: number;
-  inStock: boolean;
-  /** Which generated day this product first appears on. */
-  from: 1 | 2;
-  /** Set when the product disappears on day two. */
-  until?: 1;
-  /** Retailer published reference price, when it is running a promotion. */
-  was?: number;
-  /** Hours from now until the promotion closes. */
-  promoHours?: number;
+  ean: string;
+  stocked: Stocked[];
 }
 
 /**
- * What each shop lists under fragrance. Deliberately overlapping, because the
- * same bottle appearing at six shops at six prices is the entire product.
+ * What each shop lists under fragrance.
+ *
+ * Written product first rather than shop first, because the shape that matters
+ * is how unevenly a bottle is stocked. A designer bestseller turns up almost
+ * everywhere; a niche house is carried by three shops; a Middle Eastern brand by
+ * two. Any sample where everything appears in every shop hides the case the
+ * comparison exists to handle.
  */
-const CATALOGUE: Record<string, FixtureProduct[]> = {
-  'notino-uk': [
-    { sku: 'ntn-sauvage-100', name: 'Dior Sauvage Eau de Parfum 100ml', brand: 'Dior', ean: '3348901486958', price: 23.9, inStock: true, from: 1 },
-    { sku: 'ntn-bleu-100', name: 'Chanel Bleu de Chanel Eau de Parfum 100ml', brand: 'Chanel', ean: '3145891073607', price: 99.99, inStock: true, from: 1 },
-    { sku: 'ntn-aventus-100', name: 'Creed Aventus Eau de Parfum 100ml', brand: 'Creed', ean: '3508441001152', price: 284.0, inStock: true, from: 1 },
-    { sku: 'ntn-khamrah-100', name: 'Lattafa Khamrah Eau de Parfum 100ml', brand: 'Lattafa', ean: '6291108736258', price: 21.9, inStock: true, from: 1 },
-    { sku: 'ntn-acqua-75', name: 'Giorgio Armani Acqua di Gio Profumo Parfum 75ml', brand: 'Giorgio Armani', ean: '3614270282492', price: 69.9, inStock: true, from: 1 },
-    // Added on day two.
-    { sku: 'ntn-baccarat-70', name: 'Maison Francis Kurkdjian Baccarat Rouge 540 Eau de Parfum 70ml', brand: 'Maison Francis Kurkdjian', ean: '3700559608579', price: 219.0, inStock: true, from: 2 },
-    { sku: 'ntn-eros-100', name: 'Versace Eros Eau de Toilette 100ml', brand: 'Versace', ean: '8011003809202', price: 44.9, inStock: true, from: 2 },
-  ],
-  boots: [
-    { sku: '10255432', name: 'Dior Sauvage Eau de Parfum 100ml', brand: 'Dior', ean: '3348901486958', price: 24.99, inStock: true, from: 1 },
-    { sku: '10255901', name: 'Chanel Bleu de Chanel Eau de Parfum 100ml', brand: 'Chanel', ean: '3145891073607', price: 105.0, inStock: true, from: 1 },
-    { sku: '10261188', name: 'Paco Rabanne 1 Million Eau de Toilette 100ml', brand: 'Paco Rabanne', ean: '3349668528813', price: 62.0, inStock: true, from: 1 },
-    { sku: '10277431', name: 'Yves Saint Laurent Libre Eau de Parfum 90ml', brand: 'Yves Saint Laurent', ean: '3614272648616', price: 78.0, inStock: true, from: 1, was: 92.0 },
-    { sku: '10233190', name: 'Giorgio Armani Acqua di Gio Profumo Parfum 75ml', brand: 'Giorgio Armani', ean: '3614270282492', price: 82.0, inStock: true, from: 1 },
-    // Added on day two.
-    { sku: '10299874', name: 'Versace Eros Eau de Toilette 100ml', brand: 'Versace', ean: '8011003809202', price: 55.0, inStock: true, from: 2 },
-  ],
-  allbeauty: [
-    { sku: 'ab-bleu-100', name: 'Chanel Bleu de Chanel Eau de Parfum 100ml', brand: 'Chanel', ean: '3145891073607', price: 91.75, inStock: true, from: 1, was: 99.0 },
-    { sku: 'ab-aventus-100', name: 'Creed Aventus Eau de Parfum 100ml', brand: 'Creed', ean: '3508441001152', price: 295.5, inStock: true, from: 1 },
-    { sku: 'ab-acqua-75', name: 'Giorgio Armani Acqua di Gio Profumo Parfum 75ml', brand: 'Giorgio Armani', ean: '3614270282492', price: 71.5, inStock: true, from: 1 },
-    { sku: 'ab-khamrah-100', name: 'Lattafa Khamrah Eau de Parfum 100ml', brand: 'Lattafa', ean: '6291108736258', price: 23.45, inStock: true, from: 1 },
-    // Sells through and leaves the catalogue on day two.
-    { sku: 'ab-libre-90', name: 'Yves Saint Laurent Libre Eau de Parfum 90ml', brand: 'Yves Saint Laurent', ean: '3614272648616', price: 43.0, inStock: true, from: 1, until: 1 },
-    // Added on day two.
-    { sku: 'ab-baccarat-70', name: 'Maison Francis Kurkdjian Baccarat Rouge 540 Eau de Parfum 70ml', brand: 'Maison Francis Kurkdjian', ean: '3700559608579', price: 232.5, inStock: true, from: 2, was: 255.0 },
-  ],
-  'the-fragrance-shop': [
-    { sku: 'tfs-bleu-100', name: 'Chanel Bleu de Chanel Eau de Parfum 100ml', brand: 'Chanel', ean: '3145891073607', price: 88.4, inStock: true, from: 1, was: 110.0, promoHours: 62 },
-    { sku: 'tfs-khamrah-100', name: 'Lattafa Khamrah Eau de Parfum 100ml', brand: 'Lattafa', ean: '6291108736258', price: 24.99, inStock: true, from: 1 },
-    { sku: 'tfs-eros-100', name: 'Versace Eros Eau de Toilette 100ml', brand: 'Versace', ean: '8011003809202', price: 42.5, inStock: true, from: 1, was: 78.0, promoHours: 19 },
-    { sku: 'tfs-million-100', name: 'Paco Rabanne 1 Million Eau de Toilette 100ml', brand: 'Paco Rabanne', ean: '3349668528813', price: 55.0, inStock: false, from: 1 },
-  ],
-  superdrug: [
-    { sku: 'sd-sauvage-100', name: 'Dior Sauvage Eau de Parfum 100ml', brand: 'Dior', ean: '3348901486958', price: 25.5, inStock: true, from: 1 },
-    { sku: 'sd-million-100', name: 'Paco Rabanne 1 Million Eau de Toilette 100ml', brand: 'Paco Rabanne', ean: '3349668528813', price: 59.99, inStock: true, from: 1 },
-    { sku: 'sd-libre-90', name: 'Yves Saint Laurent Libre Eau de Parfum 90ml', brand: 'Yves Saint Laurent', ean: '3614272648616', price: 23.75, inStock: true, from: 1 },
-    // Added on day two.
-    { sku: 'sd-eros-100', name: 'Versace Eros Eau de Toilette 100ml', brand: 'Versace', ean: '8011003809202', price: 49.99, inStock: true, from: 2 },
-  ],
-  selfridges: [
-    { sku: 'sf-aventus-100', name: 'Creed Aventus Eau de Parfum 100ml', brand: 'Creed', ean: '3508441001152', price: 335.0, inStock: true, from: 1 },
-    { sku: 'sf-baccarat-70', name: 'Maison Francis Kurkdjian Baccarat Rouge 540 Eau de Parfum 70ml', brand: 'Maison Francis Kurkdjian', ean: '3700559608579', price: 245.0, inStock: true, from: 1 },
-    { sku: 'sf-woodsage-100', name: 'Jo Malone London Wood Sage & Sea Salt Cologne 100ml', brand: 'Jo Malone London', ean: '690251037339', price: 112.0, inStock: false, from: 1 },
-  ],
-};
+const PRODUCTS: FixtureProduct[] = [
+  { key: 'sauvage', name: 'Dior Sauvage Eau de Parfum 100ml', brand: 'Dior', ean: '3348901486958', stocked: [
+    { at: 'boots', price: 24.99 }, { at: 'superdrug', price: 25.5 },
+    { at: 'notino-uk', price: 23.9 }, { at: 'lookfantastic', price: 26.0 },
+    { at: 'the-perfume-shop', price: 27.95 }, { at: 'the-fragrance-shop', price: 26.5 },
+    { at: 'john-lewis', price: 22.5, inStock: false }, { at: 'justmylook', price: 25.15 },
+    { at: 'allbeauty', price: 24.4 },
+  ]},
+  { key: 'bleu', name: 'Chanel Bleu de Chanel Eau de Parfum 100ml', brand: 'Chanel', ean: '3145891073607', stocked: [
+    { at: 'the-fragrance-shop', price: 88.4, was: 110.0, promoHours: 62 },
+    { at: 'allbeauty', price: 91.75, was: 99.0 }, { at: 'justmylook', price: 94.0 },
+    { at: 'john-lewis', price: 108.0 }, { at: 'boots', price: 105.0 },
+    { at: 'the-perfume-shop', price: 99.99 }, { at: 'selfridges', price: 112.0 },
+    { at: 'beautybase', price: 96.5 },
+  ]},
+  { key: 'aventus', name: 'Creed Aventus Eau de Parfum 100ml', brand: 'Creed', ean: '3508441001152', stocked: [
+    { at: 'selfridges', price: 335.0 }, { at: 'harvey-nichols', price: 330.0 },
+    { at: 'beautybase', price: 289.0 }, { at: 'allbeauty', price: 295.5 },
+    { at: 'notino-uk', price: 284.0 }, { at: 'justmylook', price: 279.0, inStock: false },
+  ]},
+  { key: 'baccarat', name: 'Maison Francis Kurkdjian Baccarat Rouge 540 Eau de Parfum 70ml', brand: 'Maison Francis Kurkdjian', ean: '3700559608579', stocked: [
+    { at: 'selfridges', price: 245.0 }, { at: 'harvey-nichols', price: 240.0 },
+    { at: 'notino-uk', price: 219.0, from2: true }, { at: 'beautybase', price: 228.0 },
+    { at: 'allbeauty', price: 232.5, was: 255.0, from2: true },
+  ]},
+  { key: 'eros', name: 'Versace Eros Eau de Toilette 100ml', brand: 'Versace', ean: '8011003809202', stocked: [
+    { at: 'the-fragrance-shop', price: 42.5, was: 78.0, promoHours: 19 },
+    { at: 'notino-uk', price: 44.9, from2: true }, { at: 'justmylook', price: 47.25 },
+    { at: 'superdrug', price: 49.99, from2: true }, { at: 'boots', price: 55.0, from2: true },
+    { at: 'the-perfume-shop', price: 58.0 }, { at: 'allbeauty', price: 46.8 },
+    { at: 'lookfantastic', price: 51.0 },
+  ]},
+  { key: 'million', name: 'Paco Rabanne 1 Million Eau de Toilette 100ml', brand: 'Paco Rabanne', ean: '3349668528813', stocked: [
+    { at: 'superdrug', price: 59.99 }, { at: 'boots', price: 62.0 },
+    { at: 'the-perfume-shop', price: 64.0 }, { at: 'lookfantastic', price: 57.5, was: 72.0 },
+    { at: 'the-fragrance-shop', price: 55.0, inStock: false }, { at: 'john-lewis', price: 66.0 },
+    { at: 'justmylook', price: 60.4 },
+  ]},
+  { key: 'acqua', name: 'Giorgio Armani Acqua di Gio Profumo Parfum 75ml', brand: 'Giorgio Armani', ean: '3614270282492', stocked: [
+    { at: 'notino-uk', price: 69.9 }, { at: 'allbeauty', price: 71.5 },
+    { at: 'lookfantastic', price: 74.0 }, { at: 'beautybase', price: 76.5 },
+    { at: 'john-lewis', price: 78.0 }, { at: 'boots', price: 82.0 },
+  ]},
+  { key: 'libre', name: 'Yves Saint Laurent Libre Eau de Parfum 90ml', brand: 'Yves Saint Laurent', ean: '3614272648616', stocked: [
+    { at: 'superdrug', price: 23.75 }, { at: 'lookfantastic', price: 24.4 },
+    { at: 'beautybase', price: 43.0 }, { at: 'john-lewis', price: 46.5 },
+    { at: 'boots', price: 78.0, was: 92.0 }, { at: 'the-perfume-shop', price: 82.0 },
+    { at: 'allbeauty', price: 43.0, gone2: true },
+  ]},
+  { key: 'khamrah', name: 'Lattafa Khamrah Eau de Parfum 100ml', brand: 'Lattafa', ean: '6291108736258', stocked: [
+    { at: 'notino-uk', price: 21.9 }, { at: 'the-fragrance-shop', price: 24.99, was: 32.0 },
+    { at: 'allbeauty', price: 23.45 },
+  ]},
+  { key: 'woodsage', name: 'Jo Malone London Wood Sage & Sea Salt Cologne 100ml', brand: 'Jo Malone London', ean: '690251037339', stocked: [
+    { at: 'selfridges', price: 112.0, inStock: false },
+    { at: 'lookfantastic', price: 105.0, inStock: false },
+    { at: 'beautybase', price: 99.0, inStock: false },
+  ]},
+  { key: 'lelabo', name: 'Le Labo Santal 33 Eau de Parfum 50ml', brand: 'Le Labo', ean: '3660549000330', stocked: [
+    { at: 'selfridges', price: 200.0 },
+  ]},
+  { key: 'oudwood', name: 'Tom Ford Oud Wood Eau de Parfum 50ml', brand: 'Tom Ford', ean: '888066008075', stocked: [
+    { at: 'selfridges', price: 215.0 }, { at: 'harvey-nichols', price: 210.0 },
+    { at: 'boots', price: 205.0 }, { at: 'john-lewis', price: 208.0 },
+  ]},
+  { key: 'lavieestbelle', name: 'Lancome La Vie Est Belle Eau de Parfum 100ml', brand: 'Lancome', ean: '3605532612836', stocked: [
+    { at: 'boots', price: 82.0 }, { at: 'superdrug', price: 79.99 },
+    { at: 'the-perfume-shop', price: 85.0 }, { at: 'lookfantastic', price: 77.5, was: 96.0 },
+    { at: 'john-lewis', price: 88.0 }, { at: 'notino-uk', price: 74.5 },
+    { at: 'allbeauty', price: 76.2 }, { at: 'justmylook', price: 78.9 },
+  ]},
+  { key: 'blackopium', name: 'Yves Saint Laurent Black Opium Eau de Parfum 90ml', brand: 'Yves Saint Laurent', ean: '3614272050334', stocked: [
+    { at: 'boots', price: 96.0 }, { at: 'the-perfume-shop', price: 99.0 },
+    { at: 'superdrug', price: 92.5 }, { at: 'lookfantastic', price: 89.0 },
+    { at: 'john-lewis', price: 101.0 }, { at: 'notino-uk', price: 86.9 },
+    { at: 'the-fragrance-shop', price: 88.0, from2: true },
+  ]},
+  { key: 'asad', name: 'Lattafa Asad Eau de Parfum 100ml', brand: 'Lattafa', ean: '6291108738900', stocked: [
+    { at: 'notino-uk', price: 19.9 }, { at: 'the-fragrance-shop', price: 22.5 },
+  ]},
+  { key: 'sospetto', name: 'Xerjoff Erba Pura Eau de Parfum 100ml', brand: 'Xerjoff', ean: '8033488154332', stocked: [
+    { at: 'beautybase', price: 218.0 }, { at: 'harvey-nichols', price: 235.0 },
+    { at: 'selfridges', price: 240.0, inStock: false },
+  ]},
+];
+
+/** Flattened per shop, which is how the crawl sees it. */
+function forRetailer(retailerId: string, day: 1 | 2): FixtureRow[] {
+  const rows: FixtureRow[] = [];
+  for (const p of PRODUCTS) {
+    for (const s of p.stocked) {
+      if (s.at !== retailerId) continue;
+      if (s.from2 && day === 1) continue;
+      if (s.gone2 && day === 2) continue;
+      rows.push({
+        sku: `${retailerId.slice(0, 3)}-${p.key}`,
+        name: p.name, brand: p.brand, ean: p.ean,
+        price: s.price, inStock: s.inStock !== false,
+        was: s.was, promoHours: s.promoHours,
+      });
+    }
+  }
+  return rows;
+}
+
+interface FixtureRow {
+  sku: string; name: string; brand: string; ean: string;
+  price: number; inStock: boolean; was?: number | undefined; promoHours?: number | undefined;
+}
 
 /** Day one uses the plain shape most sites emit. */
-function pageWithGraph(products: FixtureProduct[], domain: string): string {
+function pageWithGraph(products: FixtureRow[], search: string, domain: string): string {
   const graph = products.map((p) => ({
     '@type': 'Product',
     name: p.name,
@@ -100,7 +169,7 @@ function pageWithGraph(products: FixtureProduct[], domain: string): string {
     gtin13: p.ean,
     brand: { '@type': 'Brand', name: p.brand },
     image: [`https://${domain}/images/${p.sku}.jpg`],
-    url: `https://${domain}/p/${p.sku}`,
+    url: productUrl(search, p.name),
     offers: {
       '@type': 'Offer',
       priceCurrency: 'GBP',
@@ -124,7 +193,7 @@ function pageWithGraph(products: FixtureProduct[], domain: string): string {
 }
 
 /** Day two uses an ItemList with string prices, to exercise the other shape. */
-function pageWithItemList(products: FixtureProduct[], domain: string): string {
+function pageWithItemList(products: FixtureRow[], search: string, domain: string): string {
   const payload = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -138,7 +207,7 @@ function pageWithItemList(products: FixtureProduct[], domain: string): string {
         gtin13: p.ean,
         brand: p.brand,
         image: { '@type': 'ImageObject', url: `https://${domain}/images/${p.sku}.jpg` },
-        url: `https://${domain}/p/${p.sku}`,
+        url: productUrl(search, p.name),
         offers: [
           {
             '@type': 'Offer',
@@ -156,6 +225,18 @@ function pageWithItemList(products: FixtureProduct[], domain: string): string {
 }
 
 const soon = (hours: number) => new Date(Date.now() + hours * 3_600_000).toISOString();
+
+/**
+ * Links point at each shop's real search results for the exact product name.
+ *
+ * A guessed product URL is a 404 and makes the whole app look broken. A search
+ * link lands the reader on the right shop looking at the right bottle, which is
+ * what they wanted. Real crawls supply real product URLs and this is only the
+ * fallback.
+ */
+function productUrl(searchTemplate: string, name: string): string {
+  return searchTemplate.replace('{q}', encodeURIComponent(name));
+}
 
 function html(ld: string): string {
   return `<!doctype html>
@@ -176,17 +257,19 @@ function build(day: 1 | 2, outDir: string): number {
   let pages = 0;
 
   for (const retailer of RETAILERS) {
-    const products = CATALOGUE[retailer.id];
-    if (!products || !retailer.catalogue) continue;
+    if (!retailer.catalogue) continue;
 
-    const live = products.filter((p) => p.from <= day && !(p.until && p.until < day));
+    const live = forRetailer(retailer.id, day);
+    if (live.length === 0) continue;
     const section = retailer.catalogue.sections[0]!;
 
     // Everything lands on the first page; page two is deliberately absent so
     // the crawl's "empty page ends pagination" rule is exercised for real.
     const url = section.urlTemplate.replace('{page}', String(retailer.catalogue.firstPage));
     const body =
-      day === 1 ? pageWithGraph(live, retailer.domain) : pageWithItemList(live, retailer.domain);
+      day === 1
+        ? pageWithGraph(live, retailer.catalogue.searchUrlTemplate, retailer.domain)
+        : pageWithItemList(live, retailer.catalogue.searchUrlTemplate, retailer.domain);
 
     const file = resolve(outDir, retailer.id, `${fixtureName(url)}.html`);
     mkdirSync(dirname(file), { recursive: true });
