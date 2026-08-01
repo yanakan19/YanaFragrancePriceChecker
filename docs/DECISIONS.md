@@ -159,3 +159,37 @@ These need numbers from you and are not answerable from the code:
 All twelve shipping rules are marked `unverified` and need confirming against
 each retailer's own delivery page before the delivered-price sort is trusted in
 production. `npm run shipping:staleness` lists them.
+
+---
+
+## D9 — Decants are out
+
+**Decided 2026-08-01.** Decant sellers do not enter the price comparison, in any
+form. They break the size axis: a 10ml decant of Aventus at £22 sitting beside a
+100ml bottle at £284 is not a cheaper option, it is a different product, and any
+sort that puts them in the same table is lying about what it is comparing.
+
+### The idea that is still open
+
+A separate main page section listing **trusted decant sellers ranked by their
+Trustpilot rating**. This is a good instinct and it works precisely because it is
+separate: it is a directory of sellers, not a price comparison of bottles, so
+nothing has to be normalised against a 100ml.
+
+If it gets built, three things decide whether it is worth doing:
+
+1. **Trustpilot terms.** Scraping their ratings is against their terms of use.
+   There is a Business API, but it generally serves a business its own reviews
+   rather than letting a third party publish other companies' scores. Check what
+   is actually permitted before designing around the number, because "ranked by
+   Trustpilot" is not a feature you can quietly reverse once people rely on it.
+2. **A rating is not authenticity.** A decanter with 4.8 stars for fast postage
+   has not been verified as decanting genuine juice. If the section ships, the
+   rating should be labelled as what it is, a service score, with authenticity
+   handled separately or not claimed at all.
+3. **Curated, like TikTok.** A hand kept seller list, not an open search. Same
+   reasoning as `tiktokSellers.ts`: an open list of people selling decanted
+   fragrance is how counterfeits reach the page.
+
+Treat it as a sibling of the TikTok beta rather than part of the comparison: its
+own table, its own flag, its own disclaimer, and a kill switch.

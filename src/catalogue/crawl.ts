@@ -2,7 +2,7 @@ import type { Retailer } from '../types/retailer.js';
 import type { CatalogueRun, RawListing } from './types.js';
 import { parseListings } from './jsonld.js';
 import { reconcile } from './reconcile.js';
-import type { CatalogueStore } from './store.js';
+import type { CatalogueStore, CrawlSource } from './store.js';
 
 /**
  * The daily catalogue crawl.
@@ -28,6 +28,8 @@ export interface CrawlOptions {
   retailer: Retailer;
   fetchPage: PageFetcher;
   store: CatalogueStore;
+  /** Tags the snapshot, and blocks mixing saved data into a live crawl. */
+  source?: CrawlSource;
   /** Injected for reproducible runs. */
   now?: Date;
   /** Called between requests so politeness delays are testable. */
@@ -36,8 +38,18 @@ export interface CrawlOptions {
 
 const realSleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
+/**
+ * A crawl returning less than this share of the listings we already held is
+ * treated as broken rather than believed. Half is deliberately generous: real
+ * catalogues do shrink after a season ends, but never by more than half
+ * overnight.
+ */
+const COLLAPSE_FLOOR = 0.5;
+
 export async function crawlRetailer(options: CrawlOptions): Promise<CatalogueRun> {
-  const { retailer, fetchPage, store, now = new Date(), sleep = realSleep } = options;
+  const {
+    retailer, fetchPage, store, now = new Date(), sleep = realSleep, source = 'fixtures',
+  } = options;
   const startedAt = now.toISOString();
   const runId = `${retailer.id}-${startedAt}`;
 
@@ -109,6 +121,45 @@ export async function crawlRetailer(options: CrawlOptions): Promise<CatalogueRun
   const complete = sectionsCompleted === sections.length;
 
   const snapshot = store.read(retailer.id);
+
+  // Fixture SKUs are invented and will not match a real shop's. Reconciling
+  // across the two would delist everything saved and flag the entire real
+  // catalogue as new, which is precisely what the baseline guard exists to
+  // prevent. Clear data/catalogue before the first live run.
+  if (snapshot.listings.length > 0 && snapshot.source && snapshot.source !== source) {
+    run.status = 'failed';
+    run.finishedAt = new Date().toISOString();
+    run.errors.push(
+      `Held data for ${retailer.name} came from a ${snapshot.source} run and this is a ` +
+        `${source} run. Delete data/catalogue and start a clean baseline rather than ` +
+        `mixing the two.`,
+    );
+    return run;
+  }
+
+  const priorActive = snapshot.listings.filter((l) => l.status === 'active').length;
+
+  // A shop that returned hundreds of listings yesterday and almost none today
+  // has not stopped selling fragrance. Far more likely the section URL moved,
+  // the markup changed, or we were served a bot wall with a 200 status. Writing
+  // that through would delist the catalogue, and the recovery run would then
+  // flag every single product as new. Refuse it and keep yesterday's data.
+  if (priorActive > 0) {
+    const collapsed = crawled.length < priorActive * COLLAPSE_FLOOR;
+    if (collapsed) {
+      run.status = 'failed';
+      run.finishedAt = new Date().toISOString();
+      run.listingsSeen = crawled.length;
+      run.errors.push(
+        `Refusing to write: found ${crawled.length} listings against ${priorActive} ` +
+          `held. Below ${Math.round(COLLAPSE_FLOOR * 100)}% of the previous run, which ` +
+          `almost always means a broken section URL or a blocked request rather than ` +
+          `a shop clearing its shelves. Previous snapshot kept.`,
+      );
+      return run;
+    }
+  }
+
   const outcome = reconcile({
     existing: snapshot.listings,
     crawled,
@@ -135,6 +186,7 @@ export async function crawlRetailer(options: CrawlOptions): Promise<CatalogueRun
     store.write({
       retailerId: retailer.id,
       updatedAt: run.finishedAt,
+      source,
       listings: outcome.listings,
       runs: [run, ...snapshot.runs],
     });
