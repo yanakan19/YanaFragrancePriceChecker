@@ -1,0 +1,35 @@
+{
+  "retailerId": "justmylook",
+  "updatedAt": "2026-08-01T16:21:42.680Z",
+  "listings": [],
+  "runs": [
+    {
+      "runId": "justmylook-2026-08-01T16:21:41.463Z",
+      "retailerId": "justmylook",
+      "startedAt": "2026-08-01T16:21:41.463Z",
+      "finishedAt": "2026-08-01T16:21:42.680Z",
+      "status": "ok",
+      "baseline": true,
+      "pagesFetched": 1,
+      "listingsSeen": 0,
+      "newListings": 0,
+      "delistedListings": 0,
+      "relistedListings": 0,
+      "errors": []
+    },
+    {
+      "runId": "justmylook-2026-07-31T06:00:00.000Z",
+      "retailerId": "justmylook",
+      "startedAt": "2026-07-31T06:00:00.000Z",
+      "finishedAt": "2026-08-01T16:21:30.863Z",
+      "status": "ok",
+      "baseline": true,
+      "pagesFetched": 1,
+      "listingsSeen": 0,
+      "newListings": 0,
+      "delistedListings": 0,
+      "relistedListings": 0,
+      "errors": []
+    }
+  ]
+}

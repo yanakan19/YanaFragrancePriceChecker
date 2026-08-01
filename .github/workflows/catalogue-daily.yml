@@ -1,0 +1,72 @@
+name: Daily catalogue crawl
+
+# Runs every morning at 06:00 UTC, before most people go shopping, and commits
+# the resulting snapshots. The commit is the audit trail: the diff shows exactly
+# which products a shop added, dropped or repriced overnight.
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+    inputs:
+      source:
+        description: 'live crawls the shops, fixtures replays saved pages'
+        type: choice
+        options: [live, fixtures]
+        default: live
+
+permissions:
+  contents: write
+
+concurrency:
+  # Two crawls writing snapshots at once would race and lose listings.
+  group: catalogue
+  cancel-in-progress: false
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    # A full walk of twelve shops with politeness delays takes a while, but it
+    # should never run for an hour.
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # The crawl must not ship if the reconciliation logic is broken. A bad
+      # diff here corrupts firstSeenAt for every listing, and that cannot be
+      # recovered from a later run: the NEW badge would be wrong for a week.
+      - name: Test before crawling
+        run: npm test
+
+      - name: Crawl
+        run: npm run catalogue -- --source=${{ inputs.source || 'live' }}
+
+      - name: Rebuild the app from the new snapshots
+        run: |
+          npm run catalogue:demo
+          npm run demo
+
+      - name: Commit what changed
+        run: |
+          git config user.name 'scentday-bot'
+          git config user.email 'bot@users.noreply.github.com'
+          git add data/catalogue demo/catalogue.generated.ts demo/index.html
+          if git diff --cached --quiet; then
+            echo 'No catalogue changes today.'
+            exit 0
+          fi
+          git commit -m "Catalogue: $(date -u +%Y-%m-%d)"
+          git push
+
+      # Keep the failure loud. A crawl that quietly stops working leaves stale
+      # prices on the site, which is worse than showing nothing.
+      - name: Report failure
+        if: failure()
+        run: echo "::error::Catalogue crawl failed. Prices on the site are now stale."

@@ -71,6 +71,12 @@ export const RETAILERS: readonly Retailer[] = [
       verifiedAt: '2026-08-01',
       confidence: 'unverified',
     },
+    catalogue: {
+      sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.allbeauty.com/uk/fragrance?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 60, minRequestGapMs: 1200,
+    },
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -89,6 +95,12 @@ export const RETAILERS: readonly Retailer[] = [
       verifiedAt: '2026-08-01',
       confidence: 'unverified',
       notes: 'Free next-day (RM24 Tracked) over £80; standard free tier is RM48 Tracked.',
+    },
+    catalogue: {
+      sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.justmylook.com/collections/fragrance?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 60, minRequestGapMs: 1200,
     },
     affiliate: { ...NO_AFFILIATE_YET },
   },
@@ -114,6 +126,14 @@ export const RETAILERS: readonly Retailer[] = [
         'Evri home £2.99, DPD home £3.49, Evri pickup £2.49. Free delivery is per-product ' +
         'or promotional, not spend-based — model it per offer, not per retailer.',
     },
+    catalogue: {
+      sections: [
+        { id: 'womens', label: "Women's perfume", urlTemplate: 'https://www.notino.co.uk/perfumes-for-women/?f=page-{page}', tier: 'designer' },
+        { id: 'mens', label: "Men's perfume", urlTemplate: 'https://www.notino.co.uk/perfumes-for-men/?f=page-{page}', tier: 'designer' },
+        { id: 'niche', label: 'Niche perfume', urlTemplate: 'https://www.notino.co.uk/niche-perfumes/?f=page-{page}', tier: 'niche' },
+      ],
+      firstPage: 1, maxPages: 80, minRequestGapMs: 1500,
+    },
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -132,6 +152,12 @@ export const RETAILERS: readonly Retailer[] = [
       verifiedAt: '2026-08-01',
       confidence: 'unverified',
       notes: 'Click & Collect £1.50, free over £15. Cloudflare-fronted — expect a hard scrape.',
+    },
+    catalogue: {
+      sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.boots.com/fragrance?pageNo={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 60, minRequestGapMs: 2500,
     },
     affiliate: awinPending('2041'),
   },
@@ -154,6 +180,13 @@ export const RETAILERS: readonly Retailer[] = [
       },
       verifiedAt: '2026-08-01',
       confidence: 'unverified',
+    },
+    catalogue: {
+      sections: [
+        { id: 'womens', label: "Women's fragrance", urlTemplate: 'https://www.thefragranceshop.co.uk/womens-fragrance?page={page}', tier: 'designer' },
+        { id: 'mens', label: "Men's fragrance", urlTemplate: 'https://www.thefragranceshop.co.uk/mens-fragrance?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
     },
     affiliate: { ...NO_AFFILIATE_YET },
   },
@@ -178,6 +211,13 @@ export const RETAILERS: readonly Retailer[] = [
       confidence: 'unverified',
       notes: 'Click & Collect is free at any basket value.',
     },
+    catalogue: {
+      sections: [
+        { id: 'womens', label: "Women's perfume", urlTemplate: 'https://www.theperfumeshop.com/womens/c/womens?page={page}', tier: 'designer' },
+        { id: 'mens', label: "Men's aftershave", urlTemplate: 'https://www.theperfumeshop.com/mens/c/mens?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
+    },
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -196,6 +236,12 @@ export const RETAILERS: readonly Retailer[] = [
       verifiedAt: '2026-08-01',
       confidence: 'unverified',
       notes: 'Cloudflare-fronted — pair with Boots as the hard-site benchmark in Phase 0.',
+    },
+    catalogue: {
+      sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.johnlewis.com/beauty/fragrance/c/e15006?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 50, minRequestGapMs: 2500,
     },
     affiliate: { ...NO_AFFILIATE_YET },
   },
@@ -220,6 +266,12 @@ export const RETAILERS: readonly Retailer[] = [
       confidence: 'unverified',
       notes: 'Up to 48h order processing before dispatch — the day window excludes that.',
     },
+    catalogue: {
+      sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.beautybase.com/fragrance-c1?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
+    },
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -241,6 +293,12 @@ export const RETAILERS: readonly Retailer[] = [
       },
       verifiedAt: '2026-08-01',
       confidence: 'unverified',
+    },
+    catalogue: {
+      sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.lookfantastic.com/fragrance.list?pageNumber={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
     },
     affiliate: awinPending('2082'),
   },
@@ -266,6 +324,12 @@ export const RETAILERS: readonly Retailer[] = [
       verifiedAt: '2026-08-01',
       confidence: 'unverified',
       notes: 'Order & Collect is free at any basket value.',
+    },
+    catalogue: {
+      sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.superdrug.com/fragrance/c/fragrance?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 50, minRequestGapMs: 2000,
     },
     affiliate: {
       network: 'awin',
@@ -304,6 +368,12 @@ export const RETAILERS: readonly Retailer[] = [
         'Confirm against selfridges.com/GB/en/info/dispatch-delivery/uk-delivery/ before ' +
         'trusting the delivered price for this retailer.',
     },
+    catalogue: {
+      sections: [
+        { id: 'fragrance', label: 'Beauty fragrance', urlTemplate: 'https://www.selfridges.com/GB/en/cat/beauty/fragrance/?pn={page}', tier: 'niche' },
+      ],
+      firstPage: 1, maxPages: 50, minRequestGapMs: 2500,
+    },
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -328,6 +398,12 @@ export const RETAILERS: readonly Retailer[] = [
         'General standard delivery is £7.50; beauty-only orders are £5.95. Free over £300 ' +
         'is effectively unreachable on a single fragrance, so this retailer will almost ' +
         'always carry delivery in the delivered-price sort.',
+    },
+    catalogue: {
+      sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.harveynichols.com/beauty/fragrance/?page={page}', tier: 'niche' },
+      ],
+      firstPage: 1, maxPages: 50, minRequestGapMs: 2500,
     },
     affiliate: { ...NO_AFFILIATE_YET },
   },
