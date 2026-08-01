@@ -17,6 +17,10 @@ on:
         description: 'Fetch and report without writing. Use this the first time.'
         type: boolean
         default: false
+      probe:
+        description: 'Run the adaptive retrieval probe instead of the crawl.'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -49,20 +53,40 @@ jobs:
       - name: Test before crawling
         run: npm test
 
+      # Tries several retrieval strategies per shop, ordered by what has worked
+      # before, and commits what it learned so tomorrow starts smarter.
+      - name: Adaptive probe
+        if: ${{ inputs.probe }}
+        run: npm run probe
+
+      - name: Commit what the probe learned
+        if: ${{ inputs.probe }}
+        run: |
+          git config user.name 'scentday-bot'
+          git config user.email 'bot@users.noreply.github.com'
+          git add data/strategy-memory.json
+          if git diff --cached --quiet; then
+            echo 'Nothing new learned.'
+            exit 0
+          fi
+          git commit -m "Probe: what the crawler learned $(date -u +%Y-%m-%d)"
+          git push
+
       - name: Crawl
+        if: ${{ !inputs.probe }}
         run: |
           npm run catalogue -- \
             --source=${{ inputs.source || 'live' }} \
             ${{ inputs.dry_run && '--dry-run' || '' }}
 
       - name: Rebuild the app from the new snapshots
-        if: ${{ !inputs.dry_run }}
+        if: ${{ !inputs.dry_run && !inputs.probe }}
         run: |
           npm run catalogue:demo
           npm run demo
 
       - name: Commit what changed
-        if: ${{ !inputs.dry_run }}
+        if: ${{ !inputs.dry_run && !inputs.probe }}
         run: |
           git config user.name 'scentday-bot'
           git config user.email 'bot@users.noreply.github.com'
