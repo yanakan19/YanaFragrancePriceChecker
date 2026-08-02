@@ -16,6 +16,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
 import { loadRobots, runStrategy, type Http } from '../src/catalogue/attempt.js';
+import { apifyProxyConfigFromEnv, apifyProxyHttp } from '../src/catalogue/apifyProxy.js';
 import {
   EMPTY_MEMORY, planFor, record, explain, type StrategyMemory,
 } from '../src/catalogue/strategy.js';
@@ -29,6 +30,14 @@ function arg(name: string): string | null {
 }
 
 const onlyShop = arg('shop');
+
+const proxyConfig = apifyProxyConfigFromEnv();
+const proxiedHttp = proxyConfig ? apifyProxyHttp(proxyConfig) : undefined;
+if (proxyConfig) {
+  console.log('Apify residential proxy configured. proxied-fetch is available this run.\n');
+} else {
+  console.log('No APIFY_PROXY_PASSWORD set. proxied-fetch will stay unavailable.\n');
+}
 
 let memory: StrategyMemory = EMPTY_MEMORY;
 if (existsSync(memoryPath)) {
@@ -71,13 +80,14 @@ for (const retailer of shops) {
     (robots.crawlDelaySeconds ?? 0) * 1000,
   );
 
-  const plan = planFor(memory, retailer.id);
+  const plan = planFor(memory, retailer.id, { allowMetered: Boolean(proxyConfig) });
   const tried: string[] = [];
   let won = false;
 
   for (const strategyId of plan) {
     const attempt = await runStrategy(strategyId, {
       retailer, http, robots, sampleQuery: 'Dior Sauvage Eau de Parfum 100ml',
+      ...(proxiedHttp ? { proxiedHttp } : {}),
     });
 
     memory = record(memory, retailer.id, strategyId, attempt.result);

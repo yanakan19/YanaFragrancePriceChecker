@@ -29,6 +29,10 @@ on:
         description: 'Product pages to fetch per shop during a harvest.'
         type: string
         default: '40'
+      allow_metered:
+        description: 'Retry genuinely blocked shops through the Apify proxy. Requires the APIFY_PROXY_PASSWORD secret. Costs money.'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -81,9 +85,16 @@ jobs:
           git push
 
       # The route the probe proved works: ask the sitemap instead of guessing.
+      # --allow-metered only ever fires for shops the free route returned
+      # nothing for; it never replaces or competes with the free path.
       - name: Harvest via sitemap
         if: ${{ inputs.harvest }}
-        run: npm run harvest -- --max=${{ inputs.harvest_max || '40' }}
+        env:
+          APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
+        run: |
+          npm run harvest -- \
+            --max=${{ inputs.harvest_max || '40' }} \
+            ${{ inputs.allow_metered && '--allow-metered' || '' }}
 
       - name: Rebuild the app from harvested prices
         if: ${{ inputs.harvest }}

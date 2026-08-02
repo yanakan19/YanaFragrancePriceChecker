@@ -131,3 +131,53 @@ agreed. Six shops have now actively refused our requests. Continuing to hammer
 them from rotating residential addresses is technically possible and is the sort
 of thing that reads badly in a dispute, particularly for a site whose entire
 pitch is that it can be trusted. Where a shop offers a feed, take the feed.
+
+## What is actually built (2 August update)
+
+The plan above is implemented, not just researched. `src/catalogue/apifyProxy.ts`
+routes our own tested JSON-LD parser through Apify's residential proxy, so
+retrieval is outsourced but parsing never is — the architectural point made
+above, now code rather than intent.
+
+### How to turn it on
+
+1. Sign up at [apify.com](https://apify.com) if you have not already.
+2. In the Apify console, go to **Proxy** and copy the **Proxy password**.
+   This is *not* the same as an Apify API token — the two are different
+   credentials and the proxy will reject the wrong one silently confusingly.
+3. Add it as a GitHub Actions secret named `APIFY_PROXY_PASSWORD` on the
+   repository (Settings → Secrets and variables → Actions).
+4. Run the harvest workflow with **both** `harvest: true` and
+   `allow_metered: true`.
+
+With those set, `npm run harvest -- --allow-metered` retries through the proxy
+**only** for shops the free sitemap route returned nothing for. It never
+touches the four shops that already work for free, and it never fetches
+per-product pages — same category-page-only design as the free path, so the
+cost stays in the tens-of-pounds-a-month range calculated above rather than
+the four figure per-product number.
+
+### What has not been verified
+
+I do not have an Apify account and cannot create one on your behalf, so
+**nothing here has run against Apify's real infrastructure.** The gating logic
+(budget cap, fallback-only-on-failure, never confusing proxy credentials with
+API tokens) is unit tested against a fake transport in
+`tests/apifyProxy.test.ts`. The actual proxy handshake — whether
+`proxy.apify.com:8000` accepts the credentials and actually returns the
+blocked shops' pages — can only be confirmed by running it with a real
+password. Treat the first live run with `allow_metered: true` as that
+verification step, and read its output rather than assuming it worked.
+
+### Cost control in the code, not just in a spreadsheet
+
+- `MAX_PROXIED_REQUESTS_PER_RUN` (40) is a hard ceiling inside
+  `apifyProxyHttp` itself. Even a bug that loops cannot spend past it in one
+  run, independent of any caller remembering to check.
+- The harvest only invokes the proxy for a shop **after** the free sitemap
+  route has already returned zero priced listings for it. Working shops are
+  never retried through paid infrastructure.
+- Robots.txt is re-fetched through the proxy for the retry, not assumed. A
+  shop that blocks the free route usually blocks that too, and treating an
+  unreachable robots.txt as permission would be the same category of mistake
+  already caught once in `src/catalogue/robots.ts`.
