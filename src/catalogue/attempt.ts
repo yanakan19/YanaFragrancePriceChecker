@@ -54,6 +54,13 @@ export interface AttemptContext {
   robots: RobotsRules;
   /** A product name used to exercise the shop's own search. */
   sampleQuery: string;
+  /**
+   * A separate, metered Http for `proxied-fetch` only. Kept apart from the
+   * ordinary `http` above so free strategies never accidentally spend proxy
+   * budget, and so a caller with no Apify credentials configured can omit it
+   * entirely and still run every free strategy normally.
+   */
+  proxiedHttp?: Http;
 }
 
 export interface Attempt {
@@ -221,16 +228,31 @@ export async function runStrategy(id: StrategyId, ctx: AttemptContext): Promise<
       // which decides whether the parser is even the right tool here.
       return fetchAndParse(ctx, `https://www.${ctx.retailer.domain}/`, BROWSER_HEADERS, 'homepage');
 
-    case 'proxied-fetch':
-      return {
-        result: {
-          ok: false,
-          status: null,
-          listings: 0,
-          error: 'no proxy provider configured; set APIFY_TOKEN to enable',
-        },
-        listings: [],
-      };
+    case 'proxied-fetch': {
+      if (!ctx.proxiedHttp) {
+        return {
+          result: {
+            ok: false,
+            status: null,
+            listings: 0,
+            error: 'no proxy configured; set APIFY_PROXY_PASSWORD to enable',
+          },
+          listings: [],
+        };
+      }
+      if (!section) return notConfigured();
+
+      // The proxy is metered, so this still goes through robots and still
+      // fetches only the category listing page, never one request per
+      // product. Paying for retrieval does not relax any of the other rules.
+      const proxiedCtx: AttemptContext = { ...ctx, http: ctx.proxiedHttp };
+      return fetchAndParse(
+        proxiedCtx,
+        section.urlTemplate.replace('{page}', String(cat!.firstPage)),
+        BROWSER_HEADERS,
+        section.id,
+      );
+    }
   }
 }
 
