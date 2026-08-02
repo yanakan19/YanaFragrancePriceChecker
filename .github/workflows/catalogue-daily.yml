@@ -85,25 +85,32 @@ jobs:
           git push
 
       # The route the probe proved works: ask the sitemap instead of guessing.
-      # --allow-metered only ever fires for shops the free route returned
-      # nothing for; it never replaces or competes with the free path.
+      # This is now what runs every night, not just on request. The plain
+      # `catalogue` crawl below has never once succeeded live against these
+      # shops — every listing this project has ever shown came from the
+      # sitemap route, so the schedule has to use it, not the older path.
+      #
+      # --allow-metered is harmless to pass even with no secret configured:
+      # the harvest script checks for APIFY_PROXY_PASSWORD itself and simply
+      # skips proxied retrieval if it is absent, logging that it did so. It
+      # only ever fires for shops the free route returned nothing for.
       - name: Harvest via sitemap
-        if: ${{ inputs.harvest }}
+        if: ${{ inputs.harvest || github.event_name == 'schedule' }}
         env:
           APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
         run: |
           npm run harvest -- \
-            --max=${{ inputs.harvest_max || '40' }} \
-            ${{ inputs.allow_metered && '--allow-metered' || '' }}
+            --max=${{ inputs.harvest_max || '60' }} \
+            ${{ (inputs.allow_metered || github.event_name == 'schedule') && '--allow-metered' || '' }}
 
       - name: Rebuild the app from harvested prices
-        if: ${{ inputs.harvest }}
+        if: ${{ inputs.harvest || github.event_name == 'schedule' }}
         run: |
           npm run catalogue:demo
           npm run demo
 
       - name: Commit harvested prices
-        if: ${{ inputs.harvest }}
+        if: ${{ inputs.harvest || github.event_name == 'schedule' }}
         run: |
           git config user.name 'scentday-bot'
           git config user.email 'bot@users.noreply.github.com'
@@ -115,21 +122,25 @@ jobs:
           git commit -m "Harvest: real prices $(date -u +%Y-%m-%d)"
           git push
 
+      # Kept for manual comparison against the old guessed-URL approach and
+      # for --source=fixtures testing. Deliberately never runs on schedule:
+      # it has a 0% success rate against the live shops (see
+      # docs/SPIKE-RESULTS.md) and would just fail the job every night.
       - name: Crawl
-        if: ${{ !inputs.probe && !inputs.harvest }}
+        if: ${{ !inputs.probe && !inputs.harvest && github.event_name != 'schedule' }}
         run: |
           npm run catalogue -- \
             --source=${{ inputs.source || 'live' }} \
             ${{ inputs.dry_run && '--dry-run' || '' }}
 
       - name: Rebuild the app from the new snapshots
-        if: ${{ !inputs.dry_run && !inputs.probe && !inputs.harvest }}
+        if: ${{ !inputs.dry_run && !inputs.probe && !inputs.harvest && github.event_name != 'schedule' }}
         run: |
           npm run catalogue:demo
           npm run demo
 
       - name: Commit what changed
-        if: ${{ !inputs.dry_run && !inputs.probe && !inputs.harvest }}
+        if: ${{ !inputs.dry_run && !inputs.probe && !inputs.harvest && github.event_name != 'schedule' }}
         run: |
           git config user.name 'scentday-bot'
           git config user.email 'bot@users.noreply.github.com'
