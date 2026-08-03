@@ -133,14 +133,16 @@ function trimmedOrNull(value: string | undefined): string | null {
 }
 
 /**
- * Parse an Awin generic datafeed export into `RawListing`s for one retailer.
+ * Parse an Awin generic datafeed export into `RawListing`s.
  *
  * Rows with no usable `search_price`, no `aw_deep_link`, no `product_name`,
  * or a non-GBP `currency` are skipped rather than guessed at. This function
  * never invents a listing; it only ever reports what the feed actually
- * contained.
+ * contained. Which retailer this feed belongs to is the caller's concern
+ * (scripts/catalogue-feed.ts passes it to `reconcile()`), not this parser's
+ * — a feed export carries no reliable self-identifying column for it.
  */
-export function parseAwinFeed(csvText: string, retailerId: string): RawListing[] {
+export function parseAwinFeed(csvText: string): RawListing[] {
   const delimiter = sniffDelimiter(csvText);
   const rows = parseDelimitedText(csvText, delimiter);
   if (rows.length === 0) return [];

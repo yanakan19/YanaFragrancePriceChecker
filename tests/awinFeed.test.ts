@@ -10,8 +10,6 @@ import { parseAwinFeed } from '../src/catalogue/awinFeed.js';
  * should be mistaken for real Fragrance Click UK inventory.
  */
 
-const RETAILER_ID = 'fragrance-click';
-
 const STANDARD_HEADER =
   'aw_deep_link,product_name,aw_product_id,merchant_product_id,merchant_image_url,' +
   'description,merchant_category,search_price,merchant_name,merchant_id,category_name,' +
@@ -53,7 +51,7 @@ function csvField(value: string): string {
 describe('parseAwinFeed — header-driven column mapping', () => {
   it('maps every RawListing field off a standard-order header', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow()}\n`;
-    const [l] = parseAwinFeed(csv, RETAILER_ID);
+    const [l] = parseAwinFeed(csv);
 
     expect(l).toMatchObject({
       retailerSku: 'MP-1001',
@@ -89,7 +87,7 @@ describe('parseAwinFeed — header-driven column mapping', () => {
     ].join(',');
 
     const csv = `${shuffledHeader}\n${shuffledRow}\n`;
-    const [l] = parseAwinFeed(csv, RETAILER_ID);
+    const [l] = parseAwinFeed(csv);
 
     expect(l).toMatchObject({
       retailerSku: 'MP-2002',
@@ -104,7 +102,7 @@ describe('parseAwinFeed — header-driven column mapping', () => {
 
   it('falls back to aw_product_id when merchant_product_id is absent', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow({ merchant_product_id: '' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)[0]?.retailerSku).toBe('AW1001');
+    expect(parseAwinFeed(csv)[0]?.retailerSku).toBe('AW1001');
   });
 
   it('falls back to aw_image_url when merchant_image_url is absent from the header', () => {
@@ -117,7 +115,7 @@ describe('parseAwinFeed — header-driven column mapping', () => {
       'https://img.example.test/fallback-100ml.jpg',
     ].join(',');
     const csv = `${header}\n${row}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)[0]?.imageUrl).toBe(
+    expect(parseAwinFeed(csv)[0]?.imageUrl).toBe(
       'https://img.example.test/fallback-100ml.jpg',
     );
   });
@@ -126,22 +124,22 @@ describe('parseAwinFeed — header-driven column mapping', () => {
 describe('parseAwinFeed — price handling', () => {
   it('parses a plain decimal search_price', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow({ search_price: '45.00' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)[0]?.priceGbp).toBe(45);
+    expect(parseAwinFeed(csv)[0]?.priceGbp).toBe(45);
   });
 
   it('skips a row with an empty search_price', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow({ search_price: '' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)).toHaveLength(0);
+    expect(parseAwinFeed(csv)).toHaveLength(0);
   });
 
   it('skips a row with a non-numeric search_price', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow({ search_price: 'POA' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)).toHaveLength(0);
+    expect(parseAwinFeed(csv)).toHaveLength(0);
   });
 
   it('skips a row priced at zero', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow({ search_price: '0' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)).toHaveLength(0);
+    expect(parseAwinFeed(csv)).toHaveLength(0);
   });
 
   it('keeps good rows when a malformed row sits between them', () => {
@@ -151,42 +149,42 @@ describe('parseAwinFeed — price handling', () => {
       standardRow({ merchant_product_id: 'MP-1003', product_name: 'Test Fragrance Parfum 30ml', search_price: '55.00' }),
     ];
     const csv = `${STANDARD_HEADER}\n${rows.join('\n')}\n`;
-    const listings = parseAwinFeed(csv, RETAILER_ID);
+    const listings = parseAwinFeed(csv);
     expect(listings.map((l) => l.retailerSku)).toEqual(['MP-1001', 'MP-1003']);
   });
 
   it('skips a row priced in a currency other than GBP', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow({ currency: 'EUR', search_price: '29.99' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)).toHaveLength(0);
+    expect(parseAwinFeed(csv)).toHaveLength(0);
   });
 });
 
 describe('parseAwinFeed — EAN passthrough', () => {
   it('passes a clean EAN through unchanged', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow({ ean: '5012345678901' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)[0]?.ean).toBe('5012345678901');
+    expect(parseAwinFeed(csv)[0]?.ean).toBe('5012345678901');
   });
 
   it('strips formatting characters down to digits', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow({ ean: '5 012345 678901' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)[0]?.ean).toBe('5012345678901');
+    expect(parseAwinFeed(csv)[0]?.ean).toBe('5012345678901');
   });
 
   it('is null when the feed carries no EAN for the row', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow({ ean: '' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)[0]?.ean).toBeNull();
+    expect(parseAwinFeed(csv)[0]?.ean).toBeNull();
   });
 });
 
 describe('parseAwinFeed — required fields', () => {
   it('skips a row with no deep link', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow({ aw_deep_link: '' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)).toHaveLength(0);
+    expect(parseAwinFeed(csv)).toHaveLength(0);
   });
 
   it('skips a row with no product name', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow({ product_name: '' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)).toHaveLength(0);
+    expect(parseAwinFeed(csv)).toHaveLength(0);
   });
 });
 
@@ -195,7 +193,7 @@ describe('parseAwinFeed — quoted CSV fields', () => {
     const csv =
       `${STANDARD_HEADER}\n` +
       `${standardRow({ description: 'Notes of bergamot, cedar, and musk — for testing only' })}\n`;
-    const listings = parseAwinFeed(csv, RETAILER_ID);
+    const listings = parseAwinFeed(csv);
     // The embedded-comma field must not have shifted any later column.
     expect(listings).toHaveLength(1);
     expect(listings[0]?.priceGbp).toBe(29.99);
@@ -206,7 +204,7 @@ describe('parseAwinFeed — quoted CSV fields', () => {
     const csv =
       `${STANDARD_HEADER}\n` +
       `${standardRow({ product_name: 'Test "Signature" Fragrance EDP 100ml' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)[0]?.rawTitle).toBe(
+    expect(parseAwinFeed(csv)[0]?.rawTitle).toBe(
       'Test "Signature" Fragrance EDP 100ml',
     );
   });
@@ -218,7 +216,7 @@ describe('parseAwinFeed — quoted CSV fields', () => {
         product_name: 'Test Fragrance, Limited Edition, EDP 100ml',
         description: 'Top, heart, and base notes, all invented for this fixture',
       })}\n`;
-    const listings = parseAwinFeed(csv, RETAILER_ID);
+    const listings = parseAwinFeed(csv);
     expect(listings).toHaveLength(1);
     expect(listings[0]?.rawTitle).toBe('Test Fragrance, Limited Edition, EDP 100ml');
     expect(listings[0]?.priceGbp).toBe(29.99);
@@ -228,22 +226,22 @@ describe('parseAwinFeed — quoted CSV fields', () => {
 describe('parseAwinFeed — stock', () => {
   it('reads a true in_stock flag', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow({ in_stock: 'yes' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)[0]?.inStock).toBe(true);
+    expect(parseAwinFeed(csv)[0]?.inStock).toBe(true);
   });
 
   it('reads a false in_stock flag', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow({ in_stock: 'no' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)[0]?.inStock).toBe(false);
+    expect(parseAwinFeed(csv)[0]?.inStock).toBe(false);
   });
 
   it('falls back to stock_quantity when in_stock is absent', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow({ in_stock: '', stock_quantity: '3' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)[0]?.inStock).toBe(true);
+    expect(parseAwinFeed(csv)[0]?.inStock).toBe(true);
   });
 
   it('is null when neither in_stock nor stock_quantity is usable', () => {
     const csv = `${STANDARD_HEADER}\n${standardRow({ in_stock: '', stock_quantity: '' })}\n`;
-    expect(parseAwinFeed(csv, RETAILER_ID)[0]?.inStock).toBeNull();
+    expect(parseAwinFeed(csv)[0]?.inStock).toBeNull();
   });
 });
 
@@ -258,7 +256,7 @@ describe('parseAwinFeed — delimiter sniffing', () => {
       '5012345678901',
     ].join('\t');
     const csv = `${header}\n${row}\n`;
-    const [l] = parseAwinFeed(csv, RETAILER_ID);
+    const [l] = parseAwinFeed(csv);
     expect(l?.retailerSku).toBe('MP-1001');
     expect(l?.priceGbp).toBe(29.99);
     expect(l?.ean).toBe('5012345678901');
@@ -267,10 +265,10 @@ describe('parseAwinFeed — delimiter sniffing', () => {
 
 describe('parseAwinFeed — empty input', () => {
   it('returns an empty array for an empty file', () => {
-    expect(parseAwinFeed('', RETAILER_ID)).toEqual([]);
+    expect(parseAwinFeed('')).toEqual([]);
   });
 
   it('returns an empty array for a header row with no data rows', () => {
-    expect(parseAwinFeed(`${STANDARD_HEADER}\n`, RETAILER_ID)).toEqual([]);
+    expect(parseAwinFeed(`${STANDARD_HEADER}\n`)).toEqual([]);
   });
 });
