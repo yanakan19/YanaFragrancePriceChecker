@@ -20,7 +20,7 @@ export const COMPANY = {
   number: '[COMPANY NUMBER]',
   address: '[REGISTERED OFFICE ADDRESS]',
   email: 'hello@pricesniffs.example',
-  feedbackEmail: 'feedback@pricesniffs.example',
+  feedbackEmail: 'pricesniffs@gmail.com',
   privacyEmail: 'privacy@pricesniffs.example',
   ico: '[ICO REGISTRATION NUMBER]',
   updated: '1 August 2026',
@@ -45,7 +45,7 @@ export const LEGAL_PAGES: LegalPage[] = [
   {
     id: 'how-it-works',
     title: 'How PriceSniffs works',
-    short: 'How it works',
+    short: 'How It Works',
     body: `
       <p>PriceSniffs compares fragrance prices across UK shops so you can see what a
       bottle really costs before you buy it.</p>
@@ -86,7 +86,7 @@ export const LEGAL_PAGES: LegalPage[] = [
   {
     id: 'affiliate',
     title: 'Affiliate disclosure',
-    short: 'Affiliate disclosure',
+    short: 'Affiliate Disclosure',
     body: `
       ${draftBanner}
       <p>PriceSniffs intends to earn commission when you buy through some of the

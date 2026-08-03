@@ -35,9 +35,18 @@ const now = new Date();
 
 /* ── deciding what is actually a fragrance ─────────────────────────────────── */
 
-/** Concentrations, which are the strongest signal a listing is a scent. */
+/**
+ * Concentrations, which are the strongest signal a listing is a scent.
+ *
+ * "perfume" was a real gap here: a title reading "Chanel No 5 Perfume 100ml"
+ * matched none of the French-derived terms and was silently rejected as not
+ * a fragrance, despite being an obvious one — plain English listings (feeds
+ * especially) favour "perfume" over "parfum". "attar" and "oud" cover the
+ * concentrated-oil style Middle Eastern perfumery uses, relevant because the
+ * registry already models a 'mideast' tier for three retailers.
+ */
 const CONCENTRATION =
-  /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche|parfum|edp|edt|edc|aftershave|cologne|extrait)\b/i;
+  /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche|parfum|perfume|edp|edt|edc|aftershave|cologne|extrait|attar|oud)\b/i;
 
 /** Things that live near perfume in a sitemap but are not perfume. */
 const NOT_A_FRAGRANCE =
@@ -60,15 +69,30 @@ function isFragrance(l: StoredListing): boolean {
   return l.priceGbp !== null && l.priceGbp > 0;
 }
 
+/**
+ * Canonical display form per CONCENTRATION alternative, so "EDT" and "Eau De
+ * Toilette" in two different retailers' titles both land on the identical
+ * string. Without this, a naive title case of whatever phrase the title used
+ * produced two different strings ("Eau de Toilette" from the abbreviation,
+ * "Eau De Toilette" from the spelled out phrase) for the same concentration,
+ * which then meant only one of the two ever matched the app's own
+ * abbreviation table for the popular rail's compact size and concentration
+ * label.
+ */
+const CONCENTRATION_DISPLAY: Record<string, string> = {
+  edp: 'Eau de Parfum', edt: 'Eau de Toilette', edc: 'Eau de Cologne',
+  'eau de parfum': 'Eau de Parfum', 'eau de toilette': 'Eau de Toilette',
+  'eau de cologne': 'Eau de Cologne', 'eau fraiche': 'Eau Fraiche',
+  parfum: 'Parfum', perfume: 'Perfume', aftershave: 'Aftershave',
+  cologne: 'Cologne', extrait: 'Extrait', attar: 'Attar', oud: 'Oud',
+};
+
 /** Concentration as a display string. */
 function concentration(title: string): string {
   const m = title.match(CONCENTRATION);
   if (!m) return 'Fragrance';
   const raw = m[0].toLowerCase();
-  if (raw === 'edp') return 'Eau de Parfum';
-  if (raw === 'edt') return 'Eau de Toilette';
-  if (raw === 'edc') return 'Eau de Cologne';
-  return raw.replace(/\b\w/g, (c) => c.toUpperCase());
+  return CONCENTRATION_DISPLAY[raw] ?? raw.replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 /**

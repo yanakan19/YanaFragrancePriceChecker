@@ -300,7 +300,7 @@ export const RETAILERS: readonly Retailer[] = [
   },
   {
     id: 'beautybase',
-    name: 'Beautybase',
+    name: 'Beauty Base',
     domain: 'beautybase.com',
     homepage: 'https://www.beautybase.com',
     // Decision recorded 2026-08-01: included on equal footing with every other
