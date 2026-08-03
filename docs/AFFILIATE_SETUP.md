@@ -137,6 +137,48 @@ as an aspiration the feed alone won't fully deliver — worth a quick look at
 a handful of the 895 feed entries once it's pulled, before assuming every row
 is gallery quality.
 
+**The feed ingestion module is now built** (`src/catalogue/awinFeed.ts`,
+`scripts/catalogue-feed.ts`). What's still missing is the feed file itself —
+nobody in this environment has downloaded it from the Awin dashboard or holds
+feed-download API credentials, and that is a real, current blocker, not
+something to route around. Once someone has:
+
+1. In the Awin publisher dashboard, go to **Toolbox → Product Feeds**, find
+   Fragrance Click UK (merchant 124166), and download the feed — the standard
+   "generic" datafeed format, almost certainly CSV, possibly TSV. Awin lets a
+   publisher choose which columns to include, so don't assume every column
+   named in `awinFeed.ts`'s header comment will be present; the parser reads
+   by column name and only requires `aw_deep_link`, `product_name` and
+   `search_price` to produce a listing.
+2. Save it somewhere on disk, then run:
+
+   ```
+   npm run catalogue:feed -- --file=path/to/feed.csv --retailer=fragrance-click
+   ```
+
+   This parses the file, runs it through the same `reconcile()` flow
+   `npm run harvest` uses for every scraped retailer, and writes
+   `data/catalogue/fragrance-click.json` with `source: 'live'`. It refuses to
+   write anything if the file parses to zero usable rows — matching
+   `catalogue-harvest.ts`'s own refusal — so a wrong file or an empty export
+   fails loudly instead of quietly producing an empty or partial-looking
+   catalogue.
+3. From there it's the same as any other shop: `npm run catalogue:demo` picks
+   up the new snapshot and folds it into the app's catalogue alongside every
+   scraped retailer.
+
+**Honesty check, matching how the Apify section above treats itself:** this
+parser has **not** been run against Fragrance Click UK's real feed data yet.
+`tests/awinFeed.test.ts` exercises it only against small, obviously-synthetic
+fixture rows (`"Test Fragrance EDP 100ml"` and the like) invented purely to
+cover the parsing logic — header-driven column mapping in a shuffled order,
+malformed and missing prices, EAN and image passthrough, quoted-comma CSV
+fields. None of that is real Fragrance Click UK inventory, and none of it has
+been near a live app. The first run against the actual downloaded feed is the
+real verification step — treat it as one, and look over what it wrote to
+`data/catalogue/fragrance-click.json` before trusting it the way the rest of
+the registry is trusted.
+
 ---
 
 ## How to set one up

@@ -19,6 +19,7 @@
     "catalogue:demo": "tsx scripts/build-demo-catalogue.ts",
     "probe": "tsx scripts/catalogue-probe.ts",
     "harvest": "tsx scripts/catalogue-harvest.ts",
+    "catalogue:feed": "tsx scripts/catalogue-feed.ts",
     "icons": "tsx scripts/generate-icons.ts"
   },
   "devDependencies": {
