@@ -3,6 +3,16 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#131013" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)" />
+<link rel="manifest" href="manifest.webmanifest" />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png" />
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="ScentDay" />
+<meta name="mobile-web-app-capable" content="yes" />
 <title>ScentDay</title>
 <style>
   /* Dark ground with a red accent, per the brief. One narrow column, centred on
@@ -752,6 +762,13 @@
       <button class="brand-opt ${n.brand===null?"on":""}" data-brand="">All brands</button>
       ${ne.map(e=>`<button class="brand-opt ${n.brand===e?"on":""}" data-brand="${l(e)}">${l(e)}</button>`).join("")}
     </div>`:""}function w(){let e=n.view==="home"?x():n.view==="browse"?fe():n.view==="detail"?we():n.view==="settings"?ye():ke();d("#view").innerHTML=e+Ae(),d("#sheet-host").innerHTML=ge(),d("#brand-chip").innerHTML=n.brand?`<button class="chip" data-clear-brand>${l(n.brand)} <span aria-hidden="true">\xD7</span><span class="sr">clear brand filter</span></button>`:"",d("#nav-home").classList.toggle("on",n.view==="home"),d("#nav-brand").classList.toggle("on",n.brandSheetOpen),d("#nav-settings").classList.toggle("on",n.view==="settings")}function y(e){n.view=e,w(),window.scrollTo({top:0})}function Y(){oe();let e=new Date(F);d("#provenance").textContent=Number.isFinite(e.getTime())?`Real prices from ${E} UK shops, last checked ${e.toLocaleDateString("en-GB",{day:"numeric",month:"short"})}. Always confirm on the shop's site.`:`Real prices from ${E} UK shops. Always confirm on the shop's site.`,d("#search").addEventListener("input",t=>{n.query=t.target.value,n.view="browse",w()}),d("#nav-home").addEventListener("click",()=>{n.brandSheetOpen=!1,n.query="",d("#search").value="",y("home")}),d("#nav-brand").addEventListener("click",()=>{n.brandSheetOpen=!n.brandSheetOpen,w()}),d("#nav-settings").addEventListener("click",()=>{n.brandSheetOpen=!1,y("settings")}),document.addEventListener("click",t=>{let a=t.target,r=a.closest("[data-set-mode]");if(r){ie(r.getAttribute("data-set-mode")),w();return}let o=a.closest("[data-frag]");if(o){n.fragranceId=o.getAttribute("data-frag"),y("detail");return}let u=a.closest("[data-page]");if(u){n.legalId=u.getAttribute("data-page"),y("legal");return}if(a.closest("[data-browse]")){y("browse");return}let i=a.closest("[data-brand]");if(i){let b=i.getAttribute("data-brand");n.brand=b===""?null:b,n.brandSheetOpen=!1,y("browse");return}if(a.closest("[data-back]")){y(n.query||n.brand?"browse":"home");return}if(a.closest("[data-clear-brand]")){n.brand=null,w();return}a.closest("[data-close-sheet]")&&(n.brandSheetOpen=!1,w())}),document.addEventListener("keydown",t=>{t.key==="Escape"&&n.brandSheetOpen&&(n.brandSheetOpen=!1,w())}),w()}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",Y):Y();})();
+</script>
+<script>
+  // Offline shell only — see demo/sw.js for why the document fetch itself
+  // stays network-first rather than served from this cache.
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('sw.js'));
+  }
 </script>
 
 </html>
