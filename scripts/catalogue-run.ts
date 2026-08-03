@@ -61,6 +61,13 @@ if (dryRun) console.log(`mode     dry run, nothing will be written`);
 console.log(`as of    ${now.toISOString()}`);
 console.log(`shops    ${RETAILERS.filter((r) => r.enabled && r.catalogue).length} configured\n`);
 
+// A feed-fed retailer has no section URLs to walk by design (see
+// src/config/retailers.ts) — catalogue is already null for those, so the
+// `!retailer.catalogue` guard below already skips them. This comment exists
+// so the next person adding an affiliate-feed retailer doesn't "fix" that by
+// inventing catalogue sections for a shop that was deliberately never meant
+// to be scraped.
+
 const rows: string[] = [];
 let ok = 0;
 let failed = 0;

@@ -63,7 +63,13 @@ const http: Http = async (url, headers) => {
 
 const store = new CatalogueStore(resolve(root, 'data/catalogue'));
 const now = new Date().toISOString();
-const shops = RETAILERS.filter((r) => r.enabled && (!onlyShop || r.id === onlyShop));
+// A shop on 'affiliate-feed' has an approved feed as its ingestion route —
+// scraping it anyway would be exactly the "improve it into a crawler"
+// mistake docs/INGESTION.md warns against, on a partner who already handed
+// the data over for free. npm run catalogue:feed is that route instead.
+const shops = RETAILERS.filter(
+  (r) => r.enabled && r.adapter !== 'affiliate-feed' && (!onlyShop || r.id === onlyShop),
+);
 
 console.log(`\nSitemap harvest`);
 console.log(`shops    ${shops.length}`);

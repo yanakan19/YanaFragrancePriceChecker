@@ -50,8 +50,9 @@ describe('buildOutboundLink', () => {
 });
 
 describe('pendingAffiliateSetup', () => {
-  it('reports every retailer as outstanding right now', () => {
-    expect(pendingAffiliateSetup()).toHaveLength(RETAILERS.length);
+  it('reports every retailer without a live programme as outstanding', () => {
+    const expectedPending = RETAILERS.filter((r) => r.affiliate.status !== 'active').length;
+    expect(pendingAffiliateSetup()).toHaveLength(expectedPending);
     expect(hasAffiliateGaps()).toBe(true);
   });
 
