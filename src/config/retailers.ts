@@ -1,10 +1,10 @@
 import type { Retailer } from '../types/retailer.js';
 
 /**
- * The ScentDay retailer registry.
+ * The PriceSniffs retailer registry.
  *
- * Twelve UK retailers. Every one of them is a legitimate stockist and every one
- * is fine to send a customer to — see the header comment in
+ * Thirteen UK retailers. Every one of them is a legitimate stockist and every
+ * one is fine to send a customer to — see the header comment in
  * `src/types/retailer.ts` for why there is no `trusted` flag here and what
  * replaced it.
  *
@@ -404,7 +404,7 @@ export const RETAILERS: readonly Retailer[] = [
       signupUrl: 'https://ui.awin.com/merchant-profile/search?q=Superdrug',
       notes:
         'Awin-confirmed, ~1.6% commission, 30-day cookie. The programme excludes coupon, ' +
-        'cashback and deal sites — ScentDay is a comparison site, so expect that question ' +
+        'cashback and deal sites — PriceSniffs is a comparison site, so expect that question ' +
         'during approval. Lead with the editorial/notes side of the product.',
     },
   },
