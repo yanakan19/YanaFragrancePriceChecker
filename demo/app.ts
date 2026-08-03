@@ -8,16 +8,19 @@
  * dashes, no em dashes. Where a compound would normally take a hyphen, reword
  * it. Code comments are exempt.
  */
-import { buildComparison, bestOffer, canShowCountdown, formatGbp } from '../src/index.js';
+import { buildComparison, bestOffer, canShowCountdown, formatGbp, RETAILERS } from '../src/index.js';
 import type { PresentedOffer, StockState } from '../src/types/offer.js';
-import { DEMO_FRAGRANCES, BY_POPULARITY, type DemoFragrance } from './data.js';
+import type { RetailerTier } from '../src/types/retailer.js';
+import { DEMO_FRAGRANCES, BY_POPULARITY, brandTierFor, type DemoFragrance } from './data.js';
 import { productArt } from './photo.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { isNewAt, offersFor, SHOP_COUNT, CRAWLED_AT } from './catalogue.generated.js';
 
-type View = 'home' | 'browse' | 'detail' | 'legal' | 'settings';
+type View = 'home' | 'browse' | 'detail' | 'legal' | 'settings' | 'brands';
 type DisplayMode = 'dark' | 'light' | 'system';
 type Layout = 'mobile' | 'desktop';
+type BrandSort = 'az' | 'za';
+type BrandFilter = RetailerTier | 'all';
 
 const MODE_KEY = 'pricesniffs.display';
 const LAYOUT_KEY = 'pricesniffs.layout';
@@ -28,9 +31,10 @@ const state = {
   legalId: '',
   brand: null as string | null,
   query: '',
-  brandSheetOpen: false,
   mode: 'dark' as DisplayMode,
   layout: 'mobile' as Layout,
+  brandSort: 'az' as BrandSort,
+  brandFilter: 'all' as BrandFilter,
 };
 
 const esc = (s: string) =>
@@ -41,6 +45,9 @@ const esc = (s: string) =>
 const $ = (sel: string) => document.querySelector(sel)!;
 
 const BRANDS = [...new Set(DEMO_FRAGRANCES.map((f) => f.brand))].sort();
+const TIER_LABEL: Record<RetailerTier, string> = {
+  designer: 'Designer', niche: 'Niche', mideast: 'Middle Eastern',
+};
 
 /** Top ten by hand seeded popularity. The contents of the rail. */
 const POPULAR = BY_POPULARITY.slice(0, 10);
@@ -165,19 +172,39 @@ function countdown(iso: string): string {
 
 const MEDALS = ['gold', 'silver', 'bronze'] as const;
 
+/** "Eau de Toilette" -> "EDT", etc. Falls back to the string itself when there is no
+    standard abbreviation (e.g. "Extrait"), which is already short. */
+const CONCENTRATION_ABBR: Record<string, string> = {
+  'Eau de Parfum': 'EDP',
+  'Eau de Toilette': 'EDT',
+  'Eau de Cologne': 'EDC',
+};
+const shortConcentration = (c: string): string => CONCENTRATION_ABBR[c] ?? c;
+
 function popularCard(f: DemoFragrance, rank: number): string {
   const best = bestOffer(rowsFor(f));
   const medal = rank < 3 ? MEDALS[rank] : null;
 
   return `<li class="pop-item">
     <button class="pop" data-frag="${f.id}">
+      <span class="pop-head">
+        <span class="pop-text">
+          <span class="pop-brand">${esc(f.brand)}</span>
+          <span class="pop-name">${esc(f.name)}</span>
+        </span>
+        <span class="pop-meta">
+          <span>${f.sizeMl}ml</span>
+          <span>${esc(shortConcentration(f.concentration))}</span>
+        </span>
+      </span>
       <span class="pop-art">
         ${medal ? `<span class="medal ${medal}" aria-label="Number ${rank + 1} most popular">${rank + 1}</span>` : ''}
-        ${productArt(f.photoUrl, 74, `${f.brand} ${f.name}`)}
+        ${productArt(f.photoUrl, 96, `${f.brand} ${f.name}`)}
       </span>
-      <span class="pop-brand">${esc(f.brand)}</span>
-      <span class="pop-name">${esc(f.name)}</span>
-      <span class="pop-price">${best ? formatGbp(best.deliveredPriceGbp) : 'Sold out'}</span>
+      <span class="pop-price">
+        ${best ? `from ${formatGbp(best.deliveredPriceGbp)}` : 'Sold out'}
+        ${best ? '<span aria-hidden="true">→</span>' : ''}
+      </span>
     </button>
   </li>`;
 }
@@ -189,15 +216,11 @@ function homeView(): string {
         <p class="hero-wordmark">Price<em>Sniffs</em></p>
         <p class="hero-by">by YannySniffs</p>
       </div>
-      <p class="hero-mission">I built this to sniff out the cheapest genuine price on a
-      fragrance across ${SHOP_COUNT} UK shops worth trusting, so you never have to open
-      ten tabs to check one bottle.</p>
+      <p class="hero-mission">The only tool you need to find the best price on any fragrance.</p>
       <ul class="intro-points">
-        <li><span>Delivery counted</span> postage is folded into every price up front, so
-        Boots only goes free from £25 and Harvey Nichols only from £300</li>
-        <li><span>Real reductions</span> a was price is always the shop's own, never one we
-        made up to look better</li>
-        <li><span>Never for sale</span> no shop can pay to sit higher on the list</li>
+        <li><span>Delivery prices reflected</span> so you know what you are paying altogether</li>
+        <li><span>Real and live prices</span> never made up</li>
+        <li><span>Never promoted</span> no shop is favoured over another</li>
       </ul>
     </section>
 
@@ -225,11 +248,13 @@ function visibleFragrances(): DemoFragrance[] {
 
 function browseView(): string {
   const list = visibleFragrances();
+  const back = `<button class="back" data-back-home>Back</button>`;
+
   if (list.length === 0) {
-    return `<p class="empty-note">Nothing here matches that search. Try clearing the brand filter.</p>`;
+    return `${back}<p class="empty-note">Nothing here matches that search. Try clearing the brand filter.</p>`;
   }
 
-  return `<ul class="listing">
+  return `${back}<ul class="listing">
     ${list
       .map((f) => {
         const best = bestOffer(rowsFor(f));
@@ -293,6 +318,18 @@ function offerRow(row: PresentedOffer, isBest: boolean): string {
   </li>`;
 }
 
+/** A retailer this fragrance has no listing from at all, not even sold out. */
+function unavailableRow(name: string): string {
+  return `<li class="offer unavail-elsewhere">
+    <span class="offer-link">
+      <span class="offer-top">
+        <span class="shop">${esc(name)}</span>
+        <span class="price"><span class="now none">&minus;</span></span>
+      </span>
+    </span>
+  </li>`;
+}
+
 function detailView(): string {
   const frag = DEMO_FRAGRANCES.find((f) => f.id === state.fragranceId);
   if (!frag) return homeView();
@@ -303,6 +340,9 @@ function detailView(): string {
   const gone = rows.filter((r) => !r.isPurchasable);
   const newest = rows.length ? Math.min(...rows.map((r) => r.ageSeconds)) : 0;
 
+  const shownIds = new Set(rows.map((r) => r.retailer.id));
+  const unavailable = RETAILERS.filter((r) => !shownIds.has(r.id)).sort((a, b) => a.name.localeCompare(b.name));
+
   return `
     <button class="back" data-back>Back</button>
 
@@ -311,10 +351,14 @@ function detailView(): string {
         ${productArt(frag.photoUrl, 132, `${frag.brand} ${frag.name}`)}
         <p class="hero-brand">${esc(frag.brand)}</p>
         <h2 class="hero-name">${esc(frag.name)}</h2>
-        <p class="hero-meta">${esc(frag.concentration)}, ${frag.sizeMl}ml</p>
+        <p class="hero-meta">${frag.sizeMl}ml, ${esc(frag.concentration)}</p>
         ${
           best
-            ? `<p class="hero-price">${formatGbp(best.deliveredPriceGbp)}<span class="hero-at">delivered, from ${esc(best.retailer.name)}</span></p>`
+            ? `<div class="price-box">
+                 <p class="price-box-label">Cheapest price</p>
+                 <p class="price-box-amount">${formatGbp(best.deliveredPriceGbp)}</p>
+                 <p class="price-box-from">from ${esc(best.retailer.name)}, incl. delivery</p>
+               </div>`
             : `<p class="hero-price none">Sold out everywhere<span class="hero-at">no shop has it in stock right now</span></p>`
         }
       </div>
@@ -333,42 +377,85 @@ function detailView(): string {
                <ul class="offers">${gone.map((r) => offerRow(r, false)).join('')}</ul>`
             : ''
         }
+
+        ${
+          unavailable.length
+            ? `<p class="gone-head">Not available</p>
+               <ul class="offers">${unavailable.map((r) => unavailableRow(r.name)).join('')}</ul>`
+            : ''
+        }
       </div>
     </div>`;
 }
 
 /* ── settings ────────────────────────────────────────────────────────────── */
 
-const MODE_OPTIONS: { id: DisplayMode; label: string; note: string }[] = [
-  { id: 'dark', label: 'Dark', note: 'Always dark, whatever your device is set to' },
-  { id: 'light', label: 'Light', note: 'Always light' },
-  { id: 'system', label: 'Match my device', note: 'Follow your phone or computer setting' },
+const MODE_OPTIONS: { id: DisplayMode; label: string }[] = [
+  { id: 'dark', label: 'Dark' },
+  { id: 'light', label: 'Light' },
+  { id: 'system', label: 'Use System Setting' },
 ];
+
+const CONTACT_TYPES = ['An issue', 'A suggestion', 'A promotional enquiry', 'Something else'] as const;
+
+const ICON_MOBILE =
+  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="18.3" r=".9" fill="currentColor"/></svg>';
+const ICON_DESKTOP =
+  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 21h7M12 17v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
+/* A simple musical note mark, not TikTok's own logo mark: this project has no
+   licence to reproduce that, so a neutral icon stands in for the platform. */
+const ICON_TIKTOK =
+  '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 3v11.2a3.3 3.3 0 1 1-3.3-3.3c.3 0 .6 0 .9.1V8.4a6.1 6.1 0 1 0 5.1 6V9.8a7.5 7.5 0 0 0 4.3 1.4V8.5A4.6 4.6 0 0 1 17 4.5V3h-3Z" fill="currentColor"/></svg>';
 
 function settingsView(): string {
   return `
     <button class="back" data-back>Back</button>
-    <article class="doc">
+    <article class="doc settings-doc">
       <h2>Settings</h2>
-      <h3>Display</h3>
-      <div class="opts">
-        ${MODE_OPTIONS.map(
-          (m) => `<button class="opt ${state.mode === m.id ? 'on' : ''}" data-set-mode="${m.id}">
-            <span class="opt-text">
-              <span class="opt-label">${m.label}</span>
-              <span class="opt-note">${m.note}</span>
-            </span>
-            <span class="opt-mark" aria-hidden="true"></span>
-          </button>`,
-        ).join('')}
+
+      <div class="seg-group">
+        <p class="seg-label">Theme</p>
+        <div class="seg" role="group" aria-label="Display theme">
+          ${MODE_OPTIONS.map(
+            (m) =>
+              `<button class="seg-btn ${state.mode === m.id ? 'on' : ''}" data-set-mode="${m.id}">${esc(m.label)}</button>`,
+          ).join('')}
+        </div>
       </div>
-      <p class="opt-foot">Your choice is remembered on this device.</p>
+
+      <div class="seg-group">
+        <p class="seg-label">Layout</p>
+        <div class="seg" role="group" aria-label="Page layout">
+          <button class="seg-btn seg-icon ${state.layout === 'mobile' ? 'on' : ''}" data-set-layout="mobile" aria-label="Mobile layout">${ICON_MOBILE}<span>Mobile</span></button>
+          <button class="seg-btn seg-icon ${state.layout === 'desktop' ? 'on' : ''}" data-set-layout="desktop" aria-label="Desktop layout">${ICON_DESKTOP}<span>Desktop</span></button>
+        </div>
+      </div>
+
+      <p class="settings-note">Your preference will be remembered on this device.</p>
+
+      <h3>Contact us</h3>
+      <form id="contact-form" class="contact-form">
+        <label class="field">
+          <span>What is this about</span>
+          <select id="contact-type">
+            ${CONTACT_TYPES.map((t) => `<option>${t}</option>`).join('')}
+          </select>
+        </label>
+        <label class="field">
+          <span>Describe it</span>
+          <textarea id="contact-body" rows="4" placeholder="Tell us what is going on"></textarea>
+        </label>
+        <button type="submit" class="contact-send">Send</button>
+      </form>
+      <p id="contact-confirm" class="contact-confirm" hidden></p>
+
+      <h3>Follow</h3>
+      <details class="social">
+        <summary>${ICON_TIKTOK}<span>TikTok</span></summary>
+        <p><a href="https://www.tiktok.com/@yannysniffs" target="_blank" rel="noopener">@yannysniffs on TikTok</a></p>
+      </details>
 
       <h3>About</h3>
-      <p class="foot-line">
-        Spotted a price that looks wrong?
-        <a href="mailto:${COMPANY.feedbackEmail}">${COMPANY.feedbackEmail}</a>
-      </p>
       <nav class="foot-links">
         ${LEGAL_PAGES.map((p) => `<button class="link-btn" data-page="${p.id}">${esc(p.short)}</button>`).join('')}
       </nav>
@@ -394,21 +481,41 @@ function legalView(): string {
     </article>`;
 }
 
-/* ── chrome ──────────────────────────────────────────────────────────────── */
+/* ── brands ──────────────────────────────────────────────────────────────── */
 
-function brandSheet(): string {
-  if (!state.brandSheetOpen) return '';
+function brandsView(): string {
+  const filtered = BRANDS.filter(
+    (b) => state.brandFilter === 'all' || brandTierFor(b) === state.brandFilter,
+  );
+  const list = [...filtered].sort((a, b) => (state.brandSort === 'az' ? a.localeCompare(b) : b.localeCompare(a)));
+
   return `
-    <div class="sheet-back" data-close-sheet></div>
-    <div class="sheet" role="dialog" aria-label="Filter by brand">
-      <p class="sheet-title">Filter by brand</p>
-      <button class="brand-opt ${state.brand === null ? 'on' : ''}" data-brand="">All brands</button>
-      ${BRANDS.map(
-        (b) =>
-          `<button class="brand-opt ${state.brand === b ? 'on' : ''}" data-brand="${esc(b)}">${esc(b)}</button>`,
-      ).join('')}
-    </div>`;
+    <button class="back" data-back-home>Back</button>
+    <div class="brands-head">
+      <h2>Brands</h2>
+      <div class="brands-controls">
+        <select id="brand-sort" class="dropdown" aria-label="Sort brands">
+          <option value="az" ${state.brandSort === 'az' ? 'selected' : ''}>A to Z</option>
+          <option value="za" ${state.brandSort === 'za' ? 'selected' : ''}>Z to A</option>
+        </select>
+        <select id="brand-filter" class="dropdown" aria-label="Filter brands">
+          <option value="all" ${state.brandFilter === 'all' ? 'selected' : ''}>All</option>
+          ${(['designer', 'niche', 'mideast'] as const)
+            .map((t) => `<option value="${t}" ${state.brandFilter === t ? 'selected' : ''}>${TIER_LABEL[t]}</option>`)
+            .join('')}
+        </select>
+      </div>
+    </div>
+    ${
+      list.length === 0
+        ? `<p class="empty-note">No brands match that filter yet.</p>`
+        : `<ul class="brand-list">
+             ${list.map((b) => `<li><button class="brand-row" data-brand="${esc(b)}">${esc(b)}</button></li>`).join('')}
+           </ul>`
+    }`;
 }
+
+/* ── chrome ──────────────────────────────────────────────────────────────── */
 
 function render(): void {
   const body =
@@ -420,25 +527,21 @@ function render(): void {
           ? detailView()
           : state.view === 'settings'
             ? settingsView()
-            : legalView();
+            : state.view === 'brands'
+              ? brandsView()
+              : legalView();
 
   // The wrapper is a fresh element on every render, so the fade in it carries
   // just plays on insertion. No JS animation retriggering needed.
   $('#view').innerHTML = `<div class="view-fade">${body}</div>`;
-  $('#sheet-host').innerHTML = brandSheet();
 
   ($('#brand-chip') as HTMLElement).innerHTML = state.brand
     ? `<button class="chip" data-clear-brand>${esc(state.brand)} <span aria-hidden="true">×</span><span class="sr">clear brand filter</span></button>`
     : '';
 
   ($('#nav-home') as HTMLElement).classList.toggle('on', state.view === 'home');
-  ($('#nav-brand') as HTMLElement).classList.toggle('on', state.brandSheetOpen);
+  ($('#nav-brand') as HTMLElement).classList.toggle('on', state.view === 'brands');
   ($('#nav-settings') as HTMLElement).classList.toggle('on', state.view === 'settings');
-
-  const layoutBtn = $('#nav-layout') as HTMLElement;
-  layoutBtn.setAttribute('aria-checked', String(state.layout === 'desktop'));
-  ($('#nav-layout .sr') as HTMLElement).textContent =
-    state.layout === 'desktop' ? 'Switch to mobile layout' : 'Switch to desktop layout';
 }
 
 function go(view: View): void {
@@ -466,27 +569,21 @@ function init(): void {
     render();
   });
 
-  $('#nav-home').addEventListener('click', () => {
-    state.brandSheetOpen = false;
+  const goHome = () => {
     state.query = '';
+    state.brand = null;
     ($('#search') as HTMLInputElement).value = '';
     go('home');
-  });
+  };
 
-  $('#nav-brand').addEventListener('click', () => {
-    state.brandSheetOpen = !state.brandSheetOpen;
-    render();
-  });
+  $('#nav-home').addEventListener('click', goHome);
+  // The wordmark is the conventional "take me home" control too, not just
+  // the Home tab, so it needs the same reset (cleared search and filter)
+  // rather than a bare view switch.
+  $('#brand-home').addEventListener('click', goHome);
 
-  $('#nav-settings').addEventListener('click', () => {
-    state.brandSheetOpen = false;
-    go('settings');
-  });
-
-  $('#nav-layout').addEventListener('click', () => {
-    setLayout(state.layout === 'desktop' ? 'mobile' : 'desktop');
-    render();
-  });
+  $('#nav-brand').addEventListener('click', () => go('brands'));
+  $('#nav-settings').addEventListener('click', () => go('settings'));
 
   document.addEventListener('click', (e) => {
     const t = e.target as HTMLElement;
@@ -496,6 +593,13 @@ function init(): void {
     const modeBtn = t.closest('[data-set-mode]');
     if (modeBtn) {
       setMode(modeBtn.getAttribute('data-set-mode') as DisplayMode);
+      render();
+      return;
+    }
+
+    const layoutBtn = t.closest('[data-set-layout]');
+    if (layoutBtn) {
+      setLayout(layoutBtn.getAttribute('data-set-layout') as Layout);
       render();
       return;
     }
@@ -523,7 +627,6 @@ function init(): void {
     if (brandOpt) {
       const b = brandOpt.getAttribute('data-brand')!;
       state.brand = b === '' ? null : b;
-      state.brandSheetOpen = false;
       go('browse');
       return;
     }
@@ -533,23 +636,46 @@ function init(): void {
       return;
     }
 
+    if (t.closest('[data-back-home]')) {
+      goHome();
+      return;
+    }
+
     if (t.closest('[data-clear-brand]')) {
       state.brand = null;
       render();
       return;
     }
+  });
 
-    if (t.closest('[data-close-sheet]')) {
-      state.brandSheetOpen = false;
+  document.addEventListener('change', (e) => {
+    const t = e.target as HTMLElement;
+    if (t.id === 'brand-sort') {
+      state.brandSort = (t as HTMLSelectElement).value as BrandSort;
+      render();
+    } else if (t.id === 'brand-filter') {
+      state.brandFilter = (t as HTMLSelectElement).value as BrandFilter;
       render();
     }
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && state.brandSheetOpen) {
-      state.brandSheetOpen = false;
-      render();
-    }
+  // There is no server behind this page, so "send" means handing the message
+  // to the reader's own email app, not silently claiming it reached us. The
+  // confirmation text says exactly that rather than pretending we received it.
+  document.addEventListener('submit', (e) => {
+    const form = e.target as HTMLElement;
+    if (form.id !== 'contact-form') return;
+    e.preventDefault();
+
+    const type = ($('#contact-type') as HTMLSelectElement).value;
+    const body = ($('#contact-body') as HTMLTextAreaElement).value.trim();
+    const subject = `PriceSniffs: ${type}`;
+    const mailto = `mailto:${COMPANY.feedbackEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+
+    const confirm = $('#contact-confirm') as HTMLElement;
+    confirm.textContent = `Your email app should now be open with your ${type.toLowerCase()} ready to send. Hit send there to reach us, we really appreciate it.`;
+    confirm.hidden = false;
   });
 
   render();

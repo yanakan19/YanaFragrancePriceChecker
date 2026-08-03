@@ -23,7 +23,7 @@ describe('retailer registry', () => {
     for (const r of RETAILERS) expect(r.currency).toBe('GBP');
   });
 
-  it('includes Beautybase, enabled', () => {
+  it('includes Beauty Base, enabled', () => {
     const bb = getRetailer('beautybase');
     expect(bb?.enabled).toBe(true);
     expect(bb?.tiers).toContain('niche');

@@ -1,11 +1,19 @@
-name: Daily catalogue crawl
+name: Catalogue crawl
 
-# Runs every morning at 06:00 UTC, before most people go shopping, and commits
-# the resulting snapshots. The commit is the audit trail: the diff shows exactly
-# which products a shop added, dropped or repriced overnight.
+# Runs at the top of every hour and commits the resulting snapshots. The
+# commit is the audit trail: the diff shows exactly which products a shop
+# added, dropped or repriced since the last run.
+#
+# Hourly is genuinely free right now: the sitemap harvest against the four
+# working shops costs nothing, and --allow-metered below is a no op unless
+# the APIFY_PROXY_PASSWORD secret is set, which it currently is not. If that
+# secret is ever added, every hourly tick would retry the blocked shops
+# through the paid residential proxy, multiplying that cost by roughly 24
+# compared to the old once a day schedule — worth revisiting the cadence at
+# that point rather than assuming this comment still holds.
 on:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 * * * *'
   workflow_dispatch:
     inputs:
       source:
