@@ -44,56 +44,98 @@ into the Phase 1 matcher.
 | Beautybase | — | — | not researched |
 | Selfridges | — | — | not researched |
 | Harvey Nichols | — | — | not researched |
-| *Fragrance Click UK* | Awin | applicant's own account shows it approved | **approved, not yet wired in — see below** |
+| *Fragrance Click UK* | Awin (merchant 124166) | ids confirmed | **active on Awin, no `Retailer` entry yet — domain + shipping still needed, see below** |
 
 Only the three marked *confirmed* have been verified against a network's own
 merchant listing. The other nine are genuinely unresearched — they are not
 recorded as "probably Awin", because a guess written into config becomes a fact
 nobody re-checks.
 
-### Fragrance Click UK — approved, waiting on two ids
+### Fragrance Click UK — ids confirmed, two things still needed
 
-The Awin "Your Advertisers" dashboard shows this programme approved (Product
-Feed: Yes, Link Status: Promote), but it does not correspond to any of the
-twelve retailer entries above by name — Awin programme names commonly differ
-from the storefront's public brand, so it may be an existing retailer under a
-different Awin name, or it may be a thirteenth stockist not yet in the
-registry at all. Two things are needed before this can be wired up, and
-neither can be guessed:
+Both ids are now known, read straight off the account, not guessed:
 
-1. **Which storefront this actually is.** Open the programme in the Awin
-   dashboard (click into "Fragrance Click UK" from Your Advertisers) — it will
-   show the merchant's website. If it matches one of the twelve above, use
-   that entry; if not, it needs a new `Retailer` entry in
-   `src/config/retailers.ts` (domain, shipping rules, catalogue sections, the
-   works) before affiliate wiring means anything.
-2. **The merchant id (`awinmid`)** — on that same programme page, or in the
-   "Get links" panel.
-3. **Your publisher id (`awinaffid`)** — Account details in the Awin
-   dashboard, the same value for every approved programme on this account.
+- **Merchant id (`awinmid`): `124166`** — from the programme page (Fragrance
+  Click UK, "Joined", ID 124166).
+- **Publisher id (`awinaffid`): `3017443`** — this is the account id visible
+  throughout the dashboard URLs (`ui.awin.com/awin/affiliate/3017443/...`)
+  and on the Account Overview page ("ID | 3017443"). This is **not** the
+  OAuth2 API token shown on the API Credentials page — that token
+  authenticates programmatic API calls (e.g. pulling a feed) and is a
+  different credential entirely, the same distinction that already exists
+  between the Apify proxy password and an Apify API token (see
+  `docs/INGESTION.md`). Never commit it or paste it anywhere it'll persist;
+  if it's ever needed, it belongs in a secret store the same way
+  `APIFY_PROXY_PASSWORD` does.
 
-Once those are known, use the `awinActive(merchantId, publisherId)` helper in
-`src/config/retailers.ts` (sits next to `awinPending`) — it builds the
-`active` affiliate config and the deeplink template in one call:
+So the call is ready:
 
 ```ts
-affiliate: awinActive('123456', 'YOUR_AWIN_AFFID'),
+affiliate: awinActive('124166', '3017443'),
 ```
 
-`buildOutboundLink` in `src/services/affiliate.ts` needs no changes — it
-already produces a tracked link the moment `status` is `'active'` and both
-ids are present.
+**What is not yet confirmed is which storefront this is.** The programme
+description ("bestselling fragrances... prices well below the high street")
+and a public lookup both point to **fragranceclick.co.uk**, operated by
+Fragrance Click Ltd (Companies House 12092721) — but the "Website" field on
+the Awin programme page itself was blank in what was shared, so this is a
+strong match, not a confirmed one. Confirm it by opening the programme page's
+own website link, or the "Get links" panel, before treating it as fact.
 
-**On product images:** being accepted onto the programme is not, by itself,
-proof of what Fragrance Click UK's creative-usage terms say — most Awin
-programmes do permit feed images for approved publishers, which is why the
-feed carries them, but "most" is not "this one, confirmed". Read that
-merchant's own Terms/Creative tab in the Awin dashboard, and only then set
-`imageUsageConfirmed: true` on its `AffiliateConfig` (see the field's doc
-comment in `src/types/retailer.ts`). Until that flag is set, the app's
-generated bottle illustration stays the only image shown for that retailer's
-listings — real product photography is gated behind this flag and must not
-be displayed on the strength of programme approval alone.
+**The other blocker is delivery terms.** `ShippingRule.standardGbp` is a
+required, real number — a wrong one produces a wrong delivered price, which
+is the one error class this whole registry exists to prevent, so it will not
+be filled with a placeholder. An automated fetch of fragranceclick.co.uk's
+delivery page returned `403 Forbidden` just now, the same bot-mitigation
+pattern already documented for eight other UK fragrance retailers. Until a
+human reads the real number off the site (or off checkout), there is no
+`Retailer` entry to add `awinActive(...)` to yet.
+
+**Recommended route once the domain is confirmed:** don't build a scraper for
+it. This merchant already exposes a live product feed — 895 products, updated
+daily, visible under "My Product Feeds" on the programme page — and
+`AdapterStrategy` already has `'affiliate-feed'` for exactly this case. A feed
+pull (EAN, price, stock, deep link, image, all in one response) is more
+reliable than parsing the storefront and is the ingestion route this project
+has preferred since `docs/INGESTION.md` was written. That's a small new
+module, similar in shape to `sitemapCrawl.ts`, and worth building once the
+domain is confirmed — say the word and I'll scope it properly rather than
+half-build it now.
+
+**On product images — this is now confirmed, not inferred.** The programme's
+own Terms tab states it plainly:
+
+> Publishers may not alter any of the creative or text links available
+> through the Affiliate network Interface. In order to prevent out of date
+> content, affiliates may not hard code the creative into their sites.
+
+Read plainly, that's a yes with two conditions: use the creative Awin serves
+(the feed's `aw_image_url`), don't edit it, and don't take a static copy —
+keep referencing it live so it stays current. That second condition is
+already how this codebase treats images: `RawListing.imageUrl` has always
+been a reference string pointed at the retailer's own hosted image, never a
+downloaded file (`src/catalogue/jsonld.ts`), so nothing architectural needs
+to change to comply with it.
+
+That's enough to set `imageUsageConfirmed: true` for this retailer's entry
+once it exists — quoting the actual Terms text is exactly the standard the
+field's doc comment in `src/types/retailer.ts` asks for, not an inference
+from programme approval. It still only applies to this one merchant; every
+other retailer's entry keeps the generated bottle art until its own Terms
+tab has been read the same way.
+
+**How this compares to Fragrantica's bottle shots:** Fragrantica's clean,
+background-free bottle renders come from a image library built up over
+roughly two decades of curated and licensed submissions — there is no
+approved-publisher shortcut to that. What a feed image realistically gets
+this app is the retailer's own product photography as used on their site —
+usually a clean studio shot on a plain background, sometimes with their own
+logo or promotional badge overlaid, and not guaranteed uniform from one
+product to the next. It's a real photo of the actual bottle, which is a
+genuine upgrade over the generated art, but treat "as clean as Fragrantica"
+as an aspiration the feed alone won't fully deliver — worth a quick look at
+a handful of the 895 feed entries once it's pulled, before assuming every row
+is gallery quality.
 
 ---
 
