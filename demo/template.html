@@ -200,6 +200,12 @@
   }
   .pop:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .pop-art { position: relative; display: flex; justify-content: center; padding: 2px 0 9px; }
+
+  /* Real product photo vs the plain grey marker used until one is licensed
+     for a given retailer — see demo/photo.ts for why there is no third,
+     invented option. */
+  .bottle { display: block; }
+  .bottle-photo { object-fit: contain; border-radius: 8px; background: var(--surface-2); }
   .pop-brand {
     font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
     color: var(--faint); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
@@ -377,15 +383,11 @@
   .brand-opt.on::after { content: " ✓"; }
   .brand-opt:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
-  /* ── footer ────────────────────────────────────────────────────────────── */
-  .foot { margin-top: 44px; padding: 26px 0 14px; border-top: 1px solid var(--line); text-align: center; }
-  .foot-mark { font-size: 17px; font-weight: 700; letter-spacing: -.025em; margin: 0 0 9px; }
-  .foot-mark em { font-style: normal; color: var(--accent); }
-  .foot-line { font-size: 13.5px; color: var(--ink-2); margin: 0 0 4px; }
-  .foot-mail { margin: 0 0 18px; font-size: 13.5px; }
-  .foot-mail a { color: var(--accent); }
-  .foot-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 9px 16px; margin-bottom: 20px; }
-  .foot-legal { font-size: 11.5px; color: var(--faint); line-height: 1.65; margin: 0 0 10px; }
+  /* ── settings: about (condensed, was a page-wide footer before) ──────────── */
+  .foot-line { font-size: 13.5px; color: var(--ink-2); margin: 0 0 14px; }
+  .foot-line a { color: var(--accent); }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 9px 16px; margin-bottom: 16px; }
+  .foot-legal { font-size: 11.5px; color: var(--faint); line-height: 1.65; margin: 0; }
   .foot-legal.dimmer { opacity: .82; }
 
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

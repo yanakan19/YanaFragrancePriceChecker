@@ -64,7 +64,12 @@ const http: Http = async (url, headers) => {
 
 const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
-const shops = RETAILERS.filter((r) => r.enabled && (!onlyShop || r.id === onlyShop));
+// affiliate-feed shops have an approved feed as their route in — probing
+// retrieval strategies against them would mean testing how to scrape a
+// partner who already handed the data over for free. See catalogue-harvest.ts.
+const shops = RETAILERS.filter(
+  (r) => r.enabled && r.adapter !== 'affiliate-feed' && (!onlyShop || r.id === onlyShop),
+);
 
 console.log(`\nAdaptive retrieval probe`);
 console.log(`shops    ${shops.length}`);

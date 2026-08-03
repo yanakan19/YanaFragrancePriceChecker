@@ -11,7 +11,7 @@
 import { buildComparison, bestOffer, canShowCountdown, formatGbp } from '../src/index.js';
 import type { PresentedOffer, StockState } from '../src/types/offer.js';
 import { DEMO_FRAGRANCES, BY_POPULARITY, type DemoFragrance } from './data.js';
-import { bottleSvg } from './art.js';
+import { productArt } from './photo.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { isNewAt, offersFor, SHOP_COUNT, CRAWLED_AT } from './catalogue.generated.js';
 
@@ -121,7 +121,7 @@ function popularCard(f: DemoFragrance, rank: number): string {
     <button class="pop" data-frag="${f.id}">
       <span class="pop-art">
         ${medal ? `<span class="medal ${medal}" aria-label="Number ${rank + 1} most popular">${rank + 1}</span>` : ''}
-        ${bottleSvg(f.art, 74, `${f.brand} ${f.name} bottle illustration`)}
+        ${productArt(f.photoUrl, 74, `${f.brand} ${f.name}`)}
       </span>
       <span class="pop-brand">${esc(f.brand)}</span>
       <span class="pop-name">${esc(f.name)}</span>
@@ -178,7 +178,7 @@ function browseView(): string {
         const best = bestOffer(rowsFor(f));
         return `<li>
           <button class="card" data-frag="${f.id}">
-            <span class="card-art">${bottleSvg(f.art, 40, `${f.brand} ${f.name} bottle illustration`)}</span>
+            <span class="card-art">${productArt(f.photoUrl, 40, `${f.brand} ${f.name}`)}</span>
             <span class="card-text">
               <span class="card-brand">${esc(f.brand)}</span>
               <span class="card-name">${esc(f.name)}</span>
@@ -250,7 +250,7 @@ function detailView(): string {
     <button class="back" data-back>Back</button>
 
     <div class="hero">
-      ${bottleSvg(frag.art, 132, `${frag.brand} ${frag.name} bottle illustration`)}
+      ${productArt(frag.photoUrl, 132, `${frag.brand} ${frag.name}`)}
       <p class="hero-brand">${esc(frag.brand)}</p>
       <h2 class="hero-name">${esc(frag.name)}</h2>
       <p class="hero-meta">${esc(frag.concentration)}, ${frag.sizeMl}ml</p>
@@ -302,6 +302,21 @@ function settingsView(): string {
         ).join('')}
       </div>
       <p class="opt-foot">Your choice is remembered on this device.</p>
+
+      <h3>About</h3>
+      <p class="foot-line">
+        Spotted a price that looks wrong?
+        <a href="mailto:${COMPANY.feedbackEmail}">${COMPANY.feedbackEmail}</a>
+      </p>
+      <nav class="foot-links">
+        ${LEGAL_PAGES.map((p) => `<button class="link-btn" data-page="${p.id}">${esc(p.short)}</button>`).join('')}
+      </nav>
+      <p class="foot-legal dimmer">
+        ${esc(COMPANY.legalName)}, company number ${esc(COMPANY.number)}. We may earn commission
+        on some links — it never changes your price or the order shown.
+        © ${new Date().getFullYear()} ${esc(COMPANY.name)}. Prices are a guide, always check the
+        shop's own site.
+      </p>
     </article>`;
 }
 
@@ -319,30 +334,6 @@ function legalView(): string {
 }
 
 /* ── chrome ──────────────────────────────────────────────────────────────── */
-
-function footer(): string {
-  return `
-    <footer class="foot">
-      <p class="foot-mark">Scent<em>Day</em></p>
-      <p class="foot-line">Spotted a price that looks wrong? Please tell us.</p>
-      <p class="foot-mail"><a href="mailto:${COMPANY.feedbackEmail}">${COMPANY.feedbackEmail}</a></p>
-      <nav class="foot-links">
-        ${LEGAL_PAGES.map((p) => `<button class="link-btn" data-page="${p.id}">${esc(p.short)}</button>`).join('')}
-      </nav>
-      <p class="foot-legal">
-        ${esc(COMPANY.legalName)}. Company number ${esc(COMPANY.number)}.<br />
-        ${esc(COMPANY.address)}
-      </p>
-      <p class="foot-legal">
-        We may earn commission on some links. It never changes the price you pay
-        or the order of the results.
-      </p>
-      <p class="foot-legal dimmer">
-        © ${new Date().getFullYear()} ${esc(COMPANY.name)}. Prices are a guide.
-        Always check on the shop's own site.
-      </p>
-    </footer>`;
-}
 
 function brandSheet(): string {
   if (!state.brandSheetOpen) return '';
@@ -370,7 +361,7 @@ function render(): void {
             ? settingsView()
             : legalView();
 
-  $('#view').innerHTML = body + footer();
+  $('#view').innerHTML = body;
   $('#sheet-host').innerHTML = brandSheet();
 
   ($('#brand-chip') as HTMLElement).innerHTML = state.brand

@@ -1,6 +1,5 @@
 import type { RetailerTier } from '../src/types/retailer.js';
-import type { BottleArt, BottleShape } from './art.js';
-import { CATALOGUE, CRAWLED, type CatalogueEntry } from './catalogue.generated.js';
+import { CATALOGUE, CRAWLED } from './catalogue.generated.js';
 
 /**
  * The app's product list, derived entirely from harvested listings.
@@ -9,9 +8,11 @@ import { CATALOGUE, CRAWLED, type CatalogueEntry } from './catalogue.generated.j
  * a shop was selling it when the harvest ran, and every price attached to it
  * came off that shop's own page.
  *
- * Artwork is generated from the product's own name, since real photography
- * needs a licence we do not have. Same reasoning as before, applied to a
- * catalogue we no longer know in advance.
+ * `photoUrl` is only ever set when scripts/build-demo-catalogue.ts found an
+ * offer from a retailer whose affiliate programme has confirmed we may use
+ * its images — see demo/photo.ts. Everything else renders a plain grey
+ * placeholder rather than a stand-in illustration: a picture we are not
+ * licensed to show and a picture we made up are the same kind of dishonest.
  */
 
 export interface DemoFragrance {
@@ -24,46 +25,7 @@ export interface DemoFragrance {
   tier: RetailerTier;
   /** How many shops stock it. Doubles as the popularity signal for now. */
   popularity: number;
-  art: BottleArt;
-}
-
-/** Stable small hash, so a product always draws the same bottle. */
-function hash(s: string): number {
-  let h = 2166136261;
-  for (let i = 0; i < s.length; i++) {
-    h ^= s.charCodeAt(i);
-    h = Math.imul(h, 16777619);
-  }
-  return Math.abs(h);
-}
-
-const SHAPES: BottleShape[] = ['classic', 'flat', 'ingot', 'pebble', 'ornate', 'column', 'crest'];
-
-/**
- * Give each product a bottle.
- *
- * Concentration picks the palette family, because an Eau de Toilette really
- * does tend to look lighter on a shelf than an Extrait, and the brand name
- * picks the exact hue so two products from one house look related.
- */
-function artFor(entry: CatalogueEntry): BottleArt {
-  const h = hash(`${entry.brand}|${entry.name}`);
-  const hue = h % 360;
-  const shape = SHAPES[h % SHAPES.length]!;
-
-  const deep = /parfum|extrait|elixir/i.test(entry.concentration) && !/eau de/i.test(entry.concentration);
-  const light = /toilette|cologne|fraiche/i.test(entry.concentration);
-
-  const sat = deep ? 42 : light ? 30 : 36;
-  const top = deep ? 46 : light ? 66 : 58;
-  const bottom = deep ? 18 : light ? 34 : 26;
-
-  return {
-    shape,
-    glass: [`hsl(${hue} ${sat}% ${top}%)`, `hsl(${hue} ${sat + 8}% ${bottom}%)`],
-    cap: `hsl(${hue} ${sat}% ${Math.max(10, bottom - 10)}%)`,
-    label: `hsl(${hue} 18% 92%)`,
-  };
+  photoUrl: string | null;
 }
 
 /**
@@ -87,7 +49,7 @@ export const DEMO_FRAGRANCES: DemoFragrance[] = CATALOGUE.map((entry) => ({
   ean: entry.ean,
   tier: tierFor(entry.id),
   popularity: entry.shops,
-  art: artFor(entry),
+  photoUrl: entry.image,
 }));
 
 /**

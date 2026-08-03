@@ -479,6 +479,57 @@ export const RETAILERS: readonly Retailer[] = [
     },
     affiliate: { ...NO_AFFILIATE_YET },
   },
+  {
+    id: 'fragrance-click',
+    name: 'Fragrance Click',
+    domain: 'fragranceclick.co.uk',
+    homepage: 'https://www.fragranceclick.co.uk',
+    tiers: ['designer'],
+    enabled: true,
+    // Approved Awin merchant with a live, daily-updated product feed (895
+    // SKUs) — the exact case docs/INGESTION.md argues for: take the feed,
+    // never build a scraper for a shop that already hands the data over.
+    // catalogue stays null deliberately, not as a TODO — there is no
+    // sitemap walk to configure here, the feed is the only ingestion route.
+    adapter: 'affiliate-feed',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 0,
+      freeOverGbp: 0,
+      estimatedDays: [2, 3],
+      verifiedAt: '2026-08-03',
+      // Not read directly off fragranceclick.co.uk/delivery — that request
+      // returned HTTP 403, the same bot mitigation seen elsewhere in this
+      // registry. Sourced instead from a search-engine summary of that same
+      // page's own content (title: "Delivery Information | Free UK
+      // Shipping | Fragrance Click"), which is indirect enough to keep this
+      // unverified until someone opens the page in a real browser and
+      // confirms it by eye.
+      confidence: 'unverified',
+      notes:
+        'Free UK delivery on every order via Royal Mail Tracked 48 (2-3 days), no minimum ' +
+        'spend — so standardGbp is genuinely 0, not a rounding of a small fee. Paid express ' +
+        'tiers exist (Tracked 24 at £1.95, Special Delivery at £9.95) but are not modelled, ' +
+        'per this registry\'s standard-delivery-only rule.',
+    },
+    catalogue: null,
+    affiliate: {
+      ...awinActive('124166', '3017443'),
+      // Confirmed against this merchant's own Terms tab in the Awin
+      // dashboard, not inferred from programme approval: "Publishers may
+      // not alter any of the creative... may not hard code the creative
+      // into their sites." That is permission with two conditions, not a
+      // prohibition — and both conditions are already how this app treats
+      // imageUrl (a live reference, never a downloaded copy). See
+      // docs/AFFILIATE_SETUP.md.
+      imageUsageConfirmed: true,
+      notes:
+        'Merchant id 124166, joined 3 Aug 2026. Storefront domain inferred from the ' +
+        'programme description and a public company-registry match (Fragrance Click Ltd, ' +
+        'Companies House 12092721) — the Awin programme page\'s own "Website" link was ' +
+        'blank when checked, so treat the domain as strong-confidence, not confirmed.',
+    },
+  },
 ] as const;
 
 /** Registry lookup by id. Built once — the registry is static. */

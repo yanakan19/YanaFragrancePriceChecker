@@ -18,6 +18,7 @@ export interface CrawledOffer {
   fetchedAt: string;
   firstSeenAt: string;
   isNew: boolean;
+  imageUrl: string | null;
 }
 
 export interface CatalogueEntry {
@@ -28,6 +29,8 @@ export interface CatalogueEntry {
   sizeMl: number;
   ean: string | null;
   shops: number;
+  /** A real, licensed product photo — see demo/photo.ts. Null means none yet. */
+  image: string | null;
 }
 
 /** Products, most widely stocked first. */
@@ -39,7 +42,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 125,
     "ean": "088300606511",
-    "shops": 2
+    "shops": 2,
+    "image": null
   },
   {
     "id": "ean-088300602513",
@@ -48,7 +52,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": "088300602513",
-    "shops": 2
+    "shops": 2,
+    "image": null
   },
   {
     "id": "ean-088300100514",
@@ -57,7 +62,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "088300100514",
-    "shops": 2
+    "shops": 2,
+    "image": null
   },
   {
     "id": "justmylook-acq0032",
@@ -66,7 +72,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 30,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-acq0053",
@@ -75,7 +82,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Cologne",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-acq0049",
@@ -84,7 +92,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 150,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-acq0045",
@@ -93,7 +102,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 150,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-acq0012",
@@ -102,7 +112,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Cologne",
     "sizeMl": 180,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-acq0097",
@@ -111,7 +122,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-acq0070",
@@ -120,7 +132,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-acq0047",
@@ -129,7 +142,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 30,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-acq0029",
@@ -138,7 +152,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 75,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-acq0001",
@@ -147,7 +162,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 30,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3616303322021",
@@ -156,7 +172,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "3616303322021",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3616303322052",
@@ -165,7 +182,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "3616303322052",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-afnn0006",
@@ -174,7 +192,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-afnn0008",
@@ -183,7 +202,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 150,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-afnn0003",
@@ -192,7 +212,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-afnn0015",
@@ -201,7 +222,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 90,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-afnn0001",
@@ -210,7 +232,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-8411061411919",
@@ -219,7 +242,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "8411061411919",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-022548006719",
@@ -228,7 +252,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 110,
     "ean": "022548006719",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-ar0003",
@@ -237,7 +262,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 240,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-ari0012",
@@ -246,7 +272,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-ari0010",
@@ -255,7 +282,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 30,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-ari0004",
@@ -264,7 +292,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 30,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-ari0015",
@@ -273,7 +302,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-ari0007",
@@ -282,7 +312,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 30,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-ari0009",
@@ -291,7 +322,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-ari0005",
@@ -300,7 +332,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 50,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-arm0050",
@@ -309,7 +342,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 105,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-arm0049",
@@ -318,7 +352,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 105,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-arm0034",
@@ -327,7 +362,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 90,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-arm0004",
@@ -336,7 +372,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 200,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-arm0037",
@@ -345,7 +382,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 105,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3351500980406",
@@ -354,7 +392,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "3351500980406",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-azz0020",
@@ -363,7 +402,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 80,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-azz0018",
@@ -372,7 +412,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Parfum",
     "sizeMl": 50,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-azz0011",
@@ -381,7 +422,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-azz0004",
@@ -390,7 +432,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-7640111497547",
@@ -399,7 +442,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": "7640111497547",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-bil0005",
@@ -408,7 +452,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 50,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-bil0004",
@@ -417,7 +462,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 30,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-bil0002",
@@ -426,7 +472,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 50,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3577580202089",
@@ -435,7 +482,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": "3577580202089",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-719346065405",
@@ -444,7 +492,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": "719346065405",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-brit0001",
@@ -453,7 +502,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-brit0003",
@@ -462,7 +512,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-brit0006",
@@ -471,7 +522,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 30,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3614227748446",
@@ -480,7 +532,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "3614227748446",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3616302020676",
@@ -489,7 +542,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 50,
     "ean": "3616302020676",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-5045252667859",
@@ -498,7 +552,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": "5045252667859",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-5045252667361",
@@ -507,7 +562,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 30,
     "ean": "5045252667361",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-5045252667330",
@@ -516,7 +572,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 50,
     "ean": "5045252667330",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-5045252667309",
@@ -525,7 +582,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": "5045252667309",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-5045252668214",
@@ -534,7 +592,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 50,
     "ean": "5045252668214",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-5045252668184",
@@ -543,7 +602,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "5045252668184",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-5045252668085",
@@ -552,7 +612,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": "5045252668085",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-5045294100406",
@@ -561,7 +622,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": "5045294100406",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "justmylook-burb0006",
@@ -570,7 +632,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3360370512044",
@@ -579,7 +642,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 30,
     "ean": "3360370512044",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3360374533205",
@@ -588,7 +652,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "3360374533205",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3360373001774",
@@ -597,7 +662,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "3360373001774",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3360373048861",
@@ -606,7 +672,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 30,
     "ean": "3360373048861",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3360373000081",
@@ -615,7 +682,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 50,
     "ean": "3360373000081",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3360373016334",
@@ -624,7 +692,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 30,
     "ean": "3360373016334",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3360373016358",
@@ -633,7 +702,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "3360373016358",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300606535",
@@ -642,7 +712,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Aftershave",
     "sizeMl": 125,
     "ean": "088300606535",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300608409",
@@ -651,7 +722,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": "088300608409",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300605538",
@@ -660,7 +732,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Aftershave",
     "sizeMl": 100,
     "ean": "088300605538",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3607342107977",
@@ -669,7 +742,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "3607342107977",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-0088300104437",
@@ -678,7 +752,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 200,
     "ean": "0088300104437",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3607342058057",
@@ -687,7 +762,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "3607342058057",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300607402",
@@ -696,7 +772,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "088300607402",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300607433",
@@ -705,7 +782,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 200,
     "ean": "088300607433",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3607342401860",
@@ -714,7 +792,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 200,
     "ean": "3607342401860",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300000319",
@@ -723,7 +802,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "088300000319",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300605514",
@@ -732,7 +812,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "088300605514",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300162550",
@@ -741,7 +822,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 50,
     "ean": "088300162550",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300162512",
@@ -750,7 +832,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": "088300162512",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300178322",
@@ -759,7 +842,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 50,
     "ean": "088300178322",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300178278",
@@ -768,7 +852,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "088300178278",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300196814",
@@ -777,7 +862,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "088300196814",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300196876",
@@ -786,7 +872,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 150,
     "ean": "088300196876",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300196944",
@@ -795,7 +882,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 150,
     "ean": "088300196944",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300150427",
@@ -804,7 +892,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": "088300150427",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-088300150458",
@@ -813,7 +902,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 125,
     "ean": "088300150458",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-5050456006472",
@@ -822,7 +912,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 60,
     "ean": "5050456006472",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-763511100019",
@@ -831,7 +922,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": "763511100019",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3139420225018",
@@ -840,7 +932,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "3139420225018",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-4035773552513",
@@ -849,7 +942,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "4035773552513",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-085805785345",
@@ -858,7 +952,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": "085805785345",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-085805757748",
@@ -867,7 +962,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "085805757748",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-027131521433",
@@ -876,7 +972,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Cologne",
     "sizeMl": 100,
     "ean": "027131521433",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-027131017752",
@@ -885,7 +982,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 67,
     "ean": "027131017752",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-887167095915",
@@ -894,7 +992,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 50,
     "ean": "887167095915",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-027131020424",
@@ -903,7 +1002,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 60,
     "ean": "027131020424",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-887167095878",
@@ -912,7 +1012,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 50,
     "ean": "887167095878",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3274870303166",
@@ -921,7 +1022,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "3274870303166",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-737052057989",
@@ -930,7 +1032,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 90,
     "ean": "737052057989",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-737052351155",
@@ -939,7 +1042,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Aftershave",
     "sizeMl": 50,
     "ean": "737052351155",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3386460072625",
@@ -948,7 +1052,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 30,
     "ean": "3386460072625",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3386460072588",
@@ -957,7 +1062,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 50,
     "ean": "3386460072588",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3386460067508",
@@ -966,7 +1072,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": "3386460067508",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3414206000615",
@@ -975,7 +1082,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Aftershave",
     "sizeMl": 75,
     "ean": "3414206000615",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3274872404113",
@@ -984,7 +1092,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 30,
     "ean": "3274872404113",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-3616302931781",
@@ -993,7 +1102,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 125,
     "ean": "3616302931781",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-8435137782970",
@@ -1002,7 +1112,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 50,
     "ean": "8435137782970",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "ean-8435137782949",
@@ -1011,7 +1122,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": "8435137782949",
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "lookfantastic-10002885",
@@ -1020,7 +1132,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 50,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "lookfantastic-10002886",
@@ -1029,7 +1142,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "lookfantastic-10077798",
@@ -1038,7 +1152,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 50,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "lookfantastic-10301201",
@@ -1047,7 +1162,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 50,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "lookfantastic-10588308",
@@ -1056,7 +1172,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Aftershave",
     "sizeMl": 118,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "lookfantastic-10810788",
@@ -1065,7 +1182,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 50,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "lookfantastic-10952559",
@@ -1074,7 +1192,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "lookfantastic-10954663",
@@ -1083,7 +1202,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Parfum",
     "sizeMl": 100,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   },
   {
     "id": "lookfantastic-11034069",
@@ -1092,7 +1212,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau De Toilette",
     "sizeMl": 30,
     "ean": null,
-    "shops": 1
+    "shops": 1,
+    "image": null
   }
 ];
 
@@ -1107,7 +1228,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-calvin-klein-obsession-for-men-eau-de-toilette-125ml-11079263",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     },
     {
       "retailerId": "beautybase",
@@ -1118,7 +1240,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/obsession-for-men-eau-de-toilette-125ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-088300602513": [
@@ -1131,7 +1254,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-calvin-klein-contradiction-eau-de-parfum-100ml-14271183",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     },
     {
       "retailerId": "beautybase",
@@ -1142,7 +1266,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/contradiction-for-women-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-088300100514": [
@@ -1155,7 +1280,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-calvin-klein-escape-for-men-eau-de-toilette-100ml-11210240",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     },
     {
       "retailerId": "beautybase",
@@ -1166,7 +1292,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/escape-for-men-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-acq0032": [
@@ -1179,7 +1306,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/acqua-di-parma-blu-mediterraneo-bergamotto-di-calabria-eau-de-toilette-30ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-acq0053": [
@@ -1192,7 +1320,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/acqua-di-parma-colonia-eau-de-cologne-100ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-acq0049": [
@@ -1205,7 +1334,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/acqua-di-parma-blu-mediterraneo-mandorlo-di-sicilia-eau-de-toilette-150ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-acq0045": [
@@ -1218,7 +1348,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/acqua-di-parma-blu-mediterraneo-fico-di-amalfi-eau-de-toilette-150ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-acq0012": [
@@ -1231,7 +1362,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/acqua-di-parma-colonia-club-eau-de-cologne-180ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-acq0097": [
@@ -1244,7 +1376,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/acqua-di-parma-oud-spice-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-acq0070": [
@@ -1257,7 +1390,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/acqua-di-parma-oud-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-acq0047": [
@@ -1270,7 +1404,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/acqua-di-parma-blu-mediterraneo-mandorlo-di-sicilia-eau-de-toilette-30ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-acq0029": [
@@ -1283,7 +1418,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/acqua-di-parma-blu-mediterraneo-arancia-di-capri-eau-de-toilette-75ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-acq0001": [
@@ -1296,7 +1432,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/acqua-di-parma-blu-mediterraneo-mirto-di-panarea-eau-de-toilette-30ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-3616303322021": [
@@ -1309,7 +1446,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/pure-game-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3616303322052": [
@@ -1322,7 +1460,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/adidas-victory-league-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-afnn0006": [
@@ -1335,7 +1474,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-afnn0008": [
@@ -1348,7 +1488,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-150ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-afnn0003": [
@@ -1361,7 +1502,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/afnan-9pm-pour-homme-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-afnn0015": [
@@ -1374,7 +1516,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/afnan-turathi-blue-pour-homme-eau-de-parfum-90ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-afnn0001": [
@@ -1387,7 +1530,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/afnan-9am-dive-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-8411061411919": [
@@ -1400,7 +1544,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/quorum-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-022548006719": [
@@ -1413,7 +1558,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/aramis-eau-de-toilette-110ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-ar0003": [
@@ -1426,7 +1572,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/aramis-classic-eau-de-toilette-240ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-ari0012": [
@@ -1439,7 +1586,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/ariana-grande-thank-u-next-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-ari0010": [
@@ -1452,7 +1600,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/ariana-grande-thank-u-next-eau-de-parfum-30ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-ari0004": [
@@ -1465,7 +1614,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/ariana-grande-sweet-like-candy-eau-de-parfum-30ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-ari0015": [
@@ -1478,7 +1628,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/ariana-grande-r-e-m-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-ari0007": [
@@ -1491,7 +1642,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/ariana-grande-cloud-eau-de-parfum-30ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-ari0009": [
@@ -1504,7 +1656,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/ariana-grande-cloud-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-ari0005": [
@@ -1517,7 +1670,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/ariana-grande-sweet-like-candy-eau-de-parfum-50ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-arm0050": [
@@ -1530,7 +1684,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/armaf-club-de-nuit-iconic-eau-de-parfum-105ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-arm0049": [
@@ -1543,7 +1698,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/armaf-club-de-nuit-urban-man-elixir-eau-de-parfum-105ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-arm0034": [
@@ -1556,7 +1712,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/armaf-oud-niche-eau-de-parfum-90ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-arm0004": [
@@ -1569,7 +1726,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/armaf-club-de-nuit-intense-man-eau-de-parfum-200ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-arm0037": [
@@ -1582,7 +1740,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/armaf-club-de-nuit-intense-women-eau-de-parfum-105ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-3351500980406": [
@@ -1595,7 +1754,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/azzaro-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-azz0020": [
@@ -1608,7 +1768,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/azzaro-wanted-girl-eau-de-parfum-80ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-azz0018": [
@@ -1621,7 +1782,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/azzaro-the-most-wanted-parfum-50ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-azz0011": [
@@ -1634,7 +1796,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/azzaro-wanted-by-night-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-azz0004": [
@@ -1647,7 +1810,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/azzaro-wanted-eau-de-toilette-100ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-7640111497547": [
@@ -1660,7 +1824,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/bentley-for-men-intense-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-bil0005": [
@@ -1673,7 +1838,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/billie-eilish-eilish-no-2-by-billie-eilish-eau-de-parfum-50ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-bil0004": [
@@ -1686,7 +1852,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/billie-eilish-eilish-no-2-by-billie-eilish-eau-de-parfum-30ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-bil0002": [
@@ -1699,7 +1866,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/billie-eilish-eilish-by-billie-eilish-eau-de-parfum-50ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-3577580202089": [
@@ -1712,7 +1880,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/boucheron-ph-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-719346065405": [
@@ -1725,7 +1894,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/fantasy-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-brit0001": [
@@ -1738,7 +1908,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/britney-spears-fantasy-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-brit0003": [
@@ -1751,7 +1922,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/britney-spears-believe-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-brit0006": [
@@ -1764,7 +1936,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/britney-spears-curious-eau-de-parfum-30ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-3614227748446": [
@@ -1777,7 +1950,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-burberry-weekend-for-men-eau-de-toilette-spray-100ml-12044984",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3616302020676": [
@@ -1790,7 +1964,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/burberry-goddess-eau-de-parfum-50ml-refillable-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-5045252667859": [
@@ -1803,7 +1978,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/burberry-brit-for-women-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-5045252667361": [
@@ -1816,7 +1992,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/burberry-for-women-eau-de-parfum-30ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-5045252667330": [
@@ -1829,7 +2006,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/burberry-for-women-eau-de-parfum-50ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-5045252667309": [
@@ -1842,7 +2020,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/burberry-for-women-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-5045252668214": [
@@ -1855,7 +2034,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/burberry-london-for-men-eau-de-toilette-50ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-5045252668184": [
@@ -1868,7 +2048,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/burberry-london-for-men-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-5045252668085": [
@@ -1881,7 +2062,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/burberry-london-for-women-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-5045294100406": [
@@ -1894,7 +2076,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/burberry-touch-for-women-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-burb0006": [
@@ -1907,7 +2090,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/burberry-brit-for-her-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3360370512044": [
@@ -1920,7 +2104,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/anais-anais-eau-de-toilette-30ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3360374533205": [
@@ -1933,7 +2118,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/anais-anais-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3360373001774": [
@@ -1946,7 +2132,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/cacharel-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3360373048861": [
@@ -1959,7 +2146,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/eden-eau-de-parfum-30ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3360373000081": [
@@ -1972,7 +2160,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/loulou-eau-de-parfum-50ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3360373016334": [
@@ -1985,7 +2174,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/noa-eau-de-toilette-30ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3360373016358": [
@@ -1998,7 +2188,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/noa-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-088300606535": [
@@ -2011,7 +2202,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-calvin-klein-obsession-for-men-aftershave-splash-125ml-14575846",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-088300608409": [
@@ -2024,7 +2216,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-calvin-klein-escape-eau-de-parfum-100ml-17823521",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-088300605538": [
@@ -2037,7 +2230,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-calvin-klein-eternity-for-men-aftershave-splash-100ml-14271233",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-03T08:54:00.370Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-3607342107977": [
@@ -2050,7 +2244,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/aqua-eternity-for-men-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-0088300104437": [
@@ -2063,7 +2258,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ck-be-eau-de-toilette-200ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3607342058057": [
@@ -2076,7 +2272,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ck-free-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-088300607402": [
@@ -2089,7 +2286,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ck-one-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-088300607433": [
@@ -2102,7 +2300,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ck-one-eau-de-toilette-200ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3607342401860": [
@@ -2115,7 +2314,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ck-one-shock-her-eau-de-toilette-200ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-088300000319": [
@@ -2128,7 +2328,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/contradiction-for-men-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-088300605514": [
@@ -2141,7 +2342,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/eternity-for-men-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-088300162550": [
@@ -2154,7 +2356,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/euphoria-eau-de-parfum-50ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-088300162512": [
@@ -2167,7 +2370,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/euphoria-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-088300178322": [
@@ -2180,7 +2384,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/euphoria-for-men-eau-de-toilette-50ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-088300178278": [
@@ -2193,7 +2398,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/euphoria-for-men-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-088300196814": [
@@ -2206,7 +2412,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/in-2u-her-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-088300196876": [
@@ -2219,7 +2426,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/in-2u-her-eau-de-toilette-150ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-088300196944": [
@@ -2232,7 +2440,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/in-2u-him-eau-de-toilette-150ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-088300150427": [
@@ -2245,7 +2454,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/obsession-night-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-088300150458": [
@@ -2258,7 +2468,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/obsession-night-for-men-eau-de-toilette-125ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-5050456006472": [
@@ -2271,7 +2482,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/cerruti-vivo-homme-eau-de-parfum-60ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-763511100019": [
@@ -2284,7 +2496,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-dkny-women-energizing-eau-de-parfum-spray-100ml-14689749",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-3139420225018": [
@@ -2297,7 +2510,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/dunhill-london-desire-red-for-men-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-4035773552513": [
@@ -2310,7 +2524,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/dunhill-london-edition-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-085805785345": [
@@ -2323,7 +2538,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-elizabeth-arden-beauty-eau-de-parfum-spray-100ml-3-3-fl-oz-14574812",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-085805757748": [
@@ -2336,7 +2552,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-elizabeth-arden-sunflowers-eau-de-toilette-spray-100ml-3-3-fl-oz-10547875",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-027131521433": [
@@ -2349,7 +2566,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-estee-lauder-pleasures-for-men-eau-de-cologne-spray-100ml-11141166",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-027131017752": [
@@ -2362,7 +2580,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-estee-lauder-youth-dew-eau-de-parfum-spray-67ml-11141505",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-887167095915": [
@@ -2375,7 +2594,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-estee-lauder-spellbound-eau-de-parfum-spray-50ml-11141557",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-027131020424": [
@@ -2388,7 +2608,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-estee-lauder-white-linen-eau-de-parfum-spray-60ml-10026233",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-887167095878": [
@@ -2401,7 +2622,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-estee-lauder-cinnabar-eau-de-parfum-spray-50ml-11141554",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-3274870303166": [
@@ -2414,7 +2636,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-givenchy-pour-homme-eau-de-toilette-spray-100ml-14574780",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-737052057989": [
@@ -2427,7 +2650,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-hugo-boss-boss-woman-eau-de-parfum-90ml-10076083",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-737052351155": [
@@ -2440,7 +2664,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-hugo-boss-boss-bottled-aftershave-splash-50ml-11858151",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3386460072625": [
@@ -2453,7 +2678,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/jimmy-choo-man-blue-eau-de-toilette-30ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-3386460072588": [
@@ -2466,7 +2692,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/jimmy-choo-man-blue-eau-de-toilette-50ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-3386460067508": [
@@ -2479,7 +2706,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/jimmy-choo-man-blue-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-3414206000615": [
@@ -2492,7 +2720,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-joop-homme-aftershave-splash-75ml-10002651",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3274872404113": [
@@ -2505,7 +2734,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-kenzo-flower-by-kenzo-eau-de-parfum-spray-30ml-14574936",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3616302931781": [
@@ -2518,7 +2748,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-lacoste-red-pour-homme-eau-de-toilette-spray-125ml-14574870",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-8435137782970": [
@@ -2531,7 +2762,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/prada-luna-rossa-black-eau-de-parfum-50ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-8435137782949": [
@@ -2544,7 +2776,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/prada-luna-rossa-black-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "lookfantastic-10002885": [
@@ -2557,7 +2790,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.lookfantastic.com/p/juicy-couture-eau-de-parfum-50ml/10002885/",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "lookfantastic-10002886": [
@@ -2570,7 +2804,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.lookfantastic.com/p/juicy-couture-eau-de-parfum-spray-100ml/10002886/",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "lookfantastic-10077798": [
@@ -2583,7 +2818,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.lookfantastic.com/p/diesel-only-the-brave-eau-de-toilette-50ml/10077798/",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "lookfantastic-10301201": [
@@ -2596,7 +2832,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.lookfantastic.com/p/acqua-di-parma-magnolia-nobile-eau-de-parfum-50ml/10301201/",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "lookfantastic-10588308": [
@@ -2609,7 +2846,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.lookfantastic.com/p/menaji-power-hydrator-aftershave-with-hyaluronic-acid-4oz.-118ml/10588308/",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "lookfantastic-10810788": [
@@ -2622,7 +2860,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.lookfantastic.com/p/juicy-couture-viva-noir-eau-de-parfum-50ml/10810788/",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "lookfantastic-10952559": [
@@ -2635,7 +2874,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.lookfantastic.com/p/paco-rabanne-invictus-eau-de-toilette-100ml/10952559/",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "lookfantastic-10954663": [
@@ -2648,7 +2888,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.lookfantastic.com/p/dkny-be-delicious-eau-de-parfum-100ml/10954663/",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "lookfantastic-11034069": [
@@ -2661,7 +2902,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.lookfantastic.com/p/versace-crystal-noir-eau-de-toilette-30ml/11034069/",
       "fetchedAt": "2026-08-03T08:54:00.370Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true
+      "isNew": true,
+      "imageUrl": null
     }
   ]
 };

@@ -2,8 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { RETAILERS, getRetailer, enabledRetailers, retailersForTier } from '../src/config/retailers.js';
 
 describe('retailer registry', () => {
-  it('contains the twelve retailers from the plan', () => {
-    expect(RETAILERS).toHaveLength(12);
+  it('contains the retailers from the plan plus any live affiliate additions', () => {
+    // Twelve from the original plan, plus Fragrance Click UK — added once its
+    // Awin programme actually approved us, not part of the original twelve.
+    expect(RETAILERS).toHaveLength(13);
   });
 
   it('has unique ids and domains', () => {
@@ -45,8 +47,11 @@ describe('retailer registry', () => {
     it('never has a negative cost or threshold', () => {
       for (const r of RETAILERS) {
         expect(r.shipping.standardGbp).toBeGreaterThanOrEqual(0);
+        // 0 is a legitimate threshold — it means "free from the first item",
+        // not "no threshold recorded". Fragrance Click UK is free on every
+        // order, so freeOverGbp: 0 is the honest way to say that, not a bug.
         if (r.shipping.freeOverGbp !== null) {
-          expect(r.shipping.freeOverGbp).toBeGreaterThan(0);
+          expect(r.shipping.freeOverGbp).toBeGreaterThanOrEqual(0);
         }
       }
     });
@@ -73,9 +78,15 @@ describe('retailer registry', () => {
   });
 
   describe('affiliate config', () => {
-    it('starts with no live programmes, so links stay direct', () => {
+    it('never has an active programme with placeholder ids', () => {
+      // status: 'active' is what flips buildOutboundLink into producing a
+      // real tracked link — if it were ever set without real ids behind it,
+      // every link for that retailer would silently be broken.
       for (const r of RETAILERS) {
-        expect(r.affiliate.status).not.toBe('active');
+        if (r.affiliate.status === 'active') {
+          expect(r.affiliate.publisherId, `${r.name} is active with no publisherId`).toBeTruthy();
+          expect(r.affiliate.deeplinkTemplate, `${r.name} is active with no deeplinkTemplate`).toBeTruthy();
+        }
       }
     });
 
