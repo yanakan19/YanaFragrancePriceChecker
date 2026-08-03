@@ -18,7 +18,8 @@
     "catalogue:fixtures": "tsx scripts/catalogue-fixtures.ts",
     "catalogue:demo": "tsx scripts/build-demo-catalogue.ts",
     "probe": "tsx scripts/catalogue-probe.ts",
-    "harvest": "tsx scripts/catalogue-harvest.ts"
+    "harvest": "tsx scripts/catalogue-harvest.ts",
+    "icons": "tsx scripts/generate-icons.ts"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",

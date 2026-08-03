@@ -413,3 +413,10 @@
 <div id="sheet-host"></div>
 
 <script>/*__BUNDLE__*/</script>
+<script>
+  // Offline shell only — see demo/sw.js for why the document fetch itself
+  // stays network-first rather than served from this cache.
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('sw.js'));
+  }
+</script>
