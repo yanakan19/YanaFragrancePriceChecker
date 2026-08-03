@@ -374,7 +374,7 @@ function settingsView(): string {
       </nav>
       <p class="foot-legal dimmer">
         ${esc(COMPANY.legalName)}, company number ${esc(COMPANY.number)}. We may earn commission
-        on some links — it never changes your price or the order shown.
+        on some links, and that never changes your price or the order shown.
         © ${new Date().getFullYear()} ${esc(COMPANY.name)}. Prices are a guide, always check the
         shop's own site.
       </p>
