@@ -9,7 +9,7 @@
  * get the latest build; the cache exists purely so the app still opens with
  * no signal, not as a shortcut around fetching today's prices.
  */
-const CACHE = 'scentday-shell-v1';
+const CACHE = 'pricesniffs-shell-v1';
 const SHELL = [
   './',
   './index.html',

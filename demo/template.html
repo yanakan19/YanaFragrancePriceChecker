@@ -1,4 +1,4 @@
-<title>ScentDay</title>
+<title>PriceSniffs</title>
 <style>
   /* Dark ground with a red accent, per the brief. One narrow column, centred on
      wider screens, so the phone layout is the only layout to maintain and a
@@ -74,7 +74,19 @@
             "Segoe UI Variable Text", "Segoe UI", Roboto, "Helvetica Neue",
             Arial, sans-serif;
     --col: 460px;
+    /* The brand filter sheet stays a comfortable dialog width in both
+       layouts. It should not balloon to the desktop page width, so it gets
+       its own variable rather than following --col. */
+    --sheet-col: 460px;
   }
+
+  /* Desktop is a genuinely different layout, not just a wider mobile column:
+     more width, a browse grid instead of a stacked list, and a two column
+     detail view. See the [data-layout="desktop"] rules threaded through the
+     sections below. Chosen once on first load from a real device signal
+     (see demo/app.ts's detectDefaultLayout), then remembered per visitor
+     once they pick for themselves. */
+  :root[data-layout="desktop"] { --col: 1180px; }
 
   * { box-sizing: border-box; }
 
@@ -101,20 +113,58 @@
     border-bottom: 1px solid var(--line);
     padding: 13px 16px 11px;
   }
-  .bar-row { display: flex; align-items: center; gap: 14px; }
-  .brandmark {
-    font-size: 19px; font-weight: 700; letter-spacing: -.025em;
-    margin: 0; flex: 1; white-space: nowrap;
+  .bar-row { display: flex; align-items: center; gap: 12px; position: relative; }
+  /* A thin animated sweep along the top edge of the bar: a "scanning" accent
+     that never demands attention, just gives the chrome a pulse of life.
+     Reduced motion turns it into a plain static line via the global rule
+     below, since it is a standard CSS animation, not a JS-driven one. */
+  .bar::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent) 45%, transparent 90%);
+    background-size: 240% 100%; opacity: .55;
+    animation: scan 7s linear infinite;
   }
-  .brandmark em { font-style: normal; color: var(--accent); }
+  @keyframes scan {
+    0%   { background-position: 120% 0; }
+    100% { background-position: -120% 0; }
+  }
+  .brandmark {
+    font-size: 18px; font-weight: 800; letter-spacing: -.03em;
+    margin: 0; flex: 1; min-width: 0; white-space: nowrap;
+    overflow: hidden; text-overflow: ellipsis;
+  }
+  .brandmark em, .hero-wordmark em { font-style: normal; color: var(--accent); }
 
   .navbtn {
     background: none; border: 0; padding: 5px 0; cursor: pointer;
     font: inherit; font-size: 13.5px; font-weight: 500; color: var(--ink-2);
     border-bottom: 2px solid transparent; white-space: nowrap;
+    transition: color .15s ease, border-color .15s ease, transform .12s ease;
   }
   .navbtn.on { color: var(--ink); border-bottom-color: var(--accent); }
   .navbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+  .navbtn:active { transform: scale(.94); }
+
+  /* ── layout switch: mobile vs desktop, a distinct attribute (data-layout)
+     from the colour theme's data-mode, so click handling never confuses the
+     two the way an earlier build once did. ─────────────────────────────── */
+  .layout-switch {
+    flex: none; background: none; border: 0; padding: 4px; margin: 0 0 0 2px;
+    cursor: pointer; border-radius: 999px; line-height: 0;
+  }
+  .layout-switch:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 999px; }
+  .layout-switch-track {
+    display: block; width: 34px; height: 19px; border-radius: 999px;
+    background: var(--surface-2); border: 1px solid var(--line-firm);
+    position: relative; transition: background-color .18s ease, border-color .18s ease;
+  }
+  .layout-switch-thumb {
+    position: absolute; top: 1px; left: 1px; width: 15px; height: 15px;
+    border-radius: 50%; background: var(--ink-2);
+    transition: transform .18s cubic-bezier(.4,0,.2,1), background-color .18s ease;
+  }
+  [data-layout="desktop"] .layout-switch-track { background: var(--accent-sf); border-color: var(--accent); }
+  [data-layout="desktop"] .layout-switch-thumb { transform: translateX(15px); background: var(--accent); }
 
   input[type="search"] {
     width: 100%; margin-top: 11px; padding: 10px 13px;
@@ -146,18 +196,32 @@
 
   ul.listing, ul.offers { list-style: none; margin: 0; padding: 0; }
 
-  /* ── intro ─────────────────────────────────────────────────────────────── */
-  .intro { padding: 26px 0 8px; }
-  .kicker {
-    font-size: 11px; font-weight: 700; letter-spacing: .12em;
-    text-transform: uppercase; color: var(--accent); margin: 0 0 10px;
+  /* ── intro / hero ──────────────────────────────────────────────────────── */
+  .intro { padding: 34px 0 8px; }
+  .hero-logo { text-align: center; position: relative; }
+  /* A soft, still glow behind the wordmark. Purely a background wash, so it
+     stays legible and never competes with the text sitting on top of it. */
+  .hero-logo::before {
+    content: ""; position: absolute; left: 50%; top: 50%;
+    width: 220px; height: 140px; transform: translate(-50%, -50%);
+    background: radial-gradient(closest-side, var(--accent-sf), transparent 72%);
+    opacity: .8; z-index: -1;
   }
-  .intro h2 {
-    font-size: 31px; font-weight: 700; line-height: 1.1;
-    letter-spacing: -.032em; margin: 0 0 10px; text-wrap: balance;
+  .hero-wordmark {
+    margin: 0; font-size: 38px; font-weight: 800; letter-spacing: -.035em; line-height: 1;
   }
-  .lede { margin: 0; font-size: 15px; color: var(--ink-2); }
-  .intro-points { list-style: none; margin: 20px 0 0; padding: 0; display: flex; flex-direction: column; gap: 9px; }
+  .hero-by {
+    margin: 9px 0 0; font-size: 11.5px; font-weight: 700; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--faint);
+  }
+  .hero-mission {
+    margin: 18px auto 0; max-width: 38ch; font-size: 15px; color: var(--ink-2);
+    text-align: center;
+  }
+  .intro-points {
+    list-style: none; margin: 26px 0 0; padding: 0;
+    display: flex; flex-direction: column; gap: 9px;
+  }
   .intro-points li { font-size: 13.5px; color: var(--ink-2); padding-left: 16px; position: relative; }
   .intro-points li::before {
     content: ""; position: absolute; left: 0; top: 8px;
@@ -183,7 +247,7 @@
   .pop-rail {
     list-style: none; margin: 14px -16px 0; padding: 2px 16px 6px;
     display: flex; gap: 10px;
-    overflow-x: auto; scroll-snap-type: x proximity;
+    overflow-x: auto; scroll-snap-type: x proximity; scroll-behavior: smooth;
     /* Snapping aligns items to the scrollport, not the padding box, so without
        this the first card snaps flush to the edge and clips its medal. */
     scroll-padding-inline: 16px;
@@ -196,9 +260,13 @@
     width: 134px; display: flex; flex-direction: column; gap: 1px;
     background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
     padding: 11px 12px 13px; cursor: pointer; font: inherit; color: var(--ink);
-    text-align: left;
+    text-align: left; transition: transform .12s ease, border-color .15s ease, box-shadow .15s ease;
   }
   .pop:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .pop:active { transform: scale(.96); }
+  @media (hover: hover) and (pointer: fine) {
+    .pop:hover { border-color: var(--line-firm); box-shadow: 0 0 0 1px var(--line-firm); }
+  }
   .pop-art { position: relative; display: flex; justify-content: center; padding: 2px 0 9px; }
 
   /* Real product photo vs the plain grey marker used until one is licensed
@@ -236,9 +304,12 @@
     width: 100%; display: flex; align-items: center; gap: 14px;
     background: none; border: 0; border-bottom: 1px solid var(--line);
     padding: 14px 2px; cursor: pointer; font: inherit; color: var(--ink);
-    text-align: left;
+    text-align: left; transition: background-color .12s ease;
   }
   .card:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  /* Full width rows would clip against the list's edges if scaled on press
+     like the compact controls do, so the feedback here is a tint instead. */
+  .card:active { background: var(--surface); }
   .card-art { flex: none; display: flex; }
   .card-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
   .card-brand { font-size: 10.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
@@ -249,7 +320,10 @@
   .card-meta { font-size: 12.5px; color: var(--ink-2); }
   .card-price { flex: none; text-align: right; display: flex; flex-direction: column; }
   .from { font-size: 10px; font-weight: 600; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
-  .amt { font-size: 16.5px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); }
+  .amt {
+    font-size: 16.5px; font-weight: 700; font-variant-numeric: tabular-nums;
+    letter-spacing: -.01em; color: var(--accent);
+  }
   .amt.none { color: var(--faint); font-weight: 500; font-size: 13px; }
 
   .empty-note { color: var(--ink-2); font-size: 14.5px; padding: 30px 2px; text-align: center; }
@@ -270,6 +344,7 @@
   .hero-price {
     font-size: 34px; font-weight: 800; font-variant-numeric: tabular-nums;
     letter-spacing: -.03em; margin: 18px 0 0; line-height: 1.1; color: var(--accent);
+    text-shadow: 0 0 26px color-mix(in srgb, var(--accent) 40%, transparent);
   }
   .hero-price.none { font-size: 19px; font-weight: 600; color: var(--ink-2); letter-spacing: -.01em; }
   .hero-at { display: block; font-size: 12.5px; font-weight: 500; color: var(--ink-2); margin-top: 4px; letter-spacing: 0; }
@@ -344,9 +419,11 @@
     width: 100%; cursor: pointer; font: inherit; text-align: left;
     background: var(--surface); color: var(--ink);
     border: 1px solid var(--line); border-radius: 12px; padding: 13px 14px;
+    transition: transform .12s ease, border-color .15s ease, background-color .15s ease;
   }
   .opt.on { border-color: var(--accent); background: var(--accent-sf); }
   .opt:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .opt:active { transform: scale(.98); }
   .opt-text { display: flex; flex-direction: column; gap: 2px; }
   .opt-label { font-size: 15px; font-weight: 600; }
   .opt-note { font-size: 12.5px; color: var(--ink-2); }
@@ -365,7 +442,7 @@
   .sheet-back { position: fixed; inset: 0; background: rgba(0,0,0,.55); z-index: 30; }
   .sheet {
     position: fixed; z-index: 31; left: 50%; transform: translateX(-50%);
-    bottom: 0; width: 100%; max-width: var(--col);
+    bottom: 0; width: 100%; max-width: var(--sheet-col);
     background: var(--bg); border-top: 1px solid var(--line-firm);
     border-radius: 16px 16px 0 0; padding: 8px 8px calc(18px + env(safe-area-inset-bottom));
     max-height: 70vh; overflow-y: auto;
@@ -392,16 +469,80 @@
 
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
+  /* ── view transition ───────────────────────────────────────────────────── */
+  /* #view's content is replaced wholesale on every navigation, so wrapping
+     each fresh render in this class is enough: it is a new element every
+     time, and a CSS animation on a newly inserted element just plays. No
+     retriggering logic needed. */
+  .view-fade { animation: viewIn .32s cubic-bezier(.16,.8,.4,1) both; }
+  @keyframes viewIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* ── desktop layout ───────────────────────────────────────────────────────
+     Same markup, a different arrangement: a genuinely wider page, a browse
+     grid instead of a single column, and a two column detail view. Everything
+     here hangs off [data-layout="desktop"], set on <html> by demo/app.ts, a
+     name distinct from data-mode (the colour theme) on purpose. */
+  :root[data-layout="desktop"] main { padding-inline: 32px; }
+  :root[data-layout="desktop"] .intro { padding-top: 56px; }
+  :root[data-layout="desktop"] .hero-wordmark { font-size: 46px; }
+  :root[data-layout="desktop"] .intro-points {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px 40px; margin: 30px auto 0; max-width: 900px;
+  }
+
+  :root[data-layout="desktop"] .listing {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px;
+  }
+  :root[data-layout="desktop"] .card {
+    flex-direction: column; align-items: flex-start; gap: 10px;
+    border: 1px solid var(--line); border-radius: 14px; padding: 16px;
+    background: var(--surface);
+  }
+  :root[data-layout="desktop"] .card:active { background: var(--surface-2); }
+  @media (hover: hover) and (pointer: fine) {
+    :root[data-layout="desktop"] .card:hover { border-color: var(--line-firm); }
+  }
+  :root[data-layout="desktop"] .card-art { align-self: center; }
+  :root[data-layout="desktop"] .card-text { width: 100%; }
+  :root[data-layout="desktop"] .card-name { white-space: normal; }
+  :root[data-layout="desktop"] .card-price {
+    width: 100%; flex-direction: row; align-items: baseline; justify-content: space-between;
+  }
+
+  :root[data-layout="desktop"] .pop { width: 168px; }
+
+  /* Settings and the legal pages are read top to bottom, not scanned, so they
+     keep a comfortable line length instead of stretching the full page width. */
+  :root[data-layout="desktop"] .doc { max-width: 640px; }
+
+  :root[data-layout="desktop"] .detail-grid {
+    display: grid; grid-template-columns: minmax(280px, 380px) 1fr;
+    gap: 8px 48px; align-items: start;
+  }
+  :root[data-layout="desktop"] .hero {
+    text-align: left; border-bottom: 0; padding: 6px 0;
+    position: sticky; top: 74px;
+  }
+  :root[data-layout="desktop"] .hero-blurb { margin-inline: 0; }
+  :root[data-layout="desktop"] .detail-offers { border-left: 1px solid var(--line); padding-left: 48px; }
+
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
 
 <div class="app">
   <div class="bar">
     <div class="bar-row">
-      <h1 class="brandmark">Scent<em>Day</em></h1>
+      <h1 class="brandmark">Price<em>Sniffs</em></h1>
       <button class="navbtn" id="nav-home">Home</button>
       <button class="navbtn" id="nav-brand">Brands</button>
       <button class="navbtn" id="nav-settings">Settings</button>
+      <button class="layout-switch" id="nav-layout" role="switch" aria-checked="false">
+        <span class="layout-switch-track"><span class="layout-switch-thumb"></span></span>
+        <span class="sr">Switch to desktop layout</span>
+      </button>
     </div>
     <input type="search" id="search" placeholder="Search fragrances" aria-label="Search fragrances" />
     <div id="brand-chip"></div>

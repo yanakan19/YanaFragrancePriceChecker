@@ -1,6 +1,6 @@
 {
-  "name": "ScentDay — fragrance price comparison",
-  "short_name": "ScentDay",
+  "name": "PriceSniffs, fragrance price comparison",
+  "short_name": "PriceSniffs",
   "description": "Compare real UK fragrance prices across every major stockist.",
   "start_url": ".",
   "scope": ".",

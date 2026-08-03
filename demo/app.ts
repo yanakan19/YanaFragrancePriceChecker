@@ -1,5 +1,5 @@
 /**
- * Mobile demo harness for the ScentDay comparison core.
+ * Mobile demo harness for the PriceSniffs comparison core.
  *
  * Holds no pricing logic of its own. It is a thin renderer over the real modules
  * in `src/`, bundled unchanged, so the demo cannot drift from what ships.
@@ -17,8 +17,10 @@ import { isNewAt, offersFor, SHOP_COUNT, CRAWLED_AT } from './catalogue.generate
 
 type View = 'home' | 'browse' | 'detail' | 'legal' | 'settings';
 type DisplayMode = 'dark' | 'light' | 'system';
+type Layout = 'mobile' | 'desktop';
 
-const MODE_KEY = 'scentday.display';
+const MODE_KEY = 'pricesniffs.display';
+const LAYOUT_KEY = 'pricesniffs.layout';
 
 const state = {
   view: 'home' as View,
@@ -28,6 +30,7 @@ const state = {
   query: '',
   brandSheetOpen: false,
   mode: 'dark' as DisplayMode,
+  layout: 'mobile' as Layout,
 };
 
 const esc = (s: string) =>
@@ -75,6 +78,55 @@ function setMode(mode: DisplayMode): void {
   applyMode();
   try {
     window.localStorage.setItem(MODE_KEY, mode);
+  } catch {
+    // Preference simply will not persist. Nothing else breaks.
+  }
+}
+
+/* ── layout ──────────────────────────────────────────────────────────────────
+   `data-layout` is its own attribute, deliberately not `data-mode`: an earlier
+   build put layout and colour theme on the same attribute name and
+   `closest('[data-mode]')` click handling matched whichever one came first,
+   not the one the click was actually for. Two names, two handlers, no
+   ambiguity. */
+
+/**
+ * A real desktop with a mouse gets the wider layout by default; a phone, a
+ * tablet or a resized browser window on a laptop trackpad does not. This
+ * reads actual device capability (a fine pointer that supports hover, and
+ * enough width to use it) rather than sniffing the user agent string, which
+ * is both unreliable and unnecessary here.
+ */
+function detectDefaultLayout(): Layout {
+  try {
+    const hasMouse = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const isWide = window.innerWidth >= 900;
+    return hasMouse && isWide ? 'desktop' : 'mobile';
+  } catch {
+    return 'mobile';
+  }
+}
+
+function applyLayout(): void {
+  document.documentElement.setAttribute('data-layout', state.layout);
+}
+
+function loadLayout(): void {
+  let saved: string | null = null;
+  try {
+    saved = window.localStorage.getItem(LAYOUT_KEY);
+  } catch {
+    // Storage can be unavailable in a sandboxed frame.
+  }
+  state.layout = saved === 'mobile' || saved === 'desktop' ? saved : detectDefaultLayout();
+  applyLayout();
+}
+
+function setLayout(layout: Layout): void {
+  state.layout = layout;
+  applyLayout();
+  try {
+    window.localStorage.setItem(LAYOUT_KEY, layout);
   } catch {
     // Preference simply will not persist. Nothing else breaks.
   }
@@ -133,14 +185,19 @@ function popularCard(f: DemoFragrance, rank: number): string {
 function homeView(): string {
   return `
     <section class="intro">
-      <p class="kicker">UK fragrance prices</p>
-      <h2>See what a bottle really costs.</h2>
-      <p class="lede">Real prices, harvested from ${SHOP_COUNT} UK shops and shown with
-      delivery added, so the cheapest listing is genuinely the cheapest way to buy.</p>
+      <div class="hero-logo">
+        <p class="hero-wordmark">Price<em>Sniffs</em></p>
+        <p class="hero-by">by YannySniffs</p>
+      </div>
+      <p class="hero-mission">I built this to sniff out the cheapest genuine price on a
+      fragrance across ${SHOP_COUNT} UK shops worth trusting, so you never have to open
+      ten tabs to check one bottle.</p>
       <ul class="intro-points">
-        <li><span>Delivery counted</span> free postage starts at £25 in Boots and £300 in Harvey Nichols</li>
-        <li><span>Real reductions</span> the shop's own previous price, never one we made up</li>
-        <li><span>Never for sale</span> no shop can pay its way up the list</li>
+        <li><span>Delivery counted</span> postage is folded into every price up front, so
+        Boots only goes free from £25 and Harvey Nichols only from £300</li>
+        <li><span>Real reductions</span> a was price is always the shop's own, never one we
+        made up to look better</li>
+        <li><span>Never for sale</span> no shop can pay to sit higher on the list</li>
       </ul>
     </section>
 
@@ -249,31 +306,35 @@ function detailView(): string {
   return `
     <button class="back" data-back>Back</button>
 
-    <div class="hero">
-      ${productArt(frag.photoUrl, 132, `${frag.brand} ${frag.name}`)}
-      <p class="hero-brand">${esc(frag.brand)}</p>
-      <h2 class="hero-name">${esc(frag.name)}</h2>
-      <p class="hero-meta">${esc(frag.concentration)}, ${frag.sizeMl}ml</p>
-      ${
-        best
-          ? `<p class="hero-price">${formatGbp(best.deliveredPriceGbp)}<span class="hero-at">delivered, from ${esc(best.retailer.name)}</span></p>`
-          : `<p class="hero-price none">Sold out everywhere<span class="hero-at">no shop has it in stock right now</span></p>`
-      }
-    </div>
+    <div class="detail-grid">
+      <div class="hero">
+        ${productArt(frag.photoUrl, 132, `${frag.brand} ${frag.name}`)}
+        <p class="hero-brand">${esc(frag.brand)}</p>
+        <h2 class="hero-name">${esc(frag.name)}</h2>
+        <p class="hero-meta">${esc(frag.concentration)}, ${frag.sizeMl}ml</p>
+        ${
+          best
+            ? `<p class="hero-price">${formatGbp(best.deliveredPriceGbp)}<span class="hero-at">delivered, from ${esc(best.retailer.name)}</span></p>`
+            : `<p class="hero-price none">Sold out everywhere<span class="hero-at">no shop has it in stock right now</span></p>`
+        }
+      </div>
 
-    <div class="results-head">
-      <span>${live.length} ${live.length === 1 ? 'shop' : 'shops'}</span>
-      <span class="dim">delivery included, checked ${esc(age(newest))}</span>
-    </div>
+      <div class="detail-offers">
+        <div class="results-head">
+          <span>${live.length} ${live.length === 1 ? 'shop' : 'shops'}</span>
+          <span class="dim">delivery included, checked ${esc(age(newest))}</span>
+        </div>
 
-    <ul class="offers">${live.map((r) => offerRow(r, r === best)).join('')}</ul>
+        <ul class="offers">${live.map((r) => offerRow(r, r === best)).join('')}</ul>
 
-    ${
-      gone.length
-        ? `<p class="gone-head">Sold out</p>
-           <ul class="offers">${gone.map((r) => offerRow(r, false)).join('')}</ul>`
-        : ''
-    }`;
+        ${
+          gone.length
+            ? `<p class="gone-head">Sold out</p>
+               <ul class="offers">${gone.map((r) => offerRow(r, false)).join('')}</ul>`
+            : ''
+        }
+      </div>
+    </div>`;
 }
 
 /* ── settings ────────────────────────────────────────────────────────────── */
@@ -361,7 +422,9 @@ function render(): void {
             ? settingsView()
             : legalView();
 
-  $('#view').innerHTML = body;
+  // The wrapper is a fresh element on every render, so the fade in it carries
+  // just plays on insertion. No JS animation retriggering needed.
+  $('#view').innerHTML = `<div class="view-fade">${body}</div>`;
   $('#sheet-host').innerHTML = brandSheet();
 
   ($('#brand-chip') as HTMLElement).innerHTML = state.brand
@@ -371,6 +434,11 @@ function render(): void {
   ($('#nav-home') as HTMLElement).classList.toggle('on', state.view === 'home');
   ($('#nav-brand') as HTMLElement).classList.toggle('on', state.brandSheetOpen);
   ($('#nav-settings') as HTMLElement).classList.toggle('on', state.view === 'settings');
+
+  const layoutBtn = $('#nav-layout') as HTMLElement;
+  layoutBtn.setAttribute('aria-checked', String(state.layout === 'desktop'));
+  ($('#nav-layout .sr') as HTMLElement).textContent =
+    state.layout === 'desktop' ? 'Switch to mobile layout' : 'Switch to desktop layout';
 }
 
 function go(view: View): void {
@@ -383,6 +451,7 @@ function go(view: View): void {
 
 function init(): void {
   loadMode();
+  loadLayout();
 
   // State the provenance plainly. These are real prices from real shops, and
   // the reader is told when they were taken rather than being asked to assume.
@@ -412,6 +481,11 @@ function init(): void {
   $('#nav-settings').addEventListener('click', () => {
     state.brandSheetOpen = false;
     go('settings');
+  });
+
+  $('#nav-layout').addEventListener('click', () => {
+    setLayout(state.layout === 'desktop' ? 'mobile' : 'desktop');
+    render();
   });
 
   document.addEventListener('click', (e) => {
