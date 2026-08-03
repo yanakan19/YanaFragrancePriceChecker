@@ -1,0 +1,42 @@
+name: Deploy site
+
+# Publishes demo/ to GitHub Pages behind the custom domain in demo/CNAME.
+# Runs after anything that changes what the site serves: the daily crawl
+# commits new prices into demo/index.html, and any manual edit to the app
+# itself. Re-publishing is cheap and idempotent, so there is no reason to
+# gate it further than "did demo/ change".
+on:
+  push:
+    branches: [claude/scentday-retailer-registry-h92tth]
+    paths:
+      - 'demo/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one deployment at a time; a newer push should win over a stale one
+# still in flight rather than queue behind it.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: demo
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
