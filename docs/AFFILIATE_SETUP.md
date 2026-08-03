@@ -44,11 +44,56 @@ into the Phase 1 matcher.
 | Beautybase | — | — | not researched |
 | Selfridges | — | — | not researched |
 | Harvey Nichols | — | — | not researched |
+| *Fragrance Click UK* | Awin | applicant's own account shows it approved | **approved, not yet wired in — see below** |
 
 Only the three marked *confirmed* have been verified against a network's own
 merchant listing. The other nine are genuinely unresearched — they are not
 recorded as "probably Awin", because a guess written into config becomes a fact
 nobody re-checks.
+
+### Fragrance Click UK — approved, waiting on two ids
+
+The Awin "Your Advertisers" dashboard shows this programme approved (Product
+Feed: Yes, Link Status: Promote), but it does not correspond to any of the
+twelve retailer entries above by name — Awin programme names commonly differ
+from the storefront's public brand, so it may be an existing retailer under a
+different Awin name, or it may be a thirteenth stockist not yet in the
+registry at all. Two things are needed before this can be wired up, and
+neither can be guessed:
+
+1. **Which storefront this actually is.** Open the programme in the Awin
+   dashboard (click into "Fragrance Click UK" from Your Advertisers) — it will
+   show the merchant's website. If it matches one of the twelve above, use
+   that entry; if not, it needs a new `Retailer` entry in
+   `src/config/retailers.ts` (domain, shipping rules, catalogue sections, the
+   works) before affiliate wiring means anything.
+2. **The merchant id (`awinmid`)** — on that same programme page, or in the
+   "Get links" panel.
+3. **Your publisher id (`awinaffid`)** — Account details in the Awin
+   dashboard, the same value for every approved programme on this account.
+
+Once those are known, use the `awinActive(merchantId, publisherId)` helper in
+`src/config/retailers.ts` (sits next to `awinPending`) — it builds the
+`active` affiliate config and the deeplink template in one call:
+
+```ts
+affiliate: awinActive('123456', 'YOUR_AWIN_AFFID'),
+```
+
+`buildOutboundLink` in `src/services/affiliate.ts` needs no changes — it
+already produces a tracked link the moment `status` is `'active'` and both
+ids are present.
+
+**On product images:** being accepted onto the programme is not, by itself,
+proof of what Fragrance Click UK's creative-usage terms say — most Awin
+programmes do permit feed images for approved publishers, which is why the
+feed carries them, but "most" is not "this one, confirmed". Read that
+merchant's own Terms/Creative tab in the Awin dashboard, and only then set
+`imageUsageConfirmed: true` on its `AffiliateConfig` (see the field's doc
+comment in `src/types/retailer.ts`). Until that flag is set, the app's
+generated bottle illustration stays the only image shown for that retailer's
+listings — real product photography is gated behind this flag and must not
+be displayed on the strength of programme approval alone.
 
 ---
 

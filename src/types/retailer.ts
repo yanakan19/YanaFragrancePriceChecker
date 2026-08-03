@@ -90,6 +90,22 @@ export interface AffiliateConfig {
   deeplinkTemplate: string | null;
   /** Where to sign up, so the reminder output is actionable rather than nagging. */
   signupUrl: string | null;
+  /**
+   * Whether we have confirmed — by reading that merchant's own Terms/Creative
+   * page in the network dashboard — that its product images may be used to
+   * promote it as an approved affiliate.
+   *
+   * This is deliberately separate from `status === 'active'`. Being accepted
+   * onto a programme means the merchant has agreed to pay commission; it is
+   * not, by itself, proof of what their creative-usage terms say. Almost every
+   * Awin programme does permit feed images for exactly this purpose — that is
+   * why the feed includes them — but "almost every" is not "this one, verified",
+   * and nothing here can check an authenticated dashboard on your behalf. Set
+   * this to `true` only after that page has actually been read for this
+   * merchant. Real product photography must never be displayed while this is
+   * false or unset; the generated bottle illustration is the safe default.
+   */
+  imageUsageConfirmed?: boolean;
   notes?: string;
 }
 
