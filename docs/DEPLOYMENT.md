@@ -22,13 +22,14 @@ the one-off manual step is turning Pages on for this repository at all.
 Whoever registers the domain sets DNS at the registrar, not in this repo:
 
 - **Type:** `CNAME`
-- **Host:** `@` (root/apex — some registrars call this `pricesniff.lol`
-  itself, or blank; Namecheap uses `@`)
+- **Host:** `@` (root/apex — some registrars call this the domain itself, or
+  blank; Namecheap uses `@`)
 - **Value:** `<github-username>.github.io`
 
-`.lol` supports apex `CNAME` flattening at every registrar this project has
-checked pricing for, so a root-domain `CNAME` is fine — no `A` records to
-GitHub's IP list needed.
+An apex `CNAME` only works because Namecheap's own DNS panel flattens it —
+that's a feature of Namecheap's nameservers, not of any particular TLD. A
+registrar without that feature would need an `ALIAS`/`ANAME` record instead,
+or the `A` records GitHub Pages publishes for domains that can't do either.
 
 ## Changing the domain later
 
