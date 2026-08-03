@@ -50,6 +50,30 @@ function awinPending(merchantId: string) {
   } as const;
 }
 
+/**
+ * An Awin merchant whose programme has approved us. `merchantId` is that
+ * programme's own id (`awinmid`), read off its merchant profile page or the
+ * "Get links" panel in the Awin dashboard — never guessed. `publisherId` is
+ * the account-wide id (`awinaffid`) from Account details in the Awin
+ * dashboard, the same for every approved programme on this account.
+ *
+ * `imageUsageConfirmed` is deliberately not set here and defaults to unset
+ * (falsy) — see the field's doc comment in `src/types/retailer.ts`. Pass it
+ * explicitly as `true` only once that merchant's own Terms/Creative tab has
+ * actually been read.
+ */
+function awinActive(merchantId: string, publisherId: string) {
+  return {
+    network: 'awin',
+    verified: true,
+    status: 'active',
+    publisherId,
+    deeplinkTemplate:
+      `https://www.awin1.com/cread.php?awinmid=${merchantId}&awinaffid={{publisherId}}&ued={{url}}`,
+    signupUrl: `https://ui.awin.com/merchant-profile/${merchantId}`,
+  } as const;
+}
+
 export const RETAILERS: readonly Retailer[] = [
   {
     id: 'allbeauty',
