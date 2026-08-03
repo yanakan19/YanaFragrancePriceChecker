@@ -1,14 +1,19 @@
 /**
- * Generates the PWA home-screen icons from the same bottle silhouette
- * `demo/art.ts` draws inline for listings ('classic' shape) — so the icon on
- * a phone's home screen is recognisably the same mark as the app itself,
- * not a separate logo invented for this purpose.
+ * Generates the PWA home-screen icons: a magnifying glass mark for
+ * PriceSniffs, mirroring the shape hand-authored in demo/favicon.svg so the
+ * icon on a phone's home screen is recognisably the same mark as the app
+ * itself, not a separate logo invented for this purpose.
  *
  * No image library is available in this project, and pulling one in just for
  * a handful of static PNGs generated once is not worth the dependency. This
  * writes raw PNG bytes directly: a rounded-rect rasteriser with 4x
  * supersampling for smooth edges, zlib (built into Node) for the DEFLATE
  * stream, and a hand-rolled CRC32 for the chunk checksums.
+ *
+ * The glyph itself is still built from that one rounded-rect primitive:
+ * a circle is a square rounded-rect with its corner radius equal to half its
+ * side, and the handle is the same primitive tested in coordinates rotated
+ * about a pivot before the lookup. No new shape types, no letterforms.
  *
  * Output is static — icons do not depend on catalogue data — so this is run
  * once by hand (`npm run icons`) and the PNGs are committed, unlike
@@ -28,7 +33,6 @@ mkdirSync(outDir, { recursive: true });
 const BG = [0x13, 0x10, 0x13] as const;
 const GLASS_TOP = [0xf0, 0x55, 0x5d] as const;
 const GLASS_BOTTOM = [0xb7, 0x2e, 0x37] as const;
-const INK = [0xf5, 0xf1, 0xf4] as const;
 
 function insideRoundedRect(
   px: number, py: number, x: number, y: number, w: number, h: number, r: number,
@@ -41,25 +45,73 @@ function insideRoundedRect(
   return dx * dx + dy * dy <= r * r;
 }
 
+/** A circle is just a square rounded-rect whose radius is half its side. */
+function insideCircle(px: number, py: number, cx: number, cy: number, radius: number): boolean {
+  return insideRoundedRect(px, py, cx - radius, cy - radius, radius * 2, radius * 2, radius);
+}
+
 /**
- * Renders the bottle mark into an RGBA buffer at `size`x`size`, supersampled
- * `ss`x for anti-aliasing then box-filtered down. Geometry mirrors the
- * 'classic' shape in demo/art.ts (120x170 viewBox), scaled and centred so
- * the mark sits inside the ~80% safe zone Android's maskable-icon spec wants.
+ * A capsule (the glass's handle): the same rounded-rect primitive, tested
+ * against coordinates rotated back into the rect's own frame first, so the
+ * rect itself never has to know it is drawn at an angle. `ox,oy` is the
+ * pivot the capsule extends from, along `angle` radians, for `length`, at
+ * `width` with fully rounded ends (r = width / 2).
+ */
+function insideCapsule(
+  px: number, py: number, ox: number, oy: number, angle: number, length: number, width: number,
+): boolean {
+  const dx = px - ox;
+  const dy = py - oy;
+  const cos = Math.cos(-angle);
+  const sin = Math.sin(-angle);
+  const lx = dx * cos - dy * sin;
+  const ly = dx * sin + dy * cos;
+  return insideRoundedRect(lx, ly, 0, -width / 2, length, width, width / 2);
+}
+
+// Magnifying glass geometry, in a 120x120 space: a ring (ring width =
+// outerR - innerR) with a capsule handle trailing off at an angle, like it
+// just swept across a price and stopped on the cheapest one. Numbers are
+// picked so the whole mark sits centred with a comfortable margin, inside
+// the ~80% safe zone Android's maskable-icon spec wants.
+const GLYPH_BOX = 120;
+const RING_CX = 50;
+const RING_CY = 52;
+const RING_OUTER_R = 30;
+const RING_INNER_R = 19;
+const HANDLE_ANGLE = (42 * Math.PI) / 180;
+const HANDLE_START_R = RING_OUTER_R - 4; // overlaps the ring so there is no seam
+const HANDLE_LENGTH = 34;
+const HANDLE_WIDTH = 13;
+const HANDLE_OX = RING_CX + Math.cos(HANDLE_ANGLE) * HANDLE_START_R;
+const HANDLE_OY = RING_CY + Math.sin(HANDLE_ANGLE) * HANDLE_START_R;
+// A small glass highlight, upper left of the ring, only visible where it
+// overlaps the ring band.
+const SHINE_CX = RING_CX - 9;
+const SHINE_CY = RING_CY - 11;
+const SHINE_R = 10;
+
+/**
+ * Renders the magnifying glass mark into an RGBA buffer at `size`x`size`,
+ * supersampled `ss`x for anti-aliasing then box-filtered down.
  */
 function renderIcon(size: number, ss = 4): Buffer {
   const big = size * ss;
-  const scale = (big * 0.625) / 170; // bottle height ≈ 62.5% of canvas
-  const offX = (big - 120 * scale) / 2;
-  const offY = (big - 170 * scale) / 2;
-  const tx = (x: number) => offX + x * scale;
-  const ty = (y: number) => offY + y * scale;
-  const ts = (n: number) => n * scale;
+  const scale = big / GLYPH_BOX;
+  const tx = (x: number) => x * scale;
+  const ty = (y: number) => y * scale;
 
-  const cap1 = { x: tx(45), y: ty(14), w: ts(30), h: ts(21), r: ts(2.5) };
-  const cap2 = { x: tx(51), y: ty(33), w: ts(18), h: ts(9), r: 0 };
-  const body = { x: tx(21), y: ty(41), w: ts(78), h: ts(119), r: ts(11) };
-  const shine = { x: tx(29), y: ty(50), w: ts(12), h: ts(98), r: ts(6) };
+  const cx = tx(RING_CX);
+  const cy = ty(RING_CY);
+  const outerR = tx(RING_OUTER_R);
+  const innerR = tx(RING_INNER_R);
+  const hOx = tx(HANDLE_OX);
+  const hOy = ty(HANDLE_OY);
+  const hLen = tx(HANDLE_LENGTH);
+  const hWidth = tx(HANDLE_WIDTH);
+  const shineCx = tx(SHINE_CX);
+  const shineCy = ty(SHINE_CY);
+  const shineR = tx(SHINE_R);
 
   const px = Buffer.alloc(big * big * 4);
   for (let y = 0; y < big; y++) {
@@ -70,23 +122,22 @@ function renderIcon(size: number, ss = 4): Buffer {
       let b: number = BG[2];
       const a = 255;
 
-      if (insideRoundedRect(x, y, body.x, body.y, body.w, body.h, body.r)) {
-        const t = Math.min(1, Math.max(0, (y - body.y) / body.h));
+      const inRing = insideCircle(x, y, cx, cy, outerR) && !insideCircle(x, y, cx, cy, innerR);
+      const inHandle = insideCapsule(x, y, hOx, hOy, HANDLE_ANGLE, hLen, hWidth);
+
+      if (inRing || inHandle) {
+        // Gradient runs top to bottom of the whole mark, so the ring and the
+        // handle read as one continuous piece of glass.
+        const t = Math.min(1, Math.max(0, (y - (cy - outerR)) / (outerR * 2)));
         r = Math.round(GLASS_TOP[0] + (GLASS_BOTTOM[0] - GLASS_TOP[0]) * t);
         g = Math.round(GLASS_TOP[1] + (GLASS_BOTTOM[1] - GLASS_TOP[1]) * t);
         b = Math.round(GLASS_TOP[2] + (GLASS_BOTTOM[2] - GLASS_TOP[2]) * t);
-        if (insideRoundedRect(x, y, shine.x, shine.y, shine.w, shine.h, shine.r)) {
-          const mix = 0.16;
+        if (inRing && insideCircle(x, y, shineCx, shineCy, shineR)) {
+          const mix = 0.18;
           r = Math.round(r + (255 - r) * mix);
           g = Math.round(g + (255 - g) * mix);
           b = Math.round(b + (255 - b) * mix);
         }
-      }
-      if (
-        insideRoundedRect(x, y, cap1.x, cap1.y, cap1.w, cap1.h, cap1.r) ||
-        insideRoundedRect(x, y, cap2.x, cap2.y, cap2.w, cap2.h, cap2.r)
-      ) {
-        [r, g, b] = INK;
       }
 
       px[i] = r; px[i + 1] = g; px[i + 2] = b; px[i + 3] = a;
