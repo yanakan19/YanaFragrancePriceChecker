@@ -72,7 +72,7 @@ console.log(`retailer  ${retailer.name} (${retailer.id})`);
 console.log(`file      ${resolvedFile}`);
 console.log('');
 
-const parsed = parseAwinFeed(csvText, retailer.id);
+const parsed = parseAwinFeed(csvText);
 const withPrice = parsed.filter((l) => l.priceGbp !== null);
 
 console.log(`${withPrice.length} priced listings parsed from the feed\n`);
