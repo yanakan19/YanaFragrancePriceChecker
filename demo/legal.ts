@@ -15,13 +15,13 @@
  */
 
 export const COMPANY = {
-  name: 'ScentDay',
+  name: 'PriceSniffs',
   legalName: '[REGISTERED COMPANY NAME]',
   number: '[COMPANY NUMBER]',
   address: '[REGISTERED OFFICE ADDRESS]',
-  email: 'hello@scentday.example',
-  feedbackEmail: 'feedback@scentday.example',
-  privacyEmail: 'privacy@scentday.example',
+  email: 'hello@pricesniffs.example',
+  feedbackEmail: 'feedback@pricesniffs.example',
+  privacyEmail: 'privacy@pricesniffs.example',
   ico: '[ICO REGISTRATION NUMBER]',
   updated: '1 August 2026',
 } as const;
@@ -44,10 +44,10 @@ const draftBanner = `
 export const LEGAL_PAGES: LegalPage[] = [
   {
     id: 'how-it-works',
-    title: 'How ScentDay works',
+    title: 'How PriceSniffs works',
     short: 'How it works',
     body: `
-      <p>ScentDay compares fragrance prices across UK shops so you can see what a
+      <p>PriceSniffs compares fragrance prices across UK shops so you can see what a
       bottle really costs before you buy it.</p>
 
       <h3>Delivery is counted</h3>
@@ -89,7 +89,7 @@ export const LEGAL_PAGES: LegalPage[] = [
     short: 'Affiliate disclosure',
     body: `
       ${draftBanner}
-      <p>ScentDay intends to earn commission when you buy through some of the
+      <p>PriceSniffs intends to earn commission when you buy through some of the
       links on this site. It costs you nothing and does not change the price you
       pay.</p>
 
@@ -185,10 +185,10 @@ export const LEGAL_PAGES: LegalPage[] = [
     short: 'Terms',
     body: `
       ${draftBanner}
-      <p>Using ScentDay means accepting these terms.</p>
+      <p>Using PriceSniffs means accepting these terms.</p>
 
-      <h3>What ScentDay is</h3>
-      <p>ScentDay is an information service. We do not sell fragrance, hold stock,
+      <h3>What PriceSniffs is</h3>
+      <p>PriceSniffs is an information service. We do not sell fragrance, hold stock,
       take payments or send parcels. Any purchase is a contract between you and
       the shop, on their terms.</p>
 

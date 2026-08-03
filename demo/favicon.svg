@@ -1,12 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 170" role="img" aria-label="ScentDay">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="PriceSniffs">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="0.35" y2="1">
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#F0555D"/>
       <stop offset="1" stop-color="#B72E37"/>
     </linearGradient>
   </defs>
-  <rect x="45" y="14" width="30" height="21" rx="2.5" fill="#F5F1F4"/>
-  <rect x="51" y="33" width="18" height="9" fill="#F5F1F4"/>
-  <rect x="21" y="41" width="78" height="119" rx="11" fill="url(#g)"/>
-  <rect x="29" y="50" width="12" height="98" rx="6" fill="#fff" opacity=".16"/>
+  <rect width="120" height="120" fill="#131013"/>
+  <circle cx="50" cy="52" r="24.5" fill="none" stroke="url(#g)" stroke-width="11"/>
+  <rect x="69.3" y="62.9" width="34" height="13" rx="6.5" fill="url(#g)" transform="rotate(42 69.3 69.4)"/>
+  <circle cx="50" cy="52" r="24.5" fill="none" stroke="#F5F1F4" stroke-opacity=".28"
+    stroke-width="5" stroke-linecap="round" stroke-dasharray="15 500"
+    transform="rotate(200 50 52)"/>
 </svg>
