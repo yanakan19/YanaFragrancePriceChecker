@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-04T18:46:51.322Z",
+  "checkedAt": "2026-08-04T19:42:47.957Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -30,7 +30,7 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "robots.txt unreachable — holding off rather than guessing we are welcome"
+        "robots.txt unreachable at https://www.afnanperfumes.com and https://afnanperfumes.com — holding off rather than guessing we are welcome"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established"
@@ -76,7 +76,7 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "robots.txt unreachable — holding off rather than guessing we are welcome"
+        "robots.txt unreachable at https://www.alttaffa.com and https://alttaffa.com — holding off rather than guessing we are welcome"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
