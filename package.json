@@ -19,6 +19,8 @@
     "catalogue:demo": "tsx scripts/build-demo-catalogue.ts",
     "probe": "tsx scripts/catalogue-probe.ts",
     "harvest": "tsx scripts/catalogue-harvest.ts",
+    "houses": "tsx scripts/houses-harvest.ts",
+    "repair:delist": "tsx scripts/repair-mass-delist.ts",
     "catalogue:feed": "tsx scripts/catalogue-feed.ts",
     "images:check": "tsx scripts/image-link-check.ts",
     "icons": "tsx scripts/generate-icons.ts"

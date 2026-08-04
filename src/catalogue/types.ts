@@ -35,6 +35,20 @@ export interface RawListing {
    * JSON-LD scrapers do not currently capture it.
    */
   description?: string | null;
+  /**
+   * The source's own price where it does not price in sterling.
+   *
+   * A brand's direct storefront often sells in AED, USD or EUR. Converting one
+   * of those into `priceGbp` would mean inventing an exchange rate and a date,
+   * and presenting the result as the price a UK customer pays — which it is
+   * not, before that house's own shipping and any duty. So the figure is
+   * carried here exactly as published, `priceGbp` stays null, and the listing
+   * is recorded as known-but-unpriced rather than quietly mispriced.
+   *
+   * `currency` is `'unknown'` when the storefront never published one; that is
+   * still not a licence to assume sterling.
+   */
+  nativePrice?: { amount: number; currency: string } | null;
 }
 
 /** Where a listing is in its life at a retailer. */
