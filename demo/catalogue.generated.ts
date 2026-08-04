@@ -137,6 +137,28 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3386461515671",
+    "brand": "Lanvin",
+    "name": "Eclat d'Arpege",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3386461515671",
+    "shops": 3,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/975.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3386461515619",
+    "brand": "Lanvin",
+    "name": "Arpege",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3386461515619",
+    "shops": 3,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/973.jpg",
+    "notes": null
+  },
+  {
     "id": "ean-8028713210020",
     "brand": "Acqua Di Parma",
     "name": "Colonia Intensa",
@@ -166,25 +188,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-3386460036405",
-    "brand": "Boucheron",
-    "name": "Pour Homme",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "3386460036405",
-    "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/o/boucheron_pour_homme_100ml_eau_de_toilette.jpg",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Citrus",
-        "Pepper"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
     "id": "ean-3386460036528",
     "brand": "Boucheron",
     "name": "Jaipur Homme",
@@ -205,6 +208,25 @@ export const CATALOGUE: CatalogueEntry[] = [
     "shops": 2,
     "image": null,
     "notes": null
+  },
+  {
+    "id": "ean-3386460036405",
+    "brand": "Boucheron",
+    "name": "Pour Homme",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3386460036405",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/o/boucheron_pour_homme_100ml_eau_de_toilette.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "ean-3614227748446",
@@ -277,6 +299,32 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3607342306134",
+    "brand": "Calvin Klein",
+    "name": "Sheer Beauty",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3607342306134",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14381884006_xl.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
+  },
+  {
     "id": "ean-088300000319",
     "brand": "Calvin Klein",
     "name": "Contradiction",
@@ -330,32 +378,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "shops": 2,
     "image": null,
     "notes": null
-  },
-  {
-    "id": "ean-3607342306134",
-    "brand": "Calvin Klein",
-    "name": "Sheer Beauty",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "3607342306134",
-    "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14381884006_xl.jpg",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Citrus",
-        "Fresh florals"
-      ],
-      "middle": [
-        "Jasmine",
-        "Rose",
-        "Floral bouquet"
-      ],
-      "base": [
-        "Vanilla",
-        "Musk"
-      ]
-    }
   },
   {
     "id": "ean-3614225670435",
@@ -465,23 +487,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3414200204415",
-    "brand": "Davidoff",
-    "name": "Adventure",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "3414200204415",
-    "shops": 2,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3607341186805",
     "brand": "Davidoff",
     "name": "The Game",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "3607341186805",
+    "shops": 2,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3414200204415",
+    "brand": "Davidoff",
+    "name": "Adventure",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3414200204415",
     "shops": 2,
     "image": null,
     "notes": null
@@ -705,6 +727,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-085805268848",
+    "brand": "Elizabeth Arden",
+    "name": "Green Tea Eau ée Scent",
+    "concentration": "Parfum",
+    "sizeMl": 100,
+    "ean": "085805268848",
+    "shops": 2,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-085805390600",
     "brand": "Elizabeth Arden",
     "name": "5th Avenue / 4.2 fl.oz.",
@@ -722,17 +755,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "085805785345",
-    "shops": 2,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-085805268848",
-    "brand": "Elizabeth Arden",
-    "name": "Green Tea Eau ée Scent",
-    "concentration": "Parfum",
-    "sizeMl": 100,
-    "ean": "085805268848",
     "shops": 2,
     "image": null,
     "notes": null
@@ -779,6 +801,28 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": "027131020424",
     "shops": 2,
     "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3360372061793",
+    "brand": "Giorgio Armani",
+    "name": "She (40) SP",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3360372061793",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441_1.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3360372061809",
+    "brand": "Giorgio Armani",
+    "name": "She (32) - SP",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3360372061809",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441.jpg",
     "notes": null
   },
   {
@@ -848,6 +892,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3274870012136",
+    "brand": "Givenchy",
+    "name": "Gentlemen Only",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3274870012136",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy-gentlemen-only-edt-100ml-2023-1.jpg",
+    "notes": null
+  },
+  {
     "id": "ean-3274870303166",
     "brand": "Givenchy",
     "name": "Pour Homme",
@@ -859,15 +914,30 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3274870012136",
+    "id": "ean-3274870042362",
     "brand": "Givenchy",
-    "name": "Gentlemen Only",
+    "name": "Ysatis - SP",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
-    "ean": "3274870012136",
+    "ean": "3274870042362",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy-gentlemen-only-edt-100ml-2023-1.jpg",
-    "notes": null
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/515.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3274872422995",
@@ -917,6 +987,32 @@ export const CATALOGUE: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-8005610328799",
+    "brand": "GUCCI",
+    "name": "Rush",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "8005610328799",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/6/560.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
+  },
+  {
     "id": "ean-3346470114746",
     "brand": "Guerlain",
     "name": "La Petite Robe Noire / 3.3 fl.oz.",
@@ -936,6 +1032,50 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": "737052130729",
     "shops": 2,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/m/images.jpeg",
+    "notes": null
+  },
+  {
+    "id": "ean-737052351018",
+    "brand": "HUGO BOSS",
+    "name": "Bottled (18)",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": "737052351018",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/662.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-737052351100",
+    "brand": "HUGO BOSS",
+    "name": "Bottled (15)",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "737052351100",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/657.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-737052352060",
+    "brand": "HUGO BOSS",
+    "name": "Bottled Night (15)",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "737052352060",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/667.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-737052041353",
+    "brand": "HUGO BOSS",
+    "name": "Femme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 75,
+    "ean": "737052041353",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/695.jpg",
     "notes": null
   },
   {
@@ -995,6 +1135,43 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": "737052031415",
     "shops": 2,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/162_2.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3423470300161",
+    "brand": "Issey Miyake",
+    "name": "L'eau D'issey",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3423470300161",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/716.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "ean-3423470486025",
+    "brand": "Issey Miyake",
+    "name": "L'eau D'issey Pour Homme Intense",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "3423470486025",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_l_eau_d_issey_pour_homme_intense_eau_de_toilette_75ml_spray.jpg",
     "notes": null
   },
   {
@@ -1080,6 +1257,124 @@ export const CATALOGUE: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-3386460048125",
+    "brand": "Jimmy Choo",
+    "name": "Flash",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 60,
+    "ean": "3386460048125",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460048125.png",
+    "notes": null
+  },
+  {
+    "id": "ean-3386460048118",
+    "brand": "Jimmy Choo",
+    "name": "Flash",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3386460048118",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/834.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3386460025485",
+    "brand": "Jimmy Choo",
+    "name": "Jimmy Choo Eau De Parfum 60ml Spray",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 60,
+    "ean": "3386460025485",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "ean-3386460025478",
+    "brand": "Jimmy Choo",
+    "name": "Jimmy Choo Eau De Parfum 100ml Spray",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3386460025478",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/c/screenshot_2026-05-13_at_15.34.48.png",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "ean-3386460119276",
+    "brand": "Jimmy Choo",
+    "name": "I Want Choo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 40,
+    "ean": "3386460119276",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/182_1.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3386460119252",
+    "brand": "Jimmy Choo",
+    "name": "I Want Choo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3386460119252",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/o/p/open-box-jimmy-choo-ladies-i-want-choo-edp-spray-34-oz-fragrances-3386460119252.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "ean-3386460071727",
+    "brand": "Jimmy Choo",
+    "name": "Illicit",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3386460071727",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/858.jpg",
+    "notes": null
+  },
+  {
     "id": "ean-3386460097321",
     "brand": "Jimmy Choo",
     "name": "FEVER",
@@ -1132,6 +1427,28 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3607345849867",
+    "brand": "JOOP!",
+    "name": "Homme Wild",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": "3607345849867",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/905.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3414200064064",
+    "brand": "JOOP!",
+    "name": "Go!",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3414200064064",
+    "shops": 2,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-3414206000059",
     "brand": "JOOP!",
     "name": "Femme",
@@ -1154,17 +1471,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-3607345849867",
-    "brand": "JOOP!",
-    "name": "Homme Wild",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 125,
-    "ean": "3607345849867",
-    "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/905.jpg",
-    "notes": null
-  },
-  {
     "id": "ean-3274872404113",
     "brand": "Kenzo",
     "name": "Flower by Kenzo",
@@ -1173,6 +1479,43 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": "3274872404113",
     "shops": 2,
     "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3614273069175",
+    "brand": "Lancôme",
+    "name": "(Lancôme) Idôle",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3614273069175",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/942.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "ean-3147758034905",
+    "brand": "Lancôme",
+    "name": "(Lancôme) Trésor",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "3147758034905",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-edp-vapo-50ml-lancome-1.jpg",
     "notes": null
   },
   {
@@ -1200,28 +1543,6 @@ export const CATALOGUE: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
-  {
-    "id": "ean-3386461515671",
-    "brand": "Lanvin",
-    "name": "Eclat d'Arpege",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3386461515671",
-    "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/975.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3386461515619",
-    "brand": "Lanvin",
-    "name": "Arpege",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3386461515619",
-    "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/973.jpg",
-    "notes": null
   },
   {
     "id": "ean-3616301776024",
@@ -1436,6 +1757,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3607342166875",
+    "brand": "Vera Wang",
+    "name": "Love Struck",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3607342166875",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/e/vera_wang_lovestruck_100ml_eau_de_parfum.jpg",
+    "notes": null
+  },
+  {
     "id": "ean-688575001778",
     "brand": "Vera Wang",
     "name": "Vera Wang For Women Eau de Parfum Spray 100ml",
@@ -1460,17 +1792,6 @@ export const CATALOGUE: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
-  {
-    "id": "ean-3607342166875",
-    "brand": "Vera Wang",
-    "name": "Love Struck",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3607342166875",
-    "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/e/vera_wang_lovestruck_100ml_eau_de_parfum.jpg",
-    "notes": null
   },
   {
     "id": "ean-3614272191556",
@@ -2026,6 +2347,50 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "justmylook-acq0043",
+    "brand": "Acqua Di Parma",
+    "name": "Blu Mediterraneo Fico Di Amalfi",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-acq0048",
+    "brand": "Acqua Di Parma",
+    "name": "Blu Mediterraneo Mandorlo Di Sicilia",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-acq0067",
+    "brand": "Acqua Di Parma",
+    "name": "Colonia Intensa",
+    "concentration": "Eau de Cologne",
+    "sizeMl": 180,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-acq0010",
+    "brand": "Acqua Di Parma",
+    "name": "Colonia Club",
+    "concentration": "Eau de Cologne",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "justmylook-acq0054",
     "brand": "Acqua Di Parma",
     "name": "Colonia",
@@ -2284,50 +2649,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "name": "Blu Mediterraneo Mirto Di Panarea",
     "concentration": "Eau de Toilette",
     "sizeMl": 30,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-acq0043",
-    "brand": "Acqua Di Parma",
-    "name": "Blu Mediterraneo Fico Di Amalfi",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 30,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-acq0048",
-    "brand": "Acqua Di Parma",
-    "name": "Blu Mediterraneo Mandorlo Di Sicilia",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 75,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-acq0067",
-    "brand": "Acqua Di Parma",
-    "name": "Colonia Intensa",
-    "concentration": "Eau de Cologne",
-    "sizeMl": 180,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-acq0010",
-    "brand": "Acqua Di Parma",
-    "name": "Colonia Club",
-    "concentration": "Eau de Cologne",
-    "sizeMl": 50,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -2673,6 +2994,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "justmylook-ar0002",
+    "brand": "Aramis",
+    "name": "Classic",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 110,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "justmylook-ar0003",
     "brand": "Aramis",
     "name": "Classic",
@@ -2684,12 +3016,34 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "justmylook-ar0002",
-    "brand": "Aramis",
-    "name": "Classic",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 110,
-    "ean": null,
+    "id": "ean-812256024293",
+    "brand": "Ariana Grande",
+    "name": "Thank You Next",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "812256024293",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-812256024286",
+    "brand": "Ariana Grande",
+    "name": "Thank You Next",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "812256024286",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-812256024279",
+    "brand": "Ariana Grande",
+    "name": "Thank You Next",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "812256024279",
     "shops": 1,
     "image": null,
     "notes": null
@@ -2745,39 +3099,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "812256023289",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-812256024293",
-    "brand": "Ariana Grande",
-    "name": "Thank You Next",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 30,
-    "ean": "812256024293",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-812256024286",
-    "brand": "Ariana Grande",
-    "name": "Thank You Next",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "812256024286",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-812256024279",
-    "brand": "Ariana Grande",
-    "name": "Thank You Next",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "812256024279",
     "shops": 1,
     "image": null,
     "notes": null
@@ -3659,17 +3980,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3386460036429",
-    "brand": "Boucheron",
-    "name": "Pour Homme",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3386460036429",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3386460036351",
     "brand": "Boucheron",
     "name": "Pour Femme",
@@ -3687,6 +3997,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "3386460036467",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3386460036429",
+    "brand": "Boucheron",
+    "name": "Pour Homme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3386460036429",
     "shops": 1,
     "image": null,
     "notes": null
@@ -3758,6 +4079,28 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "justmylook-brit0008",
+    "brand": "Britney Spears",
+    "name": "Curious",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-brit0002",
+    "brand": "Britney Spears",
+    "name": "Midnight Fantasy",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "justmylook-brit0011",
     "brand": "Britney Spears",
     "name": "Fantasy",
@@ -3818,28 +4161,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "name": "Curious",
     "concentration": "Eau de Parfum",
     "sizeMl": 30,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-brit0008",
-    "brand": "Britney Spears",
-    "name": "Curious",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-brit0002",
-    "brand": "Britney Spears",
-    "name": "Midnight Fantasy",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -4240,94 +4561,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "justmylook-burb0049",
-    "brand": "Burberry",
-    "name": "Her",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-burb0023",
-    "brand": "Burberry",
-    "name": "Touch",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-burb0042",
-    "brand": "Burberry",
-    "name": "Goddess",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-burb0041",
-    "brand": "Burberry",
-    "name": "Goddess",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-burb0026",
-    "brand": "Burberry",
-    "name": "Weekend",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-burb0044",
-    "brand": "Burberry",
-    "name": "Hero",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-burb0020",
-    "brand": "Burberry",
-    "name": "Touch",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-burb0006",
-    "brand": "Burberry",
-    "name": "Brit",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "justmylook-burb0012",
     "brand": "Burberry",
     "name": "London",
@@ -4431,6 +4664,94 @@ export const CATALOGUE: CatalogueEntry[] = [
     "brand": "Burberry",
     "name": "London",
     "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-burb0049",
+    "brand": "Burberry",
+    "name": "Her",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-burb0023",
+    "brand": "Burberry",
+    "name": "Touch",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-burb0042",
+    "brand": "Burberry",
+    "name": "Goddess",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-burb0041",
+    "brand": "Burberry",
+    "name": "Goddess",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-burb0026",
+    "brand": "Burberry",
+    "name": "Weekend",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-burb0044",
+    "brand": "Burberry",
+    "name": "Hero",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-burb0020",
+    "brand": "Burberry",
+    "name": "Touch",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-burb0006",
+    "brand": "Burberry",
+    "name": "Brit",
+    "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -4779,6 +5100,39 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "justmylook-byre0008",
+    "brand": "Byredo",
+    "name": "Gypsy Water",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-byre0001",
+    "brand": "Byredo",
+    "name": "Bibliotheque",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-byre0002",
+    "brand": "Byredo",
+    "name": "Bibliotheque",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "justmylook-byre0006",
     "brand": "Byredo",
     "name": "Rose Of No Man's Land",
@@ -4817,39 +5171,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "name": "Gypsy Water",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-byre0008",
-    "brand": "Byredo",
-    "name": "Gypsy Water",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-byre0001",
-    "brand": "Byredo",
-    "name": "Bibliotheque",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-byre0002",
-    "brand": "Byredo",
-    "name": "Bibliotheque",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -5032,6 +5353,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3607340213267",
+    "brand": "Calvin Klein",
+    "name": "Beauty",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3607340213267",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-088300139507",
     "brand": "Calvin Klein",
     "name": "Eternity Moment",
@@ -5082,17 +5414,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "088300608409",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3607340213267",
-    "brand": "Calvin Klein",
-    "name": "Beauty",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3607340213267",
     "shops": 1,
     "image": null,
     "notes": null
@@ -5863,39 +6184,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "justmylook-ck0004",
-    "brand": "Calvin Klein",
-    "name": "Eternity Moment",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-ck0028",
-    "brand": "Calvin Klein",
-    "name": "Be",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 200,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-ck0027",
-    "brand": "Calvin Klein",
-    "name": "Be",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "justmylook-ck0102",
     "brand": "Calvin Klein",
     "name": "Eternity Aqua Man",
@@ -6022,6 +6310,39 @@ export const CATALOGUE: CatalogueEntry[] = [
     "name": "Eternity Women",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-ck0004",
+    "brand": "Calvin Klein",
+    "name": "Eternity Moment",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-ck0028",
+    "brand": "Calvin Klein",
+    "name": "Be",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 200,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-ck0027",
+    "brand": "Calvin Klein",
+    "name": "Be",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -6336,6 +6657,28 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-8411061099735",
+    "brand": "Carolina Herrera",
+    "name": "Bad Boy",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": "8411061099735",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-8411061099728",
+    "brand": "Carolina Herrera",
+    "name": "Bad Boy",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "8411061099728",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-8411061043844",
     "brand": "Carolina Herrera",
     "name": "212 VIP Black",
@@ -6364,28 +6707,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "8411061934234",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-8411061099735",
-    "brand": "Carolina Herrera",
-    "name": "Bad Boy",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": "8411061099735",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-8411061099728",
-    "brand": "Carolina Herrera",
-    "name": "Bad Boy",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "8411061099728",
     "shops": 1,
     "image": null,
     "notes": null
@@ -8228,6 +8549,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3348900921429",
+    "brand": "Dior",
+    "name": "Forever and Ever",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3348900921429",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-3348901296632",
     "brand": "Dior",
     "name": "J'Adore",
@@ -8289,17 +8621,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "3348900236738",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3348900921429",
-    "brand": "Dior",
-    "name": "Forever and Ever",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "3348900921429",
     "shops": 1,
     "image": null,
     "notes": null
@@ -9710,6 +10031,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-085805161088",
+    "brand": "Elizabeth Arden",
+    "name": "Untold / 3.3 fl.oz.",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "085805161088",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-719346373906",
     "brand": "Elizabeth Arden",
     "name": "True Love / 3.3 fl.oz.",
@@ -9727,17 +10059,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "085805757748",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-085805161088",
-    "brand": "Elizabeth Arden",
-    "name": "Untold / 3.3 fl.oz.",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "085805161088",
     "shops": 1,
     "image": null,
     "notes": null
@@ -10579,6 +10900,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3360372061823",
+    "brand": "Giorgio Armani",
+    "name": "He (40) SP",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": "3360372061823",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-3605521819987",
     "brand": "Giorgio Armani",
     "name": "Diamonds Rose",
@@ -10675,28 +11007,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": "3614273604888",
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/r/armani_si_passione_eclat_100ml_eau_de_parfum.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3360372061809",
-    "brand": "Giorgio Armani",
-    "name": "Emporio Armani She",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3360372061809",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3360372061793",
-    "brand": "Giorgio Armani",
-    "name": "Emporio Armani She",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "3360372061793",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441_1.jpg",
     "notes": null
   },
   {
@@ -11034,6 +11344,39 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-715885000082",
+    "brand": "Giorgio Beverly Hills",
+    "name": "Giorgio",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 90,
+    "ean": "715885000082",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-715885170129",
+    "brand": "Giorgio Beverly Hills",
+    "name": "Red",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 30,
+    "ean": "715885170129",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-716393009659",
+    "brand": "Giorgio Beverly Hills",
+    "name": "Red",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 90,
+    "ean": "716393009659",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "justmylook-gio0003",
     "brand": "Giorgio Beverly Hills",
     "name": "Giorgio Beverly Hills Eau De Toilette 90ml",
@@ -11073,6 +11416,28 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "3274872389977",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3274871122506",
+    "brand": "Givenchy",
+    "name": "Amarige - SP",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 30,
+    "ean": "3274871122506",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3274870222566",
+    "brand": "Givenchy",
+    "name": "PI",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3274870222566",
     "shops": 1,
     "image": null,
     "notes": null
@@ -11440,32 +11805,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": "3274872456686",
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/513.jpg",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Citrus",
-        "Fresh florals"
-      ],
-      "middle": [
-        "Jasmine",
-        "Rose",
-        "Floral bouquet"
-      ],
-      "base": [
-        "Vanilla",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "ean-3274870042362",
-    "brand": "Givenchy",
-    "name": "Ysatis",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "3274870042362",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/515.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -11870,6 +12209,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3274872396180",
+    "brand": "GIVENCHY",
+    "name": "Ange Ou Démon",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3274872396180",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-3274872441033",
     "brand": "GIVENCHY",
     "name": "Gentleman",
@@ -11936,6 +12286,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3357554720012",
+    "brand": "Gloria Vanderbilt",
+    "name": "Gloria Vanderbilt For Women Eau De Toilette 100ml Spray",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3357554720012",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "justmylook-glor0002",
     "brand": "Gloria Vanderbilt",
     "name": "Vanderbilt No 1",
@@ -11964,6 +12325,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-7640111494027",
+    "brand": "Gres",
+    "name": "Cabotine",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "7640111494027",
     "shops": 1,
     "image": null,
     "notes": null
@@ -12434,32 +12806,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-8005610328799",
-    "brand": "Gucci",
-    "name": "Rush",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 75,
-    "ean": "8005610328799",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/6/560.jpg",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Citrus",
-        "Fresh florals"
-      ],
-      "middle": [
-        "Jasmine",
-        "Rose",
-        "Floral bouquet"
-      ],
-      "base": [
-        "Vanilla",
-        "Musk"
-      ]
-    }
-  },
-  {
     "id": "ean-3614229382129",
     "brand": "Gucci",
     "name": "Guilty Pour Homme",
@@ -12636,6 +12982,17 @@ export const CATALOGUE: CatalogueEntry[] = [
         "Musk"
       ]
     }
+  },
+  {
+    "id": "justmylook-gucc0016",
+    "brand": "Gucci",
+    "name": "Guilty",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 90,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-gucc0018",
@@ -13112,6 +13469,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     }
   },
   {
+    "id": "justmylook-guer0008",
+    "brand": "Guerlain",
+    "name": "Mon Guerlain",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "justmylook-guer0010",
     "brand": "Guerlain",
     "name": "Samsara",
@@ -13244,6 +13612,61 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "justmylook-herm0007",
+    "brand": "Hermes",
+    "name": "Twilly D'Hermes",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-herm0013",
+    "brand": "Hermes",
+    "name": "Terre D'Hermes Givree",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-herm0043",
+    "brand": "Hermes",
+    "name": "Eau Des Merveilles",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-herm0009",
+    "brand": "Hermes",
+    "name": "Twilly D'Hermes",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 85,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-herm0008",
+    "brand": "Hermes",
+    "name": "Twilly D'Hermes",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "justmylook-herm0015",
     "brand": "Hermes",
     "name": "Terre D'Hermes",
@@ -13321,17 +13744,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3346130490654",
-    "brand": "Hermès",
-    "name": "Concentré d'Orange Verte",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "3346130490654",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3346131402205",
     "brand": "Hermès",
     "name": "Terre d’Hermès Pure",
@@ -13349,6 +13761,39 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Toilette",
     "sizeMl": 30,
     "ean": "3346130009702",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3346130490654",
+    "brand": "Hermès",
+    "name": "Concentré d'Orange Verte",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3346130490654",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-5030645841312",
+    "brand": "Houbigant",
+    "name": "Quelques Fleurs",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "5030645841312",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-5030645841411",
+    "brand": "Houbigant",
+    "name": "Quelques Fleurs",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "5030645841411",
     "shops": 1,
     "image": null,
     "notes": null
@@ -13378,17 +13823,6 @@ export const CATALOGUE: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
-  {
-    "id": "ean-737052041353",
-    "brand": "Hugo Boss",
-    "name": "Femme",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 75,
-    "ean": "737052041353",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/695.jpg",
-    "notes": null
   },
   {
     "id": "ean-730870196885",
@@ -13435,17 +13869,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-737052351100",
-    "brand": "Hugo Boss",
-    "name": "Boss Bottled",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "737052351100",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/657.jpg",
-    "notes": null
-  },
-  {
     "id": "ean-8005610460598",
     "brand": "Hugo Boss",
     "name": "Boss Bottled Travel Set",
@@ -13468,17 +13891,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-737052351018",
-    "brand": "Hugo Boss",
-    "name": "Boss Bottled",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": "737052351018",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/662.jpg",
-    "notes": null
-  },
-  {
     "id": "ean-3614228220897",
     "brand": "Hugo Boss",
     "name": "Boss Bottled Infinite",
@@ -13487,17 +13899,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": "3614228220897",
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/665.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-737052352060",
-    "brand": "Hugo Boss",
-    "name": "Boss Bottled Night",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "737052352060",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/667.jpg",
     "notes": null
   },
   {
@@ -13704,6 +14105,314 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "justmylook-hb0006",
+    "brand": "Hugo Boss",
+    "name": "Bottled",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0046",
+    "brand": "Hugo Boss",
+    "name": "Deep Red",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0013",
+    "brand": "Hugo Boss",
+    "name": "Bottled Tonic",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0069",
+    "brand": "Hugo Boss",
+    "name": "Boss Femme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0109",
+    "brand": "Hugo Boss",
+    "name": "Bottled",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 200,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0004",
+    "brand": "Hugo Boss",
+    "name": "Bottled",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0116",
+    "brand": "Hugo Boss",
+    "name": "The Scent Le",
+    "concentration": "Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0038",
+    "brand": "Hugo Boss",
+    "name": "Boss Ma Vie Pour Femme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0083",
+    "brand": "Hugo Boss",
+    "name": "Iced",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0087",
+    "brand": "Hugo Boss",
+    "name": "Extreme Man",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0022",
+    "brand": "Hugo Boss",
+    "name": "Orange Woman",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0108",
+    "brand": "Hugo Boss",
+    "name": "Bottled",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0191",
+    "brand": "Hugo Boss",
+    "name": "Jeans",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0017",
+    "brand": "Hugo Boss",
+    "name": "Bottled Unlimited",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0080",
+    "brand": "Hugo Boss",
+    "name": "Woman Extreme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0102",
+    "brand": "Hugo Boss",
+    "name": "Woman",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 90,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0077",
+    "brand": "Hugo Boss",
+    "name": "Bottled",
+    "concentration": "Aftershave",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0047",
+    "brand": "Hugo Boss",
+    "name": "Number One",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0071",
+    "brand": "Hugo Boss",
+    "name": "Hugo Woman",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0011",
+    "brand": "Hugo Boss",
+    "name": "Bottled Night",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 200,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0010",
+    "brand": "Hugo Boss",
+    "name": "Bottled Night",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0055",
+    "brand": "Hugo Boss",
+    "name": "Energise",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0023",
+    "brand": "Hugo Boss",
+    "name": "Woman",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0044",
+    "brand": "Hugo Boss",
+    "name": "Reversed",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0025",
+    "brand": "Hugo Boss",
+    "name": "Man",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0097",
+    "brand": "Hugo Boss",
+    "name": "The Scent",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0059",
+    "brand": "Hugo Boss",
+    "name": "In Motion",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-hb0027",
+    "brand": "Hugo Boss",
+    "name": "Just Different",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "justmylook-hb0005",
     "brand": "Hugo Boss",
     "name": "Bottled",
@@ -13858,6 +14567,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3614229823776",
+    "brand": "HUGO BOSS",
+    "name": "HUGO Man",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 200,
+    "ean": "3614229823776",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-737052351155",
     "brand": "HUGO BOSS",
     "name": "BOSS Bottled",
@@ -13869,12 +14589,67 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3614229823776",
+    "id": "ean-737052351001",
     "brand": "HUGO BOSS",
-    "name": "HUGO Man",
+    "name": "Bottled",
     "concentration": "Eau de Toilette",
-    "sizeMl": 200,
-    "ean": "3614229823776",
+    "sizeMl": 30,
+    "ean": "737052351001",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-737052238050",
+    "brand": "HUGO BOSS",
+    "name": "Orange Woman",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 30,
+    "ean": "737052238050",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-737052238081",
+    "brand": "HUGO BOSS",
+    "name": "Boss Orange Woman",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": "737052238081",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-737052465678",
+    "brand": "HUGO BOSS",
+    "name": "Just Different (28)",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "737052465678",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3614229823790",
+    "brand": "HUGO BOSS",
+    "name": "Man",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "3614229823790",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3614225297687",
+    "brand": "HUGO BOSS",
+    "name": "Reversed (30)",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "3614225297687",
     "shops": 1,
     "image": null,
     "notes": null
@@ -13924,17 +14699,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3614225297687",
-    "brand": "HUGO BOSS",
-    "name": "Reversed (30)",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 75,
-    "ean": "3614225297687",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-737052987569",
     "brand": "HUGO BOSS",
     "name": "HUGO Woman Extreme",
@@ -13968,6 +14732,72 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3423470485547",
+    "brand": "Issey Miyake",
+    "name": "L'eau D'issey Pour Homme",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 40,
+    "ean": "3423470485547",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3423470486018",
+    "brand": "Issey Miyake",
+    "name": "L'eau D'issey Pour Homme Intense",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": "3423470486018",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3423478782655",
+    "brand": "Issey Miyake",
+    "name": "Nectar D'Issey Petale De Nectar",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 90,
+    "ean": "3423478782655",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3423474874651",
+    "brand": "Issey Miyake",
+    "name": "Nuit D'issey",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "3423474874651",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3423474884155",
+    "brand": "Issey Miyake",
+    "name": "Nuit D'issey",
+    "concentration": "Parfum",
+    "sizeMl": 75,
+    "ean": "3423474884155",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3423473947158",
+    "brand": "Issey Miyake",
+    "name": "Pleats Please",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": "3423473947158",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-3423470300154",
     "brand": "Issey Miyake",
     "name": "L'eau D'issey",
@@ -13994,32 +14824,6 @@ export const CATALOGUE: CatalogueEntry[] = [
         "Fresh florals"
       ],
       "middle": [],
-      "base": [
-        "Vanilla",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "ean-3423470300161",
-    "brand": "Issey Miyake",
-    "name": "L'Eau D'Issey Femme",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "3423470300161",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/716.jpg",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Citrus",
-        "Fresh florals"
-      ],
-      "middle": [
-        "Jasmine",
-        "Rose",
-        "Floral bouquet"
-      ],
       "base": [
         "Vanilla",
         "Musk"
@@ -14103,14 +14907,234 @@ export const CATALOGUE: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-3423470486025",
+    "id": "justmylook-iss0011",
     "brand": "Issey Miyake",
-    "name": "L'Eau d'Issey Pour Homme Intense",
+    "name": "Nuit D'Issey",
     "concentration": "Eau de Toilette",
     "sizeMl": 75,
-    "ean": "3423470486025",
+    "ean": null,
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_l_eau_d_issey_pour_homme_intense_eau_de_toilette_75ml_spray.jpg",
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-iss0031",
+    "brand": "Issey Miyake",
+    "name": "L'Eau D'Issey Pour Femme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 25,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-iss0006",
+    "brand": "Issey Miyake",
+    "name": "L'Eau D'Issey Intense",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-iss0009",
+    "brand": "Issey Miyake",
+    "name": "L'Eau D'Issey Pour Femme",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-iss0057",
+    "brand": "Issey Miyake",
+    "name": "L'Eau D'Issey Pour Femme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-iss0010",
+    "brand": "Issey Miyake",
+    "name": "L'Eau D'Issey Pour Femme",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-iss0058",
+    "brand": "Issey Miyake",
+    "name": "L'Eau D'Issey Pour Homme Sport",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-iss0003",
+    "brand": "Issey Miyake",
+    "name": "L'Eau D'issey Pour Homme",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 200,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-iss0004",
+    "brand": "Issey Miyake",
+    "name": "L'Eau D'issey Pour Homme",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-iss0005",
+    "brand": "Issey Miyake",
+    "name": "L'Eau D'Issey Intense",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-iss0012",
+    "brand": "Issey Miyake",
+    "name": "Nuit D'Issey",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-iss0070",
+    "brand": "Issey Miyake",
+    "name": "L'Eau D'Issey Pour Homme Sport",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-iss0032",
+    "brand": "Issey Miyake",
+    "name": "L'Eau D'Issey Pour Femme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-iss0002",
+    "brand": "Issey Miyake",
+    "name": "L'Eau D'issey Pour Homme",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-iss0008",
+    "brand": "Issey Miyake",
+    "name": "L'Eau D'Issey Pour Femme",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 25,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-iss0001",
+    "brand": "Issey Miyake",
+    "name": "L'Eau D'issey Pour Homme",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 40,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3355991000223",
+    "brand": "Jacques Bogart",
+    "name": "One Man Show",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3355991000223",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-5022479500589",
+    "brand": "Jade Goody",
+    "name": "Controversial",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "5022479500589",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3562700373145",
+    "brand": "Jaguar",
+    "name": "Classic Black",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3562700373145",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3562700373084",
+    "brand": "Jaguar",
+    "name": "Classic",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3562700373084",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3562700121005",
+    "brand": "Jaguar",
+    "name": "Original Mens",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3562700121005",
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -14120,6 +15144,72 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Toilette",
     "sizeMl": 200,
     "ean": "8435415012690",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-8435415012638",
+    "brand": "Jean Paul Gaultier",
+    "name": "''Le Male''",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "8435415012638",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-8435415012669",
+    "brand": "Jean Paul Gaultier",
+    "name": "''Le Male''",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": "8435415012669",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-8435415017190",
+    "brand": "Jean Paul Gaultier",
+    "name": "Le Beau",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "8435415017190",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-8435415059084",
+    "brand": "Jean Paul Gaultier",
+    "name": "Scandal",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "8435415059084",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-8435415059060",
+    "brand": "Jean Paul Gaultier",
+    "name": "Scandal",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": "8435415059060",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-8435415011990",
+    "brand": "Jean Paul Gaultier",
+    "name": "Ultra Male Intense",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "8435415011990",
     "shops": 1,
     "image": null,
     "notes": null
@@ -14678,6 +15768,237 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "justmylook-jpg0029",
+    "brand": "Jean Paul Gaultier",
+    "name": "Le Beau",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jpg0006",
+    "brand": "Jean Paul Gaultier",
+    "name": "Le Male",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jpg0025",
+    "brand": "Jean Paul Gaultier",
+    "name": "Le Male",
+    "concentration": "Aftershave",
+    "sizeMl": 125,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jpg0005",
+    "brand": "Jean Paul Gaultier",
+    "name": "Le Male",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jpg0014",
+    "brand": "Jean Paul Gaultier",
+    "name": "Le Male Intense Le Eau De Parfum",
+    "concentration": "Parfum",
+    "sizeMl": 125,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jpg0030",
+    "brand": "Jean Paul Gaultier",
+    "name": "Scandal Le Him Eau De Parfum",
+    "concentration": "Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jpg0008",
+    "brand": "Jean Paul Gaultier",
+    "name": "Classique",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jpg0007",
+    "brand": "Jean Paul Gaultier",
+    "name": "Le Male",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 200,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jpg0013",
+    "brand": "Jean Paul Gaultier",
+    "name": "Le Male Intense Le Eau De Parfum",
+    "concentration": "Parfum",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-5050456110018",
+    "brand": "Jennifer Lopez",
+    "name": "Miami Glow",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "5050456110018",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3386460025492",
+    "brand": "Jimmy Choo",
+    "name": "Jimmy Choo Eau De Parfum 40ml Spray",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 40,
+    "ean": "3386460025492",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3386460066297",
+    "brand": "Jimmy Choo",
+    "name": "Blossom",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 40,
+    "ean": "3386460066297",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3386460066273",
+    "brand": "Jimmy Choo",
+    "name": "Blossom",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3386460066273",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3386460103701",
+    "brand": "Jimmy Choo",
+    "name": "Floral",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 40,
+    "ean": "3386460103701",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3386460071741",
+    "brand": "Jimmy Choo",
+    "name": "Illicit",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 40,
+    "ean": "3386460071741",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3386460025522",
+    "brand": "Jimmy Choo",
+    "name": "Jimmy Choo Eau De Toilette 40ml Spray",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 40,
+    "ean": "3386460025522",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3386460025515",
+    "brand": "Jimmy Choo",
+    "name": "Jimmy Choo Eau De Toilette 60ml Spray",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 60,
+    "ean": "3386460025515",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3386460073875",
+    "brand": "Jimmy Choo",
+    "name": "L'Eau",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 60,
+    "ean": "3386460073875",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3386460082198",
+    "brand": "Jimmy Choo",
+    "name": "Man Ice",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 30,
+    "ean": "3386460082198",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3386460109369",
+    "brand": "Jimmy Choo",
+    "name": "Urban Hero",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3386460109369",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3386460109383",
+    "brand": "Jimmy Choo",
+    "name": "Urban Hero",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "3386460109383",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-3386460097345",
     "brand": "Jimmy Choo",
     "name": "FEVER",
@@ -14711,17 +16032,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3386460109383",
-    "brand": "Jimmy Choo",
-    "name": "Urban Hero",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 30,
-    "ean": "3386460109383",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3386460127073",
     "brand": "Jimmy Choo",
     "name": "Urban Hero Gold Edition",
@@ -14742,28 +16052,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
-  {
-    "id": "ean-3386460025485",
-    "brand": "Jimmy Choo",
-    "name": "Jimmy Choo 60ml Eau de Parfum",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 60,
-    "ean": "3386460025485",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180_1.jpg",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Citrus",
-        "Fresh florals"
-      ],
-      "middle": [],
-      "base": [
-        "Vanilla",
-        "Musk"
-      ]
-    }
   },
   {
     "id": "ean-3386460025508",
@@ -14792,43 +16080,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-3386460048118",
-    "brand": "Jimmy Choo",
-    "name": "Flash",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3386460048118",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/834.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3386460119252",
-    "brand": "Jimmy Choo",
-    "name": "I Want Choo",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3386460119252",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/o/p/open-box-jimmy-choo-ladies-i-want-choo-edp-spray-34-oz-fragrances-3386460119252.jpg",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Citrus",
-        "Fresh florals"
-      ],
-      "middle": [
-        "Jasmine",
-        "Rose",
-        "Floral bouquet"
-      ],
-      "base": [
-        "Vanilla",
-        "Musk"
-      ]
-    }
-  },
-  {
     "id": "ean-3386460167338",
     "brand": "Jimmy Choo",
     "name": "I Want Choo Set",
@@ -14837,17 +16088,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": "3386460167338",
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/1/218711.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3386460119276",
-    "brand": "Jimmy Choo",
-    "name": "I Want Choo",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 40,
-    "ean": "3386460119276",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/182_1.jpg",
     "notes": null
   },
   {
@@ -14881,17 +16121,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": "3386460142014",
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/i/jimmy-choo-i-want-choo-le-parfum.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3386460071727",
-    "brand": "Jimmy Choo",
-    "name": "Illicit",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3386460071727",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/858.jpg",
     "notes": null
   },
   {
@@ -14930,32 +16159,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/6/865.jpg",
     "notes": null
-  },
-  {
-    "id": "ean-3386460025478",
-    "brand": "Jimmy Choo",
-    "name": "Jimmy Choo",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3386460025478",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/c/screenshot_2026-05-13_at_15.34.48.png",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Citrus",
-        "Fresh florals"
-      ],
-      "middle": [
-        "Jasmine",
-        "Rose",
-        "Floral bouquet"
-      ],
-      "base": [
-        "Vanilla",
-        "Musk"
-      ]
-    }
   },
   {
     "id": "ean-3386460146128",
@@ -15046,17 +16249,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3386460048125",
-    "brand": "Jimmy Choo",
-    "name": "Flash",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 60,
-    "ean": "3386460048125",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460048125.png",
-    "notes": null
-  },
-  {
     "id": "ean-3386460160827",
     "brand": "Jimmy Choo",
     "name": "I Want Choo With Love",
@@ -15065,6 +16257,193 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": "3386460160827",
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/i/jimmy_choo_i_want_choo_with_love_eau_de_parfum_100ml_spray_.jpg",
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0014",
+    "brand": "Jimmy Choo",
+    "name": "Fever",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 60,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0015",
+    "brand": "Jimmy Choo",
+    "name": "Fever",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0018",
+    "brand": "Jimmy Choo",
+    "name": "Blossom",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0009",
+    "brand": "Jimmy Choo",
+    "name": "Jimmy Choo Eau De Toilette 40ml",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 40,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0058",
+    "brand": "Jimmy Choo",
+    "name": "I Want Choo Forever",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0016",
+    "brand": "Jimmy Choo",
+    "name": "Blossom",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 40,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0055",
+    "brand": "Jimmy Choo",
+    "name": "Man",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0001",
+    "brand": "Jimmy Choo",
+    "name": "Flash",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 60,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0002",
+    "brand": "Jimmy Choo",
+    "name": "Flash",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0006",
+    "brand": "Jimmy Choo",
+    "name": "Jimmy Choo Eau De Parfum 40ml",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 40,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0025",
+    "brand": "Jimmy Choo",
+    "name": "L'Eau",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 40,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0024",
+    "brand": "Jimmy Choo",
+    "name": "Floral",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 90,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0023",
+    "brand": "Jimmy Choo",
+    "name": "Illicit Flower",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0061",
+    "brand": "Jimmy Choo",
+    "name": "Rose Passion",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0010",
+    "brand": "Jimmy Choo",
+    "name": "Jimmy Choo Eau De Toilette 60ml",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 60,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0003",
+    "brand": "Jimmy Choo",
+    "name": "I Want Choo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 40,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jimc0026",
+    "brand": "Jimmy Choo",
+    "name": "L'Eau",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 60,
+    "ean": null,
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -15429,12 +16808,34 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3414200064064",
-    "brand": "JOOP!",
-    "name": "Go!",
+    "id": "justmylook-joop0003",
+    "brand": "Joop",
+    "name": "Homme",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 200,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-joop0020",
+    "brand": "Joop",
+    "name": "Homme Wild",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3414200640015",
+    "brand": "Joop!",
+    "name": "Jump",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
-    "ean": "3414200064064",
+    "ean": "3414200640015",
     "shops": 1,
     "image": null,
     "notes": null
@@ -15446,6 +16847,39 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Aftershave",
     "sizeMl": 75,
     "ean": "3414206000615",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-035017009029",
+    "brand": "Jovan",
+    "name": "Musk",
+    "concentration": "Cologne",
+    "sizeMl": 88,
+    "ean": "035017009029",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-035017008923",
+    "brand": "Jovan",
+    "name": "Musk Concentrated",
+    "concentration": "Cologne",
+    "sizeMl": 96,
+    "ean": "035017008923",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-035017008145",
+    "brand": "Jovan",
+    "name": "White Musk",
+    "concentration": "Eau de Cologne",
+    "sizeMl": 88,
+    "ean": "035017008145",
     "shops": 1,
     "image": null,
     "notes": null
@@ -15495,12 +16929,34 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3274872420618",
-    "brand": "Kenzo",
-    "name": "Amour",
+    "id": "justmylook-jhg0018",
+    "brand": "Juliette Has A Gun",
+    "name": "Ego Stratis",
     "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "3274872420618",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-jhg0002",
+    "brand": "Juliette Has A Gun",
+    "name": "Vanilla Vibes",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-688575003260",
+    "brand": "Karl Lagerfeld",
+    "name": "Classic",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "688575003260",
     "shops": 1,
     "image": null,
     "notes": null
@@ -15512,6 +16968,39 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "3274872420625",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3274872420618",
+    "brand": "Kenzo",
+    "name": "Amour",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3274872420618",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3352818518800",
+    "brand": "Kenzo",
+    "name": "Flower Sprayray",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3352818518800",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3274872404175",
+    "brand": "Kenzo",
+    "name": "Flower by Kenzo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3274872404175",
     "shops": 1,
     "image": null,
     "notes": null
@@ -15651,32 +17140,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lacoste_touch_of_pink_eau_de_toilette_50ml_spray.jpg",
     "notes": null
-  },
-  {
-    "id": "ean-3614273069175",
-    "brand": "Lancome",
-    "name": "Idole",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3614273069175",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/942.jpg",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Citrus",
-        "Fresh florals"
-      ],
-      "middle": [
-        "Jasmine",
-        "Rose",
-        "Floral bouquet"
-      ],
-      "base": [
-        "Vanilla",
-        "Musk"
-      ]
-    }
   },
   {
     "id": "ean-3614273950718",
@@ -15912,17 +17375,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3147758034905",
-    "brand": "Lancome",
-    "name": "Tresor",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 30,
-    "ean": "3147758034905",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-edp-vapo-50ml-lancome-1.jpg",
-    "notes": null
-  },
-  {
     "id": "ean-3605532423203",
     "brand": "Lancome",
     "name": "Tresor Midnight Rose",
@@ -15971,6 +17423,39 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3614273476782",
+    "brand": "Lancôme",
+    "name": "(Lancôme) Idole Aura",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 25,
+    "ean": "3614273476782",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3614273476164",
+    "brand": "Lancôme",
+    "name": "(Lancôme) Idole Aura",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3614273476164",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3605532612768",
+    "brand": "Lancôme",
+    "name": "La Vie Est Belle Sprayy",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3605532612768",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-3614272639638",
     "brand": "Lancôme",
     "name": "Idôle",
@@ -15999,17 +17484,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "3386460010399",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-6291107456041",
-    "brand": "Lattafa",
-    "name": "Fakhar",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6291107456041",
     "shops": 1,
     "image": null,
     "notes": null
@@ -16048,12 +17522,12 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3760168633287",
-    "brand": "Louis Varel",
-    "name": "Extreme Amber",
+    "id": "ean-6291107456041",
+    "brand": "Lattafa",
+    "name": "Fakhar",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "3760168633287",
+    "ean": "6291107456041",
     "shops": 1,
     "image": null,
     "notes": null
@@ -16065,6 +17539,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "3760168633300",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3760168633287",
+    "brand": "Louis Varel",
+    "name": "Extreme Amber",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3760168633287",
     "shops": 1,
     "image": null,
     "notes": null
@@ -16947,6 +18432,28 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-8011003845125",
+    "brand": "Moschino",
+    "name": "Toy Boy",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "8011003845125",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-8011003845132",
+    "brand": "Moschino",
+    "name": "Toy Boy",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "8011003845132",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-8011003839285",
     "brand": "Moschino",
     "name": "Toy 2",
@@ -16975,28 +18482,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "8011003839308",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-8011003845125",
-    "brand": "Moschino",
-    "name": "Toy Boy",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "8011003845125",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-8011003845132",
-    "brand": "Moschino",
-    "name": "Toy Boy",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "8011003845132",
     "shops": 1,
     "image": null,
     "notes": null
@@ -17885,6 +19370,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-6291106810585",
+    "brand": "ORIENTICA",
+    "name": "Deen Sahir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6291106810585",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-6291106810332",
     "brand": "ORIENTICA",
     "name": "Golden Musk Concentrated Oil Roll-On",
@@ -18056,17 +19552,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Perfume",
     "sizeMl": 6,
     "ean": "6291106810370",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-6291106810585",
-    "brand": "ORIENTICA",
-    "name": "Deen Sahir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6291106810585",
     "shops": 1,
     "image": null,
     "notes": null
@@ -18989,6 +20474,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3760004321767",
+    "brand": "Pascal Morabito",
+    "name": "Aimer",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3760004321767",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-3760004322269",
     "brand": "Pascal Morabito",
     "name": "Black Agent",
@@ -19061,17 +20557,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "3760004323594",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3760004321767",
-    "brand": "Pascal Morabito",
-    "name": "Aimer",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3760004321767",
     "shops": 1,
     "image": null,
     "notes": null
@@ -19903,6 +21388,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-888066015509",
+    "brand": "Tom Ford",
+    "name": "Noir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "888066015509",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-888066008433",
     "brand": "Tom Ford",
     "name": "Private Blend Neroli Portofino",
@@ -19931,17 +21427,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
     "ean": "888066000512",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-888066015509",
-    "brand": "Tom Ford",
-    "name": "Noir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "888066015509",
     "shops": 1,
     "image": null,
     "notes": null
@@ -20221,160 +21706,6 @@ export const CATALOGUE: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
-  {
-    "id": "lookfantastic-12243620",
-    "brand": "Unbranded",
-    "name": "Molton Brown Mesmerising Oudh Accord & Gold",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "lookfantastic-12243622",
-    "brand": "Unbranded",
-    "name": "Molton Brown Re-Charge Black Pepper",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "lookfantastic-12243625",
-    "brand": "Unbranded",
-    "name": "Molton Brown Tobacco Absolute",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "lookfantastic-12380047",
-    "brand": "Unbranded",
-    "name": "TOM FORD Beau de Jour",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "lookfantastic-15016795",
-    "brand": "Unbranded",
-    "name": "Lacoste L.12.12 Noir",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "lookfantastic-10002885",
-    "brand": "Unbranded",
-    "name": "Juicy Couture",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "lookfantastic-10002886",
-    "brand": "Unbranded",
-    "name": "Juicy Couture",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "lookfantastic-10077798",
-    "brand": "Unbranded",
-    "name": "Diesel Only The Brave",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "lookfantastic-10301201",
-    "brand": "Unbranded",
-    "name": "Acqua Di Parma Magnolia Nobile",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "lookfantastic-10588308",
-    "brand": "Unbranded",
-    "name": "Menaji Power Hydrator with Hyaluronic Acid (4oz./)",
-    "concentration": "Aftershave",
-    "sizeMl": 118,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "lookfantastic-10810788",
-    "brand": "Unbranded",
-    "name": "Juicy Couture Viva Noir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "lookfantastic-10952559",
-    "brand": "Unbranded",
-    "name": "Rabanne Invictus",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "lookfantastic-10954663",
-    "brand": "Unbranded",
-    "name": "DKNY Be Delicious",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "lookfantastic-11034069",
-    "brand": "Unbranded",
-    "name": "Versace Crystal Noir",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 30,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "lookfantastic-11034090",
@@ -20668,6 +21999,160 @@ export const CATALOGUE: CatalogueEntry[] = [
     "name": "Molton Brown Flora Luminare",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "lookfantastic-12243620",
+    "brand": "Unbranded",
+    "name": "Molton Brown Mesmerising Oudh Accord & Gold",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "lookfantastic-12243622",
+    "brand": "Unbranded",
+    "name": "Molton Brown Re-Charge Black Pepper",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "lookfantastic-12243625",
+    "brand": "Unbranded",
+    "name": "Molton Brown Tobacco Absolute",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "lookfantastic-12380047",
+    "brand": "Unbranded",
+    "name": "TOM FORD Beau de Jour",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "lookfantastic-15016795",
+    "brand": "Unbranded",
+    "name": "Lacoste L.12.12 Noir",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "lookfantastic-10002885",
+    "brand": "Unbranded",
+    "name": "Juicy Couture",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "lookfantastic-10002886",
+    "brand": "Unbranded",
+    "name": "Juicy Couture",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "lookfantastic-10077798",
+    "brand": "Unbranded",
+    "name": "Diesel Only The Brave",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "lookfantastic-10301201",
+    "brand": "Unbranded",
+    "name": "Acqua Di Parma Magnolia Nobile",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "lookfantastic-10588308",
+    "brand": "Unbranded",
+    "name": "Menaji Power Hydrator with Hyaluronic Acid (4oz./)",
+    "concentration": "Aftershave",
+    "sizeMl": 118,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "lookfantastic-10810788",
+    "brand": "Unbranded",
+    "name": "Juicy Couture Viva Noir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "lookfantastic-10952559",
+    "brand": "Unbranded",
+    "name": "Rabanne Invictus",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "lookfantastic-10954663",
+    "brand": "Unbranded",
+    "name": "DKNY Be Delicious",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "lookfantastic-11034069",
+    "brand": "Unbranded",
+    "name": "Versace Crystal Noir",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 30,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -21337,28 +22822,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3614272050341",
-    "brand": "Ysl",
-    "name": "Y",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 60,
-    "ean": "3614272050341",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3614272050358",
-    "brand": "Ysl",
-    "name": "Y",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3614272050358",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3614272648401",
     "brand": "Ysl",
     "name": "Libre",
@@ -21387,6 +22850,28 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 90,
     "ean": "3614272648425",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3614272050341",
+    "brand": "Ysl",
+    "name": "Y",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 60,
+    "ean": "3614272050341",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3614272050358",
+    "brand": "Ysl",
+    "name": "Y",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3614272050358",
     "shops": 1,
     "image": null,
     "notes": null
@@ -21436,6 +22921,28 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3365440037229",
+    "brand": "Yves Saint Laurent",
+    "name": "La Collection Jazz",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 80,
+    "ean": "3365440037229",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-3365440037045",
+    "brand": "Yves Saint Laurent",
+    "name": "La Collection Yvresse",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 80,
+    "ean": "3365440037045",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-3365440556386",
     "brand": "Yves Saint Laurent",
     "name": "Opium",
@@ -21464,28 +22971,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "3365440025578",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3365440037229",
-    "brand": "Yves Saint Laurent",
-    "name": "La Collection Jazz",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 80,
-    "ean": "3365440037229",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3365440037045",
-    "brand": "Yves Saint Laurent",
-    "name": "La Collection Yvresse",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 80,
-    "ean": "3365440037045",
     "shops": 1,
     "image": null,
     "notes": null
@@ -21637,7 +23122,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-hugo-boss-boss-woman-eau-de-parfum-90ml-10076083",
-      "fetchedAt": "2026-08-04T14:47:08.940Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
       "imageUrl": null
@@ -21667,6 +23152,82 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/680.jpg"
     }
   ],
+  "ean-3386461515671": [
+    {
+      "retailerId": "allbeauty",
+      "price": 52.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-lanvin-eclat-darpege-eau-de-parfum-spray-100ml-12611994",
+      "fetchedAt": "2026-08-04T16:30:04.615Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "beautybase",
+      "price": 49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/eclat-darpege-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 34.5,
+      "wasPrice": 65,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089042134&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/975.jpg"
+    }
+  ],
+  "ean-3386461515619": [
+    {
+      "retailerId": "allbeauty",
+      "price": 31.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-lanvin-arpege-eau-de-parfum-spray-100ml-12611992",
+      "fetchedAt": "2026-08-04T16:30:04.615Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "beautybase",
+      "price": 42,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/arpege-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 40.5,
+      "wasPrice": 76,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089042133&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/973.jpg"
+    }
+  ],
   "ean-8028713210020": [
     {
       "retailerId": "allbeauty",
@@ -21691,6 +23252,58 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/i/n/intensa.jpg"
+    }
+  ],
+  "ean-3386460036528": [
+    {
+      "retailerId": "allbeauty",
+      "price": 28,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-boucheron-jaipur-homme-eau-de-parfum-spray-100ml-14271180",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "beautybase",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/jaipur-homme-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T16:30:04.615Z",
+      "firstSeenAt": "2026-08-04T16:30:04.615Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460057059": [
+    {
+      "retailerId": "allbeauty",
+      "price": 26,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-boucheron-place-vendome-eau-de-parfum-spray-100ml-14575382",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/place-vendome-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T16:30:04.615Z",
+      "firstSeenAt": "2026-08-04T16:30:04.615Z",
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-3386460036405": [
@@ -21719,58 +23332,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/o/boucheron_pour_homme_100ml_eau_de_toilette.jpg"
     }
   ],
-  "ean-3386460036528": [
-    {
-      "retailerId": "allbeauty",
-      "price": 28,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-boucheron-jaipur-homme-eau-de-parfum-spray-100ml-14271180",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    },
-    {
-      "retailerId": "beautybase",
-      "price": 45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/jaipur-homme-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-04T16:30:04.615Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-3386460057059": [
-    {
-      "retailerId": "allbeauty",
-      "price": 26,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-boucheron-place-vendome-eau-de-parfum-spray-100ml-14575382",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    },
-    {
-      "retailerId": "beautybase",
-      "price": 35,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/place-vendome-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-04T16:30:04.615Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
   "ean-3614227748446": [
     {
       "retailerId": "allbeauty",
@@ -21791,7 +23352,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/weekend-for-men-eau-de-toilette-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -21899,6 +23460,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/9/29.jpg"
+    }
+  ],
+  "ean-3607342306134": [
+    {
+      "retailerId": "allbeauty",
+      "price": 24.8,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-calvin-klein-sheer-beauty-eau-de-toilette-100ml-11079284",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 25.95,
+      "wasPrice": 62,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45353161237&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14381884006_xl.jpg"
     }
   ],
   "ean-088300000319": [
@@ -22029,32 +23616,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
-    }
-  ],
-  "ean-3607342306134": [
-    {
-      "retailerId": "allbeauty",
-      "price": 24.8,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-calvin-klein-sheer-beauty-eau-de-toilette-100ml-11079284",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    },
-    {
-      "retailerId": "fragrance-click",
-      "price": 25.95,
-      "wasPrice": 62,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45353161237&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14381884006_xl.jpg"
     }
   ],
   "ean-3614225670435": [
@@ -22239,6 +23800,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-3607341186805": [
+    {
+      "retailerId": "allbeauty",
+      "price": 17.1,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://allbeauty.com/products/p-davidoff-the-game-eau-de-toilette-spray-100ml-11210218",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "beautybase",
+      "price": 24,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/davidoff-the-game-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-3414200204415": [
     {
       "retailerId": "allbeauty",
@@ -22259,32 +23846,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/adventure-eau-de-toilette-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-3607341186805": [
-    {
-      "retailerId": "allbeauty",
-      "price": 17.1,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-davidoff-the-game-eau-de-toilette-spray-100ml-11210218",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    },
-    {
-      "retailerId": "beautybase",
-      "price": 24,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/davidoff-the-game-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
@@ -22603,6 +24164,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_pour_homme_eau_de_toilette_125ml_spray.jpg"
     }
   ],
+  "ean-085805268848": [
+    {
+      "retailerId": "allbeauty",
+      "price": 20.1,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-elizabeth-arden-green-tea-eau-parfumee-scent-spray-100ml-10553164",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "beautybase",
+      "price": 16.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/elizabeth-arden-green-tea-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-085805390600": [
     {
       "retailerId": "allbeauty",
@@ -22649,32 +24236,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/elizabeth-arden-arden-beauty-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-085805268848": [
-    {
-      "retailerId": "allbeauty",
-      "price": 14.8,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-elizabeth-arden-green-tea-eau-parfumee-scent-spray-100ml-10553164",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    },
-    {
-      "retailerId": "beautybase",
-      "price": 16.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/elizabeth-arden-green-tea-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
@@ -22783,6 +24344,58 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": null
+    }
+  ],
+  "ean-3360372061793": [
+    {
+      "retailerId": "beautybase",
+      "price": 38.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/emporio-armani-she-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 43.95,
+      "wasPrice": 59,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089041870&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441_1.jpg"
+    }
+  ],
+  "ean-3360372061809": [
+    {
+      "retailerId": "beautybase",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/emporio-armani-she-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 41.95,
+      "wasPrice": 80,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089041869&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441.jpg"
     }
   ],
   "ean-3614271994844": [
@@ -22915,6 +24528,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/350_1.jpg"
     }
   ],
+  "ean-3274870012136": [
+    {
+      "retailerId": "allbeauty",
+      "price": 52.45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://allbeauty.com/products/p-givenchy-gentlemen-only-eau-de-toilette-spray-100ml-13716409",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 38.95,
+      "wasPrice": 73,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44794234846&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy-gentlemen-only-edt-100ml-2023-1.jpg"
+    }
+  ],
   "ean-3274870303166": [
     {
       "retailerId": "allbeauty",
@@ -22941,30 +24580,30 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/110_1.jpg"
     }
   ],
-  "ean-3274870012136": [
+  "ean-3274870042362": [
     {
-      "retailerId": "allbeauty",
-      "price": 52.45,
+      "retailerId": "beautybase",
+      "price": 69.95,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-givenchy-gentlemen-only-eau-de-toilette-spray-100ml-13716409",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/givenchy-ysatis-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
       "imageUrl": null
     },
     {
       "retailerId": "fragrance-click",
-      "price": 38.95,
-      "wasPrice": 73,
+      "price": 57.95,
+      "wasPrice": 109,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44794234846&a=3017443&m=124166",
+      "url": "https://www.awin1.com/pclick.php?p=44089041904&a=3017443&m=124166",
       "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy-gentlemen-only-edt-100ml-2023-1.jpg"
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/515.jpg"
     }
   ],
   "ean-3274872422995": [
@@ -23045,6 +24684,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/_/l_interdit_intense_35ml_.png"
     }
   ],
+  "ean-8005610328799": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/gucci-rush-eau-de-toilette-75ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 55.75,
+      "wasPrice": 105,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089041930&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/6/560.jpg"
+    }
+  ],
   "ean-3346470114746": [
     {
       "retailerId": "allbeauty",
@@ -23053,7 +24718,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-guerlain-la-petite-robe-noire-eau-de-toilette-spray-100ml-3-3-fl-oz-17748370",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -23095,6 +24760,110 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/i/m/images.jpeg"
+    }
+  ],
+  "ean-737052351018": [
+    {
+      "retailerId": "beautybase",
+      "price": 36,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/boss-bottled-eau-de-toilette-50ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 31.95,
+      "wasPrice": 60,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089041991&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/662.jpg"
+    }
+  ],
+  "ean-737052351100": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/boss-bottled-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 45.75,
+      "wasPrice": 86,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089041989&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/657.jpg"
+    }
+  ],
+  "ean-737052352060": [
+    {
+      "retailerId": "beautybase",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/boss-bottled-night-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 45.75,
+      "wasPrice": 86,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089041993&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/667.jpg"
+    }
+  ],
+  "ean-737052041353": [
+    {
+      "retailerId": "beautybase",
+      "price": 30,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/boss-femme-eau-de-parfum-75ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 41.95,
+      "wasPrice": 79,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45201368652&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/695.jpg"
     }
   ],
   "ean-737052041247": [
@@ -23201,6 +24970,58 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/162_2.jpg"
     }
   ],
+  "ean-3423470300161": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/issey-miyake-leau-dissey-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 55.25,
+      "wasPrice": 104,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089042008&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/716.jpg"
+    }
+  ],
+  "ean-3423470486025": [
+    {
+      "retailerId": "beautybase",
+      "price": 19,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/issey-miyake-leau-dissey-pour-homme-intense-eau-de-toilette-75ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 27.75,
+      "wasPrice": 52,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45255619741&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_l_eau_d_issey_pour_homme_intense_eau_de_toilette_75ml_spray.jpg"
+    }
+  ],
   "ean-3423470311365": [
     {
       "retailerId": "beautybase",
@@ -23261,7 +25082,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/jean-paul-gaultier-la-belle-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -23329,6 +25150,188 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/811.jpg"
+    }
+  ],
+  "ean-3386460048125": [
+    {
+      "retailerId": "beautybase",
+      "price": 30,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/jimmy-choo-flash-eau-de-parfum-60ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 30.25,
+      "wasPrice": 57,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44415357272&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460048125.png"
+    }
+  ],
+  "ean-3386460048118": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/jimmy-choo-flash-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 34.95,
+      "wasPrice": 66,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089042071&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/834.jpg"
+    }
+  ],
+  "ean-3386460025485": [
+    {
+      "retailerId": "beautybase",
+      "price": 59.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/jimmy-choo-eau-de-parfum-60ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 36.25,
+      "wasPrice": 68,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089042068&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180_1.jpg"
+    }
+  ],
+  "ean-3386460025478": [
+    {
+      "retailerId": "beautybase",
+      "price": 79,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/jimmy-choo-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 50.95,
+      "wasPrice": 96,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44734045683&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/c/screenshot_2026-05-13_at_15.34.48.png"
+    }
+  ],
+  "ean-3386460119276": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/jimmy-choo-i-want-choo-eau-de-parfum-40ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 33.95,
+      "wasPrice": 51,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089042073&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/182_1.jpg"
+    }
+  ],
+  "ean-3386460119252": [
+    {
+      "retailerId": "beautybase",
+      "price": 79,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/jimmy-choo-i-want-choo-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 58.95,
+      "wasPrice": 99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44260860882&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/o/p/open-box-jimmy-choo-ladies-i-want-choo-edp-spray-34-oz-fragrances-3386460119252.jpg"
+    }
+  ],
+  "ean-3386460071727": [
+    {
+      "retailerId": "beautybase",
+      "price": 49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/illicit-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 50.5,
+      "wasPrice": 95,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089042078&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/858.jpg"
     }
   ],
   "ean-3386460097321": [
@@ -23409,6 +25412,58 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/836_1.jpg"
     }
   ],
+  "ean-3607345849867": [
+    {
+      "retailerId": "allbeauty",
+      "price": 17.4,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://allbeauty.com/products/p-joop-homme-wild-for-him-eau-de-toilette-spray-125ml-14576781",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 36.25,
+      "wasPrice": 68,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089042109&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/905.jpg"
+    }
+  ],
+  "ean-3414200064064": [
+    {
+      "retailerId": "allbeauty",
+      "price": 18.3,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-joop-go-for-him-eau-de-toilette-spray-100ml-12947148",
+      "fetchedAt": "2026-08-04T16:30:04.615Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "beautybase",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/joop-go-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-3414206000059": [
     {
       "retailerId": "allbeauty",
@@ -23433,32 +25488,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/901.jpg"
-    }
-  ],
-  "ean-3607345849867": [
-    {
-      "retailerId": "allbeauty",
-      "price": 17.4,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://allbeauty.com/products/p-joop-homme-wild-for-him-eau-de-toilette-spray-125ml-14576781",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    },
-    {
-      "retailerId": "fragrance-click",
-      "price": 36.25,
-      "wasPrice": 68,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089042109&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/905.jpg"
     }
   ],
   "ean-3274872404113": [
@@ -23487,6 +25516,58 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-3614273069175": [
+    {
+      "retailerId": "beautybase",
+      "price": 129,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lancome-idole-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 89.95,
+      "wasPrice": 120,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45353161250&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/942.jpg"
+    }
+  ],
+  "ean-3147758034905": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lancome-tresor-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 34.95,
+      "wasPrice": 67,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45210130166&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-edp-vapo-50ml-lancome-1.jpg"
+    }
+  ],
   "ean-3614272629370": [
     {
       "retailerId": "beautybase",
@@ -23495,7 +25576,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/lancome-idole-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -23511,58 +25592,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/945.jpg"
-    }
-  ],
-  "ean-3386461515671": [
-    {
-      "retailerId": "allbeauty",
-      "price": 52.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-lanvin-eclat-darpege-eau-de-parfum-spray-100ml-12611994",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    },
-    {
-      "retailerId": "fragrance-click",
-      "price": 34.5,
-      "wasPrice": 65,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089042134&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/975.jpg"
-    }
-  ],
-  "ean-3386461515619": [
-    {
-      "retailerId": "allbeauty",
-      "price": 31.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-lanvin-arpege-eau-de-parfum-spray-100ml-12611992",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    },
-    {
-      "retailerId": "fragrance-click",
-      "price": 40.5,
-      "wasPrice": 76,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089042133&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/973.jpg"
     }
   ],
   "ean-3616301776024": [
@@ -23663,7 +25692,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/moschino-funny-eau-de-toilette-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -23781,7 +25810,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/rabanne-black-xs-for-her-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -23833,7 +25862,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/valentino-born-in-roma-uomo-eau-de-toilette-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -23903,6 +25932,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_voce_viva_intense_eau_de_parfum_30ml_spray_.jpg"
     }
   ],
+  "ean-3607342166875": [
+    {
+      "retailerId": "allbeauty",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-vera-wang-love-struck-eau-de-parfum-spray-100ml-11079250",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 37.25,
+      "wasPrice": 70,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089042325&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/e/vera_wang_lovestruck_100ml_eau_de_parfum.jpg"
+    }
+  ],
   "ean-688575001778": [
     {
       "retailerId": "allbeauty",
@@ -23927,32 +25982,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1428.jpg"
-    }
-  ],
-  "ean-3607342166875": [
-    {
-      "retailerId": "allbeauty",
-      "price": 18.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-vera-wang-love-struck-eau-de-parfum-spray-100ml-11079250",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    },
-    {
-      "retailerId": "fragrance-click",
-      "price": 37.25,
-      "wasPrice": 70,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089042325&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/e/vera_wang_lovestruck_100ml_eau_de_parfum.jpg"
     }
   ],
   "ean-3614272191556": [
@@ -24289,6 +26318,62 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/l/blu_mediterraneo_mirto_di_panarea_.png"
     }
   ],
+  "justmylook-acq0043": [
+    {
+      "retailerId": "justmylook",
+      "price": 36.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/acqua-di-parma-blu-mediterraneo-fico-di-amalfi-eau-de-toilette-30ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-acq0048": [
+    {
+      "retailerId": "justmylook",
+      "price": 66.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/acqua-di-parma-blu-mediterraneo-mandorlo-di-sicilia-eau-de-toilette-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-acq0067": [
+    {
+      "retailerId": "justmylook",
+      "price": 89.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/acqua-di-parma-colonia-intensa-eau-de-cologne-180ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-acq0010": [
+    {
+      "retailerId": "justmylook",
+      "price": 54.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/acqua-di-parma-colonia-club-eau-de-cologne-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "justmylook-acq0054": [
     {
       "retailerId": "justmylook",
@@ -24620,62 +26705,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/acqua-di-parma-blu-mediterraneo-mirto-di-panarea-eau-de-toilette-30ml",
       "fetchedAt": "2026-08-04T14:47:08.940Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-acq0043": [
-    {
-      "retailerId": "justmylook",
-      "price": 36.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/acqua-di-parma-blu-mediterraneo-fico-di-amalfi-eau-de-toilette-30ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-acq0048": [
-    {
-      "retailerId": "justmylook",
-      "price": 66.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/acqua-di-parma-blu-mediterraneo-mandorlo-di-sicilia-eau-de-toilette-75ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-acq0067": [
-    {
-      "retailerId": "justmylook",
-      "price": 89.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/acqua-di-parma-colonia-intensa-eau-de-cologne-180ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-acq0010": [
-    {
-      "retailerId": "justmylook",
-      "price": 54.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/acqua-di-parma-colonia-club-eau-de-cologne-50ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -25073,6 +27102,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "justmylook-ar0002": [
+    {
+      "retailerId": "justmylook",
+      "price": 21.95,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-04T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/aramis-classic-eau-de-toilette-110ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "justmylook-ar0003": [
     {
       "retailerId": "justmylook",
@@ -25087,15 +27130,43 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "justmylook-ar0002": [
+  "ean-812256024293": [
     {
-      "retailerId": "justmylook",
-      "price": 21.95,
+      "retailerId": "beautybase",
+      "price": 31.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-01T00:00:00.000Z",
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/aramis-classic-eau-de-toilette-110ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/thank-you-next-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-812256024286": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/thank-you-next-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-812256024279": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/thank-you-next-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -25166,48 +27237,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/ariana-grande-cloud-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-812256024293": [
-    {
-      "retailerId": "beautybase",
-      "price": 31.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/thank-you-next-eau-de-parfum-30ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-812256024286": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/thank-you-next-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-812256024279": [
-    {
-      "retailerId": "beautybase",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/thank-you-next-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -25641,7 +27670,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-armani-acqua-di-gioia-eau-de-parfum-spray-100ml-10947938",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -26081,6 +28110,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-3386460036351": [
+    {
+      "retailerId": "allbeauty",
+      "price": 36,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-boucheron-pour-femme-eau-de-parfum-spray-100ml-14576981",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460036467": [
+    {
+      "retailerId": "allbeauty",
+      "price": 26.6,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-boucheron-jaipur-bracelet-femme-eau-de-parfum-spray-100ml-14271368",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-3386460036429": [
     {
       "retailerId": "allbeauty",
@@ -26090,34 +28147,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-boucheron-pour-homme-eau-de-parfum-spray-100ml-14271215",
       "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-3386460036351": [
-    {
-      "retailerId": "allbeauty",
-      "price": 36,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-boucheron-pour-femme-eau-de-parfum-spray-100ml-14576981",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-3386460036467": [
-    {
-      "retailerId": "allbeauty",
-      "price": 28,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-boucheron-jaipur-bracelet-femme-eau-de-parfum-spray-100ml-14271368",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -26207,6 +28236,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "justmylook-brit0008": [
+    {
+      "retailerId": "justmylook",
+      "price": 14.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/britney-spears-curious-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-brit0002": [
+    {
+      "retailerId": "justmylook",
+      "price": 14.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/britney-spears-midnight-fantasy-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "justmylook-brit0011": [
     {
       "retailerId": "justmylook",
@@ -26286,34 +28343,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/britney-spears-curious-eau-de-parfum-30ml",
       "fetchedAt": "2026-08-04T14:47:08.940Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-brit0008": [
-    {
-      "retailerId": "justmylook",
-      "price": 14.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/britney-spears-curious-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-brit0002": [
-    {
-      "retailerId": "justmylook",
-      "price": 14.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/britney-spears-midnight-fantasy-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -26781,6 +28810,146 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_london_eau_de_parfum_50ml_spray_.jpg"
     }
   ],
+  "justmylook-burb0012": [
+    {
+      "retailerId": "justmylook",
+      "price": 32.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/burberry-london-for-women-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-burb0035": [
+    {
+      "retailerId": "justmylook",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/burberry-weekend-men-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-burb0048": [
+    {
+      "retailerId": "justmylook",
+      "price": 82.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/burberry-hero-eau-de-parfum-150ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-burb0047": [
+    {
+      "retailerId": "justmylook",
+      "price": 65.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/burberry-hero-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-burb0050": [
+    {
+      "retailerId": "justmylook",
+      "price": 66.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/burberry-her-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-burb0046": [
+    {
+      "retailerId": "justmylook",
+      "price": 51.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/burberry-hero-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-burb0043": [
+    {
+      "retailerId": "justmylook",
+      "price": 43.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/burberry-hero-eau-de-toilette-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-burb0040": [
+    {
+      "retailerId": "justmylook",
+      "price": 42.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/burberry-goddess-eau-de-parfum-30ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-burb0017": [
+    {
+      "retailerId": "justmylook",
+      "price": 31.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/burberry-original-woman-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-burb0009": [
+    {
+      "retailerId": "justmylook",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/burberry-london-for-men-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "justmylook-burb0049": [
     {
       "retailerId": "justmylook",
@@ -26890,146 +29059,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-burb0012": [
-    {
-      "retailerId": "justmylook",
-      "price": 32.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/burberry-london-for-women-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-burb0035": [
-    {
-      "retailerId": "justmylook",
-      "price": 28.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/burberry-weekend-men-eau-de-toilette-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-burb0048": [
-    {
-      "retailerId": "justmylook",
-      "price": 82.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/burberry-hero-eau-de-parfum-150ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-burb0047": [
-    {
-      "retailerId": "justmylook",
-      "price": 65.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/burberry-hero-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-burb0050": [
-    {
-      "retailerId": "justmylook",
-      "price": 66.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/burberry-her-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-burb0046": [
-    {
-      "retailerId": "justmylook",
-      "price": 51.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/burberry-hero-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-burb0043": [
-    {
-      "retailerId": "justmylook",
-      "price": 43.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/burberry-hero-eau-de-toilette-50ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-burb0040": [
-    {
-      "retailerId": "justmylook",
-      "price": 42.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/burberry-goddess-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-burb0017": [
-    {
-      "retailerId": "justmylook",
-      "price": 31.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/burberry-original-woman-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-burb0009": [
-    {
-      "retailerId": "justmylook",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/burberry-london-for-men-eau-de-toilette-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
       "imageUrl": null
     }
   ],
@@ -27341,6 +29370,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_splendida_magnolia_sensuel_eau_de_parfum_50ml_spray_.jpg"
     }
   ],
+  "justmylook-byre0008": [
+    {
+      "retailerId": "justmylook",
+      "price": 189.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/byredo-gypsy-water-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-byre0001": [
+    {
+      "retailerId": "justmylook",
+      "price": 132.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/byredo-bibliotheque-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-byre0002": [
+    {
+      "retailerId": "justmylook",
+      "price": 193.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/byredo-bibliotheque-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "justmylook-byre0006": [
     {
       "retailerId": "justmylook",
@@ -27392,48 +29463,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/byredo-gypsy-water-eau-de-parfum-50ml",
       "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-byre0008": [
-    {
-      "retailerId": "justmylook",
-      "price": 189.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/byredo-gypsy-water-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-byre0001": [
-    {
-      "retailerId": "justmylook",
-      "price": 132.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/byredo-bibliotheque-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-byre0002": [
-    {
-      "retailerId": "justmylook",
-      "price": 193.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/byredo-bibliotheque-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -27587,7 +29616,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/cacharel-amor-amor-eau-de-toilette-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -27601,7 +29630,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/cacharel-loulou-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -27615,7 +29644,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/cacharel-eden-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -27629,7 +29658,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/cacharel-pour-lhomme-eau-de-toilette-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -27658,6 +29687,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/cacharel-noa-eau-de-toilette-100ml",
       "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3607340213267": [
+    {
+      "retailerId": "allbeauty",
+      "price": 37.25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-calvin-klein-beauty-eau-de-parfum-100ml-11079226",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -27730,20 +29773,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-3607340213267": [
-    {
-      "retailerId": "allbeauty",
-      "price": 28.8,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-calvin-klein-beauty-eau-de-parfum-100ml-11079226",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
       "imageUrl": null
     }
   ],
@@ -28587,6 +30616,174 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_euphoria_solar_elixir_intense_parfum_100ml_spray_.jpg"
     }
   ],
+  "justmylook-ck0102": [
+    {
+      "retailerId": "justmylook",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/calvin-klein-eternity-aqua-man-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-ck0052": [
+    {
+      "retailerId": "justmylook",
+      "price": 12.95,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-04T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/calvin-klein-eternity-moment-eau-de-parfum-30ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-ck0012": [
+    {
+      "retailerId": "justmylook",
+      "price": 31.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-04T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/calvin-klein-eternity-women-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-ck0002": [
+    {
+      "retailerId": "justmylook",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-04T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/calvin-klein-euphoria-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-ck0014": [
+    {
+      "retailerId": "justmylook",
+      "price": 21.95,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-04T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/calvin-klein-eternity-for-men-eau-de-toilette-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-ck0018": [
+    {
+      "retailerId": "justmylook",
+      "price": 21.95,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-04T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/calvin-klein-contradiction-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-ck0042": [
+    {
+      "retailerId": "justmylook",
+      "price": 18.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/calvin-klein-eternity-flame-woman-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-ck0007": [
+    {
+      "retailerId": "justmylook",
+      "price": 18.95,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-04T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/calvin-klein-in-2-u-woman-eau-de-toilette-150ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-ck0015": [
+    {
+      "retailerId": "justmylook",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-04T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/calvin-klein-eternity-for-men-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-ck0019": [
+    {
+      "retailerId": "justmylook",
+      "price": 18.95,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-04T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/calvin-klein-contradiction-men-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-ck0073": [
+    {
+      "retailerId": "justmylook",
+      "price": 14.5,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-04T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/calvin-klein-obsession-for-men-eau-de-toilette-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-ck0011": [
+    {
+      "retailerId": "justmylook",
+      "price": 26.5,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-04T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/calvin-klein-eternity-women-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "justmylook-ck0004": [
     {
       "retailerId": "justmylook",
@@ -28624,174 +30821,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/calvin-klein-be-eau-de-toilette-100ml",
       "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-ck0102": [
-    {
-      "retailerId": "justmylook",
-      "price": 22.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/calvin-klein-eternity-aqua-man-eau-de-toilette-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-ck0052": [
-    {
-      "retailerId": "justmylook",
-      "price": 12.95,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-01T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/calvin-klein-eternity-moment-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-ck0012": [
-    {
-      "retailerId": "justmylook",
-      "price": 31.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-01T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/calvin-klein-eternity-women-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-ck0002": [
-    {
-      "retailerId": "justmylook",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-01T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/calvin-klein-euphoria-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-ck0014": [
-    {
-      "retailerId": "justmylook",
-      "price": 21.95,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-01T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/calvin-klein-eternity-for-men-eau-de-toilette-50ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-ck0018": [
-    {
-      "retailerId": "justmylook",
-      "price": 21.95,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-01T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/calvin-klein-contradiction-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-ck0042": [
-    {
-      "retailerId": "justmylook",
-      "price": 18.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/calvin-klein-eternity-flame-woman-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-ck0007": [
-    {
-      "retailerId": "justmylook",
-      "price": 18.95,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-01T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/calvin-klein-in-2-u-woman-eau-de-toilette-150ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-ck0015": [
-    {
-      "retailerId": "justmylook",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-01T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/calvin-klein-eternity-for-men-eau-de-toilette-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-ck0019": [
-    {
-      "retailerId": "justmylook",
-      "price": 18.95,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-01T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/calvin-klein-contradiction-men-eau-de-toilette-100ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-ck0073": [
-    {
-      "retailerId": "justmylook",
-      "price": 14.5,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-01T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/calvin-klein-obsession-for-men-eau-de-toilette-75ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "justmylook-ck0011": [
-    {
-      "retailerId": "justmylook",
-      "price": 26.5,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-01T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/calvin-klein-eternity-women-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -29189,6 +31218,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-8411061099735": [
+    {
+      "retailerId": "beautybase",
+      "price": 42,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/carolina-herrera-bad-boy-eau-de-toilette-50ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-8411061099728": [
+    {
+      "retailerId": "beautybase",
+      "price": 69.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/carolina-herrera-bad-boy-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-8411061043844": [
     {
       "retailerId": "beautybase",
@@ -29227,34 +31284,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/carolina-herrera-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-8411061099735": [
-    {
-      "retailerId": "beautybase",
-      "price": 42,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/carolina-herrera-bad-boy-eau-de-toilette-50ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-8411061099728": [
-    {
-      "retailerId": "beautybase",
-      "price": 69.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/carolina-herrera-bad-boy-eau-de-toilette-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
     }
@@ -30555,7 +32584,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-creed-acqua-fiorentina-eau-de-parfum-spray-75ml-12852826",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -31129,7 +33158,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/offense-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -31373,6 +33402,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-3348900921429": [
+    {
+      "retailerId": "allbeauty",
+      "price": 118.75,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://allbeauty.com/products/p-dior-forever-and-ever-eau-de-toilette-spray-100ml-11079013",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-3348901296632": [
     {
       "retailerId": "allbeauty",
@@ -31451,20 +33494,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://allbeauty.com/products/p-dior-dolce-vita-eau-de-toilette-spray-100ml-11078996",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-3348900921429": [
-    {
-      "retailerId": "allbeauty",
-      "price": 118.75,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://allbeauty.com/products/p-dior-forever-and-ever-eau-de-toilette-spray-100ml-11079013",
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
@@ -32697,7 +34726,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://allbeauty.com/products/p-dolcegabbana-pour-femme-eau-de-parfum-spray-100ml-11883227",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -32711,7 +34740,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://allbeauty.com/products/p-dolcegabbana-the-one-for-men-eau-de-toilette-spray-150ml-17770826",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -32720,12 +34749,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "ean-3423473020042": [
     {
       "retailerId": "allbeauty",
-      "price": 58.2,
+      "price": 55.3,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-dolcegabbana-dolce-eau-de-parfum-spray-75ml-11883176",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -32767,7 +34796,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/green-wood-eau-de-toilette-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -32781,7 +34810,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/red-wood-eau-de-toilette-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -33081,6 +35110,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-085805161088": [
+    {
+      "retailerId": "allbeauty",
+      "price": 28,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://allbeauty.com/products/p-elizabeth-arden-untold-eau-de-parfum-spray-100ml-3-3-fl-oz-10839183",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-719346373906": [
     {
       "retailerId": "allbeauty",
@@ -33104,20 +35147,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-elizabeth-arden-sunflowers-eau-de-toilette-spray-100ml-3-3-fl-oz-10547875",
       "fetchedAt": "2026-08-04T14:47:08.940Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-085805161088": [
-    {
-      "retailerId": "allbeauty",
-      "price": 28,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://allbeauty.com/products/p-elizabeth-arden-untold-eau-de-parfum-spray-100ml-3-3-fl-oz-10839183",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -34187,6 +36216,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-3360372061823": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/emporio-armani-he-eau-de-toilette-50ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-3605521819987": [
     {
       "retailerId": "beautybase",
@@ -34311,34 +36354,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/a/r/armani_si_passione_eclat_100ml_eau_de_parfum.jpg"
-    }
-  ],
-  "ean-3360372061809": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 41.95,
-      "wasPrice": 80,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089041869&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441.jpg"
-    }
-  ],
-  "ean-3360372061793": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 43.95,
-      "wasPrice": 59,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089041870&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441_1.jpg"
     }
   ],
   "ean-3605521816658": [
@@ -34747,6 +36762,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-715885000082": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/giorgio-eau-de-toilette-90ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-715885170129": [
+    {
+      "retailerId": "beautybase",
+      "price": 9.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/giorgio-beverly-hills-red-eau-de-toilette-30ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-716393009659": [
+    {
+      "retailerId": "beautybase",
+      "price": 29,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/giorgio-beverly-hills-red-eau-de-toilette-90ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "justmylook-gio0003": [
     {
       "retailerId": "justmylook",
@@ -34799,6 +36856,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://allbeauty.com/products/p-givenchy-organza-eau-de-parfum-spray-100ml-13716449",
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3274871122506": [
+    {
+      "retailerId": "beautybase",
+      "price": 36.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/givenchy-amarige-eau-de-toilette-30ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3274870222566": [
+    {
+      "retailerId": "beautybase",
+      "price": 59.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/givenchy-pi-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
       "imageUrl": null
     }
@@ -35137,20 +37222,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/513.jpg"
-    }
-  ],
-  "ean-3274870042362": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 57.95,
-      "wasPrice": 109,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089041904&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/515.jpg"
     }
   ],
   "ean-3274870303364": [
@@ -35587,6 +37658,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-3274872396180": [
+    {
+      "retailerId": "beautybase",
+      "price": 93,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/givenchy-ange-ou-demon-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-3274872441033": [
     {
       "retailerId": "beautybase",
@@ -35671,6 +37756,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-3357554720012": [
+    {
+      "retailerId": "beautybase",
+      "price": 11.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/vanderbilt-for-women-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "justmylook-glor0002": [
     {
       "retailerId": "justmylook",
@@ -35709,6 +37808,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.justmylook.com/products/gloria-vanderbilt-vanderbilt-in-red-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-7640111494027": [
+    {
+      "retailerId": "beautybase",
+      "price": 11,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/cabotine-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
       "imageUrl": null
     }
@@ -36175,20 +38288,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/555.jpg"
     }
   ],
-  "ean-8005610328799": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 55.75,
-      "wasPrice": 105,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089041930&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/6/560.jpg"
-    }
-  ],
   "ean-3614229382129": [
     {
       "retailerId": "fragrance-click",
@@ -36341,6 +38440,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616307112338.png"
+    }
+  ],
+  "justmylook-gucc0016": [
+    {
+      "retailerId": "justmylook",
+      "price": 73.9,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/gucci-guilty-for-her-eau-de-toilette-90ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-gucc0018": [
@@ -36861,6 +38974,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/o/rosa_1_1.jpg"
     }
   ],
+  "justmylook-guer0008": [
+    {
+      "retailerId": "justmylook",
+      "price": 78.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/guerlain-mon-guerlain-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "justmylook-guer0010": [
     {
       "retailerId": "justmylook",
@@ -37029,6 +39156,76 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3346133200021.png"
     }
   ],
+  "justmylook-herm0007": [
+    {
+      "retailerId": "justmylook",
+      "price": 39.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hermes-twilly-dhermes-eau-de-parfum-30ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-herm0013": [
+    {
+      "retailerId": "justmylook",
+      "price": 56.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hermes-terre-dhermes-givree-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-herm0043": [
+    {
+      "retailerId": "justmylook",
+      "price": 56.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/hermes-eau-des-merveilles-eau-de-toilette-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-herm0009": [
+    {
+      "retailerId": "justmylook",
+      "price": 83.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hermes-twilly-dhermes-eau-de-parfum-85ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-herm0008": [
+    {
+      "retailerId": "justmylook",
+      "price": 59.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hermes-twilly-dhermes-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "justmylook-herm0015": [
     {
       "retailerId": "justmylook",
@@ -37127,6 +39324,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-3346131402205": [
+    {
+      "retailerId": "allbeauty",
+      "price": 83.3,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-hermes-terre-dhermes-pure-perfume-natural-spray-75ml-17882718",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3346130009702": [
+    {
+      "retailerId": "allbeauty",
+      "price": 45.6,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-hermes-terre-dhermes-eau-de-toilette-refillable-spray-30ml-14595961",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-3346130490654": [
     {
       "retailerId": "allbeauty",
@@ -37141,30 +39366,30 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3346131402205": [
+  "ean-5030645841312": [
     {
-      "retailerId": "allbeauty",
-      "price": 83.3,
+      "retailerId": "beautybase",
+      "price": 125,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-hermes-terre-dhermes-pure-perfume-natural-spray-75ml-17882718",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/quelques-fleurs-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
       "imageUrl": null
     }
   ],
-  "ean-3346130009702": [
+  "ean-5030645841411": [
     {
-      "retailerId": "allbeauty",
-      "price": 45.6,
+      "retailerId": "beautybase",
+      "price": 175,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-hermes-terre-dhermes-eau-de-toilette-refillable-spray-30ml-14595961",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "url": "https://www.beautybase.com/products/quelques-fleurs-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
       "imageUrl": null
     }
@@ -37181,20 +39406,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/4/645.jpg"
-    }
-  ],
-  "ean-737052041353": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 41.95,
-      "wasPrice": 79,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45201368652&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/695.jpg"
     }
   ],
   "ean-730870196885": [
@@ -37239,20 +39450,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/650.jpg"
     }
   ],
-  "ean-737052351100": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 45.75,
-      "wasPrice": 86,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089041989&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/657.jpg"
-    }
-  ],
   "ean-8005610460598": [
     {
       "retailerId": "fragrance-click",
@@ -37281,20 +39478,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/660.jpg"
     }
   ],
-  "ean-737052351018": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 31.95,
-      "wasPrice": 60,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089041991&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/662.jpg"
-    }
-  ],
   "ean-3614228220897": [
     {
       "retailerId": "fragrance-click",
@@ -37307,20 +39490,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/665.jpg"
-    }
-  ],
-  "ean-737052352060": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 45.75,
-      "wasPrice": 86,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089041993&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/667.jpg"
     }
   ],
   "ean-737052488257": [
@@ -37503,6 +39672,398 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo_boss_hugo_woman_eau_de_parfum_75ml_spray_.png"
+    }
+  ],
+  "justmylook-hb0006": [
+    {
+      "retailerId": "justmylook",
+      "price": 40.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-bottled-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0046": [
+    {
+      "retailerId": "justmylook",
+      "price": 24.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-deep-red-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0013": [
+    {
+      "retailerId": "justmylook",
+      "price": 30.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-bottled-tonic-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0069": [
+    {
+      "retailerId": "justmylook",
+      "price": 25.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-boss-femme-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0109": [
+    {
+      "retailerId": "justmylook",
+      "price": 63.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-bottled-eau-de-parfum-200ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0004": [
+    {
+      "retailerId": "justmylook",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-bottled-eau-de-toilette-30ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0116": [
+    {
+      "retailerId": "justmylook",
+      "price": 46.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-the-scent-for-her-le-parfum-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0038": [
+    {
+      "retailerId": "justmylook",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-boss-ma-vie-pour-femme-eau-de-parfum-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0083": [
+    {
+      "retailerId": "justmylook",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-iced-eau-de-toilette-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0087": [
+    {
+      "retailerId": "justmylook",
+      "price": 25.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-extreme-man-eau-de-parfum-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0022": [
+    {
+      "retailerId": "justmylook",
+      "price": 19.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-orange-woman-eau-de-toilette-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0108": [
+    {
+      "retailerId": "justmylook",
+      "price": 52.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-bottled-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0191": [
+    {
+      "retailerId": "justmylook",
+      "price": 24.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-jeans-for-him-eau-de-toilette-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0017": [
+    {
+      "retailerId": "justmylook",
+      "price": 38.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-bottled-unlimited-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0080": [
+    {
+      "retailerId": "justmylook",
+      "price": 25.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-woman-extreme-eau-de-parfum-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0102": [
+    {
+      "retailerId": "justmylook",
+      "price": 24.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-woman-eau-de-parfum-90ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0077": [
+    {
+      "retailerId": "justmylook",
+      "price": 25.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-bottled-aftershave-splash-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0047": [
+    {
+      "retailerId": "justmylook",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-number-one-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0071": [
+    {
+      "retailerId": "justmylook",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-hugo-woman-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0011": [
+    {
+      "retailerId": "justmylook",
+      "price": 45.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-bottled-night-eau-de-toilette-200ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0010": [
+    {
+      "retailerId": "justmylook",
+      "price": 32.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-bottled-night-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0055": [
+    {
+      "retailerId": "justmylook",
+      "price": 21.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-energise-for-him-eau-de-toilette-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0023": [
+    {
+      "retailerId": "justmylook",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-woman-eau-de-toilette-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0044": [
+    {
+      "retailerId": "justmylook",
+      "price": 30.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-reversed-eau-de-toilette-125ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0025": [
+    {
+      "retailerId": "justmylook",
+      "price": 25.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-man-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0097": [
+    {
+      "retailerId": "justmylook",
+      "price": 42.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-the-scent-for-him-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0059": [
+    {
+      "retailerId": "justmylook",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-in-motion-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-hb0027": [
+    {
+      "retailerId": "justmylook",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/hugo-boss-just-different-eau-de-toilette-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "justmylook-hb0005": [
@@ -37701,20 +40262,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-737052351155": [
-    {
-      "retailerId": "allbeauty",
-      "price": 41.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-hugo-boss-boss-bottled-aftershave-splash-50ml-11858151",
-      "fetchedAt": "2026-08-04T14:47:08.940Z",
-      "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3614229823776": [
     {
       "retailerId": "allbeauty",
@@ -37723,7 +40270,105 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-hugo-boss-hugo-man-eau-de-toilette-spray-200ml-11858188",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-737052351155": [
+    {
+      "retailerId": "allbeauty",
+      "price": 41.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-hugo-boss-boss-bottled-aftershave-splash-50ml-11858151",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:32:03.579Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-737052351001": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/boss-bottled-eau-de-toilette-30ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-737052238050": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/boss-orange-woman-eau-de-toilette-30ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-737052238081": [
+    {
+      "retailerId": "beautybase",
+      "price": 22,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/boss-orange-woman-eau-de-toilette-50ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-737052465678": [
+    {
+      "retailerId": "beautybase",
+      "price": 29,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/hugo-just-different-eau-de-toilette-75ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3614229823790": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/hugo-man-eau-de-toilette-75ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3614225297687": [
+    {
+      "retailerId": "beautybase",
+      "price": 27,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/hugo-reversed-eau-de-toilette-75ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -37785,20 +40430,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3614225297687": [
-    {
-      "retailerId": "beautybase",
-      "price": 27,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/hugo-reversed-eau-de-toilette-75ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
   "ean-737052987569": [
     {
       "retailerId": "beautybase",
@@ -37841,6 +40472,90 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-3423470485547": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/issey-miyake-leau-dissey-pour-homme-eau-de-toilette-40ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3423470486018": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/issey-miyake-leau-dissey-pour-homme-intense-eau-de-toilette-125ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3423478782655": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/issey-miyake-nectar-dissey-petale-de-nectar-eau-de-toilette-90ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3423474874651": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/issey-miyake-nuit-dissey-eau-de-toilette-75ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3423474884155": [
+    {
+      "retailerId": "beautybase",
+      "price": 39,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/nuit-dissey-parfum-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3423473947158": [
+    {
+      "retailerId": "beautybase",
+      "price": 14.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/issey-miyake-pleats-please-eau-de-toilette-50ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-3423470300154": [
     {
       "retailerId": "beautybase",
@@ -37867,20 +40582,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/3423478501058.jpg"
-    }
-  ],
-  "ean-3423470300161": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 55.25,
-      "wasPrice": 104,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089042008&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/716.jpg"
     }
   ],
   "ean-3423478974654": [
@@ -37953,18 +40654,298 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/e/le_sel.jpg"
     }
   ],
-  "ean-3423470486025": [
+  "justmylook-iss0011": [
     {
-      "retailerId": "fragrance-click",
-      "price": 27.75,
-      "wasPrice": 52,
+      "retailerId": "justmylook",
+      "price": 19.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45255619741&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_l_eau_d_issey_pour_homme_intense_eau_de_toilette_75ml_spray.jpg"
+      "url": "https://www.justmylook.com/products/issey-miyake-nuit-dissey-eau-de-toilette-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-iss0031": [
+    {
+      "retailerId": "justmylook",
+      "price": 35.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/issey-miyake-leau-dissey-pour-femme-eau-de-parfum-25ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-iss0006": [
+    {
+      "retailerId": "justmylook",
+      "price": 20.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/issey-miyake-leau-dissey-intense-eau-de-toilette-125ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-iss0009": [
+    {
+      "retailerId": "justmylook",
+      "price": 24.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/issey-miyake-leau-dissey-pour-femme-eau-de-toilette-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-iss0057": [
+    {
+      "retailerId": "justmylook",
+      "price": 57.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/issey-miyake-leau-dissey-pour-femme-eau-de-parfum-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-iss0010": [
+    {
+      "retailerId": "justmylook",
+      "price": 36.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/issey-miyake-leau-dissey-pour-femme-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-iss0058": [
+    {
+      "retailerId": "justmylook",
+      "price": 21.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/issey-miyake-leau-dissey-pour-homme-sport-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-iss0003": [
+    {
+      "retailerId": "justmylook",
+      "price": 43.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/issey-miyake-leau-dissey-pour-homme-eau-de-toilette-200ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-iss0004": [
+    {
+      "retailerId": "justmylook",
+      "price": 31.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/issey-miyake-leau-dissey-pour-homme-eau-de-toilette-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-iss0005": [
+    {
+      "retailerId": "justmylook",
+      "price": 18.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/issey-miyake-leau-dissey-intense-eau-de-toilette-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-iss0012": [
+    {
+      "retailerId": "justmylook",
+      "price": 33.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/issey-miyake-nuit-dissey-eau-de-toilette-125ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-iss0070": [
+    {
+      "retailerId": "justmylook",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/issey-miyake-leau-dissey-pour-homme-sport-eau-de-toilette-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-iss0032": [
+    {
+      "retailerId": "justmylook",
+      "price": 40.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/issey-miyake-leau-dissey-pour-femme-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-iss0002": [
+    {
+      "retailerId": "justmylook",
+      "price": 36.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/issey-miyake-leau-dissey-pour-homme-eau-de-toilette-125ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-iss0008": [
+    {
+      "retailerId": "justmylook",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/issey-miyake-leau-dissey-pour-femme-eau-de-toilette-25ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-iss0001": [
+    {
+      "retailerId": "justmylook",
+      "price": 47.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/issey-miyake-leau-dissey-pour-homme-eau-de-toilette-40ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3355991000223": [
+    {
+      "retailerId": "beautybase",
+      "price": 17.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/one-man-show-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-5022479500589": [
+    {
+      "retailerId": "beautybase",
+      "price": 7.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/controversial-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3562700373145": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/jaguar-classic-black-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3562700373084": [
+    {
+      "retailerId": "beautybase",
+      "price": 14.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/jaguar-classic-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3562700121005": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/jaguar-original-mens-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-8435415012690": [
@@ -37975,8 +40956,92 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://allbeauty.com/products/p-jean-paul-gaultier-le-male-maxi-eau-de-toilette-200ml-13971050",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-8435415012638": [
+    {
+      "retailerId": "beautybase",
+      "price": 65,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/jean-paul-gaultier-le-male-eau-de-toilette-75ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-8435415012669": [
+    {
+      "retailerId": "beautybase",
+      "price": 89.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/jean-paul-gaultier-le-male-eau-de-toilette-125ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-8435415017190": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/jean-paul-gaultier-le-beau-eau-de-toilette-75ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-8435415059084": [
+    {
+      "retailerId": "beautybase",
+      "price": 59.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/jean-paul-gaultier-scandal-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-8435415059060": [
+    {
+      "retailerId": "beautybase",
+      "price": 99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/jean-paul-gaultier-scandal-eau-de-parfum-80ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-8435415011990": [
+    {
+      "retailerId": "beautybase",
+      "price": 59,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/jean-paul-gaultier-ultra-male-eau-de-toilette-intense-75ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
       "imageUrl": null
     }
@@ -38527,6 +41592,300 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/e/jean_paul_gaultier_le_beau_narcisse_eau_de_parfum_7ml_spray_.jpg"
     }
   ],
+  "justmylook-jpg0029": [
+    {
+      "retailerId": "justmylook",
+      "price": 58.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/jean-paul-gaultier-le-beau-eau-de-toilette-125ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jpg0006": [
+    {
+      "retailerId": "justmylook",
+      "price": 67.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jean-paul-gaultier-le-male-eau-de-toilette-125ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jpg0025": [
+    {
+      "retailerId": "justmylook",
+      "price": 46.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jean-paul-gaultier-le-male-aftershave-125ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jpg0005": [
+    {
+      "retailerId": "justmylook",
+      "price": 54.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jean-paul-gaultier-le-male-eau-de-toilette-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jpg0014": [
+    {
+      "retailerId": "justmylook",
+      "price": 68.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jean-paul-gaultier-le-male-intense-le-parfum-eau-de-parfum-125ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jpg0030": [
+    {
+      "retailerId": "justmylook",
+      "price": 83.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jean-paul-gaultier-scandal-le-parfum-him-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jpg0008": [
+    {
+      "retailerId": "justmylook",
+      "price": 55.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jean-paul-gaultier-classique-eau-de-toilette-50ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jpg0007": [
+    {
+      "retailerId": "justmylook",
+      "price": 93.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jean-paul-gaultier-le-male-eau-de-toilette-200ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jpg0013": [
+    {
+      "retailerId": "justmylook",
+      "price": 50.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jean-paul-gaultier-le-male-intense-le-parfum-eau-de-parfum-75ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-5050456110018": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/miami-glow-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460025492": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/jimmy-choo-eau-de-parfum-40ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460066297": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/blossom-eau-de-parfum-40ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460066273": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/blossom-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460103701": [
+    {
+      "retailerId": "beautybase",
+      "price": 21,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/floral-eau-de-toilette-40ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460071741": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/illicit-eau-de-parfum-40ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460025522": [
+    {
+      "retailerId": "beautybase",
+      "price": 24,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/jimmy-choo-eau-de-toilette-40ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460025515": [
+    {
+      "retailerId": "beautybase",
+      "price": 39,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/jimmy-choo-eau-de-toilette-60ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460073875": [
+    {
+      "retailerId": "beautybase",
+      "price": 33.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/jimmy-choo-leau-eau-de-toilette-60ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460082198": [
+    {
+      "retailerId": "beautybase",
+      "price": 29,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/jimmy-choo-man-ice-eau-de-toilette-30ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460109369": [
+    {
+      "retailerId": "beautybase",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/jimmy-choo-urban-hero-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460109383": [
+    {
+      "retailerId": "beautybase",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/jimmy-choo-urban-hero-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-3386460097345": [
     {
       "retailerId": "beautybase",
@@ -38569,20 +41928,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3386460109383": [
-    {
-      "retailerId": "beautybase",
-      "price": 22.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/jimmy-choo-urban-hero-eau-de-parfum-30ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
   "ean-3386460127073": [
     {
       "retailerId": "beautybase",
@@ -38611,20 +41956,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3386460025485": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 36.25,
-      "wasPrice": 68,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089042068&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180_1.jpg"
-    }
-  ],
   "ean-3386460025508": [
     {
       "retailerId": "fragrance-click",
@@ -38639,34 +41970,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/830.jpg"
     }
   ],
-  "ean-3386460048118": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 34.95,
-      "wasPrice": 66,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089042071&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/834.jpg"
-    }
-  ],
-  "ean-3386460119252": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 58.95,
-      "wasPrice": 99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44260860882&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/o/p/open-box-jimmy-choo-ladies-i-want-choo-edp-spray-34-oz-fragrances-3386460119252.jpg"
-    }
-  ],
   "ean-3386460167338": [
     {
       "retailerId": "fragrance-click",
@@ -38679,20 +41982,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/1/218711.jpg"
-    }
-  ],
-  "ean-3386460119276": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 33.95,
-      "wasPrice": 51,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089042073&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/182_1.jpg"
     }
   ],
   "ean-3386460129879": [
@@ -38737,20 +42026,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/i/jimmy-choo-i-want-choo-le-parfum.jpg"
     }
   ],
-  "ean-3386460071727": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 50.5,
-      "wasPrice": 95,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089042078&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/858.jpg"
-    }
-  ],
   "ean-3386460071734": [
     {
       "retailerId": "fragrance-click",
@@ -38777,20 +42052,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/6/865.jpg"
-    }
-  ],
-  "ean-3386460025478": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 50.95,
-      "wasPrice": 96,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44734045683&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/c/screenshot_2026-05-13_at_15.34.48.png"
     }
   ],
   "ean-3386460146128": [
@@ -38905,20 +42166,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/882_1.jpg"
     }
   ],
-  "ean-3386460048125": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 30.25,
-      "wasPrice": 57,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44415357272&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460048125.png"
-    }
-  ],
   "ean-3386460160827": [
     {
       "retailerId": "fragrance-click",
@@ -38931,6 +42178,244 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/i/jimmy_choo_i_want_choo_with_love_eau_de_parfum_100ml_spray_.jpg"
+    }
+  ],
+  "justmylook-jimc0014": [
+    {
+      "retailerId": "justmylook",
+      "price": 30.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-fever-eau-de-parfum-60ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0015": [
+    {
+      "retailerId": "justmylook",
+      "price": 38.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-fever-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0018": [
+    {
+      "retailerId": "justmylook",
+      "price": 33.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-blossom-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0009": [
+    {
+      "retailerId": "justmylook",
+      "price": 20.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-eau-de-toilette-40ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0058": [
+    {
+      "retailerId": "justmylook",
+      "price": 51.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-i-want-choo-forever-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0016": [
+    {
+      "retailerId": "justmylook",
+      "price": 20.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-blossom-eau-de-parfum-40ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0055": [
+    {
+      "retailerId": "justmylook",
+      "price": 32.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-man-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0001": [
+    {
+      "retailerId": "justmylook",
+      "price": 24.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-flash-eau-de-parfum-60ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0002": [
+    {
+      "retailerId": "justmylook",
+      "price": 31.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-flash-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0006": [
+    {
+      "retailerId": "justmylook",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-eau-de-parfum-40ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0025": [
+    {
+      "retailerId": "justmylook",
+      "price": 21.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-leau-eau-de-toilette-40ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0024": [
+    {
+      "retailerId": "justmylook",
+      "price": 39.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-floral-eau-de-toilette-90ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0023": [
+    {
+      "retailerId": "justmylook",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-illicit-flower-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0061": [
+    {
+      "retailerId": "justmylook",
+      "price": 30.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-rose-passion-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0010": [
+    {
+      "retailerId": "justmylook",
+      "price": 25.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-eau-de-toilette-60ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0003": [
+    {
+      "retailerId": "justmylook",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-i-want-choo-eau-de-parfum-40ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jimc0026": [
+    {
+      "retailerId": "justmylook",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/jimmy-choo-leau-eau-de-toilette-60ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-690251028412": [
@@ -39283,16 +42768,44 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_homme_eau_de_parfum_125ml_spray_.jpg"
     }
   ],
-  "ean-3414200064064": [
+  "justmylook-joop0003": [
     {
-      "retailerId": "allbeauty",
-      "price": 18.3,
+      "retailerId": "justmylook",
+      "price": 21.49,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-joop-go-for-him-eau-de-toilette-spray-100ml-12947148",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "url": "https://www.justmylook.com/products/joop-homme-eau-de-toilette-200ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-joop0020": [
+    {
+      "retailerId": "justmylook",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/joop-homme-wild-eau-de-toilette-125ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3414200640015": [
+    {
+      "retailerId": "beautybase",
+      "price": 20,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/joop-jump-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
       "imageUrl": null
     }
@@ -39311,6 +42824,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-035017009029": [
+    {
+      "retailerId": "beautybase",
+      "price": 7.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/jovan-musk-for-men-cologne-88ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-035017008923": [
+    {
+      "retailerId": "beautybase",
+      "price": 7.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/jovan-musk-for-women-concentrated-cologne-96ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-035017008145": [
+    {
+      "retailerId": "beautybase",
+      "price": 7.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/jovan-white-musk-eau-de-cologne-88ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-719346128070": [
     {
       "retailerId": "allbeauty",
@@ -39319,7 +42874,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-juicy-couture-couture-couture-eau-de-parfum-spray-100ml-14271326",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -39333,7 +42888,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-juicy-couture-couture-la-la-eau-de-parfum-spray-100ml-10728051",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -39367,6 +42922,62 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/u/juicy_couture_oui_eau_de_parfum_100ml_spray.jpg"
     }
   ],
+  "justmylook-jhg0018": [
+    {
+      "retailerId": "justmylook",
+      "price": 53.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/juliette-has-a-gun-ego-stratis-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-jhg0002": [
+    {
+      "retailerId": "justmylook",
+      "price": 79.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/juliette-has-a-gun-vanilla-vibes-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-688575003260": [
+    {
+      "retailerId": "beautybase",
+      "price": 24,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lagerfeld-classic-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3274872420625": [
+    {
+      "retailerId": "allbeauty",
+      "price": 53.9,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-kenzo-amour-eau-de-parfum-spray-100ml-14271350",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-3274872420618": [
     {
       "retailerId": "allbeauty",
@@ -39381,16 +42992,30 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3274872420625": [
+  "ean-3352818518800": [
     {
-      "retailerId": "allbeauty",
-      "price": 49,
+      "retailerId": "beautybase",
+      "price": 69.95,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-kenzo-amour-eau-de-parfum-spray-100ml-14271350",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "url": "https://www.beautybase.com/products/kenzo-flower-eau-de-parfum-100ml-refillable-sprayray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3274872404175": [
+    {
+      "retailerId": "beautybase",
+      "price": 59,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/flower-by-kenzo-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
       "imageUrl": null
     }
@@ -39547,20 +43172,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lacoste_touch_of_pink_eau_de_toilette_50ml_spray.jpg"
-    }
-  ],
-  "ean-3614273069175": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 89.95,
-      "wasPrice": 120,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45353161250&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/942.jpg"
     }
   ],
   "ean-3614273950718": [
@@ -39745,20 +43356,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/971.jpg"
     }
   ],
-  "ean-3147758034905": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 34.95,
-      "wasPrice": 67,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45210130166&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-edp-vapo-50ml-lancome-1.jpg"
-    }
-  ],
   "ean-3605532423203": [
     {
       "retailerId": "fragrance-click",
@@ -39801,6 +43398,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-3614273476782": [
+    {
+      "retailerId": "beautybase",
+      "price": 62,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lancome-idole-aura-eau-de-parfum-25ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3614273476164": [
+    {
+      "retailerId": "beautybase",
+      "price": 127,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lancome-idole-aura-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3605532612768": [
+    {
+      "retailerId": "beautybase",
+      "price": 97,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lancome-la-vie-est-belle-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-3614272639638": [
     {
       "retailerId": "beautybase",
@@ -39809,7 +43448,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/lancome-idole-eau-de-parfum-25ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -39843,6 +43482,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-6291106066890": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-ana-abiyedh-eau-de-parfum-60ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-6291106065114": [
+    {
+      "retailerId": "beautybase",
+      "price": 22,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-oud-mood-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-6291107454412": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-ana-abiyedh-rouge-eau-de-parfum-60ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-6291107456041": [
     {
       "retailerId": "beautybase",
@@ -39857,43 +43538,15 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-6291106066890": [
+  "ean-3760168633300": [
     {
       "retailerId": "beautybase",
-      "price": 19.95,
+      "price": 13.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-ana-abiyedh-eau-de-parfum-60ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-6291106065114": [
-    {
-      "retailerId": "beautybase",
-      "price": 22,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-oud-mood-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-6291107454412": [
-    {
-      "retailerId": "beautybase",
-      "price": 19.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-ana-abiyedh-rouge-eau-de-parfum-60ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "url": "https://www.beautybase.com/products/extreme-rose-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -39908,20 +43561,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/extreme-amber-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-3760168633300": [
-    {
-      "retailerId": "beautybase",
-      "price": 13.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/extreme-rose-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -39963,7 +43602,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-marc-jacobs-honey-eau-de-parfum-100ml-17882567",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -40739,6 +44378,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-8011003845125": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/toy-boy-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-8011003845132": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/toy-boy-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-8011003839285": [
     {
       "retailerId": "beautybase",
@@ -40776,34 +44443,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/toy-2-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-8011003845125": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/toy-boy-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-8011003845132": [
-    {
-      "retailerId": "beautybase",
-      "price": 59.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/toy-boy-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -41635,6 +45274,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370304388_1.jpg"
     }
   ],
+  "ean-6291106810585": [
+    {
+      "retailerId": "beautybase",
+      "price": 9.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/deen-sahir-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-6291106810332": [
     {
       "retailerId": "beautybase",
@@ -41854,20 +45507,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/white-musk-concentrated-perfume-oil-6ml-roll-on",
       "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-6291106810585": [
-    {
-      "retailerId": "beautybase",
-      "price": 9.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/deen-sahir-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -42769,6 +46408,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paloma-picasso-eau-de-parfum.jpg"
     }
   ],
+  "ean-3760004321767": [
+    {
+      "retailerId": "beautybase",
+      "price": 15,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/aimer-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-3760004322269": [
     {
       "retailerId": "beautybase",
@@ -42863,20 +46516,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/rouge-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-3760004321767": [
-    {
-      "retailerId": "beautybase",
-      "price": 15,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/aimer-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
     }
@@ -43435,7 +47074,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/grace-feminine-eau-de-parfum-85ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -43449,7 +47088,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/neroli-excentrique-concentrated-perfume-85ml-sprayay",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -43463,7 +47102,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/nuit-delicieuse-perfume-85ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -43477,7 +47116,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/oud-black-imperial-concentrated-perfume-85ml-sprayay",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -43491,7 +47130,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/queen-for-ever-eau-de-parfum-85ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -43505,7 +47144,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/terre-australe-concentrated-perfume-85ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -43729,7 +47368,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/swiss-arabian-shaghaf-oud-eau-de-parfum-75ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -43761,6 +47400,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/13223.jpg"
+    }
+  ],
+  "ean-888066015509": [
+    {
+      "retailerId": "allbeauty",
+      "price": 129.55,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-tom-ford-noir-eau-de-parfum-spray-100ml-12018672",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-888066008433": [
@@ -43800,20 +47453,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-tom-ford-private-blend-tobacco-vanille-eau-de-parfum-spray-50ml-12709323",
       "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-888066015509": [
-    {
-      "retailerId": "allbeauty",
-      "price": 117.8,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-tom-ford-noir-eau-de-parfum-spray-100ml-12018672",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -44113,6 +47752,384 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1383.jpg"
     }
   ],
+  "lookfantastic-11034090": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 72.8,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/versace-bright-crystal-absolu-eau-de-parfum-50ml/11034090/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11034091": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 90.4,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/versace-bright-crystal-absolu-eau-de-parfum-90ml/11034091/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11079226": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 67.2,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/calvin-klein-beauty-eau-de-parfum-100ml/11079226/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11079299": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 57,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/marc-jacobs-dot-eau-de-parfum-50ml/11079299/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11173341": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 47.2,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.lookfantastic.com/p/paco-rabanne-olympea-eau-de-parfum-30ml/11173341/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11173343": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 85.6,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/paco-rabanne-olympea-eau-de-parfum-80ml/11173343/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11210303": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/calvin-klein-eternity-moment-eau-de-parfum-100ml/11210303/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11220941": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 49.6,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/sachajuan-protective-hair-perfume-50ml/11220941/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11274779": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 37.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/balmain-hair-silk-perfume-200ml/11274779/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11274796": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 12.6,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.lookfantastic.com/p/balmain-hair-silk-perfume-50ml-travel-size/11274796/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11394274": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 40,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/elizabeth-arden-white-tea-eau-de-toilette-50ml/11394274/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11394275": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 52,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/elizabeth-arden-white-tea-eau-de-toilette-100ml/11394275/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11421497": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 90.4,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/versace-crystal-noir-eau-de-parfum-spray-90ml/11421497/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11429110": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 21.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/versace-blue-jeans-eau-de-toilette-75ml/11429110/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11429114": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 39,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/versace-l-homme-eau-de-toilette-100ml/11429114/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11859241": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 88,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/murdock-london-vetiver-cologne-100ml/11859241/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11883227": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 93.8,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/dolce-gabbana-pour-femme-eau-de-parfum-100ml/11883227/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-11986296": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 52,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/elizabeth-arden-white-tea-wild-rose-eau-de-toilette-100ml/11986296/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-12026245": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 38.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/marc-jacobs-daisy-love-eau-so-sweet-eau-de-toilette-30ml/12026245/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-12033921": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 155,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.lookfantastic.com/p/goldfield-banks-desert-rosewood-eau-de-parfum-100ml/12033921/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-12095647": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 68.8,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.lookfantastic.com/p/paco-rabanne-olympea-eau-de-parfum-50ml/12095647/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-12127924": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 170.25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/narciso-rodriguez-rose-musc-intense-eau-de-parfum-100ml/12127924/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-12127925": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 181.6,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/narciso-rodriguez-santal-musc-intense-eau-de-parfum-100ml/12127925/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-12127927": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 170.25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/narciso-rodriguez-oriental-oud-musc-intense-eau-de-parfum-100ml/12127927/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-12243615": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 149,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/molton-brown-coastal-cypress-sea-fennel-eau-de-parfum-100ml/12243615/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-12243616": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 149,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/molton-brown-fiery-pink-pepper-eau-de-parfum-100ml/12243616/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "lookfantastic-12243617": [
+    {
+      "retailerId": "lookfantastic",
+      "price": 149,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.lookfantastic.com/p/molton-brown-flora-luminare-eau-de-parfum-100ml/12243617/",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "lookfantastic-12243620": [
     {
       "retailerId": "lookfantastic",
@@ -44304,384 +48321,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/versace-crystal-noir-eau-de-toilette-30ml/11034069/",
       "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11034090": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 72.8,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/versace-bright-crystal-absolu-eau-de-parfum-50ml/11034090/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11034091": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 90.4,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/versace-bright-crystal-absolu-eau-de-parfum-90ml/11034091/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11079226": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 67.2,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/calvin-klein-beauty-eau-de-parfum-100ml/11079226/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11079299": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 57,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/marc-jacobs-dot-eau-de-parfum-50ml/11079299/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11173341": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 47.2,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.lookfantastic.com/p/paco-rabanne-olympea-eau-de-parfum-30ml/11173341/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11173343": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 85.6,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/paco-rabanne-olympea-eau-de-parfum-80ml/11173343/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11210303": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/calvin-klein-eternity-moment-eau-de-parfum-100ml/11210303/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11220941": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 49.6,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/sachajuan-protective-hair-perfume-50ml/11220941/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11274779": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 37.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/balmain-hair-silk-perfume-200ml/11274779/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11274796": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 12.6,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.lookfantastic.com/p/balmain-hair-silk-perfume-50ml-travel-size/11274796/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11394274": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 40,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/elizabeth-arden-white-tea-eau-de-toilette-50ml/11394274/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11394275": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 52,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/elizabeth-arden-white-tea-eau-de-toilette-100ml/11394275/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11421497": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 90.4,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/versace-crystal-noir-eau-de-parfum-spray-90ml/11421497/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11429110": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 21.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/versace-blue-jeans-eau-de-toilette-75ml/11429110/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11429114": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 39,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/versace-l-homme-eau-de-toilette-100ml/11429114/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11859241": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 88,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/murdock-london-vetiver-cologne-100ml/11859241/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11883227": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 93.8,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/dolce-gabbana-pour-femme-eau-de-parfum-100ml/11883227/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-11986296": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 52,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/elizabeth-arden-white-tea-wild-rose-eau-de-toilette-100ml/11986296/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-12026245": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 38.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/marc-jacobs-daisy-love-eau-so-sweet-eau-de-toilette-30ml/12026245/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-12033921": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 155,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.lookfantastic.com/p/goldfield-banks-desert-rosewood-eau-de-parfum-100ml/12033921/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-12095647": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 68.8,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.lookfantastic.com/p/paco-rabanne-olympea-eau-de-parfum-50ml/12095647/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-12127924": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 170.25,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/narciso-rodriguez-rose-musc-intense-eau-de-parfum-100ml/12127924/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-12127925": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 181.6,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/narciso-rodriguez-santal-musc-intense-eau-de-parfum-100ml/12127925/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-12127927": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 170.25,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/narciso-rodriguez-oriental-oud-musc-intense-eau-de-parfum-100ml/12127927/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-12243615": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 149,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/molton-brown-coastal-cypress-sea-fennel-eau-de-parfum-100ml/12243615/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-12243616": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 149,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/molton-brown-fiery-pink-pepper-eau-de-parfum-100ml/12243616/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "lookfantastic-12243617": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 149,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/molton-brown-flora-luminare-eau-de-parfum-100ml/12243617/",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -45373,6 +49012,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_good_fortune_elixir_intense_eau_de_parfum_50ml_spray_.jpg"
     }
   ],
+  "ean-3614272648401": [
+    {
+      "retailerId": "beautybase",
+      "price": 69,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/ysl-libre-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3614272648418": [
+    {
+      "retailerId": "beautybase",
+      "price": 95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/ysl-libre-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3614272648425": [
+    {
+      "retailerId": "beautybase",
+      "price": 133,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/ysl-libre-eau-de-parfum-90ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-3614272050341": [
     {
       "retailerId": "beautybase",
@@ -45396,48 +49077,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/y-for-men-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-3614272648401": [
-    {
-      "retailerId": "beautybase",
-      "price": 69,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/ysl-libre-eau-de-parfum-30ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-3614272648418": [
-    {
-      "retailerId": "beautybase",
-      "price": 95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/ysl-libre-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-3614272648425": [
-    {
-      "retailerId": "beautybase",
-      "price": 133,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/ysl-libre-eau-de-parfum-90ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": null
@@ -45499,6 +49138,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-3365440037229": [
+    {
+      "retailerId": "allbeauty",
+      "price": 68.85,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-yves-saint-laurent-la-collection-jazz-eau-de-toilette-spray-80ml-11791488",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "ean-3365440037045": [
+    {
+      "retailerId": "allbeauty",
+      "price": 84.15,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-yves-saint-laurent-la-collection-yvresse-eau-de-toilette-spray-80ml-11791487",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-3365440556386": [
     {
       "retailerId": "allbeauty",
@@ -45541,34 +49208,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3365440037229": [
-    {
-      "retailerId": "allbeauty",
-      "price": 68.85,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-yves-saint-laurent-la-collection-jazz-eau-de-toilette-spray-80ml-11791488",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "ean-3365440037045": [
-    {
-      "retailerId": "allbeauty",
-      "price": 92.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-yves-saint-laurent-la-collection-yvresse-eau-de-toilette-spray-80ml-11791487",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
   "ean-3423474896257": [
     {
       "retailerId": "fragrance-click",
@@ -45600,7 +49239,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
 };
 
 /** When the harvest that produced this data ran. */
-export const CRAWLED_AT = "2026-08-04T18:26:23.818Z";
+export const CRAWLED_AT = "2026-08-04T19:00:21.352Z";
 
 /** How many shops the data came from. */
 export const SHOP_COUNT = 5;
