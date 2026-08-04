@@ -22,6 +22,7 @@ import { CatalogueStore } from '../src/catalogue/store.js';
 import { isNewListing } from '../src/catalogue/newBadge.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 import { RETAILERS } from '../src/config/retailers.js';
+import { HOUSES } from '../src/config/houses.js';
 
 /** Retailers whose product photos we've actually confirmed a licence for. */
 const IMAGE_LICENSED = new Set(
@@ -67,6 +68,32 @@ function isFragrance(l: StoredListing): boolean {
   if (!CONCENTRATION.test(t)) return false;
   if (sizeMl(t) === null) return false;
   return l.priceGbp !== null && l.priceGbp > 0;
+}
+
+/**
+ * The same question asked of a fragrance house's own storefront.
+ *
+ * The concentration and size tests above exist to pick perfume out of a
+ * general retailer's sitemap, where "Fragrance-free baby nappy cream" sits two
+ * URLs away from Sauvage. A house that sells nothing but perfume needs no such
+ * proof: Armaf lists "CLUB DE NUIT INTENSE OVERDOSE 3.6 Oz" and French Avenue
+ * lists "Imperial Ocean", neither of which names a concentration, and both of
+ * which are obviously scent because of where they came from. Demanding the
+ * same evidence there would reject almost the entire catalogue of exactly the
+ * houses we went to the trouble of sourcing.
+ *
+ * The exclusion list still applies, because a house does also sell body
+ * lotion and deodorant.
+ */
+function isHouseFragrance(l: StoredListing): boolean {
+  if (NOT_A_FRAGRANCE.test(l.rawTitle)) return false;
+  // The shared list catches "gift set" and "set of" but not a bare trailing
+  // "set", which is how a house usually writes one — "Club de Nuit Bling
+  // Travel Buddy Set" came through as though it were a single bottle. Kept
+  // here rather than added to NOT_A_FRAGRANCE so the retailer catalogue's
+  // behaviour is untouched. `\bset\b` is safe against "Sunset": there is no
+  // word boundary before the "set" inside it.
+  return !/\b(set|coffret|collection)\b/i.test(l.rawTitle);
 }
 
 /**
@@ -307,6 +334,69 @@ if (existsSync(dir)) {
   }
 }
 
+/* ── houses we source direct, which we cannot price in sterling yet ────────── */
+
+/**
+ * Fragrance houses read straight from their own storefronts.
+ *
+ * These are kept completely apart from the products above and never enter the
+ * comparison. Every one of them is priced in the house's own currency — Armaf
+ * in USD, French Avenue in AED — and the app's entire offer pipeline, from
+ * bestOffer down to the delivered-price sort, is built on the assumption that
+ * a price is sterling. Letting a dirham figure into it would produce a wrong
+ * "cheapest" answer, which is the one failure this project exists to avoid.
+ *
+ * So they are surfaced as what they honestly are: products we know exist, with
+ * the house's own photograph and its own published price in its own currency,
+ * and no claim about what they would cost a UK buyer.
+ */
+interface HouseProduct {
+  id: string;
+  house: string;
+  brand: string;
+  name: string;
+  sizeMl: number | null;
+  url: string;
+  image: string | null;
+  nativePrice: { amount: number; currency: string } | null;
+  inStock: boolean | null;
+}
+
+const houseProducts: HouseProduct[] = [];
+const housesDir = resolve(root, 'data/houses');
+
+if (existsSync(housesDir)) {
+  const houseStore = new CatalogueStore(housesDir);
+  for (const file of readdirSync(housesDir).filter((f) => f.endsWith('.json'))) {
+    const id = file.replace(/\.json$/, '');
+    const snapshot = houseStore.read(id);
+    if (snapshot.source !== 'live') continue;
+
+    const houseName = HOUSES.find((h) => h.id === id)?.name ?? id;
+
+    for (const l of snapshot.listings) {
+      if (l.status !== 'active') continue;
+      if (!isHouseFragrance(l)) continue;
+
+      houseProducts.push({
+        id: `${id}-${l.retailerSku}`.replace(/[^a-z0-9-]/gi, '-').toLowerCase(),
+        house: houseName,
+        brand: l.rawBrand ?? houseName,
+        name: l.rawTitle,
+        sizeMl: sizeMl(l.rawTitle),
+        url: l.url,
+        // A house's own photography of its own bottle, hot-linked exactly like
+        // every other image here — nothing is downloaded or rehosted.
+        image: l.imageUrl,
+        nativePrice: l.nativePrice ?? null,
+        inStock: l.inStock,
+      });
+    }
+  }
+}
+
+houseProducts.sort((a, b) => a.house.localeCompare(b.house) || a.name.localeCompare(b.name));
+
 // Most shops first, so the comparison leads with products that have one.
 const ordered = [...products.values()].sort(
   (a, b) => b.offers.length - a.offers.length || a.brand.localeCompare(b.brand),
@@ -389,6 +479,27 @@ export const CATALOGUE: CatalogueEntry[] = ${JSON.stringify(catalogue, null, 2)}
 
 export const CRAWLED: Record<string, CrawledOffer[]> = ${JSON.stringify(crawled, null, 2)};
 
+/**
+ * Houses read direct from their own storefronts.
+ *
+ * Deliberately not part of CATALOGUE and never priced against it: these carry
+ * the house's own currency, and the comparison assumes sterling throughout.
+ */
+export interface HouseProduct {
+  id: string;
+  house: string;
+  brand: string;
+  name: string;
+  sizeMl: number | null;
+  url: string;
+  image: string | null;
+  /** The house's published price in its own currency. Never converted. */
+  nativePrice: { amount: number; currency: string } | null;
+  inStock: boolean | null;
+}
+
+export const HOUSE_PRODUCTS: HouseProduct[] = ${JSON.stringify(houseProducts, null, 2)};
+
 /** When the harvest that produced this data ran. */
 export const CRAWLED_AT = ${JSON.stringify(crawledAt)};
 
@@ -421,5 +532,6 @@ const multi = ordered.filter((p) => p.offers.length > 1).length;
 console.log(
   `demo/catalogue.generated.ts written from LIVE data only:\n` +
     `  ${liveShops} shops, ${considered} listings considered, ${rejected} were not fragrance\n` +
-    `  ${ordered.length} products, ${multi} of them stocked by more than one shop`,
+    `  ${ordered.length} products, ${multi} of them stocked by more than one shop\n` +
+    `  ${houseProducts.length} house products, catalogue-only (no sterling price yet)`,
 );
