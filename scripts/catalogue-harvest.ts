@@ -87,8 +87,17 @@ for (const retailer of shops) {
     (robots.crawlDelaySeconds ?? 0) * 1000,
   );
 
+  // What we already hold, so the walk can spend its budget on products it has
+  // not seen instead of re-fetching the same head of the sitemap every hour.
+  // Fixture listings are excluded: their URLs are invented and matching a real
+  // sitemap against them would be meaningless.
+  const prior = store.read(retailer.id);
+  const knownUrls = new Map<string, string>(
+    prior.source === 'live' ? prior.listings.map((l) => [l.url, l.lastSeenAt]) : [],
+  );
+
   let result = await crawlViaSitemap({
-    retailer, http, robots, maxPages, gapMs, headers: BROWSER_HEADERS,
+    retailer, http, robots, maxPages, gapMs, headers: BROWSER_HEADERS, knownUrls,
   });
   let withPrice = result.listings.filter((l) => l.priceGbp !== null);
   let viaProxy = false;
@@ -102,7 +111,7 @@ for (const retailer of shops) {
     const proxiedRobots = await loadRobots(retailer, proxiedHttp);
     const retry = await crawlViaSitemap({
       retailer, http: proxiedHttp, robots: proxiedRobots, maxPages, gapMs: 0,
-      headers: BROWSER_HEADERS,
+      headers: BROWSER_HEADERS, knownUrls,
     });
     const retryWithPrice = retry.listings.filter((l) => l.priceGbp !== null);
     if (retryWithPrice.length > 0) {
@@ -129,11 +138,27 @@ for (const retailer of shops) {
   if (dryRun || withPrice.length === 0) continue;
 
   // Live data and fixture data must never be reconciled against each other.
-  const snapshot = store.read(retailer.id);
-  const existing = snapshot.source === 'live' ? snapshot.listings : [];
+  const existing = prior.source === 'live' ? prior.listings : [];
+
+  // A cost-capped sample is not evidence of absence.
+  //
+  // This used to pass `complete: true` unconditionally, which told reconcile()
+  // that everything it did not see had gone off sale. But `maxPages` stops the
+  // walk long before a real shop's catalogue ends — 60 pages out of Beauty
+  // Base's 829 — so "not in this run" overwhelmingly meant "not sampled this
+  // run", not "withdrawn". Every hourly run therefore delisted the entire
+  // previous run's findings in one stroke: Beauty Base held 300 distinct SKUs
+  // but only ever 60 active, and LOOKFANTASTIC's stored listings all carried
+  // the same delistedAt to the millisecond. The stored catalogue could never
+  // exceed one run's sample no matter how often it ran.
+  //
+  // Absence only means withdrawal when the walk actually reached the end of
+  // what it discovered, which is the case for a genuinely small catalogue and
+  // not for a budgeted sample of a large one.
+  const complete = result.pagesFetched >= result.urlsDiscovered;
 
   const outcome = reconcile({
-    existing, crawled: withPrice, retailerId: retailer.id, now, complete: true,
+    existing, crawled: withPrice, retailerId: retailer.id, now, complete,
   });
 
   store.write({
@@ -141,8 +166,19 @@ for (const retailer of shops) {
     updatedAt: now,
     source: 'live',
     listings: outcome.listings,
-    runs: snapshot.source === 'live' ? snapshot.runs : [],
+    runs: prior.source === 'live' ? prior.runs : [],
   });
+
+  // The stored total is the number that actually matters now: a run's own
+  // count only ever reports one budget's worth, so growth is invisible without
+  // it.
+  const active = outcome.listings.filter((l) => l.status === 'active').length;
+  console.log(
+    `      stored: ${active} active of ${outcome.listings.length} known` +
+      `  (+${outcome.newIds.length} new` +
+      (outcome.delistedIds.length ? `, -${outcome.delistedIds.length} delisted` : '') +
+      `${complete ? '' : ', partial walk so nothing delisted'})`,
+  );
 }
 
 console.log(`\n${reached} of ${shops.length} shops yielded real priced listings`);
