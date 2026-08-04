@@ -52,9 +52,14 @@ up and both should stay true:
   rewritten to describe what actually happens: the retailer's or brand's own
   photograph, hot-linked from their servers, never copied or altered, and only
   shown where the programme has confirmed we may.
-  The rule that replaced it: an image is displayed only when a retailer carries
-  `imageUsageConfirmed`, or when it comes from a brand's own storefront. Adding
-  a third basis means revisiting this clause again.
+  The rule that replaced it: an image is displayed only when its retailer
+  records an `imageBasis` naming the grounds. Three are in use — `affiliate-terms`
+  (Fragrance Click, whose creative terms were read), `own-storefront` (the
+  direct house catalogues), and `hotlink-unlicensed` (the four crawled shops,
+  on the owner's decision, referenced from their servers and never copied).
+  The terms page describes all three plainly and offers any retailer an opt out.
+  Adding a fourth basis, or changing what any of them means, means revisiting
+  that clause again — it has already gone stale once.
 
 ## Still open
 

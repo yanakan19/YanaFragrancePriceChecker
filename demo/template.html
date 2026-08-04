@@ -1052,6 +1052,14 @@
     grid-column: 1 / -1; min-height: 8px; list-style: none;
   }
 
+
+  /* A hot-linked image that failed to load. The img removes itself, so this
+     just has to make the empty box look deliberate rather than broken. */
+  .art.art-failed {
+    background: var(--surface-2);
+    border: 1px dashed var(--line);
+  }
+
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
 

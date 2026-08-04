@@ -219,15 +219,19 @@ export const LEGAL_PAGES: LegalPage[] = [
       here only to identify products.</p>
 
       <h3>Product images</h3>
-      <p>Where a product image is shown, it is the retailer's or the brand's own
-      photograph, loaded directly from their servers. We do not copy, host,
-      crop, recolour or otherwise alter any of them, and we only display a
-      retailer's photography where that retailer's affiliate programme has
-      confirmed we may. Images from a brand's own shop are shown on that
-      basis.</p>
-      <p>Where we hold no image we may use, we show a plain marker saying so
-      rather than substituting a picture of something else. Every product image
-      remains the property of whoever created it.</p>
+      <p>Every product image here is the retailer's or the brand's own
+      photograph, loaded by your browser directly from their own servers. We do
+      not copy, host, crop, recolour or otherwise alter any of them, and each
+      one sits beside a link to buy that product from the shop it came from.</p>
+      <p>Each image remains the property of whoever created it. We show them on
+      one of three grounds, recorded per shop: that shop's affiliate terms
+      permit it, or the picture comes from the brand's own shop, or we are
+      linking to the shop's own image without a licence having been granted.
+      Where a shop has given us no image we can use, we show a plain marker
+      saying so rather than substituting a picture of something else.</p>
+      <p>If you are a retailer or brand and would rather we did not show your
+      photography, tell us and we will stop for your shop.
+      <a href="mailto:${COMPANY.email}">${COMPANY.email}</a></p>
 
       <h3>Changes and governing law</h3>
       <p>We may revise these terms, and the current version always sits here.
