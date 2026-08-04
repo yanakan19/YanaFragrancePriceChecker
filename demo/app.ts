@@ -31,8 +31,9 @@ import {
 import { productArt, type ArtSize } from './photo.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { isNewAt, offersFor, SHOP_COUNT } from './catalogue.generated.js';
+import { officialSiteFor } from './brandSites.js';
 
-type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'note' | 'legal' | 'settings';
+type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'settings';
 type ExploreTab = 'brands' | 'deals' | 'retailers' | 'notes' | 'search';
 type DisplayMode = 'dark' | 'light' | 'system';
 type Layout = 'mobile' | 'desktop';
@@ -54,6 +55,7 @@ const state = {
   tab: 'brands' as ExploreTab,
   fragranceId: '',
   retailerId: '',
+  brandProfile: '',
   noteName: '',
   legalId: '',
   brand: null as string | null,
@@ -721,6 +723,37 @@ function retailerView(): string {
     ${fragranceList(list, 'Nothing from this shop has been harvested yet.')}`;
 }
 
+/**
+ * A brand's own profile: the same org-hero shape as a retailer, official
+ * website in place of delivery facts, its fragrances underneath. The
+ * website line only appears once `officialSiteFor` has a verified entry —
+ * absent rather than a guessed domain, same rule as everywhere else a link
+ * leaves this app.
+ */
+function brandView(): string {
+  const b = state.brandProfile;
+  if (!b) return exploreView();
+  const list = BY_POPULARITY.filter((f) => f.brand === b);
+  const site = officialSiteFor(b);
+
+  return `
+    <button class="back" data-back-explore>Back</button>
+    <div class="org-hero">
+      ${monogram(b)}
+      <div class="org-hero-text">
+        <h2 class="org-hero-name">${esc(b)}</h2>
+        ${
+          site
+            ? `<p class="org-hero-domain"><a href="${esc(site)}" target="_blank" rel="noopener nofollow">${esc(site.replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a></p>`
+            : `<p class="org-hero-domain dimmer">Official site not yet confirmed</p>`
+        }
+      </div>
+    </div>
+
+    <p class="gone-head">${list.length} ${list.length === 1 ? 'fragrance' : 'fragrances'}</p>
+    ${fragranceList(list, 'Nothing from this brand has been harvested yet.')}`;
+}
+
 /* ── explore: notes ──────────────────────────────────────────────────────── */
 
 function notesPanel(): string {
@@ -931,18 +964,21 @@ function render(): void {
             ? detailView()
             : state.view === 'retailer'
               ? retailerView()
-              : state.view === 'note'
-                ? noteView()
-                : state.view === 'settings'
-                  ? settingsView()
-                  : legalView();
+              : state.view === 'brand'
+                ? brandView()
+                : state.view === 'note'
+                  ? noteView()
+                  : state.view === 'settings'
+                    ? settingsView()
+                    : legalView();
 
   // The wrapper is a fresh element on every render, so the fade it carries just
   // plays on insertion. No JS animation retriggering needed.
   $('#view').innerHTML = `<div class="view-fade">${body}</div>`;
 
   // The sub nav belongs to Explore and its leaves, and appears nowhere else.
-  const inExplore = state.view === 'explore' || state.view === 'retailer' || state.view === 'note';
+  const inExplore =
+    state.view === 'explore' || state.view === 'retailer' || state.view === 'brand' || state.view === 'note';
   const subnav = $('#subnav') as HTMLElement;
   subnav.hidden = !inExplore;
   subnav.innerHTML = inExplore
@@ -1056,9 +1092,8 @@ function init(): void {
 
     const brandOpt = t.closest('[data-brand]');
     if (brandOpt) {
-      const b = brandOpt.getAttribute('data-brand')!;
-      state.brand = b === '' ? null : b;
-      go('browse');
+      state.brandProfile = brandOpt.getAttribute('data-brand')!;
+      go('brand');
       return;
     }
 
