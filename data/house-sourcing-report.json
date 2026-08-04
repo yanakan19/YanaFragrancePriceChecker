@@ -1,0 +1,87 @@
+{
+  "checkedAt": "2026-08-04T17:09:40.903Z",
+  "outcomes": [
+    {
+      "houseId": "rasasi",
+      "name": "Rasasi",
+      "origin": "https://www.rasasi.com",
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
+      "errors": [
+        "storefront currency could not be established — no sterling price recorded",
+        "https://www.rasasi.com/products.json?limit=250&page=1: HTTP 500",
+        "https://www.rasasi.com/sitemap.xml: HTTP 500"
+      ],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "no listings retrieved from the storefront on this run"
+      ]
+    },
+    {
+      "houseId": "afnan",
+      "name": "Afnan Perfumes",
+      "origin": "https://www.afnanperfumes.com",
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
+      "errors": [
+        "robots.txt unreachable — holding off rather than guessing we are welcome"
+      ],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established"
+      ]
+    },
+    {
+      "houseId": "armaf",
+      "name": "Armaf",
+      "origin": "https://www.armaf.com",
+      "routeUsed": "shopify-products-json",
+      "currency": "USD",
+      "listings": 252,
+      "pricedInGbp": 0,
+      "withPhoto": 252,
+      "errors": [],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "prices are in USD, not GBP — needs a UK price source before these are comparable"
+      ]
+    },
+    {
+      "houseId": "french-avenue",
+      "name": "French Avenue",
+      "origin": "https://www.frenchavenue.com",
+      "routeUsed": "shopify-products-json",
+      "currency": "AED",
+      "listings": 151,
+      "pricedInGbp": 0,
+      "withPhoto": 151,
+      "errors": [],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+      ]
+    },
+    {
+      "houseId": "al-attaar",
+      "name": "Al Attaar",
+      "origin": "https://www.alttaffa.com",
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
+      "errors": [
+        "robots.txt unreachable — holding off rather than guessing we are welcome"
+      ],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "domain supplied as \"alttaffa\"; the house also trades as Al Attaar and Lattafa, which are different businesses — confirm which storefront this is before trusting its listings"
+      ]
+    }
+  ]
+}
