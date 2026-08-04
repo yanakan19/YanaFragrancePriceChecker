@@ -4,10 +4,16 @@ import { RETAILERS } from '../config/retailers.js';
 /**
  * Outbound link building.
  *
- * No affiliate programme is live yet, so every link currently resolves to the
- * plain retailer URL — correct, clickable, and unmonetised. Once a programme is
- * approved, filling in `publisherId` and `deeplinkTemplate` in the registry is
- * the only change needed; nothing downstream has to move.
+ * Most retailers have no affiliate programme live yet, so their links resolve
+ * to the plain retailer URL — correct, clickable, and unmonetised. Once a
+ * programme is approved for one of them, filling in `publisherId` and
+ * `deeplinkTemplate` in the registry is the only change needed; nothing
+ * downstream has to move.
+ *
+ * A retailer on the `affiliate-feed` adapter (Fragrance Click UK, currently)
+ * is different: its programme is already live, but the tracking link comes
+ * pre-built from the merchant's own datafeed rather than from a template here
+ * — see the note on `buildOutboundLink` below.
  */
 
 export interface OutboundLink {
@@ -21,9 +27,22 @@ export interface OutboundLink {
  * Falls back to the direct URL whenever the programme is not live or the
  * template is incomplete. Failing open matters here: a broken tracking link
  * loses a sale, whereas an untracked link only loses the commission.
+ *
+ * A retailer on the `affiliate-feed` adapter is a special case: `productUrl`
+ * there is `aw_deep_link` straight from that merchant's own Awin datafeed,
+ * which is already a complete, per-product tracking redirect
+ * (awin1.com/pclick.php?p=...) — not a plain merchant URL waiting to be
+ * wrapped. Running it through `deeplinkTemplate` too would nest one Awin
+ * redirect inside another (cread.php?...&ued=<that pclick.php URL>), which
+ * is not a link Awin's redirector is meant to receive. The feed URL is the
+ * finished link; it passes straight through, still flagged as affiliate.
  */
 export function buildOutboundLink(retailer: Retailer, productUrl: string): OutboundLink {
   const { affiliate } = retailer;
+
+  if (retailer.adapter === 'affiliate-feed') {
+    return { url: productUrl, isAffiliateLink: true };
+  }
 
   if (affiliate.status !== 'active' || !affiliate.deeplinkTemplate || !affiliate.publisherId) {
     return { url: productUrl, isAffiliateLink: false };
