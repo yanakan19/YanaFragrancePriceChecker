@@ -32,6 +32,7 @@ import { productArt, type ArtSize } from './photo.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
 import { officialSiteFor } from './brandSites.js';
+import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
 
 type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'settings';
 type ExploreTab = 'brands' | 'deals' | 'retailers' | 'houses' | 'notes' | 'search';
@@ -1110,6 +1111,109 @@ function legalView(): string {
     </article>`;
 }
 
+
+/* ── routing ─────────────────────────────────────────────────────────────────
+   The view functions and render() know nothing about URLs. Everything here is
+   a translation between `state` and the address bar, so routing stays
+   reversible and rendering stays ignorant of it. */
+
+/** Where we currently are, as a route. */
+function currentRoute(): Route {
+  const query: Record<string, string> = {};
+  if (state.query) query.q = state.query;
+
+  switch (state.view) {
+    case 'home': return { name: 'home', param: '', query: {} };
+    case 'browse': return { name: 'search', param: '', query };
+    case 'detail': return { name: 'fragrance', param: state.fragranceId, query: {} };
+    case 'retailer': return { name: 'retailer', param: state.retailerId, query: {} };
+    case 'brand': return { name: 'brand', param: slugify(state.brandProfile), query: {} };
+    case 'note': return { name: 'note', param: slugify(state.noteName), query: {} };
+    case 'legal': return { name: 'legal', param: state.legalId, query: {} };
+    case 'settings': return { name: 'settings', param: '', query: {} };
+    case 'explore':
+      return {
+        name: state.tab === 'search' ? 'search' : (state.tab as RouteName),
+        param: '',
+        query: state.tab === 'search' ? query : {},
+      };
+  }
+}
+
+/**
+ * Apply a route to `state`.
+ *
+ * Returns false when the route names something that does not exist — a stale
+ * bookmark to a delisted fragrance, say — so the caller can fall back to home
+ * rather than rendering an empty leaf.
+ */
+function applyRoute(route: Route): boolean {
+  state.query = route.query.q ?? '';
+
+  switch (route.name) {
+    case 'home': state.view = 'home'; return true;
+    case 'settings': state.view = 'settings'; return true;
+
+    case 'search':
+      // The bar search and the Search subpage are the same destination.
+      state.view = 'browse';
+      return true;
+
+    case 'brands': case 'deals': case 'retailers': case 'houses': case 'notes':
+      state.view = 'explore';
+      state.tab = route.name as ExploreTab;
+      return true;
+
+    case 'fragrance': {
+      if (!fragranceById(route.param)) return false;
+      state.fragranceId = route.param;
+      state.view = 'detail';
+      return true;
+    }
+    case 'retailer': {
+      if (!getRetailer(route.param)) return false;
+      state.retailerId = route.param;
+      state.view = 'retailer';
+      return true;
+    }
+    case 'brand': {
+      // Brand names are free text, so the slug is resolved by scanning. See
+      // the collision note in router.ts.
+      const brand = BRANDS.find((b) => slugify(b) === route.param);
+      if (!brand) return false;
+      state.brandProfile = brand;
+      state.view = 'brand';
+      return true;
+    }
+    case 'note': {
+      const note = Object.keys(NOTE_INDEX).find((n) => slugify(n) === route.param);
+      if (!note) return false;
+      state.noteName = note;
+      state.view = 'note';
+      return true;
+    }
+    case 'legal': {
+      if (!legalPage(route.param)) return false;
+      state.legalId = route.param;
+      state.view = 'legal';
+      return true;
+    }
+  }
+}
+
+/** Push the current state onto history, or replace the top of it. */
+function syncUrl(mode: 'push' | 'replace' = 'push'): void {
+  const url = basePath().replace(/\/$/, '') + routeToPath(currentRoute());
+  const current = window.location.pathname + window.location.search;
+  if (url === current) return;
+  try {
+    window.history[mode === 'push' ? 'pushState' : 'replaceState'](null, '', url);
+  } catch {
+    // A sandboxed frame or a file:// document rejects pushState. The app is
+    // fully usable without it, so this is not worth surfacing.
+  }
+}
+
 /* ── chrome ──────────────────────────────────────────────────────────────── */
 
 function render(): void {
@@ -1155,12 +1259,27 @@ function render(): void {
 function go(view: View): void {
   state.view = view;
   render();
+  syncUrl('push');
   window.scrollTo({ top: 0 });
 }
 
 function openExplore(tab: ExploreTab): void {
   state.tab = tab;
   go('explore');
+}
+
+/** Re-render from whatever the address bar now says. */
+function renderFromUrl(): void {
+  const route = matchRoute(
+    window.location.pathname.slice(basePath().replace(/\/$/, '').length) || '/',
+    window.location.search,
+  );
+  if (!applyRoute(route)) {
+    state.view = 'home';
+  }
+  const box = $('#search') as HTMLInputElement | null;
+  if (box) box.value = state.query;
+  render();
 }
 
 /* ── wiring ──────────────────────────────────────────────────────────────── */
@@ -1173,10 +1292,14 @@ function init(): void {
   // The bar search is the quick one: type a name, get results. The Search
   // subpage under Explore is where the same query gains a brand filter and
   // room to show what it matched against.
+  // Typing replaces rather than pushes: one history entry per keystroke would
+  // make Back a character-by-character undo of the search box, and leaving the
+  // search would take a dozen presses to escape.
   $('#search').addEventListener('input', (e) => {
     state.query = (e.target as HTMLInputElement).value;
     state.view = 'browse';
     render();
+    syncUrl('replace');
   });
 
   const goHome = () => {
@@ -1340,7 +1463,23 @@ function init(): void {
     confirm.hidden = false;
   });
 
-  render();
+  // Back and Forward must move within the app, not out of it. popstate is the
+  // only place the address bar is the source of truth: it has already changed
+  // by the time this fires, so state follows it rather than the other way
+  // round, and nothing is pushed in response or the history would grow on
+  // every Back press.
+  window.addEventListener('popstate', () => {
+    renderFromUrl();
+    window.scrollTo({ top: 0 });
+  });
+
+  // First paint comes from whatever URL we were opened at, so a deep link,
+  // a bookmark or a shared link lands on the right view. replaceState then
+  // normalises the address bar without adding a history entry — an unmatched
+  // path served through 404.html becomes "/" rather than staying a URL that
+  // renders home while claiming to be something else.
+  renderFromUrl();
+  syncUrl('replace');
 }
 
 if (document.readyState === 'loading') {
