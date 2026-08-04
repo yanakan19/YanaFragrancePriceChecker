@@ -42,9 +42,10 @@ type BrandFilter = RetailerTier | 'all';
 type DealSort = 'discount' | 'lowest' | 'highest';
 type NoteSort = 'common' | 'az';
 type NoteLayerFilter = NoteLayer | 'any';
-/** Sort for the fragrance list under one note. Same vocabulary as the rest
- *  of the app: alphabetical both ways (Brands), price both ways (Deals). */
-type NoteDetailSort = 'az' | 'za' | 'price-low' | 'price-high';
+/** Sort for a fragrance list scoped to one note, brand or retailer. Same
+ *  vocabulary as the rest of the app: alphabetical both ways (Brands),
+ *  price both ways (Deals). */
+type ListSort = 'az' | 'za' | 'price-low' | 'price-high';
 
 const MODE_KEY = 'pricesniffs.display';
 const LAYOUT_KEY = 'pricesniffs.layout';
@@ -71,7 +72,11 @@ const state = {
   dealSort: 'discount' as DealSort,
   noteSort: 'common' as NoteSort,
   noteLayer: 'any' as NoteLayerFilter,
-  noteDetailSort: 'az' as NoteDetailSort,
+  noteDetailSort: 'az' as ListSort,
+  noteDetailFilter: 'all' as BrandFilter,
+  brandDetailSort: 'az' as ListSort,
+  retailerDetailSort: 'az' as ListSort,
+  retailerDetailFilter: 'all' as BrandFilter,
 };
 
 const esc = (s: string) =>
@@ -80,6 +85,16 @@ const esc = (s: string) =>
   );
 
 const $ = (sel: string) => document.querySelector(sel)!;
+
+/**
+ * Display casing only — every lookup keyed on a note name (data-note
+ * attributes, fragrancesWithNote, NOTE_INDEX) keeps using the raw string
+ * exactly as extracted, so this never risks a note silently failing to
+ * match. Extracted note text only reliably capitalises its first word
+ * ("Fresh florals"), so this fixes every word for display, e.g. "Floral
+ * boquet" reads as "Floral Boquet".
+ */
+const titleCase = (s: string) => s.replace(/\S+/g, (w) => w[0]!.toUpperCase() + w.slice(1).toLowerCase());
 
 const BRANDS = [...new Set(DEMO_FRAGRANCES.map((f) => f.brand))].sort();
 const TIER_LABEL: Record<RetailerTier, string> = {
@@ -291,6 +306,39 @@ function control(id: string, label: string, ico: string, options: { value: strin
   </label>`;
 }
 
+/**
+ * The one sort applied to a fragrance list scoped to a single note, brand or
+ * retailer: alphabetical both ways, price both ways. Shared so the three
+ * pages that use it cannot drift into three slightly different orderings.
+ */
+function sortFragrances(list: DemoFragrance[], sort: ListSort): DemoFragrance[] {
+  return [...list].sort((a, b) => {
+    if (sort === 'az') return `${a.brand} ${a.name}`.localeCompare(`${b.brand} ${b.name}`);
+    if (sort === 'za') return `${b.brand} ${b.name}`.localeCompare(`${a.brand} ${a.name}`);
+    const diff = lowestPrice(a.id) - lowestPrice(b.id);
+    return sort === 'price-low' ? diff : -diff;
+  });
+}
+
+function listSortControl(id: string, current: ListSort): string {
+  return control(id, 'Sort fragrances', ICON_SORT, [
+    { value: 'az', label: 'A to Z' },
+    { value: 'za', label: 'Z to A' },
+    { value: 'price-low', label: 'Lowest price' },
+    { value: 'price-high', label: 'Highest price' },
+  ], current);
+}
+
+/** Same tier filter Brands uses. Not offered on a brand's own page: every
+ *  fragrance from one brand shares that brand's tier, so the filter would
+ *  only ever show everything or nothing — never a real subset. */
+function tierFilterControl(id: string, current: BrandFilter): string {
+  return control(id, 'Filter by type', ICON_FILTER, [
+    { value: 'all', label: 'All types' },
+    ...(['designer', 'niche', 'mideast'] as const).map((t) => ({ value: t, label: TIER_LABEL[t] })),
+  ], current);
+}
+
 /* ── shared pieces ───────────────────────────────────────────────────────── */
 
 /**
@@ -339,7 +387,15 @@ function fragranceTile(
   f: DemoFragrance,
   opts?: { rank?: number; trailing?: string; rail?: boolean },
 ): string {
-  const best = bestOffer(rowsFor(f));
+  const rows = rowsFor(f);
+  const best = bestOffer(rows);
+  // Sold out everywhere still names a shop, the cheapest one on record even
+  // though it is not buyable right now — never bare "Sold out" floating with
+  // no attribution, and never a shorter tile than an in-stock neighbour in
+  // the same row. Only a fragrance with zero rows ever (should not happen in
+  // real data — every listed fragrance came from at least one real offer)
+  // falls back to an invisible placeholder, purely to hold the row's height.
+  const badgeRetailer = best?.retailer.name ?? rows[0]?.retailer.name ?? null;
   const medal = opts?.rank !== undefined && opts.rank < 3 ? MEDALS[opts.rank] : null;
   return `<li${opts?.rail ? ' class="pop-item"' : ''}>
     <button class="tile" data-frag="${f.id}">
@@ -349,7 +405,7 @@ function fragranceTile(
         ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`)}
       </span>
       <span class="tile-price">${opts?.trailing ?? priceLine(f)}</span>
-      ${best ? `<span class="sold-by">${esc(best.retailer.name)}</span>` : ''}
+      ${badgeRetailer ? `<span class="sold-by">${esc(badgeRetailer)}</span>` : `<span class="sold-by" aria-hidden="true" style="visibility:hidden">&nbsp;</span>`}
     </button>
   </li>`;
 }
@@ -500,7 +556,7 @@ function notesBlock(f: DemoFragrance): string {
       : `<div class="note-layer">
            <p class="note-layer-name">${label}</p>
            <p class="note-chips">${list
-             .map((n) => `<button class="note-chip" data-note="${esc(n)}">${esc(n)}</button>`)
+             .map((n) => `<button class="note-chip" data-note="${esc(n)}">${esc(titleCase(n))}</button>`)
              .join('')}</p>
          </div>`;
   return `<div class="notes-block">
@@ -519,7 +575,10 @@ function detailView(): string {
   const rows = rowsFor(frag);
   const best = bestOffer(rows);
   const live = rows.filter((r) => r.isPurchasable);
-  const gone = rows.filter((r) => !r.isPurchasable);
+  // Alphabetical, not by price: this section is about "who usually stocks it",
+  // not "who was cheapest last time it was in stock" — a price ordering would
+  // read as if these were live, buyable offers, which they are not.
+  const gone = rows.filter((r) => !r.isPurchasable).sort((a, b) => a.retailer.name.localeCompare(b.retailer.name));
   const newest = rows.length ? Math.min(...rows.map((r) => r.ageSeconds)) : 0;
 
   const shownIds = new Set(rows.map((r) => r.retailer.id));
@@ -706,7 +765,15 @@ function retailersPanel(): string {
 function retailerView(): string {
   const r = getRetailer(state.retailerId);
   if (!r) return exploreView();
-  const list = fragrancesAt(r.id);
+  const filtered = fragrancesAt(r.id).filter(
+    (f) => state.retailerDetailFilter === 'all' || f.tier === state.retailerDetailFilter,
+  );
+  const list = sortFragrances(filtered, state.retailerDetailSort);
+
+  const controls = `<div class="controls">
+    ${listSortControl('retailer-detail-sort', state.retailerDetailSort)}
+    ${tierFilterControl('retailer-detail-filter', state.retailerDetailFilter)}
+  </div>`;
 
   return `
     <button class="back" data-back-explore>Back</button>
@@ -723,7 +790,8 @@ function retailerView(): string {
     </div>
 
     <p class="gone-head">${list.length} ${list.length === 1 ? 'fragrance' : 'fragrances'} here</p>
-    ${fragranceList(list, 'Nothing from this shop has been harvested yet.')}`;
+    ${controls}
+    ${fragranceList(list, 'Nothing from this shop matches that filter.')}`;
 }
 
 /**
@@ -736,8 +804,13 @@ function retailerView(): string {
 function brandView(): string {
   const b = state.brandProfile;
   if (!b) return exploreView();
-  const list = BY_POPULARITY.filter((f) => f.brand === b);
+  const list = sortFragrances(BY_POPULARITY.filter((f) => f.brand === b), state.brandDetailSort);
   const site = officialSiteFor(b);
+
+  // Sort only, no tier filter: every fragrance from one brand shares that
+  // brand's tier (brandTierFor is a function of the brand name alone), so a
+  // tier filter here would only ever show everything or nothing.
+  const controls = `<div class="controls">${listSortControl('brand-detail-sort', state.brandDetailSort)}</div>`;
 
   return `
     <button class="back" data-back-explore>Back</button>
@@ -754,6 +827,7 @@ function brandView(): string {
     </div>
 
     <p class="gone-head">${list.length} ${list.length === 1 ? 'fragrance' : 'fragrances'}</p>
+    ${controls}
     ${fragranceList(list, 'Nothing from this brand has been harvested yet.')}`;
 }
 
@@ -800,7 +874,7 @@ function notesPanel(): string {
       }
     }
     out += `<li><button class="brand-row note-row" data-note="${esc(n.name)}">
-      <span>${esc(n.name)}</span><span class="note-row-count">(${n.count})</span>
+      <span>${esc(titleCase(n.name))}</span><span class="note-row-count">(${n.count})</span>
     </button></li>`;
   }
   return `${controls}
@@ -809,28 +883,22 @@ function notesPanel(): string {
 }
 
 function noteView(): string {
-  const list = [...fragrancesWithNote(state.noteName, state.noteLayer)].sort((a, b) => {
-    if (state.noteDetailSort === 'az') return `${a.brand} ${a.name}`.localeCompare(`${b.brand} ${b.name}`);
-    if (state.noteDetailSort === 'za') return `${b.brand} ${b.name}`.localeCompare(`${a.brand} ${a.name}`);
-    const diff = lowestPrice(a.id) - lowestPrice(b.id);
-    return state.noteDetailSort === 'price-low' ? diff : -diff;
-  });
+  const filtered = fragrancesWithNote(state.noteName, state.noteLayer).filter(
+    (f) => state.noteDetailFilter === 'all' || f.tier === state.noteDetailFilter,
+  );
+  const list = sortFragrances(filtered, state.noteDetailSort);
 
   const controls = `<div class="controls">
-    ${control('note-detail-sort', 'Sort fragrances', ICON_SORT, [
-      { value: 'az', label: 'A to Z' },
-      { value: 'za', label: 'Z to A' },
-      { value: 'price-low', label: 'Lowest price' },
-      { value: 'price-high', label: 'Highest price' },
-    ], state.noteDetailSort)}
+    ${listSortControl('note-detail-sort', state.noteDetailSort)}
+    ${tierFilterControl('note-detail-filter', state.noteDetailFilter)}
   </div>`;
 
   return `
     <button class="back" data-back-explore>Back</button>
-    <div class="page-head"><h2>${esc(state.noteName)}</h2><span class="count">${list.length}</span></div>
-    <p class="panel-note">Fragrances listing ${esc(state.noteName)}${state.noteLayer === 'any' ? '' : ` as a ${state.noteLayer} note`}.</p>
+    <div class="page-head"><h2>${esc(titleCase(state.noteName))}</h2><span class="count">${list.length}</span></div>
+    <p class="panel-note">Fragrances listing ${esc(titleCase(state.noteName))}${state.noteLayer === 'any' ? '' : ` as a ${state.noteLayer} note`}.</p>
     ${controls}
-    ${fragranceList(list, 'Nothing lists that note right now.')}`;
+    ${fragranceList(list, 'Nothing matches that filter.')}`;
 }
 
 /* ── explore: search ─────────────────────────────────────────────────────── */
@@ -1165,7 +1233,11 @@ function init(): void {
     else if (id === 'deal-sort') state.dealSort = value as DealSort;
     else if (id === 'note-sort') state.noteSort = value as NoteSort;
     else if (id === 'note-layer') state.noteLayer = value as NoteLayerFilter;
-    else if (id === 'note-detail-sort') state.noteDetailSort = value as NoteDetailSort;
+    else if (id === 'note-detail-sort') state.noteDetailSort = value as ListSort;
+    else if (id === 'note-detail-filter') state.noteDetailFilter = value as BrandFilter;
+    else if (id === 'brand-detail-sort') state.brandDetailSort = value as ListSort;
+    else if (id === 'retailer-detail-sort') state.retailerDetailSort = value as ListSort;
+    else if (id === 'retailer-detail-filter') state.retailerDetailFilter = value as BrandFilter;
     else if (id === 'per-row') {
       // The grid reads a CSS variable, so the columns reflow without a
       // re-render. Returning early also keeps the search box from losing
