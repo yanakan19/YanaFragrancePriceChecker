@@ -973,7 +973,7 @@ function exploreView(): string {
  */
 function housesPanel(): string {
   if (HOUSE_PRODUCTS.length === 0) {
-    return `<p class="empty">No house storefront has returned listings yet.</p>`;
+    return `<p class="empty-note">No house storefront has returned listings yet.</p>`;
   }
 
   const byHouse = new Map<string, typeof HOUSE_PRODUCTS>();
@@ -1001,7 +1001,8 @@ function housesPanel(): string {
                   <a href="${esc(p.url)}" target="_blank" rel="noopener nofollow sponsored">
                     ${
                       p.image
-                        ? `<img class="house-img" src="${esc(p.image)}" alt="" loading="lazy" />`
+                        ? `<img class="house-img" src="${esc(p.image)}" alt="" loading="lazy"
+                             decoding="async" referrerpolicy="no-referrer" />`
                         : `<span class="house-img house-img-none" aria-hidden="true"></span>`
                     }
                     <span class="house-name">${esc(p.name)}</span>

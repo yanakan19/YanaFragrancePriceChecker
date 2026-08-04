@@ -44,8 +44,17 @@ up and both should stay true:
   currently true. Adding accounts means revisiting the notice.
 - **Prices are indicative.** The terms lean on this, and the UI backs it by
   showing when each price was checked. Keep the timestamp visible.
-- **Illustrations, not photographs.** The terms state that product images are our
-  own drawings. When real feed imagery replaces them, that clause must change.
+- **Product images are other people's photographs.** The terms used to claim
+  they were "our own drawings", written when the only art on the site was the
+  generated placeholder. That stopped being true the moment Fragrance Click's
+  licensed feed imagery went in, and again when the Armaf and French Avenue
+  house catalogues arrived with the houses' own photography — so the clause was
+  rewritten to describe what actually happens: the retailer's or brand's own
+  photograph, hot-linked from their servers, never copied or altered, and only
+  shown where the programme has confirmed we may.
+  The rule that replaced it: an image is displayed only when a retailer carries
+  `imageUsageConfirmed`, or when it comes from a brand's own storefront. Adding
+  a third basis means revisiting this clause again.
 
 ## Still open
 

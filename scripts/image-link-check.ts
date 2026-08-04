@@ -32,14 +32,48 @@ interface Listing {
 }
 interface CatalogueFile {
   retailerId: string;
+  /** 'live' or 'fixtures' — see CatalogueSnapshot. */
+  source?: string;
   listings: Listing[];
 }
 
+/**
+ * Presented as a real browser would.
+ *
+ * The checker sent no headers at all, which is not how any of these CDNs are
+ * ever addressed in practice — a request with no User-Agent and no Accept is
+ * exactly the shape a bot filter drops. That is a candidate explanation for the
+ * cluster of `TypeError: fetch failed` results against Shopify-backed domains,
+ * though it is not proven; the point of sending them is to stop the checker
+ * itself being a variable in the answer.
+ */
+const IMAGE_HEADERS = {
+  'user-agent':
+    'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 ' +
+    '(KHTML, like Gecko) Chrome/125.0 Safari/537.36',
+  accept: 'image/avif,image/webp,image/apng,image/*,*/*;q=0.8',
+  'accept-language': 'en-GB,en;q=0.9',
+} as const;
+
 const urlToRetailers = new Map<string, Set<string>>();
+
+let skippedFixtures = 0;
 
 for (const file of readdirSync(catalogueDir)) {
   if (!file.endsWith('.json')) continue;
   const data = JSON.parse(readFileSync(resolve(catalogueDir, file), 'utf8')) as CatalogueFile;
+
+  // Fixture snapshots carry invented image URLs — boots.com/images/boo-sauvage.jpg
+  // and friends, which have never existed. build-demo-catalogue.ts already
+  // refuses to read fixtures, so none of these reaches a user, but this checker
+  // was walking every file and counting all of them as broken links. That is
+  // what made the report read 78 failures when only a minority were real, and
+  // it buried the ones that matter under a wall of known-fake URLs.
+  if (data.source !== 'live') {
+    skippedFixtures += data.listings.filter((l) => l.imageUrl).length;
+    continue;
+  }
+
   for (const listing of data.listings) {
     if (!listing.imageUrl) continue;
     const set = urlToRetailers.get(listing.imageUrl) ?? new Set<string>();
@@ -49,7 +83,11 @@ for (const file of readdirSync(catalogueDir)) {
 }
 
 const urls = [...urlToRetailers.keys()];
-console.log(`Checking ${urls.length} distinct image URLs across ${new Set([...urlToRetailers.values()].flatMap((s) => [...s])).size} retailers.`);
+console.log(
+  `Checking ${urls.length} distinct image URLs across ` +
+    `${new Set([...urlToRetailers.values()].flatMap((s) => [...s])).size} live retailers.` +
+    (skippedFixtures > 0 ? ` Skipped ${skippedFixtures} fixture URLs.` : ''),
+);
 
 interface CheckResult {
   url: string;
@@ -65,13 +103,17 @@ async function checkOne(url: string): Promise<CheckResult> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 15_000);
   try {
-    let res = await fetch(url, { method: 'HEAD', redirect: 'follow', signal: controller.signal });
+    let res = await fetch(url, {
+      method: 'HEAD', redirect: 'follow', signal: controller.signal, headers: IMAGE_HEADERS,
+    });
     // Some CDNs reject HEAD outright (405/403) but serve the same URL fine to
     // GET — a real 404/DNS failure fails both, so falling back here does not
     // hide a genuinely dead link, only avoids a false positive from a server
     // that just dislikes the HEAD verb.
     if (!res.ok && (res.status === 405 || res.status === 403)) {
-      res = await fetch(url, { method: 'GET', redirect: 'follow', signal: controller.signal });
+      res = await fetch(url, {
+        method: 'GET', redirect: 'follow', signal: controller.signal, headers: IMAGE_HEADERS,
+      });
     }
     const contentType = res.headers.get('content-type');
     return {
@@ -79,7 +121,16 @@ async function checkOne(url: string): Promise<CheckResult> {
       status: res.status, contentType, error: null,
     };
   } catch (err) {
-    return { url, retailers, ok: false, status: null, contentType: null, error: String(err).slice(0, 160) };
+    // `TypeError: fetch failed` on its own is useless for diagnosis — undici
+    // puts the real reason (ECONNRESET, ENOTFOUND, TLS failure, socket hang up)
+    // on `cause`. Without this the report cannot distinguish a dead domain from
+    // a server that dropped us.
+    const cause = (err as { cause?: unknown }).cause;
+    const detail = cause ? ` (${String(cause).slice(0, 100)})` : '';
+    return {
+      url, retailers, ok: false, status: null, contentType: null,
+      error: `${String(err).slice(0, 120)}${detail}`,
+    };
   } finally {
     clearTimeout(timer);
   }
