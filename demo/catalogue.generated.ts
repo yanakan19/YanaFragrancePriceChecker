@@ -21,6 +21,12 @@ export interface CrawledOffer {
   imageUrl: string | null;
 }
 
+export interface Notes {
+  top: string[];
+  middle: string[];
+  base: string[];
+}
+
 export interface CatalogueEntry {
   id: string;
   brand: string;
@@ -31,6 +37,12 @@ export interface CatalogueEntry {
   shops: number;
   /** A real, licensed product photo — see demo/photo.ts. Null means none yet. */
   image: string | null;
+  /**
+   * Notes as a source explicitly labelled them, never inferred. Null where the
+   * retailer's copy did not spell them out, which the app states plainly
+   * rather than papering over.
+   */
+  notes: Notes | null;
 }
 
 /** Products, most widely stocked first. */
@@ -43,7 +55,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252667309",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/_/4_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/_/4_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-5045294100406",
@@ -53,7 +81,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045294100406",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/9/29.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/9/29.jpg",
+    "notes": null
   },
   {
     "id": "ean-088300606511",
@@ -63,7 +92,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "088300606511",
     "shops": 2,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300602513",
@@ -73,7 +103,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300602513",
     "shops": 2,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300100514",
@@ -83,7 +114,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300100514",
     "shops": 2,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3607342401860",
@@ -93,7 +125,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607342401860",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/98.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/98.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-763511100019",
@@ -103,7 +151,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "763511100019",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/054.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/054.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [
+        "Spices",
+        "Lavender"
+      ],
+      "base": [
+        "Cedarwood",
+        "Vetiver",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-027131017752",
@@ -113,7 +177,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 67,
     "ean": "027131017752",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/9/099.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/9/099.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-887167095878",
@@ -123,7 +203,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "887167095878",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/405.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/405.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3274870303166",
@@ -133,7 +229,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274870303166",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/110_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/110_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052057989",
@@ -143,7 +240,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "737052057989",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/680.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/680.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460067508",
@@ -153,7 +251,27 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460067508",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14691276-1675265767319063.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14691276-1675265767319063.jpg",
+    "notes": {
+      "top": [
+        "Clary Sage",
+        "Black Pepper",
+        "Bergamot",
+        "Lavender"
+      ],
+      "middle": [
+        "Leather",
+        "Cypress",
+        "Ambergris",
+        "Apple",
+        "Pineapple"
+      ],
+      "base": [
+        "Sandalwood",
+        "Vanilla",
+        "Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-8435137782949",
@@ -163,7 +281,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137782949",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1270.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1270.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-85715163035",
@@ -173,7 +303,30 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "85715163035",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/85715163035_bottle.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/85715163035_bottle.jpg",
+    "notes": {
+      "top": [
+        "Fir",
+        "Lemon",
+        "Orange",
+        "Petitgrain",
+        "Cardamom"
+      ],
+      "middle": [
+        "Rosemary",
+        "Lily-of-the-Valley",
+        "Jasmine",
+        "Sage",
+        "Rose"
+      ],
+      "base": [
+        "Musk",
+        "Vetiver",
+        "Oakmoss",
+        "Brazilian Rosewood",
+        "Sandalwood"
+      ]
+    }
   },
   {
     "id": "ean-85715163042",
@@ -183,7 +336,30 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "85715163042",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/85715163035_bottle_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/85715163035_bottle_1.jpg",
+    "notes": {
+      "top": [
+        "Fir",
+        "Lemon",
+        "Orange",
+        "Petitgrain",
+        "Cardamom"
+      ],
+      "middle": [
+        "Rosemary",
+        "Lily-of-the-Valley",
+        "Jasmine",
+        "Sage",
+        "Rose"
+      ],
+      "base": [
+        "Musk",
+        "Vetiver",
+        "Oakmoss",
+        "Brazilian Rosewood",
+        "Sandalwood"
+      ]
+    }
   },
   {
     "id": "ean-8028713816307",
@@ -193,7 +369,21 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8028713816307",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/c/acqua_di_parma_blu_mediterraneo_mandarino_di_sicilia_.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/c/acqua_di_parma_blu_mediterraneo_mandarino_di_sicilia_.png",
+    "notes": {
+      "top": [
+        "Sicilian Mandarin",
+        "Citrus"
+      ],
+      "middle": [
+        "Aromatic Herbs",
+        "Spices"
+      ],
+      "base": [
+        "Cedarwood",
+        "White Musk"
+      ]
+    }
   },
   {
     "id": "ean-8028713816697",
@@ -203,7 +393,22 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": "8028713816697",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/15294401-1335265777176730_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/15294401-1335265777176730_1.jpg",
+    "notes": {
+      "top": [
+        "Citrus",
+        "Almond Blossom"
+      ],
+      "middle": [
+        "Almond Milk",
+        "White Florals",
+        "Spices"
+      ],
+      "base": [
+        "Musk",
+        "Light Woods"
+      ]
+    }
   },
   {
     "id": "ean-8028713000096",
@@ -213,7 +418,27 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8028713000096",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/co_bot.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/co_bot.jpg",
+    "notes": {
+      "top": [
+        "Lemon",
+        "Sweet Orange",
+        "Calabrian Bergamot",
+        "Petitgrain"
+      ],
+      "middle": [
+        "Lavender",
+        "Rosemary",
+        "Rose",
+        "Verbena",
+        "Sage"
+      ],
+      "base": [
+        "Sandalwood",
+        "Patchouli",
+        "Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-8028713000089",
@@ -223,7 +448,27 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8028713000089",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/col_100_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/col_100_1.jpg",
+    "notes": {
+      "top": [
+        "Lemon",
+        "Sweet Orange",
+        "Calabrian Bergamot",
+        "Petitgrain"
+      ],
+      "middle": [
+        "Lavender",
+        "Rosemary",
+        "Rose",
+        "Verbena",
+        "Sage"
+      ],
+      "base": [
+        "Sandalwood",
+        "Patchouli",
+        "Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-8028713813214",
@@ -233,7 +478,25 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8028713813214",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/o/u/oud.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/o/u/oud.jpg",
+    "notes": {
+      "top": [
+        "Citrus",
+        "Spices"
+      ],
+      "middle": [
+        "Oud",
+        "Coriander",
+        "Saffron",
+        "Aromatics"
+      ],
+      "base": [
+        "Leather",
+        "Sandalwood",
+        "Amber",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8028713270024",
@@ -243,7 +506,24 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8028713270024",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/u/pura.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/u/pura.jpg",
+    "notes": {
+      "top": [
+        "Italian Bergamot",
+        "Orange",
+        "Petitgrain"
+      ],
+      "middle": [
+        "Jasmine Sambac Absolute",
+        "Narcissus Absolute",
+        "Coriander"
+      ],
+      "base": [
+        "Cedarwood",
+        "Patchouli",
+        "White Musk"
+      ]
+    }
   },
   {
     "id": "ean-8028713270031",
@@ -253,7 +533,24 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": "8028713270031",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/u/pura180.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/u/pura180.jpg",
+    "notes": {
+      "top": [
+        "Italian Bergamot",
+        "Orange",
+        "Petitgrain"
+      ],
+      "middle": [
+        "Jasmine Sambac Absolute",
+        "Narcissus Absolute",
+        "Coriander"
+      ],
+      "base": [
+        "Cedarwood",
+        "Patchouli",
+        "White Musk"
+      ]
+    }
   },
   {
     "id": "ean-8028713819209",
@@ -263,7 +560,26 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8028713819209",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/o/rosa.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/o/rosa.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Mandarin",
+        "Pink Pepper",
+        "Black Pepper",
+        "Cardamom"
+      ],
+      "middle": [
+        "Bulgarian Rose",
+        "Geranium"
+      ],
+      "base": [
+        "Vetiver",
+        "Guaiac Wood",
+        "Cedarwood",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8028713819216",
@@ -273,7 +589,26 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": "8028713819216",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/o/rosa_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/o/rosa_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Mandarin",
+        "Pink Pepper",
+        "Black Pepper",
+        "Cardamom"
+      ],
+      "middle": [
+        "Bulgarian Rose",
+        "Geranium"
+      ],
+      "base": [
+        "Vetiver",
+        "Guaiac Wood",
+        "Cedarwood",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8028713830143",
@@ -283,7 +618,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": "8028713830143",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8028713830143.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8028713830143.jpg",
+    "notes": null
   },
   {
     "id": "ean-8028713816314",
@@ -293,7 +629,21 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": "8028713816314",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/c/acqua_di_parma_blu_mediterraneo_mandarino_di_sicilia__1.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/c/acqua_di_parma_blu_mediterraneo_mandarino_di_sicilia__1.png",
+    "notes": {
+      "top": [
+        "Sicilian Mandarin",
+        "Citrus"
+      ],
+      "middle": [
+        "Aromatic Herbs",
+        "Spices"
+      ],
+      "base": [
+        "Cedarwood",
+        "White Musk"
+      ]
+    }
   },
   {
     "id": "ean-8028713816611",
@@ -303,7 +653,22 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": "8028713816611",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200.png",
+    "notes": {
+      "top": [
+        "Sweet Orange",
+        "Bitter Orange",
+        "Mandarin"
+      ],
+      "middle": [
+        "Orange Blossom",
+        "Petit Grain"
+      ],
+      "base": [
+        "Musk",
+        "Caramel"
+      ]
+    }
   },
   {
     "id": "ean-8028713816635",
@@ -313,7 +678,20 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": "8028713816635",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8028713816628_1.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8028713816628_1.png",
+    "notes": {
+      "top": [
+        "Calabrian Bergamot",
+        "Citrus"
+      ],
+      "middle": [
+        "Light Florals"
+      ],
+      "base": [
+        "White Musk",
+        "Light Woods"
+      ]
+    }
   },
   {
     "id": "ean-8028713816680",
@@ -323,7 +701,22 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8028713816680",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/15294401-1335265777176730.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/15294401-1335265777176730.jpg",
+    "notes": {
+      "top": [
+        "Citrus",
+        "Almond Blossom"
+      ],
+      "middle": [
+        "Almond Milk",
+        "White Florals",
+        "Spices"
+      ],
+      "base": [
+        "Musk",
+        "Light Woods"
+      ]
+    }
   },
   {
     "id": "ean-8028713150029",
@@ -333,7 +726,25 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8028713150029",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/l/club_bot.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/l/club_bot.jpg",
+    "notes": {
+      "top": [
+        "Lemon",
+        "Bergamot",
+        "Mint",
+        "Neroli"
+      ],
+      "middle": [
+        "Lavender",
+        "Geranium",
+        "Clary Sage"
+      ],
+      "base": [
+        "Cedarwood",
+        "Vetiver",
+        "Patchouli"
+      ]
+    }
   },
   {
     "id": "ean-8028713150036",
@@ -343,7 +754,25 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": "8028713150036",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/l/club_bot_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/l/club_bot_1.jpg",
+    "notes": {
+      "top": [
+        "Lemon",
+        "Bergamot",
+        "Mint",
+        "Neroli"
+      ],
+      "middle": [
+        "Lavender",
+        "Geranium",
+        "Clary Sage"
+      ],
+      "base": [
+        "Cedarwood",
+        "Vetiver",
+        "Patchouli"
+      ]
+    }
   },
   {
     "id": "ean-8028713001734",
@@ -353,7 +782,27 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": "8028713001734",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/col_100.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/col_100.jpg",
+    "notes": {
+      "top": [
+        "Lemon",
+        "Sweet Orange",
+        "Calabrian Bergamot",
+        "Petitgrain"
+      ],
+      "middle": [
+        "Lavender",
+        "Rosemary",
+        "Rose",
+        "Verbena",
+        "Sage"
+      ],
+      "base": [
+        "Sandalwood",
+        "Patchouli",
+        "Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-8028713210020",
@@ -363,7 +812,26 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8028713210020",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/n/intensa.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/n/intensa.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Petitgrain",
+        "Lemon"
+      ],
+      "middle": [
+        "Neroli",
+        "Galbanum",
+        "Jasmine",
+        "Rose"
+      ],
+      "base": [
+        "Patchouli",
+        "White Musk",
+        "Vetiver",
+        "Amber"
+      ]
+    }
   },
   {
     "id": "ean-8028713816673",
@@ -373,7 +841,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": "8028713816673",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/l/blu_mediterraneo_mirto_di_panarea_.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/l/blu_mediterraneo_mirto_di_panarea_.png",
+    "notes": null
   },
   {
     "id": "justmylook-acq0032",
@@ -383,7 +852,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-acq0053",
@@ -393,7 +863,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-acq0049",
@@ -403,7 +874,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-acq0045",
@@ -413,7 +885,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-acq0012",
@@ -423,7 +896,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-acq0097",
@@ -433,7 +907,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-acq0070",
@@ -443,7 +918,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-acq0047",
@@ -453,7 +929,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-acq0029",
@@ -463,7 +940,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-acq0001",
@@ -473,7 +951,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3616303322021",
@@ -483,7 +962,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303322021",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3616303322052",
@@ -493,7 +973,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303322052",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-afnn0006",
@@ -503,7 +984,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-afnn0008",
@@ -513,7 +995,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-afnn0003",
@@ -523,7 +1006,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-afnn0015",
@@ -533,7 +1017,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-afnn0001",
@@ -543,7 +1028,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-agen0002",
@@ -553,7 +1039,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-6291100130450",
@@ -563,7 +1050,22 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "6291100130450",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/f/e/fem200.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/f/e/fem200.jpg",
+    "notes": {
+      "top": [
+        "Citrus"
+      ],
+      "middle": [
+        "Rose",
+        "Jasmine",
+        "White Florals"
+      ],
+      "base": [
+        "Musk",
+        "Amber",
+        "Woods"
+      ]
+    }
   },
   {
     "id": "ean-6291100132171",
@@ -573,7 +1075,25 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6291100132171",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/l/al_haramain_amber_oud_tabacco_edition_.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/l/al_haramain_amber_oud_tabacco_edition_.png",
+    "notes": {
+      "top": [
+        "Tobacco",
+        "Spices",
+        "Aromatics"
+      ],
+      "middle": [
+        "Oud",
+        "Amber",
+        "Leather",
+        "Woods"
+      ],
+      "base": [
+        "Vanilla",
+        "Tonka Bean",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-6291100130122",
@@ -583,7 +1103,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291100130122",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/l/al_haramain_amber_oud_gold_eau_de_parfum_100ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/l/al_haramain_amber_oud_gold_eau_de_parfum_100ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061411919",
@@ -593,7 +1114,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061411919",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-022548006719",
@@ -603,7 +1125,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 110,
     "ean": "022548006719",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-ar0003",
@@ -613,7 +1136,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 240,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-ari0012",
@@ -623,7 +1147,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-ari0010",
@@ -633,7 +1158,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-ari0004",
@@ -643,7 +1169,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-ari0015",
@@ -653,7 +1180,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-ari0007",
@@ -663,7 +1191,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-ari0009",
@@ -673,7 +1202,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-ari0005",
@@ -683,7 +1213,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-6085010094182",
@@ -693,7 +1224,24 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6085010094182",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hunteer.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hunteer.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Lemon",
+        "Herbs"
+      ],
+      "middle": [
+        "Lavender",
+        "Spices",
+        "Florals"
+      ],
+      "base": [
+        "Woods",
+        "Amber",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "justmylook-arm0050",
@@ -703,7 +1251,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-arm0049",
@@ -713,7 +1262,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-arm0034",
@@ -723,7 +1273,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-arm0004",
@@ -733,7 +1284,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-arm0037",
@@ -743,7 +1295,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3351500980406",
@@ -753,7 +1306,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3351500980406",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3614274412789",
@@ -763,7 +1317,24 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274412789",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274412789_bab.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274412789_bab.jpg",
+    "notes": {
+      "top": [
+        "Raspberry",
+        "Green Mandarin",
+        "Bergamot"
+      ],
+      "middle": [
+        "Cardamom",
+        "Lavender",
+        "Clary Sage"
+      ],
+      "base": [
+        "Leather",
+        "Vetiver",
+        "Wolfwood"
+      ]
+    }
   },
   {
     "id": "ean-3614274258073",
@@ -773,7 +1344,24 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274258073",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/w/a/wael.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/w/a/wael.jpg",
+    "notes": {
+      "top": [
+        "Raspberry",
+        "Green Mandarin",
+        "Bergamot"
+      ],
+      "middle": [
+        "Cardamom",
+        "Lavender",
+        "Clary Sage"
+      ],
+      "base": [
+        "Leather",
+        "Vetiver",
+        "Wolfwood"
+      ]
+    }
   },
   {
     "id": "ean-3614274258080",
@@ -783,7 +1371,24 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274258080",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/w/a/wael_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/w/a/wael_1.jpg",
+    "notes": {
+      "top": [
+        "Raspberry",
+        "Green Mandarin",
+        "Bergamot"
+      ],
+      "middle": [
+        "Cardamom",
+        "Lavender",
+        "Clary Sage"
+      ],
+      "base": [
+        "Leather",
+        "Vetiver",
+        "Wolfwood"
+      ]
+    }
   },
   {
     "id": "ean-3351500011476",
@@ -793,7 +1398,28 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3351500011476",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/u/n/untitled_design_-_2025-10-01t122756.440__08746.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/u/n/untitled_design_-_2025-10-01t122756.440__08746.png",
+    "notes": {
+      "top": [
+        "Lavender",
+        "Star Anise",
+        "Caraway",
+        "Basil"
+      ],
+      "middle": [
+        "Carnation",
+        "Patchouli",
+        "Sandalwood",
+        "Cedarwood"
+      ],
+      "base": [
+        "Oakmoss",
+        "Tonka Bean",
+        "Musk",
+        "Leather",
+        "Amber"
+      ]
+    }
   },
   {
     "id": "ean-3614273521307",
@@ -803,7 +1429,18 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273521307",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/h/themost.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/h/themost.jpg",
+    "notes": {
+      "top": [
+        "Cardamom"
+      ],
+      "middle": [
+        "Toffee"
+      ],
+      "base": [
+        "Amberwood"
+      ]
+    }
   },
   {
     "id": "ean-3614273521345",
@@ -813,7 +1450,18 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273521345",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273521345.gif"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273521345.gif",
+    "notes": {
+      "top": [
+        "Cardamom"
+      ],
+      "middle": [
+        "Toffee"
+      ],
+      "base": [
+        "Amberwood"
+      ]
+    }
   },
   {
     "id": "ean-3614273638852",
@@ -823,7 +1471,16 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273638852",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/_/3.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/_/3.jpg",
+    "notes": {
+      "top": [
+        "Ginger"
+      ],
+      "middle": [],
+      "base": [
+        "Bourbon Vanilla"
+      ]
+    }
   },
   {
     "id": "ean-3614273638869",
@@ -833,7 +1490,16 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273638869",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273638869.gif"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273638869.gif",
+    "notes": {
+      "top": [
+        "Ginger"
+      ],
+      "middle": [],
+      "base": [
+        "Bourbon Vanilla"
+      ]
+    }
   },
   {
     "id": "ean-3351500009848",
@@ -843,7 +1509,28 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3351500009848",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/_/6.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/_/6.jpg",
+    "notes": {
+      "top": [
+        "Cinnamon",
+        "Mandarin Orange",
+        "Lavender",
+        "Lemon"
+      ],
+      "middle": [
+        "Incense",
+        "Cumin",
+        "Red Cedar"
+      ],
+      "base": [
+        "Tobacco",
+        "Vanilla",
+        "Cedar",
+        "Leather",
+        "Benzoin",
+        "Patchouli"
+      ]
+    }
   },
   {
     "id": "ean-3614273903172",
@@ -853,7 +1540,26 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273903172",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/_/8.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/_/8.jpg",
+    "notes": {
+      "top": [
+        "Lemon",
+        "Ginger",
+        "Lavender",
+        "Mint"
+      ],
+      "middle": [
+        "Apple",
+        "Guatemalan Cardamom",
+        "Juniper",
+        "Geranium"
+      ],
+      "base": [
+        "Tonka Bean",
+        "Amberwood",
+        "Haitian Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-3351500002702",
@@ -863,7 +1569,26 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3351500002702",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/10.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/10.jpg",
+    "notes": {
+      "top": [
+        "Lemon",
+        "Ginger",
+        "Lavender",
+        "Mint"
+      ],
+      "middle": [
+        "Apple",
+        "Guatemalan Cardamom",
+        "Juniper",
+        "Geranium"
+      ],
+      "base": [
+        "Tonka Bean",
+        "Amberwood",
+        "Haitian Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-3351500002696",
@@ -873,7 +1598,26 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3351500002696",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/_/1_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/_/1_1.jpg",
+    "notes": {
+      "top": [
+        "Lemon",
+        "Ginger",
+        "Lavender",
+        "Mint"
+      ],
+      "middle": [
+        "Apple",
+        "Guatemalan Cardamom",
+        "Juniper",
+        "Geranium"
+      ],
+      "base": [
+        "Tonka Bean",
+        "Amberwood",
+        "Haitian Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-3614274347562",
@@ -883,7 +1627,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274347562",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/z/azzaro_pour_elle_eau_de_parfum_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/z/azzaro_pour_elle_eau_de_parfum_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "justmylook-azz0020",
@@ -893,7 +1638,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-azz0018",
@@ -903,7 +1649,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-azz0011",
@@ -913,7 +1660,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-azz0004",
@@ -923,7 +1671,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-7640111497547",
@@ -933,7 +1682,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640111497547",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-bil0005",
@@ -943,7 +1693,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-bil0004",
@@ -953,7 +1704,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-bil0002",
@@ -963,7 +1715,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3577580202089",
@@ -973,7 +1726,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3577580202089",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3386460036405",
@@ -983,7 +1737,16 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460036405",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/o/boucheron_pour_homme_100ml_eau_de_toilette.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/o/boucheron_pour_homme_100ml_eau_de_toilette.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "ean-719346065405",
@@ -993,7 +1756,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346065405",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-brit0001",
@@ -1003,7 +1767,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-brit0003",
@@ -1013,7 +1778,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "justmylook-brit0006",
@@ -1023,7 +1789,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3614227748446",
@@ -1033,7 +1800,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614227748446",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3616302020676",
@@ -1043,7 +1811,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616302020676",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-5045252667859",
@@ -1053,7 +1822,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252667859",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-5045252667361",
@@ -1063,7 +1833,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5045252667361",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-5045252667330",
@@ -1073,7 +1844,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5045252667330",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-5045252668214",
@@ -1083,7 +1855,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5045252668214",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-5045252668184",
@@ -1093,7 +1866,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252668184",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-5045252668085",
@@ -1103,7 +1877,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252668085",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3616302020652",
@@ -1113,7 +1888,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616302020652",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/_/7_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/_/7_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616304967122",
@@ -1123,7 +1899,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616304967122",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_goddess_intense_eau_de_parfum_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_goddess_intense_eau_de_parfum_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616304967115",
@@ -1133,7 +1910,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616304967115",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614227693876",
@@ -1143,7 +1921,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614227693876",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616307081054",
@@ -1153,7 +1932,24 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616307081054",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/f/c/fcbher.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/f/c/fcbher.png",
+    "notes": {
+      "top": [
+        "Strawberry",
+        "Raspberry",
+        "Blackberry",
+        "Black Currant"
+      ],
+      "middle": [
+        "Violet",
+        "Jasmine"
+      ],
+      "base": [
+        "Musk",
+        "Vanilla",
+        "Amber"
+      ]
+    }
   },
   {
     "id": "ean-3614229829044",
@@ -1163,7 +1959,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614229829044",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/2/22.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/2/22.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614226905994",
@@ -1173,7 +1970,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614226905994",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/25.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/25.jpg",
+    "notes": null
   },
   {
     "id": "ean-5045419039611",
@@ -1183,7 +1981,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "5045419039611",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/25_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/25_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-5045252667484",
@@ -1193,7 +1992,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252667484",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/35.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/35.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614226905215",
@@ -1203,7 +2003,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614226905215",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/_/6_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/_/6_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616301838210",
@@ -1213,7 +2014,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616301838210",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/11_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/11_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3616301838227",
@@ -1223,7 +2040,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616301838227",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-5045497416274",
@@ -1233,7 +2051,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "5045497416274",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/15_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/15_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-5045456747685",
@@ -1243,7 +2062,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045456747685",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/1/012.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/1/012.jpg",
+    "notes": null
   },
   {
     "id": "ean-5045252667392",
@@ -1253,7 +2073,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252667392",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/7/27.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/7/27.jpg",
+    "notes": null
   },
   {
     "id": "ean-5045252648988",
@@ -1263,7 +2084,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252648988",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/31.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/31.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616305271563",
@@ -1273,7 +2095,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616305271563",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_goddess_100ml_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_goddess_100ml_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616304061943",
@@ -1283,7 +2106,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616304061943",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_her_elixir_de_parfum_eau_de_parfum_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_her_elixir_de_parfum_eau_de_parfum_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614226905192",
@@ -1293,7 +2117,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614226905192",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_london_eau_de_parfum_50ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_london_eau_de_parfum_50ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "justmylook-burb0006",
@@ -1303,7 +2128,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-783320421181",
@@ -1313,7 +2139,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320421181",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/65.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/65.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-783320420610",
@@ -1323,7 +2165,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320420610",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/0/60_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/0/60_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-783320420672",
@@ -1333,7 +2176,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320420672",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/70.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/70.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-783320423369",
@@ -1343,7 +2202,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320423369",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/3/73.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/3/73.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-783320423291",
@@ -1353,7 +2224,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "783320423291",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/3/73_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/3/73_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-783320421174",
@@ -1363,7 +2235,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320421174",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/75.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/75.jpg",
+    "notes": null
   },
   {
     "id": "ean-783320420566",
@@ -1373,7 +2246,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320420566",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/77.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/77.jpg",
+    "notes": null
   },
   {
     "id": "ean-783320977350",
@@ -1383,7 +2257,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "783320977350",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_splendida_jasmin_noir_eau_de_parfum_50ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_splendida_jasmin_noir_eau_de_parfum_50ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-783320411168",
@@ -1393,7 +2268,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320411168",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari-splendida-patchouli-tentation-for-women-edp-50ml-150166-549508.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari-splendida-patchouli-tentation-for-women-edp-50ml-150166-549508.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-783320411175",
@@ -1403,7 +2294,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "783320411175",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_splendida_patchouli_tentation_eau_de_parfum_50ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_splendida_patchouli_tentation_eau_de_parfum_50ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-783320409592",
@@ -1413,7 +2305,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320409592",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/83.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/83.jpg",
+    "notes": null
   },
   {
     "id": "ean-783320411946",
@@ -1423,7 +2316,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320411946",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/man-glacial-essence-783320411946-8945.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/man-glacial-essence-783320411946-8945.png",
+    "notes": null
   },
   {
     "id": "ean-783320421143",
@@ -1433,7 +2327,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320421143",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/40.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/40.jpg",
+    "notes": null
   },
   {
     "id": "ean-783320971563",
@@ -1443,7 +2338,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320971563",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/2/42.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/2/42.jpg",
+    "notes": null
   },
   {
     "id": "ean-783320407260",
@@ -1453,7 +2349,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320407260",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/47.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/47.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-783320419461",
@@ -1463,7 +2375,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320419461",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/50.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/50.jpg",
+    "notes": null
   },
   {
     "id": "ean-783320461002",
@@ -1473,7 +2386,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320461002",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/9/59.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/9/59.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-783320414794",
@@ -1483,7 +2412,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "783320414794",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/bulgari-man-wood-essence-150ml-edp-spray-p51784-89584_image.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/bulgari-man-wood-essence-150ml-edp-spray-p51784-89584_image.jpg",
+    "notes": null
   },
   {
     "id": "ean-783320403897",
@@ -1493,7 +2423,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320403897",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/1/016.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/1/016.jpg",
+    "notes": null
   },
   {
     "id": "ean-783320421297",
@@ -1503,7 +2434,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320421297",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_pour_homme_eau_de_parfum_100ml_.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_pour_homme_eau_de_parfum_100ml_.png",
+    "notes": null
   },
   {
     "id": "ean-783320831591",
@@ -1513,7 +2445,21 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "783320831591",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/80.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/80.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [
+        "Spices",
+        "Lavender"
+      ],
+      "base": [
+        "Citrus up front"
+      ]
+    }
   },
   {
     "id": "ean-783320977381",
@@ -1523,7 +2469,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "783320977381",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_splendida_magnolia_sensuel_eau_de_parfum_50ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_splendida_magnolia_sensuel_eau_de_parfum_50ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3360370512044",
@@ -1533,7 +2480,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360370512044",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3360374533205",
@@ -1543,7 +2491,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360374533205",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3360373001774",
@@ -1553,7 +2502,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360373001774",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3360373048861",
@@ -1563,7 +2513,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360373048861",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3360373000081",
@@ -1573,7 +2524,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360373000081",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3360373016334",
@@ -1583,7 +2535,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360373016334",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3360373016358",
@@ -1593,7 +2546,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360373016358",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300606535",
@@ -1603,7 +2557,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "088300606535",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300608409",
@@ -1613,7 +2568,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300608409",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300605538",
@@ -1623,7 +2579,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300605538",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3607342107977",
@@ -1633,7 +2590,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342107977",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-0088300104437",
@@ -1643,7 +2601,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "0088300104437",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3607342058057",
@@ -1653,7 +2612,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342058057",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300607402",
@@ -1663,7 +2623,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300607402",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300607433",
@@ -1673,7 +2634,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "088300607433",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300000319",
@@ -1683,7 +2645,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300000319",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300605514",
@@ -1693,7 +2656,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300605514",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300162550",
@@ -1703,7 +2667,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "088300162550",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300162512",
@@ -1713,7 +2678,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300162512",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300178322",
@@ -1723,7 +2689,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "088300178322",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300178278",
@@ -1733,7 +2700,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300178278",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300196814",
@@ -1743,7 +2711,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300196814",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300196876",
@@ -1753,7 +2722,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "088300196876",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300196944",
@@ -1763,7 +2733,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "088300196944",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300150427",
@@ -1773,7 +2744,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300150427",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-088300150458",
@@ -1783,7 +2755,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "088300150458",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3607342137172",
@@ -1793,7 +2766,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342137172",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/020.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/020.jpg",
+    "notes": null
   },
   {
     "id": "ean-88300196876",
@@ -1803,7 +2777,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "88300196876",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/3/93.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/3/93.jpg",
+    "notes": null
   },
   {
     "id": "ean-88300602513",
@@ -1813,7 +2788,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "88300602513",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/104.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/104.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614224821944",
@@ -1823,7 +2799,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614224821944",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/114.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/114.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616303476809",
@@ -1833,7 +2810,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303476809",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/120.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/120.jpg",
+    "notes": null
   },
   {
     "id": "ean-088300601400",
@@ -1843,7 +2821,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300601400",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_eternity_100ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_eternity_100ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-88300139507",
@@ -1853,7 +2832,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "88300139507",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/123.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/123.jpg",
+    "notes": null
   },
   {
     "id": "ean-088300162505",
@@ -1863,7 +2843,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300162505",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_euphoria_100ml_eau_de_parfum.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_euphoria_100ml_eau_de_parfum.png",
+    "notes": null
   },
   {
     "id": "ean-3607342686229",
@@ -1873,7 +2854,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 160,
     "ean": "3607342686229",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3607342686229.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3607342686229.png",
+    "notes": null
   },
   {
     "id": "ean-3616304478246",
@@ -1883,7 +2865,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616304478246",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/139.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/139.jpg",
+    "notes": null
   },
   {
     "id": "ean-88300603404",
@@ -1893,7 +2876,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "88300603404",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/141.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/141.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3607342306134",
@@ -1903,7 +2902,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342306134",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14381884006_xl.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14381884006_xl.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-88300049493",
@@ -1913,7 +2928,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "88300049493",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l500.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l500.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614225358463",
@@ -1923,7 +2954,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614225358463",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/x/gxp-11099.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/x/gxp-11099.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614223164462",
@@ -1933,7 +2965,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3614223164462",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/84.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/84.jpg",
+    "notes": null
   },
   {
     "id": "ean-88300104437",
@@ -1943,7 +2976,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "88300104437",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/022.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/022.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-88300107438",
@@ -1953,7 +3002,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "88300107438",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/96.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/96.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614222155409",
@@ -1963,7 +3028,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3614222155409",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/k/ck_one_gold_edt_200ml_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/k/ck_one_gold_edt_200ml_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3607342401426",
@@ -1973,7 +3039,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607342401426",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/101.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/101.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616303442149",
@@ -1983,7 +3050,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3616303442149",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/e/defy-3616303442149-1217.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/e/defy-3616303442149-1217.png",
+    "notes": null
   },
   {
     "id": "ean-3616301296737",
@@ -1993,7 +3061,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3616301296737",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/106.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/106.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616304183638",
@@ -2003,7 +3072,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3616304183638",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/108_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/108_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-88300100514",
@@ -2013,7 +3083,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "88300100514",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/024.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/024.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614224871284",
@@ -2023,7 +3094,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614224871284",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/117.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/117.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3607342378353",
@@ -2033,7 +3120,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607342378353",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/002.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/002.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614228979337",
@@ -2043,7 +3131,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3614228979337",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_eternity_200ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_eternity_200ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-88300105519",
@@ -2053,7 +3142,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "88300105519",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/8/088300605514.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/8/088300605514.png",
+    "notes": null
   },
   {
     "id": "ean-3607341471727",
@@ -2063,7 +3153,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607341471727",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/e/t/eternity_200ml.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/e/t/eternity_200ml.png",
+    "notes": null
   },
   {
     "id": "ean-3614225670435",
@@ -2073,7 +3164,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614225670435",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/028.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/028.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614229135145",
@@ -2083,7 +3175,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614229135145",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin-klein-eternity-for-men-eau-de-parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin-klein-eternity-for-men-eau-de-parfum.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [
+        "Spices",
+        "Lavender"
+      ],
+      "base": [
+        "Cedarwood",
+        "Vetiver",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3616303463373",
@@ -2093,7 +3201,16 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303463373",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/129.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/129.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "ean-88300178278",
@@ -2103,7 +3220,14 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "88300178278",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/135.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/135.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Lavender fairly quickly"
+      ]
+    }
   },
   {
     "id": "ean-88300606511",
@@ -2113,7 +3237,15 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "88300606511",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_obsession_for_men_125ml_eau_de_toilette_bot.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_obsession_for_men_125ml_eau_de_toilette_bot.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Lavender",
+        "Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-3616303429669",
@@ -2123,7 +3255,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3616303429669",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/k/ck_eternity_m_parfum_200ml.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/k/ck_eternity_m_parfum_200ml.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616302016716",
@@ -2133,7 +3266,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616302016716",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_defy_eau_de_parfum_50ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_defy_eau_de_parfum_50ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3607342306417",
@@ -2143,7 +3277,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3607342306417",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_sheer_beauty_eau_de_toilette_50ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_sheer_beauty_eau_de_toilette_50ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616305965639",
@@ -2153,7 +3288,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616305965639",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_euphoria_bold_elixir_intense_parfum_100ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_euphoria_bold_elixir_intense_parfum_100ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616306701960",
@@ -2163,7 +3299,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616306701960",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_euphoria_solar_elixir_intense_parfum_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_euphoria_solar_elixir_intense_parfum_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061083482",
@@ -2173,7 +3310,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061083482",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/145_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/145_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061097922",
@@ -2183,7 +3321,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "8411061097922",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/184251.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/184251.jpg",
+    "notes": null
   },
   {
     "id": "ean-84110611056752",
@@ -2193,7 +3332,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "84110611056752",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/164.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/164.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061102053",
@@ -2203,7 +3343,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061102053",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061122389.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061122389.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061083659",
@@ -2213,7 +3354,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061083659",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/168_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/168_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8411061026342",
@@ -2223,7 +3380,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061026342",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/7/171_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/7/171_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061113851",
@@ -2233,7 +3391,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061113851",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8411061034262",
@@ -2243,7 +3417,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061034262",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/182.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/182.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8411061907559",
@@ -2253,7 +3443,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061907559",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1197821-carolina-herrera-good-girl-legere-eau-de-parfum-spray-50ml.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1197821-carolina-herrera-good-girl-legere-eau-de-parfum-spray-50ml.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8411061077160",
@@ -2263,7 +3469,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061077160",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/3/030.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/3/030.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061995754",
@@ -2273,7 +3480,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061995754",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/184.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/184.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8411061106228",
@@ -2283,7 +3506,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061106228",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061106228_w_1000_h_1000_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061106228_w_1000_h_1000_.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061023655",
@@ -2293,7 +3517,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "8411061023655",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/140_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/140_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061762264",
@@ -2303,7 +3528,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8411061762264",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/142_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/142_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [
+        "Spices",
+        "Lavender"
+      ],
+      "base": []
+    }
   },
   {
     "id": "ean-8411061120620",
@@ -2313,7 +3550,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8411061120620",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61zeqclalzl.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61zeqclalzl.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061065112",
@@ -2323,7 +3561,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061065112",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/146.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/146.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061027820",
@@ -2333,7 +3572,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "8411061027820",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/150.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/150.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061027813",
@@ -2343,7 +3583,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061027813",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/150_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/150_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061083772",
@@ -2353,7 +3594,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061083772",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061083789",
@@ -2363,7 +3605,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "8411061083789",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061083765",
@@ -2373,7 +3616,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061083765",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154_2.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154_2.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061106297",
@@ -2383,7 +3627,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061106297",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/160.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/160.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8411061057056",
@@ -2393,7 +3653,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061057056",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/162.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/162.jpg",
+    "notes": null
   },
   {
     "id": "ean-8411061002865",
@@ -2403,7 +3664,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "8411061002865",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061002865.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061002865.png",
+    "notes": null
   },
   {
     "id": "ean-3432240026750",
@@ -2413,7 +3675,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3432240026750",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/187.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/187.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3432240000989",
@@ -2423,7 +3701,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3432240000989",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/204.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/204.jpg",
+    "notes": null
   },
   {
     "id": "ean-3432240506283",
@@ -2433,7 +3712,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3432240506283",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/207.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/207.jpg",
+    "notes": null
   },
   {
     "id": "ean-3432240506214",
@@ -2443,7 +3723,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3432240506214",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/cartier_pasha_de_cartier_edition_noire_sport_eau_de_toilette_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/cartier_pasha_de_cartier_edition_noire_sport_eau_de_toilette_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-5050456006472",
@@ -2453,7 +3734,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "5050456006472",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-688575134490",
@@ -2463,7 +3745,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "688575134490",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/3/032.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/3/032.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616302038633",
@@ -2473,7 +3756,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616302038633",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_100ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_100ml_eau_de_parfum.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614220808840",
@@ -2483,7 +3782,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3614220808840",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614220808840.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614220808840.png",
+    "notes": null
   },
   {
     "id": "ean-3607346232385",
@@ -2493,7 +3793,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3607346232385",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_75ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_75ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614223111565",
@@ -2503,7 +3804,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614223111565",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shop-pf-02160-02-nomade-edp---chlo---50ml--1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shop-pf-02160-02-nomade-edp---chlo---50ml--1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614228235112",
@@ -2513,7 +3815,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614228235112",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616302923328_bab.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616302923328_bab.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614223113347",
@@ -2523,7 +3826,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614223113347",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614223113347-chloe-nomade-edp-75-ml--750x750.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614223113347-chloe-nomade-edp-75-ml--750x750.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614229395709",
@@ -2533,7 +3837,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614229395709",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe-nomade-jasmine-naturel-50ml.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe-nomade-jasmine-naturel-50ml.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616303477950",
@@ -2543,7 +3848,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3616303477950",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/1/218.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/1/218.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616303477943",
@@ -2553,7 +3859,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616303477943",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616303477943.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616303477943.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614223111404",
@@ -2563,7 +3870,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614223111404",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/o/nomade_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/o/nomade_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616303445584",
@@ -2573,7 +3881,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303445584",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_intense_eau_de_parfum_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_intense_eau_de_parfum_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616306110885",
@@ -2583,7 +3892,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616306110885",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_le_parfum_100ml_refillable_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_le_parfum_100ml_refillable_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-20714005887",
@@ -2593,7 +3903,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "20714005887",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/2/224.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/2/224.jpg",
+    "notes": null
   },
   {
     "id": "ean-20714156893",
@@ -2603,7 +3914,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "20714156893",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/230.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/230.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-20714170486",
@@ -2613,7 +3940,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "20714170486",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/3/037.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/3/037.jpg",
+    "notes": null
   },
   {
     "id": "ean-3508440505064",
@@ -2623,7 +3951,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3508440505064",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/235.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/235.jpg",
+    "notes": null
   },
   {
     "id": "ean-3414202011752",
@@ -2633,7 +3962,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414202011752",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/coolwater-women-by-davidoff-edt-spray-34-oz-100-ml-3414202011752_2_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/coolwater-women-by-davidoff-edt-spray-34-oz-100-ml-3414202011752_2_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3607347565321",
@@ -2643,7 +3973,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607347565321",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3k3f00mr80n4sxy4tmrz-c72d75a0-a6a9-4465-bb84-00064bffb2e0.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3k3f00mr80n4sxy4tmrz-c72d75a0-a6a9-4465-bb84-00064bffb2e0.png",
+    "notes": null
   },
   {
     "id": "ean-3607340188602",
@@ -2653,7 +3984,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3607340188602",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3607340188602.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3607340188602.png",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3414202000572",
@@ -2663,7 +4010,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3414202000572",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3k3e00mh80n4xqi8i949-fc1f0a15-0aae-4595-9b3c-00e89478b8f9.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3k3e00mh80n4xqi8i949-fc1f0a15-0aae-4595-9b3c-00e89478b8f9.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3607342359789",
@@ -2673,7 +4036,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607342359789",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/4/243.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/4/243.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614228174275",
@@ -2683,7 +4058,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3614228174275",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/a/davidoff-cool-water-intense-eau-de-parfum-uomo-125-ml.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/a/davidoff-cool-water-intense-eau-de-parfum-uomo-125-ml.jpg",
+    "notes": null
   },
   {
     "id": "ean-3605520385568",
@@ -2693,7 +4069,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605520385568",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/256.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/256.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3605521132499",
@@ -2703,7 +4095,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3605521132499",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel-loverdose-edp-75ml.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel-loverdose-edp-75ml.jpg",
+    "notes": null
   },
   {
     "id": "ean-4085400271003",
@@ -2713,7 +4106,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "4085400271003",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel-zero-plus-feminine.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel-zero-plus-feminine.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614273356053",
@@ -2723,7 +4132,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273356053",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273356053.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273356053.png",
+    "notes": null
   },
   {
     "id": "ean-3605522052826",
@@ -2733,7 +4143,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605522052826",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel_bad_eau_de_toilette_50ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel_bad_eau_de_toilette_50ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273693509",
@@ -2743,7 +4154,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273693509",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/-/d-by-diesel-eau-de-toilette_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/-/d-by-diesel-eau-de-toilette_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273694766",
@@ -2753,7 +4165,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273694766",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/252.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/252.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273924450",
@@ -2763,7 +4176,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273924450",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel-unisex-d-red-edp-spray-34-oz-fragrances-3614273924450_2.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel-unisex-d-red-edp-spray-34-oz-fragrances-3614273924450_2.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614272608603",
@@ -2773,7 +4187,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272608603",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/254.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/254.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3605521034014",
@@ -2783,7 +4213,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3605521034014",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/202506131549yfyx.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/202506131549yfyx.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614271673848",
@@ -2793,7 +4224,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614271673848",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/6/265.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/6/265.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614273476768",
@@ -2803,7 +4250,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3614273476768",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/7/277_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/7/277_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614272631885",
@@ -2813,7 +4276,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614272631885",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/8/280.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/8/280.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614274139341",
@@ -2823,7 +4287,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274139341",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel-only-the-brave-eau-de-parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel-only-the-brave-eau-de-parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-85715950444",
@@ -2833,7 +4298,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "85715950444",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/0/306.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/0/306.jpg",
+    "notes": null
   },
   {
     "id": "ean-85715950451",
@@ -2843,7 +4309,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "85715950451",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/0/306_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/0/306_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-85715950055",
@@ -2853,7 +4320,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "85715950055",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/312.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/312.jpg",
+    "notes": null
   },
   {
     "id": "ean-22548436783",
@@ -2863,7 +4331,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "22548436783",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/053.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/053.jpg",
+    "notes": null
   },
   {
     "id": "ean-763511009824",
@@ -2873,7 +4342,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "763511009824",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/051.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/051.jpg",
+    "notes": null
   },
   {
     "id": "ean-22548172971",
@@ -2883,7 +4353,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "22548172971",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/315.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/315.jpg",
+    "notes": null
   },
   {
     "id": "ean-22548355114",
@@ -2893,7 +4364,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "22548355114",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/319.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/319.jpg",
+    "notes": null
   },
   {
     "id": "ean-22548237564",
@@ -2903,7 +4375,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "22548237564",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/320.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/320.jpg",
+    "notes": null
   },
   {
     "id": "ean-85715950284",
@@ -2913,7 +4386,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "85715950284",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/326.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/326.jpg",
+    "notes": null
   },
   {
     "id": "ean-763511101238",
@@ -2923,7 +4397,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "763511101238",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/310_2.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/310_2.jpg",
+    "notes": null
   },
   {
     "id": "ean-8057971183739",
@@ -2933,7 +4408,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971183739",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/060.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/060.jpg",
+    "notes": null
   },
   {
     "id": "ean-8057971185474",
@@ -2943,7 +4419,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971185474",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/063.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/063.jpg",
+    "notes": null
   },
   {
     "id": "ean-8057971188291",
@@ -2953,7 +4430,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971188291",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/064.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/064.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052074320",
@@ -2963,7 +4441,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052074320",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/345.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/345.jpg",
+    "notes": null
   },
   {
     "id": "ean-8057971180325",
@@ -2973,7 +4452,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8057971180325",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/7/070.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/7/070.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-737052074313",
@@ -2983,7 +4478,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052074313",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/345_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/345_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423473032793",
@@ -2993,7 +4489,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3423473032793",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/357.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/357.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8057971181346",
@@ -3003,7 +4515,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8057971181346",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/357_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/357_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052263137",
@@ -3013,7 +4526,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052263137",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/363.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/363.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-737052074610",
@@ -3023,7 +4552,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052074610",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/7/075.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/7/075.jpg",
+    "notes": null
   },
   {
     "id": "ean-8054754403497",
@@ -3033,7 +4563,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8054754403497",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/366.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/366.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8057971183661",
@@ -3043,7 +4589,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971183661",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/367.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/367.jpg",
+    "notes": null
   },
   {
     "id": "ean-8057971185481",
@@ -3053,7 +4600,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971185481",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/369.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/369.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8057971187829",
@@ -3063,7 +4626,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971187829",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/371.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/371.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052020792",
@@ -3073,7 +4637,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052020792",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/372.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/372.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3423222018245",
@@ -3083,7 +4663,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423222018245",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/378.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/378.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423478452657",
@@ -3093,7 +4674,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423478452657",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/8/080.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/8/080.jpg",
+    "notes": null
   },
   {
     "id": "ean-8054754401059",
@@ -3103,7 +4685,15 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8054754401059",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/328.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/328.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Lavender",
+        "Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-8057971183913",
@@ -3113,7 +4703,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8057971183913",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_k_eau_de_toilette_200ml_spray.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_k_eau_de_toilette_200ml_spray.png",
+    "notes": null
   },
   {
     "id": "ean-3423473101253",
@@ -3123,7 +4714,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423473101253",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/334.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/334.jpg",
+    "notes": null
   },
   {
     "id": "ean-8054754400847",
@@ -3133,7 +4725,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8054754400847",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/005.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/005.jpg",
+    "notes": null
   },
   {
     "id": "ean-8057971183937",
@@ -3143,7 +4736,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8057971183937",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/006.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/006.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423473101154",
@@ -3153,7 +4747,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423473101154",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/066.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/066.jpg",
+    "notes": null
   },
   {
     "id": "ean-8054754400625",
@@ -3163,7 +4758,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8054754400625",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_k_intense_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_k_intense_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423473049456",
@@ -3173,7 +4769,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423473049456",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/338.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/338.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423473140252",
@@ -3183,7 +4780,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423473140252",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/068.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/068.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8057971187911",
@@ -3193,7 +4802,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971187911",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/340.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/340.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8054754405095",
@@ -3203,7 +4828,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8054754405095",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/342.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/342.jpg",
+    "notes": null
   },
   {
     "id": "ean-8057971188116",
@@ -3213,7 +4839,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971188116",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/361.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/361.jpg",
+    "notes": null
   },
   {
     "id": "ean-8057971188123",
@@ -3223,7 +4850,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8057971188123",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/23836foto.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/23836foto.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423473020776",
@@ -3233,7 +4861,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3423473020776",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_pour_homme_eau_de_toilette_125ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_pour_homme_eau_de_toilette_125ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-8057971180417",
@@ -3243,7 +4872,14 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8057971180417",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/008.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/008.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Lavender fairly quickly"
+      ]
+    }
   },
   {
     "id": "ean-737052872094",
@@ -3253,7 +4889,14 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "737052872094",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/365.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/365.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Lavender fairly quickly"
+      ]
+    }
   },
   {
     "id": "ean-8057971180547",
@@ -3263,7 +4906,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8057971180547",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_the_one_for_men_100ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_the_one_for_men_100ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423473021377",
@@ -3273,7 +4917,15 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3423473021377",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/375.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/375.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Lavender",
+        "Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-737052945699",
@@ -3283,7 +4935,15 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052945699",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/380.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/380.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Lavender",
+        "Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-737052672021",
@@ -3293,7 +4953,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "737052672021",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/_/d_g_the_one_m_edt_150ml_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/_/d_g_the_one_m_edt_150ml_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423473051756",
@@ -3303,7 +4964,15 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423473051756",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/382.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/382.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Lavender",
+        "Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-85715806352",
@@ -3313,7 +4982,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "85715806352",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/u/dunhill_icon_racing_blue_edp_100ml_.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/u/dunhill_icon_racing_blue_edp_100ml_.png",
+    "notes": null
   },
   {
     "id": "ean-85715806406",
@@ -3323,7 +4993,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "85715806406",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/u/dunhill_icon_racing_green_edp_100ml_.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/u/dunhill_icon_racing_green_edp_100ml_.png",
+    "notes": null
   },
   {
     "id": "ean-085715806345",
@@ -3333,7 +5004,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085715806345",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/385.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/385.jpg",
+    "notes": null
   },
   {
     "id": "ean-3139420225018",
@@ -3343,7 +5015,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3139420225018",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-4035773552513",
@@ -3353,7 +5026,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "4035773552513",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-7640233341414",
@@ -3363,7 +5037,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640233341414",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/388.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/388.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3423473996859",
@@ -3373,7 +5059,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423473996859",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/9/390.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/9/390.jpg",
+    "notes": null
   },
   {
     "id": "ean-085805785345",
@@ -3383,7 +5070,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805785345",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-085805757748",
@@ -3393,7 +5081,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805757748",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-85805210458",
@@ -3403,7 +5092,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "85805210458",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/e/l/elizabeth_arden_white_tea_eau_de_toilette_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/e/l/elizabeth_arden_white_tea_eau_de_toilette_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-5060103310012",
@@ -3413,7 +5103,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060103310012",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/400.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/400.jpg",
+    "notes": null
   },
   {
     "id": "ean-27131086871",
@@ -3423,7 +5114,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "27131086871",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/403.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/403.jpg",
+    "notes": null
   },
   {
     "id": "ean-27131006534",
@@ -3433,7 +5125,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "27131006534",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/407.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/407.jpg",
+    "notes": null
   },
   {
     "id": "ean-027131595045",
@@ -3443,7 +5136,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "027131595045",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/1/413.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/1/413.jpg",
+    "notes": null
   },
   {
     "id": "ean-027131521433",
@@ -3453,7 +5147,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "027131521433",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-887167095915",
@@ -3463,7 +5158,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "887167095915",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-027131020424",
@@ -3473,7 +5169,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "027131020424",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3614273604888",
@@ -3483,7 +5180,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273604888",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/r/armani_si_passione_eclat_100ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/r/armani_si_passione_eclat_100ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-3360372061809",
@@ -3493,7 +5191,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360372061809",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441.jpg",
+    "notes": null
   },
   {
     "id": "ean-3360372061793",
@@ -3503,7 +5202,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360372061793",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614272907676",
@@ -3513,7 +5213,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272907676",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/352_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/352_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614272907690",
@@ -3523,7 +5224,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614272907690",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/350_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/350_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3605521816658",
@@ -3533,7 +5235,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605521816658",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/product_2025-389.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/product_2025-389.png",
+    "notes": null
   },
   {
     "id": "ean-3614274692778",
@@ -3543,7 +5246,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274692778",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/5/450_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/5/450_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-8431240098021",
@@ -3553,7 +5257,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "8431240098021",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/giorgio_armani_si_150ml_eau_de_parfum_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/giorgio_armani_si_150ml_eau_de_parfum_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614271994844",
@@ -3563,7 +5268,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614271994844",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614271994844.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614271994844.png",
+    "notes": null
   },
   {
     "id": "ean-3614273953849",
@@ -3573,7 +5279,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273953849",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prof.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prof.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614274219579",
@@ -3583,7 +5290,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274219579",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/t/str.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/t/str.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614271992727",
@@ -3593,7 +5301,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3614271992727",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/9/394.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/9/394.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614272225718",
@@ -3603,7 +5312,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272225718",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/9/090.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/9/090.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3360372058878",
@@ -3613,7 +5334,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360372058878",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/2/422.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/2/422.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614272865242",
@@ -3623,7 +5360,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3614272865242",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/3/431.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/3/431.jpg",
+    "notes": null
   },
   {
     "id": "ean-3360372061830",
@@ -3633,7 +5371,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360372061830",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/103_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/103_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273628983",
@@ -3643,7 +5382,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273628983",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/e/m/emporio_armani_stronger_with_you_only_eau_de_toilette_150ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/e/m/emporio_armani_stronger_with_you_only_eau_de_toilette_150ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614274752717",
@@ -3653,7 +5393,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274752717",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/r/armani_emporia_armani_power_of_you_eau_de_parfum_90ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/a/r/armani_emporia_armani_power_of_you_eau_de_parfum_90ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872428058",
@@ -3663,7 +5404,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872428058",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_rouge_eau_de_parfum_80ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_rouge_eau_de_parfum_80ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274878122561",
@@ -3673,7 +5415,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274878122561",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/6/462.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/6/462.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3274870373268",
@@ -3683,7 +5441,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274870373268",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/6/463.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/6/463.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3274870373251",
@@ -3693,7 +5467,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274870373251",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/6/466.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/6/466.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274870002717",
@@ -3703,7 +5478,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274870002717",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/470.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/470.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274870002694",
@@ -3713,7 +5489,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274870002694",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/e/le_secret50ml.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/e/le_secret50ml.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872451148",
@@ -3723,7 +5500,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872451148",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/475.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/475.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274879282363",
@@ -3733,7 +5511,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274879282363",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/490_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/490_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872428744",
@@ -3743,7 +5522,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872428744",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/500.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/500.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872419315",
@@ -3753,7 +5533,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872419315",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/502.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/502.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872447561",
@@ -3763,7 +5544,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872447561",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/505.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/505.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872469013",
@@ -3773,7 +5555,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872469013",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/507.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/507.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872473669",
@@ -3783,7 +5566,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872473669",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_absolu_35ml_eau_de_parfum_intense.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_absolu_35ml_eau_de_parfum_intense.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3274872372153",
@@ -3793,7 +5592,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872372153",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61r_mpn1fsl.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61r_mpn1fsl.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872415720",
@@ -3803,7 +5603,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872415720",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/255_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/255_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872506442",
@@ -3813,7 +5614,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872506442",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/1/4101129w_p.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/1/4101129w_p.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3274872428034",
@@ -3823,7 +5640,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872428034",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/105_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/105_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3274872428041",
@@ -3833,7 +5666,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872428041",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_rouge_50ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_rouge_50ml_eau_de_parfum.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3274872456334",
@@ -3843,7 +5692,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872456334",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/509.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/509.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3274872456341",
@@ -3853,7 +5714,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872456341",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/511.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/511.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872456686",
@@ -3863,7 +5725,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872456686",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/513.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/513.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3274870042362",
@@ -3873,7 +5751,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274870042362",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/515.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/515.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3274870303364",
@@ -3883,7 +5777,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274870303364",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/473.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/473.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872451698",
@@ -3893,7 +5788,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3274872451698",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/480.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/480.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872425002",
@@ -3903,7 +5799,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3274872425002",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/486.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/486.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3274872368026",
@@ -3913,7 +5825,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872368026",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/487.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/487.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872424982",
@@ -3923,7 +5836,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3274872424982",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/487_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/487_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3274871935861",
@@ -3933,7 +5862,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274871935861",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/491.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/491.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3274872422995",
@@ -3943,7 +5888,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3274872422995",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872439078",
@@ -3953,7 +5899,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872439078",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/e/gentleman_reserve_privee.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/e/gentleman_reserve_privee.png",
+    "notes": null
   },
   {
     "id": "ean-3274872467965",
@@ -3963,7 +5910,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872467965",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872272897",
@@ -3973,7 +5921,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872272897",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494_2.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494_2.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274870012136",
@@ -3983,7 +5932,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274870012136",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy-gentlemen-only-edt-100ml-2023-1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy-gentlemen-only-edt-100ml-2023-1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872495586",
@@ -3993,7 +5943,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872495586",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/114774.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/114774.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872479753",
@@ -4003,7 +5954,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872479753",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_irresistible_nude_velvet_eau_de_parfum_80ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_irresistible_nude_velvet_eau_de_parfum_80ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872411678",
@@ -4013,7 +5965,22 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872411678",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/_/l_interdit_intense_35ml_.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/_/l_interdit_intense_35ml_.png",
+    "notes": {
+      "top": [
+        "Black Pepper"
+      ],
+      "middle": [
+        "Tuberose",
+        "Orange Blossom"
+      ],
+      "base": [
+        "Sesame",
+        "Madagascan Vanilla",
+        "Patchouli",
+        "Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-3274872480810",
@@ -4023,7 +5990,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872480810",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_gentleman_society_ambree_eau_de_parfum_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_gentleman_society_ambree_eau_de_parfum_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872495494",
@@ -4033,7 +6001,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872495494",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_parfum_80ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_parfum_80ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872441989",
@@ -4043,7 +6012,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872441989",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_eau_de_toilette_80ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_eau_de_toilette_80ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872480407",
@@ -4053,7 +6023,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3274872480407",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_gentleman_society_extreme_eau_de_parfum_200ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_gentleman_society_extreme_eau_de_parfum_200ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052925073",
@@ -4063,7 +6034,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052925073",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/1677181408_874110-d5b71fe697dd851ade05fb5d6021.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/1677181408_874110-d5b71fe697dd851ade05fb5d6021.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052925127",
@@ -4073,7 +6045,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052925127",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/112_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/112_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8005610481005",
@@ -4083,7 +6071,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8005610481005",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8005610481005.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8005610481005.jpg",
+    "notes": null
   },
   {
     "id": "ean-8005610481043",
@@ -4093,7 +6082,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8005610481043",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_bloom_50ml_edp_spray.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_bloom_50ml_edp_spray.png",
+    "notes": null
   },
   {
     "id": "ean-3616305275745",
@@ -4103,7 +6093,20 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616305275745",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305275745.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305275745.png",
+    "notes": {
+      "top": [
+        "Mandarin Essence"
+      ],
+      "middle": [
+        "Gardenia Accord",
+        "Hedione"
+      ],
+      "base": [
+        "Woody",
+        "Gourmand"
+      ]
+    }
   },
   {
     "id": "ean-3616304255243",
@@ -4113,7 +6116,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3616304255243",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/a/gardenia_150mledp.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/a/gardenia_150mledp.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3616303048181",
@@ -4123,7 +6142,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303048181",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/533.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/533.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616304255250",
@@ -4133,7 +6153,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3616304255250",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/f/df2bdb4da05b6374e4d0d949da7629b109c61d89cd830d229081516b3573ceaa.jpeg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/f/df2bdb4da05b6374e4d0d949da7629b109c61d89cd830d229081516b3573ceaa.jpeg",
+    "notes": null
   },
   {
     "id": "ean-3616302968534",
@@ -4143,7 +6164,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616302968534",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1470388-gucci-flora-gorgeous-jasmine-eau-de-parfum-50-ml.6bc70226.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1470388-gucci-flora-gorgeous-jasmine-eau-de-parfum-50-ml.6bc70226.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616303470791",
@@ -4153,7 +6175,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303470791",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/535.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/535.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3616303470906",
@@ -4163,7 +6201,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616303470906",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/535_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/535_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616305169273",
@@ -4173,7 +6212,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616305169273",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/539.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/539.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3616305169259",
@@ -4183,7 +6238,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616305169259",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305169259.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305169259.png",
+    "notes": null
   },
   {
     "id": "ean-3616305278319",
@@ -4193,7 +6249,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616305278319",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/541.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/541.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616305169266",
@@ -4203,7 +6260,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616305169266",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305169266_w_1000_h_1000_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305169266_w_1000_h_1000_.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614227575981",
@@ -4213,7 +6286,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3614227575981",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/543.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/543.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616301794639",
@@ -4223,7 +6297,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3616301794639",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/544.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/544.jpg",
+    "notes": null
   },
   {
     "id": "ean-8005610524177",
@@ -4233,7 +6308,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "8005610524177",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci-guilty-absolute-pour-femme-eau-de-parfum-spray-90ml8005610524177guccilookincredible-808533__56789.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci-guilty-absolute-pour-femme-eau-de-parfum-spray-90ml8005610524177guccilookincredible-808533__56789.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614227758162",
@@ -4243,7 +6319,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614227758162",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/548.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/548.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616301976141",
@@ -4253,7 +6330,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3616301976141",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/550.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/550.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616304175916",
@@ -4263,7 +6341,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3616304175916",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/552.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/552.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616301794646",
@@ -4273,7 +6352,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616301794646",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/555.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/555.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8005610328799",
@@ -4283,7 +6378,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8005610328799",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/6/560.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/6/560.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614229382129",
@@ -4293,7 +6404,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614229382129",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucciguiltyhomme90mledp_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucciguiltyhomme90mledp_.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052924922",
@@ -4303,7 +6415,14 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "737052924922",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/554.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/554.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Citrus up front"
+      ]
+    }
   },
   {
     "id": "ean-737052339047",
@@ -4313,7 +6432,14 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "737052339047",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/558.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/558.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Citrus up front"
+      ]
+    }
   },
   {
     "id": "ean-3616301794608",
@@ -4323,7 +6449,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3616301794608",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_guilty_pour_homme_parfum_90ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_guilty_pour_homme_parfum_90ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-8005610328256",
@@ -4333,7 +6460,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "8005610328256",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/122.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/122.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616303470869",
@@ -4343,7 +6471,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616303470869",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_flora_gorgeous_magnolia_eau_de_parfum_30ml_spray_b.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_flora_gorgeous_magnolia_eau_de_parfum_30ml_spray_b.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616305275769",
@@ -4353,7 +6482,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616305275769",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_flora_gorgeous_gardenia_intense_eau_de_parfum_30ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_flora_gorgeous_gardenia_intense_eau_de_parfum_30ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616305275752",
@@ -4363,7 +6493,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616305275752",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_flora_gorgeous_gardenia_intense_eau_de_parfum_50ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_flora_gorgeous_gardenia_intense_eau_de_parfum_50ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616305278289",
@@ -4373,7 +6504,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616305278289",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305278289.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305278289.png",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3616305838209",
@@ -4383,7 +6530,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616305838209",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci-ladies-gucci-flora-gorgeous-gardenia-gift-set-fragrances-3616305448019.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci-ladies-gucci-flora-gorgeous-gardenia-gift-set-fragrances-3616305448019.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3616307112338",
@@ -4393,7 +6556,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616307112338",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616307112338.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616307112338.png",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3346470143876",
@@ -4403,7 +6582,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3346470143876",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/6/563.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/6/563.jpg",
+    "notes": null
   },
   {
     "id": "ean-3346470143999",
@@ -4413,7 +6593,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3346470143999",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/6/76296469_o.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/6/76296469_o.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3346470131408",
@@ -4423,7 +6619,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3346470131408",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shop-pf-01913-03-mon-guerlain-edp---100ml--1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shop-pf-01913-03-mon-guerlain-edp---100ml--1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3346470145276",
@@ -4433,7 +6630,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3346470145276",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/o/mon_gs.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/o/mon_gs.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3346470147720",
@@ -4443,7 +6656,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3346470147720",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shaliamr_gs.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shaliamr_gs.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3346470113558",
@@ -4453,7 +6682,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3346470113558",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shali_edp.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shali_edp.jpg",
+    "notes": null
   },
   {
     "id": "ean-3346470113626",
@@ -4463,7 +6693,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3346470113626",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shal_edt.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shal_edt.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3346470147423",
@@ -4473,7 +6715,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3346470147423",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/o/rosa_1_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/o/rosa_1_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3346470114746",
@@ -4483,7 +6737,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3346470114746",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/guerlain_la_petite_robe_noire_eau_de_toilette_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/guerlain_la_petite_robe_noire_eau_de_toilette_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3346133200021",
@@ -4493,7 +6748,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "3346133200021",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3346133200021.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3346133200021.png",
+    "notes": null
   },
   {
     "id": "ean-3616302968237",
@@ -4503,7 +6759,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616302968237",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/4/645.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/4/645.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-737052238128",
@@ -4513,7 +6785,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052238128",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/675.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/675.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-737052041247",
@@ -4523,7 +6811,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "737052041247",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/691.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/691.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052041353",
@@ -4533,7 +6822,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052041353",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/695.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/695.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052802800",
@@ -4543,7 +6833,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052802800",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/704.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/704.jpg",
+    "notes": null
   },
   {
     "id": "ean-730870196885",
@@ -4553,7 +6844,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "730870196885",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/743_perfume-hugo-boss-the-scent-fem-100ml---730870196885.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/743_perfume-hugo-boss-the-scent-fem-100ml---730870196885.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3616306690240",
@@ -4563,7 +6866,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3616306690240",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/707.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/707.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052130729",
@@ -4573,7 +6877,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052130729",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/m/images.jpeg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/m/images.jpeg",
+    "notes": null
   },
   {
     "id": "ean-3614229828535",
@@ -4583,7 +6888,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614229828535",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/650.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/650.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052351100",
@@ -4593,7 +6899,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052351100",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/657.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/657.jpg",
+    "notes": null
   },
   {
     "id": "ean-8005610460598",
@@ -4603,7 +6910,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8005610460598",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8005610460598.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8005610460598.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052189765",
@@ -4613,7 +6921,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "737052189765",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/660.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/660.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052351018",
@@ -4623,7 +6932,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052351018",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/662.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/662.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614228220897",
@@ -4633,7 +6943,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614228220897",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/665.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/665.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052352060",
@@ -4643,7 +6954,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052352060",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/667.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/667.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052488257",
@@ -4653,7 +6965,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "737052488257",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/668.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/668.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616303173098",
@@ -4663,7 +6976,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303173098",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo_boss_boss_bottled_100ml_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo_boss_boss_bottled_100ml_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616305265180",
@@ -4673,7 +6987,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616305265180",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/670.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/670.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-737052766775",
@@ -4683,7 +7013,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052766775",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/672.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/672.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616304691645",
@@ -4693,7 +7024,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616304691645",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/683.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/683.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616304691652",
@@ -4703,7 +7035,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616304691652",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/685.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/685.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-737052031415",
@@ -4713,7 +7061,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052031415",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/162_2.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/162_2.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616301623373",
@@ -4723,7 +7072,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3616301623373",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/690.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/690.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052515045",
@@ -4733,7 +7083,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "737052515045",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/697.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/697.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616304062483",
@@ -4743,7 +7094,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3616304062483",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/700.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/700.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614228902106",
@@ -4753,7 +7120,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614228902106",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/705.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/705.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-737052130934",
@@ -4763,7 +7146,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052130934",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200_3.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200_3.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616304062490",
@@ -4773,7 +7157,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3616304062490",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo_boss_jeans_eau_de_toilette_125ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo_boss_jeans_eau_de_toilette_125ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616306721746",
@@ -4783,7 +7168,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3616306721746",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo_boss_hugo_woman_eau_de_parfum_75ml_spray_.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo_boss_hugo_woman_eau_de_parfum_75ml_spray_.png",
+    "notes": null
   },
   {
     "id": "ean-737052351155",
@@ -4793,7 +7179,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052351155",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3423478501058",
@@ -4803,7 +7190,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423478501058",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/3423478501058.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/3423478501058.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3423470300161",
@@ -4813,7 +7212,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423470300161",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/716.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/716.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3423478974654",
@@ -4823,7 +7238,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423478974654",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_fusion_d_issey_eau_de_toilette_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_fusion_d_issey_eau_de_toilette_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423474867158",
@@ -4833,7 +7249,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423474867158",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/721.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/721.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [
+        "Spices",
+        "Lavender"
+      ],
+      "base": [
+        "Cedarwood",
+        "Vetiver",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3423470311365",
@@ -4843,7 +7275,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3423470311365",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/723.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/723.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423470485448",
@@ -4853,7 +7286,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3423470485448",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/729.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/729.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423470311358",
@@ -4863,7 +7297,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423470311358",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12263769-1605185921623162.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12263769-1605185921623162.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [
+        "Spices",
+        "Lavender"
+      ],
+      "base": [
+        "Cedarwood",
+        "Vetiver",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3423222048044",
@@ -4873,7 +7323,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222048044",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423222119485",
@@ -4883,7 +7334,14 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222119485",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/e/le_sel.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/e/le_sel.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Enveloping oakmoss"
+      ]
+    }
   },
   {
     "id": "ean-3423470486025",
@@ -4893,7 +7351,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423470486025",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_l_eau_d_issey_pour_homme_intense_eau_de_toilette_75ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_l_eau_d_issey_pour_homme_intense_eau_de_toilette_75ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423470317169",
@@ -4903,7 +7362,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423470317169",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/742.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/742.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415017718",
@@ -4913,7 +7373,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415017718",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/168_2.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/168_2.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8435415081184",
@@ -4923,7 +7395,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415081184",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415081184.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415081184.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423470317152",
@@ -4933,7 +7406,31 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423470317152",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/744.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/744.jpg",
+    "notes": {
+      "top": [
+        "Rose",
+        "Pear",
+        "Star Anise",
+        "Bergamot",
+        "Mandarin Orange",
+        "Orange Blossom"
+      ],
+      "middle": [
+        "Ylang-Ylang",
+        "Orchid",
+        "Plum",
+        "Tuberose",
+        "Ginger",
+        "Iris"
+      ],
+      "base": [
+        "Sandalwood",
+        "Cinnamon",
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8435415076838",
@@ -4943,7 +7440,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415076838",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/748.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/748.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8435415077576",
@@ -4953,7 +7462,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415077576",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/e/jean-paul-gaultier-ladies-divine-gift-set-fragrances-8435415112987.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/e/jean-paul-gaultier-ladies-divine-gift-set-fragrances-8435415112987.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415092067",
@@ -4963,7 +7473,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415092067",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/750.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/750.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415091169",
@@ -4973,7 +7484,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415091169",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/753.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/753.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415017244",
@@ -4983,7 +7495,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415017244",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/755.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/755.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415017237",
@@ -4993,7 +7506,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8435415017237",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/757.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/757.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415017213",
@@ -5003,7 +7517,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415017213",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/759.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/759.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415049542",
@@ -5013,7 +7528,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415049542",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415049542.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415049542.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415091251",
@@ -5023,7 +7539,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415091251",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/6/766.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/6/766.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415080415",
@@ -5033,7 +7550,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415080415",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/801.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/801.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415080422",
@@ -5043,7 +7561,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8435415080422",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/801_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/801_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415085168",
@@ -5053,7 +7572,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8435415085168",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415098953_bab.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415098953_bab.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415054041",
@@ -5063,7 +7583,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8435415054041",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/810.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/810.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415017206",
@@ -5073,7 +7594,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415017206",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/770.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/770.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415102537",
@@ -5083,7 +7605,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415102537",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/7/170_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/7/170_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415091275",
@@ -5093,7 +7616,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415091275",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/775.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/775.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423470317534",
@@ -5103,7 +7627,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3423470317534",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/779.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/779.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415103268",
@@ -5113,7 +7638,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415103268",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/773.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/773.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415065702",
@@ -5123,7 +7649,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415065702",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/8/783.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/8/783.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423470475852",
@@ -5133,7 +7660,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3423470475852",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/8/786.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/8/786.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415102353",
@@ -5143,7 +7671,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8435415102353",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415102339",
@@ -5153,7 +7682,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415102339",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/794.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/794.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415076944",
@@ -5163,7 +7693,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415076944",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/796.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/796.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8435415076906",
@@ -5173,7 +7719,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8435415076906",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/796_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/796_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415032390",
@@ -5183,7 +7730,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415032390",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415032360",
@@ -5193,7 +7741,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8435415032360",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8435415032278",
@@ -5203,7 +7767,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415032278",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1_2.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1_2.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415012027",
@@ -5213,7 +7778,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415012027",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/793.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/793.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415014328",
@@ -5223,7 +7789,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8435415014328",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/793_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/793_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8435415080385",
@@ -5233,7 +7815,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415080385",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/804.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/804.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415080392",
@@ -5243,7 +7826,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "8435415080392",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/804_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/804_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [
+        "Spices",
+        "Lavender"
+      ],
+      "base": []
+    }
   },
   {
     "id": "ean-8435415055963",
@@ -5253,7 +7848,20 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "8435415055963",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/811.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/811.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [],
+      "base": [
+        "Cedarwood",
+        "Vetiver",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8435415065191",
@@ -5263,7 +7871,16 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435415065191",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/812_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/812_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "ean-8435415065214",
@@ -5273,7 +7890,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "8435415065214",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/815.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/815.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [
+        "Spices",
+        "Lavender"
+      ],
+      "base": [
+        "Cedarwood",
+        "Vetiver",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8435415115094",
@@ -5283,7 +7916,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 10,
     "ean": "8435415115094",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/e/jean_paul_gaultier_la_belle_rosea_eau_de_parfum_10ml_mini_bab.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/e/jean_paul_gaultier_la_belle_rosea_eau_de_parfum_10ml_mini_bab.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435415117487",
@@ -5293,7 +7927,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 7,
     "ean": "8435415117487",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/e/jean_paul_gaultier_le_beau_narcisse_eau_de_parfum_7ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/e/jean_paul_gaultier_le_beau_narcisse_eau_de_parfum_7ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460072625",
@@ -5303,7 +7938,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460072625",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3386460072588",
@@ -5313,7 +7949,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460072588",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3386460025485",
@@ -5323,7 +7960,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460025485",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460025508",
@@ -5333,7 +7982,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460025508",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/830.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/830.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460097321",
@@ -5343,7 +8008,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460097321",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460097321.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460097321.png",
+    "notes": null
   },
   {
     "id": "ean-3386460048118",
@@ -5353,7 +8019,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460048118",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/834.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/834.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460119252",
@@ -5363,7 +8030,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460119252",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/o/p/open-box-jimmy-choo-ladies-i-want-choo-edp-spray-34-oz-fragrances-3386460119252.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/o/p/open-box-jimmy-choo-ladies-i-want-choo-edp-spray-34-oz-fragrances-3386460119252.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460167338",
@@ -5373,7 +8056,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460167338",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/1/218711.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/1/218711.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460119276",
@@ -5383,7 +8067,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460119276",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/182_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/182_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460119269",
@@ -5393,7 +8078,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460119269",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/836_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/836_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460129879",
@@ -5403,7 +8089,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460129879",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/e/perfume_21nov_25282450.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/e/perfume_21nov_25282450.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460142038",
@@ -5413,7 +8100,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 10,
     "ean": "3386460142038",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/854.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/854.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460142014",
@@ -5423,7 +8111,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460142014",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/i/jimmy-choo-i-want-choo-le-parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/i/jimmy-choo-i-want-choo-le-parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460071727",
@@ -5433,7 +8122,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460071727",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/858.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/858.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460071734",
@@ -5443,7 +8133,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460071734",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/6/863.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/6/863.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460075343",
@@ -5453,7 +8159,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460075343",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/6/865.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/6/865.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460025478",
@@ -5463,7 +8170,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460025478",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/c/screenshot_2026-05-13_at_15.34.48.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/c/screenshot_2026-05-13_at_15.34.48.png",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460146128",
@@ -5473,7 +8196,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460146128",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/870.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/870.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460135245",
@@ -5483,7 +8207,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460135245",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/873.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/873.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460129848",
@@ -5493,7 +8218,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460129848",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/874.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/874.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460064118",
@@ -5503,7 +8229,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460064118",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/877.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/877.jpg",
+    "notes": null
   },
   {
     "id": "ean-8436034348108",
@@ -5513,7 +8240,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8436034348108",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/879.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/879.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460073233",
@@ -5523,7 +8251,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460073233",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/880.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/880.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460148719",
@@ -5533,7 +8262,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460148719",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/882.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/882.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460151085",
@@ -5543,7 +8273,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460151085",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/882_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/882_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460048125",
@@ -5553,7 +8284,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460048125",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460048125.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460048125.png",
+    "notes": null
   },
   {
     "id": "ean-3386460160827",
@@ -5563,7 +8295,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460160827",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/i/jimmy_choo_i_want_choo_with_love_eau_de_parfum_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/i/jimmy_choo_i_want_choo_with_love_eau_de_parfum_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-690251028412",
@@ -5573,7 +8306,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "690251028412",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/897.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/897.jpg",
+    "notes": null
   },
   {
     "id": "ean-690251082780",
@@ -5583,7 +8317,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "690251082780",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/899.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/899.jpg",
+    "notes": null
   },
   {
     "id": "ean-690251081141",
@@ -5593,7 +8328,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "690251081141",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/jo_malone_mimosa_cardamom_eau_de_cologne_spray_100ml.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/jo_malone_mimosa_cardamom_eau_de_cologne_spray_100ml.png",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-690251026104",
@@ -5603,7 +8354,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "690251026104",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/jo_malone_blackberry_bay_100ml_eau_de_cologne.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/jo_malone_blackberry_bay_100ml_eau_de_cologne.jpg",
+    "notes": null
   },
   {
     "id": "ean-690251122363",
@@ -5613,7 +8365,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "690251122363",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/9/190_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/9/190_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-690251147182",
@@ -5623,7 +8376,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "690251147182",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/890.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/890.jpg",
+    "notes": null
   },
   {
     "id": "ean-690251146451",
@@ -5633,7 +8387,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "690251146451",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/893.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/893.jpg",
+    "notes": null
   },
   {
     "id": "ean-690251000043",
@@ -5643,7 +8398,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "690251000043",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/2309599_cdetailimage01.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/2309599_cdetailimage01.jpg",
+    "notes": null
   },
   {
     "id": "ean-690251033713",
@@ -5653,7 +8409,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "690251033713",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/2360928_cdetailimage01.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/2360928_cdetailimage01.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-690251081073",
@@ -5663,7 +8435,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "690251081073",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/900.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/900.jpg",
+    "notes": null
   },
   {
     "id": "ean-690251122332",
@@ -5673,7 +8446,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "690251122332",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/9/196_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/9/196_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-690251126682",
@@ -5683,7 +8457,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "690251126682",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/9/199.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/9/199.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-690251121663",
@@ -5693,7 +8483,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "690251121663",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/200_1_2.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/200_1_2.jpg",
+    "notes": null
   },
   {
     "id": "ean-690251122424",
@@ -5703,7 +8494,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "690251122424",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/204_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/204_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-690251021734",
@@ -5713,7 +8516,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "690251021734",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/201_3_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/201_3_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-690251126675",
@@ -5723,7 +8527,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "690251126675",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/jo_malone_scarlet_poppy_eau_de_cologne_intense_50ml.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/jo_malone_scarlet_poppy_eau_de_cologne_intense_50ml.jpg",
+    "notes": null
   },
   {
     "id": "ean-690251057016",
@@ -5733,7 +8538,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "690251057016",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/690251057016_0.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/690251057016_0.jpg",
+    "notes": null
   },
   {
     "id": "ean-690251009015",
@@ -5743,7 +8549,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "690251009015",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/89332390_o.jpeg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/89332390_o.jpeg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3414206000059",
@@ -5753,7 +8575,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414206000059",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/901.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/901.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3414206000165",
@@ -5763,7 +8597,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3414206000165",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/204_1_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/204_1_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614222398264",
@@ -5773,7 +8608,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3614222398264",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614222398264.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614222398264.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614224907297",
@@ -5783,7 +8634,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 120,
     "ean": "3614224907297",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_homme_absolute_for_him_120ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_homme_absolute_for_him_120ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-3414206000608",
@@ -5793,7 +8645,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3414206000608",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_homme_eau_de_toilette_125ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_homme_eau_de_toilette_125ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3607345809915",
@@ -5803,7 +8656,14 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607345809915",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/903.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/903.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Lavender fairly quickly"
+      ]
+    }
   },
   {
     "id": "ean-3607345849867",
@@ -5813,7 +8673,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3607345849867",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/905.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/905.jpg",
+    "notes": null
   },
   {
     "id": "ean-3607347392637",
@@ -5823,7 +8684,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607347392637",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_jump_edt_200ml_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_jump_edt_200ml_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614228858045",
@@ -5833,7 +8695,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3614228858045",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_homme_eau_de_parfum_125ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_homme_eau_de_parfum_125ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3414206000615",
@@ -5843,7 +8706,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3414206000615",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-98691036491",
@@ -5853,7 +8717,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "98691036491",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/900_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/900_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-719346232890",
@@ -5863,7 +8728,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346232890",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/u/juicy_couture_oui_eau_de_parfum_100ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/u/juicy_couture_oui_eau_de_parfum_100ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872404113",
@@ -5873,7 +8739,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3274872404113",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3352818718019",
@@ -5883,7 +8750,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3352818718019",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/1/914.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/1/914.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872427204",
@@ -5893,7 +8761,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872427204",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/x/gxp-11638.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/x/gxp-11638.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872441798",
@@ -5903,7 +8772,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872441798",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/1/916.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/1/916.jpg",
+    "notes": null
   },
   {
     "id": "ean-3274872289994",
@@ -5913,7 +8783,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872289994",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/1/918.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/1/918.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3616302931781",
@@ -5923,7 +8809,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3616302931781",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-737052949215",
@@ -5933,7 +8820,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "737052949215",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/2/922.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/2/922.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052191324",
@@ -5943,7 +8831,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "737052191324",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/2/924.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/2/924.jpg",
+    "notes": null
   },
   {
     "id": "ean-8005610521220",
@@ -5953,7 +8842,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8005610521220",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lacoste-mens-lhomme-edt-spray-33-oz-100-ml-8005610521220_2.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lacoste-mens-lhomme-edt-spray-33-oz-100-ml-8005610521220_2.jpg",
+    "notes": null
   },
   {
     "id": "ean-737052191331",
@@ -5963,7 +8853,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052191331",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lacoste_touch_of_pink_eau_de_toilette_50ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lacoste_touch_of_pink_eau_de_toilette_50ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273069175",
@@ -5973,7 +8864,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273069175",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/942.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/942.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614273950718",
@@ -5983,7 +8890,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273950718",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/944.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/944.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614272629370",
@@ -5993,7 +8901,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272629370",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/945.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/945.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3605533315347",
@@ -6003,7 +8927,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3605533315347",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/947.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/947.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614273650403",
@@ -6013,7 +8953,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273650403",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/5/950.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/5/950.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614274068818",
@@ -6023,7 +8979,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274068818",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/5/953.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/5/953.jpg",
+    "notes": null
   },
   {
     "id": "ean-3605533286555",
@@ -6033,7 +8990,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605533286555",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/960.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/960.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614272520875",
@@ -6043,7 +9016,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272520875",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/961.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/961.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614272520868",
@@ -6053,7 +9027,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272520868",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/964.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/964.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614274169706",
@@ -6063,7 +9038,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274169706",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/965.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/965.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614274104370",
@@ -6073,7 +9064,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274104370",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome-la-vie-est-belle-rose-extraordinaire-eau-de-parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome-la-vie-est-belle-rose-extraordinaire-eau-de-parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273357203",
@@ -6083,7 +9075,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273357203",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_la_vie_est_belle_soleil_cristal_50ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_la_vie_est_belle_soleil_cristal_50ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-3147758029390",
@@ -6093,7 +9086,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3147758029390",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/969.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/969.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3147758155112",
@@ -6103,7 +9112,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3147758155112",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_perfume_women_poeme_eau_de_parfum_edp_100ml.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_perfume_women_poeme_eau_de_parfum_edp_100ml.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3147758034929",
@@ -6113,7 +9138,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3147758034929",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/971.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/971.jpg",
+    "notes": null
   },
   {
     "id": "ean-3147758034905",
@@ -6123,7 +9149,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3147758034905",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-edp-vapo-50ml-lancome-1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-edp-vapo-50ml-lancome-1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3605532423203",
@@ -6133,7 +9160,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605532423203",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-midnight-rose-w.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-midnight-rose-w.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614272964679",
@@ -6143,7 +9186,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272964679",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_la_vie_est_belle_intensement_eau_de_parfum_50ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_la_vie_est_belle_intensement_eau_de_parfum_50ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386461515619",
@@ -6153,7 +9197,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386461515619",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/973.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/973.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386461515671",
@@ -6163,7 +9208,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386461515671",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/975.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/975.jpg",
+    "notes": null
   },
   {
     "id": "ean-3760265190485",
@@ -6173,7 +9219,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 120,
     "ean": "3760265190485",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/979.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/979.jpg",
+    "notes": null
   },
   {
     "id": "ean-3607349764241",
@@ -6183,7 +9230,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607349764241",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/981.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/981.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-31655513034",
@@ -6193,7 +9256,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "31655513034",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_100ml_eau_de_toilette.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_100ml_eau_de_toilette.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614229159035",
@@ -6203,7 +9267,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614229159035",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/984.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/984.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-31655513027",
@@ -6213,7 +9293,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "31655513027",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/8147329_r_set.jpeg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/8147329_r_set.jpeg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3607342221208",
@@ -6223,7 +9319,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3607342221208",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/990.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/990.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3607342221161",
@@ -6233,7 +9341,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3607342221161",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marcj-daisy-eau-so-fresh-edt-125ml-1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marcj-daisy-eau-so-fresh-edt-125ml-1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3616301776024",
@@ -6243,7 +9367,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616301776024",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/992.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/992.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616301776017",
@@ -6253,7 +9378,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616301776017",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_eau_so_intense_eau_de_parfum_50ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_eau_so_intense_eau_de_parfum_50ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616303423858",
@@ -6263,7 +9389,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3616303423858",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616303423858.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616303423858.png",
+    "notes": null
   },
   {
     "id": "ean-3616303423841",
@@ -6273,7 +9400,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3616303423841",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/996.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/996.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614225476570",
@@ -6283,7 +9426,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614225476570",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_love_100ml_eau_de_toilette_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_love_100ml_eau_de_toilette_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614225452079",
@@ -6293,7 +9437,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614225452079",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/250_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/250_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614227372375",
@@ -6303,7 +9448,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614227372375",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/product_2025-491.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/product_2025-491.png",
+    "notes": null
   },
   {
     "id": "ean-3614227372344",
@@ -6313,7 +9459,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614227372344",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/998.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/998.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616304895654",
@@ -6323,7 +9470,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616304895654",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1000.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1000.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616303466060",
@@ -6333,7 +9481,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303466060",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_de_parfum_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_de_parfum_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3607342522732",
@@ -6343,7 +9492,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342522732",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1002.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1002.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616304105036",
@@ -6353,7 +9503,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616304105036",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616304105036_bab.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616304105036_bab.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614227086029",
@@ -6363,7 +9514,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614227086029",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/50bfdc49-e115-4f50-8d37-0a05704f8fd3.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/50bfdc49-e115-4f50-8d37-0a05704f8fd3.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616302779994",
@@ -6373,7 +9525,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616302779994",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1006.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1006.jpg",
+    "notes": null
   },
   {
     "id": "ean-3607349764289",
@@ -6383,7 +9536,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3607349764289",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_dream_eau_de_toilette_50ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_dream_eau_de_toilette_50ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616302780037",
@@ -6393,7 +9547,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616302780037",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1006_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1006_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616306098343",
@@ -6403,7 +9558,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 10,
     "ean": "3616306098343",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616306098343-9.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616306098343-9.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616304254888",
@@ -6413,7 +9569,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616304254888",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_de_parfum_50ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_de_parfum_50ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616305033031",
@@ -6423,7 +9580,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616305033031",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_intense_eau_de_parfum_30ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_intense_eau_de_parfum_30ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616305187307",
@@ -6433,7 +9591,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616305187307",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_perfect_elixir_eau_de_parfum_30ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_perfect_elixir_eau_de_parfum_30ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616305033055",
@@ -6443,7 +9602,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616305033055",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_so_intense_eau_de_parfum_100ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_so_intense_eau_de_parfum_100ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616304254871",
@@ -6453,7 +9613,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616304254871",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_de_parfum_30ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_de_parfum_30ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-3616306701687",
@@ -6463,7 +9624,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616306701687",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_so_extra_eau_de_parfum_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_so_extra_eau_de_parfum_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3760260451307",
@@ -6473,7 +9635,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760260451307",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1023.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1023.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460081931",
@@ -6483,7 +9661,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3386460081931",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1013.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1013.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460132763",
@@ -6493,7 +9683,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3386460132763",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1019.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1019.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460113588",
@@ -6503,7 +9705,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3386460113588",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1021.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1021.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460135832",
@@ -6513,7 +9731,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460135832",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1055.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1055.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460135825",
@@ -6523,7 +9742,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460135825",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1057.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1057.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460058728",
@@ -6533,7 +9768,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460058728",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1008.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1008.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460087940",
@@ -6543,7 +9794,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460087940",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1016.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1016.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460074827",
@@ -6553,7 +9816,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460074827",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/1538foto.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/1538foto.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460101035",
@@ -6563,7 +9842,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460101035",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1025.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1025.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460118675",
@@ -6573,7 +9853,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460118675",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1027.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1027.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460153720",
@@ -6583,7 +9879,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460153720",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1031.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1031.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460153737",
@@ -6593,7 +9890,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460153737",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1020_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1020_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460135818",
@@ -6603,7 +9916,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460135818",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1051.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1051.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460139366",
@@ -6613,7 +9942,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460139366",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1052.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1052.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3386460146081",
@@ -6623,7 +9968,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460146081",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1053.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1053.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460138017",
@@ -6633,7 +9979,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460138017",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1060.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1060.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460124195",
@@ -6643,7 +9990,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460124195",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1061.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1061.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460144230",
@@ -6653,7 +10001,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460144230",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1065.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1065.jpg",
+    "notes": null
   },
   {
     "id": "ean-3386460134965",
@@ -6663,7 +10012,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460134965",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/o/montblanc_legend_red_eau_de_parfum_200ml_spray_.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/o/montblanc_legend_red_eau_de_parfum_200ml_spray_.png",
+    "notes": null
   },
   {
     "id": "ean-3439600039511",
@@ -6673,7 +10023,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3439600039511",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1070.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1070.jpg",
+    "notes": null
   },
   {
     "id": "ean-3439602810019",
@@ -6683,7 +10034,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3439602810019",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1071.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1071.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614273673419",
@@ -6693,7 +10060,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3614273673419",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_60ml_eau_de_parfum_intense_bot.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_60ml_eau_de_parfum_intense_bot.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614273673402",
@@ -6703,7 +10086,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273673402",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_intense_90ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_intense_90ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273927925",
@@ -6713,7 +10097,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3614273927925",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1079.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1079.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614274066999",
@@ -6723,7 +10108,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274066999",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_hypersense_90ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_hypersense_90ml_eau_de_parfum.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3439602800218",
@@ -6733,7 +10134,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3439602800218",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1081.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1081.jpg",
+    "notes": null
   },
   {
     "id": "ean-3439600056969",
@@ -6743,7 +10145,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3439600056969",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1083.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1083.jpg",
+    "notes": null
   },
   {
     "id": "ean-3439600048162",
@@ -6753,7 +10156,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3439600048162",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/3439600048162.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/3439600048162.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273764926",
@@ -6763,7 +10167,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273764926",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_elixir_100ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_elixir_100ml_eau_de_parfum.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614274076745",
@@ -6773,7 +10193,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274076745",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_fantasm_sensuelle_100ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_fantasm_sensuelle_100ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273527743",
@@ -6783,7 +10204,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273527743",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1093.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1093.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273527750",
@@ -6793,7 +10215,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273527750",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1093_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1093_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3439600056655",
@@ -6803,7 +10241,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3439600056655",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12737292-7745268591794907.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12737292-7745268591794907.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3439600055726",
@@ -6813,7 +10267,16 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3439600055726",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1068.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1068.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "ean-3614273927932",
@@ -6823,7 +10286,16 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273927932",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_supra_florale_eau_de_parfum_90ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_supra_florale_eau_de_parfum_90ml_spray.jpg",
+    "notes": {
+      "top": [],
+      "middle": [
+        "Jasmine Flower"
+      ],
+      "base": [
+        "Desert Flower"
+      ]
+    }
   },
   {
     "id": "ean-3614274289473",
@@ -6833,7 +10305,21 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274289473",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274289473_6.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274289473_6.png",
+    "notes": {
+      "top": [
+        "Petitgrain ·"
+      ],
+      "middle": [
+        "Jasmine",
+        "Tuberose ·"
+      ],
+      "base": [
+        "Cashmeran",
+        "Vanilla Accord",
+        "Amberwood"
+      ]
+    }
   },
   {
     "id": "ean-3614273606417",
@@ -6843,7 +10329,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 15,
     "ean": "3614273606417",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_eau_de_parfum_15ml_refillable_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_eau_de_parfum_15ml_refillable_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273606400",
@@ -6853,7 +10340,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 15,
     "ean": "3614273606400",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_eau_de_parfum_15ml_refillable_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_eau_de_parfum_15ml_refillable_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614274085501",
@@ -6863,7 +10351,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614274085501",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_fantasm_eau_de_parfum_50ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_fantasm_eau_de_parfum_50ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423222080952",
@@ -6873,7 +10362,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222080952",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1097.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1097.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3423222080969",
@@ -6883,7 +10388,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423222080969",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso-rodriguez-all-of-me-eau-de-parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso-rodriguez-all-of-me-eau-de-parfum.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3423470890136",
@@ -6893,7 +10414,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423470890136",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her50ml.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her50ml.png",
+    "notes": null
   },
   {
     "id": "ean-3423470890129",
@@ -6903,7 +10425,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423470890129",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1102.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1102.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423222055547",
@@ -6913,7 +10436,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222055547",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1109.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1109.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423222012700",
@@ -6923,7 +10447,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222012700",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1114.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1114.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423222012687",
@@ -6933,7 +10458,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222012687",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1116.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1116.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423222107635",
@@ -6943,7 +10469,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222107635",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1118.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1118.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423473053958",
@@ -6953,7 +10480,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423473053958",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1120.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1120.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3423222055615",
@@ -6963,7 +10506,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222055615",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1122.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1122.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3423222055639",
@@ -6973,7 +10528,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423222055639",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_narciso_cristal_90ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_narciso_cristal_90ml_eau_de_parfum.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3423478515956",
@@ -6983,7 +10554,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423478515956",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_narciso_pure_musc_100ml_eau_de_parfum_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_narciso_pure_musc_100ml_eau_de_parfum_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423478840652",
@@ -6993,7 +10565,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423478840652",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1125.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1125.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423478807655",
@@ -7003,7 +10576,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423478807655",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_him_bleu_noir_eau_de_parfum_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_him_bleu_noir_eau_de_parfum_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423478807556",
@@ -7013,7 +10587,22 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423478807556",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_bleu_noir_for_him_50ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_bleu_noir_for_him_50ml_eau_de_parfum.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [
+        "Spices",
+        "Lavender"
+      ],
+      "base": [
+        "Lavender",
+        "Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-3423478806054",
@@ -7023,7 +10612,22 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423478806054",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1105.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1105.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [
+        "Spices",
+        "Lavender"
+      ],
+      "base": [
+        "Lavender",
+        "Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-3423222056070",
@@ -7033,7 +10637,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222056070",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1111.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1111.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423222107741",
@@ -7043,7 +10648,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222107741",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3ko0027b80n4kjji0vtz-1f7a25b1-d080-46cc-b96e-1860d8715d5a.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3ko0027b80n4kjji0vtz-1f7a25b1-d080-46cc-b96e-1860d8715d5a.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423222121976",
@@ -7053,7 +10659,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423222121976",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/3423222121976.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/3423222121976.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423222108281",
@@ -7063,7 +10670,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423222108281",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso-rodriguez-all-of-me-eau-de-parfum-intense.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso-rodriguez-all-of-me-eau-de-parfum-intense.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423222092245",
@@ -7073,7 +10681,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222092245",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her_forever_eau_de_parfum_50ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her_forever_eau_de_parfum_50ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423222121754",
@@ -7083,7 +10692,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222121754",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her_gift_set-3423222121754-2_1_1.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her_gift_set-3423222121754-2_1_1.png",
+    "notes": null
   },
   {
     "id": "ean-3423222121273",
@@ -7093,7 +10703,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222121273",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her_intense_eau_de_parfum_50ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her_intense_eau_de_parfum_50ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423222121297",
@@ -7103,7 +10714,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222121297",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_fragrance_her_eau_de_parfum_intense_edp_100ml.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_fragrance_her_eau_de_parfum_intense_edp_100ml.jpg",
+    "notes": null
   },
   {
     "id": "ean-812256023999",
@@ -7113,7 +10725,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "812256023999",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/i/nicki_minaj_minajesty_eau_de_parfum_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/i/nicki_minaj_minajesty_eau_de_parfum_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-719346615921",
@@ -7123,7 +10736,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346615921",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/i/nicki_minaj_onika_100ml_eau_de_parfum.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/n/i/nicki_minaj_onika_100ml_eau_de_parfum.png",
+    "notes": null
   },
   {
     "id": "ean-3137370302131",
@@ -7133,7 +10747,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3137370302131",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370302131.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370302131.png",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3137370361336",
@@ -7143,7 +10773,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3137370361336",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1130.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1130.jpg",
+    "notes": null
   },
   {
     "id": "ean-3137370359494",
@@ -7153,7 +10784,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3137370359494",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1132.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1132.jpg",
+    "notes": null
   },
   {
     "id": "ean-3137370357681",
@@ -7163,7 +10795,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3137370357681",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1134.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1134.jpg",
+    "notes": null
   },
   {
     "id": "ean-3137370183914",
@@ -7173,7 +10806,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3137370183914",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370183914.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370183914.png",
+    "notes": null
   },
   {
     "id": "ean-3137370304388",
@@ -7183,7 +10817,24 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3137370304388",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370304388_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370304388_1.jpg",
+    "notes": {
+      "top": [
+        "Calabrese Lemon",
+        "Lime",
+        "Red Berries"
+      ],
+      "middle": [
+        "Jasmine",
+        "Red Apple"
+      ],
+      "base": [
+        "Amber",
+        "Citrus",
+        "Sweet",
+        "Musky"
+      ]
+    }
   },
   {
     "id": "ean-85715567222",
@@ -7193,7 +10844,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "85715567222",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1136.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1136.jpg",
+    "notes": null
   },
   {
     "id": "ean-85715592590",
@@ -7203,7 +10855,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "85715592590",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/256_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/256_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-85715573001",
@@ -7213,7 +10866,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "85715573001",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/o/s/oscar_de_la_renta_oscar_200ml_eau_de_toilette_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/o/s/oscar_de_la_renta_oscar_200ml_eau_de_toilette_.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-85715571007",
@@ -7223,7 +10892,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "85715571007",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/o/s/oscar_de_la_renta_oscar_eau_de_toilette_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/o/s/oscar_de_la_renta_oscar_eau_de_toilette_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668555093",
@@ -7233,7 +10903,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668555093",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1168.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1168.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668555062",
@@ -7243,7 +10914,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668555062",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_black_xs_for_her_80ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_black_xs_for_her_80ml_eau_de_parfum.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3349666005330",
@@ -7253,7 +10940,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349666005330",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349666005330.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349666005330.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3349668011346",
@@ -7263,7 +10966,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668011346",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/4/d417935b-548b-52c2-9f9c-6c53bda68760.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/4/d417935b-548b-52c2-9f9c-6c53bda68760.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668636648",
@@ -7273,7 +10977,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3349668636648",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1171.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1171.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668594429",
@@ -7283,7 +10988,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668594429",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1173.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1173.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3349668594412",
@@ -7293,7 +11014,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668594412",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_fame_80ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_fame_80ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668628759",
@@ -7303,7 +11025,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668628759",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200_1.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200_1.png",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3349668630110",
@@ -7313,7 +11051,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668630110",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1180.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1180.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668630448",
@@ -7323,7 +11062,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668630448",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1184.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1184.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668508471",
@@ -7333,7 +11073,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3349668508471",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668508471.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668508471.png",
+    "notes": null
   },
   {
     "id": "ean-3349668508587",
@@ -7343,7 +11084,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668508587",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668508587.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668508587.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668624621",
@@ -7353,7 +11095,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668624621",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668628537.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668628537.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668573349",
@@ -7363,7 +11106,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668573349",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668623624_bab.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668623624_bab.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3349668592371",
@@ -7373,7 +11132,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668592371",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_lady_million_fabulous_eau_de_parfum_80ml_spray.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_lady_million_fabulous_eau_de_parfum_80ml_spray.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668630264",
@@ -7383,7 +11143,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3349668630264",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668630264.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668630264.png",
+    "notes": null
   },
   {
     "id": "ean-3349668588718",
@@ -7393,7 +11154,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668588718",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1205.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1205.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668528677",
@@ -7403,7 +11165,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668528677",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1208.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1208.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3349668627486",
@@ -7413,7 +11191,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3349668627486",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1214.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1214.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668627462",
@@ -7423,7 +11202,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668627462",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1216.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1216.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3349668545667",
@@ -7433,7 +11228,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668545667",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1237.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1237.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668545636",
@@ -7443,7 +11239,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668545636",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/2/5233985.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/2/5233985.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349666006016",
@@ -7453,7 +11250,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349666006016",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1240.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1240.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349666010532",
@@ -7463,7 +11261,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349666010532",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1244.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1244.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668081318",
@@ -7473,7 +11272,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668081318",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1220.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1220.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668581948",
@@ -7483,7 +11283,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3349668581948",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1144.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1144.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349666007921",
@@ -7493,7 +11294,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349666007921",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1146.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1146.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668625284",
@@ -7503,7 +11305,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668625284",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668625284_bab.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668625284_bab.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668542826",
@@ -7513,7 +11316,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668542826",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1148.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1148.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349666007891",
@@ -7523,7 +11327,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349666007891",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1153.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1153.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3349668600304",
@@ -7533,7 +11353,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668600304",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1155.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1155.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668600298",
@@ -7543,7 +11364,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3349668600298",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1157.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1157.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668644933",
@@ -7553,7 +11375,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668644933",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1161.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1161.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3349668617067",
@@ -7563,7 +11397,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3349668617067",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1164.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1164.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668571819",
@@ -7573,7 +11408,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668571819",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco-rabanne-invictus-edt-spray-100-ml-mini-20-ml-ts.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco-rabanne-invictus-edt-spray-100-ml-mini-20-ml-ts.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3349668589678",
@@ -7583,7 +11434,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3349668589678",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_invictus_200ml_eau_de_toilette_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_invictus_200ml_eau_de_toilette_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668627530",
@@ -7593,7 +11445,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668627530",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1190.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1190.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668627547",
@@ -7603,7 +11456,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3349668627547",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668627547.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668627547.png",
+    "notes": null
   },
   {
     "id": "ean-3349668627523",
@@ -7613,7 +11467,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668627523",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1192.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1192.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3349668588732",
@@ -7623,7 +11493,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668588732",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/13026064-1894868197593147.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/13026064-1894868197593147.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3349668614530",
@@ -7633,7 +11519,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3349668614530",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3kst02bp80n4kgfr57k1-b1799f8d-ba9d-411a-967f-c43353c1145c.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3kst02bp80n4kgfr57k1-b1799f8d-ba9d-411a-967f-c43353c1145c.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668630349",
@@ -7643,7 +11530,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668630349",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1200.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1200.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668630356",
@@ -7653,7 +11541,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3349668630356",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1200_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1200_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668630332",
@@ -7663,7 +11552,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668630332",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1203.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1203.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3349668582297",
@@ -7673,7 +11578,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668582297",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1221.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1221.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668630035",
@@ -7683,7 +11589,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668630035",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1223.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1223.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668021345",
@@ -7693,7 +11600,15 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668021345",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_pour_homme_edt-s_100ml.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_pour_homme_edt-s_100ml.png",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Lavender",
+        "Vetiver"
+      ]
+    }
   },
   {
     "id": "ean-3349668021246",
@@ -7703,7 +11618,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3349668021246",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1230.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1230.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668545759",
@@ -7713,7 +11629,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668545759",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1233.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1233.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349666010518",
@@ -7723,7 +11640,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349666010518",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1246.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1246.jpg",
+    "notes": null
   },
   {
     "id": "ean-3349668675432",
@@ -7733,7 +11651,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668675432",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rose.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rose.png",
+    "notes": null
   },
   {
     "id": "ean-3349668642670",
@@ -7743,7 +11662,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668642670",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_phantom_parfum_100ml_spray_3pc_set_bab.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_phantom_parfum_100ml_spray_3pc_set_bab.jpg",
+    "notes": null
   },
   {
     "id": "ean-3360370600192",
@@ -7753,7 +11673,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360370600192",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1249.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1249.jpg",
+    "notes": null
   },
   {
     "id": "ean-3360370600062",
@@ -7763,7 +11684,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360370600062",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paloma-picasso-eau-de-parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paloma-picasso-eau-de-parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435137782970",
@@ -7773,7 +11695,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435137782970",
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3614273544924",
@@ -7783,7 +11706,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3614273544924",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61fh-e1rwvl.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61fh-e1rwvl.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435137727087",
@@ -7793,7 +11717,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8435137727087",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435137727087.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435137727087.png",
+    "notes": null
   },
   {
     "id": "ean-8435137751044",
@@ -7803,7 +11728,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8435137751044",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada_candy_kiss_80ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada_candy_kiss_80ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435137743896",
@@ -7813,7 +11739,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137743896",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada_infusion_de_vetiver_eau_de_parfum_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada_infusion_de_vetiver_eau_de_parfum_100ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435137743223",
@@ -7823,7 +11750,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137743223",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/77181991_xxl.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/77181991_xxl.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435137749287",
@@ -7833,7 +11761,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137749287",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12271415-2304710348696057.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12271415-2304710348696057.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435137764433",
@@ -7843,7 +11772,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137764433",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada-la-femme-intense-eau-de-parfum-spray-100ml.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada-la-femme-intense-eau-de-parfum-spray-100ml.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614273961707",
@@ -7853,7 +11794,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273961707",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada_paradoxe_intense_90ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada_paradoxe_intense_90ml_eau_de_parfum.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8435137704231",
@@ -7863,7 +11820,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137704231",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/8/287091-735x735.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/8/287091-735x735.jpg",
+    "notes": null
   },
   {
     "id": "ean-8435137759811",
@@ -7873,7 +11831,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435137759811",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1275.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1275.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273478755",
@@ -7883,7 +11842,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273478755",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1277.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1277.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8435137729173",
@@ -7893,7 +11868,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "8435137729173",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shop-pf-00780-03-luna-rossa-edt---150ml--1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shop-pf-00780-03-luna-rossa-edt---150ml--1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273768832",
@@ -7903,7 +11879,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273768832",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada-luna-rossa-ocean-edp-100ml.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada-luna-rossa-ocean-edp-100ml.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614273624060",
@@ -7913,7 +11905,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273624060",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada-mens-luna-rossa-ocean-gift-set-fragrances-3660732649839.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada-mens-luna-rossa-ocean-gift-set-fragrances-3660732649839.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614274089356",
@@ -7923,7 +11916,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274089356",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1279.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1279.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8435137737819",
@@ -7933,7 +11942,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137737819",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada-luna-rossa-sport-eau-de-toilette-1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada-luna-rossa-sport-eau-de-toilette-1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3605975062502",
@@ -7943,7 +11953,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605975062502",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph_lauren_polo_big_pony_2_100ml_eau_de_toilette.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph_lauren_polo_big_pony_2_100ml_eau_de_toilette.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3605972910240",
@@ -7953,7 +11975,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3605972910240",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1293.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1293.jpg",
+    "notes": null
   },
   {
     "id": "ean-3605972793713",
@@ -7963,7 +11986,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3605972793713",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1285_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1285_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3605972321794",
@@ -7973,7 +12012,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3605972321794",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/71bdc8zpe8l.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/71bdc8zpe8l.jpg",
+    "notes": null
   },
   {
     "id": "ean-3605972455338",
@@ -7983,7 +12023,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3605972455338",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1302.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1302.jpg",
+    "notes": null
   },
   {
     "id": "ean-3605971512575",
@@ -7993,7 +12034,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605971512575",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200_3_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200_3_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3605972831071",
@@ -8003,7 +12045,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3605972831071",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3ksv02ht80n46ssfxgai-46d6787c-19b2-4213-9005-35297cfc8b21.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3ksv02ht80n46ssfxgai-46d6787c-19b2-4213-9005-35297cfc8b21.jpg",
+    "notes": null
   },
   {
     "id": "ean-3360372013648",
@@ -8013,7 +12056,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3360372013648",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph-lauren-safari-eau-de-toilette-for-men-125ml-102729-677588.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph-lauren-safari-eau-de-toilette-for-men-125ml-102729-677588.jpg",
+    "notes": null
   },
   {
     "id": "ean-3605972831170",
@@ -8023,7 +12067,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605972831170",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph_lauren_romance_intense_100ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph_lauren_romance_intense_100ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-3605972698742",
@@ -8033,7 +12078,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605972698742",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph-lauren-ralphs-club-parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph-lauren-ralphs-club-parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-5060399670272",
@@ -8043,7 +12089,14 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060399670272",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1310.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1310.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Citrus up front"
+      ]
+    }
   },
   {
     "id": "ean-8052464891306",
@@ -8053,7 +12106,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8052464891306",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1312.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1312.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8034097959721",
@@ -8063,7 +12132,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8034097959721",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/a/salvatore_ferragamo_signorina_misteriosa_100ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/a/salvatore_ferragamo_signorina_misteriosa_100ml_eau_de_parfum.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-8056860210310",
@@ -8073,7 +12158,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8056860210310",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/e/rebelle_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/r/e/rebelle_.jpg",
+    "notes": null
   },
   {
     "id": "ean-768614102021",
@@ -8083,7 +12169,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "768614102021",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1315.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1315.jpg",
+    "notes": null
   },
   {
     "id": "ean-768614152392",
@@ -8093,7 +12180,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "768614152392",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1317.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1317.jpg",
+    "notes": null
   },
   {
     "id": "ean-3473311986009",
@@ -8103,7 +12191,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3473311986009",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1319.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1319.jpg",
+    "notes": null
   },
   {
     "id": "ean-810912032569",
@@ -8113,7 +12202,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 240,
     "ean": "810912032569",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/o/sol_de_janeiro_cheirosa_62_perfume_mist_240ml_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/o/sol_de_janeiro_cheirosa_62_perfume_mist_240ml_.jpg",
+    "notes": null
   },
   {
     "id": "ean-810912032248",
@@ -8123,7 +12213,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 240,
     "ean": "810912032248",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/o/sol_de_janeiro_cheirosa_68_perfume_mist_240ml_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/o/sol_de_janeiro_cheirosa_68_perfume_mist_240ml_.jpg",
+    "notes": null
   },
   {
     "id": "ean-810912032576",
@@ -8133,7 +12224,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "810912032576",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/o/sol_de_janeiro_cheirosa_62_perfume_mist_240ml__1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/o/sol_de_janeiro_cheirosa_62_perfume_mist_240ml__1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614222402077",
@@ -8143,7 +12235,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614222402077",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/i/tiffany_co_tiffany_75ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/i/tiffany_co_tiffany_75ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614226969613",
@@ -8153,7 +12246,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614226969613",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/13223.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/13223.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066000079",
@@ -8163,7 +12257,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "888066000079",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1326.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1326.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066124287",
@@ -8173,7 +12268,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "888066124287",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/888066124287_w_1000_h_1000_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/888066124287_w_1000_h_1000_.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066000055",
@@ -8183,7 +12279,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "888066000055",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1328.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1328.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066000062",
@@ -8193,7 +12290,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "888066000062",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1330.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1330.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-888066023955",
@@ -8203,7 +12316,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "888066023955",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1381.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1381.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066112734",
@@ -8213,7 +12327,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "888066112734",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1332.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1332.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066138741",
@@ -8223,7 +12338,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "888066138741",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1334.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1334.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066143189",
@@ -8233,7 +12349,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "888066143189",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1340.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1340.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066080729",
@@ -8243,7 +12360,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "888066080729",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1343.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1343.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066075114",
@@ -8253,7 +12371,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "888066075114",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1347.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1347.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066075084",
@@ -8263,7 +12382,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "888066075084",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1350.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1350.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066094153",
@@ -8273,7 +12393,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "888066094153",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/o/tom_ford_fabulous_100ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/o/tom_ford_fabulous_100ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066150279",
@@ -8283,7 +12404,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "888066150279",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/o/tom-ford-unisex-myrrhe-mystere-edp-spray-17-oz-private-blend-888066150279.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/o/tom-ford-unisex-myrrhe-mystere-edp-spray-17-oz-private-blend-888066150279.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066050685",
@@ -8293,7 +12415,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "888066050685",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/888066050685-tom-ford-oud-wood-edp-30-ml-1000x1000.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/888066050685-tom-ford-oud-wood-edp-30-ml-1000x1000.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066117135",
@@ -8303,7 +12426,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "888066117135",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1373.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1373.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-888066000161",
@@ -8313,7 +12452,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "888066000161",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1378.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1378.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-888066035392",
@@ -8323,7 +12478,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "888066035392",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1365.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1365.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066035361",
@@ -8333,7 +12489,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "888066035361",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/o/tom_ford_noir_extreme_50ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/o/tom_ford_noir_extreme_50ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066138734",
@@ -8343,7 +12500,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "888066138734",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/o/bois_marocain.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/o/bois_marocain.jpg",
+    "notes": null
   },
   {
     "id": "ean-888066172059",
@@ -8353,7 +12511,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "888066172059",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/f/r/fragrance_click_tom_ford.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/f/r/fragrance_click_tom_ford.png",
+    "notes": null
   },
   {
     "id": "ean-7640496670245",
@@ -8363,7 +12522,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "7640496670245",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1388.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1388.jpg",
+    "notes": null
   },
   {
     "id": "ean-7640496670238",
@@ -8373,7 +12533,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "7640496670238",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1383.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1383.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "lookfantastic-10002885",
@@ -8383,7 +12559,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "lookfantastic-10002886",
@@ -8393,7 +12570,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "lookfantastic-10077798",
@@ -8403,7 +12581,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "lookfantastic-10301201",
@@ -8413,7 +12592,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "lookfantastic-10588308",
@@ -8423,7 +12603,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 118,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "lookfantastic-10810788",
@@ -8433,7 +12614,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "lookfantastic-10952559",
@@ -8443,7 +12625,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "lookfantastic-10954663",
@@ -8453,7 +12636,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "lookfantastic-11034069",
@@ -8463,7 +12647,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-3614272761445",
@@ -8473,7 +12658,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272761445",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_born_in_roma_eau_de_parfum_100ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_born_in_roma_eau_de_parfum_100ml_spray_.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614274024760",
@@ -8483,7 +12684,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274024760",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1394.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1394.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273790857",
@@ -8493,7 +12695,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273790857",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1402.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1402.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614272732308",
@@ -8503,7 +12706,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272732308",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_100ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_100ml_eau_de_parfum.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614273790840",
@@ -8513,7 +12728,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273790840",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1400.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1400.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273672412",
@@ -8523,7 +12739,14 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273672412",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1408.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1408.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Citrus"
+      ]
+    }
   },
   {
     "id": "ean-3614272761469",
@@ -8533,7 +12756,21 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272761469",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1410.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1410.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [
+        "Spices",
+        "Lavender"
+      ],
+      "base": [
+        "Citrus"
+      ]
+    }
   },
   {
     "id": "ean-3614274024807",
@@ -8543,7 +12780,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274024807",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1413.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1413.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Pepper"
+      ],
+      "middle": [
+        "Spices",
+        "Lavender"
+      ],
+      "base": [
+        "Cedarwood",
+        "Vetiver",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614273790826",
@@ -8553,7 +12806,14 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273790826",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1418.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1418.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Citrus"
+      ]
+    }
   },
   {
     "id": "ean-3614273261425",
@@ -8563,7 +12823,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273261425",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1420.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1420.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614272732209",
@@ -8573,7 +12834,14 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272732209",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1423.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1423.jpg",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Lavender fairly quickly"
+      ]
+    }
   },
   {
     "id": "ean-3614272732087",
@@ -8583,7 +12851,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272732087",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_100ml_eau_de_parfum_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_100ml_eau_de_parfum_1.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614273459082",
@@ -8593,7 +12873,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273459082",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_voce_viva_intense_eau_de_parfum_30ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_voce_viva_intense_eau_de_parfum_30ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273672474",
@@ -8603,7 +12884,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273672474",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_born_in_roma_coral_fantasy_eau_de_parfum_50ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_born_in_roma_coral_fantasy_eau_de_parfum_50ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-688575001778",
@@ -8613,7 +12895,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "688575001778",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1428.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1428.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3607342166875",
@@ -8623,7 +12921,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342166875",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/e/vera_wang_lovestruck_100ml_eau_de_parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/e/vera_wang_lovestruck_100ml_eau_de_parfum.jpg",
+    "notes": null
   },
   {
     "id": "ean-3605521879905",
@@ -8633,7 +12932,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605521879905",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1433.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1433.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614272872387",
@@ -8643,7 +12943,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272872387",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12740389-1874935031223493.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12740389-1874935031223493.jpg",
+    "notes": null
   },
   {
     "id": "ean-3360374000059",
@@ -8653,7 +12954,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360374000059",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1438.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1438.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3360374000011",
@@ -8663,7 +12980,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360374000011",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor-rolf-flowerbomb-eau-de-parfum.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor-rolf-flowerbomb-eau-de-parfum.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614274158151",
@@ -8673,7 +13006,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274158151",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1340_1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1340_1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614272045873",
@@ -8683,7 +13017,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614272045873",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1440.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1440.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273622639",
@@ -8693,7 +13028,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273622639",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273622639_1-scaled.jpeg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273622639_1-scaled.jpeg",
+    "notes": null
   },
   {
     "id": "ean-3614274081183",
@@ -8703,7 +13039,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614274081183",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktorandrolfflowerbombtigerlilyperfume.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktorandrolfflowerbombtigerlilyperfume.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614274158137",
@@ -8713,7 +13050,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3614274158137",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/p/spicebomb_dark_leather_150ml.png"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/p/spicebomb_dark_leather_150ml.png",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3614274158113",
@@ -8723,7 +13076,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614274158113",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274158113.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274158113.jpg",
+    "notes": null
   },
   {
     "id": "ean-3605521820891",
@@ -8733,7 +13087,23 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3605521820891",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3605521820891.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3605521820891.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-3605521515346",
@@ -8743,7 +13113,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3605521515346",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_spicebomb-3605521515629-1.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_spicebomb-3605521515629-1.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614270659706",
@@ -8753,7 +13124,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614270659706",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1450.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1450.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614272191556",
@@ -8763,7 +13135,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614272191556",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_spice_bomb_night_vision_edt_90ml_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_spice_bomb_night_vision_edt_90ml_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273987936",
@@ -8773,7 +13146,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273987936",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_flowerbomb_extreme_intense_edp_100ml_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_flowerbomb_extreme_intense_edp_100ml_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273662581",
@@ -8783,7 +13157,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273662581",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_good_fortune_edp_90ml_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_good_fortune_edp_90ml_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3605520983979",
@@ -8793,7 +13168,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 20,
     "ean": "3605520983979",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_flowerbomb_eau_de_parfum_20ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_flowerbomb_eau_de_parfum_20ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3360374000004",
@@ -8803,7 +13179,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360374000004",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_flowerbomb_eau_de_parfum_30ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_flowerbomb_eau_de_parfum_30ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3614273919999",
@@ -8813,7 +13190,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273919999",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_good_fortune_elixir_intense_eau_de_parfum_50ml_spray_.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_good_fortune_elixir_intense_eau_de_parfum_50ml_spray_.jpg",
+    "notes": null
   },
   {
     "id": "ean-3423474896257",
@@ -8823,7 +13201,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423474896257",
     "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/1514.jpg"
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/1514.jpg",
+    "notes": null
   }
 ];
 
@@ -8844,11 +13223,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 54.75,
-      "wasPrice": null,
+      "wasPrice": 103,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368639&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/_/4_1.jpg"
@@ -8870,11 +13249,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 30.95,
-      "wasPrice": null,
+      "wasPrice": 103,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45343666195&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/9/29.jpg"
@@ -8974,11 +13353,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.5,
-      "wasPrice": null,
+      "wasPrice": 59,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041705&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/98.jpg"
@@ -9000,11 +13379,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 39.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041812&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/054.jpg"
@@ -9026,11 +13405,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 36.95,
-      "wasPrice": null,
+      "wasPrice": 60,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161241&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/9/099.jpg"
@@ -9052,11 +13431,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 35.95,
-      "wasPrice": null,
+      "wasPrice": 52,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041856&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/405.jpg"
@@ -9078,11 +13457,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 46.75,
-      "wasPrice": null,
+      "wasPrice": 88,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041915&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/110_1.jpg"
@@ -9104,11 +13483,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 44.25,
-      "wasPrice": null,
+      "wasPrice": 83,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041979&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/680.jpg"
@@ -9130,11 +13509,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 37.75,
-      "wasPrice": null,
+      "wasPrice": 71,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44272839317&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14691276-1675265767319063.jpg"
@@ -9156,11 +13535,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.95,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042272&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1270.jpg"
@@ -9170,11 +13549,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.5,
-      "wasPrice": null,
+      "wasPrice": 78,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041632&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/85715163035_bottle.jpg"
@@ -9184,11 +13563,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 62.75,
-      "wasPrice": null,
+      "wasPrice": 118,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041633&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/85715163035_bottle_1.jpg"
@@ -9198,11 +13577,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 81.25,
-      "wasPrice": null,
+      "wasPrice": 153,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368434&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/a/c/acqua_di_parma_blu_mediterraneo_mandarino_di_sicilia_.png"
@@ -9212,11 +13591,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 102.5,
-      "wasPrice": null,
+      "wasPrice": 193,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368438&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/15294401-1335265777176730_1.jpg"
@@ -9226,11 +13605,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.95,
-      "wasPrice": null,
+      "wasPrice": 153,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041635&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/co_bot.jpg"
@@ -9240,11 +13619,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 57.25,
-      "wasPrice": null,
+      "wasPrice": 108,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041636&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/col_100_1.jpg"
@@ -9254,11 +13633,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 136.25,
-      "wasPrice": null,
+      "wasPrice": 257,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423911451&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/o/u/oud.jpg"
@@ -9268,11 +13647,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.95,
-      "wasPrice": null,
+      "wasPrice": 153,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041638&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/u/pura.jpg"
@@ -9282,11 +13661,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 106.75,
-      "wasPrice": null,
+      "wasPrice": 201,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041639&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/u/pura180.jpg"
@@ -9296,11 +13675,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 136.25,
-      "wasPrice": null,
+      "wasPrice": 257,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423911452&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/o/rosa.jpg"
@@ -9310,11 +13689,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 173.5,
-      "wasPrice": null,
+      "wasPrice": 327,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041641&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/o/rosa_1.jpg"
@@ -9324,11 +13703,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 173.5,
-      "wasPrice": null,
+      "wasPrice": 327,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234838&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8028713830143.jpg"
@@ -9338,11 +13717,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 106.75,
-      "wasPrice": null,
+      "wasPrice": 201,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368440&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/a/c/acqua_di_parma_blu_mediterraneo_mandarino_di_sicilia__1.png"
@@ -9352,11 +13731,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 106.75,
-      "wasPrice": null,
+      "wasPrice": 201,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368441&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200.png"
@@ -9366,11 +13745,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 106.75,
-      "wasPrice": null,
+      "wasPrice": 201,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368442&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8028713816628_1.png"
@@ -9380,11 +13759,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 77.95,
-      "wasPrice": null,
+      "wasPrice": 147,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368443&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/15294401-1335265777176730.jpg"
@@ -9394,11 +13773,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.95,
-      "wasPrice": null,
+      "wasPrice": 153,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45343666193&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/l/club_bot.jpg"
@@ -9408,11 +13787,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 106.75,
-      "wasPrice": null,
+      "wasPrice": 201,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041643&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/l/club_bot_1.jpg"
@@ -9422,11 +13801,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 106.75,
-      "wasPrice": null,
+      "wasPrice": 201,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041644&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/col_100.jpg"
@@ -9436,11 +13815,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.95,
-      "wasPrice": null,
+      "wasPrice": 153,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45343666194&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/i/n/intensa.jpg"
@@ -9450,11 +13829,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 106.75,
-      "wasPrice": null,
+      "wasPrice": 201,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368669&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/l/blu_mediterraneo_mirto_di_panarea_.png"
@@ -9716,11 +14095,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 42.5,
-      "wasPrice": null,
+      "wasPrice": 80,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041647&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/f/e/fem200.jpg"
@@ -9730,11 +14109,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 36.95,
-      "wasPrice": null,
+      "wasPrice": 65,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234840&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/a/l/al_haramain_amber_oud_tabacco_edition_.png"
@@ -9744,11 +14123,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 39.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619728&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/a/l/al_haramain_amber_oud_gold_eau_de_parfum_100ml_spray.jpg"
@@ -9898,11 +14277,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 24.95,
-      "wasPrice": null,
+      "wasPrice": 47,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041654&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hunteer.jpg"
@@ -9996,11 +14375,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 66.95,
-      "wasPrice": null,
+      "wasPrice": 112,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041656&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274412789_bab.jpg"
@@ -10010,11 +14389,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 57.95,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041657&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/w/a/wael.jpg"
@@ -10024,11 +14403,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.95,
-      "wasPrice": null,
+      "wasPrice": 79,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041658&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/w/a/wael_1.jpg"
@@ -10038,11 +14417,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.95,
-      "wasPrice": null,
+      "wasPrice": 44,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44268401840&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/u/n/untitled_design_-_2025-10-01t122756.440__08746.png"
@@ -10052,11 +14431,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.5,
-      "wasPrice": null,
+      "wasPrice": 97,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041659&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/h/themost.jpg"
@@ -10066,11 +14445,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 37.95,
-      "wasPrice": null,
+      "wasPrice": 66,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44459697978&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273521345.gif"
@@ -10080,11 +14459,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.95,
-      "wasPrice": null,
+      "wasPrice": 99,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368638&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/_/3.jpg"
@@ -10094,11 +14473,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.95,
-      "wasPrice": null,
+      "wasPrice": 67,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854348&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273638869.gif"
@@ -10108,11 +14487,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 52.95,
-      "wasPrice": null,
+      "wasPrice": 96,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041663&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/_/6.jpg"
@@ -10122,11 +14501,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 50.5,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041664&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/_/8.jpg"
@@ -10136,11 +14515,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 46.25,
-      "wasPrice": null,
+      "wasPrice": 87,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041665&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/10.jpg"
@@ -10150,11 +14529,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 33.95,
-      "wasPrice": null,
+      "wasPrice": 65,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041666&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/_/1_1.jpg"
@@ -10164,11 +14543,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 26.95,
-      "wasPrice": null,
+      "wasPrice": 35,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619737&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/a/z/azzaro_pour_elle_eau_de_parfum_100ml_spray_.jpg"
@@ -10304,11 +14683,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 37.25,
-      "wasPrice": null,
+      "wasPrice": 70,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572457&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/o/boucheron_pour_homme_100ml_eau_de_toilette.jpg"
@@ -10486,11 +14865,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 75.95,
-      "wasPrice": null,
+      "wasPrice": 138,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572458&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/_/7_1.jpg"
@@ -10500,11 +14879,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 81.95,
-      "wasPrice": null,
+      "wasPrice": 145,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572459&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_goddess_intense_eau_de_parfum_100ml_spray_.jpg"
@@ -10514,11 +14893,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 56.95,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041668&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12.jpg"
@@ -10528,11 +14907,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 72.75,
-      "wasPrice": null,
+      "wasPrice": 137,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041669&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14.jpg"
@@ -10542,11 +14921,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 68.95,
-      "wasPrice": null,
+      "wasPrice": 127,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854349&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/f/c/fcbher.png"
@@ -10556,11 +14935,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 72.75,
-      "wasPrice": null,
+      "wasPrice": 137,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041672&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/2/22.jpg"
@@ -10570,11 +14949,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 52.5,
-      "wasPrice": null,
+      "wasPrice": 99,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041673&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/25.jpg"
@@ -10584,11 +14963,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 72.75,
-      "wasPrice": null,
+      "wasPrice": 137,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041674&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/25_1.jpg"
@@ -10598,11 +14977,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 30.75,
-      "wasPrice": null,
+      "wasPrice": 58,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368640&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/35.jpg"
@@ -10612,11 +14991,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.95,
-      "wasPrice": null,
+      "wasPrice": 79,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45077595765&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/_/6_1.jpg"
@@ -10626,11 +15005,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 62.75,
-      "wasPrice": null,
+      "wasPrice": 118,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041680&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/11_1.jpg"
@@ -10640,11 +15019,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.95,
-      "wasPrice": null,
+      "wasPrice": 79,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041681&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12_1.jpg"
@@ -10654,11 +15033,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 72.75,
-      "wasPrice": null,
+      "wasPrice": 137,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041682&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/15_1.jpg"
@@ -10668,11 +15047,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 52.5,
-      "wasPrice": null,
+      "wasPrice": 99,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041683&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/1/012.jpg"
@@ -10682,11 +15061,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.95,
-      "wasPrice": null,
+      "wasPrice": 79,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041684&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/7/27.jpg"
@@ -10696,11 +15075,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.95,
-      "wasPrice": null,
+      "wasPrice": 60,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041685&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/31.jpg"
@@ -10710,11 +15089,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 85.95,
-      "wasPrice": null,
+      "wasPrice": 152,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44191431875&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_goddess_100ml_parfum.jpg"
@@ -10724,11 +15103,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 76.95,
-      "wasPrice": null,
+      "wasPrice": 145,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44683851094&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_her_elixir_de_parfum_eau_de_parfum_100ml_spray_.jpg"
@@ -10738,11 +15117,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 30.75,
-      "wasPrice": null,
+      "wasPrice": 58,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44691827439&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_london_eau_de_parfum_50ml_spray_.jpg"
@@ -10766,11 +15145,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 71.95,
-      "wasPrice": null,
+      "wasPrice": 129,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041686&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/65.jpg"
@@ -10780,11 +15159,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 75.95,
-      "wasPrice": null,
+      "wasPrice": 119,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041687&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/0/60_1.jpg"
@@ -10794,11 +15173,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 70.95,
-      "wasPrice": null,
+      "wasPrice": 119,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041688&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/70.jpg"
@@ -10808,11 +15187,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 86.95,
-      "wasPrice": null,
+      "wasPrice": 140,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041689&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/3/73.jpg"
@@ -10822,11 +15201,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 61.95,
-      "wasPrice": null,
+      "wasPrice": 99,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041690&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/3/73_1.jpg"
@@ -10836,11 +15215,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 77.95,
-      "wasPrice": null,
+      "wasPrice": 143,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041691&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/75.jpg"
@@ -10850,11 +15229,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 68.95,
-      "wasPrice": null,
+      "wasPrice": 119,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041692&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/77.jpg"
@@ -10864,11 +15243,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 67.95,
-      "wasPrice": null,
+      "wasPrice": 125,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45395007819&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_splendida_jasmin_noir_eau_de_parfum_50ml_spray_.jpg"
@@ -10878,11 +15257,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 70.25,
-      "wasPrice": null,
+      "wasPrice": 132,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045678&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari-splendida-patchouli-tentation-for-women-edp-50ml-150166-549508.jpg"
@@ -10892,11 +15271,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.95,
-      "wasPrice": null,
+      "wasPrice": 78,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45395007820&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_splendida_patchouli_tentation_eau_de_parfum_50ml_spray_.jpg"
@@ -10906,11 +15285,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.95,
-      "wasPrice": null,
+      "wasPrice": 111,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44437744250&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/83.jpg"
@@ -10920,11 +15299,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 64.95,
-      "wasPrice": null,
+      "wasPrice": 111,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790658&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/man-glacial-essence-783320411946-8945.png"
@@ -10934,11 +15313,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 56.95,
-      "wasPrice": null,
+      "wasPrice": 127,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041693&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/40.jpg"
@@ -10948,11 +15327,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.95,
-      "wasPrice": null,
+      "wasPrice": 111,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041694&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/2/42.jpg"
@@ -10962,11 +15341,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.95,
-      "wasPrice": null,
+      "wasPrice": 124,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041695&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/47.jpg"
@@ -10976,11 +15355,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 57.95,
-      "wasPrice": null,
+      "wasPrice": 111,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161235&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/50.jpg"
@@ -10990,11 +15369,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.95,
-      "wasPrice": null,
+      "wasPrice": 101,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041699&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/9/59.jpg"
@@ -11004,11 +15383,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 74.95,
-      "wasPrice": null,
+      "wasPrice": 126,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45354039908&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/bulgari-man-wood-essence-150ml-edp-spray-p51784-89584_image.jpg"
@@ -11018,11 +15397,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 54.95,
-      "wasPrice": null,
+      "wasPrice": 91,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041701&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/1/016.jpg"
@@ -11032,11 +15411,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.95,
-      "wasPrice": null,
+      "wasPrice": 114,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854351&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_pour_homme_eau_de_parfum_100ml_.png"
@@ -11046,11 +15425,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 66.95,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041702&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/80.jpg"
@@ -11060,11 +15439,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 52.5,
-      "wasPrice": null,
+      "wasPrice": 99,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619738&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_splendida_magnolia_sensuel_eau_de_parfum_50ml_spray_.jpg"
@@ -11438,11 +15817,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 47.75,
-      "wasPrice": null,
+      "wasPrice": 90,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041704&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/020.jpg"
@@ -11452,11 +15831,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 32.95,
-      "wasPrice": null,
+      "wasPrice": 62,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234841&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/3/93.jpg"
@@ -11466,11 +15845,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 30.75,
-      "wasPrice": null,
+      "wasPrice": 58,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368641&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/104.jpg"
@@ -11480,11 +15859,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 36.25,
-      "wasPrice": null,
+      "wasPrice": 68,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041708&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/114.jpg"
@@ -11494,11 +15873,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.95,
-      "wasPrice": null,
+      "wasPrice": 98,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041709&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/120.jpg"
@@ -11508,11 +15887,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 47.25,
-      "wasPrice": null,
+      "wasPrice": 89,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161236&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_eternity_100ml_eau_de_parfum.jpg"
@@ -11522,11 +15901,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 38.75,
-      "wasPrice": null,
+      "wasPrice": 73,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041710&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/123.jpg"
@@ -11536,11 +15915,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.95,
-      "wasPrice": null,
+      "wasPrice": 94,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854352&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_euphoria_100ml_eau_de_parfum.png"
@@ -11550,11 +15929,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 45.95,
-      "wasPrice": null,
+      "wasPrice": 86,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44437744251&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3607342686229.png"
@@ -11564,11 +15943,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 45.25,
-      "wasPrice": null,
+      "wasPrice": 85,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45222048312&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/139.jpg"
@@ -11578,11 +15957,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 46.75,
-      "wasPrice": null,
+      "wasPrice": 88,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44244259189&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/141.jpg"
@@ -11592,11 +15971,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 25.95,
-      "wasPrice": null,
+      "wasPrice": 62,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161237&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14381884006_xl.jpg"
@@ -11606,11 +15985,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 23.95,
-      "wasPrice": null,
+      "wasPrice": 55,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45307854232&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l500.jpg"
@@ -11620,11 +15999,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 45.75,
-      "wasPrice": null,
+      "wasPrice": 86,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44267752991&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/x/gxp-11099.jpg"
@@ -11634,11 +16013,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.5,
-      "wasPrice": null,
+      "wasPrice": 59,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041712&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/84.jpg"
@@ -11648,11 +16027,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 38.25,
-      "wasPrice": null,
+      "wasPrice": 72,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041713&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/022.jpg"
@@ -11662,11 +16041,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 40.5,
-      "wasPrice": null,
+      "wasPrice": 76,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041715&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/96.jpg"
@@ -11676,11 +16055,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.95,
-      "wasPrice": null,
+      "wasPrice": 60,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045619&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/k/ck_one_gold_edt_200ml_.jpg"
@@ -11690,11 +16069,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.5,
-      "wasPrice": null,
+      "wasPrice": 59,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041717&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/101.jpg"
@@ -11704,11 +16083,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 50.95,
-      "wasPrice": null,
+      "wasPrice": 96,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44683851082&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/e/defy-3616303442149-1217.png"
@@ -11718,11 +16097,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.5,
-      "wasPrice": null,
+      "wasPrice": 110,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041718&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/106.jpg"
@@ -11732,11 +16111,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 34.95,
-      "wasPrice": null,
+      "wasPrice": 61,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041719&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/108_1.jpg"
@@ -11746,11 +16125,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 30.75,
-      "wasPrice": null,
+      "wasPrice": 58,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041720&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/024.jpg"
@@ -11760,11 +16139,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.5,
-      "wasPrice": null,
+      "wasPrice": 59,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041721&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/117.jpg"
@@ -11774,11 +16153,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 30.25,
-      "wasPrice": null,
+      "wasPrice": 57,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041722&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/002.jpg"
@@ -11788,11 +16167,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.5,
-      "wasPrice": null,
+      "wasPrice": 97,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572461&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_eternity_200ml_eau_de_parfum.jpg"
@@ -11802,11 +16181,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.95,
-      "wasPrice": null,
+      "wasPrice": 79,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44478466388&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/8/088300605514.png"
@@ -11816,11 +16195,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 39.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130112&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/e/t/eternity_200ml.png"
@@ -11830,11 +16209,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 39.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041724&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/028.jpg"
@@ -11844,11 +16223,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 35.95,
-      "wasPrice": null,
+      "wasPrice": 68,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790660&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin-klein-eternity-for-men-eau-de-parfum.jpg"
@@ -11858,11 +16237,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 29.25,
-      "wasPrice": null,
+      "wasPrice": 55,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041725&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/129.jpg"
@@ -11872,11 +16251,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.5,
-      "wasPrice": null,
+      "wasPrice": 78,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368642&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/135.jpg"
@@ -11886,11 +16265,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 42.5,
-      "wasPrice": null,
+      "wasPrice": 80,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368643&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_obsession_for_men_125ml_eau_de_toilette_bot.jpg"
@@ -11900,11 +16279,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 47.25,
-      "wasPrice": null,
+      "wasPrice": 89,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045642&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/k/ck_eternity_m_parfum_200ml.jpg"
@@ -11914,11 +16293,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 38.25,
-      "wasPrice": null,
+      "wasPrice": 72,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44691827442&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_defy_eau_de_parfum_50ml_spray_.jpg"
@@ -11928,11 +16307,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 26.75,
-      "wasPrice": null,
+      "wasPrice": 50,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716548424&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_sheer_beauty_eau_de_toilette_50ml_spray_.jpg"
@@ -11942,11 +16321,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 54.95,
-      "wasPrice": null,
+      "wasPrice": 100,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45222048326&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_euphoria_bold_elixir_intense_parfum_100ml_spray.jpg"
@@ -11956,11 +16335,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 54.95,
-      "wasPrice": null,
+      "wasPrice": 100,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45222048327&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_euphoria_solar_elixir_intense_parfum_100ml_spray_.jpg"
@@ -11970,11 +16349,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 81.95,
-      "wasPrice": null,
+      "wasPrice": 115,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041728&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/145_1.jpg"
@@ -11984,11 +16363,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 112.95,
-      "wasPrice": null,
+      "wasPrice": 149,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672831&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/184251.jpg"
@@ -11998,11 +16377,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 84.95,
-      "wasPrice": null,
+      "wasPrice": 139,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041729&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/164.jpg"
@@ -12012,11 +16391,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 99.95,
-      "wasPrice": null,
+      "wasPrice": 162,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572465&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061122389.jpg"
@@ -12026,11 +16405,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 89.95,
-      "wasPrice": null,
+      "wasPrice": 145,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041731&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/168_1.jpg"
@@ -12040,11 +16419,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.95,
-      "wasPrice": null,
+      "wasPrice": 126,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44327960557&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/7/171_1.jpg"
@@ -12054,11 +16433,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 89.95,
-      "wasPrice": null,
+      "wasPrice": 132,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041734&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180.jpg"
@@ -12068,11 +16447,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 89.95,
-      "wasPrice": null,
+      "wasPrice": 117,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041735&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/182.jpg"
@@ -12082,11 +16461,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.95,
-      "wasPrice": null,
+      "wasPrice": 126,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44642628103&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1197821-carolina-herrera-good-girl-legere-eau-de-parfum-spray-50ml.jpg"
@@ -12096,11 +16475,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 82.95,
-      "wasPrice": null,
+      "wasPrice": 126,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041736&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/3/030.jpg"
@@ -12110,11 +16489,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 81.95,
-      "wasPrice": null,
+      "wasPrice": 136,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041737&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/184.jpg"
@@ -12124,11 +16503,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 89.95,
-      "wasPrice": null,
+      "wasPrice": 145,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44267752992&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061106228_w_1000_h_1000_.jpg"
@@ -12138,11 +16517,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.95,
-      "wasPrice": null,
+      "wasPrice": 90,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041738&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/140_1.jpg"
@@ -12152,11 +16531,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 74.95,
-      "wasPrice": null,
+      "wasPrice": 111,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041739&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/142_1.jpg"
@@ -12166,11 +16545,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 75.95,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45139538667&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61zeqclalzl.jpg"
@@ -12180,11 +16559,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.95,
-      "wasPrice": null,
+      "wasPrice": 112,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041740&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/146.jpg"
@@ -12194,11 +16573,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 84.95,
-      "wasPrice": null,
+      "wasPrice": 130,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041741&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/150.jpg"
@@ -12208,11 +16587,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041742&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/150_1.jpg"
@@ -12222,11 +16601,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 72.95,
-      "wasPrice": null,
+      "wasPrice": 109,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041743&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154.jpg"
@@ -12236,11 +16615,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 98.95,
-      "wasPrice": null,
+      "wasPrice": 136,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041744&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154_1.jpg"
@@ -12250,11 +16629,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 61.95,
-      "wasPrice": null,
+      "wasPrice": 79,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041745&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154_2.jpg"
@@ -12264,11 +16643,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 83.95,
-      "wasPrice": null,
+      "wasPrice": 114,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041746&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/160.jpg"
@@ -12278,11 +16657,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.95,
-      "wasPrice": null,
+      "wasPrice": 101,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041747&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/162.jpg"
@@ -12292,11 +16671,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.95,
-      "wasPrice": null,
+      "wasPrice": 135,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44541651458&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061002865.png"
@@ -12306,11 +16685,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 78.5,
-      "wasPrice": null,
+      "wasPrice": 148,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041749&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/187.jpg"
@@ -12320,11 +16699,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.95,
-      "wasPrice": null,
+      "wasPrice": 72,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45072337617&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/204.jpg"
@@ -12334,11 +16713,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 72.95,
-      "wasPrice": null,
+      "wasPrice": 136,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041753&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/207.jpg"
@@ -12348,11 +16727,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 102,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619729&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/cartier_pasha_de_cartier_edition_noire_sport_eau_de_toilette_100ml_spray_.jpg"
@@ -12376,11 +16755,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 27.75,
-      "wasPrice": null,
+      "wasPrice": 52,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041754&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/3/032.jpg"
@@ -12390,11 +16769,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 64.95,
-      "wasPrice": null,
+      "wasPrice": 123,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572466&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_100ml_eau_de_parfum.jpg"
@@ -12404,11 +16783,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 95.5,
-      "wasPrice": null,
+      "wasPrice": 180,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45203831824&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614220808840.png"
@@ -12418,11 +16797,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 61.95,
-      "wasPrice": null,
+      "wasPrice": 110,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041757&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_75ml_eau_de_parfum.jpg"
@@ -12432,11 +16811,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.95,
-      "wasPrice": null,
+      "wasPrice": 98,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790661&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shop-pf-02160-02-nomade-edp---chlo---50ml--1.jpg"
@@ -12446,11 +16825,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.95,
-      "wasPrice": null,
+      "wasPrice": 98,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572467&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616302923328_bab.jpg"
@@ -12460,11 +16839,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 63.25,
-      "wasPrice": null,
+      "wasPrice": 119,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368644&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614223113347-chloe-nomade-edp-75-ml--750x750.jpg"
@@ -12474,11 +16853,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 61.25,
-      "wasPrice": null,
+      "wasPrice": 115,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045679&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe-nomade-jasmine-naturel-50ml.jpg"
@@ -12488,11 +16867,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 61.25,
-      "wasPrice": null,
+      "wasPrice": 115,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368446&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/1/218.jpg"
@@ -12502,11 +16881,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.95,
-      "wasPrice": null,
+      "wasPrice": 98,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44197300702&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616303477943.jpg"
@@ -12516,11 +16895,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 35.95,
-      "wasPrice": null,
+      "wasPrice": 69,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672855&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/o/nomade_.jpg"
@@ -12530,11 +16909,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 81.95,
-      "wasPrice": null,
+      "wasPrice": 142,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045735&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_intense_eau_de_parfum_100ml_spray_.jpg"
@@ -12544,11 +16923,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 75.5,
-      "wasPrice": null,
+      "wasPrice": 142,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368675&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_le_parfum_100ml_refillable_spray_.jpg"
@@ -12558,11 +16937,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 21.25,
-      "wasPrice": null,
+      "wasPrice": 40,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44785984936&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/2/224.jpg"
@@ -12572,11 +16951,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 34.5,
-      "wasPrice": null,
+      "wasPrice": 65,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44785984937&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/230.jpg"
@@ -12586,11 +16965,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.95,
-      "wasPrice": null,
+      "wasPrice": 60,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44785984938&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/3/037.jpg"
@@ -12600,11 +16979,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 121.95,
-      "wasPrice": null,
+      "wasPrice": 195,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041768&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/235.jpg"
@@ -12614,11 +16993,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.5,
-      "wasPrice": null,
+      "wasPrice": 59,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45209277778&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/coolwater-women-by-davidoff-edt-spray-34-oz-100-ml-3414202011752_2_1.jpg"
@@ -12628,11 +17007,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.95,
-      "wasPrice": null,
+      "wasPrice": 69,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45354039909&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3k3f00mr80n4sxy4tmrz-c72d75a0-a6a9-4465-bb84-00064bffb2e0.png"
@@ -12642,11 +17021,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 30.75,
-      "wasPrice": null,
+      "wasPrice": 58,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234842&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3607340188602.png"
@@ -12656,11 +17035,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 21.95,
-      "wasPrice": null,
+      "wasPrice": 39,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45344356743&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3k3e00mh80n4xqi8i949-fc1f0a15-0aae-4595-9b3c-00e89478b8f9.jpg"
@@ -12670,11 +17049,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 47.25,
-      "wasPrice": null,
+      "wasPrice": 89,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041771&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/4/243.jpg"
@@ -12684,11 +17063,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 33.95,
-      "wasPrice": null,
+      "wasPrice": 56.5,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45209277779&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/a/davidoff-cool-water-intense-eau-de-parfum-uomo-125-ml.jpg"
@@ -12698,11 +17077,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 35.75,
-      "wasPrice": null,
+      "wasPrice": 67,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234843&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/256.jpg"
@@ -12712,11 +17091,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 39.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44327960558&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel-loverdose-edp-75ml.jpg"
@@ -12726,11 +17105,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 14.95,
-      "wasPrice": null,
+      "wasPrice": 27,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041776&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel-zero-plus-feminine.jpg"
@@ -12740,11 +17119,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 29.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44327960559&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273356053.png"
@@ -12754,11 +17133,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.95,
-      "wasPrice": null,
+      "wasPrice": 60,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45294888129&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel_bad_eau_de_toilette_50ml_spray_.jpg"
@@ -12768,11 +17147,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 40.95,
-      "wasPrice": null,
+      "wasPrice": 77,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161238&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/-/d-by-diesel-eau-de-toilette_1.jpg"
@@ -12782,11 +17161,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 32.5,
-      "wasPrice": null,
+      "wasPrice": 61,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041777&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/252.jpg"
@@ -12796,11 +17175,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.95,
-      "wasPrice": null,
+      "wasPrice": 84,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45354039910&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel-unisex-d-red-edp-spray-34-oz-fragrances-3614273924450_2.jpg"
@@ -12810,11 +17189,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 32.5,
-      "wasPrice": null,
+      "wasPrice": 61,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041778&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/254.jpg"
@@ -12824,11 +17203,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 38.95,
-      "wasPrice": null,
+      "wasPrice": 73,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44372210025&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/202506131549yfyx.jpg"
@@ -12838,11 +17217,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 26.75,
-      "wasPrice": null,
+      "wasPrice": 50,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041782&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/6/265.jpg"
@@ -12852,11 +17231,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 55.25,
-      "wasPrice": null,
+      "wasPrice": 104,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041785&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/7/277_1.jpg"
@@ -12866,11 +17245,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.95,
-      "wasPrice": null,
+      "wasPrice": 58,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041786&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/8/280.jpg"
@@ -12880,11 +17259,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.95,
-      "wasPrice": null,
+      "wasPrice": 60,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45077595770&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel-only-the-brave-eau-de-parfum.jpg"
@@ -12894,11 +17273,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 33.5,
-      "wasPrice": null,
+      "wasPrice": 63,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041804&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/0/306.jpg"
@@ -12908,11 +17287,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 26.25,
-      "wasPrice": null,
+      "wasPrice": 49,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041805&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/0/306_1.jpg"
@@ -12922,11 +17301,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 26.25,
-      "wasPrice": null,
+      "wasPrice": 49,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041806&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/312.jpg"
@@ -12936,11 +17315,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 47.95,
-      "wasPrice": null,
+      "wasPrice": 84,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44642628105&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/053.jpg"
@@ -12950,11 +17329,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 42.95,
-      "wasPrice": null,
+      "wasPrice": 81,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041808&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/051.jpg"
@@ -12964,11 +17343,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 39.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041809&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/315.jpg"
@@ -12978,11 +17357,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 39.25,
-      "wasPrice": null,
+      "wasPrice": 74,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368645&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/319.jpg"
@@ -12992,11 +17371,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 37.25,
-      "wasPrice": null,
+      "wasPrice": 70,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041813&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/320.jpg"
@@ -13006,11 +17385,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 30.95,
-      "wasPrice": null,
+      "wasPrice": 46,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041815&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/326.jpg"
@@ -13020,11 +17399,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 32.95,
-      "wasPrice": null,
+      "wasPrice": 62,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041816&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/310_2.jpg"
@@ -13034,11 +17413,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 71.25,
-      "wasPrice": null,
+      "wasPrice": 134,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041817&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/060.jpg"
@@ -13048,11 +17427,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 71.25,
-      "wasPrice": null,
+      "wasPrice": 134,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041818&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/063.jpg"
@@ -13062,11 +17441,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 74.25,
-      "wasPrice": null,
+      "wasPrice": 140,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041819&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/064.jpg"
@@ -13076,11 +17455,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.5,
-      "wasPrice": null,
+      "wasPrice": 93,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041820&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/345.jpg"
@@ -13090,11 +17469,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 61.95,
-      "wasPrice": null,
+      "wasPrice": 112,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45354039911&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/7/070.jpg"
@@ -13104,11 +17483,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 35.95,
-      "wasPrice": null,
+      "wasPrice": 68,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041824&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/345_1.jpg"
@@ -13118,11 +17497,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 30.25,
-      "wasPrice": null,
+      "wasPrice": 57,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041825&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/357.jpg"
@@ -13132,11 +17511,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 40.5,
-      "wasPrice": null,
+      "wasPrice": 76,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44306495314&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/357_1.jpg"
@@ -13146,11 +17525,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.95,
-      "wasPrice": null,
+      "wasPrice": 45,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041827&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/363.jpg"
@@ -13160,11 +17539,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 63.75,
-      "wasPrice": null,
+      "wasPrice": 120,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041829&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/7/075.jpg"
@@ -13174,11 +17553,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 74.25,
-      "wasPrice": null,
+      "wasPrice": 140,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041830&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/366.jpg"
@@ -13188,11 +17567,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 61.25,
-      "wasPrice": null,
+      "wasPrice": 115,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041831&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/367.jpg"
@@ -13202,11 +17581,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 68.95,
-      "wasPrice": null,
+      "wasPrice": 130,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041832&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/369.jpg"
@@ -13216,11 +17595,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 61.25,
-      "wasPrice": null,
+      "wasPrice": 115,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041833&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/371.jpg"
@@ -13230,11 +17609,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 66.95,
-      "wasPrice": null,
+      "wasPrice": 126,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041834&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/372.jpg"
@@ -13244,11 +17623,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 110,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041835&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/378.jpg"
@@ -13258,11 +17637,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 72.25,
-      "wasPrice": null,
+      "wasPrice": 136,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041836&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/8/080.jpg"
@@ -13272,11 +17651,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 113,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041837&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/328.jpg"
@@ -13286,11 +17665,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 74.75,
-      "wasPrice": null,
+      "wasPrice": 141,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045681&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_k_eau_de_toilette_200ml_spray.png"
@@ -13300,11 +17679,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 113,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041838&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/334.jpg"
@@ -13314,11 +17693,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.95,
-      "wasPrice": null,
+      "wasPrice": 113,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041839&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/005.jpg"
@@ -13328,11 +17707,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 89.75,
-      "wasPrice": null,
+      "wasPrice": 169,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041840&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/006.jpg"
@@ -13342,11 +17721,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 44.95,
-      "wasPrice": null,
+      "wasPrice": 74,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041841&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/066.jpg"
@@ -13356,11 +17735,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.5,
-      "wasPrice": null,
+      "wasPrice": 110,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572484&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_k_intense_.jpg"
@@ -13370,11 +17749,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.95,
-      "wasPrice": null,
+      "wasPrice": 83,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161240&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/338.jpg"
@@ -13384,11 +17763,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 48.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041842&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/068.jpg"
@@ -13398,11 +17777,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 62.75,
-      "wasPrice": null,
+      "wasPrice": 118,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041843&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/340.jpg"
@@ -13412,11 +17791,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 66.5,
-      "wasPrice": null,
+      "wasPrice": 125,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44415357266&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/342.jpg"
@@ -13426,11 +17805,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.25,
-      "wasPrice": null,
+      "wasPrice": 100,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041844&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/361.jpg"
@@ -13440,11 +17819,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 81.75,
-      "wasPrice": null,
+      "wasPrice": 154,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234844&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/23836foto.jpg"
@@ -13454,11 +17833,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.5,
-      "wasPrice": null,
+      "wasPrice": 93,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790662&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_pour_homme_eau_de_toilette_125ml_spray.jpg"
@@ -13468,11 +17847,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 75.95,
-      "wasPrice": null,
+      "wasPrice": 125,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45354039912&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/008.jpg"
@@ -13482,11 +17861,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 62.75,
-      "wasPrice": null,
+      "wasPrice": 118,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041847&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/365.jpg"
@@ -13496,11 +17875,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 57.95,
-      "wasPrice": null,
+      "wasPrice": 109,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790663&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_the_one_for_men_100ml_eau_de_parfum.jpg"
@@ -13510,11 +17889,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 67.95,
-      "wasPrice": null,
+      "wasPrice": 128,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041848&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/375.jpg"
@@ -13524,11 +17903,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.95,
-      "wasPrice": null,
+      "wasPrice": 77,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041849&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/380.jpg"
@@ -13538,11 +17917,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 60.5,
-      "wasPrice": null,
+      "wasPrice": 114,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045620&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/_/d_g_the_one_m_edt_150ml_.jpg"
@@ -13552,11 +17931,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 62.75,
-      "wasPrice": null,
+      "wasPrice": 118,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041850&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/382.jpg"
@@ -13566,11 +17945,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.95,
-      "wasPrice": null,
+      "wasPrice": 94,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44478466389&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/u/dunhill_icon_racing_blue_edp_100ml_.png"
@@ -13580,11 +17959,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.95,
-      "wasPrice": null,
+      "wasPrice": 94,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130113&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/u/dunhill_icon_racing_green_edp_100ml_.png"
@@ -13594,11 +17973,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.95,
-      "wasPrice": null,
+      "wasPrice": 94,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44478466390&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/385.jpg"
@@ -13636,11 +18015,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 50.5,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041851&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/388.jpg"
@@ -13650,11 +18029,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 56.95,
-      "wasPrice": null,
+      "wasPrice": 101,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041852&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/9/390.jpg"
@@ -13692,11 +18071,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 27.95,
-      "wasPrice": null,
+      "wasPrice": 52,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44647976299&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/e/l/elizabeth_arden_white_tea_eau_de_toilette_100ml_spray_.jpg"
@@ -13706,11 +18085,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 106.95,
-      "wasPrice": null,
+      "wasPrice": 120,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041854&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/400.jpg"
@@ -13720,11 +18099,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 45.25,
-      "wasPrice": null,
+      "wasPrice": 85,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041855&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/403.jpg"
@@ -13734,11 +18113,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 46.75,
-      "wasPrice": null,
+      "wasPrice": 88,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041857&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/407.jpg"
@@ -13748,11 +18127,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 24.95,
-      "wasPrice": null,
+      "wasPrice": 67,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44426505317&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/1/413.jpg"
@@ -13804,11 +18183,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 71.75,
-      "wasPrice": null,
+      "wasPrice": 135,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041867&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/a/r/armani_si_passione_eclat_100ml_eau_de_parfum.jpg"
@@ -13818,11 +18197,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.95,
-      "wasPrice": null,
+      "wasPrice": 80,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041869&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441.jpg"
@@ -13832,11 +18211,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.95,
-      "wasPrice": null,
+      "wasPrice": 59,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041870&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441_1.jpg"
@@ -13846,11 +18225,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 63.95,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041871&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/352_1.jpg"
@@ -13860,11 +18239,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 75.95,
-      "wasPrice": null,
+      "wasPrice": 110,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041872&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/350_1.jpg"
@@ -13874,11 +18253,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.95,
-      "wasPrice": null,
+      "wasPrice": 110,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44197300673&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/product_2025-389.png"
@@ -13888,11 +18267,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 83.95,
-      "wasPrice": null,
+      "wasPrice": 136,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45077595766&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/5/450_1.jpg"
@@ -13902,11 +18281,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 88.95,
-      "wasPrice": null,
+      "wasPrice": 160,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572471&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/giorgio_armani_si_150ml_eau_de_parfum_.jpg"
@@ -13916,11 +18295,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 75.95,
-      "wasPrice": null,
+      "wasPrice": 110,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44677427244&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614271994844.png"
@@ -13930,11 +18309,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 77.95,
-      "wasPrice": null,
+      "wasPrice": 125,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041875&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prof.jpg"
@@ -13944,11 +18323,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 75.95,
-      "wasPrice": null,
+      "wasPrice": 111,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041876&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/t/str.jpg"
@@ -13958,11 +18337,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 77.95,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041877&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/9/394.jpg"
@@ -13972,11 +18351,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 65.95,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041878&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/9/090.jpg"
@@ -13986,11 +18365,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 52.95,
-      "wasPrice": null,
+      "wasPrice": 89,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368646&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/2/422.jpg"
@@ -14000,11 +18379,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 95.95,
-      "wasPrice": null,
+      "wasPrice": 148,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041882&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/3/431.jpg"
@@ -14014,11 +18393,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.95,
-      "wasPrice": null,
+      "wasPrice": 70,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041886&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/103_1.jpg"
@@ -14028,11 +18407,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.95,
-      "wasPrice": null,
+      "wasPrice": 89,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44191431887&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/e/m/emporio_armani_stronger_with_you_only_eau_de_toilette_150ml_spray.jpg"
@@ -14042,11 +18421,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 86.95,
-      "wasPrice": null,
+      "wasPrice": 109,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45223969092&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/a/r/armani_emporia_armani_power_of_you_eau_de_parfum_90ml_spray_.jpg"
@@ -14056,11 +18435,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 68.95,
-      "wasPrice": null,
+      "wasPrice": 125,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619730&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_rouge_eau_de_parfum_80ml_spray_.jpg"
@@ -14070,11 +18449,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.5,
-      "wasPrice": null,
+      "wasPrice": 93,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041888&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/6/462.jpg"
@@ -14084,11 +18463,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.5,
-      "wasPrice": null,
+      "wasPrice": 131,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041889&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/6/463.jpg"
@@ -14098,11 +18477,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 48.95,
-      "wasPrice": null,
+      "wasPrice": 85,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041890&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/6/466.jpg"
@@ -14112,11 +18491,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.5,
-      "wasPrice": null,
+      "wasPrice": 131,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041891&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/470.jpg"
@@ -14126,11 +18505,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 46.95,
-      "wasPrice": null,
+      "wasPrice": 69,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44327960560&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/e/le_secret50ml.jpg"
@@ -14140,11 +18519,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.5,
-      "wasPrice": null,
+      "wasPrice": 131,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716951905&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/475.jpg"
@@ -14154,11 +18533,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 64.95,
-      "wasPrice": null,
+      "wasPrice": 105.5,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45343666196&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/490_1.jpg"
@@ -14168,11 +18547,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 109,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041894&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/500.jpg"
@@ -14182,11 +18561,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 57.95,
-      "wasPrice": null,
+      "wasPrice": 97,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041895&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/502.jpg"
@@ -14196,11 +18575,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 67.95,
-      "wasPrice": null,
+      "wasPrice": 118,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041896&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/505.jpg"
@@ -14210,11 +18589,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 65.95,
-      "wasPrice": null,
+      "wasPrice": 118,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041897&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/507.jpg"
@@ -14224,11 +18603,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.95,
-      "wasPrice": null,
+      "wasPrice": 76,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041898&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_absolu_35ml_eau_de_parfum_intense.jpg"
@@ -14238,11 +18617,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 68.95,
-      "wasPrice": null,
+      "wasPrice": 131,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854355&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61r_mpn1fsl.jpg"
@@ -14252,11 +18631,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 81.95,
-      "wasPrice": null,
+      "wasPrice": 112,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041899&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/255_1.jpg"
@@ -14266,11 +18645,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 75.95,
-      "wasPrice": null,
+      "wasPrice": 124,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44260860880&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/1/4101129w_p.jpg"
@@ -14280,11 +18659,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.95,
-      "wasPrice": null,
+      "wasPrice": 69,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041900&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/105_1.jpg"
@@ -14294,11 +18673,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.95,
-      "wasPrice": null,
+      "wasPrice": 96,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572474&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_rouge_50ml_eau_de_parfum.jpg"
@@ -14308,11 +18687,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 64.95,
-      "wasPrice": null,
+      "wasPrice": 104,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041901&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/509.jpg"
@@ -14322,11 +18701,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 78.95,
-      "wasPrice": null,
+      "wasPrice": 118,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041902&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/511.jpg"
@@ -14336,11 +18715,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.5,
-      "wasPrice": null,
+      "wasPrice": 131,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041903&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/513.jpg"
@@ -14350,11 +18729,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 57.95,
-      "wasPrice": null,
+      "wasPrice": 109,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041904&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/515.jpg"
@@ -14364,11 +18743,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 46.75,
-      "wasPrice": null,
+      "wasPrice": 88,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041905&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/473.jpg"
@@ -14378,11 +18757,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 77.95,
-      "wasPrice": null,
+      "wasPrice": 145,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041906&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/480.jpg"
@@ -14392,11 +18771,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 44.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041907&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/486.jpg"
@@ -14406,11 +18785,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 54.95,
-      "wasPrice": null,
+      "wasPrice": 82,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041908&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/487.jpg"
@@ -14420,11 +18799,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.95,
-      "wasPrice": null,
+      "wasPrice": 59,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041909&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/487_1.jpg"
@@ -14434,11 +18813,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 45.95,
-      "wasPrice": null,
+      "wasPrice": 85,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041910&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/491.jpg"
@@ -14448,11 +18827,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 37.25,
-      "wasPrice": null,
+      "wasPrice": 70,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041912&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494.jpg"
@@ -14462,11 +18841,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 55.95,
-      "wasPrice": null,
+      "wasPrice": 102,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44426505318&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/e/gentleman_reserve_privee.png"
@@ -14476,11 +18855,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 109,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45223969058&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494_1.jpg"
@@ -14490,11 +18869,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.75,
-      "wasPrice": null,
+      "wasPrice": 101,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041914&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494_2.jpg"
@@ -14504,11 +18883,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 38.95,
-      "wasPrice": null,
+      "wasPrice": 73,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234846&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy-gentlemen-only-edt-100ml-2023-1.jpg"
@@ -14518,11 +18897,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 50.5,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44245158259&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/114774.jpg"
@@ -14532,11 +18911,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 66.5,
-      "wasPrice": null,
+      "wasPrice": 125,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44691827441&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_irresistible_nude_velvet_eau_de_parfum_80ml_spray_.jpg"
@@ -14546,11 +18925,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 40.5,
-      "wasPrice": null,
+      "wasPrice": 76,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44773367235&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/_/l_interdit_intense_35ml_.png"
@@ -14560,11 +18939,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 63.95,
-      "wasPrice": null,
+      "wasPrice": 115,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45223969093&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_gentleman_society_ambree_eau_de_parfum_100ml_spray_.jpg"
@@ -14574,11 +18953,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 77.95,
-      "wasPrice": null,
+      "wasPrice": 140,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45223969094&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_parfum_80ml_spray.jpg"
@@ -14588,11 +18967,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.95,
-      "wasPrice": null,
+      "wasPrice": 103,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45239338236&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_eau_de_toilette_80ml_spray.jpg"
@@ -14602,11 +18981,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 85.5,
-      "wasPrice": null,
+      "wasPrice": 161,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619739&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_gentleman_society_extreme_eau_de_parfum_200ml_spray_.jpg"
@@ -14616,11 +18995,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 40.95,
-      "wasPrice": null,
+      "wasPrice": 76,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44415357267&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/1677181408_874110-d5b71fe697dd851ade05fb5d6021.jpg"
@@ -14630,11 +19009,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 57.95,
-      "wasPrice": null,
+      "wasPrice": 109,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041916&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/112_1.jpg"
@@ -14644,11 +19023,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.25,
-      "wasPrice": null,
+      "wasPrice": 138,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572475&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8005610481005.jpg"
@@ -14658,11 +19037,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 52.95,
-      "wasPrice": null,
+      "wasPrice": 99,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368449&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_bloom_50ml_edp_spray.png"
@@ -14672,11 +19051,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 80.95,
-      "wasPrice": null,
+      "wasPrice": 145,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44678355634&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305275745.png"
@@ -14686,11 +19065,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 86.95,
-      "wasPrice": null,
+      "wasPrice": 160,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854356&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/a/gardenia_150mledp.jpg"
@@ -14700,11 +19079,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.25,
-      "wasPrice": null,
+      "wasPrice": 138,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041919&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/533.jpg"
@@ -14714,11 +19093,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 87.95,
-      "wasPrice": null,
+      "wasPrice": 160,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854357&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/f/df2bdb4da05b6374e4d0d949da7629b109c61d89cd830d229081516b3573ceaa.jpeg"
@@ -14728,11 +19107,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.95,
-      "wasPrice": null,
+      "wasPrice": 89,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368451&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1470388-gucci-flora-gorgeous-jasmine-eau-de-parfum-50-ml.6bc70226.jpg"
@@ -14742,11 +19121,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.25,
-      "wasPrice": null,
+      "wasPrice": 138,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041920&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/535.jpg"
@@ -14756,11 +19135,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.25,
-      "wasPrice": null,
+      "wasPrice": 100,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041921&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/535_1.jpg"
@@ -14770,11 +19149,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.25,
-      "wasPrice": null,
+      "wasPrice": 138,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041922&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/539.jpg"
@@ -14784,11 +19163,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 37.25,
-      "wasPrice": null,
+      "wasPrice": 70,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44642628107&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305169259.png"
@@ -14798,11 +19177,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.95,
-      "wasPrice": null,
+      "wasPrice": 104,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44780657590&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/541.jpg"
@@ -14812,11 +19191,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 50.95,
-      "wasPrice": null,
+      "wasPrice": 93,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234847&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305169266_w_1000_h_1000_.jpg"
@@ -14826,11 +19205,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 111.5,
-      "wasPrice": null,
+      "wasPrice": 210,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041924&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/543.jpg"
@@ -14840,11 +19219,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.75,
-      "wasPrice": null,
+      "wasPrice": 139,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368647&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/544.jpg"
@@ -14854,11 +19233,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.95,
-      "wasPrice": null,
+      "wasPrice": 120,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44422437675&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci-guilty-absolute-pour-femme-eau-de-parfum-spray-90ml8005610524177guccilookincredible-808533__56789.jpg"
@@ -14868,11 +19247,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.25,
-      "wasPrice": null,
+      "wasPrice": 138,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041926&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/548.jpg"
@@ -14882,11 +19261,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.95,
-      "wasPrice": null,
+      "wasPrice": 106,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041927&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/550.jpg"
@@ -14896,11 +19275,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.95,
-      "wasPrice": null,
+      "wasPrice": 126,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041928&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/552.jpg"
@@ -14910,11 +19289,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 56.95,
-      "wasPrice": null,
+      "wasPrice": 96,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041929&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/555.jpg"
@@ -14924,11 +19303,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 55.75,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041930&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/6/560.jpg"
@@ -14938,11 +19317,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.95,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234848&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucciguiltyhomme90mledp_.jpg"
@@ -14952,11 +19331,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 64.95,
-      "wasPrice": null,
+      "wasPrice": 97,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041933&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/554.jpg"
@@ -14966,11 +19345,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 47.95,
-      "wasPrice": null,
+      "wasPrice": 79,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368648&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/558.jpg"
@@ -14980,11 +19359,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 70.5,
-      "wasPrice": null,
+      "wasPrice": 133,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619731&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_guilty_pour_homme_parfum_90ml_spray.jpg"
@@ -14994,11 +19373,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.25,
-      "wasPrice": null,
+      "wasPrice": 149,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041936&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/122.jpg"
@@ -15008,11 +19387,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 37.25,
-      "wasPrice": null,
+      "wasPrice": 70,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672856&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_flora_gorgeous_magnolia_eau_de_parfum_30ml_spray_b.jpg"
@@ -15022,11 +19401,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 44.95,
-      "wasPrice": null,
+      "wasPrice": 74,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368676&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_flora_gorgeous_gardenia_intense_eau_de_parfum_30ml_spray_.jpg"
@@ -15036,11 +19415,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 76.95,
-      "wasPrice": null,
+      "wasPrice": 145,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368677&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_flora_gorgeous_gardenia_intense_eau_de_parfum_50ml_spray.jpg"
@@ -15050,11 +19429,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 75.95,
-      "wasPrice": null,
+      "wasPrice": 143,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234867&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305278289.png"
@@ -15064,11 +19443,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 52.95,
-      "wasPrice": null,
+      "wasPrice": 96,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234868&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci-ladies-gucci-flora-gorgeous-gardenia-gift-set-fragrances-3616305448019.jpg"
@@ -15078,11 +19457,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.95,
-      "wasPrice": null,
+      "wasPrice": 112,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130172&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616307112338.png"
@@ -15092,11 +19471,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 64.95,
-      "wasPrice": null,
+      "wasPrice": 124,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041938&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/6/563.jpg"
@@ -15106,11 +19485,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 65.75,
-      "wasPrice": null,
+      "wasPrice": 124,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041942&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/6/76296469_o.jpg"
@@ -15120,11 +19499,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 89.95,
-      "wasPrice": null,
+      "wasPrice": 149,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45354039913&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shop-pf-01913-03-mon-guerlain-edp---100ml--1.jpg"
@@ -15134,11 +19513,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 61.95,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041944&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/o/mon_gs.jpg"
@@ -15148,11 +19527,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 65.95,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041945&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shaliamr_gs.jpg"
@@ -15162,11 +19541,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 77.95,
-      "wasPrice": null,
+      "wasPrice": 128,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041946&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shali_edp.jpg"
@@ -15176,11 +19555,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 74.95,
-      "wasPrice": null,
+      "wasPrice": 114,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041947&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shal_edt.jpg"
@@ -15190,11 +19569,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 77.95,
-      "wasPrice": null,
+      "wasPrice": 143,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041950&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/o/rosa_1_1.jpg"
@@ -15204,11 +19583,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 65.25,
-      "wasPrice": null,
+      "wasPrice": 123,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44647976301&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/guerlain_la_petite_robe_noire_eau_de_toilette_100ml_spray_.jpg"
@@ -15218,11 +19597,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.95,
-      "wasPrice": null,
+      "wasPrice": 134,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44265156136&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3346133200021.png"
@@ -15232,11 +19611,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 42.95,
-      "wasPrice": null,
+      "wasPrice": 81,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041977&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/4/645.jpg"
@@ -15246,11 +19625,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 40.5,
-      "wasPrice": null,
+      "wasPrice": 76,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368651&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/675.jpg"
@@ -15260,11 +19639,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 21.95,
-      "wasPrice": null,
+      "wasPrice": 36,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041980&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/691.jpg"
@@ -15274,11 +19653,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.95,
-      "wasPrice": null,
+      "wasPrice": 79,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368652&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/695.jpg"
@@ -15288,11 +19667,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 47.75,
-      "wasPrice": null,
+      "wasPrice": 90,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041982&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/704.jpg"
@@ -15302,11 +19681,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 70.5,
-      "wasPrice": null,
+      "wasPrice": 133,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368653&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/743_perfume-hugo-boss-the-scent-fem-100ml---730870196885.jpg"
@@ -15316,11 +19695,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 34.5,
-      "wasPrice": null,
+      "wasPrice": 65,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368654&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/707.jpg"
@@ -15330,11 +19709,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.95,
-      "wasPrice": null,
+      "wasPrice": 60,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44265156137&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/i/m/images.jpeg"
@@ -15344,11 +19723,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 50.5,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041986&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/650.jpg"
@@ -15358,11 +19737,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 45.75,
-      "wasPrice": null,
+      "wasPrice": 86,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041989&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/657.jpg"
@@ -15372,11 +19751,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 46.95,
-      "wasPrice": null,
+      "wasPrice": 85,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041990&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8005610460598.jpg"
@@ -15386,11 +19765,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 65.25,
-      "wasPrice": null,
+      "wasPrice": 123,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44370470728&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/660.jpg"
@@ -15400,11 +19779,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.95,
-      "wasPrice": null,
+      "wasPrice": 60,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041991&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/662.jpg"
@@ -15414,11 +19793,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 46.75,
-      "wasPrice": null,
+      "wasPrice": 88,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041992&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/665.jpg"
@@ -15428,11 +19807,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 45.75,
-      "wasPrice": null,
+      "wasPrice": 86,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041993&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/667.jpg"
@@ -15442,11 +19821,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 60.5,
-      "wasPrice": null,
+      "wasPrice": 114,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041994&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/668.jpg"
@@ -15456,11 +19835,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 52.95,
-      "wasPrice": null,
+      "wasPrice": 86,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572478&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo_boss_boss_bottled_100ml_parfum.jpg"
@@ -15470,11 +19849,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.25,
-      "wasPrice": null,
+      "wasPrice": 100,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041995&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/670.jpg"
@@ -15484,11 +19863,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 39.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041996&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/672.jpg"
@@ -15498,11 +19877,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 65.95,
-      "wasPrice": null,
+      "wasPrice": 100,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161243&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/683.jpg"
@@ -15512,11 +19891,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041999&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/685.jpg"
@@ -15526,11 +19905,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 26.75,
-      "wasPrice": null,
+      "wasPrice": 50,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042001&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/162_2.jpg"
@@ -15540,11 +19919,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 24.95,
-      "wasPrice": null,
+      "wasPrice": 44,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042002&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/690.jpg"
@@ -15554,11 +19933,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 47.25,
-      "wasPrice": null,
+      "wasPrice": 89,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042003&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/697.jpg"
@@ -15568,11 +19947,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.95,
-      "wasPrice": null,
+      "wasPrice": 60,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042004&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/700.jpg"
@@ -15582,11 +19961,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 46.95,
-      "wasPrice": null,
+      "wasPrice": 71,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042006&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/705.jpg"
@@ -15596,11 +19975,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.5,
-      "wasPrice": null,
+      "wasPrice": 59,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44772989519&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200_3.jpg"
@@ -15610,11 +19989,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 40.95,
-      "wasPrice": null,
+      "wasPrice": 77,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44691827438&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo_boss_jeans_eau_de_toilette_125ml_spray_.jpg"
@@ -15624,11 +20003,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.5,
-      "wasPrice": null,
+      "wasPrice": 78,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619740&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo_boss_hugo_woman_eau_de_parfum_75ml_spray_.png"
@@ -15652,11 +20031,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 46.25,
-      "wasPrice": null,
+      "wasPrice": 87,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572479&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/3423478501058.jpg"
@@ -15666,11 +20045,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 55.25,
-      "wasPrice": null,
+      "wasPrice": 104,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042008&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/716.jpg"
@@ -15680,11 +20059,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 47.25,
-      "wasPrice": null,
+      "wasPrice": 89,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619732&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_fusion_d_issey_eau_de_toilette_100ml_spray_.jpg"
@@ -15694,11 +20073,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 34.5,
-      "wasPrice": null,
+      "wasPrice": 65,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042010&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/721.jpg"
@@ -15708,11 +20087,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 57.25,
-      "wasPrice": null,
+      "wasPrice": 108,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042011&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/723.jpg"
@@ -15722,11 +20101,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.5,
-      "wasPrice": null,
+      "wasPrice": 97,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042014&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/729.jpg"
@@ -15736,11 +20115,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 27.95,
-      "wasPrice": null,
+      "wasPrice": 51,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45355022309&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12263769-1605185921623162.jpg"
@@ -15750,11 +20129,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 47.75,
-      "wasPrice": null,
+      "wasPrice": 90,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672850&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_.jpg"
@@ -15764,11 +20143,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 56.25,
-      "wasPrice": null,
+      "wasPrice": 106,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716951914&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/e/le_sel.jpg"
@@ -15778,11 +20157,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 27.75,
-      "wasPrice": null,
+      "wasPrice": 52,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619741&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_l_eau_d_issey_pour_homme_intense_eau_de_toilette_75ml_spray.jpg"
@@ -15792,11 +20171,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 64.95,
-      "wasPrice": null,
+      "wasPrice": 118,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042020&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/742.jpg"
@@ -15806,11 +20185,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 65.95,
-      "wasPrice": null,
+      "wasPrice": 124,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042021&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/168_2.jpg"
@@ -15820,11 +20199,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 106,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042022&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415081184.jpg"
@@ -15834,11 +20213,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.95,
-      "wasPrice": null,
+      "wasPrice": 86,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042024&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/744.jpg"
@@ -15848,11 +20227,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 75.95,
-      "wasPrice": null,
+      "wasPrice": 139,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042025&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/748.jpg"
@@ -15862,11 +20241,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 81.95,
-      "wasPrice": null,
+      "wasPrice": 133,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572487&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/e/jean-paul-gaultier-ladies-divine-gift-set-fragrances-8435415112987.jpg"
@@ -15876,11 +20255,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 83.95,
-      "wasPrice": null,
+      "wasPrice": 127,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042026&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/750.jpg"
@@ -15890,11 +20269,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 96.95,
-      "wasPrice": null,
+      "wasPrice": 151,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042028&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/753.jpg"
@@ -15904,11 +20283,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 85.95,
-      "wasPrice": null,
+      "wasPrice": 104,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042029&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/755.jpg"
@@ -15918,11 +20297,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.95,
-      "wasPrice": null,
+      "wasPrice": 65,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042030&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/757.jpg"
@@ -15932,11 +20311,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 63.95,
-      "wasPrice": null,
+      "wasPrice": 91,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042031&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/759.jpg"
@@ -15946,11 +20325,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 81.95,
-      "wasPrice": null,
+      "wasPrice": 109,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45203831826&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415049542.jpg"
@@ -15960,11 +20339,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 82.95,
-      "wasPrice": null,
+      "wasPrice": 140,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042034&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/6/766.jpg"
@@ -15974,11 +20353,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.95,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042036&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/801.jpg"
@@ -15988,11 +20367,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 81.95,
-      "wasPrice": null,
+      "wasPrice": 145,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042037&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/801_1.jpg"
@@ -16002,11 +20381,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 72.95,
-      "wasPrice": null,
+      "wasPrice": 104,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572488&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415098953_bab.jpg"
@@ -16016,11 +20395,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.95,
-      "wasPrice": null,
+      "wasPrice": 124,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042039&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/810.jpg"
@@ -16030,11 +20409,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 101,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042040&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/770.jpg"
@@ -16044,11 +20423,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 68.95,
-      "wasPrice": null,
+      "wasPrice": 130,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042041&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/7/170_1.jpg"
@@ -16058,11 +20437,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 75.95,
-      "wasPrice": null,
+      "wasPrice": 111,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042043&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/775.jpg"
@@ -16072,11 +20451,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 63.95,
-      "wasPrice": null,
+      "wasPrice": 98,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042044&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/779.jpg"
@@ -16086,11 +20465,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 63.95,
-      "wasPrice": null,
+      "wasPrice": 96,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042046&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/773.jpg"
@@ -16100,11 +20479,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 65.95,
-      "wasPrice": null,
+      "wasPrice": 96,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042047&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/8/783.jpg"
@@ -16114,11 +20493,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 78.95,
-      "wasPrice": null,
+      "wasPrice": 129,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042048&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/8/786.jpg"
@@ -16128,11 +20507,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 107.95,
-      "wasPrice": null,
+      "wasPrice": 145,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042050&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791.jpg"
@@ -16142,11 +20521,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.95,
-      "wasPrice": null,
+      "wasPrice": 94,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042051&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/794.jpg"
@@ -16156,11 +20535,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 77.95,
-      "wasPrice": null,
+      "wasPrice": 118,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042052&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/796.jpg"
@@ -16170,11 +20549,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 101.95,
-      "wasPrice": null,
+      "wasPrice": 145,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042053&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/796_1.jpg"
@@ -16184,11 +20563,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 74.95,
-      "wasPrice": null,
+      "wasPrice": 102,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042055&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1.jpg"
@@ -16198,11 +20577,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 92.95,
-      "wasPrice": null,
+      "wasPrice": 138,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042056&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1_1.jpg"
@@ -16212,11 +20591,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.95,
-      "wasPrice": null,
+      "wasPrice": 81,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042057&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1_2.jpg"
@@ -16226,11 +20605,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 68.95,
-      "wasPrice": null,
+      "wasPrice": 103,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042058&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/793.jpg"
@@ -16240,11 +20619,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 91.95,
-      "wasPrice": null,
+      "wasPrice": 127,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042059&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/793_1.jpg"
@@ -16254,11 +20633,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.95,
-      "wasPrice": null,
+      "wasPrice": 115,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042060&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/804.jpg"
@@ -16268,11 +20647,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 101.95,
-      "wasPrice": null,
+      "wasPrice": 134,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042061&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/804_1.jpg"
@@ -16282,11 +20661,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 76.95,
-      "wasPrice": null,
+      "wasPrice": 116,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042062&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/811.jpg"
@@ -16296,11 +20675,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 74.95,
-      "wasPrice": null,
+      "wasPrice": 109,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042063&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/812_1.jpg"
@@ -16310,11 +20689,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 89.95,
-      "wasPrice": null,
+      "wasPrice": 123,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042064&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/815.jpg"
@@ -16324,11 +20703,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 18.95,
-      "wasPrice": null,
+      "wasPrice": 24.95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45237419615&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/e/jean_paul_gaultier_la_belle_rosea_eau_de_parfum_10ml_mini_bab.jpg"
@@ -16338,11 +20717,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 15.95,
-      "wasPrice": null,
+      "wasPrice": 20,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45245914424&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/e/jean_paul_gaultier_le_beau_narcisse_eau_de_parfum_7ml_spray_.jpg"
@@ -16380,11 +20759,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 36.25,
-      "wasPrice": null,
+      "wasPrice": 68,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042068&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180_1.jpg"
@@ -16394,11 +20773,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 38.95,
-      "wasPrice": null,
+      "wasPrice": 72,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042069&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/830.jpg"
@@ -16408,11 +20787,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.95,
-      "wasPrice": null,
+      "wasPrice": 94,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790666&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460097321.png"
@@ -16422,11 +20801,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 34.95,
-      "wasPrice": null,
+      "wasPrice": 66,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042071&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/834.jpg"
@@ -16436,11 +20815,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.95,
-      "wasPrice": null,
+      "wasPrice": 99,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44260860882&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/o/p/open-box-jimmy-choo-ladies-i-want-choo-edp-spray-34-oz-fragrances-3386460119252.jpg"
@@ -16450,11 +20829,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 61.95,
-      "wasPrice": null,
+      "wasPrice": 102,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44751385646&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/1/218711.jpg"
@@ -16464,11 +20843,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 33.95,
-      "wasPrice": null,
+      "wasPrice": 51,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042073&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/182_1.jpg"
@@ -16478,11 +20857,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 39.95,
-      "wasPrice": null,
+      "wasPrice": 68,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042074&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/836_1.jpg"
@@ -16492,11 +20871,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.95,
-      "wasPrice": null,
+      "wasPrice": 102,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44270807398&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/e/perfume_21nov_25282450.jpg"
@@ -16506,11 +20885,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 13.5,
-      "wasPrice": null,
+      "wasPrice": 22,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042077&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/854.jpg"
@@ -16520,11 +20899,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 42.95,
-      "wasPrice": null,
+      "wasPrice": 81,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44327960561&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/i/jimmy-choo-i-want-choo-le-parfum.jpg"
@@ -16534,11 +20913,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 50.5,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042078&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/858.jpg"
@@ -16548,11 +20927,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 36.25,
-      "wasPrice": null,
+      "wasPrice": 68,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45072337619&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/6/863.jpg"
@@ -16562,11 +20941,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 45.75,
-      "wasPrice": null,
+      "wasPrice": 86,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042080&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/6/865.jpg"
@@ -16576,11 +20955,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 50.95,
-      "wasPrice": null,
+      "wasPrice": 96,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045683&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/c/screenshot_2026-05-13_at_15.34.48.png"
@@ -16590,11 +20969,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.95,
-      "wasPrice": null,
+      "wasPrice": 79,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042083&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/870.jpg"
@@ -16604,11 +20983,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 50.95,
-      "wasPrice": null,
+      "wasPrice": 96,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042084&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/873.jpg"
@@ -16618,11 +20997,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 22.95,
-      "wasPrice": null,
+      "wasPrice": 35,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042085&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/874.jpg"
@@ -16632,11 +21011,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.5,
-      "wasPrice": null,
+      "wasPrice": 82,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042087&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/877.jpg"
@@ -16646,11 +21025,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 55.95,
-      "wasPrice": null,
+      "wasPrice": 84,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042088&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/879.jpg"
@@ -16660,11 +21039,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 50.95,
-      "wasPrice": null,
+      "wasPrice": 90,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042089&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/880.jpg"
@@ -16674,11 +21053,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.95,
-      "wasPrice": null,
+      "wasPrice": 93,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042090&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/882.jpg"
@@ -16688,11 +21067,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 63.95,
-      "wasPrice": null,
+      "wasPrice": 120,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716951906&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/882_1.jpg"
@@ -16702,11 +21081,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 30.25,
-      "wasPrice": null,
+      "wasPrice": 57,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44415357272&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460048125.png"
@@ -16716,11 +21095,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 60.95,
-      "wasPrice": null,
+      "wasPrice": 102,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44647976297&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/i/jimmy_choo_i_want_choo_with_love_eau_de_parfum_100ml_spray_.jpg"
@@ -16730,11 +21109,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 81.95,
-      "wasPrice": null,
+      "wasPrice": 122,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042091&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/897.jpg"
@@ -16744,11 +21123,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 95.95,
-      "wasPrice": null,
+      "wasPrice": 118,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042092&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/899.jpg"
@@ -16758,11 +21137,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 80.95,
-      "wasPrice": null,
+      "wasPrice": 118,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716548403&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/jo_malone_mimosa_cardamom_eau_de_cologne_spray_100ml.png"
@@ -16772,11 +21151,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 70.95,
-      "wasPrice": null,
+      "wasPrice": 118,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572480&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/jo_malone_blackberry_bay_100ml_eau_de_cologne.jpg"
@@ -16790,7 +21169,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042093&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/9/190_1.jpg"
@@ -16800,11 +21179,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 94.95,
-      "wasPrice": null,
+      "wasPrice": 122,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042094&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/890.jpg"
@@ -16814,11 +21193,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 123.95,
-      "wasPrice": null,
+      "wasPrice": 164,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042095&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/893.jpg"
@@ -16828,11 +21207,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 81.95,
-      "wasPrice": null,
+      "wasPrice": 122,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716548404&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/2309599_cdetailimage01.jpg"
@@ -16842,11 +21221,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 83.95,
-      "wasPrice": null,
+      "wasPrice": 118,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716548405&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/2360928_cdetailimage01.jpg"
@@ -16856,11 +21235,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 90.95,
-      "wasPrice": null,
+      "wasPrice": 122,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716951907&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/900.jpg"
@@ -16870,11 +21249,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 89.95,
-      "wasPrice": null,
+      "wasPrice": 112,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042099&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/9/196_1.jpg"
@@ -16884,11 +21263,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 125.95,
-      "wasPrice": null,
+      "wasPrice": 150,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042100&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/9/199.jpg"
@@ -16898,11 +21277,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 96.95,
-      "wasPrice": null,
+      "wasPrice": 122,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042101&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/200_1_2.jpg"
@@ -16912,11 +21291,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 128.95,
-      "wasPrice": null,
+      "wasPrice": 160,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44562735497&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/204_1.jpg"
@@ -16926,11 +21305,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.95,
-      "wasPrice": null,
+      "wasPrice": 118,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042103&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/201_3_1.jpg"
@@ -16940,11 +21319,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 90.95,
-      "wasPrice": null,
+      "wasPrice": 116,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672842&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/jo_malone_scarlet_poppy_eau_de_cologne_intense_50ml.jpg"
@@ -16954,11 +21333,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 80.95,
-      "wasPrice": null,
+      "wasPrice": 122,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716548422&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/690251057016_0.jpg"
@@ -16968,11 +21347,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.95,
-      "wasPrice": null,
+      "wasPrice": 122,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716548425&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/89332390_o.jpeg"
@@ -16982,11 +21361,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 26.95,
-      "wasPrice": null,
+      "wasPrice": 50,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042104&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/901.jpg"
@@ -16996,11 +21375,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 26.75,
-      "wasPrice": null,
+      "wasPrice": 50,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042105&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/204_1_1.jpg"
@@ -17010,11 +21389,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 24.5,
-      "wasPrice": null,
+      "wasPrice": 46,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042106&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614222398264.jpg"
@@ -17024,11 +21403,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 26.95,
-      "wasPrice": null,
+      "wasPrice": 47,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042107&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_homme_absolute_for_him_120ml_eau_de_parfum.jpg"
@@ -17038,11 +21417,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 36.95,
-      "wasPrice": null,
+      "wasPrice": 70,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45351597903&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_homme_eau_de_toilette_125ml_spray_.jpg"
@@ -17052,11 +21431,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 47.75,
-      "wasPrice": null,
+      "wasPrice": 90,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042108&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/903.jpg"
@@ -17066,11 +21445,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 36.25,
-      "wasPrice": null,
+      "wasPrice": 68,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042109&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/905.jpg"
@@ -17080,11 +21459,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 40.95,
-      "wasPrice": null,
+      "wasPrice": 77,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045634&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_jump_edt_200ml_.jpg"
@@ -17094,11 +21473,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 36.25,
-      "wasPrice": null,
+      "wasPrice": 68,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368679&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_homme_eau_de_parfum_125ml_spray_.jpg"
@@ -17122,11 +21501,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 35.75,
-      "wasPrice": null,
+      "wasPrice": 67,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042110&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/900_1.jpg"
@@ -17136,11 +21515,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 45.25,
-      "wasPrice": null,
+      "wasPrice": 85,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619733&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/u/juicy_couture_oui_eau_de_parfum_100ml_spray.jpg"
@@ -17164,11 +21543,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 44.95,
-      "wasPrice": null,
+      "wasPrice": 81.5,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042113&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/1/914.jpg"
@@ -17178,11 +21557,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 57.95,
-      "wasPrice": null,
+      "wasPrice": 109,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45203831827&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/x/gxp-11638.jpg"
@@ -17192,11 +21571,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.95,
-      "wasPrice": null,
+      "wasPrice": 100,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042114&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/1/916.jpg"
@@ -17206,11 +21585,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.95,
-      "wasPrice": null,
+      "wasPrice": 85,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042115&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/1/918.jpg"
@@ -17234,11 +21613,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 36.95,
-      "wasPrice": null,
+      "wasPrice": 50,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042116&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/2/922.jpg"
@@ -17248,11 +21627,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 29.95,
-      "wasPrice": null,
+      "wasPrice": 50,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042117&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/2/924.jpg"
@@ -17262,11 +21641,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.95,
-      "wasPrice": null,
+      "wasPrice": 50,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44429021943&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lacoste-mens-lhomme-edt-spray-33-oz-100-ml-8005610521220_2.jpg"
@@ -17276,11 +21655,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 26.75,
-      "wasPrice": null,
+      "wasPrice": 50,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45072337645&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lacoste_touch_of_pink_eau_de_toilette_50ml_spray.jpg"
@@ -17290,11 +21669,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 89.95,
-      "wasPrice": null,
+      "wasPrice": 120,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161250&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/942.jpg"
@@ -17304,11 +21683,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 90.95,
-      "wasPrice": null,
+      "wasPrice": 130,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042120&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/944.jpg"
@@ -17318,11 +21697,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 54.95,
-      "wasPrice": null,
+      "wasPrice": 93,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042121&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/945.jpg"
@@ -17332,11 +21711,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.95,
-      "wasPrice": null,
+      "wasPrice": 115,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042122&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/947.jpg"
@@ -17346,11 +21725,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.95,
-      "wasPrice": null,
+      "wasPrice": 127,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042123&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/5/950.jpg"
@@ -17360,11 +21739,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 85.95,
-      "wasPrice": null,
+      "wasPrice": 132,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042124&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/5/953.jpg"
@@ -17374,11 +21753,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 74.95,
-      "wasPrice": null,
+      "wasPrice": 127,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042126&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/960.jpg"
@@ -17388,11 +21767,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 74.95,
-      "wasPrice": null,
+      "wasPrice": 89,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042128&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/961.jpg"
@@ -17402,11 +21781,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.95,
-      "wasPrice": null,
+      "wasPrice": 80,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042129&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/964.jpg"
@@ -17416,11 +21795,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 85.95,
-      "wasPrice": null,
+      "wasPrice": 142,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042130&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/965.jpg"
@@ -17430,11 +21809,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 77.95,
-      "wasPrice": null,
+      "wasPrice": 140,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130115&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome-la-vie-est-belle-rose-extraordinaire-eau-de-parfum.jpg"
@@ -17444,11 +21823,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 55.95,
-      "wasPrice": null,
+      "wasPrice": 98,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042131&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_la_vie_est_belle_soleil_cristal_50ml_eau_de_parfum.jpg"
@@ -17458,11 +21837,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 42.95,
-      "wasPrice": null,
+      "wasPrice": 70,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042132&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/969.jpg"
@@ -17472,11 +21851,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 66.5,
-      "wasPrice": null,
+      "wasPrice": 125,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45175037339&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_perfume_women_poeme_eau_de_parfum_edp_100ml.jpg"
@@ -17486,11 +21865,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 78.95,
-      "wasPrice": null,
+      "wasPrice": 130,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368655&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/971.jpg"
@@ -17500,11 +21879,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 34.95,
-      "wasPrice": null,
+      "wasPrice": 67,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130166&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-edp-vapo-50ml-lancome-1.jpg"
@@ -17514,11 +21893,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.5,
-      "wasPrice": null,
+      "wasPrice": 97,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234861&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-midnight-rose-w.jpg"
@@ -17528,11 +21907,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 57.95,
-      "wasPrice": null,
+      "wasPrice": 108,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45223969095&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_la_vie_est_belle_intensement_eau_de_parfum_50ml_spray_.jpg"
@@ -17542,11 +21921,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 40.5,
-      "wasPrice": null,
+      "wasPrice": 76,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042133&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/973.jpg"
@@ -17556,11 +21935,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 34.5,
-      "wasPrice": null,
+      "wasPrice": 65,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042134&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/975.jpg"
@@ -17570,11 +21949,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 63.75,
-      "wasPrice": null,
+      "wasPrice": 120,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042135&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/979.jpg"
@@ -17584,11 +21963,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.5,
-      "wasPrice": null,
+      "wasPrice": 82,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042136&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/981.jpg"
@@ -17598,11 +21977,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 54.25,
-      "wasPrice": null,
+      "wasPrice": 102,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572489&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_100ml_eau_de_toilette.jpg"
@@ -17612,11 +21991,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 29.95,
-      "wasPrice": null,
+      "wasPrice": 54,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042138&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/984.jpg"
@@ -17626,11 +22005,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 36.95,
-      "wasPrice": null,
+      "wasPrice": 65,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44415357269&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/8147329_r_set.jpeg"
@@ -17640,11 +22019,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 62.25,
-      "wasPrice": null,
+      "wasPrice": 117,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042139&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/990.jpg"
@@ -17654,11 +22033,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 44.95,
-      "wasPrice": null,
+      "wasPrice": 65,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130167&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marcj-daisy-eau-so-fresh-edt-125ml-1.jpg"
@@ -17668,11 +22047,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 54.95,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45072337640&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/992.jpg"
@@ -17682,11 +22061,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 46.25,
-      "wasPrice": null,
+      "wasPrice": 87,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619734&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_eau_so_intense_eau_de_parfum_50ml_spray_.jpg"
@@ -17696,11 +22075,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 62.25,
-      "wasPrice": null,
+      "wasPrice": 117,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368452&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616303423858.png"
@@ -17710,11 +22089,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 50.5,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042141&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/996.jpg"
@@ -17724,11 +22103,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.95,
-      "wasPrice": null,
+      "wasPrice": 87,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572490&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_love_100ml_eau_de_toilette_.jpg"
@@ -17738,11 +22117,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 39.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042142&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/250_1.jpg"
@@ -17752,11 +22131,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 56.95,
-      "wasPrice": null,
+      "wasPrice": 102,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790668&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/product_2025-491.png"
@@ -17766,11 +22145,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 39.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042143&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/998.jpg"
@@ -17780,11 +22159,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.95,
-      "wasPrice": null,
+      "wasPrice": 79,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042144&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1000.jpg"
@@ -17794,11 +22173,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 115,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45343666241&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_de_parfum_100ml_spray_.jpg"
@@ -17808,11 +22187,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 44.75,
-      "wasPrice": null,
+      "wasPrice": 84,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042145&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1002.jpg"
@@ -17822,11 +22201,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 66.5,
-      "wasPrice": null,
+      "wasPrice": 125,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572493&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616304105036_bab.jpg"
@@ -17836,11 +22215,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 47.95,
-      "wasPrice": null,
+      "wasPrice": 76,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042148&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/50bfdc49-e115-4f50-8d37-0a05704f8fd3.jpg"
@@ -17850,11 +22229,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 71.75,
-      "wasPrice": null,
+      "wasPrice": 135,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042149&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1006.jpg"
@@ -17864,11 +22243,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 32.95,
-      "wasPrice": null,
+      "wasPrice": 62,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672854&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_dream_eau_de_toilette_50ml_spray.jpg"
@@ -17878,11 +22257,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 71.75,
-      "wasPrice": null,
+      "wasPrice": 135,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368456&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1006_1.jpg"
@@ -17892,11 +22271,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 15.95,
-      "wasPrice": null,
+      "wasPrice": 25,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854369&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616306098343-9.jpg"
@@ -17906,11 +22285,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.95,
-      "wasPrice": null,
+      "wasPrice": 87,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045734&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_de_parfum_50ml_spray_.jpg"
@@ -17920,11 +22299,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 39.95,
-      "wasPrice": null,
+      "wasPrice": 67,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368680&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_intense_eau_de_parfum_30ml_spray_.jpg"
@@ -17934,11 +22313,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 39.95,
-      "wasPrice": null,
+      "wasPrice": 73,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368681&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_perfect_elixir_eau_de_parfum_30ml_spray.jpg"
@@ -17948,11 +22327,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 64.25,
-      "wasPrice": null,
+      "wasPrice": 121,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368688&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_so_intense_eau_de_parfum_100ml_spray.jpg"
@@ -17962,11 +22341,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 35.95,
-      "wasPrice": null,
+      "wasPrice": 65,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368689&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_de_parfum_30ml_spray.jpg"
@@ -17976,11 +22355,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 62.25,
-      "wasPrice": null,
+      "wasPrice": 117,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45222048324&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_so_extra_eau_de_parfum_100ml_spray_.jpg"
@@ -17990,11 +22369,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.95,
-      "wasPrice": null,
+      "wasPrice": 80,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042172&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1023.jpg"
@@ -18004,11 +22383,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 44.75,
-      "wasPrice": null,
+      "wasPrice": 84,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042151&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1013.jpg"
@@ -18018,11 +22397,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.5,
-      "wasPrice": null,
+      "wasPrice": 82,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042152&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1019.jpg"
@@ -18032,11 +22411,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.5,
-      "wasPrice": null,
+      "wasPrice": 82,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368661&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1021.jpg"
@@ -18046,11 +22425,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 20.75,
-      "wasPrice": null,
+      "wasPrice": 39,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042154&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1055.jpg"
@@ -18060,11 +22439,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 32.5,
-      "wasPrice": null,
+      "wasPrice": 61,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042155&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1057.jpg"
@@ -18074,11 +22453,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 35.95,
-      "wasPrice": null,
+      "wasPrice": 69,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042157&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1008.jpg"
@@ -18088,11 +22467,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 44.25,
-      "wasPrice": null,
+      "wasPrice": 83,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042159&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1016.jpg"
@@ -18102,11 +22481,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 38.95,
-      "wasPrice": null,
+      "wasPrice": 68,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44650395346&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/1538foto.jpg"
@@ -18116,11 +22495,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 45.25,
-      "wasPrice": null,
+      "wasPrice": 85,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042160&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1025.jpg"
@@ -18130,11 +22509,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 66.95,
-      "wasPrice": null,
+      "wasPrice": 126,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042161&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1027.jpg"
@@ -18144,11 +22523,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.95,
-      "wasPrice": null,
+      "wasPrice": 94,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042163&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1031.jpg"
@@ -18158,11 +22537,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 38.95,
-      "wasPrice": null,
+      "wasPrice": 69,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042164&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1020_1.jpg"
@@ -18172,11 +22551,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 45.25,
-      "wasPrice": null,
+      "wasPrice": 85,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042165&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1051.jpg"
@@ -18186,11 +22565,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 47.75,
-      "wasPrice": null,
+      "wasPrice": 90,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042166&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1052.jpg"
@@ -18200,11 +22579,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 66.95,
-      "wasPrice": null,
+      "wasPrice": 126,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042167&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1053.jpg"
@@ -18214,11 +22593,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.95,
-      "wasPrice": null,
+      "wasPrice": 85,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042169&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1060.jpg"
@@ -18228,11 +22607,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 62.25,
-      "wasPrice": null,
+      "wasPrice": 117,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042170&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1061.jpg"
@@ -18242,11 +22621,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 44.25,
-      "wasPrice": null,
+      "wasPrice": 83,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042171&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1065.jpg"
@@ -18256,11 +22635,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.95,
-      "wasPrice": null,
+      "wasPrice": 111,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619742&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/o/montblanc_legend_red_eau_de_parfum_200ml_spray_.png"
@@ -18270,11 +22649,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 85.95,
-      "wasPrice": null,
+      "wasPrice": 112,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042173&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1070.jpg"
@@ -18284,11 +22663,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 44.25,
-      "wasPrice": null,
+      "wasPrice": 83,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042174&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1071.jpg"
@@ -18298,11 +22677,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.25,
-      "wasPrice": null,
+      "wasPrice": 100,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042175&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_60ml_eau_de_parfum_intense_bot.jpg"
@@ -18312,11 +22691,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 72.95,
-      "wasPrice": null,
+      "wasPrice": 112,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042176&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_intense_90ml_eau_de_parfum.jpg"
@@ -18326,11 +22705,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.5,
-      "wasPrice": null,
+      "wasPrice": 97,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042177&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1079.jpg"
@@ -18340,11 +22719,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 67.5,
-      "wasPrice": null,
+      "wasPrice": 127,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042178&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_hypersense_90ml_eau_de_parfum.jpg"
@@ -18354,11 +22733,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 37.95,
-      "wasPrice": null,
+      "wasPrice": 69,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042179&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1081.jpg"
@@ -18368,11 +22747,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 67.5,
-      "wasPrice": null,
+      "wasPrice": 127,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45026788448&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1083.jpg"
@@ -18382,11 +22761,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.5,
-      "wasPrice": null,
+      "wasPrice": 112,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572497&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/3439600048162.jpg"
@@ -18396,11 +22775,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 68.95,
-      "wasPrice": null,
+      "wasPrice": 130,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042183&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_elixir_100ml_eau_de_parfum.jpg"
@@ -18410,11 +22789,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 67.95,
-      "wasPrice": null,
+      "wasPrice": 130,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161251&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_fantasm_sensuelle_100ml_eau_de_parfum.jpg"
@@ -18424,11 +22803,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 103,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042186&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1093.jpg"
@@ -18438,11 +22817,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 48.95,
-      "wasPrice": null,
+      "wasPrice": 92,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042187&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1093_1.jpg"
@@ -18452,11 +22831,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 68.95,
-      "wasPrice": null,
+      "wasPrice": 130,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45036973930&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12737292-7745268591794907.jpg"
@@ -18466,11 +22845,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 55.75,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042189&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1068.jpg"
@@ -18480,11 +22859,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 67.5,
-      "wasPrice": null,
+      "wasPrice": 127,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44197300703&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_supra_florale_eau_de_parfum_90ml_spray.jpg"
@@ -18494,11 +22873,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 71.95,
-      "wasPrice": null,
+      "wasPrice": 127,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44437744259&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274289473_6.png"
@@ -18508,11 +22887,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 28.95,
-      "wasPrice": null,
+      "wasPrice": 39,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44691827440&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_eau_de_parfum_15ml_refillable_spray_.jpg"
@@ -18522,11 +22901,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 26.95,
-      "wasPrice": null,
+      "wasPrice": 39,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44691827445&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_eau_de_parfum_15ml_refillable_spray_.jpg"
@@ -18536,11 +22915,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.5,
-      "wasPrice": null,
+      "wasPrice": 97,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619745&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_fantasm_eau_de_parfum_50ml_spray.jpg"
@@ -18550,11 +22929,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 48.95,
-      "wasPrice": null,
+      "wasPrice": 92,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042190&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1097.jpg"
@@ -18564,11 +22943,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 63.75,
-      "wasPrice": null,
+      "wasPrice": 120,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44375609590&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso-rodriguez-all-of-me-eau-de-parfum.jpg"
@@ -18578,11 +22957,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.25,
-      "wasPrice": null,
+      "wasPrice": 100,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045732&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her50ml.png"
@@ -18592,11 +22971,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 66.5,
-      "wasPrice": null,
+      "wasPrice": 125,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368662&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1102.jpg"
@@ -18606,11 +22985,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 56.75,
-      "wasPrice": null,
+      "wasPrice": 107,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042196&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1109.jpg"
@@ -18620,11 +22999,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 63.75,
-      "wasPrice": null,
+      "wasPrice": 120,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368663&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1114.jpg"
@@ -18634,11 +23013,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 48.95,
-      "wasPrice": null,
+      "wasPrice": 92,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042197&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1116.jpg"
@@ -18648,11 +23027,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 66.5,
-      "wasPrice": null,
+      "wasPrice": 125,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042198&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1118.jpg"
@@ -18662,11 +23041,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 54.95,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042199&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1120.jpg"
@@ -18676,11 +23055,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 57.95,
-      "wasPrice": null,
+      "wasPrice": 109,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042200&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1122.jpg"
@@ -18690,11 +23069,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.95,
-      "wasPrice": null,
+      "wasPrice": 84,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042201&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_narciso_cristal_90ml_eau_de_parfum.jpg"
@@ -18704,11 +23083,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 107,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572500&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_narciso_pure_musc_100ml_eau_de_parfum_.jpg"
@@ -18718,11 +23097,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 62.95,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042203&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1125.jpg"
@@ -18732,11 +23111,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 70.5,
-      "wasPrice": null,
+      "wasPrice": 133,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619735&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_him_bleu_noir_eau_de_parfum_100ml_spray_.jpg"
@@ -18746,11 +23125,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 35.95,
-      "wasPrice": null,
+      "wasPrice": 64,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572502&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_bleu_noir_for_him_50ml_eau_de_parfum.jpg"
@@ -18760,11 +23139,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 42.25,
-      "wasPrice": null,
+      "wasPrice": 79.5,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042205&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1105.jpg"
@@ -18774,11 +23153,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 61.25,
-      "wasPrice": null,
+      "wasPrice": 115,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042206&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1111.jpg"
@@ -18788,11 +23167,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 47.75,
-      "wasPrice": null,
+      "wasPrice": 90,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790669&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3ko0027b80n4kjji0vtz-1f7a25b1-d080-46cc-b96e-1860d8715d5a.jpg"
@@ -18802,11 +23181,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 63.75,
-      "wasPrice": null,
+      "wasPrice": 120,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44191431883&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/3423222121976.jpg"
@@ -18816,11 +23195,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 71.25,
-      "wasPrice": null,
+      "wasPrice": 134,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44375609593&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso-rodriguez-all-of-me-eau-de-parfum-intense.jpg"
@@ -18830,11 +23209,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 46.25,
-      "wasPrice": null,
+      "wasPrice": 87,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44647976298&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her_forever_eau_de_parfum_50ml_spray_.jpg"
@@ -18844,11 +23223,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 72.25,
-      "wasPrice": null,
+      "wasPrice": 136,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368674&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her_gift_set-3423222121754-2_1_1.png"
@@ -18858,11 +23237,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 55.75,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368690&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her_intense_eau_de_parfum_50ml_spray_.jpg"
@@ -18872,11 +23251,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161254&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_fragrance_her_eau_de_parfum_intense_edp_100ml.jpg"
@@ -18886,11 +23265,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 21.95,
-      "wasPrice": null,
+      "wasPrice": 40,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045733&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/i/nicki_minaj_minajesty_eau_de_parfum_100ml_spray_.jpg"
@@ -18900,11 +23279,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 21.95,
-      "wasPrice": null,
+      "wasPrice": 69,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790670&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/i/nicki_minaj_onika_100ml_eau_de_parfum.png"
@@ -18914,11 +23293,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 56.25,
-      "wasPrice": null,
+      "wasPrice": 106,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44252956268&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370302131.png"
@@ -18928,11 +23307,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 68.95,
-      "wasPrice": null,
+      "wasPrice": 104,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042208&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1130.jpg"
@@ -18942,11 +23321,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 60.5,
-      "wasPrice": null,
+      "wasPrice": 114,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042209&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1132.jpg"
@@ -18956,11 +23335,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 56.95,
-      "wasPrice": null,
+      "wasPrice": 85,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042210&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1134.jpg"
@@ -18970,11 +23349,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 44.95,
-      "wasPrice": null,
+      "wasPrice": 85,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45307854756&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370183914.png"
@@ -18984,11 +23363,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 29.25,
-      "wasPrice": null,
+      "wasPrice": 55,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44187409690&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370304388_1.jpg"
@@ -18998,11 +23377,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 42.5,
-      "wasPrice": null,
+      "wasPrice": 80,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042211&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1136.jpg"
@@ -19012,11 +23391,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.95,
-      "wasPrice": null,
+      "wasPrice": 72,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042212&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/256_1.jpg"
@@ -19026,11 +23405,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 42.95,
-      "wasPrice": null,
+      "wasPrice": 81,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042213&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/o/s/oscar_de_la_renta_oscar_200ml_eau_de_toilette_.jpg"
@@ -19040,11 +23419,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 42.95,
-      "wasPrice": null,
+      "wasPrice": 81,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619736&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/o/s/oscar_de_la_renta_oscar_eau_de_toilette_100ml_spray_.jpg"
@@ -19054,11 +23433,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 39.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042215&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1168.jpg"
@@ -19068,11 +23447,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.95,
-      "wasPrice": null,
+      "wasPrice": 82.5,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042216&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_black_xs_for_her_80ml_eau_de_parfum.jpg"
@@ -19082,11 +23461,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 48.95,
-      "wasPrice": null,
+      "wasPrice": 83.5,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44265156140&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349666005330.jpg"
@@ -19096,11 +23475,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 45.25,
-      "wasPrice": null,
+      "wasPrice": 85,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44260860903&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/4/d417935b-548b-52c2-9f9c-6c53bda68760.jpg"
@@ -19110,11 +23489,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.95,
-      "wasPrice": null,
+      "wasPrice": 149,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042217&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1171.jpg"
@@ -19124,11 +23503,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 86,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042218&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1173.jpg"
@@ -19138,11 +23517,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 71.95,
-      "wasPrice": null,
+      "wasPrice": 128,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042219&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_fame_80ml_eau_de_parfum.jpg"
@@ -19152,11 +23531,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 64.95,
-      "wasPrice": null,
+      "wasPrice": 120,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854361&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200_1.png"
@@ -19166,11 +23545,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 65.95,
-      "wasPrice": null,
+      "wasPrice": 106,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042222&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1180.jpg"
@@ -19180,11 +23559,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.25,
-      "wasPrice": null,
+      "wasPrice": 138,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042223&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1184.jpg"
@@ -19194,11 +23573,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 34.95,
-      "wasPrice": null,
+      "wasPrice": 63,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854362&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668508471.png"
@@ -19208,11 +23587,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.95,
-      "wasPrice": null,
+      "wasPrice": 110,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042224&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668508587.jpg"
@@ -19222,11 +23601,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.95,
-      "wasPrice": null,
+      "wasPrice": 96,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572505&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668628537.jpg"
@@ -19236,11 +23615,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 68.95,
-      "wasPrice": null,
+      "wasPrice": 98.5,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572506&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668623624_bab.jpg"
@@ -19250,11 +23629,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 64.25,
-      "wasPrice": null,
+      "wasPrice": 121,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45239338231&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_lady_million_fabulous_eau_de_parfum_80ml_spray.jpg"
@@ -19264,11 +23643,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 81.95,
-      "wasPrice": null,
+      "wasPrice": 135,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44265156141&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668630264.png"
@@ -19278,11 +23657,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 57.95,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042226&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1205.jpg"
@@ -19292,11 +23671,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 61.95,
-      "wasPrice": null,
+      "wasPrice": 84,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042227&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1208.jpg"
@@ -19306,11 +23685,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.95,
-      "wasPrice": null,
+      "wasPrice": 67,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042231&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1214.jpg"
@@ -19320,11 +23699,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 64.95,
-      "wasPrice": null,
+      "wasPrice": 96,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042232&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1216.jpg"
@@ -19334,11 +23713,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 45.75,
-      "wasPrice": null,
+      "wasPrice": 86,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042233&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1237.jpg"
@@ -19348,11 +23727,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 109,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130168&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/2/5233985.jpg"
@@ -19362,11 +23741,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 34.95,
-      "wasPrice": null,
+      "wasPrice": 56,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042234&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1240.jpg"
@@ -19376,11 +23755,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 50.5,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042235&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1244.jpg"
@@ -19390,11 +23769,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 20.95,
-      "wasPrice": null,
+      "wasPrice": 40,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042236&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1220.jpg"
@@ -19404,11 +23783,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 104.95,
-      "wasPrice": null,
+      "wasPrice": 125,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042238&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1144.jpg"
@@ -19418,11 +23797,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 56.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042239&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1146.jpg"
@@ -19432,11 +23811,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 98,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572507&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668625284_bab.jpg"
@@ -19446,11 +23825,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 70.95,
-      "wasPrice": null,
+      "wasPrice": 96,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042240&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1148.jpg"
@@ -19460,11 +23839,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 50.95,
-      "wasPrice": null,
+      "wasPrice": 66,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042242&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1153.jpg"
@@ -19474,11 +23853,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.95,
-      "wasPrice": null,
+      "wasPrice": 96,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042243&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1155.jpg"
@@ -19488,11 +23867,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 110.95,
-      "wasPrice": null,
+      "wasPrice": 126,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042244&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1157.jpg"
@@ -19502,11 +23881,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 78.95,
-      "wasPrice": null,
+      "wasPrice": 108,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042245&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1161.jpg"
@@ -19516,11 +23895,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 107.95,
-      "wasPrice": null,
+      "wasPrice": 142,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042247&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1164.jpg"
@@ -19530,11 +23909,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 57.95,
-      "wasPrice": null,
+      "wasPrice": 89,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042249&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco-rabanne-invictus-edt-spray-100-ml-mini-20-ml-ts.jpg"
@@ -19544,11 +23923,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 75.95,
-      "wasPrice": null,
+      "wasPrice": 106,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572508&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_invictus_200ml_eau_de_toilette_.jpg"
@@ -19558,11 +23937,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.95,
-      "wasPrice": null,
+      "wasPrice": 104,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042250&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1190.jpg"
@@ -19572,11 +23951,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 94.95,
-      "wasPrice": null,
+      "wasPrice": 143,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45073083553&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668627547.png"
@@ -19586,11 +23965,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 62.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042251&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1192.jpg"
@@ -19600,11 +23979,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 64.95,
-      "wasPrice": null,
+      "wasPrice": 108,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44272839337&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/13026064-1894868197593147.jpg"
@@ -19614,11 +23993,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 98.95,
-      "wasPrice": null,
+      "wasPrice": 120,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45190045579&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3kst02bp80n4kgfr57k1-b1799f8d-ba9d-411a-967f-c43353c1145c.jpg"
@@ -19628,11 +24007,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 71.95,
-      "wasPrice": null,
+      "wasPrice": 113,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042253&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1200.jpg"
@@ -19642,11 +24021,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 96.95,
-      "wasPrice": null,
+      "wasPrice": 140,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042254&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1200_1.jpg"
@@ -19656,11 +24035,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 54.95,
-      "wasPrice": null,
+      "wasPrice": 76,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042255&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1203.jpg"
@@ -19670,11 +24049,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 64.95,
-      "wasPrice": null,
+      "wasPrice": 98,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042256&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1221.jpg"
@@ -19684,11 +24063,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 65.95,
-      "wasPrice": null,
+      "wasPrice": 106,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042257&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1223.jpg"
@@ -19698,11 +24077,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 27.75,
-      "wasPrice": null,
+      "wasPrice": 52,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45072337641&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_pour_homme_edt-s_100ml.png"
@@ -19712,11 +24091,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 52.95,
-      "wasPrice": null,
+      "wasPrice": 78,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234863&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1230.jpg"
@@ -19726,11 +24105,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 29.95,
-      "wasPrice": null,
+      "wasPrice": 57,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45072337642&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1233.jpg"
@@ -19740,11 +24119,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 35.95,
-      "wasPrice": null,
+      "wasPrice": 99,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042261&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1246.jpg"
@@ -19754,11 +24133,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 24.95,
-      "wasPrice": null,
+      "wasPrice": 40,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368457&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rose.png"
@@ -19768,11 +24147,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 66.95,
-      "wasPrice": null,
+      "wasPrice": 108,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45239338235&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_phantom_parfum_100ml_spray_3pc_set_bab.jpg"
@@ -19782,11 +24161,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 45.25,
-      "wasPrice": null,
+      "wasPrice": 85,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042263&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1249.jpg"
@@ -19796,11 +24175,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 39.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368453&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paloma-picasso-eau-de-parfum.jpg"
@@ -19824,11 +24203,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 84.95,
-      "wasPrice": null,
+      "wasPrice": 97,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45026788449&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61fh-e1rwvl.jpg"
@@ -19838,11 +24217,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 73.95,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854364&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435137727087.png"
@@ -19852,11 +24231,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042265&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada_candy_kiss_80ml_eau_de_parfum.jpg"
@@ -19866,11 +24245,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 67.95,
-      "wasPrice": null,
+      "wasPrice": 107,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790671&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada_infusion_de_vetiver_eau_de_parfum_100ml_spray_.jpg"
@@ -19880,11 +24259,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 61.95,
-      "wasPrice": null,
+      "wasPrice": 107,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44677427254&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/77181991_xxl.jpg"
@@ -19894,11 +24273,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 80.95,
-      "wasPrice": null,
+      "wasPrice": 108.5,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672834&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12271415-2304710348696057.jpg"
@@ -19908,11 +24287,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 85.95,
-      "wasPrice": null,
+      "wasPrice": 155,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44684670472&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada-la-femme-intense-eau-de-parfum-spray-100ml.jpg"
@@ -19922,11 +24301,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 92.95,
-      "wasPrice": null,
+      "wasPrice": 145,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042268&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada_paradoxe_intense_90ml_eau_de_parfum.jpg"
@@ -19936,11 +24315,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 66.95,
-      "wasPrice": null,
+      "wasPrice": 87,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672835&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/8/287091-735x735.jpg"
@@ -19950,11 +24329,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.95,
-      "wasPrice": null,
+      "wasPrice": 67,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042273&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1275.jpg"
@@ -19964,11 +24343,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 66.95,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45026788450&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1277.jpg"
@@ -19978,11 +24357,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 85.95,
-      "wasPrice": null,
+      "wasPrice": 110,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44375609591&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shop-pf-00780-03-luna-rossa-edt---150ml--1.jpg"
@@ -19992,11 +24371,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 75.95,
-      "wasPrice": null,
+      "wasPrice": 125,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854365&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada-luna-rossa-ocean-edp-100ml.jpg"
@@ -20006,11 +24385,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 63.95,
-      "wasPrice": null,
+      "wasPrice": 96,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572509&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada-mens-luna-rossa-ocean-gift-set-fragrances-3660732649839.jpg"
@@ -20020,11 +24399,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 77.95,
-      "wasPrice": null,
+      "wasPrice": 126,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042275&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1279.jpg"
@@ -20034,11 +24413,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 97,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368664&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada-luna-rossa-sport-eau-de-toilette-1.jpg"
@@ -20048,11 +24427,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 42.5,
-      "wasPrice": null,
+      "wasPrice": 80,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572510&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph_lauren_polo_big_pony_2_100ml_eau_de_toilette.jpg"
@@ -20062,11 +24441,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 50.95,
-      "wasPrice": null,
+      "wasPrice": 87,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042278&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1293.jpg"
@@ -20076,11 +24455,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.25,
-      "wasPrice": null,
+      "wasPrice": 100,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042279&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1285_1.jpg"
@@ -20090,11 +24469,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 51.5,
-      "wasPrice": null,
+      "wasPrice": 97,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234864&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/71bdc8zpe8l.jpg"
@@ -20104,11 +24483,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 32.95,
-      "wasPrice": null,
+      "wasPrice": 62,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368665&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1302.jpg"
@@ -20118,11 +24497,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 50.5,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130169&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200_3_1.jpg"
@@ -20132,11 +24511,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 48.95,
-      "wasPrice": null,
+      "wasPrice": 89,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161252&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3ksv02ht80n46ssfxgai-46d6787c-19b2-4213-9005-35297cfc8b21.jpg"
@@ -20146,11 +24525,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 41.95,
-      "wasPrice": null,
+      "wasPrice": 52,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45072337644&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph-lauren-safari-eau-de-toilette-for-men-125ml-102729-677588.jpg"
@@ -20160,11 +24539,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 54.25,
-      "wasPrice": null,
+      "wasPrice": 102,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44191431886&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph_lauren_romance_intense_100ml_eau_de_parfum.jpg"
@@ -20174,11 +24553,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 62.95,
-      "wasPrice": null,
+      "wasPrice": 104,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161255&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph-lauren-ralphs-club-parfum.jpg"
@@ -20188,11 +24567,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 145.95,
-      "wasPrice": null,
+      "wasPrice": 275,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042285&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1310.jpg"
@@ -20202,11 +24581,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.5,
-      "wasPrice": null,
+      "wasPrice": 93,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042286&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1312.jpg"
@@ -20216,11 +24595,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 42.95,
-      "wasPrice": null,
+      "wasPrice": 81,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572511&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/a/salvatore_ferragamo_signorina_misteriosa_100ml_eau_de_parfum.jpg"
@@ -20230,11 +24609,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.75,
-      "wasPrice": null,
+      "wasPrice": 101,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44211819130&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/e/rebelle_.jpg"
@@ -20244,11 +24623,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.75,
-      "wasPrice": null,
+      "wasPrice": 101,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44265156143&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1315.jpg"
@@ -20258,11 +24637,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 61.25,
-      "wasPrice": null,
+      "wasPrice": 115,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042287&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1317.jpg"
@@ -20272,11 +24651,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 123.25,
-      "wasPrice": null,
+      "wasPrice": 232,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042288&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1319.jpg"
@@ -20286,11 +24665,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.95,
-      "wasPrice": null,
+      "wasPrice": 39,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045646&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/o/sol_de_janeiro_cheirosa_62_perfume_mist_240ml_.jpg"
@@ -20300,11 +24679,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 31.95,
-      "wasPrice": null,
+      "wasPrice": 39,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045647&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/o/sol_de_janeiro_cheirosa_68_perfume_mist_240ml_.jpg"
@@ -20314,11 +24693,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 19.95,
-      "wasPrice": null,
+      "wasPrice": 29,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44699145080&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/o/sol_de_janeiro_cheirosa_62_perfume_mist_240ml__1.jpg"
@@ -20328,11 +24707,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 61.95,
-      "wasPrice": null,
+      "wasPrice": 102,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572512&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/i/tiffany_co_tiffany_75ml_eau_de_parfum.jpg"
@@ -20342,11 +24721,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 54.95,
-      "wasPrice": null,
+      "wasPrice": 104,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042289&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/13223.jpg"
@@ -20356,11 +24735,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 101.95,
-      "wasPrice": null,
+      "wasPrice": 150,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44270807399&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1326.jpg"
@@ -20370,11 +24749,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 125.95,
-      "wasPrice": null,
+      "wasPrice": 195,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44270807400&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/888066124287_w_1000_h_1000_.jpg"
@@ -20384,11 +24763,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.95,
-      "wasPrice": null,
+      "wasPrice": 78,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042290&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1328.jpg"
@@ -20398,11 +24777,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 76.95,
-      "wasPrice": null,
+      "wasPrice": 108,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042291&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1330.jpg"
@@ -20412,11 +24791,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 108.95,
-      "wasPrice": null,
+      "wasPrice": 152,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042293&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1381.jpg"
@@ -20426,11 +24805,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 92.95,
-      "wasPrice": null,
+      "wasPrice": 135,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042294&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1332.jpg"
@@ -20440,11 +24819,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 146.95,
-      "wasPrice": null,
+      "wasPrice": 222,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042295&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1334.jpg"
@@ -20454,11 +24833,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 190.95,
-      "wasPrice": null,
+      "wasPrice": 290,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042296&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1340.jpg"
@@ -20468,11 +24847,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 108.95,
-      "wasPrice": null,
+      "wasPrice": 152,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45307854758&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1343.jpg"
@@ -20482,11 +24861,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 112.95,
-      "wasPrice": null,
+      "wasPrice": 152,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042298&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1347.jpg"
@@ -20496,11 +24875,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.95,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042299&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1350.jpg"
@@ -20510,11 +24889,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 252.95,
-      "wasPrice": null,
+      "wasPrice": 370,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042300&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/o/tom_ford_fabulous_100ml_eau_de_parfum.jpg"
@@ -20524,11 +24903,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 144.95,
-      "wasPrice": null,
+      "wasPrice": 222,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44426505320&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/o/tom-ford-unisex-myrrhe-mystere-edp-spray-17-oz-private-blend-888066150279.jpg"
@@ -20538,11 +24917,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 117.75,
-      "wasPrice": null,
+      "wasPrice": 222,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44429021945&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/888066050685-tom-ford-oud-wood-edp-30-ml-1000x1000.jpg"
@@ -20552,11 +24931,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 125.95,
-      "wasPrice": null,
+      "wasPrice": 180,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042306&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1373.jpg"
@@ -20566,11 +24945,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 139.95,
-      "wasPrice": null,
+      "wasPrice": 164,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042307&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1378.jpg"
@@ -20580,11 +24959,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 109.95,
-      "wasPrice": null,
+      "wasPrice": 155,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130170&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1365.jpg"
@@ -20594,11 +24973,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 81.95,
-      "wasPrice": null,
+      "wasPrice": 108,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572513&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/o/tom_ford_noir_extreme_50ml_eau_de_parfum.jpg"
@@ -20608,11 +24987,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 93.95,
-      "wasPrice": null,
+      "wasPrice": 140,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672853&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/o/bois_marocain.jpg"
@@ -20622,11 +25001,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 89.95,
-      "wasPrice": null,
+      "wasPrice": 135,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45231323284&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/f/r/fragrance_click_tom_ford.png"
@@ -20636,11 +25015,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 32.95,
-      "wasPrice": null,
+      "wasPrice": 44,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042312&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1388.jpg"
@@ -20650,11 +25029,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 30.95,
-      "wasPrice": null,
+      "wasPrice": 44,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042313&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1383.jpg"
@@ -20790,11 +25169,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 88.95,
-      "wasPrice": null,
+      "wasPrice": 140,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368666&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_born_in_roma_eau_de_parfum_100ml_spray_.jpg"
@@ -20804,11 +25183,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 80.95,
-      "wasPrice": null,
+      "wasPrice": 140,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042315&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1394.jpg"
@@ -20818,11 +25197,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 74.95,
-      "wasPrice": null,
+      "wasPrice": 112,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042316&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1402.jpg"
@@ -20832,11 +25211,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 74.95,
-      "wasPrice": null,
+      "wasPrice": 140,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572514&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_100ml_eau_de_parfum.jpg"
@@ -20846,11 +25225,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 91.95,
-      "wasPrice": null,
+      "wasPrice": 155,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042317&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1400.jpg"
@@ -20860,11 +25239,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.95,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042318&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1408.jpg"
@@ -20874,11 +25253,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 67.95,
-      "wasPrice": null,
+      "wasPrice": 97,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042319&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1410.jpg"
@@ -20888,11 +25267,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 74.25,
-      "wasPrice": null,
+      "wasPrice": 140,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042320&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1413.jpg"
@@ -20902,11 +25281,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 78.95,
-      "wasPrice": null,
+      "wasPrice": 107,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042321&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1418.jpg"
@@ -20916,11 +25295,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 68.95,
-      "wasPrice": null,
+      "wasPrice": 97,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042322&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1420.jpg"
@@ -20930,11 +25309,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.95,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45036973931&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1423.jpg"
@@ -20944,11 +25323,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 102,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44273215284&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_100ml_eau_de_parfum_1.jpg"
@@ -20958,11 +25337,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 49.95,
-      "wasPrice": null,
+      "wasPrice": 79,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44691827435&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_voce_viva_intense_eau_de_parfum_30ml_spray_.jpg"
@@ -20972,11 +25351,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 69.95,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45232442259&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_born_in_roma_coral_fantasy_eau_de_parfum_50ml_spray_.jpg"
@@ -20986,11 +25365,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.5,
-      "wasPrice": null,
+      "wasPrice": 82,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042324&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1428.jpg"
@@ -21000,11 +25379,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 37.25,
-      "wasPrice": null,
+      "wasPrice": 70,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042325&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/e/vera_wang_lovestruck_100ml_eau_de_parfum.jpg"
@@ -21014,11 +25393,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 55.75,
-      "wasPrice": null,
+      "wasPrice": 105,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042327&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1433.jpg"
@@ -21028,11 +25407,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 63.25,
-      "wasPrice": null,
+      "wasPrice": 119,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130171&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12740389-1874935031223493.jpg"
@@ -21042,11 +25421,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 82.25,
-      "wasPrice": null,
+      "wasPrice": 155,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042329&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1438.jpg"
@@ -21056,11 +25435,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.5,
-      "wasPrice": null,
+      "wasPrice": 110,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44478466394&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor-rolf-flowerbomb-eau-de-parfum.jpg"
@@ -21070,11 +25449,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 47.95,
-      "wasPrice": null,
+      "wasPrice": 75,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042330&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1340_1.jpg"
@@ -21084,11 +25463,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 82.25,
-      "wasPrice": null,
+      "wasPrice": 155,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44311195008&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1440.jpg"
@@ -21098,11 +25477,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 68.95,
-      "wasPrice": null,
+      "wasPrice": 130,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854366&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273622639_1-scaled.jpeg"
@@ -21112,11 +25491,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 68.95,
-      "wasPrice": null,
+      "wasPrice": 130,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44252956269&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktorandrolfflowerbombtigerlilyperfume.jpg"
@@ -21126,11 +25505,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.25,
-      "wasPrice": null,
+      "wasPrice": 149,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44260860904&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/p/spicebomb_dark_leather_150ml.png"
@@ -21140,11 +25519,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 57.95,
-      "wasPrice": null,
+      "wasPrice": 102,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44311195009&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274158113.jpg"
@@ -21154,11 +25533,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 75.95,
-      "wasPrice": null,
+      "wasPrice": 135,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44311195010&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3605521820891.jpg"
@@ -21168,11 +25547,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 58.5,
-      "wasPrice": null,
+      "wasPrice": 110,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854367&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_spicebomb-3605521515629-1.jpg"
@@ -21182,11 +25561,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 59.95,
-      "wasPrice": null,
+      "wasPrice": 102,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854368&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1450.jpg"
@@ -21196,11 +25575,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 54.95,
-      "wasPrice": null,
+      "wasPrice": 95,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045636&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_spice_bomb_night_vision_edt_90ml_.jpg"
@@ -21210,11 +25589,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 79.75,
-      "wasPrice": null,
+      "wasPrice": 150,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045643&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_flowerbomb_extreme_intense_edp_100ml_.jpg"
@@ -21224,11 +25603,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 66.5,
-      "wasPrice": null,
+      "wasPrice": 125,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045644&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_good_fortune_edp_90ml_.jpg"
@@ -21238,11 +25617,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 32.95,
-      "wasPrice": null,
+      "wasPrice": 62,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368683&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_flowerbomb_eau_de_parfum_20ml_spray_.jpg"
@@ -21252,11 +25631,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 38.95,
-      "wasPrice": null,
+      "wasPrice": 72,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368684&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_flowerbomb_eau_de_parfum_30ml_spray_.jpg"
@@ -21266,11 +25645,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 53.25,
-      "wasPrice": null,
+      "wasPrice": 100,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619746&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_good_fortune_elixir_intense_eau_de_parfum_50ml_spray_.jpg"
@@ -21280,11 +25659,11 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
     {
       "retailerId": "fragrance-click",
       "price": 43.95,
-      "wasPrice": null,
+      "wasPrice": 79,
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042355&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T07:59:20.292Z",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/1514.jpg"
@@ -21293,7 +25672,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
 };
 
 /** When the harvest that produced this data ran. */
-export const CRAWLED_AT = "2026-08-04T07:59:20.292Z";
+export const CRAWLED_AT = "2026-08-04T09:00:03.486Z";
 
 /** How many shops the data came from. */
 export const SHOP_COUNT = 5;

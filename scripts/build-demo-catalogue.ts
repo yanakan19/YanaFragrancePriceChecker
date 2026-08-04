@@ -127,6 +127,8 @@ interface Offer {
   isNew: boolean;
   /** Only ever set for a retailer in IMAGE_LICENSED — see that constant. */
   imageUrl: string | null;
+  /** The retailer's own copy, read only to extract labelled notes from. */
+  description: string | null;
 }
 
 interface Product {
@@ -150,6 +152,97 @@ function pickImage(offers: Offer[]): string | null {
     .filter((o) => o.imageUrl !== null)
     .sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt));
   return licensed[0]?.imageUrl ?? null;
+}
+
+export interface Notes {
+  top: string[];
+  middle: string[];
+  base: string[];
+}
+
+/**
+ * Pull the note pyramid out of a retailer's own product copy.
+ *
+ * This only ever reads notes a source has explicitly labelled ("Top notes:",
+ * "Middle notes:" or "Heart notes:", "Base notes:"). It never infers a note
+ * from a product name, a brand's house style or anything else — a fragrance
+ * whose description does not spell them out simply has no notes here, and the
+ * app says so rather than filling the gap.
+ *
+ * Worth being precise about the source: this is the *retailer's* copy, taken
+ * from the affiliate feed we are licensed to use, not the perfumer's own
+ * website. Those two usually agree, and where a retailer has copied the house
+ * text they agree exactly, but this is not a claim to be quoting the maker
+ * directly.
+ */
+function parseNotes(description: string | null | undefined): Notes | null {
+  if (!description) return null;
+
+  // Each section runs until the next label or the end of the copy. Feeds
+  // frequently omit any separator between one section and the next label
+  // ("...CardamomMiddle notes:"), so the lookahead does the splitting.
+  /**
+   * A note name, as opposed to a sentence that happened to follow one.
+   *
+   * The last section in a description runs into whatever marketing prose comes
+   * after it, and some sources write the next heading without a colon so the
+   * lookahead cannot split on it. Both leak sentences into the list, so the
+   * shape of a real note is asserted directly: a short phrase of a few words,
+   * with no sentence punctuation and no leftover heading fragment.
+   */
+  /**
+   * Words that only ever appear because a sentence has been sliced mid clause
+   * ("...where amber and musk take over", "citrus through spices"). A real note
+   * is a noun phrase and never contains any of these.
+   */
+  // Adverbs are matched by name rather than by an "ends in ly" rule, which
+  // would throw away Lily of the Valley.
+  const PROSE =
+    /\b(take|takes|taken|over|through|leading|with|into|from|that|which|while|before|after|creating|providing|making|giving|adding|fairly|quickly|slowly|gently|softly|deeply|subtly|really|quite|very|soon|later|eventually|immediately)\b/i;
+
+  const looksLikeNote = (s: string): boolean =>
+    s.length > 1 &&
+    s.length <= 24 &&
+    s.split(/\s+/).length <= 3 &&
+    !/[.:;!?()]/.test(s) &&
+    !/\bnotes?\b/i.test(s) &&
+    // Feed copy capitalises note names. A lowercase start means the split
+    // landed inside a sentence rather than on a list item.
+    /^[A-Z]/.test(s) &&
+    !PROSE.test(s);
+
+  const section = (label: string): string[] => {
+    const re = new RegExp(`${label}\\s*:?\\s*([\\s\\S]*?)(?=(?:top|middle|heart|base)\\s+notes?\\s*:|$)`, 'i');
+    const m = description.match(re);
+    if (!m?.[1]) return [];
+    // Notes are a comma separated list, never sentences, so the first full stop
+    // that ends a sentence also ends the list.
+    const listOnly = m[1].split(/\.\s|\.$/)[0] ?? '';
+    return listOnly
+      .split(/[,;/]|\band\b/i)
+      .map((s) => s.trim())
+      .filter(looksLikeNote)
+      .slice(0, 14);
+  };
+
+  const top = section('top\\s+notes?');
+  const middle = section('(?:middle|heart)\\s+notes?');
+  const base = section('base\\s+notes?');
+
+  if (top.length === 0 && middle.length === 0 && base.length === 0) return null;
+  return { top, middle, base };
+}
+
+/** Notes from whichever offer published them most recently. */
+function pickNotes(offers: Offer[]): Notes | null {
+  const withCopy = offers
+    .filter((o) => o.description)
+    .sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt));
+  for (const o of withCopy) {
+    const parsed = parseNotes(o.description);
+    if (parsed) return parsed;
+  }
+  return null;
 }
 
 const products = new Map<string, Product>();
@@ -194,6 +287,7 @@ if (existsSync(dir)) {
         firstSeenAt: l.firstSeenAt,
         isNew: isNewListing(l, now),
         imageUrl: IMAGE_LICENSED.has(l.retailerId) ? l.imageUrl : null,
+        description: l.description ?? null,
       };
 
       if (existing) {
@@ -218,8 +312,14 @@ const ordered = [...products.values()].sort(
   (a, b) => b.offers.length - a.offers.length || a.brand.localeCompare(b.brand),
 );
 
-const crawled: Record<string, Offer[]> = {};
-for (const p of ordered) crawled[p.id] = p.offers;
+// `description` is read for its notes above and then deliberately dropped: it
+// is several hundred words per product across hundreds of products, and
+// shipping all of it into a single page bundle would cost far more than the
+// handful of note names actually displayed.
+const crawled: Record<string, Omit<Offer, 'description'>[]> = {};
+for (const p of ordered) {
+  crawled[p.id] = p.offers.map(({ description: _drop, ...rest }) => rest);
+}
 
 const crawledAt =
   ordered.flatMap((p) => p.offers.map((o) => o.fetchedAt)).sort().at(-1) ??
@@ -234,6 +334,7 @@ const catalogue = ordered.map((p) => ({
   ean: p.ean,
   shops: p.offers.length,
   image: pickImage(p.offers),
+  notes: pickNotes(p.offers),
 }));
 
 const body = `// Generated by scripts/build-demo-catalogue.ts. Do not edit by hand.
@@ -259,6 +360,12 @@ export interface CrawledOffer {
   imageUrl: string | null;
 }
 
+export interface Notes {
+  top: string[];
+  middle: string[];
+  base: string[];
+}
+
 export interface CatalogueEntry {
   id: string;
   brand: string;
@@ -269,6 +376,12 @@ export interface CatalogueEntry {
   shops: number;
   /** A real, licensed product photo — see demo/photo.ts. Null means none yet. */
   image: string | null;
+  /**
+   * Notes as a source explicitly labelled them, never inferred. Null where the
+   * retailer's copy did not spell them out, which the app states plainly
+   * rather than papering over.
+   */
+  notes: Notes | null;
 }
 
 /** Products, most widely stocked first. */

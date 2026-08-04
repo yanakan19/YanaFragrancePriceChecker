@@ -43,9 +43,12 @@ import { parsePrice } from './jsonld.js';
  * what is and isn't a fragrance is scripts/build-demo-catalogue.ts's job,
  * uniformly across every retailer, not this parser's.
  *
- * There is no reliable "was price" column in Awin's generic schema, so
- * `wasPriceGbp` and `promoEndsAt` are always null here — never guessed from
- * `search_price` alone.
+ * `rrp_price` becomes `wasPriceGbp`, but only where it is genuinely above the
+ * selling price. It is the merchant's stated recommended retail price, which
+ * is real supplied data rather than anything inferred here, though it is not
+ * the same claim as "this shop charged this last week" — the UI labels it RRP.
+ * `promoEndsAt` stays null: no such column exists and a countdown must never
+ * be invented.
  */
 
 const REQUIRED_PRICE_POSITIVE = (n: number | null): n is number => n !== null && n > 0;
@@ -193,6 +196,16 @@ export function parseAwinFeed(csvText: string): RawListing[] {
 
     const rawBrand = trimmedOrNull(col(row, 'brand_name')) ?? trimmedOrNull(col(row, 'brand'));
 
+    // `rrp_price` is the merchant's own stated recommended retail price. It is
+    // real, supplied data rather than anything computed here, so it is worth
+    // carrying — but it means "recommended retail", not "what this shop
+    // charged last week", and the UI labels it RRP for exactly that reason.
+    // Only kept when it is genuinely above the selling price; a feed that
+    // repeats search_price in rrp_price (many do) is not a reduction and must
+    // never be rendered as one.
+    const rrp = parsePrice(col(row, 'rrp_price'));
+    const wasPriceGbp = rrp !== null && priceGbp !== null && rrp > priceGbp ? rrp : null;
+
     listings.push({
       retailerSku,
       url,
@@ -201,11 +214,13 @@ export function parseAwinFeed(csvText: string): RawListing[] {
       ean: digitsOnly(col(row, 'ean')),
       imageUrl,
       priceGbp,
-      // Awin's generic schema carries no "was price" or promo-end column.
-      wasPriceGbp: null,
+      wasPriceGbp,
+      // No promo-end column exists in this schema, and a countdown must never
+      // be invented: canShowCountdown() simply stays false for these.
       promoEndsAt: null,
       inStock,
       sectionId: 'awin-feed',
+      description: trimmedOrNull(col(row, 'description')),
     });
   }
 

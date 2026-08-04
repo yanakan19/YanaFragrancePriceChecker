@@ -27,6 +27,14 @@ export interface RawListing {
   inStock: boolean | null;
   /** Which catalogue section this listing was found in. */
   sectionId: string;
+  /**
+   * The retailer's own product copy, exactly as they wrote it, where a source
+   * provides one. Carried unparsed: fragrance notes are pulled out of it at
+   * display build time (see scripts/build-demo-catalogue.ts) so the parsing
+   * rules can change without needing a fresh crawl. Optional because the
+   * JSON-LD scrapers do not currently capture it.
+   */
+  description?: string | null;
 }
 
 /** Where a listing is in its life at a retailer. */

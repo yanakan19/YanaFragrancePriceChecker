@@ -484,6 +484,12 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Fragrance Click',
     domain: 'fragranceclick.co.uk',
     homepage: 'https://www.fragranceclick.co.uk',
+    // Their own words, from the programme profile they publish on Awin. Every
+    // other retailer here has no blurb because we have no text they wrote.
+    blurb:
+      'A UK based online fragrance retailer focusing on bestselling fragrances from well known ' +
+      'brands, priced below the high street. Every product is brand new, backed by a UK based ' +
+      'customer service team.',
     tiers: ['designer'],
     enabled: true,
     // Approved Awin merchant with a live, daily-updated product feed (895
