@@ -216,8 +216,18 @@ export const LEGAL_PAGES: LegalPage[] = [
       <h3>Our content</h3>
       <p>The design, wording and data compilations belong to ${COMPANY.legalName}.
       Brand names, product names and trade marks belong to their owners and appear
-      here only to identify products. The bottle images on this site are our own
-      drawings. They are not photographs supplied by any brand.</p>
+      here only to identify products.</p>
+
+      <h3>Product images</h3>
+      <p>Where a product image is shown, it is the retailer's or the brand's own
+      photograph, loaded directly from their servers. We do not copy, host,
+      crop, recolour or otherwise alter any of them, and we only display a
+      retailer's photography where that retailer's affiliate programme has
+      confirmed we may. Images from a brand's own shop are shown on that
+      basis.</p>
+      <p>Where we hold no image we may use, we show a plain marker saying so
+      rather than substituting a picture of something else. Every product image
+      remains the property of whoever created it.</p>
 
       <h3>Changes and governing law</h3>
       <p>We may revise these terms, and the current version always sits here.
