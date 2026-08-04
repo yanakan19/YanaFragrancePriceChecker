@@ -58,5 +58,15 @@ ${body}
 `;
 writeFileSync(resolve(root, 'demo/index.html'), standalone);
 
+// GitHub Pages serves 404.html for any path that is not a real file, which is
+// every in-app route: /brands, /fragrance/ean-123 and so on exist only inside
+// the router. Writing the identical document there means such a request gets
+// the app itself, and the router reads location.pathname on boot and renders
+// the right view. Byte-identical on purpose — no redirect hop, no query-string
+// relay, and no flash of a different page, because there is no server-rendered
+// content that could differ between the two entry points.
+writeFileSync(resolve(root, 'demo/404.html'), standalone);
+
 console.log(`demo/index.html          ${(standalone.length / 1024).toFixed(1)} kB`);
+console.log(`demo/404.html            ${(standalone.length / 1024).toFixed(1)} kB (deep-link fallback)`);
 console.log(`dist-demo/artifact.html  ${(body.length / 1024).toFixed(1)} kB`);
