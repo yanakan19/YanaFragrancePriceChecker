@@ -30,11 +30,11 @@ import {
 } from './data.js';
 import { productArt, type ArtSize } from './photo.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
-import { isNewAt, offersFor, SHOP_COUNT } from './catalogue.generated.js';
+import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
 import { officialSiteFor } from './brandSites.js';
 
 type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'settings';
-type ExploreTab = 'brands' | 'deals' | 'retailers' | 'notes' | 'search';
+type ExploreTab = 'brands' | 'deals' | 'retailers' | 'houses' | 'notes' | 'search';
 type DisplayMode = 'dark' | 'light' | 'system';
 type Layout = 'mobile' | 'desktop';
 type BrandSort = 'az' | 'za';
@@ -931,6 +931,7 @@ const TABS: { id: ExploreTab; label: string }[] = [
   { id: 'brands', label: 'Brands' },
   { id: 'deals', label: 'Deals' },
   { id: 'retailers', label: 'Retailers' },
+  { id: 'houses', label: 'Houses' },
   { id: 'notes', label: 'Notes' },
   { id: 'search', label: 'Search' },
 ];
@@ -943,10 +944,79 @@ function exploreView(): string {
         ? dealsPanel()
         : state.tab === 'retailers'
           ? retailersPanel()
-          : state.tab === 'notes'
-            ? notesPanel()
-            : searchPanel();
+          : state.tab === 'houses'
+            ? housesPanel()
+            : state.tab === 'notes'
+              ? notesPanel()
+              : searchPanel();
   return `<div class="explore">${panel}</div>`;
+}
+
+
+/* ── houses ──────────────────────────────────────────────────────────────── */
+
+/**
+ * Fragrance houses read direct from their own storefronts.
+ *
+ * These are deliberately not in the comparison and carry no sterling price.
+ * Every one is sold in the house's own currency, and the offer pipeline —
+ * bestOffer, the delivered-price sort, the discount badges — is sterling all
+ * the way down. Converting at a rate we invented and presenting the result as
+ * what a UK buyer pays would be a fabricated price, so the house's own figure
+ * is shown in its own currency and labelled as exactly that.
+ *
+ * What is real here: the product exists, the house photographed it, and that
+ * is the price on the house's own page. What is missing is any claim about
+ * the UK.
+ */
+function housesPanel(): string {
+  if (HOUSE_PRODUCTS.length === 0) {
+    return `<p class="empty">No house storefront has returned listings yet.</p>`;
+  }
+
+  const byHouse = new Map<string, typeof HOUSE_PRODUCTS>();
+  for (const p of HOUSE_PRODUCTS) {
+    const list = byHouse.get(p.house) ?? [];
+    list.push(p);
+    byHouse.set(p.house, list);
+  }
+
+  return `
+    <p class="house-note">
+      Read directly from each house's own shop. These are not part of the price
+      comparison: each is sold in the house's own currency, so there is no UK
+      price to compare yet and none has been invented.
+    </p>
+    ${[...byHouse.entries()]
+      .map(
+        ([house, items]) => `
+        <section class="house-group">
+          <h3>${esc(house)} <span class="house-count">${items.length}</span></h3>
+          <ul class="house-grid">
+            ${items
+              .map(
+                (p) => `<li class="house-card">
+                  <a href="${esc(p.url)}" target="_blank" rel="noopener nofollow sponsored">
+                    ${
+                      p.image
+                        ? `<img class="house-img" src="${esc(p.image)}" alt="" loading="lazy" />`
+                        : `<span class="house-img house-img-none" aria-hidden="true"></span>`
+                    }
+                    <span class="house-name">${esc(p.name)}</span>
+                    <span class="house-price">${
+                      p.nativePrice
+                        ? `${esc(p.nativePrice.currency)} ${p.nativePrice.amount.toFixed(2)}`
+                        : 'Price not published'
+                    }</span>
+                    <span class="house-caveat">at the house, not a UK price</span>
+                  </a>
+                </li>`,
+              )
+              .join('')}
+          </ul>
+        </section>`,
+      )
+      .join('')}`;
 }
 
 /* ── settings ────────────────────────────────────────────────────────────── */
