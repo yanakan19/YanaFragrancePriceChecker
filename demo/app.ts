@@ -30,7 +30,7 @@ import {
 } from './data.js';
 import { productArt, type ArtSize } from './photo.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
-import { isNewAt, offersFor, SHOP_COUNT, CRAWLED_AT } from './catalogue.generated.js';
+import { isNewAt, offersFor, SHOP_COUNT } from './catalogue.generated.js';
 
 type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'note' | 'legal' | 'settings';
 type ExploreTab = 'brands' | 'deals' | 'retailers' | 'notes' | 'search';
@@ -956,11 +956,6 @@ function render(): void {
       ).join('')
     : '';
 
-  // Provenance is real and worth stating, but it is not what someone landing on
-  // the front page needs first. It rides with the results instead.
-  const prov = $('#provenance') as HTMLElement;
-  prov.hidden = state.view === 'home';
-
   ($('#nav-home') as HTMLElement).classList.toggle('on', state.view === 'home');
   ($('#nav-explore') as HTMLElement).classList.toggle('on', inExplore || state.view === 'browse');
   ($('#nav-settings') as HTMLElement).classList.toggle('on', state.view === 'settings');
@@ -983,11 +978,6 @@ function init(): void {
   loadMode();
   loadLayout();
   loadPerRow();
-
-  const when = new Date(CRAWLED_AT);
-  ($('#provenance') as HTMLElement).textContent = Number.isFinite(when.getTime())
-    ? `Real prices from ${SHOP_COUNT} UK shops, last checked ${when.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}. Always confirm on the shop's site.`
-    : `Real prices from ${SHOP_COUNT} UK shops. Always confirm on the shop's site.`;
 
   // The bar search is the quick one: type a name, get results. The Search
   // subpage under Explore is where the same query gains a brand filter and
