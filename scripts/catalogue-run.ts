@@ -55,7 +55,7 @@ const store = dryRun
     } as unknown as CatalogueStore)
   : realStore;
 
-console.log(`\nScentDay catalogue crawl`);
+console.log(`\nPriceSniffs catalogue crawl`);
 console.log(`source   ${source}${source === 'fixtures' ? ` (${fixtureDir})` : ''}`);
 if (dryRun) console.log(`mode     dry run, nothing will be written`);
 console.log(`as of    ${now.toISOString()}`);

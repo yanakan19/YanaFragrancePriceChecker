@@ -52,7 +52,7 @@ export function apifyProxyConfigFromEnv(env: NodeJS.ProcessEnv = process.env): A
   return {
     password,
     country: env.APIFY_PROXY_COUNTRY ?? 'GB',
-    sessionId: env.APIFY_PROXY_SESSION ?? 'scentday1',
+    sessionId: env.APIFY_PROXY_SESSION ?? 'pricesniffs1',
   };
 }
 

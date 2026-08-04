@@ -92,12 +92,12 @@ Allow: /account/public
 Crawl-delay: 2
 Sitemap: https://shop.example/sitemap.xml
 
-User-agent: ScentDayBot
+User-agent: PriceSniffsBot
 Disallow: /nothing-for-us
 `;
 
   it('prefers our own group over the wildcard', () => {
-    const r = parseRobots(sample, 'scentdaybot');
+    const r = parseRobots(sample, 'pricesniffsbot');
     expect(isAllowed(r, 'https://shop.example/checkout')).toBe(true);
     expect(isAllowed(r, 'https://shop.example/nothing-for-us')).toBe(false);
   });

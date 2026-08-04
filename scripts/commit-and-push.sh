@@ -37,7 +37,7 @@ fi
 message="$1"
 shift
 
-git config user.name 'scentday-bot'
+git config user.name 'pricesniffs-bot'
 git config user.email 'bot@users.noreply.github.com'
 
 # Paths that do not exist yet are skipped rather than fatal: the house harvest

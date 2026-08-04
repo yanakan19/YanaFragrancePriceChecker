@@ -75,29 +75,71 @@ const isXml = (u: string) => /\.xml(\.gz)?(\?|$)/i.test(u);
 const SCENT = /fragrance|perfume|aftershave|cologne|eau-de|parfum|scent/i;
 
 /**
- * Walk sitemaps breadth first, collecting product URLs that look like fragrance.
+ * A sitemap whose own name says it lists products rather than content pages.
  *
- * Nested indexes are followed only where the name suggests fragrance or
- * products, because downloading an entire retailer's sitemap tree to find the
- * perfume aisle is rude and slow.
+ * The leading `(^|[^a-z])` is load-bearing rather than tidiness: a bare
+ * `/item/` matches the "item" inside "s-item-ap", so every sitemap in
+ * existence read as a product sitemap and the generic fallback below swallowed
+ * a shop's entire about-us tree. A `\b` does not fix it either, because the
+ * separator in "sitemap_products_1.xml" is an underscore, which is a word
+ * character — so the token must be anchored on "not a letter" specifically.
+ */
+const PRODUCT_SITEMAP = /(^|[^a-z])(product|item|sku|catalog)/i;
+
+/**
+ * Walk sitemaps breadth first, collecting product URLs.
+ *
+ * ── Matching on the URL alone is not enough ──────────────────────────────────
+ * This used to keep a URL only when the URL itself said "fragrance" or
+ * "perfume". That works for shops which file scent under a named aisle, and
+ * finds nothing at all for shops which do not: Boots and Harvey Nichols both
+ * served their sitemaps perfectly happily and yielded zero URLs, reported as
+ * `0 urls  0 fetched` with no error, because their product paths carry an id
+ * rather than a category word. They looked blocked in the run output and were
+ * not — nothing had ever asked them the right question.
+ *
+ * So two passes' worth of signal is gathered in one walk:
+ *
+ *   - `scented`, where the URL names a fragrance word. Precise, and preferred
+ *     whenever it finds anything, because it wastes no page budget on socks.
+ *   - `generic`, every URL found inside a sitemap whose *own name* says it
+ *     lists products. The parent is the evidence here, which is far more
+ *     reliable than guessing from a path full of ids.
+ *
+ * The generic set is only used when the scented set is empty. A shop that
+ * names its aisles behaves exactly as before; a shop that does not now returns
+ * candidates instead of silence, and the fragrance test in
+ * scripts/build-demo-catalogue.ts is what finally decides what is a scent.
  */
 async function discover(
   options: SitemapCrawlOptions,
   budget: number,
 ): Promise<{ urls: string[]; errors: string[] }> {
   const { retailer, http, robots, headers } = options;
-  const roots = robots.sitemaps.length
-    ? robots.sitemaps
-    : [`https://www.${retailer.domain}/sitemap.xml`];
+
+  // A shop's declared sitemap can be unreachable while the conventional path
+  // serves fine — John Lewis's robots.txt points at a siteindex.xml that times
+  // out — so the standard location is always kept as a fallback root rather
+  // than being skipped the moment robots.txt names something else.
+  const conventional = `https://www.${retailer.domain}/sitemap.xml`;
+  const roots = robots.sitemaps.length ? [...robots.sitemaps.slice(0, 5)] : [];
+  if (!roots.includes(conventional)) roots.push(conventional);
 
   const seen = new Set<string>();
-  const products = new Set<string>();
+  const scented = new Set<string>();
+  const generic = new Set<string>();
   const errors: string[] = [];
-  const queue = [...roots.slice(0, 5)];
+
+  // Each entry carries whether its parent index said it lists products, so a
+  // child's contents can be trusted without re-deriving that from every URL.
+  const queue: { url: string; isProductSitemap: boolean }[] = roots.map((url) => ({
+    url,
+    isProductSitemap: PRODUCT_SITEMAP.test(url),
+  }));
   let fetched = 0;
 
-  while (queue.length > 0 && fetched < budget && products.size < MAX_DISCOVERED_URLS) {
-    const url = queue.shift()!;
+  while (queue.length > 0 && fetched < budget && scented.size < MAX_DISCOVERED_URLS) {
+    const { url, isProductSitemap } = queue.shift()!;
     if (seen.has(url)) continue;
     seen.add(url);
 
@@ -112,15 +154,23 @@ async function discover(
 
     for (const found of locs(res.body)) {
       if (isXml(found)) {
-        // Only descend where the name suggests it is worth it.
-        if (SCENT.test(found) || /product|item/i.test(found)) queue.push(found);
+        const worthDescending = SCENT.test(found) || PRODUCT_SITEMAP.test(found);
+        // A fragrance-named index is explored before a merely product-named
+        // one, so a tight budget is spent on the aisle we actually want.
+        if (SCENT.test(found)) {
+          queue.unshift({ url: found, isProductSitemap: true });
+        } else if (worthDescending) {
+          queue.push({ url: found, isProductSitemap: true });
+        }
       } else if (SCENT.test(found)) {
-        products.add(found);
+        scented.add(found);
+      } else if (isProductSitemap && generic.size < MAX_DISCOVERED_URLS) {
+        generic.add(found);
       }
     }
   }
 
-  return { urls: [...products], errors };
+  return { urls: scented.size > 0 ? [...scented] : [...generic], errors };
 }
 
 /**

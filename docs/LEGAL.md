@@ -27,7 +27,7 @@ company that does not exist is itself a UK GDPR failure.
 | `[HOSTING PROVIDER]` | Whoever ends up hosting — they are a processor and must be named |
 | `[RETENTION PERIOD]` | How long you keep logs and correspondence. 90 days for logs is a common, defensible answer |
 
-Also replace the three `@scentday.example` addresses with mailboxes someone
+Also replace the three `@pricesniffs.example` addresses with mailboxes someone
 actually monitors. A data request must be answered within one month, so
 `privacy@` cannot be a black hole.
 

@@ -65,7 +65,7 @@ export const EMPTY_ROBOTS = UNREACHABLE_ROBOTS;
  * A named group for our agent wins outright over the wildcard group, which is
  * what the standard says and what most sites assume.
  */
-export function parseRobots(text: string, userAgent = 'scentdaybot'): RobotsRules {
+export function parseRobots(text: string, userAgent = 'pricesniffsbot'): RobotsRules {
   const lines = text.split(/\r?\n/);
   const groups = new Map<string, { disallow: string[]; allow: string[]; delay: number | null }>();
   const sitemaps: string[] = [];

@@ -27,7 +27,7 @@ describe('apifyProxyConfigFromEnv', () => {
 
   it('reads the password and defaults country and session', () => {
     const config = apifyProxyConfigFromEnv({ APIFY_PROXY_PASSWORD: 'secret123' });
-    expect(config).toEqual({ password: 'secret123', country: 'GB', sessionId: 'scentday1' });
+    expect(config).toEqual({ password: 'secret123', country: 'GB', sessionId: 'pricesniffs1' });
   });
 
   it('respects overrides for country and session', () => {

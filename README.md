@@ -1,6 +1,6 @@
-# ScentDay — price comparison core
+# PriceSniffs — price comparison core
 
-Retailer registry and offer-presentation layer for the ScentDay UK fragrance
+Retailer registry and offer-presentation layer for the PriceSniffs UK fragrance
 price comparison site.
 
 This is Phase 1 groundwork: the twelve-retailer registry, shipping rules, and the
