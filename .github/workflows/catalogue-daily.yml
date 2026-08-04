@@ -130,6 +130,28 @@ jobs:
           git commit -m "Harvest: real prices $(date -u +%Y-%m-%d)"
           git push
 
+      # No product photo is ever downloaded or hosted here — every tile links
+      # straight to the retailer's own image URL (see demo/photo.ts) — so a
+      # retailer reshuffling their CDN silently breaks a tile with nothing
+      # else here noticing. This is a report only: it does not change what a
+      # fragrance's photoUrl is, only records which ones stopped resolving.
+      - name: Check image links
+        if: ${{ inputs.harvest || github.event_name == 'schedule' }}
+        run: npm run images:check
+
+      - name: Commit image link report
+        if: ${{ inputs.harvest || github.event_name == 'schedule' }}
+        run: |
+          git config user.name 'scentday-bot'
+          git config user.email 'bot@users.noreply.github.com'
+          git add data/image-link-report.json
+          if git diff --cached --quiet; then
+            echo 'No change in broken image links.'
+            exit 0
+          fi
+          git commit -m "Image links: $(date -u +%Y-%m-%d)"
+          git push
+
       # Kept for manual comparison against the old guessed-URL approach and
       # for --source=fixtures testing. Deliberately never runs on schedule:
       # it has a 0% success rate against the live shops (see
