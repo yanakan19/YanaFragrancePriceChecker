@@ -16,6 +16,19 @@ import { roundPence } from './money.js';
  */
 export function resolveDelivery(retailer: Retailer, basketGbp: number): DeliveryDisplay {
   const { shipping } = retailer;
+
+  // Unknown is not zero. A retailer whose standard delivery cost has never been
+  // established must be disabled (see the field's doc comment and the registry
+  // test that enforces it), so reaching here with null means a disabled shop
+  // has leaked into the offer pipeline. Failing loudly is right: the quiet
+  // alternative is treating unknown as free and sorting that shop to the top.
+  if (shipping.standardGbp === null) {
+    throw new Error(
+      `${retailer.id}: standard delivery cost is not established, so a delivered ` +
+        'price cannot be computed. This retailer should be enabled: false.',
+    );
+  }
+  const standardGbp = shipping.standardGbp;
   const membershipNote = shipping.membershipPerk
     ? `${shipping.membershipPerk.scheme}: ${shipping.membershipPerk.description}`
     : null;
@@ -27,7 +40,7 @@ export function resolveDelivery(retailer: Retailer, basketGbp: number): Delivery
   };
 
   // Some retailers ship free at any basket value.
-  if (shipping.standardGbp === 0) {
+  if (standardGbp === 0) {
     return {
       ...base,
       costGbp: 0,
@@ -41,7 +54,7 @@ export function resolveDelivery(retailer: Retailer, basketGbp: number): Delivery
   if (shipping.freeOverGbp === null) {
     return {
       ...base,
-      costGbp: shipping.standardGbp,
+      costGbp: standardGbp,
       isFree: false,
       freeReason: null,
       spendMoreForFreeGbp: null,
@@ -60,7 +73,7 @@ export function resolveDelivery(retailer: Retailer, basketGbp: number): Delivery
 
   return {
     ...base,
-    costGbp: shipping.standardGbp,
+    costGbp: standardGbp,
     isFree: false,
     freeReason: null,
     spendMoreForFreeGbp: roundPence(shipping.freeOverGbp - basketGbp),

@@ -275,6 +275,7 @@ function pickNotes(offers: Offer[]): Notes | null {
 const products = new Map<string, Product>();
 let liveShops = 0;
 let considered = 0;
+const skippedShops: string[] = [];
 let rejected = 0;
 
 if (existsSync(dir)) {
@@ -283,6 +284,25 @@ if (existsSync(dir)) {
 
     // Invented data never reaches the app, whatever else happens.
     if (snapshot.source !== 'live') continue;
+
+    // A snapshot can exist for a retailer the app cannot yet price. Importing
+    // an affiliate feed writes data/catalogue/<id>.json regardless of whether
+    // that retailer's delivery terms have been established, and every offer
+    // here eventually reaches resolveDelivery, which refuses to guess a
+    // delivery cost it was never given. Skipping them here is what keeps a
+    // freshly imported feed from either crashing the app or — far worse —
+    // quietly sorting an unpriceable shop to the top of the delivered-price
+    // comparison.
+    const retailer = RETAILERS.find((r) => r.id === snapshot.retailerId);
+    if (!retailer || !retailer.enabled || retailer.shipping.standardGbp === null) {
+      const why = !retailer
+        ? 'not in the registry'
+        : !retailer.enabled
+          ? 'disabled'
+          : 'standard delivery cost not established';
+      skippedShops.push(`${snapshot.retailerId} (${why})`);
+      continue;
+    }
 
     const active = snapshot.listings.filter((l) => l.status === 'active');
     if (active.length > 0) liveShops++;
@@ -533,5 +553,8 @@ console.log(
   `demo/catalogue.generated.ts written from LIVE data only:\n` +
     `  ${liveShops} shops, ${considered} listings considered, ${rejected} were not fragrance\n` +
     `  ${ordered.length} products, ${multi} of them stocked by more than one shop\n` +
-    `  ${houseProducts.length} house products, catalogue-only (no sterling price yet)`,
+    `  ${houseProducts.length} house products, catalogue-only (no sterling price yet)` +
+    (skippedShops.length
+      ? `\n  skipped: ${skippedShops.join(', ')}`
+      : ''),
 );

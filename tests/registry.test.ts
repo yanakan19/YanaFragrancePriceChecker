@@ -3,9 +3,20 @@ import { RETAILERS, getRetailer, enabledRetailers, retailersForTier } from '../s
 
 describe('retailer registry', () => {
   it('contains the retailers from the plan plus any live affiliate additions', () => {
-    // Twelve from the original plan, plus Fragrance Click UK — added once its
-    // Awin programme actually approved us, not part of the original twelve.
-    expect(RETAILERS).toHaveLength(13);
+    // Twelve from the original plan, plus three added as their Awin programmes
+    // actually approved us: Fragrance Click UK, MyBeauty.Boutique and Glorious
+    // Beauty. None of the three was part of the original twelve.
+    expect(RETAILERS).toHaveLength(15);
+  });
+
+  // The whole point of allowing `standardGbp: null` is that "we have not
+  // established this" stops being unsayable. It is only safe because such a
+  // retailer never reaches the offer pipeline — delivered price is the default
+  // sort key, and an unknown delivery cost counted as zero would sort that shop
+  // to the top as artificially cheapest. This test is what keeps that true.
+  it('never enables a retailer whose standard delivery cost is unknown', () => {
+    const leaked = RETAILERS.filter((r) => r.shipping.standardGbp === null && r.enabled);
+    expect(leaked.map((r) => r.id)).toEqual([]);
   });
 
   it('has unique ids and domains', () => {
@@ -46,7 +57,12 @@ describe('retailer registry', () => {
 
     it('never has a negative cost or threshold', () => {
       for (const r of RETAILERS) {
-        expect(r.shipping.standardGbp).toBeGreaterThanOrEqual(0);
+        // null is "not established yet", which is a different statement from
+        // any number and is checked by its own test above. Only a recorded
+        // figure can be nonsensical.
+        if (r.shipping.standardGbp !== null) {
+          expect(r.shipping.standardGbp).toBeGreaterThanOrEqual(0);
+        }
         // 0 is a legitimate threshold — it means "free from the first item",
         // not "no threshold recorded". Fragrance Click UK is free on every
         // order, so freeOverGbp: 0 is the honest way to say that, not a bug.
