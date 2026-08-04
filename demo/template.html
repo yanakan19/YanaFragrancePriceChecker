@@ -518,27 +518,11 @@
   }
 
   /* ── notes ─────────────────────────────────────────────────────────────── */
-  .note-grid {
-    list-style: none; margin: 0; padding: 0;
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 8px;
-  }
-  .note-tile {
-    width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 8px;
-    background: var(--surface); border: 1px solid var(--line); border-radius: 11px;
-    padding: 11px 12px; cursor: pointer; font: inherit; color: var(--ink); text-align: left;
-    transition: border-color .12s ease, transform .12s ease;
-  }
-  .note-tile:active { transform: scale(.97); }
-  .note-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  @media (hover: hover) and (pointer: fine) {
-    .note-tile:hover { border-color: var(--line-firm); }
-  }
-  .note-tile-name {
-    font-size: 13.5px; font-weight: 600; overflow: hidden;
-    text-overflow: ellipsis; white-space: nowrap;
-  }
-  .note-tile-count {
-    flex: none; font-size: 11px; font-weight: 700; color: var(--faint);
+  /* Same row as .brand-row (block, one column, alphabetical dividers) — this
+     just adds the count on the right, so it needs flex instead of block. */
+  .note-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .note-row-count {
+    flex: none; font-size: 13px; font-weight: 700; color: var(--faint);
     font-variant-numeric: tabular-nums;
   }
 

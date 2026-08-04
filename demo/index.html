@@ -533,27 +533,11 @@
   }
 
   /* ── notes ─────────────────────────────────────────────────────────────── */
-  .note-grid {
-    list-style: none; margin: 0; padding: 0;
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(132px, 1fr)); gap: 8px;
-  }
-  .note-tile {
-    width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 8px;
-    background: var(--surface); border: 1px solid var(--line); border-radius: 11px;
-    padding: 11px 12px; cursor: pointer; font: inherit; color: var(--ink); text-align: left;
-    transition: border-color .12s ease, transform .12s ease;
-  }
-  .note-tile:active { transform: scale(.97); }
-  .note-tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  @media (hover: hover) and (pointer: fine) {
-    .note-tile:hover { border-color: var(--line-firm); }
-  }
-  .note-tile-name {
-    font-size: 13.5px; font-weight: 600; overflow: hidden;
-    text-overflow: ellipsis; white-space: nowrap;
-  }
-  .note-tile-count {
-    flex: none; font-size: 11px; font-weight: 700; color: var(--faint);
+  /* Same row as .brand-row (block, one column, alphabetical dividers) — this
+     just adds the count on the right, so it needs flex instead of block. */
+  .note-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .note-row-count {
+    flex: none; font-size: 13px; font-weight: 700; color: var(--faint);
     font-variant-numeric: tabular-nums;
   }
 
@@ -1231,17 +1215,14 @@
     ${e.shipping.confidence==="unverified"?`<p class="panel-note">These delivery terms were sourced indirectly and are still to be confirmed against the shop's own page.</p>`:""}
 
     <p class="gone-head">${a.length} ${a.length===1?"fragrance":"fragrances"} here</p>
-    ${y(a,"Nothing from this shop has been harvested yet.")}`}function ua(){let a=[...ie.filter(c=>r.noteLayer==="any"||c.layers.has(r.noteLayer))].sort((c,i)=>r.noteSort==="az"?c.name.localeCompare(i.name):i.count-c.count||c.name.localeCompare(i.name)),t=`<div class="controls">
+    ${y(a,"Nothing from this shop has been harvested yet.")}`}function ua(){let a=[...ie.filter(n=>r.noteLayer==="any"||n.layers.has(r.noteLayer))].sort((n,l)=>r.noteSort==="az"?n.name.localeCompare(l.name):l.count-n.count||n.name.localeCompare(l.name)),t=`<div class="controls">
     ${j("note-sort","Sort notes",be,[{value:"common",label:"Most common"},{value:"az",label:"A to Z"}],r.noteSort)}
     ${j("note-layer","Filter notes",Ae,[{value:"any",label:"Any layer"},{value:"top",label:"Top notes"},{value:"middle",label:"Middle notes"},{value:"base",label:"Base notes"}],r.noteLayer)}
-  </div>`;return a.length===0?`${t}<p class="empty-note">No notes recorded for that layer yet.</p>`:`${t}
-    <p class="panel-note">Only notes a shop has explicitly published. ${f.filter(c=>c.notes).length} of ${f.length} fragrances list them.</p>
-    <ul class="note-grid">
-      ${a.map(c=>`<li><button class="note-tile" data-note="${o(c.name)}">
-               <span class="note-tile-name">${o(c.name)}</span>
-               <span class="note-tile-count">${c.count}</span>
-             </button></li>`).join("")}
-    </ul>`}function ma(){let e=ne(r.noteName,r.noteLayer);return`
+  </div>`;if(a.length===0)return`${t}<p class="empty-note">No notes recorded for that layer yet.</p>`;let c="",i="";for(let n of a){if(r.noteSort==="az"){let l=(n.name[0]??"").toUpperCase();l!==i&&(i=l,c+=`<li class="alpha-break" aria-hidden="true"><span>${o(l)}</span><i></i></li>`)}c+=`<li><button class="brand-row note-row" data-note="${o(n.name)}">
+      <span>${o(n.name)}</span><span class="note-row-count">(${n.count})</span>
+    </button></li>`}return`${t}
+    <p class="panel-note">Only notes a shop has explicitly published. ${f.filter(n=>n.notes).length} of ${f.length} fragrances list them.</p>
+    <ul class="brand-list">${c}</ul>`}function ma(){let e=ne(r.noteName,r.noteLayer);return`
     <button class="back" data-back-explore>Back</button>
     <div class="page-head"><h2>${o(r.noteName)}</h2><span class="count">${e.length}</span></div>
     <p class="panel-note">Fragrances listing ${o(r.noteName)}${r.noteLayer==="any"?"":` as a ${r.noteLayer} note`}.</p>

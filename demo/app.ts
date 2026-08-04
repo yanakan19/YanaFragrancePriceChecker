@@ -753,19 +753,28 @@ function notesPanel(): string {
     return `${controls}<p class="empty-note">No notes recorded for that layer yet.</p>`;
   }
 
+  // The same row-list shape as Brands, including the alphabetical dividers —
+  // but only under the A-to-Z sort. Under "most common" the list is ranked by
+  // count, not by letter, so a divider between two counts would land on
+  // whichever letter their names happen to start with and break up entries
+  // that belong together in the ranking.
+  let out = '';
+  let current = '';
+  for (const n of list) {
+    if (state.noteSort === 'az') {
+      const initial = (n.name[0] ?? '').toUpperCase();
+      if (initial !== current) {
+        current = initial;
+        out += `<li class="alpha-break" aria-hidden="true"><span>${esc(initial)}</span><i></i></li>`;
+      }
+    }
+    out += `<li><button class="brand-row note-row" data-note="${esc(n.name)}">
+      <span>${esc(n.name)}</span><span class="note-row-count">(${n.count})</span>
+    </button></li>`;
+  }
   return `${controls}
     <p class="panel-note">Only notes a shop has explicitly published. ${DEMO_FRAGRANCES.filter((f) => f.notes).length} of ${DEMO_FRAGRANCES.length} fragrances list them.</p>
-    <ul class="note-grid">
-      ${list
-        .map(
-          (n) =>
-            `<li><button class="note-tile" data-note="${esc(n.name)}">
-               <span class="note-tile-name">${esc(n.name)}</span>
-               <span class="note-tile-count">${n.count}</span>
-             </button></li>`,
-        )
-        .join('')}
-    </ul>`;
+    <ul class="brand-list">${out}</ul>`;
 }
 
 function noteView(): string {
