@@ -705,22 +705,17 @@ function retailerView(): string {
 
   return `
     <button class="back" data-back-explore>Back</button>
-    <div class="shop-hero">
+    <div class="org-hero">
       ${monogram(r.name)}
-      <h2 class="shop-hero-name">${esc(r.name)}</h2>
-      <p class="shop-hero-domain">${esc(r.domain)}</p>
-      ${r.blurb ? `<p class="shop-hero-blurb">${esc(r.blurb)}</p>` : ''}
+      <div class="org-hero-text">
+        <h2 class="org-hero-name">${esc(r.name)}</h2>
+        <p class="org-hero-domain">${esc(r.domain)}</p>
+        ${r.blurb ? `<p class="org-hero-blurb">${esc(r.blurb)}</p>` : ''}
+        <ul class="fact-list">
+          ${deliveryLines(r).map((l) => `<li>${esc(l)}</li>`).join('')}
+        </ul>
+      </div>
     </div>
-
-    <p class="gone-head">Delivery</p>
-    <ul class="fact-list">
-      ${deliveryLines(r).map((l) => `<li>${esc(l)}</li>`).join('')}
-    </ul>
-    ${
-      r.shipping.confidence === 'unverified'
-        ? `<p class="panel-note">These delivery terms were sourced indirectly and are still to be confirmed against the shop's own page.</p>`
-        : ''
-    }
 
     <p class="gone-head">${list.length} ${list.length === 1 ? 'fragrance' : 'fragrances'} here</p>
     ${fragranceList(list, 'Nothing from this shop has been harvested yet.')}`;

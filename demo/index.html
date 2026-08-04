@@ -644,19 +644,26 @@
   .shop-row-meta { display: block; font-size: 12.5px; color: var(--faint); }
   .shop-row-go { flex: none; color: var(--accent); font-weight: 700; }
 
-  .shop-hero { text-align: center; padding: 6px 0 20px; }
-  .shop-hero .monogram { width: 62px; height: 62px; border-radius: 16px; font-size: 20px; margin: 0 auto 12px; }
-  .shop-hero-name { font-size: 25px; font-weight: 700; letter-spacing: -.025em; margin: 0; }
-  .shop-hero-domain { font-size: 12.5px; color: var(--faint); margin: 3px 0 0; }
-  .shop-hero-blurb { font-size: 14px; color: var(--ink-2); margin: 12px auto 0; max-width: 46ch; line-height: 1.6; }
+  /* Logo left, everything else — name, domain, blurb, delivery — condensed
+     into a right column that reads top to bottom. Replaces the old
+     everything-centred-and-stacked layout, which spent most of a screen's
+     height on a single shop. Shared by the retailer profile and the brand
+     profile, so both read as the same kind of page. */
+  .org-hero { display: flex; align-items: flex-start; gap: 14px; padding: 6px 0 18px; text-align: left; }
+  .org-hero .monogram { flex: none; width: 56px; height: 56px; border-radius: 15px; font-size: 18px; }
+  .org-hero-text { flex: 1; min-width: 0; }
+  .org-hero-name { font-size: 21px; font-weight: 700; letter-spacing: -.02em; margin: 0; }
+  .org-hero-domain { font-size: 12.5px; color: var(--faint); margin: 2px 0 0; }
+  .org-hero-domain a { color: inherit; }
+  .org-hero-blurb { font-size: 13.5px; color: var(--ink-2); margin: 8px 0 0; line-height: 1.5; }
 
-  .fact-list { list-style: none; margin: 0 0 6px; padding: 0; }
+  .fact-list { list-style: none; margin: 8px 0 6px; padding: 0; }
   .fact-list li {
-    font-size: 13.5px; color: var(--ink-2); padding: 8px 0 8px 16px;
+    font-size: 13px; color: var(--ink-2); padding: 6px 0 6px 14px;
     border-bottom: 1px solid var(--line); position: relative;
   }
   .fact-list li::before {
-    content: ""; position: absolute; left: 0; top: 15px;
+    content: ""; position: absolute; left: 0; top: 13px;
     width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
   }
 
@@ -1333,18 +1340,17 @@
         </li>`}).join("")}
   </ul>`}function sa(){let e=E(r.retailerId);if(!e)return Te();let a=ae(e.id);return`
     <button class="back" data-back-explore>Back</button>
-    <div class="shop-hero">
+    <div class="org-hero">
       ${_e(e.name)}
-      <h2 class="shop-hero-name">${o(e.name)}</h2>
-      <p class="shop-hero-domain">${o(e.domain)}</p>
-      ${e.blurb?`<p class="shop-hero-blurb">${o(e.blurb)}</p>`:""}
+      <div class="org-hero-text">
+        <h2 class="org-hero-name">${o(e.name)}</h2>
+        <p class="org-hero-domain">${o(e.domain)}</p>
+        ${e.blurb?`<p class="org-hero-blurb">${o(e.blurb)}</p>`:""}
+        <ul class="fact-list">
+          ${oa(e).map(t=>`<li>${o(t)}</li>`).join("")}
+        </ul>
+      </div>
     </div>
-
-    <p class="gone-head">Delivery</p>
-    <ul class="fact-list">
-      ${oa(e).map(t=>`<li>${o(t)}</li>`).join("")}
-    </ul>
-    ${e.shipping.confidence==="unverified"?`<p class="panel-note">These delivery terms were sourced indirectly and are still to be confirmed against the shop's own page.</p>`:""}
 
     <p class="gone-head">${a.length} ${a.length===1?"fragrance":"fragrances"} here</p>
     ${y(a,"Nothing from this shop has been harvested yet.")}`}function pa(){let a=[...ce.filter(n=>r.noteLayer==="any"||n.layers.has(r.noteLayer))].sort((n,l)=>r.noteSort==="az"?n.name.localeCompare(l.name):l.count-n.count||n.name.localeCompare(l.name)),t=`<div class="controls">
