@@ -42,6 +42,9 @@ type BrandFilter = RetailerTier | 'all';
 type DealSort = 'discount' | 'lowest' | 'highest';
 type NoteSort = 'common' | 'az';
 type NoteLayerFilter = NoteLayer | 'any';
+/** Sort for the fragrance list under one note. Same vocabulary as the rest
+ *  of the app: alphabetical both ways (Brands), price both ways (Deals). */
+type NoteDetailSort = 'az' | 'za' | 'price-low' | 'price-high';
 
 const MODE_KEY = 'pricesniffs.display';
 const LAYOUT_KEY = 'pricesniffs.layout';
@@ -68,6 +71,7 @@ const state = {
   dealSort: 'discount' as DealSort,
   noteSort: 'common' as NoteSort,
   noteLayer: 'any' as NoteLayerFilter,
+  noteDetailSort: 'az' as NoteDetailSort,
 };
 
 const esc = (s: string) =>
@@ -301,7 +305,7 @@ function productHead(f: DemoFragrance, tag = 'span'): string {
   return `<${tag} class="phead">
     <span class="phead-text">
       <span class="phead-brand">${esc(f.brand)}</span>
-      <span class="phead-name">${esc(f.name)}</span>
+      <span class="phead-name-wrap"><span class="phead-name">${esc(f.name)}</span></span>
     </span>
     <span class="phead-meta">
       <span>${f.sizeMl}ml</span>
@@ -537,6 +541,7 @@ function detailView(): string {
                </div>`
             : `<p class="hero-price none">Sold out everywhere<span class="hero-at">no shop has it in stock right now</span></p>`
         }
+        ${notesBlock(frag)}
       </div>
 
       <div class="detail-offers">
@@ -560,8 +565,6 @@ function detailView(): string {
                <ul class="offers">${unavailable.map((r) => unavailableRow(r.name)).join('')}</ul>`
             : ''
         }
-
-        ${notesBlock(frag)}
       </div>
     </div>`;
 }
@@ -806,11 +809,27 @@ function notesPanel(): string {
 }
 
 function noteView(): string {
-  const list = fragrancesWithNote(state.noteName, state.noteLayer);
+  const list = [...fragrancesWithNote(state.noteName, state.noteLayer)].sort((a, b) => {
+    if (state.noteDetailSort === 'az') return `${a.brand} ${a.name}`.localeCompare(`${b.brand} ${b.name}`);
+    if (state.noteDetailSort === 'za') return `${b.brand} ${b.name}`.localeCompare(`${a.brand} ${a.name}`);
+    const diff = lowestPrice(a.id) - lowestPrice(b.id);
+    return state.noteDetailSort === 'price-low' ? diff : -diff;
+  });
+
+  const controls = `<div class="controls">
+    ${control('note-detail-sort', 'Sort fragrances', ICON_SORT, [
+      { value: 'az', label: 'A to Z' },
+      { value: 'za', label: 'Z to A' },
+      { value: 'price-low', label: 'Lowest price' },
+      { value: 'price-high', label: 'Highest price' },
+    ], state.noteDetailSort)}
+  </div>`;
+
   return `
     <button class="back" data-back-explore>Back</button>
     <div class="page-head"><h2>${esc(state.noteName)}</h2><span class="count">${list.length}</span></div>
     <p class="panel-note">Fragrances listing ${esc(state.noteName)}${state.noteLayer === 'any' ? '' : ` as a ${state.noteLayer} note`}.</p>
+    ${controls}
     ${fragranceList(list, 'Nothing lists that note right now.')}`;
 }
 
@@ -1146,6 +1165,7 @@ function init(): void {
     else if (id === 'deal-sort') state.dealSort = value as DealSort;
     else if (id === 'note-sort') state.noteSort = value as NoteSort;
     else if (id === 'note-layer') state.noteLayer = value as NoteLayerFilter;
+    else if (id === 'note-detail-sort') state.noteDetailSort = value as NoteDetailSort;
     else if (id === 'per-row') {
       // The grid reads a CSS variable, so the columns reflow without a
       // re-render. Returning early also keeps the search box from losing
