@@ -4,6 +4,7 @@ import { getRetailer, RETAILERS } from '../src/config/retailers.js';
 import type { Retailer } from '../src/types/retailer.js';
 
 const boots = getRetailer('boots')!;
+const fragranceClick = getRetailer('fragrance-click')!;
 
 function withAffiliate(over: Partial<Retailer['affiliate']>): Retailer {
   return { ...boots, affiliate: { ...boots.affiliate, ...over } };
@@ -46,6 +47,17 @@ describe('buildOutboundLink', () => {
   it('fails open when the template has no placeholders to substitute', () => {
     const broken = withAffiliate({ ...LIVE.affiliate, deeplinkTemplate: 'https://tracker.example/go' });
     expect(buildOutboundLink(broken, 'https://x/p').isAffiliateLink).toBe(false);
+  });
+
+  it('passes an affiliate-feed URL through unwrapped, since it is already the tracked link', () => {
+    // aw_deep_link from the datafeed is a complete pclick.php redirect. Running
+    // it through deeplinkTemplate too would nest it inside a second Awin
+    // redirect (cread.php?...&ued=<the pclick.php URL>) instead of leaving it
+    // as the one link Awin actually expects to receive a click on.
+    const feedUrl = 'https://www.awin1.com/pclick.php?p=44089041632&a=3017443&m=124166';
+    const link = buildOutboundLink(fragranceClick, feedUrl);
+    expect(link.url).toBe(feedUrl);
+    expect(link.isAffiliateLink).toBe(true);
   });
 });
 
