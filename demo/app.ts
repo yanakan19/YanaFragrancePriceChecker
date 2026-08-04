@@ -402,10 +402,13 @@ const ICON_MOBILE =
   '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="18.3" r=".9" fill="currentColor"/></svg>';
 const ICON_DESKTOP =
   '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 21h7M12 17v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
-/* A simple musical note mark, not TikTok's own logo mark: this project has no
-   licence to reproduce that, so a neutral icon stands in for the platform. */
+/* Simple musical note and camera marks, not TikTok's or Instagram's own logo
+   marks: this project has no licence to reproduce those, so neutral icons
+   stand in for each platform. */
 const ICON_TIKTOK =
   '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 3v11.2a3.3 3.3 0 1 1-3.3-3.3c.3 0 .6 0 .9.1V8.4a6.1 6.1 0 1 0 5.1 6V9.8a7.5 7.5 0 0 0 4.3 1.4V8.5A4.6 4.6 0 0 1 17 4.5V3h-3Z" fill="currentColor"/></svg>';
+const ICON_INSTAGRAM =
+  '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>';
 
 function settingsView(): string {
   return `
@@ -453,6 +456,10 @@ function settingsView(): string {
       <details class="social">
         <summary>${ICON_TIKTOK}<span>TikTok</span></summary>
         <p><a href="https://www.tiktok.com/@yannysniffs" target="_blank" rel="noopener">@yannysniffs on TikTok</a></p>
+      </details>
+      <details class="social">
+        <summary>${ICON_INSTAGRAM}<span>Instagram</span></summary>
+        <p><a href="https://www.instagram.com/yannysniffs" target="_blank" rel="noopener">@yannysniffs on Instagram</a></p>
       </details>
 
       <h3>About</h3>
