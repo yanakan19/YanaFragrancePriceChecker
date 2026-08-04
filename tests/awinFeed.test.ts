@@ -12,7 +12,7 @@ import { parseAwinFeed } from '../src/catalogue/awinFeed.js';
 
 const STANDARD_HEADER =
   'aw_deep_link,product_name,aw_product_id,merchant_product_id,merchant_image_url,' +
-  'description,merchant_category,search_price,merchant_name,merchant_id,category_name,' +
+  'description,merchant_category,search_price,rrp_price,merchant_name,merchant_id,category_name,' +
   'category_id,currency,in_stock,stock_quantity,ean,delivery_cost,product_short_description';
 
 function standardRow(over: Partial<Record<string, string>> = {}): string {
@@ -25,6 +25,7 @@ function standardRow(over: Partial<Record<string, string>> = {}): string {
     description: 'A fresh, citrus scent, invented for testing only',
     merchant_category: 'Fragrance',
     search_price: '29.99',
+    rrp_price: '49.99',
     merchant_name: 'Test Merchant Ltd',
     merchant_id: '999999',
     category_name: 'Fragrance',
@@ -60,7 +61,7 @@ describe('parseAwinFeed — header-driven column mapping', () => {
       ean: '5012345678901',
       imageUrl: 'https://img.example.test/test-fragrance-100ml.jpg',
       priceGbp: 29.99,
-      wasPriceGbp: null,
+      wasPriceGbp: 49.99,
       promoEndsAt: null,
       inStock: true,
       sectionId: 'awin-feed',
@@ -260,6 +261,40 @@ describe('parseAwinFeed — delimiter sniffing', () => {
     expect(l?.retailerSku).toBe('MP-1001');
     expect(l?.priceGbp).toBe(29.99);
     expect(l?.ean).toBe('5012345678901');
+  });
+});
+
+describe('parseAwinFeed — rrp_price becomes the reference price', () => {
+  it('keeps an RRP that is genuinely above the selling price', () => {
+    const csv = `${STANDARD_HEADER}\n${standardRow({ search_price: '29.99', rrp_price: '49.99' })}\n`;
+    expect(parseAwinFeed(csv)[0]?.wasPriceGbp).toBe(49.99);
+  });
+
+  it('drops an RRP equal to the selling price, which is not a reduction', () => {
+    const csv = `${STANDARD_HEADER}\n${standardRow({ search_price: '29.99', rrp_price: '29.99' })}\n`;
+    expect(parseAwinFeed(csv)[0]?.wasPriceGbp).toBeNull();
+  });
+
+  it('drops an RRP below the selling price rather than showing a negative saving', () => {
+    const csv = `${STANDARD_HEADER}\n${standardRow({ search_price: '29.99', rrp_price: '19.99' })}\n`;
+    expect(parseAwinFeed(csv)[0]?.wasPriceGbp).toBeNull();
+  });
+
+  it('leaves the reference price null when the column is absent or blank', () => {
+    const csv = `${STANDARD_HEADER}\n${standardRow({ rrp_price: '' })}\n`;
+    expect(parseAwinFeed(csv)[0]?.wasPriceGbp).toBeNull();
+  });
+
+  it('never invents a promotion end, so no countdown can be shown', () => {
+    const csv = `${STANDARD_HEADER}\n${standardRow()}\n`;
+    expect(parseAwinFeed(csv)[0]?.promoEndsAt).toBeNull();
+  });
+});
+
+describe('parseAwinFeed — description passthrough', () => {
+  it('carries the retailer copy through unparsed, for notes extraction downstream', () => {
+    const csv = `${STANDARD_HEADER}\n${standardRow({ description: 'Top notes: Bergamot, LemonBase notes: Musk' })}\n`;
+    expect(parseAwinFeed(csv)[0]?.description).toBe('Top notes: Bergamot, LemonBase notes: Musk');
   });
 });
 

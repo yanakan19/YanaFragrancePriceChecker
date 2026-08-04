@@ -200,6 +200,14 @@ export interface Retailer {
   name: string;
   domain: string;
   homepage: string;
+  /**
+   * The retailer's own description of itself, quoted rather than paraphrased,
+   * and only where we actually have one from a source they control (an
+   * affiliate programme profile, their own About page). Left unset otherwise:
+   * writing marketing copy on a shop's behalf would be inventing words and
+   * attributing them to a real company.
+   */
+  blurb?: string;
   /** Catalogue segments this retailer is worth querying for. */
   tiers: RetailerTier[];
   /** Whether the pipeline currently fetches from this retailer at all. */

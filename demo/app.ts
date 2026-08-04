@@ -1,33 +1,56 @@
 /**
- * Mobile demo harness for the PriceSniffs comparison core.
+ * Mobile and desktop harness for the PriceSniffs comparison core.
  *
  * Holds no pricing logic of its own. It is a thin renderer over the real modules
  * in `src/`, bundled unchanged, so the demo cannot drift from what ships.
+ *
+ * ── Structure ────────────────────────────────────────────────────────────────
+ * Three top level places, and one level of subpages beneath the middle one:
+ *
+ *   Home      the mark, what this is, and the popular rail
+ *   Explore   Brands · Deals · Retailers · Notes · Search
+ *   Settings  preferences, contact, legal
+ *
+ * Everything else (a fragrance, a retailer, a note, a legal document) is a leaf
+ * reached from one of those and always carries a Back control. Nothing is ever
+ * more than two taps from Home, which is the whole reason the subpages live
+ * under Explore rather than crowding the top bar.
  *
  * House style for every reader facing string in this file: no hyphens, no en
  * dashes, no em dashes. Where a compound would normally take a hyphen, reword
  * it. Code comments are exempt.
  */
-import { buildComparison, bestOffer, canShowCountdown, formatGbp, RETAILERS } from '../src/index.js';
+import { buildComparison, bestOffer, canShowCountdown, formatGbp, RETAILERS, getRetailer } from '../src/index.js';
 import type { PresentedOffer, StockState } from '../src/types/offer.js';
-import type { RetailerTier } from '../src/types/retailer.js';
-import { DEMO_FRAGRANCES, BY_POPULARITY, brandTierFor, type DemoFragrance } from './data.js';
-import { productArt } from './photo.js';
+import type { Retailer, RetailerTier } from '../src/types/retailer.js';
+import {
+  DEMO_FRAGRANCES, BY_POPULARITY, DEALS, NOTE_INDEX,
+  brandTierFor, fragranceById, fragrancesAt, listingCountAt, fragrancesWithNote, lowestPrice,
+  type DemoFragrance, type NoteLayer,
+} from './data.js';
+import { productArt, type ArtSize } from './photo.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { isNewAt, offersFor, SHOP_COUNT, CRAWLED_AT } from './catalogue.generated.js';
 
-type View = 'home' | 'browse' | 'detail' | 'legal' | 'settings' | 'brands';
+type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'note' | 'legal' | 'settings';
+type ExploreTab = 'brands' | 'deals' | 'retailers' | 'notes' | 'search';
 type DisplayMode = 'dark' | 'light' | 'system';
 type Layout = 'mobile' | 'desktop';
 type BrandSort = 'az' | 'za';
 type BrandFilter = RetailerTier | 'all';
+type DealSort = 'discount' | 'lowest' | 'highest';
+type NoteSort = 'common' | 'az';
+type NoteLayerFilter = NoteLayer | 'any';
 
 const MODE_KEY = 'pricesniffs.display';
 const LAYOUT_KEY = 'pricesniffs.layout';
 
 const state = {
   view: 'home' as View,
+  tab: 'brands' as ExploreTab,
   fragranceId: '',
+  retailerId: '',
+  noteName: '',
   legalId: '',
   brand: null as string | null,
   query: '',
@@ -35,6 +58,9 @@ const state = {
   layout: 'mobile' as Layout,
   brandSort: 'az' as BrandSort,
   brandFilter: 'all' as BrandFilter,
+  dealSort: 'discount' as DealSort,
+  noteSort: 'common' as NoteSort,
+  noteLayer: 'any' as NoteLayerFilter,
 };
 
 const esc = (s: string) =>
@@ -49,13 +75,29 @@ const TIER_LABEL: Record<RetailerTier, string> = {
   designer: 'Designer', niche: 'Niche', mideast: 'Middle Eastern',
 };
 
-/** Top ten by hand seeded popularity. The contents of the rail. */
-const POPULAR = BY_POPULARITY.slice(0, 10);
+/**
+ * How the leading list is ranked, and what it does not claim.
+ *
+ * `BY_POPULARITY` orders by how many of our shops carry a fragrance, then by
+ * price. That is a real, checkable fact about availability, and it is a decent
+ * proxy for demand — shops stock what sells — but it is *not* a popularity
+ * measurement, so the UI calls it "most stocked" rather than implying we have
+ * counted anything.
+ *
+ * Genuine popularity would need one of: our own outbound click counts (nothing
+ * is logged yet, and the site has no traffic to log), Awin conversion data
+ * (which reports on transactions we referred, of which there are none so far,
+ * and only for one merchant), or per product sales rank from a retailer (none
+ * publish it). Time windowed popularity would additionally need a history of
+ * daily snapshots per product, which only began accumulating this month.
+ * Inventing any of that would be exactly the thing this project refuses to do.
+ */
+const TOP_N = 50;
+const POPULAR = BY_POPULARITY.slice(0, 12);
 
 /**
- * Prices come from the catalogue crawl, never from a hand written table. That
- * is what makes them live: point the crawl at the shops themselves and these
- * become real figures with nothing else to change.
+ * Prices come from the catalogue crawl and the affiliate feed, never from a
+ * hand written table. That is what makes them live.
  */
 function rowsFor(frag: DemoFragrance): PresentedOffer[] {
   return buildComparison(offersFor(frag.id), { sortBy: 'delivered', tier: frag.tier });
@@ -99,10 +141,9 @@ function setMode(mode: DisplayMode): void {
 
 /**
  * A real desktop with a mouse gets the wider layout by default; a phone, a
- * tablet or a resized browser window on a laptop trackpad does not. This
- * reads actual device capability (a fine pointer that supports hover, and
- * enough width to use it) rather than sniffing the user agent string, which
- * is both unreliable and unnecessary here.
+ * tablet or a resized browser window on a laptop trackpad does not. This reads
+ * actual device capability rather than sniffing the user agent string, which is
+ * both unreliable and unnecessary here.
  */
 function detectDefaultLayout(): Layout {
   try {
@@ -168,12 +209,7 @@ function countdown(iso: string): string {
   return h >= 24 ? `${Math.floor(h / 24)}d left` : `${h}h left`;
 }
 
-/* ── home ────────────────────────────────────────────────────────────────── */
-
-const MEDALS = ['gold', 'silver', 'bronze'] as const;
-
-/** "Eau de Toilette" -> "EDT", etc. Falls back to the string itself when there is no
-    standard abbreviation (e.g. "Extrait"), which is already short. */
+/** "Eau de Toilette" to "EDT". Falls through for anything already short. */
 const CONCENTRATION_ABBR: Record<string, string> = {
   'Eau de Parfum': 'EDP',
   'Eau de Toilette': 'EDT',
@@ -181,30 +217,103 @@ const CONCENTRATION_ABBR: Record<string, string> = {
 };
 const shortConcentration = (c: string): string => CONCENTRATION_ABBR[c] ?? c;
 
-function popularCard(f: DemoFragrance, rank: number): string {
-  const best = bestOffer(rowsFor(f));
-  const medal = rank < 3 ? MEDALS[rank] : null;
+/* ── icons ───────────────────────────────────────────────────────────────────
+   Line drawn, single weight, taking their colour from the surrounding text so
+   they read as quiet controls rather than decoration. */
 
+const icon = (paths: string) =>
+  `<svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">${paths}</svg>`;
+
+const ICON_FILTER = icon('<path d="M3.5 5h17l-6.6 7.8V20l-3.8-2.2v-5L3.5 5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>');
+const ICON_SORT = icon('<path d="M4 7h16M6.5 12h11M10 17h4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>');
+const ICON_RANK = icon('<path d="M7.5 20V5m0 0L4 8.5M7.5 5 11 8.5M16.5 4v15m0 0 3.5-3.5M16.5 19 13 15.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>');
+const ICON_SEARCH = icon('<circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>');
+const ICON_MOBILE = icon('<rect x="7" y="2.5" width="10" height="19" rx="2.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="18.3" r=".9" fill="currentColor"/>');
+const ICON_DESKTOP = icon('<rect x="2.5" y="4" width="19" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 21h7M12 17v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>');
+/* Neutral marks, not TikTok's or Instagram's own logos: this project has no
+   licence to reproduce those. */
+const ICON_TIKTOK = icon('<path d="M14 3v11.2a3.3 3.3 0 1 1-3.3-3.3c.3 0 .6 0 .9.1V8.4a6.1 6.1 0 1 0 5.1 6V9.8a7.5 7.5 0 0 0 4.3 1.4V8.5A4.6 4.6 0 0 1 17 4.5V3h-3Z" fill="currentColor"/>');
+const ICON_INSTAGRAM = icon('<rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/>');
+
+/** A labelled dropdown with its icon, used for every sort and filter control. */
+function control(id: string, label: string, ico: string, options: { value: string; label: string }[], current: string): string {
+  return `<label class="control">
+    <span class="control-ico">${ico}</span>
+    <span class="sr">${esc(label)}</span>
+    <select id="${id}" class="dropdown">
+      ${options.map((o) => `<option value="${esc(o.value)}" ${o.value === current ? 'selected' : ''}>${esc(o.label)}</option>`).join('')}
+    </select>
+  </label>`;
+}
+
+/* ── shared pieces ───────────────────────────────────────────────────────── */
+
+/**
+ * Brand, name, size and concentration as one block.
+ *
+ * Brand and name sit together on the left; size and concentration ride on the
+ * right, smaller and quieter, vertically centred against them rather than
+ * hanging off the top. Used everywhere a product appears so the same product
+ * reads identically in a rail, a list row and a page heading.
+ */
+function productHead(f: DemoFragrance, tag = 'span'): string {
+  return `<${tag} class="phead">
+    <span class="phead-text">
+      <span class="phead-brand">${esc(f.brand)}</span>
+      <span class="phead-name">${esc(f.name)}</span>
+    </span>
+    <span class="phead-meta">
+      <span>${f.sizeMl}ml</span>
+      <span>${esc(shortConcentration(f.concentration))}</span>
+    </span>
+  </${tag}>`;
+}
+
+function priceLine(f: DemoFragrance): string {
+  const best = bestOffer(rowsFor(f));
+  return best
+    ? `from ${formatGbp(best.deliveredPriceGbp)} <span aria-hidden="true">→</span>`
+    : 'Sold out';
+}
+
+/** One row in any vertical list of fragrances. */
+function fragranceRow(f: DemoFragrance, trailing?: string): string {
+  const best = bestOffer(rowsFor(f));
+  return `<li>
+    <button class="card" data-frag="${f.id}">
+      <span class="card-art">${productArt(f.photoUrl, 'sm', `${f.brand} ${f.name}`)}</span>
+      ${productHead(f)}
+      <span class="card-price">
+        ${
+          trailing ??
+          (best
+            ? `<span class="from">from</span><span class="amt">${formatGbp(best.deliveredPriceGbp)}</span>`
+            : `<span class="amt none">Sold out</span>`)
+        }
+      </span>
+    </button>
+  </li>`;
+}
+
+function fragranceList(list: DemoFragrance[], empty: string): string {
+  if (list.length === 0) return `<p class="empty-note">${esc(empty)}</p>`;
+  return `<ul class="listing">${list.map((f) => fragranceRow(f)).join('')}</ul>`;
+}
+
+/* ── home ────────────────────────────────────────────────────────────────── */
+
+const MEDALS = ['gold', 'silver', 'bronze'] as const;
+
+function popularCard(f: DemoFragrance, rank: number): string {
+  const medal = rank < 3 ? MEDALS[rank] : null;
   return `<li class="pop-item">
     <button class="pop" data-frag="${f.id}">
-      <span class="pop-head">
-        <span class="pop-text">
-          <span class="pop-brand">${esc(f.brand)}</span>
-          <span class="pop-name">${esc(f.name)}</span>
-        </span>
-        <span class="pop-meta">
-          <span>${f.sizeMl}ml</span>
-          <span>${esc(shortConcentration(f.concentration))}</span>
-        </span>
-      </span>
+      ${productHead(f)}
       <span class="pop-art">
         ${medal ? `<span class="medal ${medal}" aria-label="Number ${rank + 1} most popular">${rank + 1}</span>` : ''}
-        ${productArt(f.photoUrl, 96, `${f.brand} ${f.name}`)}
+        ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`)}
       </span>
-      <span class="pop-price">
-        ${best ? `from ${formatGbp(best.deliveredPriceGbp)}` : 'Sold out'}
-        ${best ? '<span aria-hidden="true">→</span>' : ''}
-      </span>
+      <span class="pop-price">${priceLine(f)}</span>
     </button>
   </li>`;
 }
@@ -218,16 +327,16 @@ function homeView(): string {
       </div>
       <p class="hero-mission">The only tool you need to find the best price on any fragrance.</p>
       <ul class="intro-points">
-        <li><span>Delivery prices reflected</span> so you know what you are paying altogether</li>
-        <li><span>Real and live prices</span> never made up</li>
-        <li><span>Never promoted</span> no shop is favoured over another</li>
+        <li><span>Delivery Costs Reflected</span></li>
+        <li><span>Real and Live Prices</span></li>
+        <li><span>No Promoted Listings</span></li>
       </ul>
     </section>
 
     <section class="pop-section">
       <div class="section-head">
-        <h3>Most popular</h3>
-        <button class="link-btn" data-browse>See all ${DEMO_FRAGRANCES.length}</button>
+        <h3>Most stocked</h3>
+        <button class="link-btn" data-browse>See top ${TOP_N}</button>
       </div>
       <ul class="pop-rail">
         ${POPULAR.map((f, i) => popularCard(f, i)).join('')}
@@ -247,37 +356,24 @@ function visibleFragrances(): DemoFragrance[] {
 }
 
 function browseView(): string {
-  const list = visibleFragrances();
-  const back = `<button class="back" data-back-home>Back</button>`;
+  const filtered = visibleFragrances();
+  // With no brand or query in play this is the leading list, which is capped:
+  // an 879 row wall is not a starting point anyone can use.
+  const isTop = !state.brand && !state.query.trim();
+  const list = isTop ? filtered.slice(0, TOP_N) : filtered;
+  const title = state.brand ?? (state.query.trim() ? `Results for "${state.query.trim()}"` : `Most stocked`);
 
-  if (list.length === 0) {
-    return `${back}<p class="empty-note">Nothing here matches that search. Try clearing the brand filter.</p>`;
-  }
-
-  return `${back}<ul class="listing">
-    ${list
-      .map((f) => {
-        const best = bestOffer(rowsFor(f));
-        return `<li>
-          <button class="card" data-frag="${f.id}">
-            <span class="card-art">${productArt(f.photoUrl, 40, `${f.brand} ${f.name}`)}</span>
-            <span class="card-text">
-              <span class="card-brand">${esc(f.brand)}</span>
-              <span class="card-name">${esc(f.name)}</span>
-              <span class="card-meta">${f.sizeMl}ml, ${esc(f.concentration)}</span>
-            </span>
-            <span class="card-price">
-              ${
-                best
-                  ? `<span class="from">from</span><span class="amt">${formatGbp(best.deliveredPriceGbp)}</span>`
-                  : `<span class="amt none">Sold out</span>`
-              }
-            </span>
-          </button>
-        </li>`;
-      })
-      .join('')}
-  </ul>`;
+  return `
+    <button class="back" data-back-home>Back</button>
+    <div class="page-head"><h2>${esc(title)}</h2><span class="count">${list.length}</span></div>
+    ${
+      isTop
+        ? `<p class="panel-note">Ranked by how many of our ${SHOP_COUNT} shops carry each one, cheapest first
+             where that ties. This is stock breadth, not a measure of what sells: nothing here counts
+             views or purchases, so it is never presented as if it did.</p>`
+        : ''
+    }
+    ${fragranceList(list, 'Nothing here matches that search.')}`;
 }
 
 /* ── detail ──────────────────────────────────────────────────────────────── */
@@ -298,7 +394,7 @@ function offerRow(row: PresentedOffer, isBest: boolean): string {
           isNewAt(row.variantId, row.retailer.id) ? '<span class="tag new">New</span>' : ''
         }${isBest ? '<span class="tag">Cheapest</span>' : ''}</span>
         <span class="price">
-          ${d ? `<span class="was">${formatGbp(d.wasPrice)}</span>` : ''}
+          ${d ? `<span class="was">RRP ${formatGbp(d.wasPrice)}</span>` : ''}
           <span class="now ${d ? 'sale' : ''}">${formatGbp(row.deliveredPriceGbp)}</span>
         </span>
       </span>
@@ -307,7 +403,7 @@ function offerRow(row: PresentedOffer, isBest: boolean): string {
           <span class="dot ${STOCK_CLASS[row.stock]}"></span>${STOCK_LABEL[row.stock]}
           <span class="sep">·</span>${esc(sub.join(' · '))}
         </span>
-        ${d ? `<span class="off">${d.percentOff}% off</span>` : ''}
+        ${d ? `<span class="off">${d.percentOff}% off RRP</span>` : ''}
       </span>
       ${
         d && canShowCountdown(d)
@@ -330,8 +426,33 @@ function unavailableRow(name: string): string {
   </li>`;
 }
 
+function notesBlock(f: DemoFragrance): string {
+  if (!f.notes) {
+    return `<div class="notes-block">
+      <p class="gone-head">Notes</p>
+      <p class="notes-none">Notes unavailable for this fragrance.</p>
+    </div>`;
+  }
+  const layer = (label: string, list: string[]) =>
+    list.length === 0
+      ? ''
+      : `<div class="note-layer">
+           <p class="note-layer-name">${label}</p>
+           <p class="note-chips">${list
+             .map((n) => `<button class="note-chip" data-note="${esc(n)}">${esc(n)}</button>`)
+             .join('')}</p>
+         </div>`;
+  return `<div class="notes-block">
+    <p class="gone-head">Notes</p>
+    ${layer('Top', f.notes.top)}
+    ${layer('Middle', f.notes.middle)}
+    ${layer('Base', f.notes.base)}
+    <p class="notes-source">As published by the retailer listing it.</p>
+  </div>`;
+}
+
 function detailView(): string {
-  const frag = DEMO_FRAGRANCES.find((f) => f.id === state.fragranceId);
+  const frag = fragranceById(state.fragranceId);
   if (!frag) return homeView();
 
   const rows = rowsFor(frag);
@@ -348,10 +469,8 @@ function detailView(): string {
 
     <div class="detail-grid">
       <div class="hero">
-        ${productArt(frag.photoUrl, 132, `${frag.brand} ${frag.name}`)}
-        <p class="hero-brand">${esc(frag.brand)}</p>
-        <h2 class="hero-name">${esc(frag.name)}</h2>
-        <p class="hero-meta">${frag.sizeMl}ml, ${esc(frag.concentration)}</p>
+        <div class="hero-art">${productArt(frag.photoUrl, 'lg', `${frag.brand} ${frag.name}`)}</div>
+        ${productHead(frag, 'div')}
         ${
           best
             ? `<div class="price-box">
@@ -384,8 +503,271 @@ function detailView(): string {
                <ul class="offers">${unavailable.map((r) => unavailableRow(r.name)).join('')}</ul>`
             : ''
         }
+
+        ${notesBlock(frag)}
       </div>
     </div>`;
+}
+
+/* ── explore: brands ─────────────────────────────────────────────────────── */
+
+function brandsPanel(): string {
+  const filtered = BRANDS.filter(
+    (b) => state.brandFilter === 'all' || brandTierFor(b) === state.brandFilter,
+  );
+  const list = [...filtered].sort((a, b) =>
+    state.brandSort === 'az' ? a.localeCompare(b) : b.localeCompare(a),
+  );
+
+  const controls = `<div class="controls">
+    ${control('brand-sort', 'Sort brands', ICON_SORT, [
+      { value: 'az', label: 'A to Z' },
+      { value: 'za', label: 'Z to A' },
+    ], state.brandSort)}
+    ${control('brand-filter', 'Filter brands', ICON_FILTER, [
+      { value: 'all', label: 'All types' },
+      ...(['designer', 'niche', 'mideast'] as const).map((t) => ({ value: t, label: TIER_LABEL[t] })),
+    ], state.brandFilter)}
+  </div>`;
+
+  if (list.length === 0) {
+    return `${controls}<p class="empty-note">No brands match that filter yet.</p>`;
+  }
+
+  // Group under the initial so a long alphabetical list stays scannable. The
+  // rule after each letter runs to the end of the column, which is what makes
+  // the break read as a divider rather than a heading that happens to be short.
+  let out = '';
+  let current = '';
+  for (const b of list) {
+    const initial = (b[0] ?? '').toUpperCase();
+    if (initial !== current) {
+      current = initial;
+      out += `<li class="alpha-break" aria-hidden="true"><span>${esc(initial)}</span><i></i></li>`;
+    }
+    out += `<li><button class="brand-row" data-brand="${esc(b)}">${esc(b)}</button></li>`;
+  }
+  return `${controls}<ul class="brand-list">${out}</ul>`;
+}
+
+/* ── explore: deals ──────────────────────────────────────────────────────── */
+
+function dealsPanel(): string {
+  const sorted = [...DEALS].sort((a, b) => {
+    if (state.dealSort === 'lowest') return a.price - b.price;
+    if (state.dealSort === 'highest') return b.price - a.price;
+    return b.percentOff - a.percentOff;
+  });
+
+  const controls = `<div class="controls">
+    ${control('deal-sort', 'Sort deals', ICON_RANK, [
+      { value: 'discount', label: 'Biggest saving' },
+      { value: 'lowest', label: 'Lowest price' },
+      { value: 'highest', label: 'Highest price' },
+    ], state.dealSort)}
+  </div>`;
+
+  if (sorted.length === 0) {
+    return `${controls}<p class="empty-note">No shop is publishing a reference price right now.</p>`;
+  }
+
+  const rows = sorted
+    .map((d) =>
+      fragranceRow(
+        d.fragrance,
+        `<span class="off">${d.percentOff}% off</span>
+         <span class="amt">${formatGbp(d.price)}</span>
+         <span class="was">RRP ${formatGbp(d.wasPrice)}</span>`,
+      ),
+    )
+    .join('');
+
+  return `${controls}
+    <p class="panel-note">Savings are against the shop's own published recommended retail price.</p>
+    <ul class="listing">${rows}</ul>`;
+}
+
+/* ── explore: retailers ──────────────────────────────────────────────────── */
+
+/** Initials, drawn as a monogram. Deliberately not a copy of the shop's logo. */
+function monogram(name: string): string {
+  const initials = name
+    .replace(/[^A-Za-z ]/g, '')
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0]!.toUpperCase())
+    .join('');
+  return `<span class="monogram" aria-hidden="true">${esc(initials || '?')}</span>`;
+}
+
+function deliveryLines(r: Retailer): string[] {
+  const s = r.shipping;
+  const lines: string[] = [];
+  lines.push(
+    s.standardGbp === 0
+      ? 'Free standard delivery on every order'
+      : `Standard delivery ${formatGbp(s.standardGbp)}`,
+  );
+  if (s.freeOverGbp !== null && s.freeOverGbp > 0) {
+    lines.push(`Free once you spend ${formatGbp(s.freeOverGbp)}`);
+  } else if (s.freeOverGbp === null) {
+    lines.push('No spend based free delivery');
+  }
+  const [lo, hi] = s.estimatedDays;
+  lines.push(lo === hi ? `Arrives in about ${lo} working days` : `Arrives in about ${lo} to ${hi} working days`);
+  if (s.membershipPerk) {
+    lines.push(`${s.membershipPerk.scheme}: ${s.membershipPerk.description}`);
+  }
+  return lines;
+}
+
+function retailersPanel(): string {
+  const shops = [...RETAILERS].sort((a, b) => a.name.localeCompare(b.name));
+  return `<ul class="shop-list">
+    ${shops
+      .map((r) => {
+        const n = listingCountAt(r.id);
+        return `<li>
+          <button class="shop-row" data-retailer="${esc(r.id)}">
+            ${monogram(r.name)}
+            <span class="shop-row-text">
+              <span class="shop-row-name">${esc(r.name)}</span>
+              <span class="shop-row-meta">${n > 0 ? `${n} fragrances listed` : 'No listings yet'}</span>
+            </span>
+            <span class="shop-row-go" aria-hidden="true">→</span>
+          </button>
+        </li>`;
+      })
+      .join('')}
+  </ul>`;
+}
+
+function retailerView(): string {
+  const r = getRetailer(state.retailerId);
+  if (!r) return exploreView();
+  const list = fragrancesAt(r.id);
+
+  return `
+    <button class="back" data-back-explore>Back</button>
+    <div class="shop-hero">
+      ${monogram(r.name)}
+      <h2 class="shop-hero-name">${esc(r.name)}</h2>
+      <p class="shop-hero-domain">${esc(r.domain)}</p>
+      ${r.blurb ? `<p class="shop-hero-blurb">${esc(r.blurb)}</p>` : ''}
+    </div>
+
+    <p class="gone-head">Delivery</p>
+    <ul class="fact-list">
+      ${deliveryLines(r).map((l) => `<li>${esc(l)}</li>`).join('')}
+    </ul>
+    ${
+      r.shipping.confidence === 'unverified'
+        ? `<p class="panel-note">These delivery terms were sourced indirectly and are still to be confirmed against the shop's own page.</p>`
+        : ''
+    }
+
+    <p class="gone-head">${list.length} ${list.length === 1 ? 'fragrance' : 'fragrances'} here</p>
+    ${fragranceList(list, 'Nothing from this shop has been harvested yet.')}`;
+}
+
+/* ── explore: notes ──────────────────────────────────────────────────────── */
+
+function notesPanel(): string {
+  const filtered = NOTE_INDEX.filter(
+    (n) => state.noteLayer === 'any' || n.layers.has(state.noteLayer),
+  );
+  const list = [...filtered].sort((a, b) =>
+    state.noteSort === 'az' ? a.name.localeCompare(b.name) : b.count - a.count || a.name.localeCompare(b.name),
+  );
+
+  const controls = `<div class="controls">
+    ${control('note-sort', 'Sort notes', ICON_SORT, [
+      { value: 'common', label: 'Most common' },
+      { value: 'az', label: 'A to Z' },
+    ], state.noteSort)}
+    ${control('note-layer', 'Filter notes', ICON_FILTER, [
+      { value: 'any', label: 'Any layer' },
+      { value: 'top', label: 'Top notes' },
+      { value: 'middle', label: 'Middle notes' },
+      { value: 'base', label: 'Base notes' },
+    ], state.noteLayer)}
+  </div>`;
+
+  if (list.length === 0) {
+    return `${controls}<p class="empty-note">No notes recorded for that layer yet.</p>`;
+  }
+
+  return `${controls}
+    <p class="panel-note">Only notes a shop has explicitly published. ${DEMO_FRAGRANCES.filter((f) => f.notes).length} of ${DEMO_FRAGRANCES.length} fragrances list them.</p>
+    <ul class="note-grid">
+      ${list
+        .map(
+          (n) =>
+            `<li><button class="note-tile" data-note="${esc(n.name)}">
+               <span class="note-tile-name">${esc(n.name)}</span>
+               <span class="note-tile-count">${n.count}</span>
+             </button></li>`,
+        )
+        .join('')}
+    </ul>`;
+}
+
+function noteView(): string {
+  const list = fragrancesWithNote(state.noteName, state.noteLayer);
+  return `
+    <button class="back" data-back-explore>Back</button>
+    <div class="page-head"><h2>${esc(state.noteName)}</h2><span class="count">${list.length}</span></div>
+    <p class="panel-note">Fragrances listing ${esc(state.noteName)}${state.noteLayer === 'any' ? '' : ` as a ${state.noteLayer} note`}.</p>
+    ${fragranceList(list, 'Nothing lists that note right now.')}`;
+}
+
+/* ── explore: search ─────────────────────────────────────────────────────── */
+
+function searchPanel(): string {
+  const q = state.query.trim();
+  const list = q ? visibleFragrances() : [];
+  return `
+    <label class="search-big">
+      ${ICON_SEARCH}
+      <input type="search" id="search-full" placeholder="Search by brand, name or concentration"
+        value="${esc(state.query)}" aria-label="Search fragrances" />
+    </label>
+    ${
+      state.brand
+        ? `<p class="panel-note">Filtered to ${esc(state.brand)}. <button class="link-btn" data-clear-brand>Clear</button></p>`
+        : ''
+    }
+    <div class="search-results">${
+      q
+        ? `<div class="page-head"><h2>Results</h2><span class="count">${list.length}</span></div>
+           ${fragranceList(list, 'Nothing matches that search.')}`
+        : `<p class="empty-note">Type to search all ${DEMO_FRAGRANCES.length} fragrances.</p>`
+    }</div>`;
+}
+
+/* ── explore shell ───────────────────────────────────────────────────────── */
+
+const TABS: { id: ExploreTab; label: string }[] = [
+  { id: 'brands', label: 'Brands' },
+  { id: 'deals', label: 'Deals' },
+  { id: 'retailers', label: 'Retailers' },
+  { id: 'notes', label: 'Notes' },
+  { id: 'search', label: 'Search' },
+];
+
+function exploreView(): string {
+  const panel =
+    state.tab === 'brands'
+      ? brandsPanel()
+      : state.tab === 'deals'
+        ? dealsPanel()
+        : state.tab === 'retailers'
+          ? retailersPanel()
+          : state.tab === 'notes'
+            ? notesPanel()
+            : searchPanel();
+  return `<div class="explore">${panel}</div>`;
 }
 
 /* ── settings ────────────────────────────────────────────────────────────── */
@@ -397,18 +779,6 @@ const MODE_OPTIONS: { id: DisplayMode; label: string }[] = [
 ];
 
 const CONTACT_TYPES = ['An issue', 'A suggestion', 'A promotional enquiry', 'Something else'] as const;
-
-const ICON_MOBILE =
-  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="7" y="2" width="10" height="20" rx="2.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="18.3" r=".9" fill="currentColor"/></svg>';
-const ICON_DESKTOP =
-  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 21h7M12 17v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>';
-/* Simple musical note and camera marks, not TikTok's or Instagram's own logo
-   marks: this project has no licence to reproduce those, so neutral icons
-   stand in for each platform. */
-const ICON_TIKTOK =
-  '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 3v11.2a3.3 3.3 0 1 1-3.3-3.3c.3 0 .6 0 .9.1V8.4a6.1 6.1 0 1 0 5.1 6V9.8a7.5 7.5 0 0 0 4.3 1.4V8.5A4.6 4.6 0 0 1 17 4.5V3h-3Z" fill="currentColor"/></svg>';
-const ICON_INSTAGRAM =
-  '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg>';
 
 function settingsView(): string {
   return `
@@ -488,66 +858,47 @@ function legalView(): string {
     </article>`;
 }
 
-/* ── brands ──────────────────────────────────────────────────────────────── */
-
-function brandsView(): string {
-  const filtered = BRANDS.filter(
-    (b) => state.brandFilter === 'all' || brandTierFor(b) === state.brandFilter,
-  );
-  const list = [...filtered].sort((a, b) => (state.brandSort === 'az' ? a.localeCompare(b) : b.localeCompare(a)));
-
-  return `
-    <button class="back" data-back-home>Back</button>
-    <div class="brands-head">
-      <h2>Brands</h2>
-      <div class="brands-controls">
-        <select id="brand-sort" class="dropdown" aria-label="Sort brands">
-          <option value="az" ${state.brandSort === 'az' ? 'selected' : ''}>A to Z</option>
-          <option value="za" ${state.brandSort === 'za' ? 'selected' : ''}>Z to A</option>
-        </select>
-        <select id="brand-filter" class="dropdown" aria-label="Filter brands">
-          <option value="all" ${state.brandFilter === 'all' ? 'selected' : ''}>All</option>
-          ${(['designer', 'niche', 'mideast'] as const)
-            .map((t) => `<option value="${t}" ${state.brandFilter === t ? 'selected' : ''}>${TIER_LABEL[t]}</option>`)
-            .join('')}
-        </select>
-      </div>
-    </div>
-    ${
-      list.length === 0
-        ? `<p class="empty-note">No brands match that filter yet.</p>`
-        : `<ul class="brand-list">
-             ${list.map((b) => `<li><button class="brand-row" data-brand="${esc(b)}">${esc(b)}</button></li>`).join('')}
-           </ul>`
-    }`;
-}
-
 /* ── chrome ──────────────────────────────────────────────────────────────── */
 
 function render(): void {
   const body =
     state.view === 'home'
       ? homeView()
-      : state.view === 'browse'
-        ? browseView()
-        : state.view === 'detail'
-          ? detailView()
-          : state.view === 'settings'
-            ? settingsView()
-            : state.view === 'brands'
-              ? brandsView()
-              : legalView();
+      : state.view === 'explore'
+        ? exploreView()
+        : state.view === 'browse'
+          ? browseView()
+          : state.view === 'detail'
+            ? detailView()
+            : state.view === 'retailer'
+              ? retailerView()
+              : state.view === 'note'
+                ? noteView()
+                : state.view === 'settings'
+                  ? settingsView()
+                  : legalView();
 
-  // The wrapper is a fresh element on every render, so the fade in it carries
-  // just plays on insertion. No JS animation retriggering needed.
+  // The wrapper is a fresh element on every render, so the fade it carries just
+  // plays on insertion. No JS animation retriggering needed.
   $('#view').innerHTML = `<div class="view-fade">${body}</div>`;
 
-  ($('#brand-chip') as HTMLElement).innerHTML = state.brand
-    ? `<button class="chip" data-clear-brand>${esc(state.brand)} <span aria-hidden="true">×</span><span class="sr">clear brand filter</span></button>`
+  // The sub nav belongs to Explore and its leaves, and appears nowhere else.
+  const inExplore = state.view === 'explore' || state.view === 'retailer' || state.view === 'note';
+  const subnav = $('#subnav') as HTMLElement;
+  subnav.hidden = !inExplore;
+  subnav.innerHTML = inExplore
+    ? TABS.map(
+        (t) => `<button class="subnavbtn ${state.tab === t.id ? 'on' : ''}" data-tab="${t.id}">${t.label}</button>`,
+      ).join('')
     : '';
 
+  // Provenance is real and worth stating, but it is not what someone landing on
+  // the front page needs first. It rides with the results instead.
+  const prov = $('#provenance') as HTMLElement;
+  prov.hidden = state.view === 'home';
+
   ($('#nav-home') as HTMLElement).classList.toggle('on', state.view === 'home');
-  ($('#nav-brand') as HTMLElement).classList.toggle('on', state.view === 'brands');
+  ($('#nav-explore') as HTMLElement).classList.toggle('on', inExplore || state.view === 'browse');
   ($('#nav-settings') as HTMLElement).classList.toggle('on', state.view === 'settings');
 }
 
@@ -557,19 +908,25 @@ function go(view: View): void {
   window.scrollTo({ top: 0 });
 }
 
+function openExplore(tab: ExploreTab): void {
+  state.tab = tab;
+  go('explore');
+}
+
 /* ── wiring ──────────────────────────────────────────────────────────────── */
 
 function init(): void {
   loadMode();
   loadLayout();
 
-  // State the provenance plainly. These are real prices from real shops, and
-  // the reader is told when they were taken rather than being asked to assume.
   const when = new Date(CRAWLED_AT);
   ($('#provenance') as HTMLElement).textContent = Number.isFinite(when.getTime())
     ? `Real prices from ${SHOP_COUNT} UK shops, last checked ${when.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}. Always confirm on the shop's site.`
     : `Real prices from ${SHOP_COUNT} UK shops. Always confirm on the shop's site.`;
 
+  // The bar search is the quick one: type a name, get results. The Search
+  // subpage under Explore is where the same query gains a brand filter and
+  // room to show what it matched against.
   $('#search').addEventListener('input', (e) => {
     state.query = (e.target as HTMLInputElement).value;
     state.view = 'browse';
@@ -584,12 +941,8 @@ function init(): void {
   };
 
   $('#nav-home').addEventListener('click', goHome);
-  // The wordmark is the conventional "take me home" control too, not just
-  // the Home tab, so it needs the same reset (cleared search and filter)
-  // rather than a bare view switch.
   $('#brand-home').addEventListener('click', goHome);
-
-  $('#nav-brand').addEventListener('click', () => go('brands'));
+  $('#nav-explore').addEventListener('click', () => openExplore(state.tab));
   $('#nav-settings').addEventListener('click', () => go('settings'));
 
   document.addEventListener('click', (e) => {
@@ -611,10 +964,30 @@ function init(): void {
       return;
     }
 
+    const tab = t.closest('[data-tab]');
+    if (tab) {
+      openExplore(tab.getAttribute('data-tab') as ExploreTab);
+      return;
+    }
+
     const card = t.closest('[data-frag]');
     if (card) {
       state.fragranceId = card.getAttribute('data-frag')!;
       go('detail');
+      return;
+    }
+
+    const shop = t.closest('[data-retailer]');
+    if (shop) {
+      state.retailerId = shop.getAttribute('data-retailer')!;
+      go('retailer');
+      return;
+    }
+
+    const note = t.closest('[data-note]');
+    if (note) {
+      state.noteName = note.getAttribute('data-note')!;
+      go('note');
       return;
     }
 
@@ -626,6 +999,7 @@ function init(): void {
     }
 
     if (t.closest('[data-browse]')) {
+      state.brand = null;
       go('browse');
       return;
     }
@@ -635,6 +1009,11 @@ function init(): void {
       const b = brandOpt.getAttribute('data-brand')!;
       state.brand = b === '' ? null : b;
       go('browse');
+      return;
+    }
+
+    if (t.closest('[data-back-explore]')) {
+      go('explore');
       return;
     }
 
@@ -655,20 +1034,40 @@ function init(): void {
     }
   });
 
-  document.addEventListener('change', (e) => {
+  document.addEventListener('input', (e) => {
     const t = e.target as HTMLElement;
-    if (t.id === 'brand-sort') {
-      state.brandSort = (t as HTMLSelectElement).value as BrandSort;
-      render();
-    } else if (t.id === 'brand-filter') {
-      state.brandFilter = (t as HTMLSelectElement).value as BrandFilter;
-      render();
-    }
+    if (t.id !== 'search-full') return;
+    state.query = (t as HTMLInputElement).value;
+    ($('#search') as HTMLInputElement).value = state.query;
+    // Re-rendering would tear out the field mid keystroke and lose focus, so
+    // only the results below it are replaced.
+    const panel = $('.explore') as HTMLElement;
+    const q = state.query.trim();
+    const list = q ? visibleFragrances() : [];
+    const results = panel.querySelector('.search-results');
+    const html = q
+      ? `<div class="page-head"><h2>Results</h2><span class="count">${list.length}</span></div>
+         ${fragranceList(list, 'Nothing matches that search.')}`
+      : `<p class="empty-note">Type to search all ${DEMO_FRAGRANCES.length} fragrances.</p>`;
+    if (results) results.innerHTML = html;
   });
 
-  // There is no server behind this page, so "send" means handing the message
-  // to the reader's own email app, not silently claiming it reached us. The
-  // confirmation text says exactly that rather than pretending we received it.
+  document.addEventListener('change', (e) => {
+    const t = e.target as HTMLElement;
+    const id = t.id;
+    const value = (t as HTMLSelectElement).value;
+    if (id === 'brand-sort') state.brandSort = value as BrandSort;
+    else if (id === 'brand-filter') state.brandFilter = value as BrandFilter;
+    else if (id === 'deal-sort') state.dealSort = value as DealSort;
+    else if (id === 'note-sort') state.noteSort = value as NoteSort;
+    else if (id === 'note-layer') state.noteLayer = value as NoteLayerFilter;
+    else return;
+    render();
+  });
+
+  // There is no server behind this page, so "send" means handing the message to
+  // the reader's own email app, not silently claiming it reached us. The
+  // confirmation says exactly that rather than pretending we received it.
   document.addEventListener('submit', (e) => {
     const form = e.target as HTMLElement;
     if (form.id !== 'contact-form') return;
@@ -693,3 +1092,5 @@ if (document.readyState === 'loading') {
 } else {
   init();
 }
+
+export type { ArtSize };
