@@ -23,6 +23,7 @@ import { CatalogueStore } from '../src/catalogue/store.js';
 import { reconcile } from '../src/catalogue/reconcile.js';
 import { crawlViaSitemap } from '../src/catalogue/sitemapCrawl.js';
 import { loadRobots, BROWSER_HEADERS, type Http } from '../src/catalogue/attempt.js';
+import { createHttp } from '../src/catalogue/httpFetch.js';
 import {
   apifyProxyConfigFromEnv, apifyProxyHttp, MAX_PROXIED_REQUESTS_PER_RUN,
 } from '../src/catalogue/apifyProxy.js';
@@ -48,18 +49,7 @@ if (allowMetered && !proxyConfig) {
   console.log(`Apify proxy available. Genuinely blocked shops get a metered retry, capped at ${MAX_PROXIED_REQUESTS_PER_RUN} requests each.\n`);
 }
 
-const http: Http = async (url, headers) => {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 25_000);
-  try {
-    const res = await fetch(url, { headers, redirect: 'follow', signal: controller.signal });
-    return { status: res.status, body: await res.text(), ok: res.ok };
-  } catch (err) {
-    return { status: 0, body: '', ok: false, error: String(err).slice(0, 120) };
-  } finally {
-    clearTimeout(timer);
-  }
-};
+const http: Http = createHttp();
 
 const store = new CatalogueStore(resolve(root, 'data/catalogue'));
 const now = new Date().toISOString();

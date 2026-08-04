@@ -24,6 +24,7 @@ import { parseShopifyProducts, parseShopCurrency, isShopifyProductsPayload } fro
 import { parseListings } from '../src/catalogue/jsonld.js';
 import { parseRobots, isAllowed, NO_RESTRICTIONS, UNREACHABLE_ROBOTS, type RobotsRules } from '../src/catalogue/robots.js';
 import { BROWSER_HEADERS, type Http } from '../src/catalogue/attempt.js';
+import { createHttp } from '../src/catalogue/httpFetch.js';
 import type { RawListing } from '../src/catalogue/types.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -37,18 +38,7 @@ const onlyHouse = arg('house');
 const dryRun = process.argv.includes('--dry-run');
 const maxProducts = Number.parseInt(arg('max') ?? '250', 10);
 
-const http: Http = async (url, headers) => {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 25_000);
-  try {
-    const res = await fetch(url, { headers, redirect: 'follow', signal: controller.signal });
-    return { status: res.status, body: await res.text(), ok: res.ok };
-  } catch (err) {
-    return { status: 0, body: '', ok: false, error: String(err).slice(0, 160) };
-  } finally {
-    clearTimeout(timer);
-  }
-};
+const http: Http = createHttp();
 
 const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
