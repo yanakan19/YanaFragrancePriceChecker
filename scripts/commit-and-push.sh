@@ -65,6 +65,64 @@ git commit -m "$message"
 branch="$(git rev-parse --abbrev-ref HEAD)"
 delay=2
 
+# Files that are built, never authored. A conflict in one of these is not two
+# sources disagreeing about a fact — it is two runs having built the same
+# artefact at different moments, and the answer is to rebuild it from the
+# merged inputs rather than to pick a side.
+GENERATED_PATHS="demo/index.html demo/404.html demo/catalogue.generated.ts dist-demo/artifact.html"
+
+# How to rebuild them. Overridable so this script does not hard-code knowledge
+# of the app's build for callers that generate something else.
+REGENERATE="${REGENERATE:-npm run catalogue:demo && npm run demo}"
+
+is_generated() {
+  for known in $GENERATED_PATHS; do
+    if [ "$1" = "$known" ]; then return 0; fi
+  done
+  return 1
+}
+
+# Resolve a rebase that stalled, but only when every conflicted file is a build
+# artefact. Returns non-zero for anything else, so a genuine disagreement in
+# source or data still stops the run loudly.
+#
+# Why this exists: the first version of this script treated every conflict as
+# unresolvable. That was right in spirit and wrong in practice — the harvest
+# commit touches demo/index.html and demo/catalogue.generated.ts, and so does
+# any push that rebuilds the app, so an ordinary source change landing during a
+# 40-minute crawl guaranteed a conflict in a file neither side actually
+# disagreed about. Two consecutive runs died that way, each discarding a
+# complete harvest, and the second had already gained 154 products.
+resolve_generated_conflicts() {
+  conflicted="$(git diff --name-only --diff-filter=U)"
+  [ -n "$conflicted" ] || return 1
+
+  for file in $conflicted; do
+    if ! is_generated "$file"; then
+      echo "Conflict in ${file}, which is not a generated file." >&2
+      return 1
+    fi
+  done
+
+  # Take the incoming side to get a clean tree, then rebuild from the merged
+  # data so the artefact matches the inputs rather than either parent.
+  for file in $conflicted; do
+    git checkout --theirs -- "$file" 2>/dev/null || git checkout --ours -- "$file"
+    git add -- "$file"
+  done
+
+  if ! sh -c "$REGENERATE"; then
+    echo "::error::Could not rebuild generated files during conflict resolution." >&2
+    return 1
+  fi
+
+  for file in $GENERATED_PATHS; do
+    if [ -e "$file" ]; then git add -- "$file"; fi
+  done
+
+  GIT_EDITOR=true git rebase --continue
+}
+
 for attempt in 1 2 3 4 5; do
   if git push origin "$branch"; then
     echo "Pushed on attempt ${attempt}."
@@ -79,10 +137,15 @@ for attempt in 1 2 3 4 5; do
   delay=$(( delay * 2 ))
 
   if ! git pull --rebase origin "$branch"; then
-    git rebase --abort || true
-    echo "::error::Could not rebase onto origin/${branch}: the incoming change conflicts with this commit." >&2
-    echo "::error::Refusing to guess which version wins. Nothing was pushed; resolve by hand." >&2
-    exit 1
+    if resolve_generated_conflicts; then
+      echo "Conflicts were confined to generated files; rebuilt them and continued."
+    else
+      git rebase --abort || true
+      echo "::error::Could not rebase onto origin/${branch}: the incoming change conflicts" >&2
+      echo "::error::in a file that is not generated. Refusing to guess which version wins." >&2
+      echo "::error::Nothing was pushed; resolve by hand." >&2
+      exit 1
+    fi
   fi
 done
 
