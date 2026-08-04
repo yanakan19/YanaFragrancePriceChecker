@@ -724,9 +724,11 @@ function deliveryLines(r: Retailer): string[] {
   const s = r.shipping;
   const lines: string[] = [];
   lines.push(
-    s.standardGbp === 0
-      ? 'Free standard delivery on every order'
-      : `Standard delivery ${formatGbp(s.standardGbp)}`,
+    s.standardGbp === null
+      ? 'Standard delivery cost not yet confirmed'
+      : s.standardGbp === 0
+        ? 'Free standard delivery on every order'
+        : `Standard delivery ${formatGbp(s.standardGbp)}`,
   );
   if (s.freeOverGbp !== null && s.freeOverGbp > 0) {
     lines.push(`Free once you spend ${formatGbp(s.freeOverGbp)}`);

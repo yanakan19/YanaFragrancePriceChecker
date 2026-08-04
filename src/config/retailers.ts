@@ -536,6 +536,96 @@ export const RETAILERS: readonly Retailer[] = [
         'blank when checked, so treat the domain as strong-confidence, not confirmed.',
     },
   },
+  {
+    id: 'mybeauty-boutique',
+    name: 'MyBeauty.Boutique',
+    domain: 'mybeauty.boutique',
+    homepage: 'https://mybeauty.boutique',
+    // Their own words, from the programme profile they publish on Awin.
+    blurb:
+      'MyBeauty.Boutique — your trusted partner for beauty and wellness, with products ' +
+      'selected to meet high standards of safety and efficacy, and clear information ' +
+      'about ingredients and sourcing.',
+    tiers: ['designer'],
+    // Disabled until standard delivery is read off their own delivery page.
+    // Everything else is ready: the programme is joined and the feed is live.
+    enabled: false,
+    // 8,908 products in the Awin feed, updated daily — the same case as
+    // Fragrance Click, and the reason docs/INGESTION.md puts feeds first.
+    // No sitemap walk is configured because the feed is the ingestion route.
+    adapter: 'affiliate-feed',
+    currency: 'GBP',
+    shipping: {
+      // Not established. Their Awin programme terms describe commission and
+      // cookie length and say nothing about delivery, and their delivery page
+      // has not been read. Null rather than a guess — see the field's doc
+      // comment for why zero would have been actively wrong.
+      standardGbp: null,
+      freeOverGbp: null,
+      // Placeholder, and unreachable while this retailer is disabled. It is
+      // not a claim about their delivery speed.
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-08-04',
+      confidence: 'unverified',
+      notes:
+        'Nothing in this block is established. Read https://mybeauty.boutique delivery ' +
+        'terms, fill in standardGbp/freeOverGbp/estimatedDays, then set enabled: true.',
+    },
+    catalogue: null,
+    affiliate: {
+      ...awinActive('106925', '3017443'),
+      // Deliberately not set: the merchant's Terms/Creative tab has not been
+      // read, so no product photography of theirs may be displayed yet.
+      notes:
+        'Merchant id 106925, joined 4 Aug 2026. Feed carries 8,908 products, updated ' +
+        'daily. 30-day cookie, 14-day auto-validation. Import with ' +
+        'npm run catalogue:feed -- --file=<feed.csv> --retailer=mybeauty-boutique',
+    },
+  },
+  {
+    id: 'glorious-beauty',
+    name: 'Glorious Beauty',
+    domain: 'gloriousbeauty.co.uk',
+    homepage: 'https://gloriousbeauty.co.uk',
+    // Their own words, from the programme profile they publish on Awin.
+    blurb:
+      'Glorious Beauty presents a curated, handpicked portfolio of glorious make-up, ' +
+      'skincare, fragrance and wellness brands inspired to bring out the glorious in you.',
+    tiers: ['designer'],
+    // Disabled until standard delivery is established. Unlike MyBeauty above,
+    // this one has no product feed at all to fall back on.
+    enabled: false,
+    // Their Awin programme reports 0 products and "last updated: never", so
+    // there is no feed to take. If this shop is ever enabled it will need the
+    // sitemap route, which is why the adapter is unknown rather than
+    // affiliate-feed — nothing about its retrieval has been established.
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      // Not established. See the field's doc comment.
+      standardGbp: null,
+      // This one IS confirmed: "Free shipping on orders over £28", stated in
+      // their own programme terms on Awin.
+      freeOverGbp: 28,
+      // Placeholder, unreachable while disabled, and not a delivery-speed claim.
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-08-04',
+      confidence: 'unverified',
+      notes:
+        'freeOverGbp 28 is confirmed from the advertiser\'s own Awin programme terms. ' +
+        'The standard cost below that threshold, and the delivery window, are not ' +
+        'established: read https://gloriousbeauty.co.uk delivery page, then enable.',
+    },
+    catalogue: null,
+    affiliate: {
+      ...awinActive('107736', '3017443'),
+      notes:
+        'Merchant id 107736, joined 4 Aug 2026. No product feed published (0 products, ' +
+        'never updated), so there is nothing to import — ask the advertiser whether one ' +
+        'is planned. Commission: fragrance 3%, beauty 7% new / 3% existing. 30-day ' +
+        'cookie, 21-day auto-validation.',
+    },
+  },
 ] as const;
 
 /** Registry lookup by id. Built once — the registry is static. */

@@ -117,8 +117,23 @@ export interface AffiliateConfig {
  * make the headline number misleading.
  */
 export interface ShippingRule {
-  /** Cost of standard delivery when the free-delivery threshold is not met. */
-  standardGbp: number;
+  /**
+   * Cost of standard delivery when the free-delivery threshold is not met.
+   *
+   * `null` means we have not established it yet, and is deliberately distinct
+   * from `0` — zero says "this shop always ships free", which is a claim, and
+   * every other number here is one too. A newly joined affiliate programme
+   * routinely tells you its free-delivery threshold and nothing about what
+   * delivery costs below it, and the registry previously had no way to say so:
+   * the only options were to invent a figure or to leave the retailer out.
+   *
+   * A retailer whose standard cost is null must be `enabled: false` — there is
+   * a test enforcing exactly that. Delivered price is the comparison's default
+   * sort key, so a shop with an unknown delivery cost silently counted as zero
+   * would sort as artificially cheapest, which is the single most damaging
+   * error this app can make.
+   */
+  standardGbp: number | null;
   /**
    * Order subtotal (excluding delivery) at or above which standard delivery
    * becomes free. `null` means this retailer has no spend-based free delivery
