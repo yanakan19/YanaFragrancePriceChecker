@@ -269,29 +269,11 @@
     background-clip: padding-box;
   }
   .pop-rail::-webkit-scrollbar-thumb:hover { background: var(--faint); }
-  .pop-item { flex: none; scroll-snap-align: start; }
-
-  .pop {
-    width: 172px; height: 268px; display: flex; flex-direction: column;
-    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
-    padding: 12px 13px 14px; cursor: pointer; font: inherit; color: var(--ink);
-    text-align: left; transition: transform .12s ease, border-color .15s ease, box-shadow .15s ease;
-  }
-  .pop:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .pop:active { transform: scale(.96); }
-  @media (hover: hover) and (pointer: fine) {
-    .pop:hover { border-color: var(--line-firm); box-shadow: 0 0 0 1px var(--line-firm); }
-  }
-
-  .pop-art {
-    position: relative; flex: 1; display: flex; align-items: center; justify-content: center;
-    padding: 6px 0;
-  }
-  .pop-price {
-    font-size: 14.5px; font-weight: 700; font-variant-numeric: tabular-nums;
-    color: var(--accent); text-align: center;
-    display: flex; align-items: center; justify-content: center; gap: 5px;
-  }
+  /* The rail is the one tile-grid context that scrolls horizontally instead of
+     wrapping, so its items need a fixed width the grid's own auto-fill columns
+     don't have to specify. Everything else about the tile is shared. */
+  .pop-item { flex: none; width: 172px; scroll-snap-align: start; }
+  .pop-item .tile { height: 100%; }
 
   /* ── product heading, used in every place a product appears ──────────────
      Brand and name on the left, size and concentration riding smaller and
@@ -325,9 +307,13 @@
     display: block; flex: none; aspect-ratio: 1 / 1; border-radius: 10px;
     overflow: hidden; background: #fff;
   }
-  .art-sm { width: 52px; }
-  .art-md { width: 108px; }
-  .art-lg { width: 190px; max-width: 100%; }
+  /* Percentages of the tile, not fixed pixels, so the picture stays the
+     dominant element at every grid track width rather than a size someone
+     picked for one specific tile. 90% is the floor asked for; art-lg goes
+     further because the detail hero has nothing else competing with it. */
+  .art-sm { width: 90%; }
+  .art-md { width: 90%; }
+  .art-lg { width: 96%; max-width: 340px; }
   .art-img { width: 100%; height: 100%; object-fit: contain; display: block; }
   .art-empty {
     background: var(--surface-2); border: 1px solid var(--line);
@@ -347,28 +333,53 @@
   .medal.silver { background: linear-gradient(150deg, #E6E9EE, #A2AAB5); color: #2E3238; }
   .medal.bronze { background: linear-gradient(150deg, #E2AB7C, #A96A31); color: #34200E; }
 
-  /* ── browse list ───────────────────────────────────────────────────────── */
-  .card {
-    width: 100%; display: flex; align-items: center; gap: 14px;
-    background: none; border: 0; border-bottom: 1px solid var(--line);
-    padding: 14px 2px; cursor: pointer; font: inherit; color: var(--ink);
-    text-align: left; transition: background-color .12s ease;
+  /* ── fragrance tile grid ───────────────────────────────────────────────────
+     One tile shape, used everywhere a list of fragrances appears (browse,
+     search, deals, a retailer's own catalogue) and for the home rail. The
+     picture is the point: .art-md fills 90% of the tile's own width rather
+     than a fixed pixel size, so it stays the dominant element whatever the
+     grid track width happens to be. */
+  .tile-grid {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 12px;
   }
-  .card:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-  /* Full width rows would clip against the list's edges if scaled on press
-     like the compact controls do, so the feedback here is a tint instead. */
-  .card:active { background: var(--surface); }
-  .card-art { flex: none; display: flex; }
-  .card .phead { flex: 1; min-width: 0; }
-  .card .phead-name { font-size: 15.5px; -webkit-line-clamp: 2; }
-  .card-price { flex: none; text-align: right; display: flex; flex-direction: column; gap: 1px; }
+  .tile {
+    width: 100%; display: flex; flex-direction: column; gap: 8px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 14px;
+    padding: 12px 13px 14px; cursor: pointer; font: inherit; color: var(--ink);
+    text-align: left; transition: transform .12s ease, border-color .15s ease, box-shadow .15s ease;
+  }
+  .tile:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .tile:active { transform: scale(.97); }
+  @media (hover: hover) and (pointer: fine) {
+    .tile:hover { border-color: var(--line-firm); box-shadow: 0 0 0 1px var(--line-firm); }
+  }
+  .tile-art { position: relative; display: flex; align-items: center; justify-content: center; padding: 4px 0; }
+  .tile-price {
+    font-size: 14.5px; font-weight: 700; font-variant-numeric: tabular-nums;
+    color: var(--accent); text-align: center;
+    display: flex; align-items: center; justify-content: center; gap: 5px; flex-wrap: wrap;
+  }
+  .tile-price .off {
+    font-size: 10.5px; font-weight: 700; color: var(--ok);
+    text-transform: uppercase; letter-spacing: .06em; width: 100%;
+  }
+  .tile-price .was {
+    font-size: 11px; color: var(--faint); text-decoration: line-through; font-variant-numeric: tabular-nums;
+  }
   .from { font-size: 10px; font-weight: 600; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
-  .amt {
-    font-size: 16.5px; font-weight: 700; font-variant-numeric: tabular-nums;
-    letter-spacing: -.01em; color: var(--accent);
-  }
-  .amt.none { color: var(--faint); font-weight: 500; font-size: 13px; }
 
+  /* Which shop the picture is actually of, since we cannot show their logo:
+     no comparison site has a licence to reproduce a retailer's trademark, so
+     this is a plain text tag using the name instead, the same call already
+     made for the Retailers directory's monogram tiles. */
+  .sold-by {
+    position: absolute; left: 6px; bottom: 6px; max-width: calc(100% - 12px);
+    background: rgba(19,16,19,.72); color: #F5F1F4; backdrop-filter: blur(2px);
+    font-size: 9px; font-weight: 700; letter-spacing: .03em;
+    padding: 3px 7px; border-radius: 999px;
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
   .empty-note { color: var(--ink-2); font-size: 14.5px; padding: 30px 2px; text-align: center; }
 
   /* ── page headings and shared panel furniture ──────────────────────────── */
@@ -419,16 +430,6 @@
   .alpha-break:first-child { margin-top: 0; }
   .alpha-break span { font-size: 13px; font-weight: 800; letter-spacing: .04em; }
   .alpha-break i { flex: 1; height: 1px; background: var(--line-firm); }
-
-  /* ── deals ─────────────────────────────────────────────────────────────── */
-  .card-price .off {
-    font-size: 10.5px; font-weight: 700; color: var(--ok);
-    text-transform: uppercase; letter-spacing: .06em;
-  }
-  .card-price .was {
-    font-size: 11px; color: var(--faint); text-decoration: line-through;
-    font-variant-numeric: tabular-nums;
-  }
 
   /* ── retailers ─────────────────────────────────────────────────────────── */
   /* Initials, not a copy of the shop's own logo: reproducing those is a
@@ -759,26 +760,7 @@
     gap: 8px 40px; margin: 30px auto 0; max-width: 900px;
   }
 
-  :root[data-layout="desktop"] .listing {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px;
-  }
-  :root[data-layout="desktop"] .card {
-    flex-direction: column; align-items: flex-start; gap: 10px;
-    border: 1px solid var(--line); border-radius: 14px; padding: 16px;
-    background: var(--surface);
-  }
-  :root[data-layout="desktop"] .card:active { background: var(--surface-2); }
-  @media (hover: hover) and (pointer: fine) {
-    :root[data-layout="desktop"] .card:hover { border-color: var(--line-firm); }
-  }
-  :root[data-layout="desktop"] .card-art { align-self: center; }
-  :root[data-layout="desktop"] .card-text { width: 100%; }
-  :root[data-layout="desktop"] .card-name { white-space: normal; }
-  :root[data-layout="desktop"] .card-price {
-    width: 100%; flex-direction: row; align-items: baseline; justify-content: space-between;
-  }
-
-  :root[data-layout="desktop"] .pop { width: 168px; }
+  :root[data-layout="desktop"] .pop-item { width: 168px; }
 
   /* Settings and the legal pages are read top to bottom, not scanned, so they
      keep a comfortable line length instead of stretching the full page width. */

@@ -276,47 +276,45 @@ function priceLine(f: DemoFragrance): string {
     : 'Sold out';
 }
 
-/** One row in any vertical list of fragrances. */
-function fragranceRow(f: DemoFragrance, trailing?: string): string {
+/**
+ * One tile in any grid of fragrances: the shape used for the home rail, and
+ * for every browse, search, deals and retailer results list. The picture is
+ * the point, sized at 90% of the tile in CSS, so this stays one component
+ * rather than a compact row version and a spacious card version drifting
+ * apart from each other.
+ *
+ * The badge names which shop the picture and price are actually from. It is
+ * text, not a logo: reproducing a retailer's own mark is a trademark question
+ * this project has no licence to answer, the same call already made for the
+ * Retailers directory's monogram tiles.
+ */
+function fragranceTile(
+  f: DemoFragrance,
+  opts?: { rank?: number; trailing?: string; rail?: boolean },
+): string {
   const best = bestOffer(rowsFor(f));
-  return `<li>
-    <button class="card" data-frag="${f.id}">
-      <span class="card-art">${productArt(f.photoUrl, 'sm', `${f.brand} ${f.name}`)}</span>
+  const medal = opts?.rank !== undefined && opts.rank < 3 ? MEDALS[opts.rank] : null;
+  return `<li${opts?.rail ? ' class="pop-item"' : ''}>
+    <button class="tile" data-frag="${f.id}">
       ${productHead(f)}
-      <span class="card-price">
-        ${
-          trailing ??
-          (best
-            ? `<span class="from">from</span><span class="amt">${formatGbp(best.deliveredPriceGbp)}</span>`
-            : `<span class="amt none">Sold out</span>`)
-        }
+      <span class="tile-art">
+        ${medal ? `<span class="medal ${medal}" aria-label="Number ${opts!.rank! + 1} most popular">${opts!.rank! + 1}</span>` : ''}
+        ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`)}
+        ${best ? `<span class="sold-by">${esc(best.retailer.name)}</span>` : ''}
       </span>
+      <span class="tile-price">${opts?.trailing ?? priceLine(f)}</span>
     </button>
   </li>`;
 }
 
 function fragranceList(list: DemoFragrance[], empty: string): string {
   if (list.length === 0) return `<p class="empty-note">${esc(empty)}</p>`;
-  return `<ul class="listing">${list.map((f) => fragranceRow(f)).join('')}</ul>`;
+  return `<ul class="tile-grid">${list.map((f) => fragranceTile(f)).join('')}</ul>`;
 }
 
 /* ── home ────────────────────────────────────────────────────────────────── */
 
 const MEDALS = ['gold', 'silver', 'bronze'] as const;
-
-function popularCard(f: DemoFragrance, rank: number): string {
-  const medal = rank < 3 ? MEDALS[rank] : null;
-  return `<li class="pop-item">
-    <button class="pop" data-frag="${f.id}">
-      ${productHead(f)}
-      <span class="pop-art">
-        ${medal ? `<span class="medal ${medal}" aria-label="Number ${rank + 1} most popular">${rank + 1}</span>` : ''}
-        ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`)}
-      </span>
-      <span class="pop-price">${priceLine(f)}</span>
-    </button>
-  </li>`;
-}
 
 function homeView(): string {
   return `
@@ -339,7 +337,7 @@ function homeView(): string {
         <button class="link-btn" data-browse>See top ${TOP_N}</button>
       </div>
       <ul class="pop-rail">
-        ${POPULAR.map((f, i) => popularCard(f, i)).join('')}
+        ${POPULAR.map((f, i) => fragranceTile(f, { rank: i, rail: true })).join('')}
       </ul>
     </section>`;
 }
@@ -571,20 +569,17 @@ function dealsPanel(): string {
     return `${controls}<p class="empty-note">No shop is publishing a reference price right now.</p>`;
   }
 
-  const rows = sorted
+  const tiles = sorted
     .map((d) =>
-      fragranceRow(
-        d.fragrance,
-        `<span class="off">${d.percentOff}% off</span>
-         <span class="amt">${formatGbp(d.price)}</span>
-         <span class="was">RRP ${formatGbp(d.wasPrice)}</span>`,
-      ),
+      fragranceTile(d.fragrance, {
+        trailing: `<span class="off">${d.percentOff}% off</span>${formatGbp(d.price)} <span class="was">RRP ${formatGbp(d.wasPrice)}</span>`,
+      }),
     )
     .join('');
 
   return `${controls}
     <p class="panel-note">Savings are against the shop's own published recommended retail price.</p>
-    <ul class="listing">${rows}</ul>`;
+    <ul class="tile-grid">${tiles}</ul>`;
 }
 
 /* ── explore: retailers ──────────────────────────────────────────────────── */
