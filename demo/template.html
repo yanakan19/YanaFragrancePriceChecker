@@ -22,6 +22,17 @@
     --ok:        #4FB47B;
     --warn:      #D8A24C;
     --shadow:    0 1px 3px rgba(0,0,0,.4);
+    /* Translucent bar ground, so the drifting background reads through the
+       chrome instead of stopping dead at it. */
+    --bg-glass:  rgba(58,53,60,.86);
+    /* The three drifting orbs. Crimson is the brand; violet and teal sit
+       either side of it on the wheel, which is what keeps the blend looking
+       like depth rather than one colour smeared about. Alphas stay low
+       enough that text contrast never depends on where an orb happens to
+       be at the time. */
+    --orb-a:     rgba(232,67,76,.20);
+    --orb-b:     rgba(126,87,194,.17);
+    --orb-c:     rgba(56,142,142,.13);
   }
 
   :root[data-mode="light"] {
@@ -39,6 +50,12 @@
     --ok:        #17724B;
     --warn:      #8A5A00;
     --shadow:    0 1px 3px rgba(0,0,0,.18);
+    --bg-glass:  rgba(243,241,242,.86);
+    /* Roughly half the dark theme's alpha: the same wash that reads as
+       subtle on a dark ground turns muddy on a light one. */
+    --orb-a:     rgba(198,38,48,.10);
+    --orb-b:     rgba(126,87,194,.09);
+    --orb-c:     rgba(38,132,132,.07);
   }
 
   /* "Match my device" follows the OS preference, and also any theme the host
@@ -50,6 +67,8 @@
       --line: #E7E3E7; --line-firm: #D3CDD3;
       --accent: #C62630; --accent-on: #FFFFFF; --accent-sf: #FCEDEE;
       --ok: #17724B; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
+      --bg-glass: rgba(243,241,242,.86);
+      --orb-a: rgba(198,38,48,.10); --orb-b: rgba(126,87,194,.09); --orb-c: rgba(38,132,132,.07);
     }
   }
   :root[data-mode="system"][data-theme="light"] {
@@ -58,6 +77,8 @@
     --line: #E7E3E7; --line-firm: #D3CDD3;
     --accent: #C62630; --accent-on: #FFFFFF; --accent-sf: #FCEDEE;
     --ok: #17724B; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
+    --bg-glass: rgba(243,241,242,.86);
+    --orb-a: rgba(198,38,48,.10); --orb-b: rgba(126,87,194,.09); --orb-c: rgba(38,132,132,.07);
   }
   :root[data-mode="system"][data-theme="dark"] {
     --bg: #3A353C; --surface: #47414A; --surface-2: #524B55;
@@ -65,6 +86,8 @@
     --line: #5A535D; --line-firm: #6B6370;
     --accent: #E8434C; --accent-on: #FFFFFF; --accent-sf: #3A1519;
     --ok: #4FB47B; --warn: #D8A24C; --shadow: 0 1px 3px rgba(0,0,0,.4);
+    --bg-glass: rgba(58,53,60,.86);
+    --orb-a: rgba(232,67,76,.20); --orb-b: rgba(126,87,194,.17); --orb-c: rgba(56,142,142,.13);
   }
 
   :root {
@@ -107,16 +130,87 @@
     font-feature-settings: "kern" 1;
   }
 
-  .app { max-width: var(--col); margin: 0 auto; min-height: 100vh; }
+  /* ── ambient background ────────────────────────────────────────────────────
+     Three large, very soft colour fields drifting behind every page. The
+     point is peripheral movement: something the eye registers as alive
+     without ever being asked to look at it.
+
+     Built from radial-gradients rather than blurred solid shapes. A
+     gradient with a transparent falloff is already soft, so it needs no
+     filter: blur(), which on a viewport-sized element is one of the most
+     expensive things you can ask a compositor to redo every frame. Only
+     transform is animated, so each orb is a single composited layer and
+     the main thread does nothing once the animation starts.
+
+     The three durations are deliberately coprime-ish (41s / 59s / 47s) and
+     none of them divides another. Equal or harmonic durations would let
+     the orbs resynchronise into a visible repeating pattern; staggered
+     ones drift in and out of phase for minutes at a time, which is what
+     makes it read as ambient rather than as a loop. */
+  .ambient {
+    position: fixed; inset: 0; z-index: 0;
+    overflow: hidden; pointer-events: none;
+  }
+  .orb {
+    position: absolute; display: block;
+    width: 62vmax; height: 62vmax; border-radius: 50%;
+    will-change: transform;
+  }
+  .orb-a {
+    top: -20vmax; left: -16vmax;
+    background: radial-gradient(circle closest-side, var(--orb-a), transparent 72%);
+    animation: drift-a 41s ease-in-out infinite;
+  }
+  .orb-b {
+    top: 10vmax; right: -24vmax;
+    background: radial-gradient(circle closest-side, var(--orb-b), transparent 72%);
+    animation: drift-b 59s ease-in-out infinite;
+  }
+  .orb-c {
+    bottom: -26vmax; left: 18vmax;
+    background: radial-gradient(circle closest-side, var(--orb-c), transparent 72%);
+    animation: drift-c 47s ease-in-out infinite;
+  }
+  /* Each keyframe set returns to its own start, so the loop closes without
+     a jump. translate3d keeps it on the GPU. */
+  @keyframes drift-a {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    33%      { transform: translate3d(11vw, 7vh, 0) scale(1.13); }
+    66%      { transform: translate3d(-5vw, 13vh, 0) scale(.94); }
+  }
+  @keyframes drift-b {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    40%      { transform: translate3d(-13vw, 10vh, 0) scale(.9); }
+    70%      { transform: translate3d(-4vw, -8vh, 0) scale(1.16); }
+  }
+  @keyframes drift-c {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    35%      { transform: translate3d(9vw, -11vh, 0) scale(1.1); }
+    72%      { transform: translate3d(16vw, 4vh, 0) scale(.92); }
+  }
+
+  /* Sits above .ambient. An explicit z-index rather than relying on source
+     order, because .ambient is positioned and would otherwise paint over
+     the page's own non-positioned content. */
+  .app { max-width: var(--col); margin: 0 auto; min-height: 100vh; position: relative; z-index: 1; }
 
   /* ── top bar ───────────────────────────────────────────────────────────── */
   .bar {
     position: sticky; top: 0; z-index: 20;
-    background: var(--bg);
+    /* Translucent rather than solid, so the drifting background carries
+       through the chrome instead of being cut off by a hard opaque band. */
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
     border-bottom: 1px solid var(--line);
-    padding: 13px 16px 11px;
+    padding: 17px 18px 14px;
   }
-  .bar-row { display: flex; align-items: center; gap: 12px; position: relative; }
+  /* Without the blur to separate bar text from whatever is scrolling under
+     it, translucency is just a legibility problem. Fall back to opaque. */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .bar { background: var(--bg); }
+  }
+  .bar-row { display: flex; align-items: center; gap: 20px; position: relative; }
   /* A thin animated sweep along the top edge of the bar: a "scanning" accent
      that never demands attention, just gives the chrome a pulse of life.
      Reduced motion turns it into a plain static line via the global rule
@@ -132,7 +226,7 @@
     100% { background-position: -120% 0; }
   }
   .brandmark {
-    font-size: 18px; font-weight: 800; letter-spacing: -.03em;
+    font-size: 21px; font-weight: 800; letter-spacing: -.03em;
     margin: 0; flex: 1; min-width: 0; white-space: nowrap;
     overflow: hidden; text-overflow: ellipsis;
     /* It is a <button>, not an <h1>, so it can act as the "go home" control
@@ -145,8 +239,8 @@
   .brandmark em, .hero-wordmark em { font-style: normal; color: var(--accent); }
 
   .navbtn {
-    background: none; border: 0; padding: 5px 0; cursor: pointer;
-    font: inherit; font-size: 13.5px; font-weight: 500; color: var(--ink-2);
+    background: none; border: 0; padding: 6px 0; cursor: pointer;
+    font: inherit; font-size: 15.5px; font-weight: 500; color: var(--ink-2);
     border-bottom: 2px solid transparent; white-space: nowrap;
     transition: color .15s ease, border-color .15s ease, transform .12s ease;
   }
@@ -165,8 +259,8 @@
   .subnav[hidden] { display: none; }
   .subnavbtn {
     flex: none; background: var(--surface); border: 1px solid var(--line);
-    border-radius: 999px; padding: 6px 13px; cursor: pointer;
-    font: inherit; font-size: 13px; font-weight: 600; color: var(--ink-2);
+    border-radius: 999px; padding: 7px 15px; cursor: pointer;
+    font: inherit; font-size: 14px; font-weight: 600; color: var(--ink-2);
     transition: background-color .15s ease, color .15s ease, border-color .15s ease, transform .12s ease;
   }
   .subnavbtn.on { background: var(--accent-sf); border-color: var(--accent); color: var(--accent); }
@@ -174,8 +268,8 @@
   .subnavbtn:active { transform: scale(.95); }
 
   input[type="search"] {
-    width: 100%; margin-top: 11px; padding: 10px 13px;
-    font: inherit; font-size: 15px; color: var(--ink);
+    width: 100%; margin-top: 13px; padding: 11px 14px;
+    font: inherit; font-size: 15.5px; color: var(--ink);
     background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
     -webkit-appearance: none;
   }
@@ -202,30 +296,70 @@
   .hero-logo { text-align: center; position: relative; }
   /* A soft, still glow behind the wordmark. Purely a background wash, so it
      stays legible and never competes with the text sitting on top of it. */
+  /* The glow breathes rather than sitting still: a long, shallow cycle that
+     is well under the threshold of anything you would call "blinking", but
+     enough that the hero never looks like a screenshot. */
   .hero-logo::before {
     content: ""; position: absolute; left: 50%; top: 50%;
-    width: 220px; height: 140px; transform: translate(-50%, -50%);
+    width: 260px; height: 165px; transform: translate(-50%, -50%);
     background: radial-gradient(closest-side, var(--accent-sf), transparent 72%);
     opacity: .8; z-index: -1;
+    animation: breathe 9s ease-in-out infinite;
   }
+  @keyframes breathe {
+    0%, 100% { opacity: .62; transform: translate(-50%, -50%) scale(1); }
+    50%      { opacity: .95; transform: translate(-50%, -50%) scale(1.14); }
+  }
+
+  /* ── hero entrance ─────────────────────────────────────────────────────────
+     Each piece of the hero rises into place a beat after the one above it.
+     The stagger is what makes it read as composed rather than as everything
+     arriving at once.
+
+     `backwards` matters: it holds the from-state through the delay, so a
+     later item is invisible while it waits instead of flashing at full
+     opacity and then starting. The base rules deliberately never set
+     opacity: 0 — under prefers-reduced-motion the global rule below strips
+     the animation entirely, and anything hidden in a base rule would then
+     stay hidden forever. */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .hero-wordmark, .hero-by, .hero-mission, .intro-points li {
+    animation: rise .75s cubic-bezier(.22, 1, .36, 1) backwards;
+  }
+
   .hero-wordmark {
     margin: 0; font-size: 38px; font-weight: 800; letter-spacing: -.035em; line-height: 1;
   }
   .hero-by {
     margin: 9px 0 0; font-size: 11.5px; font-weight: 700; letter-spacing: .16em;
     text-transform: uppercase; color: var(--faint);
+    animation-delay: .08s;
   }
   .hero-mission {
     margin: 18px auto 0; width: 90%; font-size: 17px; font-weight: 600;
     color: var(--ink); text-align: center; letter-spacing: -.01em;
+    animation-delay: .16s;
   }
   .intro-points {
-    list-style: none; margin: 26px 0 0; padding: 0;
-    display: flex; flex-direction: column; gap: 9px;
+    list-style: none; margin: 28px 0 0; padding: 0;
+    display: flex; flex-direction: column; gap: 11px;
   }
-  .intro-points li { font-size: 13.5px; color: var(--ink-2); padding-left: 16px; position: relative; }
+  /* Centred, so the dot travels with its text instead of hanging off a
+     fixed left edge. That means the dot has to be a flex item rather than
+     an absolutely positioned one — an absolute dot would stay pinned to
+     the li's box while the centred text moved away from it. */
+  .intro-points li {
+    font-size: 14.5px; color: var(--ink-2);
+    display: flex; align-items: center; justify-content: center; gap: 9px;
+  }
+  .intro-points li:nth-child(1) { animation-delay: .26s; }
+  .intro-points li:nth-child(2) { animation-delay: .34s; }
+  .intro-points li:nth-child(3) { animation-delay: .42s; }
   .intro-points li::before {
-    content: ""; position: absolute; left: 0; top: 8px;
+    content: ""; flex: none;
     width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
   }
   .intro-points span { color: var(--ink); font-weight: 600; }
@@ -814,6 +948,12 @@
 
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
+
+<div class="ambient" aria-hidden="true">
+  <span class="orb orb-a"></span>
+  <span class="orb orb-b"></span>
+  <span class="orb orb-c"></span>
+</div>
 
 <div class="app">
   <div class="bar">
