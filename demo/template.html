@@ -514,7 +514,18 @@
   /* Two lines' worth of room whether the name needs one or two, so the picture
      starts at the same offset in every tile and the grid reads as columns
      rather than as tiles that happen to sit near each other. */
-  .tile .phead-name { min-height: 2.5em; }
+  /* .phead-name-wrap reserves room for a second line so tiles in the same
+     row stay equal height when one name wraps and another doesn't; the
+     clamped text itself sits inside it. -webkit-box (needed for
+     -webkit-line-clamp) does not reliably centre its own content — tested
+     -webkit-box-pack: center here and Chromium ignored it — so the
+     centering has to happen one level up, on a plain flex wrapper, rather
+     than relying on the legacy box model to do it. Without this a one-line
+     name reads flush against the top of its reserved space while
+     .phead-meta, centred by .phead against that same box, lands lower —
+     visibly misaligned from the brand/name beside it. */
+  .phead-name-wrap { display: flex; align-items: center; }
+  .tile .phead-name-wrap { min-height: 2.5em; }
   /* The slack absorber: with every row the same height (grid-auto-rows above),
      whatever height the text does not use ends up here, which keeps the price
      and the shop tag on the tile's bottom edge across the whole row. */
@@ -942,16 +953,25 @@
      keep a comfortable line length instead of stretching the full page width. */
   :root[data-layout="desktop"] .doc { max-width: 640px; margin-inline: auto; }
 
+  /* Both columns get their own scrollbar and their own height budget, capped
+     to what's left below the sticky bar, rather than one column pinned in
+     place while the page scrolls past it. That matters now that .hero can
+     run long — art, heading, price, and the notes block that used to live
+     at the bottom of .detail-offers all stack in the same left column. */
   :root[data-layout="desktop"] .detail-grid {
     display: grid; grid-template-columns: minmax(280px, 380px) 1fr;
     gap: 8px 48px; align-items: start;
+    height: calc(100vh - 96px);
   }
   :root[data-layout="desktop"] .hero {
-    text-align: center; border-bottom: 0; padding: 6px 0;
-    position: sticky; top: 74px;
+    text-align: center; border-bottom: 0; padding: 6px 24px 24px 0;
+    height: 100%; overflow-y: auto;
   }
   :root[data-layout="desktop"] .hero-blurb { margin-inline: auto; }
-  :root[data-layout="desktop"] .detail-offers { border-left: 1px solid var(--line); padding-left: 48px; }
+  :root[data-layout="desktop"] .detail-offers {
+    border-left: 1px solid var(--line); padding: 0 0 24px 48px;
+    height: 100%; overflow-y: auto;
+  }
 
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
