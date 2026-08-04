@@ -44,6 +44,10 @@ type NoteLayerFilter = NoteLayer | 'any';
 
 const MODE_KEY = 'pricesniffs.display';
 const LAYOUT_KEY = 'pricesniffs.layout';
+const PER_ROW_KEY = 'pricesniffs.perrow';
+
+const PER_ROW_CHOICES = [3, 5, 8, 10] as const;
+const PER_ROW_DEFAULT = 5;
 
 const state = {
   view: 'home' as View,
@@ -56,6 +60,7 @@ const state = {
   query: '',
   mode: 'dark' as DisplayMode,
   layout: 'mobile' as Layout,
+  perRow: PER_ROW_DEFAULT,
   brandSort: 'az' as BrandSort,
   brandFilter: 'all' as BrandFilter,
   dealSort: 'discount' as DealSort,
@@ -180,6 +185,39 @@ function setLayout(layout: Layout): void {
   }
 }
 
+/* ── tiles per row ───────────────────────────────────────────────────────────
+   Carried as a CSS variable rather than a class per choice, so the grid rule
+   stays one line and a new count needs no new CSS.
+
+   Only the desktop layout honours it. At mobile width ten columns would be
+   about thirty pixels each, which is not a smaller tile but an unusable one,
+   so the narrow layout keeps fitting as many whole tiles as the screen has
+   room for and the control is not offered there. */
+
+function applyPerRow(): void {
+  document.documentElement.style.setProperty('--per-row', String(state.perRow));
+}
+
+function loadPerRow(): void {
+  try {
+    const saved = Number(window.localStorage.getItem(PER_ROW_KEY));
+    if ((PER_ROW_CHOICES as readonly number[]).includes(saved)) state.perRow = saved;
+  } catch {
+    // Storage can be unavailable in a sandboxed frame. The default stands.
+  }
+  applyPerRow();
+}
+
+function setPerRow(perRow: number): void {
+  state.perRow = perRow;
+  applyPerRow();
+  try {
+    window.localStorage.setItem(PER_ROW_KEY, String(perRow));
+  } catch {
+    // Preference simply will not persist. Nothing else breaks.
+  }
+}
+
 /* ── labels ──────────────────────────────────────────────────────────────── */
 
 const STOCK_LABEL: Record<StockState, string> = {
@@ -228,6 +266,7 @@ const ICON_FILTER = icon('<path d="M3.5 5h17l-6.6 7.8V20l-3.8-2.2v-5L3.5 5Z" str
 const ICON_SORT = icon('<path d="M4 7h16M6.5 12h11M10 17h4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>');
 const ICON_RANK = icon('<path d="M7.5 20V5m0 0L4 8.5M7.5 5 11 8.5M16.5 4v15m0 0 3.5-3.5M16.5 19 13 15.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>');
 const ICON_SEARCH = icon('<circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>');
+const ICON_GRID = icon('<rect x="3" y="3" width="7.5" height="7.5" rx="1.6" stroke="currentColor" stroke-width="1.7"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6" stroke="currentColor" stroke-width="1.7"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6" stroke="currentColor" stroke-width="1.7"/>');
 const ICON_MOBILE = icon('<rect x="7" y="2.5" width="10" height="19" rx="2.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="18.3" r=".9" fill="currentColor"/>');
 const ICON_DESKTOP = icon('<rect x="2.5" y="4" width="19" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 21h7M12 17v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>');
 /* Neutral marks, not TikTok's or Instagram's own logos: this project has no
@@ -271,9 +310,11 @@ function productHead(f: DemoFragrance, tag = 'span'): string {
 
 function priceLine(f: DemoFragrance): string {
   const best = bestOffer(rowsFor(f));
+  // One element, not a bare text node beside a span: .tile-price stacks its
+  // children, so anything left loose would drop the arrow onto its own line.
   return best
-    ? `from ${formatGbp(best.deliveredPriceGbp)} <span aria-hidden="true">→</span>`
-    : 'Sold out';
+    ? `<span class="amt">from ${formatGbp(best.deliveredPriceGbp)} <span aria-hidden="true">→</span></span>`
+    : `<span class="amt none">Sold out</span>`;
 }
 
 /**
@@ -300,16 +341,32 @@ function fragranceTile(
       <span class="tile-art">
         ${medal ? `<span class="medal ${medal}" aria-label="Number ${opts!.rank! + 1} most popular">${opts!.rank! + 1}</span>` : ''}
         ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`)}
-        ${best ? `<span class="sold-by">${esc(best.retailer.name)}</span>` : ''}
       </span>
       <span class="tile-price">${opts?.trailing ?? priceLine(f)}</span>
+      ${best ? `<span class="sold-by">${esc(best.retailer.name)}</span>` : ''}
     </button>
   </li>`;
 }
 
+/** The per-row chooser. Empty on mobile, where the count is not the reader's. */
+function perRowControl(): string {
+  if (state.layout !== 'desktop') return '';
+  return `<label class="control">
+    <span class="control-ico">${ICON_GRID}</span>
+    <span class="sr">Tiles per row</span>
+    <select id="per-row" class="dropdown">
+      ${PER_ROW_CHOICES.map(
+        (n) => `<option value="${n}" ${n === state.perRow ? 'selected' : ''}>${n} per row</option>`,
+      ).join('')}
+    </select>
+  </label>`;
+}
+
 function fragranceList(list: DemoFragrance[], empty: string): string {
   if (list.length === 0) return `<p class="empty-note">${esc(empty)}</p>`;
-  return `<ul class="tile-grid">${list.map((f) => fragranceTile(f)).join('')}</ul>`;
+  const control = perRowControl();
+  return `${control ? `<div class="controls">${control}</div>` : ''}
+    <ul class="tile-grid">${list.map((f) => fragranceTile(f)).join('')}</ul>`;
 }
 
 /* ── home ────────────────────────────────────────────────────────────────── */
@@ -563,6 +620,7 @@ function dealsPanel(): string {
       { value: 'lowest', label: 'Lowest price' },
       { value: 'highest', label: 'Highest price' },
     ], state.dealSort)}
+    ${perRowControl()}
   </div>`;
 
   if (sorted.length === 0) {
@@ -572,7 +630,9 @@ function dealsPanel(): string {
   const tiles = sorted
     .map((d) =>
       fragranceTile(d.fragrance, {
-        trailing: `<span class="off">${d.percentOff}% off</span>${formatGbp(d.price)} <span class="was">RRP ${formatGbp(d.wasPrice)}</span>`,
+        trailing: `<span class="off">${d.percentOff}% off</span>
+          <span class="amt">${formatGbp(d.price)}</span>
+          <span class="was">RRP ${formatGbp(d.wasPrice)}</span>`,
       }),
     )
     .join('');
@@ -913,6 +973,7 @@ function openExplore(tab: ExploreTab): void {
 function init(): void {
   loadMode();
   loadLayout();
+  loadPerRow();
 
   const when = new Date(CRAWLED_AT);
   ($('#provenance') as HTMLElement).textContent = Number.isFinite(when.getTime())
@@ -1056,7 +1117,13 @@ function init(): void {
     else if (id === 'deal-sort') state.dealSort = value as DealSort;
     else if (id === 'note-sort') state.noteSort = value as NoteSort;
     else if (id === 'note-layer') state.noteLayer = value as NoteLayerFilter;
-    else return;
+    else if (id === 'per-row') {
+      // The grid reads a CSS variable, so the columns reflow without a
+      // re-render. Returning early also keeps the search box from losing
+      // focus mid-typing on the search panel.
+      setPerRow(Number(value));
+      return;
+    } else return;
     render();
   });
 

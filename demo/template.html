@@ -312,10 +312,16 @@
   }
   /* Percentages of the tile, not fixed pixels, so the picture stays the
      dominant element at every grid track width rather than a size someone
-     picked for one specific tile. 90% is the floor asked for; art-lg goes
-     further because the detail hero has nothing else competing with it. */
+     picked for one specific tile. 90% is the width to aim for; art-lg goes
+     further because the detail hero has nothing else competing with it.
+
+     The ceiling only ever binds at the widest tracks. Three columns across a
+     large monitor gives each tile roughly 600px, and 90% of that is a square
+     the height of half the window: one tile per screen is a product page,
+     not a list. Capping the picture keeps the tile browsable while leaving
+     90% in force at every count where it is not silly. */
   .art-sm { width: 90%; }
-  .art-md { width: 90%; }
+  .art-md { width: min(90%, 300px); }
   .art-lg { width: 96%; max-width: 340px; }
   .art-img { width: 100%; height: 100%; object-fit: contain; display: block; }
   /* Fixed, not theme-driven: the placeholder sits inside a tile that is
@@ -347,9 +353,15 @@
      picture is the point: .art-md fills 90% of the tile's own width rather
      than a fixed pixel size, so it stays the dominant element whatever the
      grid track width happens to be. */
+  /* grid-auto-rows: 1fr is what makes every tile the same height: it forces
+     all rows to one shared height, and .tile stretching to fill its row means
+     a one-line name and a two-line name end up identical. Nothing inside the
+     tile needs a hand-tuned height for that to hold — see .tile-art below,
+     which takes up whatever slack is left over. */
   .tile-grid {
     list-style: none; margin: 0; padding: 0;
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 12px;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
+    grid-auto-rows: 1fr; gap: 12px;
   }
   /* Always white, in both themes: the tile holds the picture, and feed
      photography is already shot on a white ground (see .art below), so a
@@ -371,30 +383,46 @@
     .tile:hover { border-color: #D3CDD3; box-shadow: 0 0 0 1px #D3CDD3; }
   }
   .tile .phead-brand, .tile .phead-meta { color: #8A838F; }
-  .tile-art { position: relative; display: flex; align-items: center; justify-content: center; padding: 4px 0; }
+  /* Two lines' worth of room whether the name needs one or two, so the picture
+     starts at the same offset in every tile and the grid reads as columns
+     rather than as tiles that happen to sit near each other. */
+  .tile .phead-name { min-height: 2.5em; }
+  /* The slack absorber: with every row the same height (grid-auto-rows above),
+     whatever height the text does not use ends up here, which keeps the price
+     and the shop tag on the tile's bottom edge across the whole row. */
+  .tile-art {
+    position: relative; flex: 1; min-height: 0;
+    display: flex; align-items: center; justify-content: center; padding: 4px 0;
+  }
+  /* One value per line, never side by side: price first, then what it was.
+     A row that mixes the two invites reading the struck-through number as the
+     price being charged. */
   .tile-price {
     font-size: 14.5px; font-weight: 700; font-variant-numeric: tabular-nums;
     color: var(--accent); text-align: center;
-    display: flex; align-items: center; justify-content: center; gap: 5px; flex-wrap: wrap;
+    display: flex; flex-direction: column; align-items: center; gap: 1px;
   }
   .tile-price .off {
     font-size: 10.5px; font-weight: 700; color: #17724B;
-    text-transform: uppercase; letter-spacing: .06em; width: 100%;
+    text-transform: uppercase; letter-spacing: .06em;
   }
+  .tile-price .amt { font-size: 15.5px; }
+  .tile-price .amt.none { color: #8A838F; font-weight: 600; font-size: 13.5px; }
   .tile-price .was {
-    font-size: 11px; color: #8A838F; text-decoration: line-through; font-variant-numeric: tabular-nums;
+    font-size: 11px; font-weight: 600; color: #8A838F;
+    text-decoration: line-through; font-variant-numeric: tabular-nums;
   }
   .from { font-size: 10px; font-weight: 600; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
 
-  /* Which shop the picture is actually of, since we cannot show their logo:
+  /* Which shop the price is actually from, since we cannot show their logo:
      no comparison site has a licence to reproduce a retailer's trademark, so
      this is a plain text tag using the name instead, the same call already
      made for the Retailers directory's monogram tiles. */
   .sold-by {
-    position: absolute; left: 6px; bottom: 6px; max-width: calc(100% - 12px);
-    background: rgba(19,16,19,.72); color: #F5F1F4; backdrop-filter: blur(2px);
+    align-self: center; max-width: 100%;
+    background: #F0EDEF; color: #55505A; border: 1px solid #E7E3E7;
     font-size: 9px; font-weight: 700; letter-spacing: .03em;
-    padding: 3px 7px; border-radius: 999px;
+    padding: 3px 8px; border-radius: 999px;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
   .empty-note { color: var(--ink-2); font-size: 14.5px; padding: 30px 2px; text-align: center; }
@@ -782,6 +810,14 @@
   }
 
   :root[data-layout="desktop"] .pop-item { width: 168px; }
+
+  /* Desktop takes the reader's chosen column count literally: equal tracks
+     filling the page width, rather than the narrow layout's "fit as many as
+     will go". minmax(0, 1fr) rather than plain 1fr so a long unbroken word
+     cannot push a track wider than its share and skew the whole row. */
+  :root[data-layout="desktop"] .tile-grid {
+    grid-template-columns: repeat(var(--per-row, 5), minmax(0, 1fr));
+  }
 
   /* Settings and the legal pages are read top to bottom, not scanned, so they
      keep a comfortable line length instead of stretching the full page width. */
