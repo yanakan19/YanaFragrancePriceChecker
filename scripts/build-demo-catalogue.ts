@@ -24,9 +24,16 @@ import type { StoredListing } from '../src/catalogue/types.js';
 import { RETAILERS } from '../src/config/retailers.js';
 import { HOUSES } from '../src/config/houses.js';
 
-/** Retailers whose product photos we've actually confirmed a licence for. */
-const IMAGE_LICENSED = new Set(
-  RETAILERS.filter((r) => r.affiliate.imageUsageConfirmed === true).map((r) => r.id),
+/**
+ * Retailers whose product photos may be displayed, and on what grounds.
+ *
+ * A retailer qualifies once `imageBasis` names a reason — a licence read in
+ * the affiliate terms, the brand's own storefront, or a deliberate unlicensed
+ * hot-link. Unset still means the placeholder, so adding a shop never starts
+ * showing its photography by accident.
+ */
+const IMAGE_ALLOWED = new Set(
+  RETAILERS.filter((r) => r.affiliate.imageBasis != null).map((r) => r.id),
 );
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -152,7 +159,7 @@ interface Offer {
   fetchedAt: string;
   firstSeenAt: string;
   isNew: boolean;
-  /** Only ever set for a retailer in IMAGE_LICENSED — see that constant. */
+  /** Only ever set for a retailer in IMAGE_ALLOWED — see that constant. */
   imageUrl: string | null;
   /** The retailer's own copy, read only to extract labelled notes from. */
   description: string | null;
@@ -333,7 +340,7 @@ if (existsSync(dir)) {
         fetchedAt: l.lastSeenAt,
         firstSeenAt: l.firstSeenAt,
         isNew: isNewListing(l, now),
-        imageUrl: IMAGE_LICENSED.has(l.retailerId) ? l.imageUrl : null,
+        imageUrl: IMAGE_ALLOWED.has(l.retailerId) ? l.imageUrl : null,
         description: l.description ?? null,
       };
 

@@ -1,15 +1,21 @@
 /**
  * Product imagery.
  *
- * Real product photography only ever comes from a retailer whose programme has
- * actually confirmed we may use it — currently Fragrance Click UK alone (see
- * AffiliateConfig.imageUsageConfirmed in src/types/retailer.ts and the Terms
- * clause quoted in src/config/retailers.ts). Every other listing has no usage
- * right over its own product photos: scraped images carry no licence at all,
- * only an approved affiliate feed grants one.
+ * A product image is shown only when its retailer records an `imageBasis`
+ * saying why it may be — see that type in src/types/retailer.ts. Three bases
+ * are in use: Fragrance Click's affiliate creative terms, which were read and
+ * permit it; the fragrance houses' own storefronts, which are their photographs
+ * of their own products; and a deliberate unlicensed hot-link for the shops
+ * crawled directly, taken on the site owner's decision and recorded as exactly
+ * that rather than dressed up as a licence.
+ *
+ * In every case the image is referenced, never copied: the reader's browser
+ * fetches it from the retailer's own server, and nothing is downloaded or
+ * rehosted here. A retailer that objects or blocks hot-linking is honoured by
+ * unsetting its basis, at which point its products fall back to the marker.
  *
  * So a product is in exactly one of two states, never a third invented one: a
- * licensed photo, or a plain marker saying "no photo yet".
+ * real photo, or a plain marker saying "no photo yet".
  *
  * ── On the white tile ────────────────────────────────────────────────────────
  * Feed photography is shot on white and supplied as JPEG, so it carries no
@@ -59,7 +65,20 @@ function noImageMark(size: ArtSize): string {
   </svg>`;
 }
 
-/** Renders either the licensed photo or the no photo mark, same box either way. */
+/**
+ * Renders either the product photo or the no photo mark, same box either way.
+ *
+ * ── Why the photo carries an onerror ─────────────────────────────────────────
+ * This mattered less when the only photography came from a feed. Most images
+ * are now hot-linked from a retailer's own CDN, so a shop reshuffling its paths
+ * or turning on hot-link protection would leave a broken-image glyph in the
+ * tile. On failure the image removes itself and marks its container, and CSS
+ * draws the same empty box the no-photo case already uses.
+ *
+ * Deliberately not done by rendering a hidden fallback behind every photo: that
+ * would double the DOM for a case that almost never fires, on a page where
+ * cutting DOM size is exactly what made long lists fast.
+ */
 export function productArt(photoUrl: string | null, size: ArtSize, label: string): string {
   if (!photoUrl) {
     return `<span class="art art-${size} art-empty" role="img"
@@ -67,7 +86,8 @@ export function productArt(photoUrl: string | null, size: ArtSize, label: string
   }
   return `<span class="art art-${size}">
     <img class="art-img" src="${escapeAttr(photoUrl)}" alt="${escapeAttr(label)}"
-      loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+      loading="lazy" decoding="async" referrerpolicy="no-referrer"
+      onerror="this.closest('.art').classList.add('art-failed');this.remove()" />
   </span>`;
 }
 

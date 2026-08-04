@@ -100,14 +100,54 @@ export interface AffiliateConfig {
    * not, by itself, proof of what their creative-usage terms say. Almost every
    * Awin programme does permit feed images for exactly this purpose — that is
    * why the feed includes them — but "almost every" is not "this one, verified",
-   * and nothing here can check an authenticated dashboard on your behalf. Set
-   * this to `true` only after that page has actually been read for this
-   * merchant. Real product photography must never be displayed while this is
-   * false or unset; the generated bottle illustration is the safe default.
+   * and nothing here can check an authenticated dashboard on your behalf.
+   *
+   * Kept as the record of what has actually been *read*, and now separate from
+   * whether images are displayed — see `imageBasis`.
    */
   imageUsageConfirmed?: boolean;
+  /**
+   * Why this retailer's product photography may be displayed, or unset for
+   * "no basis, show the placeholder".
+   *
+   * This replaced a bare boolean. The boolean could only say yes or no, so
+   * turning images on for a shop meant asserting a licence that had not been
+   * obtained, and the field could not distinguish the three genuinely
+   * different situations this project is in. Naming the basis keeps the
+   * distinction auditable: anyone reading the registry can see which shops
+   * rest on a licence and which do not, and the site's terms can describe
+   * what actually happens rather than a flattering version of it.
+   */
+  imageBasis?: ImageBasis;
   notes?: string;
 }
+
+/** The grounds on which a retailer's product photography is displayed. */
+export type ImageBasis =
+  /**
+   * That merchant's own affiliate creative terms have been read and permit
+   * using its product images to promote it. The strongest basis available.
+   */
+  | 'affiliate-terms'
+  /**
+   * The image comes from the brand's own storefront: their photograph, of
+   * their own product, published by them. This is what the direct house
+   * catalogues run on.
+   */
+  | 'own-storefront'
+  /**
+   * Hot-linked from the retailer's own server with no licence obtained, on
+   * the site owner's decision.
+   *
+   * Nothing is copied or rehosted — the reader's browser fetches the image
+   * from the retailer, exactly as it would on the retailer's own page, and
+   * the image sits beside a link sending that reader to buy from them. That
+   * is ordinary practice for price comparison, and materially different from
+   * reproducing the file. It is still not a licence, and this value says so
+   * rather than dressing it up as one. A retailer that asks us to stop, or
+   * that blocks hot-linking, is honoured immediately by unsetting this.
+   */
+  | 'hotlink-unlicensed';
 
 /**
  * A retailer's standard UK delivery rules.

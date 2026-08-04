@@ -55,7 +55,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "763511100019",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/054.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/3619.jpg?v=1755875347&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -81,7 +81,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 67,
     "ean": "027131017752",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/9/099.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1640184556-16176000.jpg?v=1763390921&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -107,7 +107,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "887167095878",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/405.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1731515135-39455400.jpg?v=1763390907&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -133,7 +133,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "737052057989",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/680.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/2945.jpg?v=1755875424&width=1920",
     "notes": null
   },
   {
@@ -144,7 +144,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386461515671",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/975.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739293977-94520400.jpg?v=1763391465&width=1920",
     "notes": null
   },
   {
@@ -155,7 +155,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386461515619",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/973.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1739355283-35891100.jpg?v=1763391461&width=1920",
     "notes": null
   },
   {
@@ -166,7 +166,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8028713210020",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/n/intensa.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/81493.jpg?v=1764781658&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -195,7 +195,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460036528",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/619123.jpg?v=1766146443&width=1920",
     "notes": null
   },
   {
@@ -206,7 +206,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460057059",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/1010092.jpg?v=1766415001&width=1920",
     "notes": null
   },
   {
@@ -217,7 +217,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460036405",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/o/boucheron_pour_homme_100ml_eau_de_toilette.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/27825.jpg?v=1766143869&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -236,7 +236,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614227748446",
     "shops": 2,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1579610777-00863400.jpg?v=1763389366&width=1920",
     "notes": null
   },
   {
@@ -247,7 +247,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252667392",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/7/27.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641981357-49202500.jpg?v=1763390723&width=1920",
     "notes": null
   },
   {
@@ -258,7 +258,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252667484",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/35.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1639585256-45295500.jpg?v=1763390737&width=1920",
     "notes": null
   },
   {
@@ -269,7 +269,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252667309",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/_/4_1.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1579606241-09666000.jpg?v=1763388811&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -295,7 +295,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045294100406",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/9/29.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1579603964-50813200.jpg?v=1763388817&width=1920",
     "notes": null
   },
   {
@@ -306,7 +306,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342306134",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14381884006_xl.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/513983.jpg?v=1755874708&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -332,7 +332,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300000319",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/5450.jpg?v=1755875234&width=1920",
     "notes": null
   },
   {
@@ -343,7 +343,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300178278",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/7016.jpg?v=1755875128&width=1920",
     "notes": null
   },
   {
@@ -354,7 +354,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "088300606511",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/3326.jpg?v=1755875385&width=1920",
     "notes": null
   },
   {
@@ -365,7 +365,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300602513",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/3349.jpg?v=1755875380&width=1920",
     "notes": null
   },
   {
@@ -376,7 +376,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300100514",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/3358.jpg?v=1755875379&width=1920",
     "notes": null
   },
   {
@@ -387,7 +387,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614225670435",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/028.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1557823233-53792000.jpg?v=1763389315&width=1920",
     "notes": null
   },
   {
@@ -398,7 +398,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614225358463",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/x/gxp-11099.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1534347326-42520500.png?v=1763389042&width=1920",
     "notes": null
   },
   {
@@ -409,7 +409,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607342401860",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/98.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1380195011-70803200.jpg?v=1763388845&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -472,7 +472,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "020714881436",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/4006.jpg?v=1760534700&width=1920",
     "notes": null
   },
   {
@@ -483,7 +483,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "020714881429",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/4020.jpg?v=1761659172&width=1920",
     "notes": null
   },
   {
@@ -494,7 +494,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607341186805",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/981852.jpg?v=1755874540&width=1920",
     "notes": null
   },
   {
@@ -505,7 +505,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414200204415",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/9089.jpg?v=1755875051&width=1920",
     "notes": null
   },
   {
@@ -601,7 +601,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605520385568",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/256.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/8654.jpg?v=1755875077&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -627,7 +627,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272608603",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/254.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/8657.jpg?v=1755875076&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -664,7 +664,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "763511009824",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/051.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/5319.jpg?v=1755875239&width=1920",
     "notes": null
   },
   {
@@ -675,7 +675,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3423473032793",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/357.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737027133-55446800.jpg?v=1763390861&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -701,7 +701,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423478452657",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/8/080.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737027349-60198100.jpg?v=1763390870&width=1920",
     "notes": null
   },
   {
@@ -712,7 +712,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222015565",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/72713.jpg?v=1755874881&width=1920",
     "notes": null
   },
   {
@@ -734,7 +734,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805268848",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/774475.jpg?v=1755874642&width=1920",
     "notes": null
   },
   {
@@ -745,7 +745,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "085805390600",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/4966.jpg?v=1755875249&width=1920",
     "notes": null
   },
   {
@@ -756,7 +756,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805785345",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/3633.jpg?v=1755875344&width=1920",
     "notes": null
   },
   {
@@ -767,7 +767,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "027131595045",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/1/413.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/11116_bad96f3f-4f6c-4da5-97d6-75ee10501a9a.jpg?v=1764680702&width=1920",
     "notes": null
   },
   {
@@ -778,7 +778,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "027131006534",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/3965.jpg?v=1755875306&width=1920",
     "notes": null
   },
   {
@@ -789,7 +789,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "027131521433",
     "shops": 2,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1738924874-10053400.jpg?v=1763390916&width=1920",
     "notes": null
   },
   {
@@ -800,7 +800,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "027131020424",
     "shops": 2,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1640184466-60943500.jpg?v=1763390919&width=1920",
     "notes": null
   },
   {
@@ -811,7 +811,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360372061793",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441_1.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1629457932-96497000.jpg?v=1763391094&width=1920",
     "notes": null
   },
   {
@@ -822,7 +822,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360372061809",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1629458041-31692000.jpg?v=1763391097&width=1920",
     "notes": null
   },
   {
@@ -833,7 +833,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614271994844",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614271994844.png",
+    "image": "https://www.beautybase.com/cdn/shop/files/si100.jpg?v=1773743462&width=1920",
     "notes": null
   },
   {
@@ -844,7 +844,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3614271992727",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/9/394.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1531477588-61748100.png?v=1763389014&width=1920",
     "notes": null
   },
   {
@@ -855,7 +855,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272225718",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/9/090.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1548247575-65397600.jpg?v=1763389184&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -899,7 +899,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274870012136",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy-gentlemen-only-edt-100ml-2023-1.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/987905.jpg?v=1755874526&width=1920",
     "notes": null
   },
   {
@@ -910,7 +910,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274870303166",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/110_1.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/3058.jpg?v=1755875401&width=1920",
     "notes": null
   },
   {
@@ -921,7 +921,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274870042362",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/515.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1697816027-69003600.jpg?v=1763391109&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -947,7 +947,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3274872422995",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1727185705-04025900.jpg?v=1763390970&width=1920",
     "notes": null
   },
   {
@@ -958,7 +958,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3274872372153",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61r_mpn1fsl.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1638876451-60461700.jpg?v=1763390988&width=1920",
     "notes": null
   },
   {
@@ -969,7 +969,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872411678",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/_/l_interdit_intense_35ml_.png",
+    "image": "https://www.beautybase.com/cdn/shop/files/1638876757-44789600.jpg?v=1763390986&width=1920",
     "notes": {
       "top": [
         "Black Pepper"
@@ -994,7 +994,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8005610328799",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/6/560.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1729862900-54569400.jpg?v=1763391112&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -1020,7 +1020,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3346470114746",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/guerlain_la_petite_robe_noire_eau_de_toilette_100ml_spray_.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/970605.jpg?v=1755874572&width=1920",
     "notes": null
   },
   {
@@ -1031,7 +1031,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052130729",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/m/images.jpeg",
+    "image": "https://allbeauty.com/cdn/shop/files/8620.jpg?v=1755875078&width=1920",
     "notes": null
   },
   {
@@ -1042,7 +1042,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052351018",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/662.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1523983042-36415600.png?v=1763391124&width=1920",
     "notes": null
   },
   {
@@ -1053,7 +1053,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052351100",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/657.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1517568324-24126200.png?v=1763391125&width=1920",
     "notes": null
   },
   {
@@ -1064,7 +1064,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052352060",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/667.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1523976922-05452900.png?v=1763391130&width=1920",
     "notes": null
   },
   {
@@ -1075,7 +1075,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052041353",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/695.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1_6f336ee8-21a9-4ea2-810a-808da2c5b95f.jpg?v=1781860832&width=1920",
     "notes": null
   },
   {
@@ -1086,7 +1086,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "737052041247",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/691.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1708532635-52175800.jpg?v=1763391039&width=1920",
     "notes": null
   },
   {
@@ -1097,7 +1097,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052802800",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/704.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1708013582-62041900.jpg?v=1763391041&width=1920",
     "notes": null
   },
   {
@@ -1108,7 +1108,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052238128",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/675.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641988767-16668700.jpg?v=1763391044&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -1134,7 +1134,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052031415",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/162_2.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1657102178-91115600.jpg?v=1763391054&width=1920",
     "notes": null
   },
   {
@@ -1145,7 +1145,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423470300161",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/716.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1380882213-09203900.jpg?v=1763391146&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -1171,7 +1171,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423470486025",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_l_eau_d_issey_pour_homme_intense_eau_de_toilette_75ml_spray.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1512729200-18894900.jpg?v=1763391148&width=1920",
     "notes": null
   },
   {
@@ -1182,7 +1182,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3423470311365",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/723.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1655893555-75287700.jpg?v=1763391063&width=1920",
     "notes": null
   },
   {
@@ -1193,7 +1193,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423474867158",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/721.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641989869-57162800.jpg?v=1763391069&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -1219,7 +1219,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415017213",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/759.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1752768267-61792400.jpg?v=1763389412&width=1920",
     "notes": null
   },
   {
@@ -1264,7 +1264,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460048125",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460048125.png",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641922281-58518400.jpg?v=1763391161&width=1920",
     "notes": null
   },
   {
@@ -1275,7 +1275,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460048118",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/834.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641922372-23883600.jpg?v=1763391165&width=1920",
     "notes": null
   },
   {
@@ -1286,7 +1286,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460025485",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180_1.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626788779-21720600.jpg?v=1763391170&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -1308,7 +1308,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460025478",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/c/screenshot_2026-05-13_at_15.34.48.png",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626789129-32999700.jpg?v=1763391170&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -1334,7 +1334,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460119276",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/182_1.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641921907-32608600.jpg?v=1763391219&width=1920",
     "notes": null
   },
   {
@@ -1345,7 +1345,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460119252",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/o/p/open-box-jimmy-choo-ladies-i-want-choo-edp-spray-34-oz-fragrances-3386460119252.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641922125-16382500.jpg?v=1763391224&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -1371,7 +1371,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460071727",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/858.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1641898524-33251200.jpg?v=1763391225&width=1920",
     "notes": null
   },
   {
@@ -1382,7 +1382,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460097321",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460097321.png",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626792824-89623800.jpg?v=1763389032&width=1920",
     "notes": null
   },
   {
@@ -1393,7 +1393,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460067508",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14691276-1675265767319063.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1530198568-35094500.png?v=1763388974&width=1920",
     "notes": {
       "top": [
         "Clary Sage",
@@ -1434,7 +1434,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3607345849867",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/905.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/958854.jpg?v=1755874603&width=1920",
     "notes": null
   },
   {
@@ -1445,7 +1445,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414200064064",
     "shops": 2,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641994776-58717600.jpg?v=1763391243&width=1920",
     "notes": null
   },
   {
@@ -1478,7 +1478,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3274872404113",
     "shops": 2,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/3237.jpg?v=1755875394&width=1920",
     "notes": null
   },
   {
@@ -1489,7 +1489,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273069175",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/942.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737019404-38151200.jpg?v=1763391441&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -1515,7 +1515,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3147758034905",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-edp-vapo-50ml-lancome-1.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1737022052-99050800.jpg?v=1763391459&width=1920",
     "notes": null
   },
   {
@@ -1526,7 +1526,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272629370",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/945.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1565951619-03699700.jpg?v=1763389397&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -1552,7 +1552,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616301776024",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/992.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1636107194-49861300.jpg?v=1763390475&width=1920",
     "notes": null
   },
   {
@@ -1589,7 +1589,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460101035",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1025.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626857980-05400600.jpg?v=1763389293&width=1920",
     "notes": null
   },
   {
@@ -1600,7 +1600,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003991617",
     "shops": 2,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1561133688-12483700.jpg?v=1763389348&width=1920",
     "notes": null
   },
   {
@@ -1648,7 +1648,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3614273544924",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61fh-e1rwvl.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/4836.jpg?v=1762859858&width=1920",
     "notes": null
   },
   {
@@ -1659,7 +1659,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137782949",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1270.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/black.jpg?v=1773331404&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -1681,7 +1681,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668555093",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1168.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1563200849-97720600.jpg?v=1763389375&width=1920",
     "notes": null
   },
   {
@@ -1692,7 +1692,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "888066000062",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1330.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/101945.jpg?v=1770290421&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -1718,7 +1718,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272761469",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1410.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1611770440-98501700.jpg?v=1763389478&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -1764,7 +1764,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342166875",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/e/vera_wang_lovestruck_100ml_eau_de_parfum.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/446963.jpg?v=1755874726&width=1920",
     "notes": null
   },
   {
@@ -1775,7 +1775,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "688575001778",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1428.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/7015.jpg?v=1755875129&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -1801,7 +1801,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614272191556",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_spice_bomb_night_vision_edt_90ml_.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1554976773-32818200.jpg?v=1763389183&width=1920",
     "notes": null
   },
   {
@@ -1812,7 +1812,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 300,
     "ean": "4004711001208",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1738315293-44252200.jpg?v=1763390637&width=1920",
     "notes": null
   },
   {
@@ -1823,7 +1823,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "085715167804",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/963_a2a81a73-41d1-4130-b540-12a6345dd930.jpg?v=1774438885&width=1920",
     "notes": null
   },
   {
@@ -2354,7 +2354,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0043.png?v=1765452780&width=1000",
     "notes": null
   },
   {
@@ -2365,7 +2365,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0048_622cfb7b-924b-4810-b259-3b3c795e32f2.png?v=1765452780&width=1000",
     "notes": null
   },
   {
@@ -2376,7 +2376,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0067.png?v=1769433665&width=1000",
     "notes": null
   },
   {
@@ -2387,7 +2387,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0010.png?v=1765452780&width=1000",
     "notes": null
   },
   {
@@ -2398,7 +2398,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0054_2165eae5-c0ff-4dd1-b798-f400423e4186.png?v=1765452779&width=1000",
     "notes": null
   },
   {
@@ -2409,7 +2409,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0003.png?v=1766569596&width=1000",
     "notes": null
   },
   {
@@ -2420,7 +2420,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0002.png?v=1766569596&width=1000",
     "notes": null
   },
   {
@@ -2431,7 +2431,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0028_b8c06c6e-741e-4a16-bf80-4aa1b0424730.png?v=1765452779&width=1000",
     "notes": null
   },
   {
@@ -2442,7 +2442,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ImageComingSoon_3103c16c-437b-48ba-847c-adc5643d5106.png?v=1784887759&width=1000",
     "notes": null
   },
   {
@@ -2453,7 +2453,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0071.png?v=1765452778&width=1000",
     "notes": null
   },
   {
@@ -2464,7 +2464,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0011_dde54f44-03c0-4809-a8a6-0fd9b84b5ea5.png?v=1765452778&width=1000",
     "notes": null
   },
   {
@@ -2475,7 +2475,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0044.png?v=1765452778&width=1000",
     "notes": null
   },
   {
@@ -2486,7 +2486,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0033_ab0a6598-7180-4ae5-b782-c1c73c4cf0cd.png?v=1765452778&width=1000",
     "notes": null
   },
   {
@@ -2497,7 +2497,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0034.png?v=1766569596&width=1000",
     "notes": null
   },
   {
@@ -2508,7 +2508,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0061_08caf202-67d7-4d19-91ab-e63dfa5d9b9d.png?v=1765452779&width=1000",
     "notes": null
   },
   {
@@ -2519,7 +2519,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0066_154ec1fe-e2bb-4810-97a2-680c1615da1f.png?v=1765452779&width=1000",
     "notes": null
   },
   {
@@ -2530,7 +2530,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0052_7ff6dc0c-244b-4d0a-8077-c06344fb1f13.png?v=1765452779&width=1000",
     "notes": null
   },
   {
@@ -2541,7 +2541,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0060.png?v=1765452779&width=1000",
     "notes": null
   },
   {
@@ -2552,7 +2552,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0032_06ba8cba-6a8f-442f-a306-5df08782ab77.png?v=1765452777&width=1000",
     "notes": null
   },
   {
@@ -2563,7 +2563,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0053_3fcefe3a-2fe7-42cc-9388-1fb67280b4b9.png?v=1765452777&width=1000",
     "notes": null
   },
   {
@@ -2574,7 +2574,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0049.png?v=1766569595&width=1000",
     "notes": null
   },
   {
@@ -2585,7 +2585,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0045_e87e2314-2083-432b-922e-0d7a333f9715.png?v=1765452777&width=1000",
     "notes": null
   },
   {
@@ -2596,7 +2596,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 180,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0012_8423c95c-f940-4d0c-9bb8-f262dd7dfbd0.png?v=1765452777&width=1000",
     "notes": null
   },
   {
@@ -2607,7 +2607,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ImageComingSoon_a16cefa1-4d62-4585-9fcd-3322a8963974.png?v=1784887738&width=1000",
     "notes": null
   },
   {
@@ -2618,7 +2618,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0070_7e13f7ef-00fc-42b3-b435-53fb38965957.png?v=1765452778&width=1000",
     "notes": null
   },
   {
@@ -2629,7 +2629,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0047.png?v=1765452778&width=1000",
     "notes": null
   },
   {
@@ -2640,7 +2640,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0029_21933450-aa12-47d3-9feb-1ed23f7e4000.png?v=1765452778&width=1000",
     "notes": null
   },
   {
@@ -2651,7 +2651,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0001_8257ffb1-dcf6-4247-a144-47dccac0b886.png?v=1765452778&width=1000",
     "notes": null
   },
   {
@@ -2662,7 +2662,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ACQ0065_b538a699-76d7-4fba-a8c9-a185441bd60a.png?v=1765452782&width=1000",
     "notes": null
   },
   {
@@ -2673,7 +2673,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303321932",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1738315449-63507800.jpg?v=1763390643&width=1920",
     "notes": null
   },
   {
@@ -2684,7 +2684,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303322021",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1483630248-89363400.jpg?v=1763388782&width=1920",
     "notes": null
   },
   {
@@ -2695,7 +2695,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616303322052",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1461601073-07469400.jpg?v=1774439430&width=1920",
     "notes": null
   },
   {
@@ -2706,7 +2706,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-in-oud-extrait-de-parfum-150ml-p35655-108061_image.jpg?v=1721322155&width=1000",
     "notes": null
   },
   {
@@ -2717,7 +2717,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-in-oud-extrait-de-parfum-100ml-p35651-108052_image.jpg?v=1721322149&width=1000",
     "notes": null
   },
   {
@@ -2728,7 +2728,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/afnan-9am-pour-femme-eau-de-parfum-100ml-p35648-108048_image.jpg?v=1721322139&width=1000",
     "notes": null
   },
   {
@@ -2739,7 +2739,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-100ml-p35652-108055_image.jpg?v=1721322127&width=1000",
     "notes": null
   },
   {
@@ -2750,7 +2750,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-150ml-p35654-108059_image.jpg?v=1721322130&width=1000",
     "notes": null
   },
   {
@@ -2761,7 +2761,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/afnan-9pm-pour-homme-eau-de-parfum-100ml-p35649-108050_image.jpg?v=1721322129&width=1000",
     "notes": null
   },
   {
@@ -2772,7 +2772,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/afnan-turathi-blue-pour-homme-eau-de-parfum-90ml-p35660-108070_image.jpg?v=1721322132&width=1000",
     "notes": null
   },
   {
@@ -2783,7 +2783,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/9am-dive-eau-de-parfum-100ml-p35647-108046_image.jpg?v=1721322135&width=1000",
     "notes": null
   },
   {
@@ -2794,7 +2794,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-silver-pour-homme-eau-de-parfum-100ml-p35653-108057_image.jpg?v=1721322166&width=1000",
     "notes": null
   },
   {
@@ -2805,7 +2805,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171000976",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1731672226-10534000.jpg?v=1763390650&width=1920",
     "notes": null
   },
   {
@@ -2816,7 +2816,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171070207",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1731672437-86290500.jpg?v=1763390188&width=1920",
     "notes": null
   },
   {
@@ -2827,7 +2827,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171070214",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1731672339-12274700.jpg?v=1763390198&width=1920",
     "notes": null
   },
   {
@@ -2838,7 +2838,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/agent-provocateur-eau-de-parfum-200ml-p22269-48175_image_x100.jpg?v=1721322125",
     "notes": null
   },
   {
@@ -2849,7 +2849,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6293708009893",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1696412897-52374700.jpg?v=1763390658&width=1920",
     "notes": null
   },
   {
@@ -2860,7 +2860,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291100133116",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/852_660122f5-9bb4-402a-a60f-70f00ba55470.jpg?v=1774449263&width=1920",
     "notes": null
   },
   {
@@ -2871,7 +2871,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6291100131709",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_925f933d-77a5-4605-ab12-1c92ed17d090.jpg?v=1774449613&width=1920",
     "notes": null
   },
   {
@@ -2882,7 +2882,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 12,
     "ean": "6291100130801",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1557397595-89087800.jpg?v=1763389177&width=1920",
     "notes": null
   },
   {
@@ -2957,7 +2957,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 6,
     "ean": "6291110010995",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1556643813-73900500.jpg?v=1763389302&width=1920",
     "notes": null
   },
   {
@@ -2968,7 +2968,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 6,
     "ean": "6291110090942",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1708534403-52309800.jpg?v=1763390663&width=1920",
     "notes": null
   },
   {
@@ -2979,7 +2979,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061411919",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1555578722-00252100.jpg?v=1763388794&width=1920",
     "notes": null
   },
   {
@@ -2990,7 +2990,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 110,
     "ean": "022548006719",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1373890966-32895400.jpg?v=1763388795&width=1920",
     "notes": null
   },
   {
@@ -3001,7 +3001,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 110,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/AR0002_x100.png?v=1766583596",
     "notes": null
   },
   {
@@ -3012,7 +3012,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 240,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/AR0003_x100.png?v=1766583596",
     "notes": null
   },
   {
@@ -3023,7 +3023,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "812256024293",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/30mlty.jpg?v=1773756147&width=1920",
     "notes": null
   },
   {
@@ -3034,7 +3034,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "812256024286",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/50mltyn.jpg?v=1773756172&width=1920",
     "notes": null
   },
   {
@@ -3045,7 +3045,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "812256024279",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/100mltyn.jpg?v=1773756195&width=1920",
     "notes": null
   },
   {
@@ -3056,7 +3056,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "812256021728",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/ariii.jpg?v=1773764465&width=1920",
     "notes": null
   },
   {
@@ -3067,7 +3067,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "812256021711",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/ariii.jpg?v=1773764465&width=1920",
     "notes": null
   },
   {
@@ -3078,7 +3078,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "812256023302",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/ari30.jpg?v=1773750786&width=1920",
     "notes": null
   },
   {
@@ -3089,7 +3089,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "812256023296",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/cl50ml.jpg?v=1773751147&width=1920",
     "notes": null
   },
   {
@@ -3100,7 +3100,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "812256023289",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/cl1000.jpg?v=1773751154&width=1920",
     "notes": null
   },
   {
@@ -3111,7 +3111,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "812256025481",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/rem30.jpg?v=1773756709&width=1920",
     "notes": null
   },
   {
@@ -3122,7 +3122,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "812256025474",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/rem50.jpg?v=1773756784&width=1920",
     "notes": null
   },
   {
@@ -3133,7 +3133,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "812256025467",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/rem100.jpg?v=1773756979&width=1920",
     "notes": null
   },
   {
@@ -3144,7 +3144,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/r-e-m-eau-de-parfum-50ml-p20964-44105_image.jpg?v=1721322162&width=1000",
     "notes": null
   },
   {
@@ -3155,7 +3155,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ariana-grande-thank-u-next-eau-de-parfum-50ml-p20961-44102_image.jpg?v=1721322138&width=1000",
     "notes": null
   },
   {
@@ -3166,7 +3166,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ari-eau-de-parfum-50ml-p20952-44093_image.jpg?v=1721322140&width=1000",
     "notes": null
   },
   {
@@ -3177,7 +3177,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ariana-grande-ari-eau-de-parfum-30ml-p20951-44092_image.jpg?v=1721322146&width=1000",
     "notes": null
   },
   {
@@ -3188,7 +3188,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ariana-grande-r-e-m-eau-de-parfum-30ml-p20963-44104_image.jpg?v=1721322151&width=1000",
     "notes": null
   },
   {
@@ -3199,7 +3199,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ari-eau-de-parfum-100ml-p20953-44094_image.jpg?v=1721322147&width=1000",
     "notes": null
   },
   {
@@ -3210,7 +3210,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ariana-grande-cloud-eau-de-parfum-50ml-p20958-44099_image.jpg?v=1721322150&width=1000",
     "notes": null
   },
   {
@@ -3221,7 +3221,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/thank-u-next-eau-de-parfum-100ml-p20962-44103_image.jpg?v=1721322124&width=1000",
     "notes": null
   },
   {
@@ -3232,7 +3232,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/thank-u-next-eau-de-parfum-30ml-p20960-44101_image.jpg?v=1721322124&width=1000",
     "notes": null
   },
   {
@@ -3243,7 +3243,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ariana-grande-sweet-like-candy-eau-de-parfum-30ml-p20954-44095_image.jpg?v=1721322125&width=1000",
     "notes": null
   },
   {
@@ -3254,7 +3254,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ariana-grande-r-e-m-eau-de-parfum-100ml-p20965-44106_image.jpg?v=1721322130&width=1000",
     "notes": null
   },
   {
@@ -3265,7 +3265,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ariana-grande-cloud-eau-de-parfum-30ml-p20957-44098_image.jpg?v=1721322127&width=1000",
     "notes": null
   },
   {
@@ -3276,7 +3276,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/cloud-eau-de-parfum-100ml-p20959-44100_image.jpg?v=1721322133&width=1000",
     "notes": null
   },
   {
@@ -3287,7 +3287,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ariana-grande-sweet-like-candy-eau-de-parfum-50ml-p20955-44096_image.jpg?v=1721322135&width=1000",
     "notes": null
   },
   {
@@ -3298,7 +3298,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/sweet-like-candy-eau-de-parfum-100ml-p20956-44097_image.jpg?v=1721322158&width=1000",
     "notes": null
   },
   {
@@ -3309,7 +3309,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": "6085010094151",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1645101138-56642600.jpg?v=1763390679&width=1920",
     "notes": null
   },
   {
@@ -3320,7 +3320,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "6294015131024",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1696416231-27183200.jpg?v=1763390680&width=1920",
     "notes": null
   },
   {
@@ -3358,7 +3358,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARM0005.png?v=1758900964&width=1000",
     "notes": null
   },
   {
@@ -3369,7 +3369,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARM0010.png?v=1758900964&width=1000",
     "notes": null
   },
   {
@@ -3380,7 +3380,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARM0018.png?v=1758900965&width=1000",
     "notes": null
   },
   {
@@ -3391,7 +3391,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARM0016.png?v=1758900965&width=1000",
     "notes": null
   },
   {
@@ -3402,7 +3402,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/club-de-nuit-iconic-eau-de-parfum-105ml-p31103-83726_image.jpg?v=1721322126&width=1000",
     "notes": null
   },
   {
@@ -3413,7 +3413,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/club-de-nuit-urban-man-elixir-eau-de-parfum-105ml-p30630-80351_image.jpg?v=1721322124&width=1000",
     "notes": null
   },
   {
@@ -3424,7 +3424,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARM0034.png?v=1758900964&width=1000",
     "notes": null
   },
   {
@@ -3435,7 +3435,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARM0004.png?v=1758900964&width=1000",
     "notes": null
   },
   {
@@ -3446,7 +3446,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARM0037.png?v=1758900964&width=1000",
     "notes": null
   },
   {
@@ -3457,7 +3457,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605521172525",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/127855.jpg?v=1755874793&width=1920",
     "notes": null
   },
   {
@@ -3468,7 +3468,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3351500980406",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1369755694-27477700.jpg?v=1763388794&width=1920",
     "notes": null
   },
   {
@@ -3800,7 +3800,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-intense-eau-de-parfum-50ml-p31704-86828_image.jpg?v=1721322137&width=1000",
     "notes": null
   },
   {
@@ -3811,7 +3811,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/wanted-eau-de-parfum-50ml-p31702-86826_image.jpg?v=1721322139&width=1000",
     "notes": null
   },
   {
@@ -3822,7 +3822,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-parfum-100ml-p31707-86831_image.jpg?v=1721322144&width=1000",
     "notes": null
   },
   {
@@ -3833,7 +3833,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/azzaro-wanted-eau-de-toilette-50ml-p33241-105732_image.jpg?v=1721322148&width=1000",
     "notes": null
   },
   {
@@ -3844,7 +3844,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/azzaro-wanted-eau-de-parfum-100ml-p31703-86827_image.jpg?v=1721322150&width=1000",
     "notes": null
   },
   {
@@ -3855,7 +3855,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/azzaro-wanted-girl-eau-de-parfum-80ml-p31890-88084_image.jpg?v=1721322124&width=1000",
     "notes": null
   },
   {
@@ -3866,7 +3866,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-parfum-50ml-p31706-86830_image.jpg?v=1721322132&width=1000",
     "notes": null
   },
   {
@@ -3877,7 +3877,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/wanted-by-night-eau-de-parfum-100ml-p31699-86823_image.jpg?v=1721322134&width=1000",
     "notes": null
   },
   {
@@ -3888,7 +3888,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/wanted-eau-de-toilette-100ml-p31889-88083_image.jpg?v=1721322131&width=1000",
     "notes": null
   },
   {
@@ -3899,7 +3899,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-intense-eau-de-parfum-100ml-p31705-86829_image.jpg?v=1721322166&width=1000",
     "notes": null
   },
   {
@@ -3910,7 +3910,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640111497547",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1555340158-85440700.jpg?v=1763388800&width=1920",
     "notes": null
   },
   {
@@ -3921,7 +3921,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-by-billie-eilish-eau-de-parfum-30ml-p28458-71633_image.jpg?v=1721322149&width=1000",
     "notes": null
   },
   {
@@ -3932,7 +3932,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-by-billie-eilish-eau-de-parfum-100ml-p28460-71635_image.jpg?v=1721322138&width=1000",
     "notes": null
   },
   {
@@ -3943,7 +3943,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-no-2-by-billie-eilish-eau-de-parfum-50ml-p33564-95880_image.jpg?v=1721322133&width=1000",
     "notes": null
   },
   {
@@ -3954,7 +3954,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-no-2-by-billie-eilish-eau-de-parfum-30ml-p33563-95879_image.jpg?v=1721322138&width=1000",
     "notes": null
   },
   {
@@ -3965,7 +3965,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-by-billie-eilish-eau-de-parfum-50ml-p28459-71634_image.jpg?v=1721322134&width=1000",
     "notes": null
   },
   {
@@ -3976,7 +3976,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-no-2-by-billie-eilish-eau-de-parfum-100ml-p33565-95881_image.jpg?v=1721322169&width=1000",
     "notes": null
   },
   {
@@ -3987,7 +3987,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460036351",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/116725.jpg?v=1766145238&width=1920",
     "notes": null
   },
   {
@@ -3998,7 +3998,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460036467",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/619153.jpg?v=1766146578&width=1920",
     "notes": null
   },
   {
@@ -4009,7 +4009,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460036429",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/43753.jpg?v=1766145781&width=1920",
     "notes": null
   },
   {
@@ -4020,7 +4020,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3577580202089",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/123_13c6ede9-61a9-4b5a-85ee-ed70163dd0fe.jpg?v=1774534954&width=1920",
     "notes": null
   },
   {
@@ -4031,7 +4031,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/boucheron-pour-femme-eau-de-parfum-100ml-p31712-88225_image.jpg?v=1721322149&width=1000",
     "notes": null
   },
   {
@@ -4042,7 +4042,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/boucheron-pour-homme-eau-de-parfum-100ml-p31713-88220_image.jpg?v=1721322141&width=1000",
     "notes": null
   },
   {
@@ -4053,7 +4053,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346117722",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1737024237-99204900.jpg?v=1763390696&width=1920",
     "notes": null
   },
   {
@@ -4064,7 +4064,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346094665",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1643029056-37145400.jpg?v=1763390698&width=1920",
     "notes": null
   },
   {
@@ -4075,7 +4075,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346065405",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1473437351-55810800.jpg?v=1763388805&width=1920",
     "notes": null
   },
   {
@@ -4086,7 +4086,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/britney-spears-curious-eau-de-parfum-100ml-p23483-54009_zoom.jpg?v=1721322156&width=2000",
     "notes": null
   },
   {
@@ -4097,7 +4097,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/britney-spears-midnight-fantasy-eau-de-parfum-100ml-p22274-49039_image.jpg?v=1721322158&width=1000",
     "notes": null
   },
   {
@@ -4108,7 +4108,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BRIT0011.png?v=1740751657&width=1000",
     "notes": null
   },
   {
@@ -4119,7 +4119,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/britney-spears-midnight-fantasy-eau-de-parfum-30ml-p31718-86839_image.jpg?v=1721322138&width=1000",
     "notes": null
   },
   {
@@ -4130,7 +4130,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/britney-spears-believe-eau-de-parfum-30ml-p31715-86836_image.jpg?v=1721322148&width=1000",
     "notes": null
   },
   {
@@ -4141,7 +4141,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/britney-spears-fantasy-eau-de-parfum-100ml-p22273-49037_image.jpg?v=1721322131&width=1000",
     "notes": null
   },
   {
@@ -4152,7 +4152,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/britney-spears-believe-eau-de-parfum-100ml-p22275-49041_image.jpg?v=1721322132&width=1000",
     "notes": null
   },
   {
@@ -4163,7 +4163,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/britney-spears-curious-eau-de-parfum-30ml-p31714-86835_image.jpg?v=1721322135&width=1000",
     "notes": null
   },
   {
@@ -4174,7 +4174,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8711700634922",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1736948099-95969700.jpg?v=1763390715&width=1920",
     "notes": null
   },
   {
@@ -4185,7 +4185,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3014230021039",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1480619421-58545100.jpg?v=1763390015&width=1920",
     "notes": null
   },
   {
@@ -4196,7 +4196,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614226905000",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/6602.jpg?v=1755875151&width=1920",
     "notes": null
   },
   {
@@ -4207,7 +4207,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5045411327037",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641980855-45683900.jpg?v=1763390719&width=1920",
     "notes": null
   },
   {
@@ -4218,7 +4218,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5045252667422",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641981231-78669100.jpg?v=1763390722&width=1920",
     "notes": null
   },
   {
@@ -4229,7 +4229,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5045252668245",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1639585024-99864300.jpg?v=1763390725&width=1920",
     "notes": null
   },
   {
@@ -4240,7 +4240,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5045252668122",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641981709-82325900.jpg?v=1763390727&width=1920",
     "notes": null
   },
   {
@@ -4251,7 +4251,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5045252649107",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641982369-17098800.jpg?v=1763390730&width=1920",
     "notes": null
   },
   {
@@ -4262,7 +4262,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614227748323",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1733916242-94080100.jpg?v=1763390735&width=1920",
     "notes": null
   },
   {
@@ -4273,7 +4273,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616302020676",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1740652534-52843600.jpg?v=1763395158&width=1920",
     "notes": null
   },
   {
@@ -4284,7 +4284,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252667859",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1516809646-34327500.png?v=1763388806&width=1920",
     "notes": null
   },
   {
@@ -4295,7 +4295,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "5045252667361",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1579605961-23579400.jpg?v=1763388806&width=1920",
     "notes": null
   },
   {
@@ -4306,7 +4306,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5045252667330",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1579608831-28758600.jpg?v=1763388807&width=1920",
     "notes": null
   },
   {
@@ -4317,7 +4317,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5045252668214",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1369145059-98623700.jpg?v=1763388812&width=1920",
     "notes": null
   },
   {
@@ -4328,7 +4328,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252668184",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1518610559-92070500.png?v=1763388813&width=1920",
     "notes": null
   },
   {
@@ -4339,7 +4339,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5045252668085",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1369146785-35516700.jpg?v=1763388816&width=1920",
     "notes": null
   },
   {
@@ -4568,7 +4568,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0012.png?v=1765452780&width=1000",
     "notes": null
   },
   {
@@ -4579,7 +4579,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0035.png?v=1765452780&width=1000",
     "notes": null
   },
   {
@@ -4590,7 +4590,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0048.png?v=1765452780&width=1000",
     "notes": null
   },
   {
@@ -4601,7 +4601,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0047.png?v=1765452781&width=1000",
     "notes": null
   },
   {
@@ -4612,7 +4612,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0050.png?v=1765536690&width=1000",
     "notes": null
   },
   {
@@ -4623,7 +4623,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0046_98d434e6-f93e-4de7-aa4e-88f8cd492f87.png?v=1765552817&width=1000",
     "notes": null
   },
   {
@@ -4634,7 +4634,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0043.png?v=1765452781&width=1000",
     "notes": null
   },
   {
@@ -4645,7 +4645,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0040_b6b61b75-a5d3-4606-a78c-d3857999ce6f.png?v=1765536304&width=1000",
     "notes": null
   },
   {
@@ -4656,7 +4656,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0017.png?v=1765452781&width=1000",
     "notes": null
   },
   {
@@ -4667,7 +4667,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0009.png?v=1765452781&width=1000",
     "notes": null
   },
   {
@@ -4678,7 +4678,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0049_237cc7c6-5637-4e25-a759-49663e78e0fb.png?v=1765536706&width=1000",
     "notes": null
   },
   {
@@ -4689,7 +4689,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0023.png?v=1765452780&width=1000",
     "notes": null
   },
   {
@@ -4700,7 +4700,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0042_7f9cd321-efde-4aa7-a1e4-5059fa59c9f4.png?v=1765536342&width=1000",
     "notes": null
   },
   {
@@ -4711,7 +4711,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0041_152fe777-2d72-456e-a531-6f59bb7cc703.png?v=1765536324&width=1000",
     "notes": null
   },
   {
@@ -4722,7 +4722,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0026.png?v=1765452779&width=1000",
     "notes": null
   },
   {
@@ -4733,7 +4733,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0044.png?v=1765452779&width=1000",
     "notes": null
   },
   {
@@ -4744,7 +4744,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0020.png?v=1765452779&width=1000",
     "notes": null
   },
   {
@@ -4755,7 +4755,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0006_40e903f0-b232-419c-ba16-83166f9887ce.png?v=1769523265&width=1000",
     "notes": null
   },
   {
@@ -5107,7 +5107,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BYRE0008.png?v=1753445101&width=1000",
     "notes": null
   },
   {
@@ -5118,7 +5118,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BYRE0001.png?v=1753445101&width=1000",
     "notes": null
   },
   {
@@ -5129,7 +5129,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BYRE0002.png?v=1753445101&width=1000",
     "notes": null
   },
   {
@@ -5140,7 +5140,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BYRE0006.png?v=1753445101&width=1000",
     "notes": null
   },
   {
@@ -5151,7 +5151,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BYRE0010.png?v=1753445101&width=1000",
     "notes": null
   },
   {
@@ -5162,7 +5162,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BYRE0009.png?v=1753445101&width=1000",
     "notes": null
   },
   {
@@ -5173,7 +5173,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BYRE0007.png?v=1756720375&width=1000",
     "notes": null
   },
   {
@@ -5184,7 +5184,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/BYRE0005.png?v=1753445101&width=1000",
     "notes": null
   },
   {
@@ -5195,7 +5195,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360373063703",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1645101743-56120000.jpg?v=1763390739&width=1920",
     "notes": null
   },
   {
@@ -5206,7 +5206,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360370512044",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1480705780-45795100.jpg?v=1763388821&width=1920",
     "notes": null
   },
   {
@@ -5217,7 +5217,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360374533205",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1473437628-60504900.jpg?v=1763388823&width=1920",
     "notes": null
   },
   {
@@ -5228,7 +5228,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360373001774",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1555592623-30626800.jpg?v=1763388825&width=1920",
     "notes": null
   },
   {
@@ -5239,7 +5239,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360373048861",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1373621802-35554500.jpg?v=1763388827&width=1920",
     "notes": null
   },
   {
@@ -5250,7 +5250,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360373000081",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/5_1eb71aff-4cd6-4452-b2b8-2475e22fc913.jpg?v=1774536688&width=1920",
     "notes": null
   },
   {
@@ -5261,7 +5261,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3360373016334",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1369392549-46137100.jpg?v=1763388830&width=1920",
     "notes": null
   },
   {
@@ -5272,7 +5272,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360373016358",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_b011d750-1dbe-4902-a2c2-20deebc828ca.jpg?v=1774536270&width=1920",
     "notes": null
   },
   {
@@ -5283,7 +5283,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360373048878",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1637058665-86324300.jpg?v=1763389754&width=1920",
     "notes": null
   },
   {
@@ -5294,7 +5294,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/amor-amor-eau-de-toilette-100ml-p21098-44872_image.jpg?v=1721322155&width=1000",
     "notes": null
   },
   {
@@ -5305,7 +5305,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/cacharel-loulou-eau-de-parfum-30ml-p23897-53758_image.jpg?v=1721322154&width=1000",
     "notes": null
   },
   {
@@ -5316,7 +5316,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/cacharel-eden-eau-de-parfum-30ml-p23896-53757_image.jpg?v=1721322158&width=1000",
     "notes": null
   },
   {
@@ -5327,7 +5327,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/pour-lhomme-eau-de-toilette-100ml-p21062-44847_image.jpg?v=1721322159&width=1000",
     "notes": null
   },
   {
@@ -5338,7 +5338,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/cacharel-anais-anais-eau-de-toilette-100ml-p21099-44873_image.jpg?v=1721322170&width=1000",
     "notes": null
   },
   {
@@ -5349,7 +5349,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/cacharel-noa-eau-de-toilette-100ml-p21100-44874_image.jpg?v=1721322178&width=1000",
     "notes": null
   },
   {
@@ -5360,7 +5360,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607340213267",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/126233.jpg?v=1755874800&width=1920",
     "notes": null
   },
   {
@@ -5371,7 +5371,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300139507",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/4596_4ea9dcd3-ff3f-4552-9a20-dc665e785481.jpg?v=1764684779&width=1920",
     "notes": null
   },
   {
@@ -5382,7 +5382,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300150410",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/7837.jpg?v=1755875098&width=1920",
     "notes": null
   },
   {
@@ -5393,7 +5393,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "031655644851",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/9085.jpg?v=1755875052&width=1920",
     "notes": null
   },
   {
@@ -5404,7 +5404,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "088300606535",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/3333.jpg?v=1755875382&width=1920",
     "notes": null
   },
   {
@@ -5415,7 +5415,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300608409",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/3354.jpg?v=1755875379&width=1920",
     "notes": null
   },
   {
@@ -5426,7 +5426,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "088300106752",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/139665.jpg?v=1755874779&width=1920",
     "notes": null
   },
   {
@@ -5437,7 +5437,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614223162963",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1737375720-35032900.jpg?v=1763390741&width=1920",
     "notes": null
   },
   {
@@ -5448,7 +5448,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "088300604685",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1640083440-91408000.jpg?v=1763390745&width=1920",
     "notes": null
   },
   {
@@ -5459,7 +5459,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "088300607686",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/6_1b35e8c1-552a-4e73-bbf1-4c06859cefee.jpg?v=1774543172&width=1920",
     "notes": null
   },
   {
@@ -5470,7 +5470,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342401341",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_3e90f783-94b4-4da6-800f-951c208b2b8d.jpg?v=1774544095&width=1920",
     "notes": null
   },
   {
@@ -5481,7 +5481,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "088300601387",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1640085053-22352900.jpg?v=1763390759&width=1920",
     "notes": null
   },
   {
@@ -5492,7 +5492,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300101405",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1640085172-77454800.jpg?v=1763390758&width=1920",
     "notes": null
   },
   {
@@ -5503,7 +5503,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "088300147953",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1640085581-06552300.jpg?v=1763390763&width=1920",
     "notes": null
   },
   {
@@ -5514,7 +5514,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300196890",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641983668-72127600.jpg?v=1763390766&width=1920",
     "notes": null
   },
   {
@@ -5525,7 +5525,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342107977",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_d68abf3f-52cf-417a-a8d6-0f5550dc33a4.jpg?v=1774544858&width=1920",
     "notes": null
   },
   {
@@ -5536,7 +5536,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "0088300104437",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1524579971-15533200.png?v=1763388837&width=1920",
     "notes": null
   },
   {
@@ -5547,7 +5547,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342058057",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1473509155-13379100.jpg?v=1763388838&width=1920",
     "notes": null
   },
   {
@@ -5558,7 +5558,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300607402",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_f3f68559-0e2e-4048-9047-f977a26cc919.jpg?v=1774540780&width=1920",
     "notes": null
   },
   {
@@ -5569,7 +5569,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "088300607433",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/2_8ad7d463-66ae-43a8-a6f6-8e688338ed4b.jpg?v=1774543581&width=1920",
     "notes": null
   },
   {
@@ -5580,7 +5580,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300605514",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1524580632-18442300.png?v=1763388852&width=1920",
     "notes": null
   },
   {
@@ -5591,7 +5591,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "088300162550",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_d3a3c08b-3ee3-4325-8a29-ddd522a9d0db.jpg?v=1774540090&width=1920",
     "notes": null
   },
   {
@@ -5602,7 +5602,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300162512",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_420d28b3-b72d-4bd2-bb91-f630c0258222.jpg?v=1774539390&width=1920",
     "notes": null
   },
   {
@@ -5613,7 +5613,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "088300178322",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_1cd1d3ac-1f49-4ee5-a055-ae96bca39bb6.jpg?v=1774538462&width=1920",
     "notes": null
   },
   {
@@ -5624,7 +5624,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300196814",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1524587907-59854800.png?v=1763388865&width=1920",
     "notes": null
   },
   {
@@ -5635,7 +5635,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "088300196876",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1524582136-18396900.png?v=1763388866&width=1920",
     "notes": null
   },
   {
@@ -5646,7 +5646,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "088300196944",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1524582206-94816600.png?v=1763388867&width=1920",
     "notes": null
   },
   {
@@ -5657,7 +5657,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300150427",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_93fd18d9-ec3e-43c3-8e05-edbd9df62ed1.jpg?v=1774545163&width=1920",
     "notes": null
   },
   {
@@ -5668,7 +5668,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "088300150458",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1511346197-28720000.png?v=1763388874&width=1920",
     "notes": null
   },
   {
@@ -5679,7 +5679,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3607340216008",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1731688071-30369200.jpg?v=1763389905&width=1920",
     "notes": null
   },
   {
@@ -5690,7 +5690,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "088300049479",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1524582937-87614200.png?v=1763389916&width=1920",
     "notes": null
   },
   {
@@ -6191,7 +6191,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/eternity-aqua-man-eau-de-toilette-100ml-p31274-84723_image.jpg?v=1721322154&width=1000",
     "notes": null
   },
   {
@@ -6202,7 +6202,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/eternity-moment-eau-de-parfum-30ml-p23687-96618_image_x100.jpg?v=1721322153",
     "notes": null
   },
   {
@@ -6213,7 +6213,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-women-eau-de-parfum-100ml-p20057-96588_image_x100.jpg?v=1721322153",
     "notes": null
   },
   {
@@ -6224,7 +6224,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CK0002_x100.png?v=1767110433",
     "notes": null
   },
   {
@@ -6235,7 +6235,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/eternity-for-men-eau-de-toilette-50ml-p20372-42778_image_x100.jpg?v=1721322155",
     "notes": null
   },
   {
@@ -6246,7 +6246,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-contradiction-eau-de-parfum-100ml-p20059-96593_image_x100.jpg?v=1721322158",
     "notes": null
   },
   {
@@ -6257,7 +6257,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-flame-woman-eau-de-parfum-100ml-p22960-51364_image.jpg?v=1721322156&width=1000",
     "notes": null
   },
   {
@@ -6268,7 +6268,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-in-2-u-woman-eau-de-toilette-150ml-p20385-96630_image_x100.jpg?v=1721322158",
     "notes": null
   },
   {
@@ -6279,7 +6279,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-for-men-eau-de-toilette-100ml-p20021-44330_image_x100.jpg?v=1721322156",
     "notes": null
   },
   {
@@ -6290,7 +6290,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-contradiction-men-eau-de-toilette-100ml-p20023-96622_image_x100.jpg?v=1721322158",
     "notes": null
   },
   {
@@ -6301,7 +6301,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-for-men-eau-de-toilette-75ml-p30458-96634_image_x100.jpg?v=1721322164",
     "notes": null
   },
   {
@@ -6312,7 +6312,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-women-eau-de-parfum-50ml-p20583-71501_image_x100.png?v=1721322163",
     "notes": null
   },
   {
@@ -6323,7 +6323,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/eternity-moment-eau-de-parfum-50ml-p20053-96699_image_x100.jpg?v=1721322151",
     "notes": null
   },
   {
@@ -6334,7 +6334,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-be-eau-de-toilette-200ml-p20028-96626_image_x100.jpg?v=1721322150",
     "notes": null
   },
   {
@@ -6345,7 +6345,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-be-eau-de-toilette-100ml-p20027-96604_image_x100.jpg?v=1721322154",
     "notes": null
   },
   {
@@ -6356,7 +6356,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CK0006_x100.png?v=1773312482",
     "notes": null
   },
   {
@@ -6367,7 +6367,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CK0022_x100.jpg?v=1728297388",
     "notes": null
   },
   {
@@ -6378,7 +6378,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-truth-femme-eau-de-parfum-100ml-p21088-44863_image_x100.jpg?v=1721322158",
     "notes": null
   },
   {
@@ -6389,7 +6389,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ck-free-eau-de-toilette-100ml-p23424-54054_zoom.jpg?v=1721322159&width=2000",
     "notes": null
   },
   {
@@ -6400,7 +6400,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-for-men-aftershave-100ml-p24908-57364_image_x100.jpg?v=1721322167",
     "notes": null
   },
   {
@@ -6411,7 +6411,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-euphoria-for-men-eau-de-toilette-100ml-p24113-54233_image_x100.jpg?v=1721322163",
     "notes": null
   },
   {
@@ -6422,7 +6422,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-escape-eau-de-parfum-100ml-p20062-44332_image_x100.jpg?v=1721322165",
     "notes": null
   },
   {
@@ -6433,7 +6433,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-defy-for-men-eau-de-toilette-100ml-p35754-108446_image.jpg?v=1721322166&width=1000",
     "notes": null
   },
   {
@@ -6444,7 +6444,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-in-2-u-man-eau-de-toilette-150ml-p20019-96642_image_x100.jpg?v=1721322168",
     "notes": null
   },
   {
@@ -6455,7 +6455,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-night-eau-de-toilette-125ml-p20065-96676_image_x100.jpg?v=1721322166",
     "notes": null
   },
   {
@@ -6466,7 +6466,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CK0003_x100.png?v=1767110433",
     "notes": null
   },
   {
@@ -6477,7 +6477,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-aftershave-125ml-p23484-96598_image_x100.jpg?v=1721322163",
     "notes": null
   },
   {
@@ -6488,7 +6488,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/in-2-u-man-eau-de-toilette-100ml-p20018-96679_image_x100.jpg?v=1721322167",
     "notes": null
   },
   {
@@ -6499,7 +6499,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/eternity-women-eau-de-parfum-30ml-p33597-95906_image_x100.jpg?v=1721322164",
     "notes": null
   },
   {
@@ -6510,7 +6510,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ck1-shock-for-men-eau-de-toilette-200ml-p28268-70836_image.jpg?v=1721322165&width=1000",
     "notes": null
   },
   {
@@ -6521,7 +6521,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-one-eau-de-toilette-100ml-p20024-96684_image_x100.jpg?v=1721322167",
     "notes": null
   },
   {
@@ -6532,7 +6532,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CK0001_x100.png?v=1767110434",
     "notes": null
   },
   {
@@ -6543,7 +6543,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/eternity-moment-eau-de-parfum-100ml-p20054-96600_image_x100.jpg?v=1721322164",
     "notes": null
   },
   {
@@ -6554,7 +6554,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-man-eau-de-toilette-50ml-p23899-53760_image_x100.jpg?v=1721322166",
     "notes": null
   },
   {
@@ -6565,7 +6565,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/escape-men-eau-de-toilette-100ml-p20066-44333_image_x100.jpg?v=1721322167",
     "notes": null
   },
   {
@@ -6576,7 +6576,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/obsession-for-men-eau-de-toilette-200ml-p21056-96687_image_x100.jpg?v=1721322165",
     "notes": null
   },
   {
@@ -6587,7 +6587,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/beauty-eau-de-parfum-100ml-p20063-96602_image.jpg?v=1721322168&width=1000",
     "notes": null
   },
   {
@@ -6598,7 +6598,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-night-eau-de-parfum-100ml-p20061-96612_image_x100.jpg?v=1721322167",
     "notes": null
   },
   {
@@ -6609,7 +6609,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-truth-homme-eau-de-toilette-100ml-p31273-84722_image_x100.jpg?v=1721322167",
     "notes": null
   },
   {
@@ -6620,7 +6620,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-for-men-eau-de-toilette-125ml-p21057-96596_image_x100.jpg?v=1721322167",
     "notes": null
   },
   {
@@ -6631,7 +6631,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CK0045.png?v=1756738727&width=1000",
     "notes": null
   },
   {
@@ -6642,7 +6642,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/calvin-klein-man-eau-de-toilette-100ml-p20026-96689_image_x100.jpg?v=1721322172",
     "notes": null
   },
   {
@@ -6653,7 +6653,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/one-eau-de-toilette-200ml-p20025-96681_image_x100.jpg?v=1721322178",
     "notes": null
   },
   {
@@ -6664,7 +6664,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061099735",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728375213-81347000.jpg?v=1763389675&width=1920",
     "notes": null
   },
   {
@@ -6675,7 +6675,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061099728",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728376024-19211000.jpg?v=1763389676&width=1920",
     "notes": null
   },
   {
@@ -6686,7 +6686,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061043844",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728400287-90183400.jpg?v=1763389284&width=1920",
     "notes": null
   },
   {
@@ -6697,7 +6697,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061777183",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728391010-28806500.jpg?v=1763389286&width=1920",
     "notes": null
   },
   {
@@ -6708,7 +6708,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061934234",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641983276-08623600.jpg?v=1763390777&width=1920",
     "notes": null
   },
   {
@@ -6719,7 +6719,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "8411061894026",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728404003-75908700.jpg?v=1763389921&width=1920",
     "notes": null
   },
   {
@@ -6730,7 +6730,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061043868",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728398413-30622400.jpg?v=1763389921&width=1920",
     "notes": null
   },
   {
@@ -6741,7 +6741,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061865583",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728400841-71010900.jpg?v=1763389927&width=1920",
     "notes": null
   },
   {
@@ -6752,7 +6752,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061088166",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728403052-39933500.jpg?v=1763389928&width=1920",
     "notes": null
   },
   {
@@ -6763,7 +6763,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8411061041659",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728304620-08811600.jpg?v=1763390127&width=1920",
     "notes": null
   },
   {
@@ -6774,7 +6774,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061043875",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728304977-93902300.jpg?v=1763390129&width=1920",
     "notes": null
   },
   {
@@ -6785,7 +6785,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061991909",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728382150-38435000.jpg?v=1763390458&width=1920",
     "notes": null
   },
   {
@@ -6796,7 +6796,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061991886",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728377396-77586200.jpg?v=1763390458&width=1920",
     "notes": null
   },
   {
@@ -7135,7 +7135,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0026.png?v=1765452781&width=1000",
     "notes": null
   },
   {
@@ -7146,7 +7146,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHER0014.png?v=1769523257&width=1000",
     "notes": null
   },
   {
@@ -7157,7 +7157,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0021_97337365-132e-4eed-8384-9ef4632ebeb8.png?v=1765452782&width=1000",
     "notes": null
   },
   {
@@ -7168,7 +7168,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0024_d1fa5c13-7369-4513-9c9b-3034ab247dda.png?v=1765452782&width=1000",
     "notes": null
   },
   {
@@ -7179,7 +7179,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0008_7d3832c4-3e08-45dc-a894-a198677fae04.png?v=1765452782&width=1000",
     "notes": null
   },
   {
@@ -7190,7 +7190,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0013_b0bc0a71-62b6-441e-9046-71015750d740.png?v=1765452782&width=1000",
     "notes": null
   },
   {
@@ -7201,7 +7201,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0009.png?v=1765452782&width=1000",
     "notes": null
   },
   {
@@ -7212,7 +7212,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0003_5cdec4df-4b27-4d6e-8f90-8d72641f1343.png?v=1765452782&width=1000",
     "notes": null
   },
   {
@@ -7223,7 +7223,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0002.png?v=1765452783&width=1000",
     "notes": null
   },
   {
@@ -7234,7 +7234,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0025.png?v=1770982471&width=1000",
     "notes": null
   },
   {
@@ -7245,7 +7245,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0001_7143f1b1-b91f-45d3-89ed-825a1a74f4d7.png?v=1765452783&width=1000",
     "notes": null
   },
   {
@@ -7256,7 +7256,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0031_d44a9ffd-1cec-49bc-a855-8749d8169c1c.png?v=1765452783&width=1000",
     "notes": null
   },
   {
@@ -7267,7 +7267,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0007_7bc4bbef-1cf0-44fc-99a9-160b38313e4f.png?v=1765452783&width=1000",
     "notes": null
   },
   {
@@ -7278,7 +7278,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0032.png?v=1765452783&width=1000",
     "notes": null
   },
   {
@@ -7289,7 +7289,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0015_1f5264a6-a61a-460d-b745-b8d1a87ef618.png?v=1765452783&width=1000",
     "notes": null
   },
   {
@@ -7359,7 +7359,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "5050456006472",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1750415067-04039400.jpg?v=1763397806&width=1920",
     "notes": null
   },
   {
@@ -7370,7 +7370,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5050456522729",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1640085849-99285500.jpg?v=1763389933&width=1920",
     "notes": null
   },
   {
@@ -7381,7 +7381,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5050456522736",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1640085789-75372500.jpg?v=1763389935&width=1920",
     "notes": null
   },
   {
@@ -7403,7 +7403,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/cerruti-1881-femme-eau-de-toilette-100ml-p20976-44117_image.jpg?v=1721322172&width=1000",
     "notes": null
   },
   {
@@ -7414,7 +7414,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/cerruti-1881-femme-eau-de-toilette-30ml-p33779-97494_image.jpg?v=1721322174&width=1000",
     "notes": null
   },
   {
@@ -7425,7 +7425,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/cerruti-1881-homme-eau-de-toilette-100ml-p20947-44091_image.jpg?v=1721322187&width=1000",
     "notes": null
   },
   {
@@ -7436,7 +7436,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "0688575201901",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1507804864-09937300.png?v=1763389935&width=1920",
     "notes": null
   },
   {
@@ -7447,7 +7447,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3607346232347",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1642003794-39658600.jpg?v=1763389939&width=1920",
     "notes": null
   },
   {
@@ -7605,7 +7605,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414208000040",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1375189451-89315000.jpg?v=1763389940&width=1920",
     "notes": null
   },
   {
@@ -7616,7 +7616,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "7640177366160",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1371028772-83469800.jpg?v=1763389940&width=1920",
     "notes": null
   },
   {
@@ -7627,7 +7627,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/christina-aguilera-by-night-eau-de-parfum-30ml-p31726-86847_image.jpg?v=1721322172&width=1000",
     "notes": null
   },
   {
@@ -7638,7 +7638,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/christina-aguilera-signature-eau-de-parfum-30ml-p31724-86845_image.jpg?v=1721322172&width=1000",
     "notes": null
   },
   {
@@ -7649,7 +7649,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/christina-aguilera-signature-eau-de-parfum-50ml-p31725-86846_image.jpg?v=1721322175&width=1000",
     "notes": null
   },
   {
@@ -7660,7 +7660,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/christina-aguilera-violet-noir-eau-de-parfum-50ml-p31728-86849_image.jpg?v=1721322181&width=1000",
     "notes": null
   },
   {
@@ -7671,7 +7671,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/christina-aguilera-by-night-eau-de-parfum-50ml-p31727-86848_image.jpg?v=1721322178&width=1000",
     "notes": null
   },
   {
@@ -7682,7 +7682,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "020714999346",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1645102790-32816900.jpg?v=1763390801&width=1920",
     "notes": null
   },
   {
@@ -7693,7 +7693,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "020714997298",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1640000895-04236000.jpg?v=1763390803&width=1920",
     "notes": null
   },
   {
@@ -7704,7 +7704,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "020714156893",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1640001068-06395400.jpg?v=1763390803&width=1920",
     "notes": null
   },
   {
@@ -7763,7 +7763,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/clinique-happy-eau-de-parfum-100ml-p22839-61824_image_x100.jpg?v=1721322168",
     "notes": null
   },
   {
@@ -7774,7 +7774,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CLQ0006_578a4701-5bfd-4fd5-ba71-ddfc934782a9_x100.png?v=1738168656",
     "notes": null
   },
   {
@@ -7785,7 +7785,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/clinique-happy-heart-eau-de-parfum-100ml-p22840-61818_image_x100.jpg?v=1721322170",
     "notes": null
   },
   {
@@ -7796,7 +7796,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CLQ0009_x100.png?v=1738168657",
     "notes": null
   },
   {
@@ -7807,7 +7807,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CLQ0008_fee870ad-6f1e-43e0-8406-b229bfc6edad_x100.png?v=1741166557",
     "notes": null
   },
   {
@@ -7818,7 +7818,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 45,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CLQ0002_440f5929-1757-49c6-a23a-b59190eb7821_x100.png?v=1738168657",
     "notes": null
   },
   {
@@ -7829,7 +7829,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CLQ0003_x100.png?v=1738168657",
     "notes": null
   },
   {
@@ -7840,7 +7840,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3386460078306",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1736875650-56701000.jpg?v=1763390808&width=1920",
     "notes": null
   },
   {
@@ -7851,7 +7851,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060309522929",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1640002320-75487000.jpg?v=1763390494&width=1920",
     "notes": null
   },
   {
@@ -7862,7 +7862,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3508441104631",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/120883_2735306d-da37-4b98-8966-eea812de2819.jpg?v=1770026741&width=1920",
     "notes": null
   },
   {
@@ -7873,7 +7873,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CREED0024.png?v=1751897610&width=1000",
     "notes": null
   },
   {
@@ -7884,7 +7884,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CREED0020.png?v=1751897610&width=1000",
     "notes": null
   },
   {
@@ -7895,7 +7895,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CREED0022.png?v=1751897610&width=1000",
     "notes": null
   },
   {
@@ -7906,7 +7906,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CREED0023.png?v=1769433811&width=1000",
     "notes": null
   },
   {
@@ -7917,7 +7917,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CREED0006.png?v=1756720375&width=1000",
     "notes": null
   },
   {
@@ -7928,7 +7928,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CREED0017.png?v=1751897610&width=1000",
     "notes": null
   },
   {
@@ -7939,7 +7939,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CREED0021.png?v=1751897610&width=1000",
     "notes": null
   },
   {
@@ -7950,7 +7950,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CREED0014.png?v=1751897610&width=1000",
     "notes": null
   },
   {
@@ -7961,7 +7961,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CREED0005.png?v=1751897611&width=1000",
     "notes": null
   },
   {
@@ -7972,7 +7972,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/CREED0002.png?v=1753445102&width=1000",
     "notes": null
   },
   {
@@ -7994,7 +7994,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5060524510008",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1708514753-24587600.jpg?v=1763390823&width=1920",
     "notes": null
   },
   {
@@ -8005,7 +8005,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "5425017732150",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1651680010-33461900.jpg?v=1763390824&width=1920",
     "notes": null
   },
   {
@@ -8016,7 +8016,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5425017732389",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1652099497-56520000.jpg?v=1763390828&width=1920",
     "notes": null
   },
   {
@@ -8027,7 +8027,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 130,
     "ean": "5425017731962",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1643373500-28337200.jpg?v=1763390829&width=1920",
     "notes": null
   },
   {
@@ -8038,7 +8038,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "5425017735977",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1652100070-99408300.jpg?v=1763390829&width=1920",
     "notes": null
   },
   {
@@ -8049,7 +8049,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "5425017736387",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1652101804-66014800.jpg?v=1763390831&width=1920",
     "notes": null
   },
   {
@@ -8060,7 +8060,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5425017736363",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1643373643-70984300.jpg?v=1763390834&width=1920",
     "notes": null
   },
   {
@@ -8071,7 +8071,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "5425017733508",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1643373746-44518000.jpg?v=1763390835&width=1920",
     "notes": null
   },
   {
@@ -8082,7 +8082,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3442151000404",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1729181468-03211800.jpg?v=1763389058&width=1920",
     "notes": null
   },
   {
@@ -8093,7 +8093,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3414202000534",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1708535321-74749500.jpg?v=1763390840&width=1920",
     "notes": null
   },
   {
@@ -8104,7 +8104,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3414202011820",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1371657605-91995100.jpg?v=1763389955&width=1920",
     "notes": null
   },
   {
@@ -8115,7 +8115,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3414202011769",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1507807249-29634000.png?v=1763389957&width=1920",
     "notes": null
   },
   {
@@ -8126,7 +8126,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 110,
     "ean": "3607344163773",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1548867476-73694500.jpg?v=1763389960&width=1920",
     "notes": null
   },
   {
@@ -8159,7 +8159,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/davidoff-champion-eau-de-toilette-90ml-p23902-56721_image.jpg?v=1721322168&width=1000",
     "notes": null
   },
   {
@@ -8170,7 +8170,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-for-women-eau-de-toilette-100ml-p20069-56702_image.jpg?v=1721322175&width=1000",
     "notes": null
   },
   {
@@ -8181,7 +8181,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-for-men-eau-de-toilette-125ml-p20031-56723_image.jpg?v=1721322172&width=1000",
     "notes": null
   },
   {
@@ -8192,7 +8192,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-for-men-eau-de-toilette-75ml-p20030-56731_image.jpg?v=1721322178&width=1000",
     "notes": null
   },
   {
@@ -8203,7 +8203,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-for-men-eau-de-toilette-40ml-p20029-56726_image.jpg?v=1721322172&width=1000",
     "notes": null
   },
   {
@@ -8214,7 +8214,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 110,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/davidoff-hot-water-eau-de-toilette-110ml-p24116-71506_image.png?v=1721322177&width=1000",
     "notes": null
   },
   {
@@ -8225,7 +8225,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-aftershave-125ml-p20010-56725_image.jpg?v=1721322175&width=1000",
     "notes": null
   },
   {
@@ -8236,7 +8236,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/cool-water-for-men-eau-de-toilette-200ml-p22482-56717_image.jpg?v=1721322176&width=1000",
     "notes": null
   },
   {
@@ -8247,7 +8247,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-intense-eau-de-parfum-125ml-p22253-56712_image.jpg?v=1721322175&width=1000",
     "notes": null
   },
   {
@@ -8258,7 +8258,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/davidoff-the-game-eau-de-toilette-100ml-p20032-102777_image.jpg?v=1721322177&width=1000",
     "notes": null
   },
   {
@@ -8269,7 +8269,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/cool-water-intense-eau-de-parfum-75ml-p30145-78346_image.jpg?v=1721322179&width=1000",
     "notes": null
   },
   {
@@ -8280,7 +8280,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DAV0005.png?v=1736861590&width=1000",
     "notes": null
   },
   {
@@ -8291,7 +8291,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-for-women-eau-de-toilette-50ml-p20068-56736_image.jpg?v=1721322185&width=1000",
     "notes": null
   },
   {
@@ -8302,7 +8302,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-aftershave-75ml-p20009-56706_image.jpg?v=1721322181&width=1000",
     "notes": null
   },
   {
@@ -8313,7 +8313,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004325796",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1570464895-62735100.jpg?v=1763389407&width=1920",
     "notes": null
   },
   {
@@ -8324,7 +8324,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605520386442",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641980572-43194600.jpg?v=1763390848&width=1920",
     "notes": null
   },
   {
@@ -8335,7 +8335,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605521534064",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1455902861-97237000.jpg?v=1763389975&width=1920",
     "notes": null
   },
   {
@@ -8512,7 +8512,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/only-the-brave-eau-de-toilette-50ml-p21063-45068_image.jpg?v=1721322176&width=1000",
     "notes": null
   },
   {
@@ -8523,7 +8523,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/only-the-brave-eau-de-toilette-200ml-p22829-50272_image.jpg?v=1721322173&width=1000",
     "notes": null
   },
   {
@@ -8534,7 +8534,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/only-the-brave-eau-de-toilette-125ml-p21064-45070_image.jpg?v=1721322177&width=1000",
     "notes": null
   },
   {
@@ -8545,7 +8545,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DIE0035.png?v=1756738728&width=1000",
     "notes": null
   },
   {
@@ -8556,7 +8556,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3348900921429",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/120083_5e2a3850-ead8-497a-930a-e236581bb844.jpg?v=1773917418&width=1920",
     "notes": null
   },
   {
@@ -8567,7 +8567,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3348901296632",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/5504.jpg?v=1773830979&width=1920",
     "notes": null
   },
   {
@@ -8578,7 +8578,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3348900103870",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/5515.jpg?v=1773833261&width=1920",
     "notes": null
   },
   {
@@ -8589,7 +8589,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3348900574656",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/5517.jpg?v=1773833913&width=1920",
     "notes": null
   },
   {
@@ -8600,7 +8600,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3348900321861",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/8879.jpg?v=1770302314&width=1920",
     "notes": null
   },
   {
@@ -8611,7 +8611,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3348900489226",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/3783.jpg?v=1772449579&width=1920",
     "notes": null
   },
   {
@@ -8622,7 +8622,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3348900236738",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/9488.jpg?v=1773851611&width=1920",
     "notes": null
   },
   {
@@ -8633,7 +8633,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085715950000",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1645104040-95085300.jpg?v=1763390872&width=1920",
     "notes": null
   },
   {
@@ -8644,7 +8644,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085715950086",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1734366492-28170600.jpg?v=1763390876&width=1920",
     "notes": null
   },
   {
@@ -8655,7 +8655,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "763511009800",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1377172637-43583000.jpg?v=1763389991&width=1920",
     "notes": null
   },
   {
@@ -8765,7 +8765,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DKNY0024_a2c02e9e-6363-4d9e-9db8-025882ffe94d.png?v=1765552817&width=1000",
     "notes": null
   },
   {
@@ -8776,7 +8776,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DKNY0012.png?v=1761577741&width=1000",
     "notes": null
   },
   {
@@ -8787,7 +8787,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DKNY0027.png?v=1760692586&width=1000",
     "notes": null
   },
   {
@@ -8798,7 +8798,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DKNY0021.png?v=1760692586&width=1000",
     "notes": null
   },
   {
@@ -8809,7 +8809,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DKNY0003.png?v=1760692587&width=1000",
     "notes": null
   },
   {
@@ -8820,7 +8820,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423473020509",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1697620551-49067600.jpg?v=1763390863&width=1920",
     "notes": null
   },
   {
@@ -8831,7 +8831,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3423473020516",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1697620665-93316300.jpg?v=1763390863&width=1920",
     "notes": null
   },
   {
@@ -8842,7 +8842,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423473021209",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1639997627-18308400.jpg?v=1763390867&width=1920",
     "notes": null
   },
   {
@@ -8853,7 +8853,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423478452558",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1697730958-84990300.jpg?v=1763390869&width=1920",
     "notes": null
   },
   {
@@ -8864,7 +8864,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3423473020257",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1381501811-53613100.jpg?v=1763389980&width=1920",
     "notes": null
   },
   {
@@ -8875,7 +8875,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8057971180349",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1697730851-15473900.jpg?v=1763389980&width=1920",
     "notes": null
   },
   {
@@ -8886,7 +8886,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423473020233",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1611054501-02449600.jpg?v=1763389981&width=1920",
     "notes": null
   },
   {
@@ -8897,7 +8897,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3423473020981",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1381491581-09551900.jpg?v=1763389986&width=1920",
     "notes": null
   },
   {
@@ -8908,7 +8908,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423473020998",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1381491027-71405100.jpg?v=1763389987&width=1920",
     "notes": null
   },
   {
@@ -8919,7 +8919,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423473021001",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1507807475-80241700.jpg?v=1763389990&width=1920",
     "notes": null
   },
   {
@@ -8930,7 +8930,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423473021230",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1381492839-44567300.jpg?v=1763389991&width=1920",
     "notes": null
   },
   {
@@ -9455,7 +9455,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DANDG0019.png?v=1765197717&width=1000",
     "notes": null
   },
   {
@@ -9466,7 +9466,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/devotion-eau-de-parfum-100ml-p34975-104674_image.jpg?v=1721322182&width=1000",
     "notes": null
   },
   {
@@ -9477,7 +9477,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/k-eau-de-toilette-200ml-p38086-120206_image.jpg?v=1721322170&width=1000",
     "notes": null
   },
   {
@@ -9488,7 +9488,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/k-eau-de-parfum-200ml-p38085-120205_image.jpg?v=1721322171&width=1000",
     "notes": null
   },
   {
@@ -9499,7 +9499,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/light-blue-intense-femme-eau-de-parfum-25ml-p28472-71658_image.jpg?v=1721322175&width=1000",
     "notes": null
   },
   {
@@ -9510,7 +9510,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DANDG0037_f1cfc0d3-0de1-4fbe-b170-8decf77898a7.png?v=1765199497&width=1000",
     "notes": null
   },
   {
@@ -9521,7 +9521,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DANDG0066_826d89e4-dded-4fc0-a8fb-32fca100f8a8.png?v=1765199497&width=1000",
     "notes": null
   },
   {
@@ -9532,7 +9532,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DANDG0043_ed99cc1b-db56-486e-ba4d-93231ad873ff.png?v=1765199497&width=1000",
     "notes": null
   },
   {
@@ -9543,7 +9543,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/k-eau-de-toilette-100ml-p22474-108233_image.jpg?v=1721322187&width=1000",
     "notes": null
   },
   {
@@ -9554,7 +9554,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DANDG0036_1b145ec3-f8c1-40f5-bb2b-b00816bdfcfa.png?v=1765199497&width=1000",
     "notes": null
   },
   {
@@ -9565,7 +9565,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/devotion-eau-de-parfum-50ml-p34974-104673_image.jpg?v=1721322187&width=1000",
     "notes": null
   },
   {
@@ -9576,7 +9576,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DANDG0049_673e801c-265b-424c-9033-6537cc3f63c5.png?v=1765199497&width=1000",
     "notes": null
   },
   {
@@ -9587,7 +9587,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DANDG0018.png?v=1765197717&width=1000",
     "notes": null
   },
   {
@@ -9598,7 +9598,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/devotion-eau-de-parfum-30ml-p34973-104672_image.jpg?v=1721322187&width=1000",
     "notes": null
   },
   {
@@ -9609,7 +9609,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DANDG0062_20f54b38-2014-4c85-9ddd-4bc8a2a3e1de.png?v=1765199498&width=1000",
     "notes": null
   },
   {
@@ -9620,7 +9620,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/limperatrice-eau-de-toilette-100ml-p22480-64968_image.jpg?v=1721322184&width=1000",
     "notes": null
   },
   {
@@ -9631,7 +9631,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/k-eau-de-parfum-100ml-p22475-108245_image.jpg?v=1721322195&width=1000",
     "notes": null
   },
   {
@@ -9642,7 +9642,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/pour-homme-intenso-eau-de-parfum-125ml-p31947-88130_image.jpg?v=1721322189&width=1000",
     "notes": null
   },
   {
@@ -9653,7 +9653,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DANDG0035.jpg?v=1765198825&width=1000",
     "notes": null
   },
   {
@@ -9664,7 +9664,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/pour-femme-eau-de-parfum-100ml-p27431-67108_image.jpg?v=1721322195&width=1000",
     "notes": null
   },
   {
@@ -9675,7 +9675,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/light-blue-eau-intense-femme-eau-de-parfum-100ml-p29805-76281_image.jpg?v=1721322190&width=1000",
     "notes": null
   },
   {
@@ -9686,7 +9686,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/q-for-her-eau-de-parfum-100ml-p30641-80358_image.jpg?v=1721322188&width=1000",
     "notes": null
   },
   {
@@ -9697,7 +9697,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/DANDG0020.png?v=1765197717&width=1000",
     "notes": null
   },
   {
@@ -9708,7 +9708,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/light-blue-eau-intense-femme-eau-de-parfum-50ml-p26701-65022_image.jpg?v=1721322200&width=1000",
     "notes": null
   },
   {
@@ -9719,7 +9719,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423473020639",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/954825.jpg?v=1770306027&width=1920",
     "notes": null
   },
   {
@@ -9730,7 +9730,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3423473021216",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/974140.jpg?v=1755874553&width=1920",
     "notes": null
   },
   {
@@ -9741,7 +9741,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423473020042",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/1044326.jpg?v=1755874418&width=1920",
     "notes": null
   },
   {
@@ -9752,7 +9752,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423473020783",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1382630985-42768200.jpg?v=1763389985&width=1920",
     "notes": null
   },
   {
@@ -9763,7 +9763,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "022548173701",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1731673717-46948200.jpg?v=1763390874&width=1920",
     "notes": null
   },
   {
@@ -9774,7 +9774,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003852741",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1583169458-03170300.jpg?v=1763389706&width=1920",
     "notes": null
   },
   {
@@ -9785,7 +9785,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003852697",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1583167579-97718900.jpg?v=1763389707&width=1920",
     "notes": null
   },
   {
@@ -9796,7 +9796,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003864287",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1628695733-54177800.jpg?v=1763390314&width=1920",
     "notes": null
   },
   {
@@ -9807,7 +9807,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003864294",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1628695034-04332300.jpg?v=1763390315&width=1920",
     "notes": null
   },
   {
@@ -9818,7 +9818,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/dsquared2-red-wood-eau-de-toilette-pour-femme-100ml-p20724-43646_image.jpg?v=1721322198&width=1000",
     "notes": null
   },
   {
@@ -9829,7 +9829,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/dsquared2-green-wood-eau-de-toilette-pour-homme-100ml-p20707-43629_image.jpg?v=1721322180&width=1000",
     "notes": null
   },
   {
@@ -9873,7 +9873,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3139420225018",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1372772875-88348000.jpg?v=1763388783&width=1920",
     "notes": null
   },
   {
@@ -9884,7 +9884,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "4035773552513",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1626859409-43771500.jpg?v=1763388789&width=1920",
     "notes": null
   },
   {
@@ -9895,7 +9895,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3423473016953",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1731496383-86876500.jpg?v=1763390883&width=1920",
     "notes": null
   },
   {
@@ -9906,7 +9906,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3423473998556",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1731496956-28386400.jpg?v=1763390884&width=1920",
     "notes": null
   },
   {
@@ -9950,7 +9950,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/le-parfum-eau-de-parfum-50ml-p27122-65545_image.jpg?v=1721322172&width=1000",
     "notes": null
   },
   {
@@ -9961,7 +9961,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/elie-saab-girl-of-now-eau-de-parfum-30ml-p27136-65559_image.jpg?v=1721322176&width=1000",
     "notes": null
   },
   {
@@ -9972,7 +9972,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/le-parfum-eau-de-parfum-90ml-p27123-65546_image.jpg?v=1721322179&width=1000",
     "notes": null
   },
   {
@@ -9983,7 +9983,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/elie-saab-le-parfum-eau-de-parfum-30ml-p27121-65544_image.jpg?v=1721322185&width=1000",
     "notes": null
   },
   {
@@ -9994,7 +9994,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/elie-saab-girl-of-now-eau-de-parfum-50ml-p27137-65560_image.jpg?v=1721322186&width=1000",
     "notes": null
   },
   {
@@ -10005,7 +10005,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/girl-of-now-eau-de-parfum-90ml-p27138-65561_image.jpg?v=1721322190&width=1000",
     "notes": null
   },
   {
@@ -10016,7 +10016,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/elie-saab-le-parfum-royal-eau-de-parfum-90ml-p27129-65552_image.jpg?v=1721322195&width=1000",
     "notes": null
   },
   {
@@ -10027,7 +10027,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/elie-saab-le-parfum-in-white-eau-de-parfum-90ml-p27126-65549_image.jpg?v=1721322197&width=1000",
     "notes": null
   },
   {
@@ -10038,7 +10038,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805161088",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/1006685.jpg?v=1755874490&width=1920",
     "notes": null
   },
   {
@@ -10049,7 +10049,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346373906",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/5211.jpg?v=1755875246&width=1920",
     "notes": null
   },
   {
@@ -10060,7 +10060,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805757748",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/3708.jpg?v=1755875334&width=1920",
     "notes": null
   },
   {
@@ -10071,7 +10071,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "085805785048",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1640184999-88186800.jpg?v=1763390886&width=1920",
     "notes": null
   },
   {
@@ -10082,7 +10082,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "085805268749",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1665068815-45588900.jpg?v=1763390891&width=1920",
     "notes": null
   },
   {
@@ -10093,7 +10093,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805036577",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1658239184-77491800.jpg?v=1763390893&width=1920",
     "notes": null
   },
   {
@@ -10104,7 +10104,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805069308",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1729698513-42574700.jpg?v=1763390896&width=1920",
     "notes": null
   },
   {
@@ -10115,7 +10115,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805555313",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1507815594-67613100.png?v=1763389998&width=1920",
     "notes": null
   },
   {
@@ -10126,7 +10126,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805558420",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1507817368-94373800.png?v=1763390003&width=1920",
     "notes": null
   },
   {
@@ -10137,7 +10137,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "085805120900",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1729764847-92259600.jpg?v=1763390003&width=1920",
     "notes": null
   },
   {
@@ -10148,7 +10148,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805510541",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1369221616-33346700.jpg?v=1763390007&width=1920",
     "notes": null
   },
   {
@@ -10170,7 +10170,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0006_x100.png?v=1777037412",
     "notes": null
   },
   {
@@ -10181,7 +10181,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0004_x100.png?v=1777037415",
     "notes": null
   },
   {
@@ -10192,7 +10192,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0007_x100.png?v=1777037417",
     "notes": null
   },
   {
@@ -10203,7 +10203,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0001_x100.png?v=1777037424",
     "notes": null
   },
   {
@@ -10214,7 +10214,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0080_0ea95c1b-8716-4e25-89a2-34a3be043092_x100.png?v=1778226640",
     "notes": null
   },
   {
@@ -10225,7 +10225,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0003_x100.png?v=1777023584",
     "notes": null
   },
   {
@@ -10236,7 +10236,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0008_x100.png?v=1777037393",
     "notes": null
   },
   {
@@ -10247,7 +10247,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0078_x100.png?v=1777037395",
     "notes": null
   },
   {
@@ -10258,7 +10258,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0002_x100.png?v=1777037400",
     "notes": null
   },
   {
@@ -10269,7 +10269,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/elizabeth-arden-blue-grass-eau-de-parfum-100ml-p22282-49021_image_x100.jpg?v=1721322194",
     "notes": null
   },
   {
@@ -10280,7 +10280,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0055_x100.png?v=1777037406",
     "notes": null
   },
   {
@@ -10291,7 +10291,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0009.png?v=1777037409&width=1000",
     "notes": null
   },
   {
@@ -10302,7 +10302,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346450607",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1375965703-55991000.jpg?v=1763390008&width=1920",
     "notes": null
   },
   {
@@ -10313,7 +10313,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346450409",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1371726419-68050800.jpg?v=1763390010&width=1920",
     "notes": null
   },
   {
@@ -10324,7 +10324,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346022705",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1375965119-84630400.png?v=1763390010&width=1920",
     "notes": null
   },
   {
@@ -10335,7 +10335,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/elizabeth-taylor-diamonds-rubies-eau-de-toilette-100ml-p23490-52280_image.jpg?v=1721322206&width=1000",
     "notes": null
   },
   {
@@ -10346,7 +10346,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/elizabeth-taylor-white-diamonds-eau-de-toilette-30ml-p30340-78855_image.jpg?v=1721322208&width=1000",
     "notes": null
   },
   {
@@ -10357,7 +10357,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/elizabeth-taylor-white-diamonds-eau-de-toilette-100ml-p23487-79053_image.jpg?v=1721322210&width=1000",
     "notes": null
   },
   {
@@ -10368,7 +10368,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/elizabeth-taylor-diamonds-emeralds-eau-de-toilette-100ml-p23492-52282_image.jpg?v=1721322195&width=1000",
     "notes": null
   },
   {
@@ -10379,7 +10379,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/elizabeth-taylor-diamonds-sapphires-eau-de-toilette-100ml-p23491-52281_image.jpg?v=1721322196&width=1000",
     "notes": null
   },
   {
@@ -10390,7 +10390,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/stronger-with-you-for-him-eau-de-toilette-150ml-p31693-87347_image.jpg?v=1721322206&width=1000",
     "notes": null
   },
   {
@@ -10401,7 +10401,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARMA0004.jpg?v=1733131975&width=1000",
     "notes": null
   },
   {
@@ -10412,7 +10412,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/stronger-with-you-for-him-eau-de-toilette-100ml-p31692-87343_image.jpg?v=1721322209&width=1000",
     "notes": null
   },
   {
@@ -10423,7 +10423,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARMA0005_41a22bf5-e97d-408f-b16a-6d6d708459e6.jpg?v=1730741672&width=1000",
     "notes": null
   },
   {
@@ -10434,7 +10434,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/diamonds-she-eau-de-parfum-100ml-p24942-58460_image.jpg?v=1721322203&width=1000",
     "notes": null
   },
   {
@@ -10445,7 +10445,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARMA0005_2dc67560-9bcd-4c2c-a578-6abdf6308bd9.jpg?v=1730741592&width=1000",
     "notes": null
   },
   {
@@ -10456,7 +10456,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/because-its-you-for-her-eau-de-parfum-50ml-p31696-87945_image.jpg?v=1721322207&width=1000",
     "notes": null
   },
   {
@@ -10467,7 +10467,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/emporio-armani-stronger-with-you-intensely-mens-eau-de-parfum-100ml-p31695-88055_image.jpg?v=1721322209&width=1000",
     "notes": null
   },
   {
@@ -10478,7 +10478,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/emporio-armani-stronger-with-you-intensely-mens-eau-de-parfum-50ml-p31694-87950_image.jpg?v=1721322217&width=1000",
     "notes": null
   },
   {
@@ -10489,7 +10489,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARMA0005.jpg?v=1730741546&width=1000",
     "notes": null
   },
   {
@@ -10500,7 +10500,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/diamonds-he-eau-de-toilette-50ml-p24906-71490_image.png?v=1721322194&width=1000",
     "notes": null
   },
   {
@@ -10511,7 +10511,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARMA0005_2afa24f5-c904-425d-bf8b-ca777f342e5c.jpg?v=1730741658&width=1000",
     "notes": null
   },
   {
@@ -10522,7 +10522,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/diamonds-she-eau-de-parfum-50ml-p27079-66164_image.jpg?v=1721322198&width=1000",
     "notes": null
   },
   {
@@ -10533,7 +10533,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/emporio-armani-because-its-you-for-her-eau-de-parfum-100ml-p31697-88059_image.jpg?v=1721322199&width=1000",
     "notes": null
   },
   {
@@ -10544,7 +10544,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/stronger-with-you-absolutely-parfum-100ml-p33709-97202_image.jpg?v=1721322199&width=1000",
     "notes": null
   },
   {
@@ -10555,7 +10555,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/emporio-armani-stronger-with-you-for-him-eau-de-toilette-50ml-p31691-87337_image.jpg?v=1721322209&width=1000",
     "notes": null
   },
   {
@@ -10566,7 +10566,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8005610516134",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1634650865-07443100.jpg?v=1763390484&width=1920",
     "notes": null
   },
   {
@@ -10610,7 +10610,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "027131286905",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/9295_87b5b218-5c81-47d6-8f18-a3a394b724b8.jpg?v=1761654694&width=1920",
     "notes": null
   },
   {
@@ -10621,7 +10621,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "887167095915",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/3556.jpg?v=1755875351&width=1920",
     "notes": null
   },
   {
@@ -10632,7 +10632,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "027131086871",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1731514729-58177700.jpg?v=1763390905&width=1920",
     "notes": null
   },
   {
@@ -10643,7 +10643,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "027131261612",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1713794446-34006900.jpg?v=1763390910&width=1920",
     "notes": null
   },
   {
@@ -10654,7 +10654,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "027131043287",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1731516327-44588800.jpg?v=1763390913&width=1920",
     "notes": null
   },
   {
@@ -10665,7 +10665,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "027131043294",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1714063193-29561200.jpg?v=1763390916&width=1920",
     "notes": null
   },
   {
@@ -10676,7 +10676,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "027131043317",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1710430591-66919200.jpg?v=1763390916&width=1920",
     "notes": null
   },
   {
@@ -10687,7 +10687,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/EST0008_x100.png?v=1739789782",
     "notes": null
   },
   {
@@ -10698,7 +10698,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/EST0002_e88db558-a565-4b37-a2fc-afd5e33ae068_x100.png?v=1738168657",
     "notes": null
   },
   {
@@ -10709,7 +10709,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/EST0011_x100.png?v=1738168657",
     "notes": null
   },
   {
@@ -10720,7 +10720,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/estee-lauder-pleasures-eau-de-parfum-100ml-p24546-61507_image_x100.jpg?v=1721322205",
     "notes": null
   },
   {
@@ -10731,7 +10731,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/EST0007_x100.png?v=1739789782",
     "notes": null
   },
   {
@@ -10742,7 +10742,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/estee-lauder-knowing-eau-de-parfum-75ml-p24265-61501_image_x100.jpg?v=1721322206",
     "notes": null
   },
   {
@@ -10753,7 +10753,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/modern-muse-eau-de-parfum-50ml-p28372-71967_image_x100.jpg?v=1721322206",
     "notes": null
   },
   {
@@ -10764,7 +10764,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 67,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/EST0016_x100.png?v=1739789782",
     "notes": null
   },
   {
@@ -10775,7 +10775,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8002135111974",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1480706123-73335800.jpg?v=1763390019&width=1920",
     "notes": null
   },
   {
@@ -10786,7 +10786,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5055170290053",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1694185937-45676700.jpg?v=1763390928&width=1920",
     "notes": null
   },
   {
@@ -10797,7 +10797,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5055170290046",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1610024517-09709600.jpg?v=1763390079&width=1920",
     "notes": null
   },
   {
@@ -10808,7 +10808,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5055170290039",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1610025827-63793300.jpg?v=1763390084&width=1920",
     "notes": null
   },
   {
@@ -10819,7 +10819,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5055170221019",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1610026057-29470100.jpg?v=1763390085&width=1920",
     "notes": null
   },
   {
@@ -10830,7 +10830,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5055170290060",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1621602378-88135800.jpg?v=1763390206&width=1920",
     "notes": null
   },
   {
@@ -10841,7 +10841,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085715672858",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1555347083-34223800.jpg?v=1763391072&width=1920",
     "notes": null
   },
   {
@@ -10852,7 +10852,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 120,
     "ean": "716393630884",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1557761324-33328200.jpg?v=1763391075&width=1920",
     "notes": null
   },
   {
@@ -10863,7 +10863,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "766124130404",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1557501457-07687400.jpg?v=1763391082&width=1920",
     "notes": null
   },
   {
@@ -10874,7 +10874,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ghost-deep-night-eau-de-toilette-75ml-p36255-113655_image.jpg?v=1721322201&width=1000",
     "notes": null
   },
   {
@@ -10885,7 +10885,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ghost-the-fragrance-eau-de-toilette-100ml-p36759-113808_image.jpg?v=1721322195&width=1000",
     "notes": null
   },
   {
@@ -10896,7 +10896,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GHOST0016.jpg?v=1727344560&width=1000",
     "notes": null
   },
   {
@@ -10907,7 +10907,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360372061823",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1637155891-18182000.jpg?v=1763391093&width=1920",
     "notes": null
   },
   {
@@ -10918,7 +10918,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605521819987",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641570857-63014700.jpg?v=1763390951&width=1920",
     "notes": null
   },
   {
@@ -10929,7 +10929,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614271994721",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/si30.jpg?v=1773743259&width=1920",
     "notes": null
   },
   {
@@ -10940,7 +10940,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614271994806",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/si50.jpg?v=1773743457&width=1920",
     "notes": null
   },
   {
@@ -10951,7 +10951,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3605520380310",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1493377552-02468200.jpg?v=1763391093&width=1920",
     "notes": null
   },
   {
@@ -10962,7 +10962,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272225701",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1548246436-93825600.jpg?v=1763389183&width=1920",
     "notes": null
   },
   {
@@ -10973,7 +10973,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614272907652",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1598971699-54767000.jpg?v=1763389869&width=1920",
     "notes": null
   },
   {
@@ -10984,7 +10984,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273347853",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1626954069-32050500.jpg?v=1763390268&width=1920",
     "notes": null
   },
   {
@@ -10995,7 +10995,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273347839",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1626954416-83263100.jpg?v=1763390271&width=1920",
     "notes": null
   },
   {
@@ -11142,7 +11142,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/giorgio-armani-my-way-eau-de-parfum-90ml-p27847-69687_image.jpg?v=1721322195&width=1000",
     "notes": null
   },
   {
@@ -11153,7 +11153,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARMA0049.png?v=1749024408&width=1000",
     "notes": null
   },
   {
@@ -11164,7 +11164,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARMA0034.png?v=1733934744&width=1000",
     "notes": null
   },
   {
@@ -11175,7 +11175,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/armani-code-femme-eau-de-parfum-30ml-p27842-69682_image.jpg?v=1721322203&width=1000",
     "notes": null
   },
   {
@@ -11186,7 +11186,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/armani-code-eau-de-parfum-50ml-p38166-121232_image.jpg?v=1721322214&width=1000",
     "notes": null
   },
   {
@@ -11197,7 +11197,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/armani-code-femme-eau-de-parfum-50ml-p27843-69683_image.jpg?v=1721322203&width=1000",
     "notes": null
   },
   {
@@ -11208,7 +11208,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/code-pour-homme-eau-de-toilette-125ml-p30633-80955_image.jpg?v=1721322209&width=1000",
     "notes": null
   },
   {
@@ -11219,7 +11219,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARMA0035.png?v=1733934760&width=1000",
     "notes": null
   },
   {
@@ -11230,7 +11230,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/giorgio-armani-my-way-eau-de-parfum-50ml-p27846-69686_image.jpg?v=1721322208&width=1000",
     "notes": null
   },
   {
@@ -11241,7 +11241,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/code-pour-homme-eau-de-toilette-75ml-p30632-80947_image.jpg?v=1721322213&width=1000",
     "notes": null
   },
   {
@@ -11252,7 +11252,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/my-way-eau-de-parfum-30ml-p27845-69685_image.jpg?v=1721322208&width=1000",
     "notes": null
   },
   {
@@ -11263,7 +11263,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARMA0050.png?v=1749024471&width=1000",
     "notes": null
   },
   {
@@ -11274,7 +11274,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/giorgio-armani-armani-code-femme-eau-de-parfum-75ml-p27844-69684_image.jpg?v=1721322209&width=1000",
     "notes": null
   },
   {
@@ -11285,7 +11285,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/armani-code-eau-de-parfum-125ml-p38168-121234_image.jpg?v=1721322215&width=1000",
     "notes": null
   },
   {
@@ -11296,7 +11296,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/giorgio-armani-si-intense-eau-de-parfum-100ml-p33712-99544_image.jpg?v=1721322219&width=1000",
     "notes": null
   },
   {
@@ -11307,7 +11307,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/code-pour-homme-eau-de-toilette-50ml-p30631-80951_image.jpg?v=1721322219&width=1000",
     "notes": null
   },
   {
@@ -11318,7 +11318,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARMA0048.png?v=1749024342&width=1000",
     "notes": null
   },
   {
@@ -11329,7 +11329,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/code-le-parfum-125ml-p28537-71981_image.jpg?v=1721322217&width=1000",
     "notes": null
   },
   {
@@ -11340,7 +11340,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/armani-code-eau-de-parfum-75ml-p38167-121233_image.jpg?v=1721322218&width=1000",
     "notes": null
   },
   {
@@ -11351,7 +11351,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "715885000082",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1554819828-60799100.jpg?v=1763391099&width=1920",
     "notes": null
   },
   {
@@ -11362,7 +11362,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "715885170129",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1372850340-51409900.jpg?v=1763391099&width=1920",
     "notes": null
   },
   {
@@ -11373,7 +11373,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "716393009659",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1372847458-56945100.jpg?v=1763391100&width=1920",
     "notes": null
   },
   {
@@ -11384,7 +11384,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/giorgio-beverly-hills-eau-de-toilette-90ml-p29809-76285_image.jpg?v=1721322205&width=1000",
     "notes": null
   },
   {
@@ -11395,7 +11395,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/giorgio-beverly-hills-eau-de-toilette-30ml-p29808-76284_image.jpg?v=1721322216&width=1000",
     "notes": null
   },
   {
@@ -11406,7 +11406,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872399167",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/4655_1968375d-2ff0-4615-af09-fc4c91f51533.jpg?v=1778588090&width=1920",
     "notes": null
   },
   {
@@ -11417,7 +11417,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872389977",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/6861.jpg?v=1755875143&width=1920",
     "notes": null
   },
   {
@@ -11428,7 +11428,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3274871122506",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1474542610-37949300.jpg?v=1763391103&width=1920",
     "notes": null
   },
   {
@@ -11439,7 +11439,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274870222566",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1515422778-33010100.png?v=1763391107&width=1920",
     "notes": null
   },
   {
@@ -11450,7 +11450,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872423008",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1727338157-36198300.jpg?v=1763390974&width=1920",
     "notes": null
   },
   {
@@ -11461,7 +11461,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872419292",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1727341735-88721700.jpg?v=1763390980&width=1920",
     "notes": null
   },
   {
@@ -11472,7 +11472,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872372139",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1638875542-65945300.jpg?v=1763390986&width=1920",
     "notes": null
   },
   {
@@ -11483,7 +11483,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872372146",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1638876228-60369500.jpg?v=1763390986&width=1920",
     "notes": null
   },
   {
@@ -12040,7 +12040,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0006.png?v=1756720375&width=1000",
     "notes": null
   },
   {
@@ -12051,7 +12051,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0009.png?v=1753445103&width=1000",
     "notes": null
   },
   {
@@ -12062,7 +12062,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0016_4bb977de-8ee8-46ae-a35b-ad438d008c6f.png?v=1766569596&width=1000",
     "notes": null
   },
   {
@@ -12073,7 +12073,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0005_6904d2cf-37c6-47f3-afd8-3c1ce897f8c5.png?v=1765452232&width=1000",
     "notes": null
   },
   {
@@ -12084,7 +12084,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0002.png?v=1753445102&width=1000",
     "notes": null
   },
   {
@@ -12095,7 +12095,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0004.png?v=1753445102&width=1000",
     "notes": null
   },
   {
@@ -12106,7 +12106,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0007.png?v=1753445102&width=1000",
     "notes": null
   },
   {
@@ -12117,7 +12117,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0031.png?v=1753445067&width=1000",
     "notes": null
   },
   {
@@ -12128,7 +12128,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0013.png?v=1769433811&width=1000",
     "notes": null
   },
   {
@@ -12139,7 +12139,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0015.png?v=1753445102&width=1000",
     "notes": null
   },
   {
@@ -12150,7 +12150,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0025.png?v=1753445102&width=1000",
     "notes": null
   },
   {
@@ -12161,7 +12161,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0001_55133d53-f720-4b4d-a97b-a6aeafc4957d.png?v=1765452232&width=1000",
     "notes": null
   },
   {
@@ -12172,7 +12172,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0027.png?v=1753445068&width=1000",
     "notes": null
   },
   {
@@ -12183,7 +12183,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0023.png?v=1753445103&width=1000",
     "notes": null
   },
   {
@@ -12194,7 +12194,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0026.png?v=1753445103&width=1000",
     "notes": null
   },
   {
@@ -12205,7 +12205,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GIV0018.png?v=1753445103&width=1000",
     "notes": null
   },
   {
@@ -12216,7 +12216,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872396180",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1379596157-25716100.jpg?v=1763391105&width=1920",
     "notes": null
   },
   {
@@ -12227,7 +12227,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872441033",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1727281073-50078100.jpg?v=1763390974&width=1920",
     "notes": null
   },
   {
@@ -12238,7 +12238,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872399020",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1727338994-20131800.jpg?v=1763390976&width=1920",
     "notes": null
   },
   {
@@ -12249,7 +12249,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 35,
     "ean": "3274872400719",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1727339561-79147100.jpg?v=1763390980&width=1920",
     "notes": null
   },
   {
@@ -12260,7 +12260,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872419308",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1727341880-40068800.jpg?v=1763390980&width=1920",
     "notes": null
   },
   {
@@ -12271,7 +12271,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872369429",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1727348611-68864900.jpg?v=1763390994&width=1920",
     "notes": null
   },
   {
@@ -12282,7 +12282,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872411685",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1598968857-70759400.jpg?v=1763389873&width=1920",
     "notes": null
   },
   {
@@ -12293,7 +12293,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3357554720012",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1480619483-75397700.jpg?v=1763391110&width=1920",
     "notes": null
   },
   {
@@ -12304,7 +12304,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/gloria-vanderbilt-vanderbilt-no-1-eau-de-toilette-100ml-p32503-91085_image.jpg?v=1721322203&width=1000",
     "notes": null
   },
   {
@@ -12315,7 +12315,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/gloria-vanderbilt-jardin-a-new-york-eau-de-parfum-100ml-p32506-91088_image.jpg?v=1721322214&width=1000",
     "notes": null
   },
   {
@@ -12326,7 +12326,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/gloria-vanderbilt-vanderbilt-in-red-eau-de-parfum-100ml-p32502-91084_image.jpg?v=1721322217&width=1000",
     "notes": null
   },
   {
@@ -12337,7 +12337,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640111494027",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1371458783-30015000.jpg?v=1763391111&width=1920",
     "notes": null
   },
   {
@@ -12348,7 +12348,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3418130110204",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641986906-98078300.jpg?v=1763390998&width=1920",
     "notes": null
   },
   {
@@ -12359,7 +12359,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640111491958",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641986646-38429500.jpg?v=1763390998&width=1920",
     "notes": null
   },
   {
@@ -12370,7 +12370,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "7640111494133",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641987018-79741000.jpg?v=1763390998&width=1920",
     "notes": null
   },
   {
@@ -12381,7 +12381,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-eau-de-parfum-100ml-p23218-87930_image.jpg?v=1721322228&width=1000",
     "notes": null
   },
   {
@@ -12392,7 +12392,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/gres-cabochard-eau-de-toilette-100ml-p31744-87936_image.jpg?v=1721322226&width=1000",
     "notes": null
   },
   {
@@ -12403,7 +12403,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/gres-cabochard-eau-de-parfum-100ml-p23217-87932_image.jpg?v=1721322210&width=1000",
     "notes": null
   },
   {
@@ -12414,7 +12414,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/gres-madame-gres-eau-de-parfum-100ml-p23496-87943_image.jpg?v=1721322210&width=1000",
     "notes": null
   },
   {
@@ -12425,7 +12425,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-rose-eau-de-toilette-100ml-p23497-87919_image.jpg?v=1721322214&width=1000",
     "notes": null
   },
   {
@@ -12436,7 +12436,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-gold-eau-de-toilette-100ml-p31746-87921_image.jpg?v=1721322215&width=1000",
     "notes": null
   },
   {
@@ -12447,7 +12447,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-eau-de-toilette-100ml-p23495-87928_image.jpg?v=1721322218&width=1000",
     "notes": null
   },
   {
@@ -12458,7 +12458,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/gres-cabochard-cherie-eau-de-parfum-100ml-p31745-87934_image.jpg?v=1721322219&width=1000",
     "notes": null
   },
   {
@@ -12991,7 +12991,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0016.png?v=1775142589&width=1000",
     "notes": null
   },
   {
@@ -13002,7 +13002,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0018.png?v=1775142586&width=1000",
     "notes": null
   },
   {
@@ -13013,7 +13013,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0017.png?v=1775142586&width=1000",
     "notes": null
   },
   {
@@ -13024,7 +13024,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0011.png?v=1775142587&width=1000",
     "notes": null
   },
   {
@@ -13035,7 +13035,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0005.png?v=1776075219&width=1000",
     "notes": null
   },
   {
@@ -13046,7 +13046,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0020.png?v=1775142587&width=1000",
     "notes": null
   },
   {
@@ -13057,7 +13057,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0010.png?v=1776858610&width=1000",
     "notes": null
   },
   {
@@ -13068,7 +13068,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0022.png?v=1775142588&width=1000",
     "notes": null
   },
   {
@@ -13079,7 +13079,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0023.png?v=1775142589&width=1000",
     "notes": null
   },
   {
@@ -13090,7 +13090,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0026.png?v=1775142589&width=1000",
     "notes": null
   },
   {
@@ -13101,7 +13101,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0027.png?v=1775142581&width=1000",
     "notes": null
   },
   {
@@ -13112,7 +13112,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0013.png?v=1775142581&width=1000",
     "notes": null
   },
   {
@@ -13123,7 +13123,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0007.png?v=1775142582&width=1000",
     "notes": null
   },
   {
@@ -13134,7 +13134,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0021.png?v=1775142582&width=1000",
     "notes": null
   },
   {
@@ -13145,7 +13145,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0006.png?v=1775142583&width=1000",
     "notes": null
   },
   {
@@ -13156,7 +13156,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0015.png?v=1775142583&width=1000",
     "notes": null
   },
   {
@@ -13167,7 +13167,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0025.png?v=1775142584&width=1000",
     "notes": null
   },
   {
@@ -13178,7 +13178,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0009.png?v=1775142584&width=1000",
     "notes": null
   },
   {
@@ -13189,7 +13189,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0008.png?v=1775142585&width=1000",
     "notes": null
   },
   {
@@ -13200,7 +13200,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC019.png?v=1775142483&width=1000",
     "notes": null
   },
   {
@@ -13211,7 +13211,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0012.png?v=1775142585&width=1000",
     "notes": null
   },
   {
@@ -13222,7 +13222,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0024.png?v=1780055153&width=1000",
     "notes": null
   },
   {
@@ -13233,7 +13233,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "737052925028",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1713782271-50454600.jpg?v=1763391000&width=1920",
     "notes": null
   },
   {
@@ -13244,7 +13244,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8005610481081",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1713780336-29089800.jpg?v=1763391004&width=1920",
     "notes": null
   },
   {
@@ -13255,7 +13255,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "737052626383",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1731410032-19937800.jpg?v=1763391004&width=1920",
     "notes": null
   },
   {
@@ -13266,7 +13266,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614227758063",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1553082110-43463700.jpg?v=1763389256&width=1920",
     "notes": null
   },
   {
@@ -13277,7 +13277,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3346470243989",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/9481.jpg?v=1755875047&width=1920",
     "notes": null
   },
   {
@@ -13288,7 +13288,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3346470241046",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/5921.jpg?v=1755875177&width=1920",
     "notes": null
   },
   {
@@ -13299,7 +13299,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3346470303188",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/274083.jpg?v=1770636211&width=1920",
     "notes": null
   },
   {
@@ -13310,7 +13310,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3346470301856",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1736948509-45326200.jpg?v=1763390626&width=1920",
     "notes": null
   },
   {
@@ -13476,7 +13476,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUER0008_0247cd8c-9f72-459c-b8e4-316c7c7a9e97.png?v=1765452232&width=1000",
     "notes": null
   },
   {
@@ -13487,7 +13487,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUER0010.png?v=1766569596&width=1000",
     "notes": null
   },
   {
@@ -13498,7 +13498,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUER0007.png?v=1766569596&width=1000",
     "notes": null
   },
   {
@@ -13509,7 +13509,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/guerlain-insolence-eau-de-parfum-75ml-p36178-113669_image.jpg?v=1721322225&width=1000",
     "notes": null
   },
   {
@@ -13520,7 +13520,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/GUER0011.png?v=1766569596&width=1000",
     "notes": null
   },
   {
@@ -13531,7 +13531,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3360372009641",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1605262488-54129300.jpg?v=1763389757&width=1920",
     "notes": null
   },
   {
@@ -13542,7 +13542,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3360372009573",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1605262648-05029500.jpg?v=1763389909&width=1920",
     "notes": null
   },
   {
@@ -13553,7 +13553,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/drakkar-noir-eau-de-toilette-200ml-p32514-91096_image.jpg?v=1721322229&width=1000",
     "notes": null
   },
   {
@@ -13564,7 +13564,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/guy-laroche-fidji-eau-de-parfum-50ml-p35126-105390_image.jpg?v=1721322226&width=1000",
     "notes": null
   },
   {
@@ -13575,7 +13575,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/guy-laroche-fidji-eau-de-toilette-100ml-p35124-105389_image.jpg?v=1721322233&width=1000",
     "notes": null
   },
   {
@@ -13586,7 +13586,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/drakkar-noir-eau-de-toilette-100ml-p32513-91095_image.jpg?v=1721322229&width=1000",
     "notes": null
   },
   {
@@ -13597,7 +13597,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346020480",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1708602386-75805300.jpg?v=1763391015&width=1920",
     "notes": null
   },
   {
@@ -13619,7 +13619,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HERM0007.png?v=1766583596&width=1000",
     "notes": null
   },
   {
@@ -13630,7 +13630,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hermes-terre-dhermes-givree-eau-de-parfum-50ml-p36410-114850_image.jpg?v=1721322231&width=1000",
     "notes": null
   },
   {
@@ -13641,7 +13641,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HERM0043.png?v=1777979074&width=1000",
     "notes": null
   },
   {
@@ -13652,7 +13652,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HERM0009.png?v=1766583596&width=1000",
     "notes": null
   },
   {
@@ -13663,7 +13663,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HERM0008.png?v=1766583596&width=1000",
     "notes": null
   },
   {
@@ -13674,7 +13674,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HERM0015.png?v=1770982472&width=1000",
     "notes": null
   },
   {
@@ -13685,7 +13685,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HERM0002.png?v=1766583596&width=1000",
     "notes": null
   },
   {
@@ -13696,7 +13696,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HERM0001.png?v=1766583596&width=1000",
     "notes": null
   },
   {
@@ -13707,7 +13707,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HERM0016.png?v=1770982472&width=1000",
     "notes": null
   },
   {
@@ -13718,7 +13718,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HERM0003_1e1b2dba-d069-40f3-81db-8a3b71909b14.png?v=1775142588&width=1000",
     "notes": null
   },
   {
@@ -13729,7 +13729,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hermes-terre-dhermes-eau-intense-vetiver-eau-de-parfum-50ml-p36408-114854_image.jpg?v=1721322227&width=1000",
     "notes": null
   },
   {
@@ -13740,7 +13740,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HERM0014.png?v=1766583596&width=1000",
     "notes": null
   },
   {
@@ -13751,7 +13751,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3346131402205",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/818085.jpg?v=1755874637&width=1920",
     "notes": null
   },
   {
@@ -13762,7 +13762,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3346130009702",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/967797.jpg?v=1755874576&width=1920",
     "notes": null
   },
   {
@@ -13773,7 +13773,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3346130490654",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/36893.jpg?v=1755874928&width=1920",
     "notes": null
   },
   {
@@ -13784,7 +13784,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5030645841312",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1374598153-25471300.png?v=1763391116&width=1920",
     "notes": null
   },
   {
@@ -13795,7 +13795,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5030645841411",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1387222554-10879600.png?v=1763391116&width=1920",
     "notes": null
   },
   {
@@ -14112,7 +14112,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/bottled-eau-de-toilette-100ml-p20234-71517_image.png?v=1721322236&width=1000",
     "notes": null
   },
   {
@@ -14123,7 +14123,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-deep-red-eau-de-parfum-50ml-p25999-61647_image.jpg?v=1721322232&width=1000",
     "notes": null
   },
   {
@@ -14134,7 +14134,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/bottled-tonic-eau-de-toilette-100ml-p22246-48152_image.jpg?v=1721322236&width=1000",
     "notes": null
   },
   {
@@ -14145,7 +14145,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-boss-femme-eau-de-parfum-50ml-p24946-57506_image.jpg?v=1721322232&width=1000",
     "notes": null
   },
   {
@@ -14156,7 +14156,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-eau-de-parfum-200ml-p35001-104698_image.jpg?v=1721322233&width=1000",
     "notes": null
   },
   {
@@ -14167,7 +14167,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HB0004.jpg?v=1733130581&width=1000",
     "notes": null
   },
   {
@@ -14178,7 +14178,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/the-scent-for-her-le-parfum-50ml-p35008-120106_image.jpg?v=1721322235&width=1000",
     "notes": null
   },
   {
@@ -14189,7 +14189,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HB0038_94b55b64-3a88-4a71-b031-c78a467cb9b1.png?v=1776684403&width=1000",
     "notes": null
   },
   {
@@ -14200,7 +14200,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HB0083.jpg?v=1733760167&width=1000",
     "notes": null
   },
   {
@@ -14211,7 +14211,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-extreme-man-eau-de-parfum-75ml-p25569-60314_image.jpg?v=1721322236&width=1000",
     "notes": null
   },
   {
@@ -14222,7 +14222,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-orange-woman-eau-de-toilette-50ml-p22300-48206_image.jpg?v=1721322237&width=1000",
     "notes": null
   },
   {
@@ -14233,7 +14233,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-eau-de-parfum-100ml-p35000-104697_image.jpg?v=1721322236&width=1000",
     "notes": null
   },
   {
@@ -14244,7 +14244,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HB0191.png?v=1776419577&width=1000",
     "notes": null
   },
   {
@@ -14255,7 +14255,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/bottled-unlimited-eau-de-toilette-100ml-p20377-42783_image.jpg?v=1721322236&width=1000",
     "notes": null
   },
   {
@@ -14266,7 +14266,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-woman-extreme-eau-de-parfum-75ml-p25565-63220_image.jpg?v=1721322236&width=1000",
     "notes": null
   },
   {
@@ -14277,7 +14277,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/woman-eau-de-parfum-90ml-p31290-84736_image.jpg?v=1721322237&width=1000",
     "notes": null
   },
   {
@@ -14288,7 +14288,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-aftershave-splash-100ml-p25651-60418_image.jpg?v=1721322239&width=1000",
     "notes": null
   },
   {
@@ -14299,7 +14299,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-number-one-eau-de-toilette-100ml-p23939-53800_image.jpg?v=1721322236&width=1000",
     "notes": null
   },
   {
@@ -14310,7 +14310,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-hugo-woman-eau-de-parfum-50ml-p24948-57508_image.jpg?v=1721322236&width=1000",
     "notes": null
   },
   {
@@ -14321,7 +14321,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/bottled-night-eau-de-toilette-200ml-p20235-42195_image.jpg?v=1721322241&width=1000",
     "notes": null
   },
   {
@@ -14332,7 +14332,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-night-eau-de-toilette-100ml-p20374-42780_image.jpg?v=1721322243&width=1000",
     "notes": null
   },
   {
@@ -14343,7 +14343,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-energise-for-him-eau-de-toilette-75ml-p24852-105728_image.jpg?v=1721322239&width=1000",
     "notes": null
   },
   {
@@ -14354,7 +14354,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-woman-eau-de-toilette-75ml-p23221-105730_image.jpg?v=1721322241&width=1000",
     "notes": null
   },
   {
@@ -14365,7 +14365,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/reversed-eau-de-toilette-125ml-p25654-60421_image.jpg?v=1721322240&width=1000",
     "notes": null
   },
   {
@@ -14376,7 +14376,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-man-eau-de-toilette-100ml-p23222-57423_image.jpg?v=1721322243&width=1000",
     "notes": null
   },
   {
@@ -14387,7 +14387,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/the-scent-for-him-eau-de-toilette-100ml-p26903-65377_image.jpg?v=1721322245&width=1000",
     "notes": null
   },
   {
@@ -14398,7 +14398,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-in-motion-eau-de-toilette-100ml-p24853-71529_image.png?v=1721322245&width=1000",
     "notes": null
   },
   {
@@ -14409,7 +14409,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-just-different-eau-de-toilette-75ml-p25997-61645_image.jpg?v=1721322245&width=1000",
     "notes": null
   },
   {
@@ -14420,7 +14420,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HB0005.jpg?v=1733130744&width=1000",
     "notes": null
   },
   {
@@ -14431,7 +14431,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-aftershave-splash-50ml-p25650-60417_image.jpg?v=1721322227&width=1000",
     "notes": null
   },
   {
@@ -14442,7 +14442,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-infinite-eau-de-parfum-200ml-p35127-105391_image.jpg?v=1721322227&width=1000",
     "notes": null
   },
   {
@@ -14453,7 +14453,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/HB0021.png?v=1779456400&width=1000",
     "notes": null
   },
   {
@@ -14464,7 +14464,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-boss-femme-eau-de-parfum-30ml-p24945-57505_image.jpg?v=1721322229&width=1000",
     "notes": null
   },
   {
@@ -14475,7 +14475,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-parfum-100ml-p35003-104700_image.jpg?v=1721322232&width=1000",
     "notes": null
   },
   {
@@ -14486,7 +14486,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-infinite-eau-de-parfum-100ml-p34999-104696_image.jpg?v=1721322228&width=1000",
     "notes": null
   },
   {
@@ -14497,7 +14497,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-eau-de-toilette-200ml-p25993-61641_image.jpg?v=1721322234&width=1000",
     "notes": null
   },
   {
@@ -14508,7 +14508,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-infinite-eau-de-parfum-50ml-p24514-55921_image.jpg?v=1721322228&width=1000",
     "notes": null
   },
   {
@@ -14519,7 +14519,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-deep-red-eau-de-parfum-90ml-p21089-71523_image.png?v=1721322232&width=1000",
     "notes": null
   },
   {
@@ -14530,7 +14530,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/bottled-unlimited-eau-de-toilette-200ml-p22247-48153_image.jpg?v=1721322233&width=1000",
     "notes": null
   },
   {
@@ -14541,7 +14541,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/man-eau-de-toilette-200ml-p24513-55920_image.jpg?v=1721322232&width=1000",
     "notes": null
   },
   {
@@ -14552,7 +14552,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-tonic-eau-de-toilette-200ml-p20375-42781_image.jpg?v=1721322236&width=1000",
     "notes": null
   },
   {
@@ -14563,7 +14563,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-tonic-eau-de-toilette-50ml-p21058-71520_image.png?v=1721322237&width=1000",
     "notes": null
   },
   {
@@ -14574,7 +14574,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3614229823776",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/963480.jpg?v=1755874583&width=1920",
     "notes": null
   },
   {
@@ -14585,7 +14585,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052351155",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/2968.jpg?v=1755875418&width=1920",
     "notes": null
   },
   {
@@ -14596,7 +14596,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "737052351001",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1517568130-53955300.png?v=1763391123&width=1920",
     "notes": null
   },
   {
@@ -14607,7 +14607,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "737052238050",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1369145196-89822600.jpg?v=1763391129&width=1920",
     "notes": null
   },
   {
@@ -14618,7 +14618,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052238081",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1369145950-63013600.jpg?v=1763391134&width=1920",
     "notes": null
   },
   {
@@ -14629,7 +14629,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052465678",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1523977882-52693500.png?v=1763391137&width=1920",
     "notes": null
   },
   {
@@ -14640,7 +14640,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614229823790",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1523982609-51930100.png?v=1763391136&width=1920",
     "notes": null
   },
   {
@@ -14651,7 +14651,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614225297687",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1567170763-11427500.jpg?v=1763389426&width=1920",
     "notes": null
   },
   {
@@ -14662,7 +14662,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052972268",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1725638593-16519700.jpg?v=1763391045&width=1920",
     "notes": null
   },
   {
@@ -14673,7 +14673,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3616301623410",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1654609610-63957200.jpg?v=1763391050&width=1920",
     "notes": null
   },
   {
@@ -14684,7 +14684,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052683522",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641989320-68762600.jpg?v=1763391057&width=1920",
     "notes": null
   },
   {
@@ -14695,7 +14695,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052139906",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1643028420-82334600.jpg?v=1763391057&width=1920",
     "notes": null
   },
   {
@@ -14706,7 +14706,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "737052987569",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1595581822-99399300.jpg?v=1763389792&width=1920",
     "notes": null
   },
   {
@@ -14717,7 +14717,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616301623335",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1637252632-17210100.jpg?v=1763390471&width=1920",
     "notes": null
   },
   {
@@ -14728,7 +14728,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "799575501295",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1650470260-62046900.jpg?v=1763391060&width=1920",
     "notes": null
   },
   {
@@ -14739,7 +14739,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3423470485547",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1530205021-70805300.png?v=1763391143&width=1920",
     "notes": null
   },
   {
@@ -14750,7 +14750,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3423470486018",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1381230859-00959400.jpg?v=1763391148&width=1920",
     "notes": null
   },
   {
@@ -14761,7 +14761,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423478782655",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1639479015-57752500.jpg?v=1763391184&width=1920",
     "notes": null
   },
   {
@@ -14772,7 +14772,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423474874651",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1638964321-70886300.jpg?v=1763391187&width=1920",
     "notes": null
   },
   {
@@ -14783,7 +14783,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423474884155",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641990186-88631800.jpg?v=1763391188&width=1920",
     "notes": null
   },
   {
@@ -14794,7 +14794,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423473947158",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1738678008-97649300.jpg?v=1763391190&width=1920",
     "notes": null
   },
   {
@@ -14805,7 +14805,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423470300154",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1643027888-18653400.jpg?v=1763391062&width=1920",
     "notes": null
   },
   {
@@ -14914,7 +14914,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/nuit-dissey-eau-de-toilette-75ml-p24878-57230_image.jpg?v=1721322239&width=1000",
     "notes": null
   },
   {
@@ -14925,7 +14925,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-femme-eau-de-parfum-25ml-p30376-78891_image.jpg?v=1721322235&width=1000",
     "notes": null
   },
   {
@@ -14936,7 +14936,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-intense-eau-de-toilette-125ml-p21060-65050_image.jpg?v=1721322237&width=1000",
     "notes": null
   },
   {
@@ -14947,7 +14947,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-femme-eau-de-toilette-50ml-p26005-65043_image.jpg?v=1721322238&width=1000",
     "notes": null
   },
   {
@@ -14958,7 +14958,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-femme-eau-de-parfum-75ml-p31960-90160_image.jpg?v=1721322236&width=1000",
     "notes": null
   },
   {
@@ -14969,7 +14969,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-femme-eau-de-toilette-100ml-p21860-65038_image.jpg?v=1721322239&width=1000",
     "notes": null
   },
   {
@@ -14980,7 +14980,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/leau-dissey-pour-homme-sport-eau-de-toilette-100ml-p31961-88143_image.jpg?v=1721322239&width=1000",
     "notes": null
   },
   {
@@ -14991,7 +14991,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/leau-dissey-pour-homme-eau-de-toilette-200ml-p20379-44627_image.jpg?v=1721322241&width=1000",
     "notes": null
   },
   {
@@ -15002,7 +15002,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-homme-eau-de-toilette-75ml-p20380-65065_image.jpg?v=1721322243&width=1000",
     "notes": null
   },
   {
@@ -15013,7 +15013,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/leau-dissey-intense-eau-de-toilette-75ml-p22248-65048_image.jpg?v=1721322243&width=1000",
     "notes": null
   },
   {
@@ -15024,7 +15024,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/ISS0012.jpg?v=1730717531&width=1000",
     "notes": null
   },
   {
@@ -15035,7 +15035,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/leau-dissey-pour-homme-sport-eau-de-toilette-50ml-p38037-120110_image.jpg?v=1721322247&width=1000",
     "notes": null
   },
   {
@@ -15046,7 +15046,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-femme-eau-de-parfum-50ml-p26006-65041_image.jpg?v=1721322243&width=1000",
     "notes": null
   },
   {
@@ -15057,7 +15057,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/leau-dissey-pour-homme-eau-de-toilette-125ml-p20378-65064_image.jpg?v=1721322243&width=1000",
     "notes": null
   },
   {
@@ -15068,7 +15068,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/issey-miyake-l-eau-d-issey-pour-femme-eau-de-toilette-25ml-p24146-65054_image.jpg?v=1721322243&width=1000",
     "notes": null
   },
   {
@@ -15079,7 +15079,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-homme-eau-de-toilette-40ml-p20236-65062_image.jpg?v=1721322247&width=1000",
     "notes": null
   },
   {
@@ -15090,7 +15090,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3355991000223",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1558002275-41142600.jpg?v=1763391154&width=1920",
     "notes": null
   },
   {
@@ -15101,7 +15101,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5022479500589",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1548069086-07929700.jpg?v=1763391154&width=1920",
     "notes": null
   },
   {
@@ -15112,7 +15112,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3562700373145",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1664555000-80897100.jpg?v=1763391191&width=1920",
     "notes": null
   },
   {
@@ -15123,7 +15123,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3562700373084",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1664554433-75465700.jpg?v=1763391194&width=1920",
     "notes": null
   },
   {
@@ -15134,7 +15134,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3562700121005",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1654505753-36128600.jpg?v=1763391197&width=1920",
     "notes": null
   },
   {
@@ -15145,7 +15145,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8435415012690",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/558343.jpg?v=1755874704&width=1920",
     "notes": null
   },
   {
@@ -15156,7 +15156,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415012638",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728898125-45310400.jpg?v=1763391162&width=1920",
     "notes": null
   },
   {
@@ -15167,7 +15167,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415012669",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728900145-95103000.jpg?v=1763391162&width=1920",
     "notes": null
   },
   {
@@ -15178,7 +15178,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415017190",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1752769247-36342700.jpg?v=1763391204&width=1920",
     "notes": null
   },
   {
@@ -15189,7 +15189,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8435415059084",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728915400-67995100.jpg?v=1763391208&width=1920",
     "notes": null
   },
   {
@@ -15200,7 +15200,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8435415059060",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1700734328-72152600.jpg?v=1763391209&width=1920",
     "notes": null
   },
   {
@@ -15211,7 +15211,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "8435415011990",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728487474-08177700.jpg?v=1763391209&width=1920",
     "notes": null
   },
   {
@@ -15222,7 +15222,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415032315",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1597998299-48473200.jpg?v=1763389846&width=1920",
     "notes": null
   },
   {
@@ -15233,7 +15233,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435415030908",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1628870775-83801800.jpg?v=1763390303&width=1920",
     "notes": null
   },
   {
@@ -15775,7 +15775,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JPG0029.png?v=1764673320&width=1000",
     "notes": null
   },
   {
@@ -15786,7 +15786,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JPG0006.png?v=1753445103&width=1000",
     "notes": null
   },
   {
@@ -15797,7 +15797,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JPG0025.png?v=1753445103&width=1000",
     "notes": null
   },
   {
@@ -15808,7 +15808,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JPG0005.png?v=1753445103&width=1000",
     "notes": null
   },
   {
@@ -15819,7 +15819,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JPG0014.png?v=1782729448&width=1000",
     "notes": null
   },
   {
@@ -15830,7 +15830,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JPG0030.png?v=1753445103&width=1000",
     "notes": null
   },
   {
@@ -15841,7 +15841,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JPG0008_0ae1d2da-46c0-4114-83f7-6956fa5c9e43.png?v=1774605259&width=1000",
     "notes": null
   },
   {
@@ -15852,7 +15852,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JPG0007.png?v=1753445104&width=1000",
     "notes": null
   },
   {
@@ -15863,7 +15863,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JPG0013.png?v=1782729452&width=1000",
     "notes": null
   },
   {
@@ -15874,7 +15874,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5050456110018",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1556788061-22291000.jpg?v=1763391152&width=1920",
     "notes": null
   },
   {
@@ -15885,7 +15885,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460025492",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1626788438-91865700.jpg?v=1763391168&width=1920",
     "notes": null
   },
   {
@@ -15896,7 +15896,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460066297",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1664543902-03465100.jpg?v=1763391211&width=1920",
     "notes": null
   },
   {
@@ -15907,7 +15907,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460066273",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641990359-49554300.jpg?v=1763391216&width=1920",
     "notes": null
   },
   {
@@ -15918,7 +15918,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460103701",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641921616-98609000.jpg?v=1763391218&width=1920",
     "notes": null
   },
   {
@@ -15929,7 +15929,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460071741",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641898005-54144400.jpg?v=1763391222&width=1920",
     "notes": null
   },
   {
@@ -15940,7 +15940,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460025522",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641893261-50589400.jpg?v=1763391230&width=1920",
     "notes": null
   },
   {
@@ -15951,7 +15951,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460025515",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641893404-90653700.jpg?v=1763391232&width=1920",
     "notes": null
   },
   {
@@ -15962,7 +15962,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460073875",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1738923604-05166800.jpg?v=1763391232&width=1920",
     "notes": null
   },
   {
@@ -15973,7 +15973,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460082198",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1738923412-56332100.jpg?v=1763391233&width=1920",
     "notes": null
   },
   {
@@ -15984,7 +15984,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460109369",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1664543653-00264500.jpg?v=1763391237&width=1920",
     "notes": null
   },
   {
@@ -15995,7 +15995,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460109383",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1565109418-43191300.jpg?v=1763389393&width=1920",
     "notes": null
   },
   {
@@ -16006,7 +16006,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460097345",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1626792067-26654000.jpg?v=1763389031&width=1920",
     "notes": null
   },
   {
@@ -16017,7 +16017,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460072625",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1626794257-58524200.jpg?v=1763388972&width=1920",
     "notes": null
   },
   {
@@ -16028,7 +16028,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460072588",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1530198385-95163300.png?v=1763388973&width=1920",
     "notes": null
   },
   {
@@ -16039,7 +16039,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460127073",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1631200559-04514300.jpg?v=1763390331&width=1920",
     "notes": null
   },
   {
@@ -16050,7 +16050,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460127066",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1631200831-11303500.jpg?v=1763390333&width=1920",
     "notes": null
   },
   {
@@ -16267,7 +16267,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0014.png?v=1738168657&width=1000",
     "notes": null
   },
   {
@@ -16278,7 +16278,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0015.png?v=1738168657&width=1000",
     "notes": null
   },
   {
@@ -16289,7 +16289,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/jimmy-choo-blossom-eau-de-parfum-100ml-p22649-65785_image.jpg?v=1721322244&width=1000",
     "notes": null
   },
   {
@@ -16300,7 +16300,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0009.png?v=1738168657&width=1000",
     "notes": null
   },
   {
@@ -16311,7 +16311,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0058.png?v=1741178528&width=1000",
     "notes": null
   },
   {
@@ -16322,7 +16322,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0016_54b21b7c-6b14-414f-ab3e-fef5eef03520.png?v=1738342917&width=1000",
     "notes": null
   },
   {
@@ -16333,7 +16333,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/jimmy-choo-man-eau-de-toilette-100ml-p30377-83403_image.jpg?v=1721322246&width=1000",
     "notes": null
   },
   {
@@ -16344,7 +16344,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0001.png?v=1738168658&width=1000",
     "notes": null
   },
   {
@@ -16355,7 +16355,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0002.png?v=1738168658&width=1000",
     "notes": null
   },
   {
@@ -16366,7 +16366,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0006.png?v=1738168658&width=1000",
     "notes": null
   },
   {
@@ -16377,7 +16377,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/jimmy-choo-leau-eau-de-toilette-40ml-p22656-108022_image.jpg?v=1721322246&width=1000",
     "notes": null
   },
   {
@@ -16388,7 +16388,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/floral-eau-de-toilette-90ml-p22655-108020_image.jpg?v=1721322251&width=1000",
     "notes": null
   },
   {
@@ -16399,7 +16399,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0023.png?v=1766583597&width=1000",
     "notes": null
   },
   {
@@ -16410,7 +16410,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0061_6847d940-8986-4077-b683-f17af4876bd0.png?v=1738168804&width=1000",
     "notes": null
   },
   {
@@ -16421,7 +16421,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0010.png?v=1738168658&width=1000",
     "notes": null
   },
   {
@@ -16432,7 +16432,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/jimmy-choo-i-want-choo-eau-de-parfum-40ml-p22634-65755_image.jpg?v=1721322250&width=1000",
     "notes": null
   },
   {
@@ -16443,7 +16443,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/leau-eau-de-toilette-60ml-p22657-65797_image.jpg?v=1721322250&width=1000",
     "notes": null
   },
   {
@@ -16815,7 +16815,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JOOP0003.png?v=1766583596&width=1000",
     "notes": null
   },
   {
@@ -16826,7 +16826,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JOOP0020.png?v=1766583597&width=1000",
     "notes": null
   },
   {
@@ -16837,7 +16837,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414200640015",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641994689-16777100.jpg?v=1763391243&width=1920",
     "notes": null
   },
   {
@@ -16848,7 +16848,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3414206000615",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/3273.jpg?v=1755875391&width=1920",
     "notes": null
   },
   {
@@ -16859,7 +16859,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 88,
     "ean": "035017009029",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1739186921-35836600.jpg?v=1763391245&width=1920",
     "notes": null
   },
   {
@@ -16870,7 +16870,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 96,
     "ean": "035017008923",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1739186864-82219300.jpg?v=1763391245&width=1920",
     "notes": null
   },
   {
@@ -16881,7 +16881,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 88,
     "ean": "035017008145",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1739186721-85103900.jpg?v=1763391249&width=1920",
     "notes": null
   },
   {
@@ -16892,7 +16892,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346128070",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/113395.jpg?v=1755874821&width=1920",
     "notes": null
   },
   {
@@ -16903,7 +16903,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346158657",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/970837.jpg?v=1755874571&width=1920",
     "notes": null
   },
   {
@@ -16936,7 +16936,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JHG0018_7dd1b20f-b6b3-4d76-870e-24dce66ca2f8.png?v=1761214687&width=1000",
     "notes": null
   },
   {
@@ -16947,7 +16947,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://www.justmylook.com/cdn/shop/files/JHG0002.jpg?v=1728553172&width=1000",
     "notes": null
   },
   {
@@ -16958,7 +16958,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "688575003260",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1371030048-96998900.jpg?v=1763391178&width=1920",
     "notes": null
   },
   {
@@ -16969,7 +16969,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274872420625",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/322225.jpg?v=1755874739&width=1920",
     "notes": null
   },
   {
@@ -16980,7 +16980,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872420618",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/75453.jpg?v=1755874870&width=1920",
     "notes": null
   },
   {
@@ -16991,7 +16991,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3352818518800",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1461059554-87818700.jpg?v=1763391179&width=1920",
     "notes": null
   },
   {
@@ -17002,7 +17002,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872404175",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1643026823-27442300.jpg?v=1763391272&width=1920",
     "notes": null
   },
   {
@@ -17072,7 +17072,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3355800001793",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/18073.jpg?v=1755874977&width=1920",
     "notes": null
   },
   {
@@ -17083,7 +17083,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "737052483214",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/5653.jpg?v=1755875204&width=1920",
     "notes": null
   },
   {
@@ -17094,7 +17094,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3616302931781",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/3322.jpg?v=1755875385&width=1920",
     "notes": null
   },
   {
@@ -17419,7 +17419,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3147758155358",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/8366.jpg?v=1755875083&width=1920",
     "notes": null
   },
   {
@@ -17430,7 +17430,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3614273476782",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_24946d1f-0207-4d4b-8578-91fb5f3f6fc5.jpg?v=1774371158&width=1920",
     "notes": null
   },
   {
@@ -17441,7 +17441,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273476164",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1643027055-53158900.jpg?v=1763391443&width=1920",
     "notes": null
   },
   {
@@ -17452,7 +17452,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605532612768",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/9_58a19973-734d-44ba-8642-2f70268e057f.jpg?v=1774364821&width=1920",
     "notes": null
   },
   {
@@ -17463,7 +17463,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3614272639638",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1565951320-65358400.jpg?v=1763389395&width=1920",
     "notes": null
   },
   {
@@ -17474,7 +17474,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273476287",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_9790e254-f647-4348-82db-8d16ca0c112e.jpg?v=1774370063&width=1920",
     "notes": null
   },
   {
@@ -17485,7 +17485,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460010399",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/16635.jpg?v=1755874980&width=1920",
     "notes": null
   },
   {
@@ -17496,7 +17496,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6291106066890",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1561393908-50494900.jpg?v=1763389329&width=1920",
     "notes": null
   },
   {
@@ -17507,7 +17507,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291106065114",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1561394216-70731700.jpg?v=1763389330&width=1920",
     "notes": null
   },
   {
@@ -17518,7 +17518,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "6291107454412",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1615537312-07237200.jpg?v=1763389472&width=1920",
     "notes": null
   },
   {
@@ -17529,7 +17529,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291107456041",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1713866039-32975700.jpg?v=1763390528&width=1920",
     "notes": null
   },
   {
@@ -17540,7 +17540,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760168633300",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1557826147-08285200.jpg?v=1763389320&width=1920",
     "notes": null
   },
   {
@@ -17551,7 +17551,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760168633287",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1557826772-77578500.jpg?v=1763389317&width=1920",
     "notes": null
   },
   {
@@ -17562,7 +17562,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760168632525",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1626363094-19592500.jpg?v=1763390238&width=1920",
     "notes": null
   },
   {
@@ -17584,7 +17584,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607349389062",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/996158.jpg?v=1755874513&width=1920",
     "notes": null
   },
   {
@@ -17595,7 +17595,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616301776000",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1636105912-26658400.jpg?v=1763390473&width=1920",
     "notes": null
   },
   {
@@ -18000,7 +18000,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3386460028394",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/5931.jpg?v=1770221728&width=1920",
     "notes": null
   },
   {
@@ -18011,7 +18011,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3386460028325",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/5932.jpg?v=1770221891&width=1920",
     "notes": null
   },
   {
@@ -18022,7 +18022,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3386460028424",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/8849.jpg?v=1770223267&width=1920",
     "notes": null
   },
   {
@@ -18033,7 +18033,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460101059",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1626857424-32973400.jpg?v=1763389291&width=1920",
     "notes": null
   },
   {
@@ -18044,7 +18044,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460101042",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1554801723-69670500.jpg?v=1763389293&width=1920",
     "notes": null
   },
   {
@@ -18055,7 +18055,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460121538",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1626858160-82866700.jpg?v=1763390193&width=1920",
     "notes": null
   },
   {
@@ -18066,7 +18066,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3386460118132",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1631203203-73220600.jpg?v=1763390326&width=1920",
     "notes": null
   },
   {
@@ -18428,7 +18428,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003061327",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/8850.jpg?v=1755875064&width=1920",
     "notes": null
   },
   {
@@ -18439,7 +18439,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003845125",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1580752090-75840700.jpg?v=1763389682&width=1920",
     "notes": null
   },
   {
@@ -18450,7 +18450,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003845132",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/toyboy.jpg?v=1775555690&width=1920",
     "notes": null
   },
   {
@@ -18461,7 +18461,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8011003839285",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1556633129-55231400.jpg?v=1763389304&width=1920",
     "notes": null
   },
   {
@@ -18472,7 +18472,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003839292",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1556633275-89771800.jpg?v=1763389304&width=1920",
     "notes": null
   },
   {
@@ -18483,7 +18483,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003839308",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1556637217-50965700.jpg?v=1763389305&width=1920",
     "notes": null
   },
   {
@@ -18494,7 +18494,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003864089",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1622028524-88692400.jpg?v=1775555463&width=1920",
     "notes": null
   },
   {
@@ -18505,7 +18505,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3439600056914",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1614764038-88308700.jpg?v=1763390144&width=1920",
     "notes": null
   },
   {
@@ -18516,7 +18516,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "3439600056525",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1750844292-95521500.jpg?v=1763390146&width=1920",
     "notes": null
   },
   {
@@ -18527,7 +18527,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3439600056532",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1750843991-77912800.jpg?v=1763390149&width=1920",
     "notes": null
   },
   {
@@ -18538,7 +18538,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3439601204642",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1633000174-69591000.jpg?v=1763390288&width=1920",
     "notes": null
   },
   {
@@ -18549,7 +18549,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3439601204611",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1633000400-99837700.jpg?v=1763390289&width=1920",
     "notes": null
   },
   {
@@ -18899,7 +18899,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423478999053",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1584114125-18128500.jpg?v=1763389718&width=1920",
     "notes": null
   },
   {
@@ -18910,7 +18910,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423473053859",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1599227889-47807300.jpg?v=1763389875&width=1920",
     "notes": null
   },
   {
@@ -19247,7 +19247,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "5425017734277",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1739186092-75826700.jpg?v=1763390835&width=1920",
     "notes": null
   },
   {
@@ -19377,7 +19377,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291106810585",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1561386305-75649700.jpg?v=1763389344&width=1920",
     "notes": null
   },
   {
@@ -19388,7 +19388,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 6,
     "ean": "6291106810332",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1533831220-18616500.png?v=1763388973&width=1920",
     "notes": null
   },
   {
@@ -19399,7 +19399,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291106810592",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1533905648-73516500.png?v=1763388979&width=1920",
     "notes": null
   },
   {
@@ -19410,7 +19410,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 6,
     "ean": "6291106810400",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1533832943-72310000.png?v=1763388980&width=1920",
     "notes": null
   },
   {
@@ -19421,7 +19421,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6291106810776",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1533833308-75754200.png?v=1763388985&width=1920",
     "notes": null
   },
   {
@@ -19432,7 +19432,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 6,
     "ean": "6291106810301",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1533833585-18518200.png?v=1763388986&width=1920",
     "notes": null
   },
   {
@@ -19443,7 +19443,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6291106810684",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1533833741-72861800.png?v=1763388987&width=1920",
     "notes": null
   },
   {
@@ -19454,7 +19454,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6291106810721",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1533899663-54427800.png?v=1763388997&width=1920",
     "notes": null
   },
   {
@@ -19465,7 +19465,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6291106810691",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1533905037-82261900.png?v=1763388998&width=1920",
     "notes": null
   },
   {
@@ -19476,7 +19476,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 6,
     "ean": "6291106810387",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1533907129-34544700.png?v=1763389002&width=1920",
     "notes": null
   },
   {
@@ -19487,7 +19487,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 6,
     "ean": "6291106810394",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1639496174-15385200.jpg?v=1763389003&width=1920",
     "notes": null
   },
   {
@@ -19498,7 +19498,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6291106810745",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1533908094-17638900.png?v=1763389017&width=1920",
     "notes": null
   },
   {
@@ -19509,7 +19509,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6291106810677",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1533908338-98325300.png?v=1763389019&width=1920",
     "notes": null
   },
   {
@@ -19520,7 +19520,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 6,
     "ean": "6291106810356",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1724840998-22614800.jpg?v=1763389021&width=1920",
     "notes": null
   },
   {
@@ -19531,7 +19531,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 6,
     "ean": "6291106810295",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1533909891-16044800.png?v=1763389023&width=1920",
     "notes": null
   },
   {
@@ -19542,7 +19542,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 6,
     "ean": "6291106810363",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1533910259-64850000.png?v=1763389026&width=1920",
     "notes": null
   },
   {
@@ -19553,7 +19553,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 6,
     "ean": "6291106810370",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1533912425-56012800.png?v=1763389028&width=1920",
     "notes": null
   },
   {
@@ -19564,7 +19564,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 6,
     "ean": "6291106811131",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1626700789-92604200.jpg?v=1763389797&width=1920",
     "notes": null
   },
   {
@@ -19575,7 +19575,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 6,
     "ean": "6291106811148",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1626703746-82762700.jpg?v=1763389797&width=1920",
     "notes": null
   },
   {
@@ -19586,7 +19586,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6291106811247",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1713785085-09827000.jpg?v=1763389799&width=1920",
     "notes": null
   },
   {
@@ -19597,7 +19597,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6291106811254",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1636021325-80397900.png?v=1763389803&width=1920",
     "notes": null
   },
   {
@@ -19608,7 +19608,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "6291106811261",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1639495510-09651500.jpg?v=1763390021&width=1920",
     "notes": null
   },
   {
@@ -19619,7 +19619,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 6,
     "ean": "6291106811124",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1626701674-99891700.jpg?v=1763390021&width=1920",
     "notes": null
   },
   {
@@ -19630,7 +19630,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6291106810615",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1626701095-25290900.jpg?v=1763390210&width=1920",
     "notes": null
   },
   {
@@ -20481,7 +20481,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004321767",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1614596319-16582600.jpg?v=1763389709&width=1920",
     "notes": null
   },
   {
@@ -20492,7 +20492,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004322269",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1614594946-43333600.jpg?v=1763389207&width=1920",
     "notes": null
   },
   {
@@ -20503,7 +20503,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004321194",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1552038954-53649200.jpg?v=1763389208&width=1920",
     "notes": null
   },
   {
@@ -20514,7 +20514,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004322504",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1614595498-22189300.jpg?v=1763389211&width=1920",
     "notes": null
   },
   {
@@ -20525,7 +20525,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004322030",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1614595823-78540500.jpg?v=1763389214&width=1920",
     "notes": null
   },
   {
@@ -20536,7 +20536,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 95,
     "ean": "3760084670212",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1552040522-49078000.jpg?v=1763389214&width=1920",
     "notes": null
   },
   {
@@ -20547,7 +20547,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004321361",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1637239332-42090000.jpg?v=1763390620&width=1920",
     "notes": null
   },
   {
@@ -20558,7 +20558,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004323594",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1637239477-60028500.jpg?v=1763390620&width=1920",
     "notes": null
   },
   {
@@ -20569,7 +20569,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004323006",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1621955864-63865800.jpg?v=1763390227&width=1920",
     "notes": null
   },
   {
@@ -20580,7 +20580,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004321378",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1621956131-27949900.jpg?v=1763390232&width=1920",
     "notes": null
   },
   {
@@ -20591,7 +20591,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137742226",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/53453.jpg?v=1755874886&width=1920",
     "notes": null
   },
   {
@@ -20602,7 +20602,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8435137782970",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/black50.jpg?v=1773331423&width=1920",
     "notes": null
   },
   {
@@ -20613,7 +20613,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273556620",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/100ml_43e55946-d4cb-4887-ade7-6ca02f715d51.jpg?v=1775561459&width=1920",
     "notes": null
   },
   {
@@ -20860,7 +20860,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668579822",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1725015290-74385000.jpg?v=1763389866&width=1920",
     "notes": null
   },
   {
@@ -20871,7 +20871,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668579839",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1725264519-53432100.jpg?v=1763389866&width=1920",
     "notes": null
   },
   {
@@ -20882,7 +20882,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668592364",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728399817-41151700.jpg?v=1763390174&width=1920",
     "notes": null
   },
   {
@@ -20893,7 +20893,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668683055",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1750176185-80780600.jpg?v=1763390224&width=1920",
     "notes": null
   },
   {
@@ -20904,7 +20904,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668683031",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1750176490-84682600.jpg?v=1763390225&width=1920",
     "notes": null
   },
   {
@@ -20915,7 +20915,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668582365",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1738236064-76169400.jpg?v=1763390450&width=1920",
     "notes": null
   },
   {
@@ -20926,7 +20926,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668678648",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1738236170-01763500.jpg?v=1763390451&width=1920",
     "notes": null
   },
   {
@@ -20937,7 +20937,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3605970416003",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1597333100-02194500.jpg?v=1763389777&width=1920",
     "notes": null
   },
   {
@@ -20948,7 +20948,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3605971512612",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1632411667-50196700.jpg?v=1763390274&width=1920",
     "notes": null
   },
   {
@@ -21095,7 +21095,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "3700066738578",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1615893373-95562100.jpg?v=1763389381&width=1920",
     "notes": null
   },
   {
@@ -21106,7 +21106,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "3700066738530",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1615893728-33844400.jpg?v=1763389384&width=1920",
     "notes": null
   },
   {
@@ -21117,7 +21117,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "3700066738455",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1615894196-07872800.jpg?v=1763389385&width=1920",
     "notes": null
   },
   {
@@ -21128,7 +21128,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "3700066738424",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1615899831-62767400.jpg?v=1763389387&width=1920",
     "notes": null
   },
   {
@@ -21139,7 +21139,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "3700066738585",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1565342288-70619400.jpg?v=1763389389&width=1920",
     "notes": null
   },
   {
@@ -21150,7 +21150,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 85,
     "ean": "3700066738448",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1615900610-17822400.jpg?v=1763389390&width=1920",
     "notes": null
   },
   {
@@ -21178,7 +21178,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004322429",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1695652756-34803900.jpg?v=1763389713&width=1920",
     "notes": null
   },
   {
@@ -21189,7 +21189,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004322443",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1593526570-67829300.jpg?v=1763389715&width=1920",
     "notes": null
   },
   {
@@ -21200,7 +21200,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3760004322573",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1614590845-35376300.jpg?v=1763390067&width=1920",
     "notes": null
   },
   {
@@ -21307,7 +21307,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3442150901313",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1561641359-95260500.jpg?v=1763389044&width=1920",
     "notes": null
   },
   {
@@ -21318,7 +21318,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3442151001593",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1616072945-78677400.jpg?v=1763389885&width=1920",
     "notes": null
   },
   {
@@ -21362,7 +21362,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "6295124024832",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1636041233-15633900.jpg?v=1763389474&width=1920",
     "notes": null
   },
   {
@@ -21395,7 +21395,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "888066015509",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/930363.jpg?v=1770292516&width=1920",
     "notes": null
   },
   {
@@ -21406,7 +21406,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "888066008433",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/53473.jpg?v=1770288874&width=1920",
     "notes": null
   },
   {
@@ -21417,7 +21417,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "888066006743",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/75053.jpg?v=1770289058&width=1920",
     "notes": null
   },
   {
@@ -21428,7 +21428,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "888066000512",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/9035.jpg?v=1770288375&width=1920",
     "notes": null
   },
   {
@@ -21715,7 +21715,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11034090-1575322025006851.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21726,7 +21726,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11034091-5945348401607583.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21737,7 +21737,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11079226-9935318373968502.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21748,7 +21748,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11079299-1664947466818765.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21759,7 +21759,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11173341-6815323126841019.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21770,7 +21770,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11173343-5065323126666023.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21781,7 +21781,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11210303-4285318388675813.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21792,7 +21792,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11220941-1145323832179416.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21803,7 +21803,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11274779-5665348400636093.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21814,7 +21814,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11274796-1915348401067733.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21825,7 +21825,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11394274-6145327202411627.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21836,7 +21836,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11394275-1145327202466545.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21847,7 +21847,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11421497-1455322025229070.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21858,7 +21858,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11429110-2585348400431172.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21869,7 +21869,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11429114-1365348400541620.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21880,7 +21880,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11859241-1825318430776796.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21891,7 +21891,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11883227-1575325374908899.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21902,7 +21902,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11986296-1745327203139064.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21913,7 +21913,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12026245-1075321983641606.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21924,7 +21924,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12033921-1365318394946656.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21935,7 +21935,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12095647-9245323126492227.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21946,7 +21946,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12127924-5445322132694806.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21957,7 +21957,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12127925-1425322132870732.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21968,7 +21968,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12127927-6095322133045443.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21979,7 +21979,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243615-6385327413782678.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -21990,7 +21990,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243616-1985348401121403.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22001,7 +22001,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243617-1275327413959036.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22012,7 +22012,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243620-4824938932377437.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22023,7 +22023,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243622-1695348401247745.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22034,7 +22034,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243625-1595327414098728.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22045,7 +22045,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12380047-1185328530555982.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22056,7 +22056,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/15016795-2155321257161153.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22067,7 +22067,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10002885-1375319910557186.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22078,7 +22078,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10002886-1235319910652802.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22089,7 +22089,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10077798-3095318369767431.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22100,7 +22100,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10301201-4445330266053921.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22111,7 +22111,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 118,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10588308-2035336083679121.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22122,7 +22122,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10810788-5265319912391467.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22133,7 +22133,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10952559-2125345308047579.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22144,7 +22144,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10954663-1095318373165174.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22155,7 +22155,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": null,
     "shops": 1,
-    "image": null,
+    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11034069-9245322024568227.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -22166,7 +22166,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273073875",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1602176240-08524000.jpg?v=1763390039&width=1920",
     "notes": null
   },
   {
@@ -22177,7 +22177,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273073882",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1602176476-85197700.jpg?v=1763390043&width=1920",
     "notes": null
   },
   {
@@ -22188,7 +22188,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273261333",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1612198030-79436100.jpg?v=1763390114&width=1920",
     "notes": null
   },
   {
@@ -22199,7 +22199,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273261357",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1612195403-72143800.jpg?v=1763390113&width=1920",
     "notes": null
   },
   {
@@ -22210,7 +22210,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273261401",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1612194361-86239600.jpg?v=1763390114&width=1920",
     "notes": null
   },
   {
@@ -22221,7 +22221,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273261432",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1612198535-24232400.jpg?v=1763390114&width=1920",
     "notes": null
   },
   {
@@ -22232,7 +22232,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273459068",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1626867949-08072100.jpg?v=1763390279&width=1920",
     "notes": null
   },
   {
@@ -22243,7 +22243,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273459051",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1637836828-08617100.jpg?v=1763390282&width=1920",
     "notes": null
   },
   {
@@ -22439,7 +22439,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003845347",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1552051576-33021000.jpg?v=1763389196&width=1920",
     "notes": null
   },
   {
@@ -22450,7 +22450,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003845354",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1552051860-11873400.jpg?v=1763389196&width=1920",
     "notes": null
   },
   {
@@ -22461,7 +22461,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003861903",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1614669873-83246500.jpg?v=1763390140&width=1920",
     "notes": null
   },
   {
@@ -22472,7 +22472,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003861224",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1614670279-32666200.jpg?v=1763390142&width=1920",
     "notes": null
   },
   {
@@ -22483,7 +22483,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8011003858538",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1616597350-28825000.jpg?v=1763390163&width=1920",
     "notes": null
   },
   {
@@ -22494,7 +22494,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003858545",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1616597693-30044200.jpg?v=1763390166&width=1920",
     "notes": null
   },
   {
@@ -22505,7 +22505,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003858552",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1616598991-82809800.jpg?v=1763390166&width=1920",
     "notes": null
   },
   {
@@ -22516,7 +22516,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8011003846627",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1628596332-37281900.jpg?v=1763390309&width=1920",
     "notes": null
   },
   {
@@ -22527,7 +22527,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272191549",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1554976505-61737000.jpg?v=1763389179&width=1920",
     "notes": null
   },
   {
@@ -22538,7 +22538,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273067775",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1599744828-88398900.jpg?v=1763389805&width=1920",
     "notes": null
   },
   {
@@ -22549,7 +22549,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273308113",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1642178313-37898100.jpg?v=1763390155&width=1920",
     "notes": null
   },
   {
@@ -22560,7 +22560,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273308229",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1642178440-67611800.jpg?v=1763390156&width=1920",
     "notes": null
   },
   {
@@ -22829,7 +22829,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614272648401",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/30.jpg?v=1773238212&width=1920",
     "notes": null
   },
   {
@@ -22840,7 +22840,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614272648418",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/50_1be8e7a0-49ed-40ef-b0d6-dd4eda062c6b.jpg?v=1773243616&width=1920",
     "notes": null
   },
   {
@@ -22851,7 +22851,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614272648425",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/90.jpg?v=1773243766&width=1920",
     "notes": null
   },
   {
@@ -22862,7 +22862,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3614272050341",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1542364730-47120900.jpg?v=1763389164&width=1920",
     "notes": null
   },
   {
@@ -22873,7 +22873,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614272050358",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1542365297-28837100.jpg?v=1763389166&width=1920",
     "notes": null
   },
   {
@@ -22884,7 +22884,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614273069533",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/30_aa57250a-3830-4dec-bea9-1d00614d3704.jpg?v=1773244832&width=1920",
     "notes": null
   },
   {
@@ -22895,7 +22895,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273069540",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/50_363d5921-8c91-49b7-b7fd-a772c699577a.jpg?v=1773245098&width=1920",
     "notes": null
   },
   {
@@ -22906,7 +22906,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273069557",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/123_da2c1390-34ba-4ce8-86f1-e21416e39737.jpg?v=1773247127&width=1920",
     "notes": null
   },
   {
@@ -22917,7 +22917,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273321792",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_0b1a9510-0c60-4baa-83cd-8fcdd0391df5.jpg?v=1773247593&width=1920",
     "notes": null
   },
   {
@@ -22928,7 +22928,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3365440037229",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/770805_b241471b-6c3b-4bdb-8f7b-2bda160c6cc8.jpg?v=1784119118&width=1920",
     "notes": null
   },
   {
@@ -22939,7 +22939,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3365440037045",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/770885.jpg?v=1782208258&width=1920",
     "notes": null
   },
   {
@@ -22950,7 +22950,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3365440556386",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/103335.jpg?v=1755874829&width=1920",
     "notes": null
   },
   {
@@ -22961,7 +22961,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3365440556461",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/4478.jpg?v=1755875281&width=1920",
     "notes": null
   },
   {
@@ -22972,7 +22972,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3365440025578",
     "shops": 1,
-    "image": null,
+    "image": "https://allbeauty.com/cdn/shop/files/5466.jpg?v=1755875232&width=1920",
     "notes": null
   },
   {
@@ -22994,7 +22994,7 @@ export const CATALOGUE: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171070283",
     "shops": 1,
-    "image": null,
+    "image": "https://www.beautybase.com/cdn/shop/files/1706701755-72825100.jpg?v=1763390194&width=1920",
     "notes": null
   }
 ];
@@ -23011,7 +23011,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3619.jpg?v=1755875347&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23023,7 +23023,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1377169026-24665500.jpg?v=1763389992&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23049,7 +23049,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3550_979c3385-e84b-435e-8b2a-6bfef54f8af1.jpg?v=1764687672&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23061,7 +23061,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1640184556-16176000.jpg?v=1763390921&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23087,7 +23087,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3665.jpg?v=1755875338&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23099,7 +23099,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731515135-39455400.jpg?v=1763390907&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23125,7 +23125,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/2945.jpg?v=1755875424&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23137,7 +23137,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738750950-39987900.jpg?v=1763391050&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23163,7 +23163,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/5608.jpg?v=1766138711&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23175,7 +23175,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1739293977-94520400.jpg?v=1763391465&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23201,7 +23201,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/5936.jpg?v=1766142031&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23213,7 +23213,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1739355283-35891100.jpg?v=1763391461&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23239,7 +23239,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/81493.jpg?v=1764781658&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23265,7 +23265,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/619123.jpg?v=1766146443&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23277,7 +23277,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1639582299-37817000.jpg?v=1763390691&width=1920"
     }
   ],
   "ean-3386460057059": [
@@ -23291,7 +23291,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/1010092.jpg?v=1766415001&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23303,7 +23303,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1639582463-39624200.jpg?v=1763390692&width=1920"
     }
   ],
   "ean-3386460036405": [
@@ -23317,7 +23317,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/27825.jpg?v=1766143869&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23343,7 +23343,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3438.jpg?v=1762857825&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23355,7 +23355,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1579610777-00863400.jpg?v=1763389366&width=1920"
     }
   ],
   "ean-5045252667392": [
@@ -23369,7 +23369,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641981357-49202500.jpg?v=1763390723&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23395,7 +23395,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1639585256-45295500.jpg?v=1763390737&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23421,7 +23421,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1579606241-09666000.jpg?v=1763388811&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23447,7 +23447,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1579603964-50813200.jpg?v=1763388817&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23473,7 +23473,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/513983.jpg?v=1755874708&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23499,7 +23499,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/5450.jpg?v=1755875234&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23511,7 +23511,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1524823575-78730600.png?v=1763388848&width=1920"
     }
   ],
   "ean-088300178278": [
@@ -23525,7 +23525,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/7016.jpg?v=1755875128&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23537,7 +23537,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_f9a60f8c-115d-4ae8-a8a7-b64918e0ead3.jpg?v=1774538799&width=1920"
     }
   ],
   "ean-088300606511": [
@@ -23551,7 +23551,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3326.jpg?v=1755875385&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23563,7 +23563,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1524582636-06482300.png?v=1763388871&width=1920"
     }
   ],
   "ean-088300602513": [
@@ -23577,7 +23577,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3349.jpg?v=1755875380&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23589,7 +23589,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369146236-25573500.jpg?v=1763388848&width=1920"
     }
   ],
   "ean-088300100514": [
@@ -23603,7 +23603,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3358.jpg?v=1755875379&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23615,7 +23615,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1604685049-41099400.jpg?v=1763388849&width=1920"
     }
   ],
   "ean-3614225670435": [
@@ -23629,7 +23629,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1557823233-53792000.jpg?v=1763389315&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23655,7 +23655,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1534347326-42520500.png?v=1763389042&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23681,7 +23681,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1380195011-70803200.jpg?v=1763388845&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23707,7 +23707,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728305354-71305100.jpg?v=1763390132&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23733,7 +23733,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728377788-84970200.jpg?v=1763390459&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23759,7 +23759,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/4006.jpg?v=1760534700&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23771,7 +23771,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1614851043-15937600.jpg?v=1763390074&width=1920"
     }
   ],
   "ean-020714881429": [
@@ -23785,7 +23785,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/4020.jpg?v=1761659172&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23797,7 +23797,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738761933-00833300.jpg?v=1763390804&width=1920"
     }
   ],
   "ean-3607341186805": [
@@ -23811,7 +23811,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/981852.jpg?v=1755874540&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23823,7 +23823,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369146616-95807100.jpg?v=1763389962&width=1920"
     }
   ],
   "ean-3414200204415": [
@@ -23837,7 +23837,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/9089.jpg?v=1755875051&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -23849,7 +23849,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1503070262-54091400.jpg?v=1763389945&width=1920"
     }
   ],
   "ean-3414202000572": [
@@ -23863,7 +23863,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1478602520-63763000.jpg?v=1763389951&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23889,7 +23889,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369146072-28015800.jpg?v=1763389951&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23915,7 +23915,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1554822568-78308200.jpg?v=1763389957&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23941,7 +23941,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1548867446-51429200.jpg?v=1763389958&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23967,7 +23967,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/8654.jpg?v=1755875077&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -23993,7 +23993,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/8657.jpg?v=1755875076&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24019,7 +24019,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369066103-16264300.jpg?v=1763389974&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24045,7 +24045,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/5319.jpg?v=1755875239&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24071,7 +24071,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1737027133-55446800.jpg?v=1763390861&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24097,7 +24097,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1737027349-60198100.jpg?v=1763390870&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24123,7 +24123,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/72713.jpg?v=1755874881&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -24135,7 +24135,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1604073483-84811200.jpg?v=1763389980&width=1920"
     }
   ],
   "ean-3423473020776": [
@@ -24149,7 +24149,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1382630876-93962700.jpg?v=1763389985&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24175,7 +24175,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/774475.jpg?v=1755874642&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -24187,7 +24187,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369220169-22457400.jpg?v=1763390002&width=1920"
     }
   ],
   "ean-085805390600": [
@@ -24201,7 +24201,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/4966.jpg?v=1755875249&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -24213,7 +24213,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1507819313-70608200.png?v=1763389997&width=1920"
     }
   ],
   "ean-085805785345": [
@@ -24227,7 +24227,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3633.jpg?v=1755875344&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -24239,7 +24239,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1507818412-25525400.png?v=1763389997&width=1920"
     }
   ],
   "ean-027131595045": [
@@ -24253,7 +24253,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/11116_bad96f3f-4f6c-4da5-97d6-75ee10501a9a.jpg?v=1764680702&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24279,7 +24279,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3965.jpg?v=1755875306&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -24291,7 +24291,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1640098868-72742800.jpg?v=1763390910&width=1920"
     }
   ],
   "ean-027131521433": [
@@ -24305,7 +24305,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3548_a241f3eb-074f-4583-8bc5-5bded50072f3.jpg?v=1761748430&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -24317,7 +24317,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738924874-10053400.jpg?v=1763390916&width=1920"
     }
   ],
   "ean-027131020424": [
@@ -24331,7 +24331,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3561.jpg?v=1755875350&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -24343,7 +24343,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1640184466-60943500.jpg?v=1763390919&width=1920"
     }
   ],
   "ean-3360372061793": [
@@ -24357,7 +24357,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1629457932-96497000.jpg?v=1763391094&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24383,7 +24383,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1629458041-31692000.jpg?v=1763391097&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24409,7 +24409,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/si100.jpg?v=1773743462&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24435,7 +24435,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1531477588-61748100.png?v=1763389014&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24461,7 +24461,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1548247575-65397600.jpg?v=1763389184&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24487,7 +24487,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1598970723-85653900.jpg?v=1763389873&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24513,7 +24513,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1598971439-08774800.jpg?v=1763389873&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24539,7 +24539,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/987905.jpg?v=1755874526&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24565,7 +24565,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3058.jpg?v=1755875401&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24591,7 +24591,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1697816027-69003600.jpg?v=1763391109&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24617,7 +24617,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727185705-04025900.jpg?v=1763390970&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24643,7 +24643,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1638876451-60461700.jpg?v=1763390988&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24669,7 +24669,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1638876757-44789600.jpg?v=1763390986&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24695,7 +24695,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1729862900-54569400.jpg?v=1763391112&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24721,7 +24721,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/970605.jpg?v=1755874572&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24747,7 +24747,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/8620.jpg?v=1755875078&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24773,7 +24773,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1523983042-36415600.png?v=1763391124&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24799,7 +24799,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1517568324-24126200.png?v=1763391125&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24825,7 +24825,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1523976922-05452900.png?v=1763391130&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24851,7 +24851,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_6f336ee8-21a9-4ea2-810a-808da2c5b95f.jpg?v=1781860832&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24877,7 +24877,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1708532635-52175800.jpg?v=1763391039&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24903,7 +24903,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1708013582-62041900.jpg?v=1763391041&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24929,7 +24929,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641988767-16668700.jpg?v=1763391044&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24955,7 +24955,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1657102178-91115600.jpg?v=1763391054&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -24981,7 +24981,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1380882213-09203900.jpg?v=1763391146&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25007,7 +25007,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1512729200-18894900.jpg?v=1763391148&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25033,7 +25033,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1655893555-75287700.jpg?v=1763391063&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25059,7 +25059,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641989869-57162800.jpg?v=1763391069&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25085,7 +25085,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1752768267-61792400.jpg?v=1763389412&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25111,7 +25111,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1597997971-91657900.jpg?v=1763389845&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25137,7 +25137,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1628871260-42116800.jpg?v=1763390307&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25163,7 +25163,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641922281-58518400.jpg?v=1763391161&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25189,7 +25189,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641922372-23883600.jpg?v=1763391165&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25215,7 +25215,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626788779-21720600.jpg?v=1763391170&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25241,7 +25241,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626789129-32999700.jpg?v=1763391170&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25267,7 +25267,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641921907-32608600.jpg?v=1763391219&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25293,7 +25293,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641922125-16382500.jpg?v=1763391224&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25319,7 +25319,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641898524-33251200.jpg?v=1763391225&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25345,7 +25345,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626792824-89623800.jpg?v=1763389032&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25371,7 +25371,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1530198568-35094500.png?v=1763388974&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25397,7 +25397,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626797550-14848700.jpg?v=1763390121&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25423,7 +25423,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/958854.jpg?v=1755874603&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25449,7 +25449,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/7993.jpg?v=1755875092&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -25461,7 +25461,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641994776-58717600.jpg?v=1763391243&width=1920"
     }
   ],
   "ean-3414206000059": [
@@ -25475,7 +25475,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/4533.jpg?v=1755875274&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25501,7 +25501,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3237.jpg?v=1755875394&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -25513,7 +25513,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626778742-80816000.jpg?v=1763389886&width=1920"
     }
   ],
   "ean-3614273069175": [
@@ -25527,7 +25527,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1737019404-38151200.jpg?v=1763391441&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25553,7 +25553,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1737022052-99050800.jpg?v=1763391459&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25579,7 +25579,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1565951619-03699700.jpg?v=1763389397&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25605,7 +25605,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1636107194-49861300.jpg?v=1763390475&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25631,7 +25631,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1584617778-16192900.jpg?v=1763389721&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25657,7 +25657,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626857980-05400600.jpg?v=1763389293&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25683,7 +25683,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/8853.jpg?v=1755875064&width=1920"
     },
     {
       "retailerId": "beautybase",
@@ -25695,7 +25695,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1561133688-12483700.jpg?v=1763389348&width=1920"
     }
   ],
   "ean-3423473053958": [
@@ -25709,7 +25709,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1599228093-71760600.jpg?v=1763389879&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25735,7 +25735,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1627029940-02807300.jpg?v=1763390246&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25761,7 +25761,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/4836.jpg?v=1762859858&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25787,7 +25787,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/black.jpg?v=1773331404&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25813,7 +25813,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1563200849-97720600.jpg?v=1763389375&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25839,7 +25839,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/101945.jpg?v=1770290421&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25865,7 +25865,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1611770440-98501700.jpg?v=1763389478&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25891,7 +25891,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1612198970-00941000.jpg?v=1763390119&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25917,7 +25917,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626867807-46836900.jpg?v=1763390277&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25943,7 +25943,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/446963.jpg?v=1755874726&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25969,7 +25969,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/7015.jpg?v=1755875129&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -25995,7 +25995,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1554976773-32818200.jpg?v=1763389183&width=1920"
     },
     {
       "retailerId": "fragrance-click",
@@ -26021,7 +26021,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738315293-44252200.jpg?v=1763390637&width=1920"
     }
   ],
   "ean-085715167804": [
@@ -26035,7 +26035,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/963_a2a81a73-41d1-4130-b540-12a6345dd930.jpg?v=1774438885&width=1920"
     }
   ],
   "ean-85715163035": [
@@ -26329,7 +26329,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0043.png?v=1765452780&width=1000"
     }
   ],
   "justmylook-acq0048": [
@@ -26343,7 +26343,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0048_622cfb7b-924b-4810-b259-3b3c795e32f2.png?v=1765452780&width=1000"
     }
   ],
   "justmylook-acq0067": [
@@ -26357,7 +26357,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0067.png?v=1769433665&width=1000"
     }
   ],
   "justmylook-acq0010": [
@@ -26371,7 +26371,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0010.png?v=1765452780&width=1000"
     }
   ],
   "justmylook-acq0054": [
@@ -26385,7 +26385,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0054_2165eae5-c0ff-4dd1-b798-f400423e4186.png?v=1765452779&width=1000"
     }
   ],
   "justmylook-acq0003": [
@@ -26399,7 +26399,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0003.png?v=1766569596&width=1000"
     }
   ],
   "justmylook-acq0002": [
@@ -26413,7 +26413,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0002.png?v=1766569596&width=1000"
     }
   ],
   "justmylook-acq0028": [
@@ -26427,7 +26427,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0028_b8c06c6e-741e-4a16-bf80-4aa1b0424730.png?v=1765452779&width=1000"
     }
   ],
   "justmylook-acq0098": [
@@ -26441,7 +26441,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ImageComingSoon_3103c16c-437b-48ba-847c-adc5643d5106.png?v=1784887759&width=1000"
     }
   ],
   "justmylook-acq0071": [
@@ -26455,7 +26455,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0071.png?v=1765452778&width=1000"
     }
   ],
   "justmylook-acq0011": [
@@ -26469,7 +26469,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0011_dde54f44-03c0-4809-a8a6-0fd9b84b5ea5.png?v=1765452778&width=1000"
     }
   ],
   "justmylook-acq0044": [
@@ -26483,7 +26483,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0044.png?v=1765452778&width=1000"
     }
   ],
   "justmylook-acq0033": [
@@ -26497,7 +26497,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0033_ab0a6598-7180-4ae5-b782-c1c73c4cf0cd.png?v=1765452778&width=1000"
     }
   ],
   "justmylook-acq0034": [
@@ -26511,7 +26511,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0034.png?v=1766569596&width=1000"
     }
   ],
   "justmylook-acq0061": [
@@ -26525,7 +26525,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0061_08caf202-67d7-4d19-91ab-e63dfa5d9b9d.png?v=1765452779&width=1000"
     }
   ],
   "justmylook-acq0066": [
@@ -26539,7 +26539,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0066_154ec1fe-e2bb-4810-97a2-680c1615da1f.png?v=1765452779&width=1000"
     }
   ],
   "justmylook-acq0052": [
@@ -26553,7 +26553,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0052_7ff6dc0c-244b-4d0a-8077-c06344fb1f13.png?v=1765452779&width=1000"
     }
   ],
   "justmylook-acq0060": [
@@ -26567,7 +26567,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0060.png?v=1765452779&width=1000"
     }
   ],
   "justmylook-acq0032": [
@@ -26581,7 +26581,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0032_06ba8cba-6a8f-442f-a306-5df08782ab77.png?v=1765452777&width=1000"
     }
   ],
   "justmylook-acq0053": [
@@ -26595,7 +26595,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0053_3fcefe3a-2fe7-42cc-9388-1fb67280b4b9.png?v=1765452777&width=1000"
     }
   ],
   "justmylook-acq0049": [
@@ -26609,7 +26609,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0049.png?v=1766569595&width=1000"
     }
   ],
   "justmylook-acq0045": [
@@ -26623,7 +26623,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0045_e87e2314-2083-432b-922e-0d7a333f9715.png?v=1765452777&width=1000"
     }
   ],
   "justmylook-acq0012": [
@@ -26637,7 +26637,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0012_8423c95c-f940-4d0c-9bb8-f262dd7dfbd0.png?v=1765452777&width=1000"
     }
   ],
   "justmylook-acq0097": [
@@ -26651,7 +26651,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ImageComingSoon_a16cefa1-4d62-4585-9fcd-3322a8963974.png?v=1784887738&width=1000"
     }
   ],
   "justmylook-acq0070": [
@@ -26665,7 +26665,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0070_7e13f7ef-00fc-42b3-b435-53fb38965957.png?v=1765452778&width=1000"
     }
   ],
   "justmylook-acq0047": [
@@ -26679,7 +26679,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0047.png?v=1765452778&width=1000"
     }
   ],
   "justmylook-acq0029": [
@@ -26693,7 +26693,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0029_21933450-aa12-47d3-9feb-1ed23f7e4000.png?v=1765452778&width=1000"
     }
   ],
   "justmylook-acq0001": [
@@ -26707,7 +26707,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0001_8257ffb1-dcf6-4247-a144-47dccac0b886.png?v=1765452778&width=1000"
     }
   ],
   "justmylook-acq0065": [
@@ -26721,7 +26721,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0065_b538a699-76d7-4fba-a8c9-a185441bd60a.png?v=1765452782&width=1000"
     }
   ],
   "ean-3616303321932": [
@@ -26735,7 +26735,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738315449-63507800.jpg?v=1763390643&width=1920"
     }
   ],
   "ean-3616303322021": [
@@ -26749,7 +26749,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1483630248-89363400.jpg?v=1763388782&width=1920"
     }
   ],
   "ean-3616303322052": [
@@ -26763,7 +26763,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1461601073-07469400.jpg?v=1774439430&width=1920"
     }
   ],
   "justmylook-afnn0009": [
@@ -26777,7 +26777,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-in-oud-extrait-de-parfum-150ml-p35655-108061_image.jpg?v=1721322155&width=1000"
     }
   ],
   "justmylook-afnn0005": [
@@ -26791,7 +26791,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-in-oud-extrait-de-parfum-100ml-p35651-108052_image.jpg?v=1721322149&width=1000"
     }
   ],
   "justmylook-afnn0002": [
@@ -26805,7 +26805,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-9am-pour-femme-eau-de-parfum-100ml-p35648-108048_image.jpg?v=1721322139&width=1000"
     }
   ],
   "justmylook-afnn0006": [
@@ -26819,7 +26819,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-100ml-p35652-108055_image.jpg?v=1721322127&width=1000"
     }
   ],
   "justmylook-afnn0008": [
@@ -26833,7 +26833,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-150ml-p35654-108059_image.jpg?v=1721322130&width=1000"
     }
   ],
   "justmylook-afnn0003": [
@@ -26847,7 +26847,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-9pm-pour-homme-eau-de-parfum-100ml-p35649-108050_image.jpg?v=1721322129&width=1000"
     }
   ],
   "justmylook-afnn0015": [
@@ -26861,7 +26861,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-turathi-blue-pour-homme-eau-de-parfum-90ml-p35660-108070_image.jpg?v=1721322132&width=1000"
     }
   ],
   "justmylook-afnn0001": [
@@ -26875,7 +26875,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/9am-dive-eau-de-parfum-100ml-p35647-108046_image.jpg?v=1721322135&width=1000"
     }
   ],
   "justmylook-afnn0007": [
@@ -26889,7 +26889,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-silver-pour-homme-eau-de-parfum-100ml-p35653-108057_image.jpg?v=1721322166&width=1000"
     }
   ],
   "ean-6290171000976": [
@@ -26903,7 +26903,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731672226-10534000.jpg?v=1763390650&width=1920"
     }
   ],
   "ean-6290171070207": [
@@ -26917,7 +26917,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731672437-86290500.jpg?v=1763390188&width=1920"
     }
   ],
   "ean-6290171070214": [
@@ -26931,7 +26931,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731672339-12274700.jpg?v=1763390198&width=1920"
     }
   ],
   "justmylook-agen0002": [
@@ -26945,7 +26945,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/agent-provocateur-eau-de-parfum-200ml-p22269-48175_image_x100.jpg?v=1721322125"
     }
   ],
   "ean-6293708009893": [
@@ -26959,7 +26959,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1696412897-52374700.jpg?v=1763390658&width=1920"
     }
   ],
   "ean-6291100133116": [
@@ -26973,7 +26973,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/852_660122f5-9bb4-402a-a60f-70f00ba55470.jpg?v=1774449263&width=1920"
     }
   ],
   "ean-6291100131709": [
@@ -26987,7 +26987,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_925f933d-77a5-4605-ab12-1c92ed17d090.jpg?v=1774449613&width=1920"
     }
   ],
   "ean-6291100130801": [
@@ -27001,7 +27001,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1557397595-89087800.jpg?v=1763389177&width=1920"
     }
   ],
   "ean-6291100130450": [
@@ -27057,7 +27057,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1556643813-73900500.jpg?v=1763389302&width=1920"
     }
   ],
   "ean-6291110090942": [
@@ -27071,7 +27071,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1708534403-52309800.jpg?v=1763390663&width=1920"
     }
   ],
   "ean-8411061411919": [
@@ -27085,7 +27085,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1555578722-00252100.jpg?v=1763388794&width=1920"
     }
   ],
   "ean-022548006719": [
@@ -27099,7 +27099,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1373890966-32895400.jpg?v=1763388795&width=1920"
     }
   ],
   "justmylook-ar0002": [
@@ -27113,7 +27113,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/AR0002_x100.png?v=1766583596"
     }
   ],
   "justmylook-ar0003": [
@@ -27127,7 +27127,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/AR0003_x100.png?v=1766583596"
     }
   ],
   "ean-812256024293": [
@@ -27141,7 +27141,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/30mlty.jpg?v=1773756147&width=1920"
     }
   ],
   "ean-812256024286": [
@@ -27155,7 +27155,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/50mltyn.jpg?v=1773756172&width=1920"
     }
   ],
   "ean-812256024279": [
@@ -27169,7 +27169,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/100mltyn.jpg?v=1773756195&width=1920"
     }
   ],
   "ean-812256021728": [
@@ -27183,7 +27183,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/ariii.jpg?v=1773764465&width=1920"
     }
   ],
   "ean-812256021711": [
@@ -27197,7 +27197,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/ariii.jpg?v=1773764465&width=1920"
     }
   ],
   "ean-812256023302": [
@@ -27211,7 +27211,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/ari30.jpg?v=1773750786&width=1920"
     }
   ],
   "ean-812256023296": [
@@ -27225,7 +27225,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/cl50ml.jpg?v=1773751147&width=1920"
     }
   ],
   "ean-812256023289": [
@@ -27239,7 +27239,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/cl1000.jpg?v=1773751154&width=1920"
     }
   ],
   "ean-812256025481": [
@@ -27253,7 +27253,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/rem30.jpg?v=1773756709&width=1920"
     }
   ],
   "ean-812256025474": [
@@ -27267,7 +27267,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/rem50.jpg?v=1773756784&width=1920"
     }
   ],
   "ean-812256025467": [
@@ -27281,7 +27281,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/rem100.jpg?v=1773756979&width=1920"
     }
   ],
   "justmylook-ari0014": [
@@ -27295,7 +27295,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/r-e-m-eau-de-parfum-50ml-p20964-44105_image.jpg?v=1721322162&width=1000"
     }
   ],
   "justmylook-ari0011": [
@@ -27309,7 +27309,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ariana-grande-thank-u-next-eau-de-parfum-50ml-p20961-44102_image.jpg?v=1721322138&width=1000"
     }
   ],
   "justmylook-ari0002": [
@@ -27323,7 +27323,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ari-eau-de-parfum-50ml-p20952-44093_image.jpg?v=1721322140&width=1000"
     }
   ],
   "justmylook-ari0001": [
@@ -27337,7 +27337,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ariana-grande-ari-eau-de-parfum-30ml-p20951-44092_image.jpg?v=1721322146&width=1000"
     }
   ],
   "justmylook-ari0013": [
@@ -27351,7 +27351,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ariana-grande-r-e-m-eau-de-parfum-30ml-p20963-44104_image.jpg?v=1721322151&width=1000"
     }
   ],
   "justmylook-ari0003": [
@@ -27365,7 +27365,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ari-eau-de-parfum-100ml-p20953-44094_image.jpg?v=1721322147&width=1000"
     }
   ],
   "justmylook-ari0008": [
@@ -27379,7 +27379,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ariana-grande-cloud-eau-de-parfum-50ml-p20958-44099_image.jpg?v=1721322150&width=1000"
     }
   ],
   "justmylook-ari0012": [
@@ -27393,7 +27393,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/thank-u-next-eau-de-parfum-100ml-p20962-44103_image.jpg?v=1721322124&width=1000"
     }
   ],
   "justmylook-ari0010": [
@@ -27407,7 +27407,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/thank-u-next-eau-de-parfum-30ml-p20960-44101_image.jpg?v=1721322124&width=1000"
     }
   ],
   "justmylook-ari0004": [
@@ -27421,7 +27421,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ariana-grande-sweet-like-candy-eau-de-parfum-30ml-p20954-44095_image.jpg?v=1721322125&width=1000"
     }
   ],
   "justmylook-ari0015": [
@@ -27435,7 +27435,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ariana-grande-r-e-m-eau-de-parfum-100ml-p20965-44106_image.jpg?v=1721322130&width=1000"
     }
   ],
   "justmylook-ari0007": [
@@ -27449,7 +27449,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ariana-grande-cloud-eau-de-parfum-30ml-p20957-44098_image.jpg?v=1721322127&width=1000"
     }
   ],
   "justmylook-ari0009": [
@@ -27463,7 +27463,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/cloud-eau-de-parfum-100ml-p20959-44100_image.jpg?v=1721322133&width=1000"
     }
   ],
   "justmylook-ari0005": [
@@ -27477,7 +27477,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ariana-grande-sweet-like-candy-eau-de-parfum-50ml-p20955-44096_image.jpg?v=1721322135&width=1000"
     }
   ],
   "justmylook-ari0006": [
@@ -27491,7 +27491,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/sweet-like-candy-eau-de-parfum-100ml-p20956-44097_image.jpg?v=1721322158&width=1000"
     }
   ],
   "ean-6085010094151": [
@@ -27505,7 +27505,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1645101138-56642600.jpg?v=1763390679&width=1920"
     }
   ],
   "ean-6294015131024": [
@@ -27519,7 +27519,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1696416231-27183200.jpg?v=1763390680&width=1920"
     }
   ],
   "ean-6085010094182": [
@@ -27547,7 +27547,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0005.png?v=1758900964&width=1000"
     }
   ],
   "justmylook-arm0010": [
@@ -27561,7 +27561,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0010.png?v=1758900964&width=1000"
     }
   ],
   "justmylook-arm0018": [
@@ -27575,7 +27575,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0018.png?v=1758900965&width=1000"
     }
   ],
   "justmylook-arm0016": [
@@ -27589,7 +27589,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0016.png?v=1758900965&width=1000"
     }
   ],
   "justmylook-arm0050": [
@@ -27603,7 +27603,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/club-de-nuit-iconic-eau-de-parfum-105ml-p31103-83726_image.jpg?v=1721322126&width=1000"
     }
   ],
   "justmylook-arm0049": [
@@ -27617,7 +27617,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/club-de-nuit-urban-man-elixir-eau-de-parfum-105ml-p30630-80351_image.jpg?v=1721322124&width=1000"
     }
   ],
   "justmylook-arm0034": [
@@ -27631,7 +27631,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0034.png?v=1758900964&width=1000"
     }
   ],
   "justmylook-arm0004": [
@@ -27645,7 +27645,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0004.png?v=1758900964&width=1000"
     }
   ],
   "justmylook-arm0037": [
@@ -27659,7 +27659,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0037.png?v=1758900964&width=1000"
     }
   ],
   "ean-3605521172525": [
@@ -27673,7 +27673,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/127855.jpg?v=1755874793&width=1920"
     }
   ],
   "ean-3351500980406": [
@@ -27687,7 +27687,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369755694-27477700.jpg?v=1763388794&width=1920"
     }
   ],
   "ean-3614274412789": [
@@ -27883,7 +27883,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-intense-eau-de-parfum-50ml-p31704-86828_image.jpg?v=1721322137&width=1000"
     }
   ],
   "justmylook-azz0014": [
@@ -27897,7 +27897,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/wanted-eau-de-parfum-50ml-p31702-86826_image.jpg?v=1721322139&width=1000"
     }
   ],
   "justmylook-azz0019": [
@@ -27911,7 +27911,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-parfum-100ml-p31707-86831_image.jpg?v=1721322144&width=1000"
     }
   ],
   "justmylook-azz0003": [
@@ -27925,7 +27925,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/azzaro-wanted-eau-de-toilette-50ml-p33241-105732_image.jpg?v=1721322148&width=1000"
     }
   ],
   "justmylook-azz0015": [
@@ -27939,7 +27939,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/azzaro-wanted-eau-de-parfum-100ml-p31703-86827_image.jpg?v=1721322150&width=1000"
     }
   ],
   "justmylook-azz0020": [
@@ -27953,7 +27953,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/azzaro-wanted-girl-eau-de-parfum-80ml-p31890-88084_image.jpg?v=1721322124&width=1000"
     }
   ],
   "justmylook-azz0018": [
@@ -27967,7 +27967,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-parfum-50ml-p31706-86830_image.jpg?v=1721322132&width=1000"
     }
   ],
   "justmylook-azz0011": [
@@ -27981,7 +27981,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/wanted-by-night-eau-de-parfum-100ml-p31699-86823_image.jpg?v=1721322134&width=1000"
     }
   ],
   "justmylook-azz0004": [
@@ -27995,7 +27995,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/wanted-eau-de-toilette-100ml-p31889-88083_image.jpg?v=1721322131&width=1000"
     }
   ],
   "justmylook-azz0017": [
@@ -28009,7 +28009,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-intense-eau-de-parfum-100ml-p31705-86829_image.jpg?v=1721322166&width=1000"
     }
   ],
   "ean-7640111497547": [
@@ -28023,7 +28023,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1555340158-85440700.jpg?v=1763388800&width=1920"
     }
   ],
   "justmylook-bil0001": [
@@ -28037,7 +28037,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-by-billie-eilish-eau-de-parfum-30ml-p28458-71633_image.jpg?v=1721322149&width=1000"
     }
   ],
   "justmylook-bil0003": [
@@ -28051,7 +28051,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-by-billie-eilish-eau-de-parfum-100ml-p28460-71635_image.jpg?v=1721322138&width=1000"
     }
   ],
   "justmylook-bil0005": [
@@ -28065,7 +28065,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-no-2-by-billie-eilish-eau-de-parfum-50ml-p33564-95880_image.jpg?v=1721322133&width=1000"
     }
   ],
   "justmylook-bil0004": [
@@ -28079,7 +28079,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-no-2-by-billie-eilish-eau-de-parfum-30ml-p33563-95879_image.jpg?v=1721322138&width=1000"
     }
   ],
   "justmylook-bil0002": [
@@ -28093,7 +28093,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-by-billie-eilish-eau-de-parfum-50ml-p28459-71634_image.jpg?v=1721322134&width=1000"
     }
   ],
   "justmylook-bil0006": [
@@ -28107,7 +28107,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-no-2-by-billie-eilish-eau-de-parfum-100ml-p33565-95881_image.jpg?v=1721322169&width=1000"
     }
   ],
   "ean-3386460036351": [
@@ -28121,7 +28121,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/116725.jpg?v=1766145238&width=1920"
     }
   ],
   "ean-3386460036467": [
@@ -28135,7 +28135,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/619153.jpg?v=1766146578&width=1920"
     }
   ],
   "ean-3386460036429": [
@@ -28149,7 +28149,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/43753.jpg?v=1766145781&width=1920"
     }
   ],
   "ean-3577580202089": [
@@ -28163,7 +28163,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/123_13c6ede9-61a9-4b5a-85ee-ed70163dd0fe.jpg?v=1774534954&width=1920"
     }
   ],
   "justmylook-bou0001": [
@@ -28177,7 +28177,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/boucheron-pour-femme-eau-de-parfum-100ml-p31712-88225_image.jpg?v=1721322149&width=1000"
     }
   ],
   "justmylook-bou0002": [
@@ -28191,7 +28191,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/boucheron-pour-homme-eau-de-parfum-100ml-p31713-88220_image.jpg?v=1721322141&width=1000"
     }
   ],
   "ean-719346117722": [
@@ -28205,7 +28205,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1737024237-99204900.jpg?v=1763390696&width=1920"
     }
   ],
   "ean-719346094665": [
@@ -28219,7 +28219,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1643029056-37145400.jpg?v=1763390698&width=1920"
     }
   ],
   "ean-719346065405": [
@@ -28233,7 +28233,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1473437351-55810800.jpg?v=1763388805&width=1920"
     }
   ],
   "justmylook-brit0008": [
@@ -28247,7 +28247,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/britney-spears-curious-eau-de-parfum-100ml-p23483-54009_zoom.jpg?v=1721322156&width=2000"
     }
   ],
   "justmylook-brit0002": [
@@ -28261,7 +28261,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/britney-spears-midnight-fantasy-eau-de-parfum-100ml-p22274-49039_image.jpg?v=1721322158&width=1000"
     }
   ],
   "justmylook-brit0011": [
@@ -28275,7 +28275,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BRIT0011.png?v=1740751657&width=1000"
     }
   ],
   "justmylook-brit0013": [
@@ -28289,7 +28289,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/britney-spears-midnight-fantasy-eau-de-parfum-30ml-p31718-86839_image.jpg?v=1721322138&width=1000"
     }
   ],
   "justmylook-brit0010": [
@@ -28303,7 +28303,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/britney-spears-believe-eau-de-parfum-30ml-p31715-86836_image.jpg?v=1721322148&width=1000"
     }
   ],
   "justmylook-brit0001": [
@@ -28317,7 +28317,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/britney-spears-fantasy-eau-de-parfum-100ml-p22273-49037_image.jpg?v=1721322131&width=1000"
     }
   ],
   "justmylook-brit0003": [
@@ -28331,7 +28331,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/britney-spears-believe-eau-de-parfum-100ml-p22275-49041_image.jpg?v=1721322132&width=1000"
     }
   ],
   "justmylook-brit0006": [
@@ -28345,7 +28345,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/britney-spears-curious-eau-de-parfum-30ml-p31714-86835_image.jpg?v=1721322135&width=1000"
     }
   ],
   "ean-8711700634922": [
@@ -28359,7 +28359,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1736948099-95969700.jpg?v=1763390715&width=1920"
     }
   ],
   "ean-3014230021039": [
@@ -28373,7 +28373,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1480619421-58545100.jpg?v=1763390015&width=1920"
     }
   ],
   "ean-3614226905000": [
@@ -28387,7 +28387,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/6602.jpg?v=1755875151&width=1920"
     }
   ],
   "ean-5045411327037": [
@@ -28401,7 +28401,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641980855-45683900.jpg?v=1763390719&width=1920"
     }
   ],
   "ean-5045252667422": [
@@ -28415,7 +28415,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641981231-78669100.jpg?v=1763390722&width=1920"
     }
   ],
   "ean-5045252668245": [
@@ -28429,7 +28429,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1639585024-99864300.jpg?v=1763390725&width=1920"
     }
   ],
   "ean-5045252668122": [
@@ -28443,7 +28443,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641981709-82325900.jpg?v=1763390727&width=1920"
     }
   ],
   "ean-5045252649107": [
@@ -28457,7 +28457,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641982369-17098800.jpg?v=1763390730&width=1920"
     }
   ],
   "ean-3614227748323": [
@@ -28471,7 +28471,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1733916242-94080100.jpg?v=1763390735&width=1920"
     }
   ],
   "ean-3616302020676": [
@@ -28485,7 +28485,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1740652534-52843600.jpg?v=1763395158&width=1920"
     }
   ],
   "ean-5045252667859": [
@@ -28499,7 +28499,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1516809646-34327500.png?v=1763388806&width=1920"
     }
   ],
   "ean-5045252667361": [
@@ -28513,7 +28513,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1579605961-23579400.jpg?v=1763388806&width=1920"
     }
   ],
   "ean-5045252667330": [
@@ -28527,7 +28527,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1579608831-28758600.jpg?v=1763388807&width=1920"
     }
   ],
   "ean-5045252668214": [
@@ -28541,7 +28541,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369145059-98623700.jpg?v=1763388812&width=1920"
     }
   ],
   "ean-5045252668184": [
@@ -28555,7 +28555,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1518610559-92070500.png?v=1763388813&width=1920"
     }
   ],
   "ean-5045252668085": [
@@ -28569,7 +28569,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369146785-35516700.jpg?v=1763388816&width=1920"
     }
   ],
   "ean-3616302020652": [
@@ -28821,7 +28821,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0012.png?v=1765452780&width=1000"
     }
   ],
   "justmylook-burb0035": [
@@ -28835,7 +28835,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0035.png?v=1765452780&width=1000"
     }
   ],
   "justmylook-burb0048": [
@@ -28849,7 +28849,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0048.png?v=1765452780&width=1000"
     }
   ],
   "justmylook-burb0047": [
@@ -28863,7 +28863,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0047.png?v=1765452781&width=1000"
     }
   ],
   "justmylook-burb0050": [
@@ -28877,7 +28877,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0050.png?v=1765536690&width=1000"
     }
   ],
   "justmylook-burb0046": [
@@ -28891,7 +28891,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0046_98d434e6-f93e-4de7-aa4e-88f8cd492f87.png?v=1765552817&width=1000"
     }
   ],
   "justmylook-burb0043": [
@@ -28905,7 +28905,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0043.png?v=1765452781&width=1000"
     }
   ],
   "justmylook-burb0040": [
@@ -28919,7 +28919,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0040_b6b61b75-a5d3-4606-a78c-d3857999ce6f.png?v=1765536304&width=1000"
     }
   ],
   "justmylook-burb0017": [
@@ -28933,7 +28933,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0017.png?v=1765452781&width=1000"
     }
   ],
   "justmylook-burb0009": [
@@ -28947,7 +28947,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0009.png?v=1765452781&width=1000"
     }
   ],
   "justmylook-burb0049": [
@@ -28961,7 +28961,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0049_237cc7c6-5637-4e25-a759-49663e78e0fb.png?v=1765536706&width=1000"
     }
   ],
   "justmylook-burb0023": [
@@ -28975,7 +28975,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0023.png?v=1765452780&width=1000"
     }
   ],
   "justmylook-burb0042": [
@@ -28989,7 +28989,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0042_7f9cd321-efde-4aa7-a1e4-5059fa59c9f4.png?v=1765536342&width=1000"
     }
   ],
   "justmylook-burb0041": [
@@ -29003,7 +29003,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0041_152fe777-2d72-456e-a531-6f59bb7cc703.png?v=1765536324&width=1000"
     }
   ],
   "justmylook-burb0026": [
@@ -29017,7 +29017,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0026.png?v=1765452779&width=1000"
     }
   ],
   "justmylook-burb0044": [
@@ -29031,7 +29031,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0044.png?v=1765452779&width=1000"
     }
   ],
   "justmylook-burb0020": [
@@ -29045,7 +29045,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0020.png?v=1765452779&width=1000"
     }
   ],
   "justmylook-burb0006": [
@@ -29059,7 +29059,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0006_40e903f0-b232-419c-ba16-83166f9887ce.png?v=1769523265&width=1000"
     }
   ],
   "ean-783320421181": [
@@ -29381,7 +29381,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BYRE0008.png?v=1753445101&width=1000"
     }
   ],
   "justmylook-byre0001": [
@@ -29395,7 +29395,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BYRE0001.png?v=1753445101&width=1000"
     }
   ],
   "justmylook-byre0002": [
@@ -29409,7 +29409,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BYRE0002.png?v=1753445101&width=1000"
     }
   ],
   "justmylook-byre0006": [
@@ -29423,7 +29423,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BYRE0006.png?v=1753445101&width=1000"
     }
   ],
   "justmylook-byre0010": [
@@ -29437,7 +29437,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BYRE0010.png?v=1753445101&width=1000"
     }
   ],
   "justmylook-byre0009": [
@@ -29451,7 +29451,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BYRE0009.png?v=1753445101&width=1000"
     }
   ],
   "justmylook-byre0007": [
@@ -29465,7 +29465,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BYRE0007.png?v=1756720375&width=1000"
     }
   ],
   "justmylook-byre0005": [
@@ -29479,7 +29479,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/BYRE0005.png?v=1753445101&width=1000"
     }
   ],
   "ean-3360373063703": [
@@ -29493,7 +29493,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1645101743-56120000.jpg?v=1763390739&width=1920"
     }
   ],
   "ean-3360370512044": [
@@ -29507,7 +29507,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1480705780-45795100.jpg?v=1763388821&width=1920"
     }
   ],
   "ean-3360374533205": [
@@ -29521,7 +29521,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1473437628-60504900.jpg?v=1763388823&width=1920"
     }
   ],
   "ean-3360373001774": [
@@ -29535,7 +29535,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1555592623-30626800.jpg?v=1763388825&width=1920"
     }
   ],
   "ean-3360373048861": [
@@ -29549,7 +29549,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1373621802-35554500.jpg?v=1763388827&width=1920"
     }
   ],
   "ean-3360373000081": [
@@ -29563,7 +29563,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/5_1eb71aff-4cd6-4452-b2b8-2475e22fc913.jpg?v=1774536688&width=1920"
     }
   ],
   "ean-3360373016334": [
@@ -29577,7 +29577,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369392549-46137100.jpg?v=1763388830&width=1920"
     }
   ],
   "ean-3360373016358": [
@@ -29591,7 +29591,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_b011d750-1dbe-4902-a2c2-20deebc828ca.jpg?v=1774536270&width=1920"
     }
   ],
   "ean-3360373048878": [
@@ -29605,7 +29605,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1637058665-86324300.jpg?v=1763389754&width=1920"
     }
   ],
   "justmylook-cach0001": [
@@ -29619,7 +29619,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/amor-amor-eau-de-toilette-100ml-p21098-44872_image.jpg?v=1721322155&width=1000"
     }
   ],
   "justmylook-cach0013": [
@@ -29633,7 +29633,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/cacharel-loulou-eau-de-parfum-30ml-p23897-53758_image.jpg?v=1721322154&width=1000"
     }
   ],
   "justmylook-cach0011": [
@@ -29647,7 +29647,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/cacharel-eden-eau-de-parfum-30ml-p23896-53757_image.jpg?v=1721322158&width=1000"
     }
   ],
   "justmylook-cach0003": [
@@ -29661,7 +29661,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/pour-lhomme-eau-de-toilette-100ml-p21062-44847_image.jpg?v=1721322159&width=1000"
     }
   ],
   "justmylook-cach0002": [
@@ -29675,7 +29675,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/cacharel-anais-anais-eau-de-toilette-100ml-p21099-44873_image.jpg?v=1721322170&width=1000"
     }
   ],
   "justmylook-cach0006": [
@@ -29689,7 +29689,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/cacharel-noa-eau-de-toilette-100ml-p21100-44874_image.jpg?v=1721322178&width=1000"
     }
   ],
   "ean-3607340213267": [
@@ -29703,7 +29703,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/126233.jpg?v=1755874800&width=1920"
     }
   ],
   "ean-088300139507": [
@@ -29717,7 +29717,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/4596_4ea9dcd3-ff3f-4552-9a20-dc665e785481.jpg?v=1764684779&width=1920"
     }
   ],
   "ean-088300150410": [
@@ -29731,7 +29731,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/7837.jpg?v=1755875098&width=1920"
     }
   ],
   "ean-031655644851": [
@@ -29745,7 +29745,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/9085.jpg?v=1755875052&width=1920"
     }
   ],
   "ean-088300606535": [
@@ -29759,7 +29759,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3333.jpg?v=1755875382&width=1920"
     }
   ],
   "ean-088300608409": [
@@ -29773,7 +29773,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3354.jpg?v=1755875379&width=1920"
     }
   ],
   "ean-088300106752": [
@@ -29787,7 +29787,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/139665.jpg?v=1755874779&width=1920"
     }
   ],
   "ean-3614223162963": [
@@ -29801,7 +29801,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1737375720-35032900.jpg?v=1763390741&width=1920"
     }
   ],
   "ean-088300604685": [
@@ -29815,7 +29815,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1640083440-91408000.jpg?v=1763390745&width=1920"
     }
   ],
   "ean-088300607686": [
@@ -29829,7 +29829,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/6_1b35e8c1-552a-4e73-bbf1-4c06859cefee.jpg?v=1774543172&width=1920"
     }
   ],
   "ean-3607342401341": [
@@ -29843,7 +29843,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_3e90f783-94b4-4da6-800f-951c208b2b8d.jpg?v=1774544095&width=1920"
     }
   ],
   "ean-088300601387": [
@@ -29857,7 +29857,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1640085053-22352900.jpg?v=1763390759&width=1920"
     }
   ],
   "ean-088300101405": [
@@ -29871,7 +29871,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1640085172-77454800.jpg?v=1763390758&width=1920"
     }
   ],
   "ean-088300147953": [
@@ -29885,7 +29885,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1640085581-06552300.jpg?v=1763390763&width=1920"
     }
   ],
   "ean-088300196890": [
@@ -29899,7 +29899,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641983668-72127600.jpg?v=1763390766&width=1920"
     }
   ],
   "ean-3607342107977": [
@@ -29913,7 +29913,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_d68abf3f-52cf-417a-a8d6-0f5550dc33a4.jpg?v=1774544858&width=1920"
     }
   ],
   "ean-0088300104437": [
@@ -29927,7 +29927,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1524579971-15533200.png?v=1763388837&width=1920"
     }
   ],
   "ean-3607342058057": [
@@ -29941,7 +29941,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1473509155-13379100.jpg?v=1763388838&width=1920"
     }
   ],
   "ean-088300607402": [
@@ -29955,7 +29955,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_f3f68559-0e2e-4048-9047-f977a26cc919.jpg?v=1774540780&width=1920"
     }
   ],
   "ean-088300607433": [
@@ -29969,7 +29969,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/2_8ad7d463-66ae-43a8-a6f6-8e688338ed4b.jpg?v=1774543581&width=1920"
     }
   ],
   "ean-088300605514": [
@@ -29983,7 +29983,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1524580632-18442300.png?v=1763388852&width=1920"
     }
   ],
   "ean-088300162550": [
@@ -29997,7 +29997,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_d3a3c08b-3ee3-4325-8a29-ddd522a9d0db.jpg?v=1774540090&width=1920"
     }
   ],
   "ean-088300162512": [
@@ -30011,7 +30011,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_420d28b3-b72d-4bd2-bb91-f630c0258222.jpg?v=1774539390&width=1920"
     }
   ],
   "ean-088300178322": [
@@ -30025,7 +30025,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_1cd1d3ac-1f49-4ee5-a055-ae96bca39bb6.jpg?v=1774538462&width=1920"
     }
   ],
   "ean-088300196814": [
@@ -30039,7 +30039,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1524587907-59854800.png?v=1763388865&width=1920"
     }
   ],
   "ean-088300196876": [
@@ -30053,7 +30053,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1524582136-18396900.png?v=1763388866&width=1920"
     }
   ],
   "ean-088300196944": [
@@ -30067,7 +30067,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1524582206-94816600.png?v=1763388867&width=1920"
     }
   ],
   "ean-088300150427": [
@@ -30081,7 +30081,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_93fd18d9-ec3e-43c3-8e05-edbd9df62ed1.jpg?v=1774545163&width=1920"
     }
   ],
   "ean-088300150458": [
@@ -30095,7 +30095,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1511346197-28720000.png?v=1763388874&width=1920"
     }
   ],
   "ean-3607340216008": [
@@ -30109,7 +30109,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731688071-30369200.jpg?v=1763389905&width=1920"
     }
   ],
   "ean-088300049479": [
@@ -30123,7 +30123,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1524582937-87614200.png?v=1763389916&width=1920"
     }
   ],
   "ean-3607342137172": [
@@ -30627,7 +30627,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/eternity-aqua-man-eau-de-toilette-100ml-p31274-84723_image.jpg?v=1721322154&width=1000"
     }
   ],
   "justmylook-ck0052": [
@@ -30641,7 +30641,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/eternity-moment-eau-de-parfum-30ml-p23687-96618_image_x100.jpg?v=1721322153"
     }
   ],
   "justmylook-ck0012": [
@@ -30655,7 +30655,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-women-eau-de-parfum-100ml-p20057-96588_image_x100.jpg?v=1721322153"
     }
   ],
   "justmylook-ck0002": [
@@ -30669,7 +30669,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CK0002_x100.png?v=1767110433"
     }
   ],
   "justmylook-ck0014": [
@@ -30683,7 +30683,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/eternity-for-men-eau-de-toilette-50ml-p20372-42778_image_x100.jpg?v=1721322155"
     }
   ],
   "justmylook-ck0018": [
@@ -30697,7 +30697,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-contradiction-eau-de-parfum-100ml-p20059-96593_image_x100.jpg?v=1721322158"
     }
   ],
   "justmylook-ck0042": [
@@ -30711,7 +30711,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-flame-woman-eau-de-parfum-100ml-p22960-51364_image.jpg?v=1721322156&width=1000"
     }
   ],
   "justmylook-ck0007": [
@@ -30725,7 +30725,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-in-2-u-woman-eau-de-toilette-150ml-p20385-96630_image_x100.jpg?v=1721322158"
     }
   ],
   "justmylook-ck0015": [
@@ -30739,7 +30739,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-for-men-eau-de-toilette-100ml-p20021-44330_image_x100.jpg?v=1721322156"
     }
   ],
   "justmylook-ck0019": [
@@ -30753,7 +30753,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-contradiction-men-eau-de-toilette-100ml-p20023-96622_image_x100.jpg?v=1721322158"
     }
   ],
   "justmylook-ck0073": [
@@ -30767,7 +30767,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-for-men-eau-de-toilette-75ml-p30458-96634_image_x100.jpg?v=1721322164"
     }
   ],
   "justmylook-ck0011": [
@@ -30781,7 +30781,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-women-eau-de-parfum-50ml-p20583-71501_image_x100.png?v=1721322163"
     }
   ],
   "justmylook-ck0004": [
@@ -30795,7 +30795,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/eternity-moment-eau-de-parfum-50ml-p20053-96699_image_x100.jpg?v=1721322151"
     }
   ],
   "justmylook-ck0028": [
@@ -30809,7 +30809,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-be-eau-de-toilette-200ml-p20028-96626_image_x100.jpg?v=1721322150"
     }
   ],
   "justmylook-ck0027": [
@@ -30823,7 +30823,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-be-eau-de-toilette-100ml-p20027-96604_image_x100.jpg?v=1721322154"
     }
   ],
   "justmylook-ck0006": [
@@ -30837,7 +30837,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CK0006_x100.png?v=1773312482"
     }
   ],
   "justmylook-ck0022": [
@@ -30851,7 +30851,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CK0022_x100.jpg?v=1728297388"
     }
   ],
   "justmylook-ck0035": [
@@ -30865,7 +30865,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-truth-femme-eau-de-parfum-100ml-p21088-44863_image_x100.jpg?v=1721322158"
     }
   ],
   "justmylook-ck0055": [
@@ -30879,7 +30879,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ck-free-eau-de-toilette-100ml-p23424-54054_zoom.jpg?v=1721322159&width=2000"
     }
   ],
   "justmylook-ck0077": [
@@ -30893,7 +30893,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-for-men-aftershave-100ml-p24908-57364_image_x100.jpg?v=1721322167"
     }
   ],
   "justmylook-ck0065": [
@@ -30907,7 +30907,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-euphoria-for-men-eau-de-toilette-100ml-p24113-54233_image_x100.jpg?v=1721322163"
     }
   ],
   "justmylook-ck0029": [
@@ -30921,7 +30921,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-escape-eau-de-parfum-100ml-p20062-44332_image_x100.jpg?v=1721322165"
     }
   ],
   "justmylook-ck0109": [
@@ -30935,7 +30935,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-defy-for-men-eau-de-toilette-100ml-p35754-108446_image.jpg?v=1721322166&width=1000"
     }
   ],
   "justmylook-ck0009": [
@@ -30949,7 +30949,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-in-2-u-man-eau-de-toilette-150ml-p20019-96642_image_x100.jpg?v=1721322168"
     }
   ],
   "justmylook-ck0025": [
@@ -30963,7 +30963,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-night-eau-de-toilette-125ml-p20065-96676_image_x100.jpg?v=1721322166"
     }
   ],
   "justmylook-ck0003": [
@@ -30977,7 +30977,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CK0003_x100.png?v=1767110433"
     }
   ],
   "justmylook-ck0049": [
@@ -30991,7 +30991,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-aftershave-125ml-p23484-96598_image_x100.jpg?v=1721322163"
     }
   ],
   "justmylook-ck0008": [
@@ -31005,7 +31005,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/in-2-u-man-eau-de-toilette-100ml-p20018-96679_image_x100.jpg?v=1721322167"
     }
   ],
   "justmylook-ck0010": [
@@ -31019,7 +31019,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/eternity-women-eau-de-parfum-30ml-p33597-95906_image_x100.jpg?v=1721322164"
     }
   ],
   "justmylook-ck0097": [
@@ -31033,7 +31033,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ck1-shock-for-men-eau-de-toilette-200ml-p28268-70836_image.jpg?v=1721322165&width=1000"
     }
   ],
   "justmylook-ck0020": [
@@ -31047,7 +31047,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-one-eau-de-toilette-100ml-p20024-96684_image_x100.jpg?v=1721322167"
     }
   ],
   "justmylook-ck0001": [
@@ -31061,7 +31061,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CK0001_x100.png?v=1767110434"
     }
   ],
   "justmylook-ck0005": [
@@ -31075,7 +31075,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/eternity-moment-eau-de-parfum-100ml-p20054-96600_image_x100.jpg?v=1721322164"
     }
   ],
   "justmylook-ck0057": [
@@ -31089,7 +31089,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-man-eau-de-toilette-50ml-p23899-53760_image_x100.jpg?v=1721322166"
     }
   ],
   "justmylook-ck0030": [
@@ -31103,7 +31103,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/escape-men-eau-de-toilette-100ml-p20066-44333_image_x100.jpg?v=1721322167"
     }
   ],
   "justmylook-ck0023": [
@@ -31117,7 +31117,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/obsession-for-men-eau-de-toilette-200ml-p21056-96687_image_x100.jpg?v=1721322165"
     }
   ],
   "justmylook-ck0032": [
@@ -31131,7 +31131,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/beauty-eau-de-parfum-100ml-p20063-96602_image.jpg?v=1721322168&width=1000"
     }
   ],
   "justmylook-ck0024": [
@@ -31145,7 +31145,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-night-eau-de-parfum-100ml-p20061-96612_image_x100.jpg?v=1721322167"
     }
   ],
   "justmylook-ck0101": [
@@ -31159,7 +31159,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-truth-homme-eau-de-toilette-100ml-p31273-84722_image_x100.jpg?v=1721322167"
     }
   ],
   "justmylook-ck0033": [
@@ -31173,7 +31173,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-obsession-for-men-eau-de-toilette-125ml-p21057-96596_image_x100.jpg?v=1721322167"
     }
   ],
   "justmylook-ck0045": [
@@ -31187,7 +31187,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CK0045.png?v=1756738727&width=1000"
     }
   ],
   "justmylook-ck0026": [
@@ -31201,7 +31201,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-man-eau-de-toilette-100ml-p20026-96689_image_x100.jpg?v=1721322172"
     }
   ],
   "justmylook-ck0021": [
@@ -31215,7 +31215,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/one-eau-de-toilette-200ml-p20025-96681_image_x100.jpg?v=1721322178"
     }
   ],
   "ean-8411061099735": [
@@ -31229,7 +31229,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728375213-81347000.jpg?v=1763389675&width=1920"
     }
   ],
   "ean-8411061099728": [
@@ -31243,7 +31243,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728376024-19211000.jpg?v=1763389676&width=1920"
     }
   ],
   "ean-8411061043844": [
@@ -31257,7 +31257,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728400287-90183400.jpg?v=1763389284&width=1920"
     }
   ],
   "ean-8411061777183": [
@@ -31271,7 +31271,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728391010-28806500.jpg?v=1763389286&width=1920"
     }
   ],
   "ean-8411061934234": [
@@ -31285,7 +31285,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641983276-08623600.jpg?v=1763390777&width=1920"
     }
   ],
   "ean-8411061894026": [
@@ -31299,7 +31299,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728404003-75908700.jpg?v=1763389921&width=1920"
     }
   ],
   "ean-8411061043868": [
@@ -31313,7 +31313,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728398413-30622400.jpg?v=1763389921&width=1920"
     }
   ],
   "ean-8411061865583": [
@@ -31327,7 +31327,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728400841-71010900.jpg?v=1763389927&width=1920"
     }
   ],
   "ean-8411061088166": [
@@ -31341,7 +31341,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728403052-39933500.jpg?v=1763389928&width=1920"
     }
   ],
   "ean-8411061041659": [
@@ -31355,7 +31355,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728304620-08811600.jpg?v=1763390127&width=1920"
     }
   ],
   "ean-8411061043875": [
@@ -31369,7 +31369,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728304977-93902300.jpg?v=1763390129&width=1920"
     }
   ],
   "ean-8411061991909": [
@@ -31383,7 +31383,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728382150-38435000.jpg?v=1763390458&width=1920"
     }
   ],
   "ean-8411061991886": [
@@ -31397,7 +31397,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728377396-77586200.jpg?v=1763390458&width=1920"
     }
   ],
   "ean-8411061083482": [
@@ -31719,7 +31719,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0026.png?v=1765452781&width=1000"
     }
   ],
   "justmylook-cherr0014": [
@@ -31733,7 +31733,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHER0014.png?v=1769523257&width=1000"
     }
   ],
   "justmylook-cherr0021": [
@@ -31747,7 +31747,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0021_97337365-132e-4eed-8384-9ef4632ebeb8.png?v=1765452782&width=1000"
     }
   ],
   "justmylook-cherr0024": [
@@ -31761,7 +31761,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0024_d1fa5c13-7369-4513-9c9b-3034ab247dda.png?v=1765452782&width=1000"
     }
   ],
   "justmylook-cherr0008": [
@@ -31775,7 +31775,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0008_7d3832c4-3e08-45dc-a894-a198677fae04.png?v=1765452782&width=1000"
     }
   ],
   "justmylook-cherr0013": [
@@ -31789,7 +31789,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0013_b0bc0a71-62b6-441e-9046-71015750d740.png?v=1765452782&width=1000"
     }
   ],
   "justmylook-cherr0009": [
@@ -31803,7 +31803,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0009.png?v=1765452782&width=1000"
     }
   ],
   "justmylook-cherr0003": [
@@ -31817,7 +31817,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0003_5cdec4df-4b27-4d6e-8f90-8d72641f1343.png?v=1765452782&width=1000"
     }
   ],
   "justmylook-cherr0002": [
@@ -31831,7 +31831,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0002.png?v=1765452783&width=1000"
     }
   ],
   "justmylook-cherr0025": [
@@ -31845,7 +31845,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0025.png?v=1770982471&width=1000"
     }
   ],
   "justmylook-cherr0001": [
@@ -31859,7 +31859,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0001_7143f1b1-b91f-45d3-89ed-825a1a74f4d7.png?v=1765452783&width=1000"
     }
   ],
   "justmylook-cherr0031": [
@@ -31873,7 +31873,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0031_d44a9ffd-1cec-49bc-a855-8749d8169c1c.png?v=1765452783&width=1000"
     }
   ],
   "justmylook-cherr0007": [
@@ -31887,7 +31887,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0007_7bc4bbef-1cf0-44fc-99a9-160b38313e4f.png?v=1765452783&width=1000"
     }
   ],
   "justmylook-cherr0032": [
@@ -31901,7 +31901,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0032.png?v=1765452783&width=1000"
     }
   ],
   "justmylook-cherr0015": [
@@ -31915,7 +31915,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0015_1f5264a6-a61a-460d-b745-b8d1a87ef618.png?v=1765452783&width=1000"
     }
   ],
   "ean-3432240026750": [
@@ -31985,7 +31985,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1750415067-04039400.jpg?v=1763397806&width=1920"
     }
   ],
   "ean-5050456522729": [
@@ -31999,7 +31999,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1640085849-99285500.jpg?v=1763389933&width=1920"
     }
   ],
   "ean-5050456522736": [
@@ -32013,7 +32013,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1640085789-75372500.jpg?v=1763389935&width=1920"
     }
   ],
   "ean-688575134490": [
@@ -32041,7 +32041,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/cerruti-1881-femme-eau-de-toilette-100ml-p20976-44117_image.jpg?v=1721322172&width=1000"
     }
   ],
   "justmylook-crt0005": [
@@ -32055,7 +32055,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/cerruti-1881-femme-eau-de-toilette-30ml-p33779-97494_image.jpg?v=1721322174&width=1000"
     }
   ],
   "justmylook-crt0002": [
@@ -32069,7 +32069,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/cerruti-1881-homme-eau-de-toilette-100ml-p20947-44091_image.jpg?v=1721322187&width=1000"
     }
   ],
   "ean-0688575201901": [
@@ -32083,7 +32083,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1507804864-09937300.png?v=1763389935&width=1920"
     }
   ],
   "ean-3607346232347": [
@@ -32097,7 +32097,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1642003794-39658600.jpg?v=1763389939&width=1920"
     }
   ],
   "ean-3616302038633": [
@@ -32279,7 +32279,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1375189451-89315000.jpg?v=1763389940&width=1920"
     }
   ],
   "ean-7640177366160": [
@@ -32293,7 +32293,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1371028772-83469800.jpg?v=1763389940&width=1920"
     }
   ],
   "justmylook-ca0003": [
@@ -32307,7 +32307,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/christina-aguilera-by-night-eau-de-parfum-30ml-p31726-86847_image.jpg?v=1721322172&width=1000"
     }
   ],
   "justmylook-ca0001": [
@@ -32321,7 +32321,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/christina-aguilera-signature-eau-de-parfum-30ml-p31724-86845_image.jpg?v=1721322172&width=1000"
     }
   ],
   "justmylook-ca0002": [
@@ -32335,7 +32335,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/christina-aguilera-signature-eau-de-parfum-50ml-p31725-86846_image.jpg?v=1721322175&width=1000"
     }
   ],
   "justmylook-ca0007": [
@@ -32349,7 +32349,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/christina-aguilera-violet-noir-eau-de-parfum-50ml-p31728-86849_image.jpg?v=1721322181&width=1000"
     }
   ],
   "justmylook-ca0004": [
@@ -32363,7 +32363,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/christina-aguilera-by-night-eau-de-parfum-50ml-p31727-86848_image.jpg?v=1721322178&width=1000"
     }
   ],
   "ean-020714999346": [
@@ -32377,7 +32377,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1645102790-32816900.jpg?v=1763390801&width=1920"
     }
   ],
   "ean-020714997298": [
@@ -32391,7 +32391,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1640000895-04236000.jpg?v=1763390803&width=1920"
     }
   ],
   "ean-020714156893": [
@@ -32405,7 +32405,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1640001068-06395400.jpg?v=1763390803&width=1920"
     }
   ],
   "ean-20714005887": [
@@ -32461,7 +32461,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/clinique-happy-eau-de-parfum-100ml-p22839-61824_image_x100.jpg?v=1721322168"
     }
   ],
   "justmylook-clq0006": [
@@ -32475,7 +32475,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CLQ0006_578a4701-5bfd-4fd5-ba71-ddfc934782a9_x100.png?v=1738168656"
     }
   ],
   "justmylook-clq0007": [
@@ -32489,7 +32489,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/clinique-happy-heart-eau-de-parfum-100ml-p22840-61818_image_x100.jpg?v=1721322170"
     }
   ],
   "justmylook-clq0009": [
@@ -32503,7 +32503,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CLQ0009_x100.png?v=1738168657"
     }
   ],
   "justmylook-clq0008": [
@@ -32517,7 +32517,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CLQ0008_fee870ad-6f1e-43e0-8406-b229bfc6edad_x100.png?v=1741166557"
     }
   ],
   "justmylook-clq0002": [
@@ -32531,7 +32531,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CLQ0002_440f5929-1757-49c6-a23a-b59190eb7821_x100.png?v=1738168657"
     }
   ],
   "justmylook-clq0003": [
@@ -32545,7 +32545,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CLQ0003_x100.png?v=1738168657"
     }
   ],
   "ean-3386460078306": [
@@ -32559,7 +32559,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1736875650-56701000.jpg?v=1763390808&width=1920"
     }
   ],
   "ean-5060309522929": [
@@ -32573,7 +32573,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1640002320-75487000.jpg?v=1763390494&width=1920"
     }
   ],
   "ean-3508441104631": [
@@ -32587,7 +32587,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/120883_2735306d-da37-4b98-8966-eea812de2819.jpg?v=1770026741&width=1920"
     }
   ],
   "justmylook-creed0024": [
@@ -32601,7 +32601,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0024.png?v=1751897610&width=1000"
     }
   ],
   "justmylook-creed0020": [
@@ -32615,7 +32615,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0020.png?v=1751897610&width=1000"
     }
   ],
   "justmylook-creed0022": [
@@ -32629,7 +32629,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0022.png?v=1751897610&width=1000"
     }
   ],
   "justmylook-creed0023": [
@@ -32643,7 +32643,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0023.png?v=1769433811&width=1000"
     }
   ],
   "justmylook-creed0006": [
@@ -32657,7 +32657,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0006.png?v=1756720375&width=1000"
     }
   ],
   "justmylook-creed0017": [
@@ -32671,7 +32671,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0017.png?v=1751897610&width=1000"
     }
   ],
   "justmylook-creed0021": [
@@ -32685,7 +32685,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0021.png?v=1751897610&width=1000"
     }
   ],
   "justmylook-creed0014": [
@@ -32699,7 +32699,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0014.png?v=1751897610&width=1000"
     }
   ],
   "justmylook-creed0005": [
@@ -32713,7 +32713,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0005.png?v=1751897611&width=1000"
     }
   ],
   "justmylook-creed0002": [
@@ -32727,7 +32727,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0002.png?v=1753445102&width=1000"
     }
   ],
   "ean-3508440505064": [
@@ -32755,7 +32755,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1708514753-24587600.jpg?v=1763390823&width=1920"
     }
   ],
   "ean-5425017732150": [
@@ -32769,7 +32769,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1651680010-33461900.jpg?v=1763390824&width=1920"
     }
   ],
   "ean-5425017732389": [
@@ -32783,7 +32783,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1652099497-56520000.jpg?v=1763390828&width=1920"
     }
   ],
   "ean-5425017731962": [
@@ -32797,7 +32797,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1643373500-28337200.jpg?v=1763390829&width=1920"
     }
   ],
   "ean-5425017735977": [
@@ -32811,7 +32811,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1652100070-99408300.jpg?v=1763390829&width=1920"
     }
   ],
   "ean-5425017736387": [
@@ -32825,7 +32825,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1652101804-66014800.jpg?v=1763390831&width=1920"
     }
   ],
   "ean-5425017736363": [
@@ -32839,7 +32839,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1643373643-70984300.jpg?v=1763390834&width=1920"
     }
   ],
   "ean-5425017733508": [
@@ -32853,7 +32853,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1643373746-44518000.jpg?v=1763390835&width=1920"
     }
   ],
   "ean-3442151000404": [
@@ -32867,7 +32867,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1729181468-03211800.jpg?v=1763389058&width=1920"
     }
   ],
   "ean-3414202000534": [
@@ -32881,7 +32881,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1708535321-74749500.jpg?v=1763390840&width=1920"
     }
   ],
   "ean-3414202011820": [
@@ -32895,7 +32895,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1371657605-91995100.jpg?v=1763389955&width=1920"
     }
   ],
   "ean-3414202011769": [
@@ -32909,7 +32909,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1507807249-29634000.png?v=1763389957&width=1920"
     }
   ],
   "ean-3607344163773": [
@@ -32923,7 +32923,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1548867476-73694500.jpg?v=1763389960&width=1920"
     }
   ],
   "ean-3607347565321": [
@@ -32965,7 +32965,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/davidoff-champion-eau-de-toilette-90ml-p23902-56721_image.jpg?v=1721322168&width=1000"
     }
   ],
   "justmylook-dav0008": [
@@ -32979,7 +32979,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-for-women-eau-de-toilette-100ml-p20069-56702_image.jpg?v=1721322175&width=1000"
     }
   ],
   "justmylook-dav0003": [
@@ -32993,7 +32993,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-for-men-eau-de-toilette-125ml-p20031-56723_image.jpg?v=1721322172&width=1000"
     }
   ],
   "justmylook-dav0002": [
@@ -33007,7 +33007,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-for-men-eau-de-toilette-75ml-p20030-56731_image.jpg?v=1721322178&width=1000"
     }
   ],
   "justmylook-dav0001": [
@@ -33021,7 +33021,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-for-men-eau-de-toilette-40ml-p20029-56726_image.jpg?v=1721322172&width=1000"
     }
   ],
   "justmylook-dav0029": [
@@ -33035,7 +33035,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/davidoff-hot-water-eau-de-toilette-110ml-p24116-71506_image.png?v=1721322177&width=1000"
     }
   ],
   "justmylook-dav0010": [
@@ -33049,7 +33049,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-aftershave-125ml-p20010-56725_image.jpg?v=1721322175&width=1000"
     }
   ],
   "justmylook-dav0013": [
@@ -33063,7 +33063,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/cool-water-for-men-eau-de-toilette-200ml-p22482-56717_image.jpg?v=1721322176&width=1000"
     }
   ],
   "justmylook-dav0012": [
@@ -33077,7 +33077,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-intense-eau-de-parfum-125ml-p22253-56712_image.jpg?v=1721322175&width=1000"
     }
   ],
   "justmylook-dav0004": [
@@ -33091,7 +33091,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/davidoff-the-game-eau-de-toilette-100ml-p20032-102777_image.jpg?v=1721322177&width=1000"
     }
   ],
   "justmylook-dav0011": [
@@ -33105,7 +33105,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/cool-water-intense-eau-de-parfum-75ml-p30145-78346_image.jpg?v=1721322179&width=1000"
     }
   ],
   "justmylook-dav0005": [
@@ -33119,7 +33119,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DAV0005.png?v=1736861590&width=1000"
     }
   ],
   "justmylook-dav0007": [
@@ -33133,7 +33133,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-for-women-eau-de-toilette-50ml-p20068-56736_image.jpg?v=1721322185&width=1000"
     }
   ],
   "justmylook-dav0009": [
@@ -33147,7 +33147,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-aftershave-75ml-p20009-56706_image.jpg?v=1721322181&width=1000"
     }
   ],
   "ean-3760004325796": [
@@ -33161,7 +33161,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1570464895-62735100.jpg?v=1763389407&width=1920"
     }
   ],
   "ean-3605520386442": [
@@ -33175,7 +33175,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641980572-43194600.jpg?v=1763390848&width=1920"
     }
   ],
   "ean-3605521534064": [
@@ -33189,7 +33189,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1455902861-97237000.jpg?v=1763389975&width=1920"
     }
   ],
   "ean-4085400271003": [
@@ -33357,7 +33357,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/only-the-brave-eau-de-toilette-50ml-p21063-45068_image.jpg?v=1721322176&width=1000"
     }
   ],
   "justmylook-die0019": [
@@ -33371,7 +33371,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/only-the-brave-eau-de-toilette-200ml-p22829-50272_image.jpg?v=1721322173&width=1000"
     }
   ],
   "justmylook-die0003": [
@@ -33385,7 +33385,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/only-the-brave-eau-de-toilette-125ml-p21064-45070_image.jpg?v=1721322177&width=1000"
     }
   ],
   "justmylook-die0035": [
@@ -33399,7 +33399,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DIE0035.png?v=1756738728&width=1000"
     }
   ],
   "ean-3348900921429": [
@@ -33413,7 +33413,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/120083_5e2a3850-ead8-497a-930a-e236581bb844.jpg?v=1773917418&width=1920"
     }
   ],
   "ean-3348901296632": [
@@ -33427,7 +33427,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/5504.jpg?v=1773830979&width=1920"
     }
   ],
   "ean-3348900103870": [
@@ -33441,7 +33441,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/5515.jpg?v=1773833261&width=1920"
     }
   ],
   "ean-3348900574656": [
@@ -33455,7 +33455,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/5517.jpg?v=1773833913&width=1920"
     }
   ],
   "ean-3348900321861": [
@@ -33469,7 +33469,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/8879.jpg?v=1770302314&width=1920"
     }
   ],
   "ean-3348900489226": [
@@ -33483,7 +33483,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3783.jpg?v=1772449579&width=1920"
     }
   ],
   "ean-3348900236738": [
@@ -33497,7 +33497,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/9488.jpg?v=1773851611&width=1920"
     }
   ],
   "ean-085715950000": [
@@ -33511,7 +33511,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1645104040-95085300.jpg?v=1763390872&width=1920"
     }
   ],
   "ean-085715950086": [
@@ -33525,7 +33525,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1734366492-28170600.jpg?v=1763390876&width=1920"
     }
   ],
   "ean-763511009800": [
@@ -33539,7 +33539,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1377172637-43583000.jpg?v=1763389991&width=1920"
     }
   ],
   "ean-85715950444": [
@@ -33679,7 +33679,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DKNY0024_a2c02e9e-6363-4d9e-9db8-025882ffe94d.png?v=1765552817&width=1000"
     }
   ],
   "justmylook-dkny0012": [
@@ -33693,7 +33693,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DKNY0012.png?v=1761577741&width=1000"
     }
   ],
   "justmylook-dkny0027": [
@@ -33707,7 +33707,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DKNY0027.png?v=1760692586&width=1000"
     }
   ],
   "justmylook-dkny0021": [
@@ -33721,7 +33721,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DKNY0021.png?v=1760692586&width=1000"
     }
   ],
   "justmylook-dkny0003": [
@@ -33735,7 +33735,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DKNY0003.png?v=1760692587&width=1000"
     }
   ],
   "ean-3423473020509": [
@@ -33749,7 +33749,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1697620551-49067600.jpg?v=1763390863&width=1920"
     }
   ],
   "ean-3423473020516": [
@@ -33763,7 +33763,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1697620665-93316300.jpg?v=1763390863&width=1920"
     }
   ],
   "ean-3423473021209": [
@@ -33777,7 +33777,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1639997627-18308400.jpg?v=1763390867&width=1920"
     }
   ],
   "ean-3423478452558": [
@@ -33791,7 +33791,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1697730958-84990300.jpg?v=1763390869&width=1920"
     }
   ],
   "ean-3423473020257": [
@@ -33805,7 +33805,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1381501811-53613100.jpg?v=1763389980&width=1920"
     }
   ],
   "ean-8057971180349": [
@@ -33819,7 +33819,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1697730851-15473900.jpg?v=1763389980&width=1920"
     }
   ],
   "ean-3423473020233": [
@@ -33833,7 +33833,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1611054501-02449600.jpg?v=1763389981&width=1920"
     }
   ],
   "ean-3423473020981": [
@@ -33847,7 +33847,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1381491581-09551900.jpg?v=1763389986&width=1920"
     }
   ],
   "ean-3423473020998": [
@@ -33861,7 +33861,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1381491027-71405100.jpg?v=1763389987&width=1920"
     }
   ],
   "ean-3423473021001": [
@@ -33875,7 +33875,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1507807475-80241700.jpg?v=1763389990&width=1920"
     }
   ],
   "ean-3423473021230": [
@@ -33889,7 +33889,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1381492839-44567300.jpg?v=1763389991&width=1920"
     }
   ],
   "ean-8057971183739": [
@@ -34393,7 +34393,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DANDG0019.png?v=1765197717&width=1000"
     }
   ],
   "justmylook-dandg0093": [
@@ -34407,7 +34407,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/devotion-eau-de-parfum-100ml-p34975-104674_image.jpg?v=1721322182&width=1000"
     }
   ],
   "justmylook-dandg0106": [
@@ -34421,7 +34421,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/k-eau-de-toilette-200ml-p38086-120206_image.jpg?v=1721322170&width=1000"
     }
   ],
   "justmylook-dandg0105": [
@@ -34435,7 +34435,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/k-eau-de-parfum-200ml-p38085-120205_image.jpg?v=1721322171&width=1000"
     }
   ],
   "justmylook-dandg0044": [
@@ -34449,7 +34449,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/light-blue-intense-femme-eau-de-parfum-25ml-p28472-71658_image.jpg?v=1721322175&width=1000"
     }
   ],
   "justmylook-dandg0037": [
@@ -34463,7 +34463,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DANDG0037_f1cfc0d3-0de1-4fbe-b170-8decf77898a7.png?v=1765199497&width=1000"
     }
   ],
   "justmylook-dandg0066": [
@@ -34477,7 +34477,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DANDG0066_826d89e4-dded-4fc0-a8fb-32fca100f8a8.png?v=1765199497&width=1000"
     }
   ],
   "justmylook-dandg0043": [
@@ -34491,7 +34491,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DANDG0043_ed99cc1b-db56-486e-ba4d-93231ad873ff.png?v=1765199497&width=1000"
     }
   ],
   "justmylook-dandg0002": [
@@ -34505,7 +34505,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/k-eau-de-toilette-100ml-p22474-108233_image.jpg?v=1721322187&width=1000"
     }
   ],
   "justmylook-dandg0036": [
@@ -34519,7 +34519,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DANDG0036_1b145ec3-f8c1-40f5-bb2b-b00816bdfcfa.png?v=1765199497&width=1000"
     }
   ],
   "justmylook-dandg0092": [
@@ -34533,7 +34533,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/devotion-eau-de-parfum-50ml-p34974-104673_image.jpg?v=1721322187&width=1000"
     }
   ],
   "justmylook-dandg0049": [
@@ -34547,7 +34547,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DANDG0049_673e801c-265b-424c-9033-6537cc3f63c5.png?v=1765199497&width=1000"
     }
   ],
   "justmylook-dandg0018": [
@@ -34561,7 +34561,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DANDG0018.png?v=1765197717&width=1000"
     }
   ],
   "justmylook-dandg0091": [
@@ -34575,7 +34575,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/devotion-eau-de-parfum-30ml-p34973-104672_image.jpg?v=1721322187&width=1000"
     }
   ],
   "justmylook-dandg0062": [
@@ -34589,7 +34589,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DANDG0062_20f54b38-2014-4c85-9ddd-4bc8a2a3e1de.png?v=1765199498&width=1000"
     }
   ],
   "justmylook-dandg0014": [
@@ -34603,7 +34603,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/limperatrice-eau-de-toilette-100ml-p22480-64968_image.jpg?v=1721322184&width=1000"
     }
   ],
   "justmylook-dandg0003": [
@@ -34617,7 +34617,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/k-eau-de-parfum-100ml-p22475-108245_image.jpg?v=1721322195&width=1000"
     }
   ],
   "justmylook-dandg0061": [
@@ -34631,7 +34631,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/pour-homme-intenso-eau-de-parfum-125ml-p31947-88130_image.jpg?v=1721322189&width=1000"
     }
   ],
   "justmylook-dandg0035": [
@@ -34645,7 +34645,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DANDG0035.jpg?v=1765198825&width=1000"
     }
   ],
   "justmylook-dandg0054": [
@@ -34659,7 +34659,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/pour-femme-eau-de-parfum-100ml-p27431-67108_image.jpg?v=1721322195&width=1000"
     }
   ],
   "justmylook-dandg0046": [
@@ -34673,7 +34673,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/light-blue-eau-intense-femme-eau-de-parfum-100ml-p29805-76281_image.jpg?v=1721322190&width=1000"
     }
   ],
   "justmylook-dandg0081": [
@@ -34687,7 +34687,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/q-for-her-eau-de-parfum-100ml-p30641-80358_image.jpg?v=1721322188&width=1000"
     }
   ],
   "justmylook-dandg0020": [
@@ -34701,7 +34701,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/DANDG0020.png?v=1765197717&width=1000"
     }
   ],
   "justmylook-dandg0045": [
@@ -34715,7 +34715,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/light-blue-eau-intense-femme-eau-de-parfum-50ml-p26701-65022_image.jpg?v=1721322200&width=1000"
     }
   ],
   "ean-3423473020639": [
@@ -34729,7 +34729,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/954825.jpg?v=1770306027&width=1920"
     }
   ],
   "ean-3423473021216": [
@@ -34743,7 +34743,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/974140.jpg?v=1755874553&width=1920"
     }
   ],
   "ean-3423473020042": [
@@ -34757,7 +34757,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/1044326.jpg?v=1755874418&width=1920"
     }
   ],
   "ean-3423473020783": [
@@ -34771,7 +34771,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1382630985-42768200.jpg?v=1763389985&width=1920"
     }
   ],
   "ean-022548173701": [
@@ -34785,7 +34785,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731673717-46948200.jpg?v=1763390874&width=1920"
     }
   ],
   "ean-8011003852741": [
@@ -34799,7 +34799,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1583169458-03170300.jpg?v=1763389706&width=1920"
     }
   ],
   "ean-8011003852697": [
@@ -34813,7 +34813,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1583167579-97718900.jpg?v=1763389707&width=1920"
     }
   ],
   "ean-8011003864287": [
@@ -34827,7 +34827,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1628695733-54177800.jpg?v=1763390314&width=1920"
     }
   ],
   "ean-8011003864294": [
@@ -34841,7 +34841,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1628695034-04332300.jpg?v=1763390315&width=1920"
     }
   ],
   "justmylook-dsq0009": [
@@ -34855,7 +34855,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/dsquared2-red-wood-eau-de-toilette-pour-femme-100ml-p20724-43646_image.jpg?v=1721322198&width=1000"
     }
   ],
   "justmylook-dsq0003": [
@@ -34869,7 +34869,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/dsquared2-green-wood-eau-de-toilette-pour-homme-100ml-p20707-43629_image.jpg?v=1721322180&width=1000"
     }
   ],
   "ean-85715806352": [
@@ -34925,7 +34925,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1372772875-88348000.jpg?v=1763388783&width=1920"
     }
   ],
   "ean-4035773552513": [
@@ -34939,7 +34939,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626859409-43771500.jpg?v=1763388789&width=1920"
     }
   ],
   "ean-3423473016953": [
@@ -34953,7 +34953,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731496383-86876500.jpg?v=1763390883&width=1920"
     }
   ],
   "ean-3423473998556": [
@@ -34967,7 +34967,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731496956-28386400.jpg?v=1763390884&width=1920"
     }
   ],
   "ean-7640233341414": [
@@ -35009,7 +35009,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/le-parfum-eau-de-parfum-50ml-p27122-65545_image.jpg?v=1721322172&width=1000"
     }
   ],
   "justmylook-saab0016": [
@@ -35023,7 +35023,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/elie-saab-girl-of-now-eau-de-parfum-30ml-p27136-65559_image.jpg?v=1721322176&width=1000"
     }
   ],
   "justmylook-saab0003": [
@@ -35037,7 +35037,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/le-parfum-eau-de-parfum-90ml-p27123-65546_image.jpg?v=1721322179&width=1000"
     }
   ],
   "justmylook-saab0001": [
@@ -35051,7 +35051,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/elie-saab-le-parfum-eau-de-parfum-30ml-p27121-65544_image.jpg?v=1721322185&width=1000"
     }
   ],
   "justmylook-saab0017": [
@@ -35065,7 +35065,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/elie-saab-girl-of-now-eau-de-parfum-50ml-p27137-65560_image.jpg?v=1721322186&width=1000"
     }
   ],
   "justmylook-saab0018": [
@@ -35079,7 +35079,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/girl-of-now-eau-de-parfum-90ml-p27138-65561_image.jpg?v=1721322190&width=1000"
     }
   ],
   "justmylook-saab0009": [
@@ -35093,7 +35093,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/elie-saab-le-parfum-royal-eau-de-parfum-90ml-p27129-65552_image.jpg?v=1721322195&width=1000"
     }
   ],
   "justmylook-saab0006": [
@@ -35107,7 +35107,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/elie-saab-le-parfum-in-white-eau-de-parfum-90ml-p27126-65549_image.jpg?v=1721322197&width=1000"
     }
   ],
   "ean-085805161088": [
@@ -35121,7 +35121,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/1006685.jpg?v=1755874490&width=1920"
     }
   ],
   "ean-719346373906": [
@@ -35135,7 +35135,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/5211.jpg?v=1755875246&width=1920"
     }
   ],
   "ean-085805757748": [
@@ -35149,7 +35149,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3708.jpg?v=1755875334&width=1920"
     }
   ],
   "ean-085805785048": [
@@ -35163,7 +35163,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1640184999-88186800.jpg?v=1763390886&width=1920"
     }
   ],
   "ean-085805268749": [
@@ -35177,7 +35177,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1665068815-45588900.jpg?v=1763390891&width=1920"
     }
   ],
   "ean-085805036577": [
@@ -35191,7 +35191,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1658239184-77491800.jpg?v=1763390893&width=1920"
     }
   ],
   "ean-085805069308": [
@@ -35205,7 +35205,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1729698513-42574700.jpg?v=1763390896&width=1920"
     }
   ],
   "ean-085805555313": [
@@ -35219,7 +35219,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1507815594-67613100.png?v=1763389998&width=1920"
     }
   ],
   "ean-085805558420": [
@@ -35233,7 +35233,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1507817368-94373800.png?v=1763390003&width=1920"
     }
   ],
   "ean-085805120900": [
@@ -35247,7 +35247,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1729764847-92259600.jpg?v=1763390003&width=1920"
     }
   ],
   "ean-085805510541": [
@@ -35261,7 +35261,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369221616-33346700.jpg?v=1763390007&width=1920"
     }
   ],
   "ean-85805210458": [
@@ -35289,7 +35289,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ELIZ0006_x100.png?v=1777037412"
     }
   ],
   "justmylook-eliz0004": [
@@ -35303,7 +35303,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ELIZ0004_x100.png?v=1777037415"
     }
   ],
   "justmylook-eliz0007": [
@@ -35317,7 +35317,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ELIZ0007_x100.png?v=1777037417"
     }
   ],
   "justmylook-eliz0001": [
@@ -35331,7 +35331,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ELIZ0001_x100.png?v=1777037424"
     }
   ],
   "justmylook-eliz0080": [
@@ -35345,7 +35345,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ELIZ0080_0ea95c1b-8716-4e25-89a2-34a3be043092_x100.png?v=1778226640"
     }
   ],
   "justmylook-eliz0003": [
@@ -35359,7 +35359,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ELIZ0003_x100.png?v=1777023584"
     }
   ],
   "justmylook-eliz0008": [
@@ -35373,7 +35373,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ELIZ0008_x100.png?v=1777037393"
     }
   ],
   "justmylook-eliz0078": [
@@ -35387,7 +35387,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ELIZ0078_x100.png?v=1777037395"
     }
   ],
   "justmylook-eliz0002": [
@@ -35401,7 +35401,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ELIZ0002_x100.png?v=1777037400"
     }
   ],
   "justmylook-eliz0005": [
@@ -35415,7 +35415,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/elizabeth-arden-blue-grass-eau-de-parfum-100ml-p22282-49021_image_x100.jpg?v=1721322194"
     }
   ],
   "justmylook-eliz0055": [
@@ -35429,7 +35429,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ELIZ0055_x100.png?v=1777037406"
     }
   ],
   "justmylook-eliz0009": [
@@ -35443,7 +35443,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ELIZ0009.png?v=1777037409&width=1000"
     }
   ],
   "ean-719346450607": [
@@ -35457,7 +35457,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1375965703-55991000.jpg?v=1763390008&width=1920"
     }
   ],
   "ean-719346450409": [
@@ -35471,7 +35471,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1371726419-68050800.jpg?v=1763390010&width=1920"
     }
   ],
   "ean-719346022705": [
@@ -35485,7 +35485,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1375965119-84630400.png?v=1763390010&width=1920"
     }
   ],
   "justmylook-elizt0013": [
@@ -35499,7 +35499,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/elizabeth-taylor-diamonds-rubies-eau-de-toilette-100ml-p23490-52280_image.jpg?v=1721322206&width=1000"
     }
   ],
   "justmylook-elizt0001": [
@@ -35513,7 +35513,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/elizabeth-taylor-white-diamonds-eau-de-toilette-30ml-p30340-78855_image.jpg?v=1721322208&width=1000"
     }
   ],
   "justmylook-elizt0004": [
@@ -35527,7 +35527,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/elizabeth-taylor-white-diamonds-eau-de-toilette-100ml-p23487-79053_image.jpg?v=1721322210&width=1000"
     }
   ],
   "justmylook-elizt0017": [
@@ -35541,7 +35541,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/elizabeth-taylor-diamonds-emeralds-eau-de-toilette-100ml-p23492-52282_image.jpg?v=1721322195&width=1000"
     }
   ],
   "justmylook-elizt0015": [
@@ -35555,7 +35555,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/elizabeth-taylor-diamonds-sapphires-eau-de-toilette-100ml-p23491-52281_image.jpg?v=1721322196&width=1000"
     }
   ],
   "justmylook-arma0106": [
@@ -35569,7 +35569,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/stronger-with-you-for-him-eau-de-toilette-150ml-p31693-87347_image.jpg?v=1721322206&width=1000"
     }
   ],
   "justmylook-arma0004": [
@@ -35583,7 +35583,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0004.jpg?v=1733131975&width=1000"
     }
   ],
   "justmylook-arma0105": [
@@ -35597,7 +35597,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/stronger-with-you-for-him-eau-de-toilette-100ml-p31692-87343_image.jpg?v=1721322209&width=1000"
     }
   ],
   "justmylook-arma0008": [
@@ -35611,7 +35611,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0005_41a22bf5-e97d-408f-b16a-6d6d708459e6.jpg?v=1730741672&width=1000"
     }
   ],
   "justmylook-arma0001": [
@@ -35625,7 +35625,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/diamonds-she-eau-de-parfum-100ml-p24942-58460_image.jpg?v=1721322203&width=1000"
     }
   ],
   "justmylook-arma0006": [
@@ -35639,7 +35639,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0005_2dc67560-9bcd-4c2c-a578-6abdf6308bd9.jpg?v=1730741592&width=1000"
     }
   ],
   "justmylook-arma0109": [
@@ -35653,7 +35653,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/because-its-you-for-her-eau-de-parfum-50ml-p31696-87945_image.jpg?v=1721322207&width=1000"
     }
   ],
   "justmylook-arma0108": [
@@ -35667,7 +35667,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/emporio-armani-stronger-with-you-intensely-mens-eau-de-parfum-100ml-p31695-88055_image.jpg?v=1721322209&width=1000"
     }
   ],
   "justmylook-arma0107": [
@@ -35681,7 +35681,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/emporio-armani-stronger-with-you-intensely-mens-eau-de-parfum-50ml-p31694-87950_image.jpg?v=1721322217&width=1000"
     }
   ],
   "justmylook-arma0005": [
@@ -35695,7 +35695,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0005.jpg?v=1730741546&width=1000"
     }
   ],
   "justmylook-arma0003": [
@@ -35709,7 +35709,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/diamonds-he-eau-de-toilette-50ml-p24906-71490_image.png?v=1721322194&width=1000"
     }
   ],
   "justmylook-arma0007": [
@@ -35723,7 +35723,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0005_2afa24f5-c904-425d-bf8b-ca777f342e5c.jpg?v=1730741658&width=1000"
     }
   ],
   "justmylook-arma0002": [
@@ -35737,7 +35737,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/diamonds-she-eau-de-parfum-50ml-p27079-66164_image.jpg?v=1721322198&width=1000"
     }
   ],
   "justmylook-arma0110": [
@@ -35751,7 +35751,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/emporio-armani-because-its-you-for-her-eau-de-parfum-100ml-p31697-88059_image.jpg?v=1721322199&width=1000"
     }
   ],
   "justmylook-arma0115": [
@@ -35765,7 +35765,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/stronger-with-you-absolutely-parfum-100ml-p33709-97202_image.jpg?v=1721322199&width=1000"
     }
   ],
   "justmylook-arma0104": [
@@ -35779,7 +35779,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/emporio-armani-stronger-with-you-for-him-eau-de-toilette-50ml-p31691-87337_image.jpg?v=1721322209&width=1000"
     }
   ],
   "ean-8005610516134": [
@@ -35793,7 +35793,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1634650865-07443100.jpg?v=1763390484&width=1920"
     }
   ],
   "ean-5060103310012": [
@@ -35849,7 +35849,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/9295_87b5b218-5c81-47d6-8f18-a3a394b724b8.jpg?v=1761654694&width=1920"
     }
   ],
   "ean-887167095915": [
@@ -35863,7 +35863,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3556.jpg?v=1755875351&width=1920"
     }
   ],
   "ean-027131086871": [
@@ -35877,7 +35877,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731514729-58177700.jpg?v=1763390905&width=1920"
     }
   ],
   "ean-027131261612": [
@@ -35891,7 +35891,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1713794446-34006900.jpg?v=1763390910&width=1920"
     }
   ],
   "ean-027131043287": [
@@ -35905,7 +35905,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731516327-44588800.jpg?v=1763390913&width=1920"
     }
   ],
   "ean-027131043294": [
@@ -35919,7 +35919,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1714063193-29561200.jpg?v=1763390916&width=1920"
     }
   ],
   "ean-027131043317": [
@@ -35933,7 +35933,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1710430591-66919200.jpg?v=1763390916&width=1920"
     }
   ],
   "justmylook-est0008": [
@@ -35947,7 +35947,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/EST0008_x100.png?v=1739789782"
     }
   ],
   "justmylook-est0002": [
@@ -35961,7 +35961,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/EST0002_e88db558-a565-4b37-a2fc-afd5e33ae068_x100.png?v=1738168657"
     }
   ],
   "justmylook-est0011": [
@@ -35975,7 +35975,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/EST0011_x100.png?v=1738168657"
     }
   ],
   "justmylook-est0009": [
@@ -35989,7 +35989,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/estee-lauder-pleasures-eau-de-parfum-100ml-p24546-61507_image_x100.jpg?v=1721322205"
     }
   ],
   "justmylook-est0007": [
@@ -36003,7 +36003,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/EST0007_x100.png?v=1739789782"
     }
   ],
   "justmylook-est0018": [
@@ -36017,7 +36017,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/estee-lauder-knowing-eau-de-parfum-75ml-p24265-61501_image_x100.jpg?v=1721322206"
     }
   ],
   "justmylook-est0004": [
@@ -36031,7 +36031,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/modern-muse-eau-de-parfum-50ml-p28372-71967_image_x100.jpg?v=1721322206"
     }
   ],
   "justmylook-est0016": [
@@ -36045,7 +36045,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/EST0016_x100.png?v=1739789782"
     }
   ],
   "ean-8002135111974": [
@@ -36059,7 +36059,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1480706123-73335800.jpg?v=1763390019&width=1920"
     }
   ],
   "ean-5055170290053": [
@@ -36073,7 +36073,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1694185937-45676700.jpg?v=1763390928&width=1920"
     }
   ],
   "ean-5055170290046": [
@@ -36087,7 +36087,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1610024517-09709600.jpg?v=1763390079&width=1920"
     }
   ],
   "ean-5055170290039": [
@@ -36101,7 +36101,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1610025827-63793300.jpg?v=1763390084&width=1920"
     }
   ],
   "ean-5055170221019": [
@@ -36115,7 +36115,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1610026057-29470100.jpg?v=1763390085&width=1920"
     }
   ],
   "ean-5055170290060": [
@@ -36129,7 +36129,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1621602378-88135800.jpg?v=1763390206&width=1920"
     }
   ],
   "ean-085715672858": [
@@ -36143,7 +36143,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1555347083-34223800.jpg?v=1763391072&width=1920"
     }
   ],
   "ean-716393630884": [
@@ -36157,7 +36157,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1557761324-33328200.jpg?v=1763391075&width=1920"
     }
   ],
   "ean-766124130404": [
@@ -36171,7 +36171,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1557501457-07687400.jpg?v=1763391082&width=1920"
     }
   ],
   "justmylook-ghost0010": [
@@ -36185,7 +36185,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ghost-deep-night-eau-de-toilette-75ml-p36255-113655_image.jpg?v=1721322201&width=1000"
     }
   ],
   "justmylook-ghost0003": [
@@ -36199,7 +36199,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ghost-the-fragrance-eau-de-toilette-100ml-p36759-113808_image.jpg?v=1721322195&width=1000"
     }
   ],
   "justmylook-ghost0016": [
@@ -36213,7 +36213,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GHOST0016.jpg?v=1727344560&width=1000"
     }
   ],
   "ean-3360372061823": [
@@ -36227,7 +36227,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1637155891-18182000.jpg?v=1763391093&width=1920"
     }
   ],
   "ean-3605521819987": [
@@ -36241,7 +36241,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641570857-63014700.jpg?v=1763390951&width=1920"
     }
   ],
   "ean-3614271994721": [
@@ -36255,7 +36255,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/si30.jpg?v=1773743259&width=1920"
     }
   ],
   "ean-3614271994806": [
@@ -36269,7 +36269,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/si50.jpg?v=1773743457&width=1920"
     }
   ],
   "ean-3605520380310": [
@@ -36283,7 +36283,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1493377552-02468200.jpg?v=1763391093&width=1920"
     }
   ],
   "ean-3614272225701": [
@@ -36297,7 +36297,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1548246436-93825600.jpg?v=1763389183&width=1920"
     }
   ],
   "ean-3614272907652": [
@@ -36311,7 +36311,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1598971699-54767000.jpg?v=1763389869&width=1920"
     }
   ],
   "ean-3614273347853": [
@@ -36325,7 +36325,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626954069-32050500.jpg?v=1763390268&width=1920"
     }
   ],
   "ean-3614273347839": [
@@ -36339,7 +36339,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626954416-83263100.jpg?v=1763390271&width=1920"
     }
   ],
   "ean-3614273604888": [
@@ -36507,7 +36507,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/giorgio-armani-my-way-eau-de-parfum-90ml-p27847-69687_image.jpg?v=1721322195&width=1000"
     }
   ],
   "justmylook-arma0049": [
@@ -36521,7 +36521,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0049.png?v=1749024408&width=1000"
     }
   ],
   "justmylook-arma0034": [
@@ -36535,7 +36535,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0034.png?v=1733934744&width=1000"
     }
   ],
   "justmylook-arma0063": [
@@ -36549,7 +36549,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/armani-code-femme-eau-de-parfum-30ml-p27842-69682_image.jpg?v=1721322203&width=1000"
     }
   ],
   "justmylook-arma0135": [
@@ -36563,7 +36563,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/armani-code-eau-de-parfum-50ml-p38166-121232_image.jpg?v=1721322214&width=1000"
     }
   ],
   "justmylook-arma0064": [
@@ -36577,7 +36577,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/armani-code-femme-eau-de-parfum-50ml-p27843-69683_image.jpg?v=1721322203&width=1000"
     }
   ],
   "justmylook-arma0094": [
@@ -36591,7 +36591,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/code-pour-homme-eau-de-toilette-125ml-p30633-80955_image.jpg?v=1721322209&width=1000"
     }
   ],
   "justmylook-arma0035": [
@@ -36605,7 +36605,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0035.png?v=1733934760&width=1000"
     }
   ],
   "justmylook-arma0067": [
@@ -36619,7 +36619,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/giorgio-armani-my-way-eau-de-parfum-50ml-p27846-69686_image.jpg?v=1721322208&width=1000"
     }
   ],
   "justmylook-arma0093": [
@@ -36633,7 +36633,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/code-pour-homme-eau-de-toilette-75ml-p30632-80947_image.jpg?v=1721322213&width=1000"
     }
   ],
   "justmylook-arma0066": [
@@ -36647,7 +36647,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/my-way-eau-de-parfum-30ml-p27845-69685_image.jpg?v=1721322208&width=1000"
     }
   ],
   "justmylook-arma0050": [
@@ -36661,7 +36661,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0050.png?v=1749024471&width=1000"
     }
   ],
   "justmylook-arma0065": [
@@ -36675,7 +36675,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/giorgio-armani-armani-code-femme-eau-de-parfum-75ml-p27844-69684_image.jpg?v=1721322209&width=1000"
     }
   ],
   "justmylook-arma0137": [
@@ -36689,7 +36689,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/armani-code-eau-de-parfum-125ml-p38168-121234_image.jpg?v=1721322215&width=1000"
     }
   ],
   "justmylook-arma0118": [
@@ -36703,7 +36703,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/giorgio-armani-si-intense-eau-de-parfum-100ml-p33712-99544_image.jpg?v=1721322219&width=1000"
     }
   ],
   "justmylook-arma0092": [
@@ -36717,7 +36717,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/code-pour-homme-eau-de-toilette-50ml-p30631-80951_image.jpg?v=1721322219&width=1000"
     }
   ],
   "justmylook-arma0048": [
@@ -36731,7 +36731,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0048.png?v=1749024342&width=1000"
     }
   ],
   "justmylook-arma0082": [
@@ -36745,7 +36745,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/code-le-parfum-125ml-p28537-71981_image.jpg?v=1721322217&width=1000"
     }
   ],
   "justmylook-arma0136": [
@@ -36759,7 +36759,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/armani-code-eau-de-parfum-75ml-p38167-121233_image.jpg?v=1721322218&width=1000"
     }
   ],
   "ean-715885000082": [
@@ -36773,7 +36773,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1554819828-60799100.jpg?v=1763391099&width=1920"
     }
   ],
   "ean-715885170129": [
@@ -36787,7 +36787,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1372850340-51409900.jpg?v=1763391099&width=1920"
     }
   ],
   "ean-716393009659": [
@@ -36801,7 +36801,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1372847458-56945100.jpg?v=1763391100&width=1920"
     }
   ],
   "justmylook-gio0003": [
@@ -36815,7 +36815,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/giorgio-beverly-hills-eau-de-toilette-90ml-p29809-76285_image.jpg?v=1721322205&width=1000"
     }
   ],
   "justmylook-gio0001": [
@@ -36829,7 +36829,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/giorgio-beverly-hills-eau-de-toilette-30ml-p29808-76284_image.jpg?v=1721322216&width=1000"
     }
   ],
   "ean-3274872399167": [
@@ -36843,7 +36843,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/4655_1968375d-2ff0-4615-af09-fc4c91f51533.jpg?v=1778588090&width=1920"
     }
   ],
   "ean-3274872389977": [
@@ -36857,7 +36857,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/6861.jpg?v=1755875143&width=1920"
     }
   ],
   "ean-3274871122506": [
@@ -36871,7 +36871,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1474542610-37949300.jpg?v=1763391103&width=1920"
     }
   ],
   "ean-3274870222566": [
@@ -36885,7 +36885,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1515422778-33010100.png?v=1763391107&width=1920"
     }
   ],
   "ean-3274872423008": [
@@ -36899,7 +36899,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727338157-36198300.jpg?v=1763390974&width=1920"
     }
   ],
   "ean-3274872419292": [
@@ -36913,7 +36913,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727341735-88721700.jpg?v=1763390980&width=1920"
     }
   ],
   "ean-3274872372139": [
@@ -36927,7 +36927,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1638875542-65945300.jpg?v=1763390986&width=1920"
     }
   ],
   "ean-3274872372146": [
@@ -36941,7 +36941,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1638876228-60369500.jpg?v=1763390986&width=1920"
     }
   ],
   "ean-3274872428058": [
@@ -37445,7 +37445,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0006.png?v=1756720375&width=1000"
     }
   ],
   "justmylook-giv0009": [
@@ -37459,7 +37459,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0009.png?v=1753445103&width=1000"
     }
   ],
   "justmylook-giv0016": [
@@ -37473,7 +37473,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0016_4bb977de-8ee8-46ae-a35b-ad438d008c6f.png?v=1766569596&width=1000"
     }
   ],
   "justmylook-giv0005": [
@@ -37487,7 +37487,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0005_6904d2cf-37c6-47f3-afd8-3c1ce897f8c5.png?v=1765452232&width=1000"
     }
   ],
   "justmylook-giv0002": [
@@ -37501,7 +37501,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0002.png?v=1753445102&width=1000"
     }
   ],
   "justmylook-giv0004": [
@@ -37515,7 +37515,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0004.png?v=1753445102&width=1000"
     }
   ],
   "justmylook-giv0007": [
@@ -37529,7 +37529,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0007.png?v=1753445102&width=1000"
     }
   ],
   "justmylook-giv0031": [
@@ -37543,7 +37543,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0031.png?v=1753445067&width=1000"
     }
   ],
   "justmylook-giv0013": [
@@ -37557,7 +37557,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0013.png?v=1769433811&width=1000"
     }
   ],
   "justmylook-giv0015": [
@@ -37571,7 +37571,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0015.png?v=1753445102&width=1000"
     }
   ],
   "justmylook-giv0025": [
@@ -37585,7 +37585,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0025.png?v=1753445102&width=1000"
     }
   ],
   "justmylook-giv0001": [
@@ -37599,7 +37599,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0001_55133d53-f720-4b4d-a97b-a6aeafc4957d.png?v=1765452232&width=1000"
     }
   ],
   "justmylook-giv0027": [
@@ -37613,7 +37613,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0027.png?v=1753445068&width=1000"
     }
   ],
   "justmylook-giv0023": [
@@ -37627,7 +37627,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0023.png?v=1753445103&width=1000"
     }
   ],
   "justmylook-giv0026": [
@@ -37641,7 +37641,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0026.png?v=1753445103&width=1000"
     }
   ],
   "justmylook-giv0018": [
@@ -37655,7 +37655,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0018.png?v=1753445103&width=1000"
     }
   ],
   "ean-3274872396180": [
@@ -37669,7 +37669,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1379596157-25716100.jpg?v=1763391105&width=1920"
     }
   ],
   "ean-3274872441033": [
@@ -37683,7 +37683,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727281073-50078100.jpg?v=1763390974&width=1920"
     }
   ],
   "ean-3274872399020": [
@@ -37697,7 +37697,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727338994-20131800.jpg?v=1763390976&width=1920"
     }
   ],
   "ean-3274872400719": [
@@ -37711,7 +37711,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727339561-79147100.jpg?v=1763390980&width=1920"
     }
   ],
   "ean-3274872419308": [
@@ -37725,7 +37725,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727341880-40068800.jpg?v=1763390980&width=1920"
     }
   ],
   "ean-3274872369429": [
@@ -37739,7 +37739,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727348611-68864900.jpg?v=1763390994&width=1920"
     }
   ],
   "ean-3274872411685": [
@@ -37753,7 +37753,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1598968857-70759400.jpg?v=1763389873&width=1920"
     }
   ],
   "ean-3357554720012": [
@@ -37767,7 +37767,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1480619483-75397700.jpg?v=1763391110&width=1920"
     }
   ],
   "justmylook-glor0002": [
@@ -37781,7 +37781,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/gloria-vanderbilt-vanderbilt-no-1-eau-de-toilette-100ml-p32503-91085_image.jpg?v=1721322203&width=1000"
     }
   ],
   "justmylook-glor0005": [
@@ -37795,7 +37795,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/gloria-vanderbilt-jardin-a-new-york-eau-de-parfum-100ml-p32506-91088_image.jpg?v=1721322214&width=1000"
     }
   ],
   "justmylook-glor0001": [
@@ -37809,7 +37809,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/gloria-vanderbilt-vanderbilt-in-red-eau-de-parfum-100ml-p32502-91084_image.jpg?v=1721322217&width=1000"
     }
   ],
   "ean-7640111494027": [
@@ -37823,7 +37823,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1371458783-30015000.jpg?v=1763391111&width=1920"
     }
   ],
   "ean-3418130110204": [
@@ -37837,7 +37837,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641986906-98078300.jpg?v=1763390998&width=1920"
     }
   ],
   "ean-7640111491958": [
@@ -37851,7 +37851,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641986646-38429500.jpg?v=1763390998&width=1920"
     }
   ],
   "ean-7640111494133": [
@@ -37865,7 +37865,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641987018-79741000.jpg?v=1763390998&width=1920"
     }
   ],
   "justmylook-gres0004": [
@@ -37879,7 +37879,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-eau-de-parfum-100ml-p23218-87930_image.jpg?v=1721322228&width=1000"
     }
   ],
   "justmylook-gres0010": [
@@ -37893,7 +37893,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-cabochard-eau-de-toilette-100ml-p31744-87936_image.jpg?v=1721322226&width=1000"
     }
   ],
   "justmylook-gres0002": [
@@ -37907,7 +37907,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-cabochard-eau-de-parfum-100ml-p23217-87932_image.jpg?v=1721322210&width=1000"
     }
   ],
   "justmylook-gres0008": [
@@ -37921,7 +37921,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-madame-gres-eau-de-parfum-100ml-p23496-87943_image.jpg?v=1721322210&width=1000"
     }
   ],
   "justmylook-gres0009": [
@@ -37935,7 +37935,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-rose-eau-de-toilette-100ml-p23497-87919_image.jpg?v=1721322214&width=1000"
     }
   ],
   "justmylook-gres0012": [
@@ -37949,7 +37949,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-gold-eau-de-toilette-100ml-p31746-87921_image.jpg?v=1721322215&width=1000"
     }
   ],
   "justmylook-gres0007": [
@@ -37963,7 +37963,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-eau-de-toilette-100ml-p23495-87928_image.jpg?v=1721322218&width=1000"
     }
   ],
   "justmylook-gres0011": [
@@ -37977,7 +37977,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-cabochard-cherie-eau-de-parfum-100ml-p31745-87934_image.jpg?v=1721322219&width=1000"
     }
   ],
   "ean-737052925073": [
@@ -38453,7 +38453,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0016.png?v=1775142589&width=1000"
     }
   ],
   "justmylook-gucc0018": [
@@ -38467,7 +38467,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0018.png?v=1775142586&width=1000"
     }
   ],
   "justmylook-gucc0017": [
@@ -38481,7 +38481,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0017.png?v=1775142586&width=1000"
     }
   ],
   "justmylook-gucc0011": [
@@ -38495,7 +38495,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0011.png?v=1775142587&width=1000"
     }
   ],
   "justmylook-gucc0005": [
@@ -38509,7 +38509,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0005.png?v=1776075219&width=1000"
     }
   ],
   "justmylook-gucc0020": [
@@ -38523,7 +38523,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0020.png?v=1775142587&width=1000"
     }
   ],
   "justmylook-gucc0010": [
@@ -38537,7 +38537,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0010.png?v=1776858610&width=1000"
     }
   ],
   "justmylook-gucc0022": [
@@ -38551,7 +38551,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0022.png?v=1775142588&width=1000"
     }
   ],
   "justmylook-gucc0023": [
@@ -38565,7 +38565,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0023.png?v=1775142589&width=1000"
     }
   ],
   "justmylook-gucc0026": [
@@ -38579,7 +38579,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0026.png?v=1775142589&width=1000"
     }
   ],
   "justmylook-gucc0027": [
@@ -38593,7 +38593,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0027.png?v=1775142581&width=1000"
     }
   ],
   "justmylook-gucc0013": [
@@ -38607,7 +38607,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0013.png?v=1775142581&width=1000"
     }
   ],
   "justmylook-gucc0007": [
@@ -38621,7 +38621,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0007.png?v=1775142582&width=1000"
     }
   ],
   "justmylook-gucc0021": [
@@ -38635,7 +38635,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0021.png?v=1775142582&width=1000"
     }
   ],
   "justmylook-gucc0006": [
@@ -38649,7 +38649,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0006.png?v=1775142583&width=1000"
     }
   ],
   "justmylook-gucc0015": [
@@ -38663,7 +38663,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0015.png?v=1775142583&width=1000"
     }
   ],
   "justmylook-gucc0025": [
@@ -38677,7 +38677,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0025.png?v=1775142584&width=1000"
     }
   ],
   "justmylook-gucc0009": [
@@ -38691,7 +38691,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0009.png?v=1775142584&width=1000"
     }
   ],
   "justmylook-gucc0008": [
@@ -38705,7 +38705,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0008.png?v=1775142585&width=1000"
     }
   ],
   "justmylook-gucc0019": [
@@ -38719,7 +38719,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC019.png?v=1775142483&width=1000"
     }
   ],
   "justmylook-gucc0012": [
@@ -38733,7 +38733,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0012.png?v=1775142585&width=1000"
     }
   ],
   "justmylook-gucc0024": [
@@ -38747,7 +38747,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0024.png?v=1780055153&width=1000"
     }
   ],
   "ean-737052925028": [
@@ -38761,7 +38761,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1713782271-50454600.jpg?v=1763391000&width=1920"
     }
   ],
   "ean-8005610481081": [
@@ -38775,7 +38775,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1713780336-29089800.jpg?v=1763391004&width=1920"
     }
   ],
   "ean-737052626383": [
@@ -38789,7 +38789,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731410032-19937800.jpg?v=1763391004&width=1920"
     }
   ],
   "ean-3614227758063": [
@@ -38803,7 +38803,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1553082110-43463700.jpg?v=1763389256&width=1920"
     }
   ],
   "ean-3346470243989": [
@@ -38817,7 +38817,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/9481.jpg?v=1755875047&width=1920"
     }
   ],
   "ean-3346470241046": [
@@ -38831,7 +38831,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/5921.jpg?v=1755875177&width=1920"
     }
   ],
   "ean-3346470303188": [
@@ -38845,7 +38845,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/274083.jpg?v=1770636211&width=1920"
     }
   ],
   "ean-3346470301856": [
@@ -38859,7 +38859,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1736948509-45326200.jpg?v=1763390626&width=1920"
     }
   ],
   "ean-3346470143876": [
@@ -38985,7 +38985,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUER0008_0247cd8c-9f72-459c-b8e4-316c7c7a9e97.png?v=1765452232&width=1000"
     }
   ],
   "justmylook-guer0010": [
@@ -38999,7 +38999,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUER0010.png?v=1766569596&width=1000"
     }
   ],
   "justmylook-guer0007": [
@@ -39013,7 +39013,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUER0007.png?v=1766569596&width=1000"
     }
   ],
   "justmylook-guer0005": [
@@ -39027,7 +39027,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/guerlain-insolence-eau-de-parfum-75ml-p36178-113669_image.jpg?v=1721322225&width=1000"
     }
   ],
   "justmylook-guer0011": [
@@ -39041,7 +39041,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUER0011.png?v=1766569596&width=1000"
     }
   ],
   "ean-3360372009641": [
@@ -39055,7 +39055,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1605262488-54129300.jpg?v=1763389757&width=1920"
     }
   ],
   "ean-3360372009573": [
@@ -39069,7 +39069,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1605262648-05029500.jpg?v=1763389909&width=1920"
     }
   ],
   "justmylook-guyl0005": [
@@ -39083,7 +39083,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/drakkar-noir-eau-de-toilette-200ml-p32514-91096_image.jpg?v=1721322229&width=1000"
     }
   ],
   "justmylook-guyl0014": [
@@ -39097,7 +39097,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/guy-laroche-fidji-eau-de-parfum-50ml-p35126-105390_image.jpg?v=1721322226&width=1000"
     }
   ],
   "justmylook-guyl0012": [
@@ -39111,7 +39111,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/guy-laroche-fidji-eau-de-toilette-100ml-p35124-105389_image.jpg?v=1721322233&width=1000"
     }
   ],
   "justmylook-guyl0004": [
@@ -39125,7 +39125,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/drakkar-noir-eau-de-toilette-100ml-p32513-91095_image.jpg?v=1721322229&width=1000"
     }
   ],
   "ean-719346020480": [
@@ -39139,7 +39139,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1708602386-75805300.jpg?v=1763391015&width=1920"
     }
   ],
   "ean-3346133200021": [
@@ -39167,7 +39167,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HERM0007.png?v=1766583596&width=1000"
     }
   ],
   "justmylook-herm0013": [
@@ -39181,7 +39181,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hermes-terre-dhermes-givree-eau-de-parfum-50ml-p36410-114850_image.jpg?v=1721322231&width=1000"
     }
   ],
   "justmylook-herm0043": [
@@ -39195,7 +39195,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HERM0043.png?v=1777979074&width=1000"
     }
   ],
   "justmylook-herm0009": [
@@ -39209,7 +39209,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HERM0009.png?v=1766583596&width=1000"
     }
   ],
   "justmylook-herm0008": [
@@ -39223,7 +39223,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HERM0008.png?v=1766583596&width=1000"
     }
   ],
   "justmylook-herm0015": [
@@ -39237,7 +39237,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HERM0015.png?v=1770982472&width=1000"
     }
   ],
   "justmylook-herm0002": [
@@ -39251,7 +39251,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HERM0002.png?v=1766583596&width=1000"
     }
   ],
   "justmylook-herm0001": [
@@ -39265,7 +39265,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HERM0001.png?v=1766583596&width=1000"
     }
   ],
   "justmylook-herm0016": [
@@ -39279,7 +39279,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HERM0016.png?v=1770982472&width=1000"
     }
   ],
   "justmylook-herm0003": [
@@ -39293,7 +39293,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HERM0003_1e1b2dba-d069-40f3-81db-8a3b71909b14.png?v=1775142588&width=1000"
     }
   ],
   "justmylook-herm0004": [
@@ -39307,7 +39307,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hermes-terre-dhermes-eau-intense-vetiver-eau-de-parfum-50ml-p36408-114854_image.jpg?v=1721322227&width=1000"
     }
   ],
   "justmylook-herm0014": [
@@ -39321,7 +39321,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HERM0014.png?v=1766583596&width=1000"
     }
   ],
   "ean-3346131402205": [
@@ -39335,7 +39335,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/818085.jpg?v=1755874637&width=1920"
     }
   ],
   "ean-3346130009702": [
@@ -39349,7 +39349,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/967797.jpg?v=1755874576&width=1920"
     }
   ],
   "ean-3346130490654": [
@@ -39363,7 +39363,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/36893.jpg?v=1755874928&width=1920"
     }
   ],
   "ean-5030645841312": [
@@ -39377,7 +39377,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1374598153-25471300.png?v=1763391116&width=1920"
     }
   ],
   "ean-5030645841411": [
@@ -39391,7 +39391,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1387222554-10879600.png?v=1763391116&width=1920"
     }
   ],
   "ean-3616302968237": [
@@ -39685,7 +39685,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/bottled-eau-de-toilette-100ml-p20234-71517_image.png?v=1721322236&width=1000"
     }
   ],
   "justmylook-hb0046": [
@@ -39699,7 +39699,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-deep-red-eau-de-parfum-50ml-p25999-61647_image.jpg?v=1721322232&width=1000"
     }
   ],
   "justmylook-hb0013": [
@@ -39713,7 +39713,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/bottled-tonic-eau-de-toilette-100ml-p22246-48152_image.jpg?v=1721322236&width=1000"
     }
   ],
   "justmylook-hb0069": [
@@ -39727,7 +39727,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-boss-femme-eau-de-parfum-50ml-p24946-57506_image.jpg?v=1721322232&width=1000"
     }
   ],
   "justmylook-hb0109": [
@@ -39741,7 +39741,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-eau-de-parfum-200ml-p35001-104698_image.jpg?v=1721322233&width=1000"
     }
   ],
   "justmylook-hb0004": [
@@ -39755,7 +39755,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HB0004.jpg?v=1733130581&width=1000"
     }
   ],
   "justmylook-hb0116": [
@@ -39769,7 +39769,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/the-scent-for-her-le-parfum-50ml-p35008-120106_image.jpg?v=1721322235&width=1000"
     }
   ],
   "justmylook-hb0038": [
@@ -39783,7 +39783,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HB0038_94b55b64-3a88-4a71-b031-c78a467cb9b1.png?v=1776684403&width=1000"
     }
   ],
   "justmylook-hb0083": [
@@ -39797,7 +39797,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HB0083.jpg?v=1733760167&width=1000"
     }
   ],
   "justmylook-hb0087": [
@@ -39811,7 +39811,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-extreme-man-eau-de-parfum-75ml-p25569-60314_image.jpg?v=1721322236&width=1000"
     }
   ],
   "justmylook-hb0022": [
@@ -39825,7 +39825,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-orange-woman-eau-de-toilette-50ml-p22300-48206_image.jpg?v=1721322237&width=1000"
     }
   ],
   "justmylook-hb0108": [
@@ -39839,7 +39839,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-eau-de-parfum-100ml-p35000-104697_image.jpg?v=1721322236&width=1000"
     }
   ],
   "justmylook-hb0191": [
@@ -39853,7 +39853,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HB0191.png?v=1776419577&width=1000"
     }
   ],
   "justmylook-hb0017": [
@@ -39867,7 +39867,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/bottled-unlimited-eau-de-toilette-100ml-p20377-42783_image.jpg?v=1721322236&width=1000"
     }
   ],
   "justmylook-hb0080": [
@@ -39881,7 +39881,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-woman-extreme-eau-de-parfum-75ml-p25565-63220_image.jpg?v=1721322236&width=1000"
     }
   ],
   "justmylook-hb0102": [
@@ -39895,7 +39895,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/woman-eau-de-parfum-90ml-p31290-84736_image.jpg?v=1721322237&width=1000"
     }
   ],
   "justmylook-hb0077": [
@@ -39909,7 +39909,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-aftershave-splash-100ml-p25651-60418_image.jpg?v=1721322239&width=1000"
     }
   ],
   "justmylook-hb0047": [
@@ -39923,7 +39923,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-number-one-eau-de-toilette-100ml-p23939-53800_image.jpg?v=1721322236&width=1000"
     }
   ],
   "justmylook-hb0071": [
@@ -39937,7 +39937,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-hugo-woman-eau-de-parfum-50ml-p24948-57508_image.jpg?v=1721322236&width=1000"
     }
   ],
   "justmylook-hb0011": [
@@ -39951,7 +39951,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/bottled-night-eau-de-toilette-200ml-p20235-42195_image.jpg?v=1721322241&width=1000"
     }
   ],
   "justmylook-hb0010": [
@@ -39965,7 +39965,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-night-eau-de-toilette-100ml-p20374-42780_image.jpg?v=1721322243&width=1000"
     }
   ],
   "justmylook-hb0055": [
@@ -39979,7 +39979,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-energise-for-him-eau-de-toilette-75ml-p24852-105728_image.jpg?v=1721322239&width=1000"
     }
   ],
   "justmylook-hb0023": [
@@ -39993,7 +39993,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-woman-eau-de-toilette-75ml-p23221-105730_image.jpg?v=1721322241&width=1000"
     }
   ],
   "justmylook-hb0044": [
@@ -40007,7 +40007,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/reversed-eau-de-toilette-125ml-p25654-60421_image.jpg?v=1721322240&width=1000"
     }
   ],
   "justmylook-hb0025": [
@@ -40021,7 +40021,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-man-eau-de-toilette-100ml-p23222-57423_image.jpg?v=1721322243&width=1000"
     }
   ],
   "justmylook-hb0097": [
@@ -40035,7 +40035,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/the-scent-for-him-eau-de-toilette-100ml-p26903-65377_image.jpg?v=1721322245&width=1000"
     }
   ],
   "justmylook-hb0059": [
@@ -40049,7 +40049,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-in-motion-eau-de-toilette-100ml-p24853-71529_image.png?v=1721322245&width=1000"
     }
   ],
   "justmylook-hb0027": [
@@ -40063,7 +40063,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-just-different-eau-de-toilette-75ml-p25997-61645_image.jpg?v=1721322245&width=1000"
     }
   ],
   "justmylook-hb0005": [
@@ -40077,7 +40077,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HB0005.jpg?v=1733130744&width=1000"
     }
   ],
   "justmylook-hb0076": [
@@ -40091,7 +40091,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-aftershave-splash-50ml-p25650-60417_image.jpg?v=1721322227&width=1000"
     }
   ],
   "justmylook-hb0067": [
@@ -40105,7 +40105,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-infinite-eau-de-parfum-200ml-p35127-105391_image.jpg?v=1721322227&width=1000"
     }
   ],
   "justmylook-hb0021": [
@@ -40119,7 +40119,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/HB0021.png?v=1779456400&width=1000"
     }
   ],
   "justmylook-hb0068": [
@@ -40133,7 +40133,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-boss-femme-eau-de-parfum-30ml-p24945-57505_image.jpg?v=1721322229&width=1000"
     }
   ],
   "justmylook-hb0111": [
@@ -40147,7 +40147,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-parfum-100ml-p35003-104700_image.jpg?v=1721322232&width=1000"
     }
   ],
   "justmylook-hb0066": [
@@ -40161,7 +40161,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-infinite-eau-de-parfum-100ml-p34999-104696_image.jpg?v=1721322228&width=1000"
     }
   ],
   "justmylook-hb0007": [
@@ -40175,7 +40175,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-eau-de-toilette-200ml-p25993-61641_image.jpg?v=1721322234&width=1000"
     }
   ],
   "justmylook-hb0065": [
@@ -40189,7 +40189,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-infinite-eau-de-parfum-50ml-p24514-55921_image.jpg?v=1721322228&width=1000"
     }
   ],
   "justmylook-hb0019": [
@@ -40203,7 +40203,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-deep-red-eau-de-parfum-90ml-p21089-71523_image.png?v=1721322232&width=1000"
     }
   ],
   "justmylook-hb0018": [
@@ -40217,7 +40217,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/bottled-unlimited-eau-de-toilette-200ml-p22247-48153_image.jpg?v=1721322233&width=1000"
     }
   ],
   "justmylook-hb0063": [
@@ -40231,7 +40231,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/man-eau-de-toilette-200ml-p24513-55920_image.jpg?v=1721322232&width=1000"
     }
   ],
   "justmylook-hb0014": [
@@ -40245,7 +40245,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-tonic-eau-de-toilette-200ml-p20375-42781_image.jpg?v=1721322236&width=1000"
     }
   ],
   "justmylook-hb0012": [
@@ -40259,7 +40259,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-tonic-eau-de-toilette-50ml-p21058-71520_image.png?v=1721322237&width=1000"
     }
   ],
   "ean-3614229823776": [
@@ -40273,7 +40273,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/963480.jpg?v=1755874583&width=1920"
     }
   ],
   "ean-737052351155": [
@@ -40287,7 +40287,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/2968.jpg?v=1755875418&width=1920"
     }
   ],
   "ean-737052351001": [
@@ -40301,7 +40301,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1517568130-53955300.png?v=1763391123&width=1920"
     }
   ],
   "ean-737052238050": [
@@ -40315,7 +40315,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369145196-89822600.jpg?v=1763391129&width=1920"
     }
   ],
   "ean-737052238081": [
@@ -40329,7 +40329,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369145950-63013600.jpg?v=1763391134&width=1920"
     }
   ],
   "ean-737052465678": [
@@ -40343,7 +40343,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1523977882-52693500.png?v=1763391137&width=1920"
     }
   ],
   "ean-3614229823790": [
@@ -40357,7 +40357,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1523982609-51930100.png?v=1763391136&width=1920"
     }
   ],
   "ean-3614225297687": [
@@ -40371,7 +40371,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1567170763-11427500.jpg?v=1763389426&width=1920"
     }
   ],
   "ean-737052972268": [
@@ -40385,7 +40385,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1725638593-16519700.jpg?v=1763391045&width=1920"
     }
   ],
   "ean-3616301623410": [
@@ -40399,7 +40399,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1654609610-63957200.jpg?v=1763391050&width=1920"
     }
   ],
   "ean-737052683522": [
@@ -40413,7 +40413,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641989320-68762600.jpg?v=1763391057&width=1920"
     }
   ],
   "ean-737052139906": [
@@ -40427,7 +40427,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1643028420-82334600.jpg?v=1763391057&width=1920"
     }
   ],
   "ean-737052987569": [
@@ -40441,7 +40441,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1595581822-99399300.jpg?v=1763389792&width=1920"
     }
   ],
   "ean-3616301623335": [
@@ -40455,7 +40455,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1637252632-17210100.jpg?v=1763390471&width=1920"
     }
   ],
   "ean-799575501295": [
@@ -40469,7 +40469,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1650470260-62046900.jpg?v=1763391060&width=1920"
     }
   ],
   "ean-3423470485547": [
@@ -40483,7 +40483,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1530205021-70805300.png?v=1763391143&width=1920"
     }
   ],
   "ean-3423470486018": [
@@ -40497,7 +40497,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1381230859-00959400.jpg?v=1763391148&width=1920"
     }
   ],
   "ean-3423478782655": [
@@ -40511,7 +40511,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1639479015-57752500.jpg?v=1763391184&width=1920"
     }
   ],
   "ean-3423474874651": [
@@ -40525,7 +40525,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1638964321-70886300.jpg?v=1763391187&width=1920"
     }
   ],
   "ean-3423474884155": [
@@ -40539,7 +40539,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641990186-88631800.jpg?v=1763391188&width=1920"
     }
   ],
   "ean-3423473947158": [
@@ -40553,7 +40553,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738678008-97649300.jpg?v=1763391190&width=1920"
     }
   ],
   "ean-3423470300154": [
@@ -40567,7 +40567,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1643027888-18653400.jpg?v=1763391062&width=1920"
     }
   ],
   "ean-3423478501058": [
@@ -40665,7 +40665,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/nuit-dissey-eau-de-toilette-75ml-p24878-57230_image.jpg?v=1721322239&width=1000"
     }
   ],
   "justmylook-iss0031": [
@@ -40679,7 +40679,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-femme-eau-de-parfum-25ml-p30376-78891_image.jpg?v=1721322235&width=1000"
     }
   ],
   "justmylook-iss0006": [
@@ -40693,7 +40693,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-intense-eau-de-toilette-125ml-p21060-65050_image.jpg?v=1721322237&width=1000"
     }
   ],
   "justmylook-iss0009": [
@@ -40707,7 +40707,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-femme-eau-de-toilette-50ml-p26005-65043_image.jpg?v=1721322238&width=1000"
     }
   ],
   "justmylook-iss0057": [
@@ -40721,7 +40721,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-femme-eau-de-parfum-75ml-p31960-90160_image.jpg?v=1721322236&width=1000"
     }
   ],
   "justmylook-iss0010": [
@@ -40735,7 +40735,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-femme-eau-de-toilette-100ml-p21860-65038_image.jpg?v=1721322239&width=1000"
     }
   ],
   "justmylook-iss0058": [
@@ -40749,7 +40749,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/leau-dissey-pour-homme-sport-eau-de-toilette-100ml-p31961-88143_image.jpg?v=1721322239&width=1000"
     }
   ],
   "justmylook-iss0003": [
@@ -40763,7 +40763,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/leau-dissey-pour-homme-eau-de-toilette-200ml-p20379-44627_image.jpg?v=1721322241&width=1000"
     }
   ],
   "justmylook-iss0004": [
@@ -40777,7 +40777,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-homme-eau-de-toilette-75ml-p20380-65065_image.jpg?v=1721322243&width=1000"
     }
   ],
   "justmylook-iss0005": [
@@ -40791,7 +40791,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/leau-dissey-intense-eau-de-toilette-75ml-p22248-65048_image.jpg?v=1721322243&width=1000"
     }
   ],
   "justmylook-iss0012": [
@@ -40805,7 +40805,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ISS0012.jpg?v=1730717531&width=1000"
     }
   ],
   "justmylook-iss0070": [
@@ -40819,7 +40819,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/leau-dissey-pour-homme-sport-eau-de-toilette-50ml-p38037-120110_image.jpg?v=1721322247&width=1000"
     }
   ],
   "justmylook-iss0032": [
@@ -40833,7 +40833,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-femme-eau-de-parfum-50ml-p26006-65041_image.jpg?v=1721322243&width=1000"
     }
   ],
   "justmylook-iss0002": [
@@ -40847,7 +40847,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/leau-dissey-pour-homme-eau-de-toilette-125ml-p20378-65064_image.jpg?v=1721322243&width=1000"
     }
   ],
   "justmylook-iss0008": [
@@ -40861,7 +40861,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/issey-miyake-l-eau-d-issey-pour-femme-eau-de-toilette-25ml-p24146-65054_image.jpg?v=1721322243&width=1000"
     }
   ],
   "justmylook-iss0001": [
@@ -40875,7 +40875,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-homme-eau-de-toilette-40ml-p20236-65062_image.jpg?v=1721322247&width=1000"
     }
   ],
   "ean-3355991000223": [
@@ -40889,7 +40889,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1558002275-41142600.jpg?v=1763391154&width=1920"
     }
   ],
   "ean-5022479500589": [
@@ -40903,7 +40903,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1548069086-07929700.jpg?v=1763391154&width=1920"
     }
   ],
   "ean-3562700373145": [
@@ -40917,7 +40917,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1664555000-80897100.jpg?v=1763391191&width=1920"
     }
   ],
   "ean-3562700373084": [
@@ -40931,7 +40931,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1664554433-75465700.jpg?v=1763391194&width=1920"
     }
   ],
   "ean-3562700121005": [
@@ -40945,7 +40945,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1654505753-36128600.jpg?v=1763391197&width=1920"
     }
   ],
   "ean-8435415012690": [
@@ -40959,7 +40959,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/558343.jpg?v=1755874704&width=1920"
     }
   ],
   "ean-8435415012638": [
@@ -40973,7 +40973,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728898125-45310400.jpg?v=1763391162&width=1920"
     }
   ],
   "ean-8435415012669": [
@@ -40987,7 +40987,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728900145-95103000.jpg?v=1763391162&width=1920"
     }
   ],
   "ean-8435415017190": [
@@ -41001,7 +41001,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1752769247-36342700.jpg?v=1763391204&width=1920"
     }
   ],
   "ean-8435415059084": [
@@ -41015,7 +41015,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728915400-67995100.jpg?v=1763391208&width=1920"
     }
   ],
   "ean-8435415059060": [
@@ -41029,7 +41029,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1700734328-72152600.jpg?v=1763391209&width=1920"
     }
   ],
   "ean-8435415011990": [
@@ -41043,7 +41043,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728487474-08177700.jpg?v=1763391209&width=1920"
     }
   ],
   "ean-8435415032315": [
@@ -41057,7 +41057,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1597998299-48473200.jpg?v=1763389846&width=1920"
     }
   ],
   "ean-8435415030908": [
@@ -41071,7 +41071,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1628870775-83801800.jpg?v=1763390303&width=1920"
     }
   ],
   "ean-3423470317169": [
@@ -41603,7 +41603,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JPG0029.png?v=1764673320&width=1000"
     }
   ],
   "justmylook-jpg0006": [
@@ -41617,7 +41617,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JPG0006.png?v=1753445103&width=1000"
     }
   ],
   "justmylook-jpg0025": [
@@ -41631,7 +41631,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JPG0025.png?v=1753445103&width=1000"
     }
   ],
   "justmylook-jpg0005": [
@@ -41645,7 +41645,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JPG0005.png?v=1753445103&width=1000"
     }
   ],
   "justmylook-jpg0014": [
@@ -41659,7 +41659,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JPG0014.png?v=1782729448&width=1000"
     }
   ],
   "justmylook-jpg0030": [
@@ -41673,7 +41673,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JPG0030.png?v=1753445103&width=1000"
     }
   ],
   "justmylook-jpg0008": [
@@ -41687,7 +41687,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JPG0008_0ae1d2da-46c0-4114-83f7-6956fa5c9e43.png?v=1774605259&width=1000"
     }
   ],
   "justmylook-jpg0007": [
@@ -41701,7 +41701,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JPG0007.png?v=1753445104&width=1000"
     }
   ],
   "justmylook-jpg0013": [
@@ -41715,7 +41715,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JPG0013.png?v=1782729452&width=1000"
     }
   ],
   "ean-5050456110018": [
@@ -41729,7 +41729,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1556788061-22291000.jpg?v=1763391152&width=1920"
     }
   ],
   "ean-3386460025492": [
@@ -41743,7 +41743,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626788438-91865700.jpg?v=1763391168&width=1920"
     }
   ],
   "ean-3386460066297": [
@@ -41757,7 +41757,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1664543902-03465100.jpg?v=1763391211&width=1920"
     }
   ],
   "ean-3386460066273": [
@@ -41771,7 +41771,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641990359-49554300.jpg?v=1763391216&width=1920"
     }
   ],
   "ean-3386460103701": [
@@ -41785,7 +41785,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641921616-98609000.jpg?v=1763391218&width=1920"
     }
   ],
   "ean-3386460071741": [
@@ -41799,7 +41799,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641898005-54144400.jpg?v=1763391222&width=1920"
     }
   ],
   "ean-3386460025522": [
@@ -41813,7 +41813,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641893261-50589400.jpg?v=1763391230&width=1920"
     }
   ],
   "ean-3386460025515": [
@@ -41827,7 +41827,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641893404-90653700.jpg?v=1763391232&width=1920"
     }
   ],
   "ean-3386460073875": [
@@ -41841,7 +41841,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738923604-05166800.jpg?v=1763391232&width=1920"
     }
   ],
   "ean-3386460082198": [
@@ -41855,7 +41855,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738923412-56332100.jpg?v=1763391233&width=1920"
     }
   ],
   "ean-3386460109369": [
@@ -41869,7 +41869,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1664543653-00264500.jpg?v=1763391237&width=1920"
     }
   ],
   "ean-3386460109383": [
@@ -41883,7 +41883,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1565109418-43191300.jpg?v=1763389393&width=1920"
     }
   ],
   "ean-3386460097345": [
@@ -41897,7 +41897,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626792067-26654000.jpg?v=1763389031&width=1920"
     }
   ],
   "ean-3386460072625": [
@@ -41911,7 +41911,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626794257-58524200.jpg?v=1763388972&width=1920"
     }
   ],
   "ean-3386460072588": [
@@ -41925,7 +41925,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1530198385-95163300.png?v=1763388973&width=1920"
     }
   ],
   "ean-3386460127073": [
@@ -41939,7 +41939,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1631200559-04514300.jpg?v=1763390331&width=1920"
     }
   ],
   "ean-3386460127066": [
@@ -41953,7 +41953,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1631200831-11303500.jpg?v=1763390333&width=1920"
     }
   ],
   "ean-3386460025508": [
@@ -42191,7 +42191,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JIMC0014.png?v=1738168657&width=1000"
     }
   ],
   "justmylook-jimc0015": [
@@ -42205,7 +42205,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JIMC0015.png?v=1738168657&width=1000"
     }
   ],
   "justmylook-jimc0018": [
@@ -42219,7 +42219,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/jimmy-choo-blossom-eau-de-parfum-100ml-p22649-65785_image.jpg?v=1721322244&width=1000"
     }
   ],
   "justmylook-jimc0009": [
@@ -42233,7 +42233,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JIMC0009.png?v=1738168657&width=1000"
     }
   ],
   "justmylook-jimc0058": [
@@ -42247,7 +42247,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JIMC0058.png?v=1741178528&width=1000"
     }
   ],
   "justmylook-jimc0016": [
@@ -42261,7 +42261,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JIMC0016_54b21b7c-6b14-414f-ab3e-fef5eef03520.png?v=1738342917&width=1000"
     }
   ],
   "justmylook-jimc0055": [
@@ -42275,7 +42275,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/jimmy-choo-man-eau-de-toilette-100ml-p30377-83403_image.jpg?v=1721322246&width=1000"
     }
   ],
   "justmylook-jimc0001": [
@@ -42289,7 +42289,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JIMC0001.png?v=1738168658&width=1000"
     }
   ],
   "justmylook-jimc0002": [
@@ -42303,7 +42303,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JIMC0002.png?v=1738168658&width=1000"
     }
   ],
   "justmylook-jimc0006": [
@@ -42317,7 +42317,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JIMC0006.png?v=1738168658&width=1000"
     }
   ],
   "justmylook-jimc0025": [
@@ -42331,7 +42331,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/jimmy-choo-leau-eau-de-toilette-40ml-p22656-108022_image.jpg?v=1721322246&width=1000"
     }
   ],
   "justmylook-jimc0024": [
@@ -42345,7 +42345,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/floral-eau-de-toilette-90ml-p22655-108020_image.jpg?v=1721322251&width=1000"
     }
   ],
   "justmylook-jimc0023": [
@@ -42359,7 +42359,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JIMC0023.png?v=1766583597&width=1000"
     }
   ],
   "justmylook-jimc0061": [
@@ -42373,7 +42373,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JIMC0061_6847d940-8986-4077-b683-f17af4876bd0.png?v=1738168804&width=1000"
     }
   ],
   "justmylook-jimc0010": [
@@ -42387,7 +42387,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JIMC0010.png?v=1738168658&width=1000"
     }
   ],
   "justmylook-jimc0003": [
@@ -42401,7 +42401,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/jimmy-choo-i-want-choo-eau-de-parfum-40ml-p22634-65755_image.jpg?v=1721322250&width=1000"
     }
   ],
   "justmylook-jimc0026": [
@@ -42415,7 +42415,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/leau-eau-de-toilette-60ml-p22657-65797_image.jpg?v=1721322250&width=1000"
     }
   ],
   "ean-690251028412": [
@@ -42779,7 +42779,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JOOP0003.png?v=1766583596&width=1000"
     }
   ],
   "justmylook-joop0020": [
@@ -42793,7 +42793,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JOOP0020.png?v=1766583597&width=1000"
     }
   ],
   "ean-3414200640015": [
@@ -42807,7 +42807,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641994689-16777100.jpg?v=1763391243&width=1920"
     }
   ],
   "ean-3414206000615": [
@@ -42821,7 +42821,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3273.jpg?v=1755875391&width=1920"
     }
   ],
   "ean-035017009029": [
@@ -42835,7 +42835,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1739186921-35836600.jpg?v=1763391245&width=1920"
     }
   ],
   "ean-035017008923": [
@@ -42849,7 +42849,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1739186864-82219300.jpg?v=1763391245&width=1920"
     }
   ],
   "ean-035017008145": [
@@ -42863,7 +42863,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1739186721-85103900.jpg?v=1763391249&width=1920"
     }
   ],
   "ean-719346128070": [
@@ -42877,7 +42877,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/113395.jpg?v=1755874821&width=1920"
     }
   ],
   "ean-719346158657": [
@@ -42891,7 +42891,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/970837.jpg?v=1755874571&width=1920"
     }
   ],
   "ean-98691036491": [
@@ -42933,7 +42933,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JHG0018_7dd1b20f-b6b3-4d76-870e-24dce66ca2f8.png?v=1761214687&width=1000"
     }
   ],
   "justmylook-jhg0002": [
@@ -42947,7 +42947,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/JHG0002.jpg?v=1728553172&width=1000"
     }
   ],
   "ean-688575003260": [
@@ -42961,7 +42961,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1371030048-96998900.jpg?v=1763391178&width=1920"
     }
   ],
   "ean-3274872420625": [
@@ -42975,7 +42975,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/322225.jpg?v=1755874739&width=1920"
     }
   ],
   "ean-3274872420618": [
@@ -42989,7 +42989,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/75453.jpg?v=1755874870&width=1920"
     }
   ],
   "ean-3352818518800": [
@@ -43003,7 +43003,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1461059554-87818700.jpg?v=1763391179&width=1920"
     }
   ],
   "ean-3274872404175": [
@@ -43017,7 +43017,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1643026823-27442300.jpg?v=1763391272&width=1920"
     }
   ],
   "ean-3352818718019": [
@@ -43087,7 +43087,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/18073.jpg?v=1755874977&width=1920"
     }
   ],
   "ean-737052483214": [
@@ -43101,7 +43101,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/5653.jpg?v=1755875204&width=1920"
     }
   ],
   "ean-3616302931781": [
@@ -43115,7 +43115,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3322.jpg?v=1755875385&width=1920"
     }
   ],
   "ean-737052949215": [
@@ -43395,7 +43395,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/8366.jpg?v=1755875083&width=1920"
     }
   ],
   "ean-3614273476782": [
@@ -43409,7 +43409,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_24946d1f-0207-4d4b-8578-91fb5f3f6fc5.jpg?v=1774371158&width=1920"
     }
   ],
   "ean-3614273476164": [
@@ -43423,7 +43423,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1643027055-53158900.jpg?v=1763391443&width=1920"
     }
   ],
   "ean-3605532612768": [
@@ -43437,7 +43437,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/9_58a19973-734d-44ba-8642-2f70268e057f.jpg?v=1774364821&width=1920"
     }
   ],
   "ean-3614272639638": [
@@ -43451,7 +43451,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1565951320-65358400.jpg?v=1763389395&width=1920"
     }
   ],
   "ean-3614273476287": [
@@ -43465,7 +43465,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_9790e254-f647-4348-82db-8d16ca0c112e.jpg?v=1774370063&width=1920"
     }
   ],
   "ean-3386460010399": [
@@ -43479,7 +43479,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/16635.jpg?v=1755874980&width=1920"
     }
   ],
   "ean-6291106066890": [
@@ -43493,7 +43493,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1561393908-50494900.jpg?v=1763389329&width=1920"
     }
   ],
   "ean-6291106065114": [
@@ -43507,7 +43507,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1561394216-70731700.jpg?v=1763389330&width=1920"
     }
   ],
   "ean-6291107454412": [
@@ -43521,7 +43521,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1615537312-07237200.jpg?v=1763389472&width=1920"
     }
   ],
   "ean-6291107456041": [
@@ -43535,7 +43535,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1713866039-32975700.jpg?v=1763390528&width=1920"
     }
   ],
   "ean-3760168633300": [
@@ -43549,7 +43549,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1557826147-08285200.jpg?v=1763389320&width=1920"
     }
   ],
   "ean-3760168633287": [
@@ -43563,7 +43563,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1557826772-77578500.jpg?v=1763389317&width=1920"
     }
   ],
   "ean-3760168632525": [
@@ -43577,7 +43577,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626363094-19592500.jpg?v=1763390238&width=1920"
     }
   ],
   "ean-3760265190485": [
@@ -43605,7 +43605,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/996158.jpg?v=1755874513&width=1920"
     }
   ],
   "ean-3616301776000": [
@@ -43619,7 +43619,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1636105912-26658400.jpg?v=1763390473&width=1920"
     }
   ],
   "ean-3607349764241": [
@@ -44025,7 +44025,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/5931.jpg?v=1770221728&width=1920"
     }
   ],
   "ean-3386460028325": [
@@ -44039,7 +44039,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/5932.jpg?v=1770221891&width=1920"
     }
   ],
   "ean-3386460028424": [
@@ -44053,7 +44053,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/8849.jpg?v=1770223267&width=1920"
     }
   ],
   "ean-3386460101059": [
@@ -44067,7 +44067,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626857424-32973400.jpg?v=1763389291&width=1920"
     }
   ],
   "ean-3386460101042": [
@@ -44081,7 +44081,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1554801723-69670500.jpg?v=1763389293&width=1920"
     }
   ],
   "ean-3386460121538": [
@@ -44095,7 +44095,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626858160-82866700.jpg?v=1763390193&width=1920"
     }
   ],
   "ean-3386460118132": [
@@ -44109,7 +44109,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1631203203-73220600.jpg?v=1763390326&width=1920"
     }
   ],
   "ean-3386460081931": [
@@ -44375,7 +44375,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/8850.jpg?v=1755875064&width=1920"
     }
   ],
   "ean-8011003845125": [
@@ -44389,7 +44389,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1580752090-75840700.jpg?v=1763389682&width=1920"
     }
   ],
   "ean-8011003845132": [
@@ -44403,7 +44403,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/toyboy.jpg?v=1775555690&width=1920"
     }
   ],
   "ean-8011003839285": [
@@ -44417,7 +44417,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1556633129-55231400.jpg?v=1763389304&width=1920"
     }
   ],
   "ean-8011003839292": [
@@ -44431,7 +44431,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1556633275-89771800.jpg?v=1763389304&width=1920"
     }
   ],
   "ean-8011003839308": [
@@ -44445,7 +44445,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1556637217-50965700.jpg?v=1763389305&width=1920"
     }
   ],
   "ean-8011003864089": [
@@ -44459,7 +44459,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1622028524-88692400.jpg?v=1775555463&width=1920"
     }
   ],
   "ean-3439600056914": [
@@ -44473,7 +44473,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1614764038-88308700.jpg?v=1763390144&width=1920"
     }
   ],
   "ean-3439600056525": [
@@ -44487,7 +44487,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1750844292-95521500.jpg?v=1763390146&width=1920"
     }
   ],
   "ean-3439600056532": [
@@ -44501,7 +44501,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1750843991-77912800.jpg?v=1763390149&width=1920"
     }
   ],
   "ean-3439601204642": [
@@ -44515,7 +44515,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1633000174-69591000.jpg?v=1763390288&width=1920"
     }
   ],
   "ean-3439601204611": [
@@ -44529,7 +44529,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1633000400-99837700.jpg?v=1763390289&width=1920"
     }
   ],
   "ean-3439600039511": [
@@ -44823,7 +44823,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1584114125-18128500.jpg?v=1763389718&width=1920"
     }
   ],
   "ean-3423473053859": [
@@ -44837,7 +44837,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1599227889-47807300.jpg?v=1763389875&width=1920"
     }
   ],
   "ean-3423222080952": [
@@ -45159,7 +45159,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1739186092-75826700.jpg?v=1763390835&width=1920"
     }
   ],
   "ean-812256023999": [
@@ -45285,7 +45285,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1561386305-75649700.jpg?v=1763389344&width=1920"
     }
   ],
   "ean-6291106810332": [
@@ -45299,7 +45299,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1533831220-18616500.png?v=1763388973&width=1920"
     }
   ],
   "ean-6291106810592": [
@@ -45313,7 +45313,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1533905648-73516500.png?v=1763388979&width=1920"
     }
   ],
   "ean-6291106810400": [
@@ -45327,7 +45327,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1533832943-72310000.png?v=1763388980&width=1920"
     }
   ],
   "ean-6291106810776": [
@@ -45341,7 +45341,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1533833308-75754200.png?v=1763388985&width=1920"
     }
   ],
   "ean-6291106810301": [
@@ -45355,7 +45355,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1533833585-18518200.png?v=1763388986&width=1920"
     }
   ],
   "ean-6291106810684": [
@@ -45369,7 +45369,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1533833741-72861800.png?v=1763388987&width=1920"
     }
   ],
   "ean-6291106810721": [
@@ -45383,7 +45383,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1533899663-54427800.png?v=1763388997&width=1920"
     }
   ],
   "ean-6291106810691": [
@@ -45397,7 +45397,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1533905037-82261900.png?v=1763388998&width=1920"
     }
   ],
   "ean-6291106810387": [
@@ -45411,7 +45411,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1533907129-34544700.png?v=1763389002&width=1920"
     }
   ],
   "ean-6291106810394": [
@@ -45425,7 +45425,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1639496174-15385200.jpg?v=1763389003&width=1920"
     }
   ],
   "ean-6291106810745": [
@@ -45439,7 +45439,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1533908094-17638900.png?v=1763389017&width=1920"
     }
   ],
   "ean-6291106810677": [
@@ -45453,7 +45453,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1533908338-98325300.png?v=1763389019&width=1920"
     }
   ],
   "ean-6291106810356": [
@@ -45467,7 +45467,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1724840998-22614800.jpg?v=1763389021&width=1920"
     }
   ],
   "ean-6291106810295": [
@@ -45481,7 +45481,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1533909891-16044800.png?v=1763389023&width=1920"
     }
   ],
   "ean-6291106810363": [
@@ -45495,7 +45495,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1533910259-64850000.png?v=1763389026&width=1920"
     }
   ],
   "ean-6291106810370": [
@@ -45509,7 +45509,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1533912425-56012800.png?v=1763389028&width=1920"
     }
   ],
   "ean-6291106811131": [
@@ -45523,7 +45523,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626700789-92604200.jpg?v=1763389797&width=1920"
     }
   ],
   "ean-6291106811148": [
@@ -45537,7 +45537,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626703746-82762700.jpg?v=1763389797&width=1920"
     }
   ],
   "ean-6291106811247": [
@@ -45551,7 +45551,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1713785085-09827000.jpg?v=1763389799&width=1920"
     }
   ],
   "ean-6291106811254": [
@@ -45565,7 +45565,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1636021325-80397900.png?v=1763389803&width=1920"
     }
   ],
   "ean-6291106811261": [
@@ -45579,7 +45579,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1639495510-09651500.jpg?v=1763390021&width=1920"
     }
   ],
   "ean-6291106811124": [
@@ -45593,7 +45593,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626701674-99891700.jpg?v=1763390021&width=1920"
     }
   ],
   "ean-6291106810615": [
@@ -45607,7 +45607,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626701095-25290900.jpg?v=1763390210&width=1920"
     }
   ],
   "ean-85715567222": [
@@ -46419,7 +46419,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1614596319-16582600.jpg?v=1763389709&width=1920"
     }
   ],
   "ean-3760004322269": [
@@ -46433,7 +46433,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1614594946-43333600.jpg?v=1763389207&width=1920"
     }
   ],
   "ean-3760004321194": [
@@ -46447,7 +46447,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1552038954-53649200.jpg?v=1763389208&width=1920"
     }
   ],
   "ean-3760004322504": [
@@ -46461,7 +46461,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1614595498-22189300.jpg?v=1763389211&width=1920"
     }
   ],
   "ean-3760004322030": [
@@ -46475,7 +46475,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1614595823-78540500.jpg?v=1763389214&width=1920"
     }
   ],
   "ean-3760084670212": [
@@ -46489,7 +46489,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1552040522-49078000.jpg?v=1763389214&width=1920"
     }
   ],
   "ean-3760004321361": [
@@ -46503,7 +46503,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1637239332-42090000.jpg?v=1763390620&width=1920"
     }
   ],
   "ean-3760004323594": [
@@ -46517,7 +46517,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1637239477-60028500.jpg?v=1763390620&width=1920"
     }
   ],
   "ean-3760004323006": [
@@ -46531,7 +46531,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1621955864-63865800.jpg?v=1763390227&width=1920"
     }
   ],
   "ean-3760004321378": [
@@ -46545,7 +46545,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1621956131-27949900.jpg?v=1763390232&width=1920"
     }
   ],
   "ean-8435137742226": [
@@ -46559,7 +46559,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/53453.jpg?v=1755874886&width=1920"
     }
   ],
   "ean-8435137782970": [
@@ -46573,7 +46573,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T14:47:08.940Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/black50.jpg?v=1773331423&width=1920"
     }
   ],
   "ean-3614273556620": [
@@ -46587,7 +46587,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/100ml_43e55946-d4cb-4887-ade7-6ca02f715d51.jpg?v=1775561459&width=1920"
     }
   ],
   "ean-8435137727087": [
@@ -46811,7 +46811,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1725015290-74385000.jpg?v=1763389866&width=1920"
     }
   ],
   "ean-3349668579839": [
@@ -46825,7 +46825,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1725264519-53432100.jpg?v=1763389866&width=1920"
     }
   ],
   "ean-3349668592364": [
@@ -46839,7 +46839,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728399817-41151700.jpg?v=1763390174&width=1920"
     }
   ],
   "ean-3349668683055": [
@@ -46853,7 +46853,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1750176185-80780600.jpg?v=1763390224&width=1920"
     }
   ],
   "ean-3349668683031": [
@@ -46867,7 +46867,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1750176490-84682600.jpg?v=1763390225&width=1920"
     }
   ],
   "ean-3349668582365": [
@@ -46881,7 +46881,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738236064-76169400.jpg?v=1763390450&width=1920"
     }
   ],
   "ean-3349668678648": [
@@ -46895,7 +46895,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738236170-01763500.jpg?v=1763390451&width=1920"
     }
   ],
   "ean-3605970416003": [
@@ -46909,7 +46909,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1597333100-02194500.jpg?v=1763389777&width=1920"
     }
   ],
   "ean-3605971512612": [
@@ -46923,7 +46923,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1632411667-50196700.jpg?v=1763390274&width=1920"
     }
   ],
   "ean-3605975062502": [
@@ -47077,7 +47077,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1615893373-95562100.jpg?v=1763389381&width=1920"
     }
   ],
   "ean-3700066738530": [
@@ -47091,7 +47091,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1615893728-33844400.jpg?v=1763389384&width=1920"
     }
   ],
   "ean-3700066738455": [
@@ -47105,7 +47105,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1615894196-07872800.jpg?v=1763389385&width=1920"
     }
   ],
   "ean-3700066738424": [
@@ -47119,7 +47119,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1615899831-62767400.jpg?v=1763389387&width=1920"
     }
   ],
   "ean-3700066738585": [
@@ -47133,7 +47133,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1565342288-70619400.jpg?v=1763389389&width=1920"
     }
   ],
   "ean-3700066738448": [
@@ -47147,7 +47147,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1615900610-17822400.jpg?v=1763389390&width=1920"
     }
   ],
   "ean-5060399670272": [
@@ -47175,7 +47175,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1695652756-34803900.jpg?v=1763389713&width=1920"
     }
   ],
   "ean-3760004322443": [
@@ -47189,7 +47189,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1593526570-67829300.jpg?v=1763389715&width=1920"
     }
   ],
   "ean-3760004322573": [
@@ -47203,7 +47203,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1614590845-35376300.jpg?v=1763390067&width=1920"
     }
   ],
   "ean-8052464891306": [
@@ -47301,7 +47301,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1561641359-95260500.jpg?v=1763389044&width=1920"
     }
   ],
   "ean-3442151001593": [
@@ -47315,7 +47315,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1616072945-78677400.jpg?v=1763389885&width=1920"
     }
   ],
   "ean-810912032569": [
@@ -47371,7 +47371,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1636041233-15633900.jpg?v=1763389474&width=1920"
     }
   ],
   "ean-3614222402077": [
@@ -47413,7 +47413,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/930363.jpg?v=1770292516&width=1920"
     }
   ],
   "ean-888066008433": [
@@ -47427,7 +47427,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/53473.jpg?v=1770288874&width=1920"
     }
   ],
   "ean-888066006743": [
@@ -47441,7 +47441,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/75053.jpg?v=1770289058&width=1920"
     }
   ],
   "ean-888066000512": [
@@ -47455,7 +47455,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/9035.jpg?v=1770288375&width=1920"
     }
   ],
   "ean-888066000079": [
@@ -47763,7 +47763,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11034090-1575322025006851.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11034091": [
@@ -47777,7 +47777,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11034091-5945348401607583.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11079226": [
@@ -47791,7 +47791,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11079226-9935318373968502.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11079299": [
@@ -47805,7 +47805,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11079299-1664947466818765.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11173341": [
@@ -47819,7 +47819,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11173341-6815323126841019.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11173343": [
@@ -47833,7 +47833,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11173343-5065323126666023.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11210303": [
@@ -47847,7 +47847,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11210303-4285318388675813.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11220941": [
@@ -47861,7 +47861,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11220941-1145323832179416.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11274779": [
@@ -47875,7 +47875,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11274779-5665348400636093.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11274796": [
@@ -47889,7 +47889,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11274796-1915348401067733.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11394274": [
@@ -47903,7 +47903,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11394274-6145327202411627.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11394275": [
@@ -47917,7 +47917,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11394275-1145327202466545.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11421497": [
@@ -47931,7 +47931,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11421497-1455322025229070.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11429110": [
@@ -47945,7 +47945,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11429110-2585348400431172.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11429114": [
@@ -47959,7 +47959,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11429114-1365348400541620.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11859241": [
@@ -47973,7 +47973,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11859241-1825318430776796.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11883227": [
@@ -47987,7 +47987,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11883227-1575325374908899.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11986296": [
@@ -48001,7 +48001,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11986296-1745327203139064.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-12026245": [
@@ -48015,7 +48015,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12026245-1075321983641606.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-12033921": [
@@ -48029,7 +48029,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12033921-1365318394946656.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-12095647": [
@@ -48043,7 +48043,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12095647-9245323126492227.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-12127924": [
@@ -48057,7 +48057,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12127924-5445322132694806.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-12127925": [
@@ -48071,7 +48071,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12127925-1425322132870732.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-12127927": [
@@ -48085,7 +48085,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12127927-6095322133045443.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-12243615": [
@@ -48099,7 +48099,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243615-6385327413782678.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-12243616": [
@@ -48113,7 +48113,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243616-1985348401121403.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-12243617": [
@@ -48127,7 +48127,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243617-1275327413959036.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-12243620": [
@@ -48141,7 +48141,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243620-4824938932377437.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-12243622": [
@@ -48155,7 +48155,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243622-1695348401247745.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-12243625": [
@@ -48169,7 +48169,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243625-1595327414098728.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-12380047": [
@@ -48183,7 +48183,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12380047-1185328530555982.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-15016795": [
@@ -48197,7 +48197,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/15016795-2155321257161153.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-10002885": [
@@ -48211,7 +48211,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10002885-1375319910557186.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-10002886": [
@@ -48225,7 +48225,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10002886-1235319910652802.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-10077798": [
@@ -48239,7 +48239,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10077798-3095318369767431.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-10301201": [
@@ -48253,7 +48253,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10301201-4445330266053921.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-10588308": [
@@ -48267,7 +48267,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10588308-2035336083679121.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-10810788": [
@@ -48281,7 +48281,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10810788-5265319912391467.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-10952559": [
@@ -48295,7 +48295,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10952559-2125345308047579.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-10954663": [
@@ -48309,7 +48309,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10954663-1095318373165174.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-11034069": [
@@ -48323,7 +48323,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11034069-9245322024568227.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "ean-3614273073875": [
@@ -48337,7 +48337,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1602176240-08524000.jpg?v=1763390039&width=1920"
     }
   ],
   "ean-3614273073882": [
@@ -48351,7 +48351,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1602176476-85197700.jpg?v=1763390043&width=1920"
     }
   ],
   "ean-3614273261333": [
@@ -48365,7 +48365,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1612198030-79436100.jpg?v=1763390114&width=1920"
     }
   ],
   "ean-3614273261357": [
@@ -48379,7 +48379,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1612195403-72143800.jpg?v=1763390113&width=1920"
     }
   ],
   "ean-3614273261401": [
@@ -48393,7 +48393,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1612194361-86239600.jpg?v=1763390114&width=1920"
     }
   ],
   "ean-3614273261432": [
@@ -48407,7 +48407,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1612198535-24232400.jpg?v=1763390114&width=1920"
     }
   ],
   "ean-3614273459068": [
@@ -48421,7 +48421,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626867949-08072100.jpg?v=1763390279&width=1920"
     }
   ],
   "ean-3614273459051": [
@@ -48435,7 +48435,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1637836828-08617100.jpg?v=1763390282&width=1920"
     }
   ],
   "ean-3614272761445": [
@@ -48603,7 +48603,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1552051576-33021000.jpg?v=1763389196&width=1920"
     }
   ],
   "ean-8011003845354": [
@@ -48617,7 +48617,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1552051860-11873400.jpg?v=1763389196&width=1920"
     }
   ],
   "ean-8011003861903": [
@@ -48631,7 +48631,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1614669873-83246500.jpg?v=1763390140&width=1920"
     }
   ],
   "ean-8011003861224": [
@@ -48645,7 +48645,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1614670279-32666200.jpg?v=1763390142&width=1920"
     }
   ],
   "ean-8011003858538": [
@@ -48659,7 +48659,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1616597350-28825000.jpg?v=1763390163&width=1920"
     }
   ],
   "ean-8011003858545": [
@@ -48673,7 +48673,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1616597693-30044200.jpg?v=1763390166&width=1920"
     }
   ],
   "ean-8011003858552": [
@@ -48687,7 +48687,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1616598991-82809800.jpg?v=1763390166&width=1920"
     }
   ],
   "ean-8011003846627": [
@@ -48701,7 +48701,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1628596332-37281900.jpg?v=1763390309&width=1920"
     }
   ],
   "ean-3614272191549": [
@@ -48715,7 +48715,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1554976505-61737000.jpg?v=1763389179&width=1920"
     }
   ],
   "ean-3614273067775": [
@@ -48729,7 +48729,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1599744828-88398900.jpg?v=1763389805&width=1920"
     }
   ],
   "ean-3614273308113": [
@@ -48743,7 +48743,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1642178313-37898100.jpg?v=1763390155&width=1920"
     }
   ],
   "ean-3614273308229": [
@@ -48757,7 +48757,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1642178440-67611800.jpg?v=1763390156&width=1920"
     }
   ],
   "ean-3605521879905": [
@@ -49023,7 +49023,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/30.jpg?v=1773238212&width=1920"
     }
   ],
   "ean-3614272648418": [
@@ -49037,7 +49037,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/50_1be8e7a0-49ed-40ef-b0d6-dd4eda062c6b.jpg?v=1773243616&width=1920"
     }
   ],
   "ean-3614272648425": [
@@ -49051,7 +49051,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/90.jpg?v=1773243766&width=1920"
     }
   ],
   "ean-3614272050341": [
@@ -49065,7 +49065,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1542364730-47120900.jpg?v=1763389164&width=1920"
     }
   ],
   "ean-3614272050358": [
@@ -49079,7 +49079,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1542365297-28837100.jpg?v=1763389166&width=1920"
     }
   ],
   "ean-3614273069533": [
@@ -49093,7 +49093,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/30_aa57250a-3830-4dec-bea9-1d00614d3704.jpg?v=1773244832&width=1920"
     }
   ],
   "ean-3614273069540": [
@@ -49107,7 +49107,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/50_363d5921-8c91-49b7-b7fd-a772c699577a.jpg?v=1773245098&width=1920"
     }
   ],
   "ean-3614273069557": [
@@ -49121,7 +49121,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/123_da2c1390-34ba-4ce8-86f1-e21416e39737.jpg?v=1773247127&width=1920"
     }
   ],
   "ean-3614273321792": [
@@ -49135,7 +49135,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_0b1a9510-0c60-4baa-83cd-8fcdd0391df5.jpg?v=1773247593&width=1920"
     }
   ],
   "ean-3365440037229": [
@@ -49149,7 +49149,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/770805_b241471b-6c3b-4bdb-8f7b-2bda160c6cc8.jpg?v=1784119118&width=1920"
     }
   ],
   "ean-3365440037045": [
@@ -49163,7 +49163,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T19:00:21.352Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/770885.jpg?v=1782208258&width=1920"
     }
   ],
   "ean-3365440556386": [
@@ -49177,7 +49177,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T18:26:23.818Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/103335.jpg?v=1755874829&width=1920"
     }
   ],
   "ean-3365440556461": [
@@ -49191,7 +49191,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/4478.jpg?v=1755875281&width=1920"
     }
   ],
   "ean-3365440025578": [
@@ -49205,7 +49205,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-04T16:30:04.615Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/5466.jpg?v=1755875232&width=1920"
     }
   ],
   "ean-3423474896257": [
@@ -49233,7 +49233,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-01T21:42:34.212Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1706701755-72825100.jpg?v=1763390194&width=1920"
     }
   ]
 };

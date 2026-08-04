@@ -104,7 +104,14 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 60, minRequestGapMs: 1200,
     },
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'justmylook',
@@ -132,7 +139,14 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 60, minRequestGapMs: 1200,
     },
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'notino-uk',
@@ -328,7 +342,14 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
     },
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'lookfantastic',
@@ -359,7 +380,14 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
     },
-    affiliate: awinPending('2082'),
+    affiliate: {
+      ...awinPending('2082'),
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'superdrug',
@@ -529,6 +557,7 @@ export const RETAILERS: readonly Retailer[] = [
       // imageUrl (a live reference, never a downloaded copy). See
       // docs/AFFILIATE_SETUP.md.
       imageUsageConfirmed: true,
+      imageBasis: 'affiliate-terms',
       notes:
         'Merchant id 124166, joined 3 Aug 2026. Storefront domain inferred from the ' +
         'programme description and a public company-registry match (Fragrance Click Ltd, ' +
