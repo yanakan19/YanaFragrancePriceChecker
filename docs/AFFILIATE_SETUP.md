@@ -192,7 +192,7 @@ of the twelve and likely more.
 2. There is a **£5 refundable deposit** on signup, returned with your first
    payout. Expect it; it is not a scam signal.
 3. You will need a live website with real content. This is the practical
-   blocker: **apply after ScentDay is deployed and has something on it**, not
+   blocker: **apply after PriceSniffs is deployed and has something on it**, not
    before. An application pointing at a holding page gets rejected, and
    re-applying after rejection is harder than applying once at the right time.
 4. Once approved, find your **publisher ID** in the Awin dashboard.
@@ -204,7 +204,7 @@ and approval times range from instant to a few weeks.
 
 Two things worth knowing before you apply:
 
-- **Superdrug excludes coupon, cashback and deal sites.** ScentDay is a price
+- **Superdrug excludes coupon, cashback and deal sites.** PriceSniffs is a price
   comparison site, which is adjacent enough that the question will come up. Lead
   the application with the editorial side — notes taxonomy, fragrance discovery —
   rather than "we show the cheapest price".
@@ -265,11 +265,11 @@ The template mechanism handles all of these — only the string changes.
 UK ASA/CAP rules require affiliate relationships to be disclosed clearly and
 prominently. For a comparison site that means:
 
-- a persistent statement that ScentDay may earn commission from retailer links;
+- a persistent statement that PriceSniffs may earn commission from retailer links;
 - disclosure **before** the click, not buried in a footer policy page;
 - and most importantly, **commission must never influence the ranking**.
 
-That last point is worth being firm about. The entire value of ScentDay is that
+That last point is worth being firm about. The entire value of PriceSniffs is that
 the cheapest delivered price is genuinely at the top. The moment ordering is
 sold, the product is worthless — and users detect it faster than you would
 expect. Keep `buildComparison` sorting on price and stock only; if a

@@ -25,7 +25,7 @@ export interface HttpResponse {
 export type Http = (url: string, headers: Record<string, string>) => Promise<HttpResponse>;
 
 /** Identifies us honestly and points at a page explaining what we are. */
-const BOT_UA = 'ScentDayBot/0.2 (UK fragrance price comparison; +https://scentday.example/bot)';
+const BOT_UA = 'PriceSniffsBot/0.2 (UK fragrance price comparison; +https://pricesniffs.example/bot)';
 
 /**
  * A current desktop browser string.
@@ -75,7 +75,7 @@ export async function loadRobots(retailer: Retailer, http: Http): Promise<Robots
   try {
     const res = await http(`https://www.${retailer.domain}/robots.txt`, BOT_HEADERS);
 
-    if (res.ok && res.body) return parseRobots(res.body, 'scentdaybot');
+    if (res.ok && res.body) return parseRobots(res.body, 'pricesniffsbot');
 
     // 4xx means no file, or the bot wall answered instead of the file. Either
     // way the shop has published no restrictions, so we are not forbidden.

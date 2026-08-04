@@ -1,15 +1,31 @@
 name: Deploy site
 
 # Publishes demo/ to GitHub Pages behind the custom domain in demo/CNAME.
-# Runs after anything that changes what the site serves: the daily crawl
-# commits new prices into demo/index.html, and any manual edit to the app
-# itself. Re-publishing is cheap and idempotent, so there is no reason to
-# gate it further than "did demo/ change".
+#
+# ── Why `workflow_run` and not just `push` ───────────────────────────────────
+# The push trigger alone silently stopped publishing the crawl's output. GitHub
+# does not start a workflow from a push made with the built-in GITHUB_TOKEN —
+# that is deliberate, to stop workflows triggering each other forever — and the
+# crawl commits its rebuilt demo/index.html with exactly that token. So every
+# hourly harvest updated the branch and none of them ever reached the site: the
+# live page sat on whatever a human last pushed, hours of fresh prices behind,
+# with nothing failing anywhere to show for it.
+#
+# Chaining off the crawl's *completion* sidesteps the token rule, because the
+# trigger is the finished run rather than its push.
+#
+# It runs whether or not the crawl succeeded, which is deliberate: the harvest
+# commits prices well before the later steps that can fail, so a run that ends
+# red has often still published good data. A run that changed nothing just
+# republishes the same bytes, which is harmless.
 on:
   push:
     branches: [claude/scentday-retailer-registry-h92tth]
     paths:
       - 'demo/**'
+  workflow_run:
+    workflows: ['Catalogue crawl']
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -31,6 +47,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          # On a workflow_run the default checkout is the commit the *triggering*
+          # run started from, which is older than the prices that run just
+          # pushed — publishing it would deploy the very data this is meant to
+          # ship. Naming the branch takes its current tip instead.
+          ref: ${{ github.event.workflow_run.head_branch || github.ref }}
 
       - uses: actions/configure-pages@v5
 

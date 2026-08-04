@@ -5,7 +5,7 @@ import type { FetchResult, PageFetcher } from './crawl.js';
 
 /** Identifies the crawler honestly, with a contact route. */
 export const USER_AGENT =
-  'ScentDayBot/0.1 (UK fragrance price comparison; +https://scentday.example/bot)';
+  'PriceSniffsBot/0.1 (UK fragrance price comparison; +https://pricesniffs.example/bot)';
 
 /**
  * Live HTTP fetcher.

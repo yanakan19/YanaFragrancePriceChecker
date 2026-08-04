@@ -233,3 +233,109 @@ describe('parseShopCurrency', () => {
     expect(parseShopCurrency('<html>404</html>', '<html>nothing here</html>')).toBeNull();
   });
 });
+
+/* ── finding products at shops that do not name their aisles ────────────────── */
+
+import { crawlViaSitemap } from '../src/catalogue/sitemapCrawl.js';
+import { NO_RESTRICTIONS } from '../src/catalogue/robots.js';
+import type { Retailer } from '../src/types/retailer.js';
+
+const shop = { id: 'x', name: 'X', domain: 'x.example' } as unknown as Retailer;
+
+function sitemapOf(urls: string[]): string {
+  return `<urlset>${urls.map((u) => `<loc>${u}</loc>`).join('')}</urlset>`;
+}
+
+/** Serves a canned sitemap tree and records what was asked for. */
+function server(tree: Record<string, string>) {
+  const asked: string[] = [];
+  const http = async (url: string) => {
+    asked.push(url);
+    const body = tree[url];
+    return body === undefined
+      ? { status: 404, body: '', ok: false }
+      : { status: 200, body, ok: true };
+  };
+  return { http, asked };
+}
+
+describe('sitemap discovery', () => {
+  const opts = {
+    retailer: shop, robots: NO_RESTRICTIONS, maxPages: 10, gapMs: 0,
+    headers: {}, sleep: async () => {},
+  };
+
+  it('finds products when the aisle is named, as before', async () => {
+    const { http } = server({
+      'https://www.x.example/sitemap.xml': sitemapOf([
+        'https://x.example/fragrance/dior-sauvage',
+        'https://x.example/socks/black',
+      ]),
+    });
+    const r = await crawlViaSitemap({ ...opts, http });
+    // Only the fragrance URL is fetched; socks are never requested.
+    expect(r.urlsDiscovered).toBe(1);
+  });
+
+  it('finds products at a shop whose URLs carry ids, not category words', async () => {
+    // The Boots / Harvey Nichols shape: a product sitemap full of opaque ids.
+    // This previously discovered nothing and reported "0 urls" with no error.
+    const { http } = server({
+      'https://www.x.example/sitemap.xml': sitemapOf([
+        'https://www.x.example/sitemap_products_1.xml',
+        'https://www.x.example/sitemap_content.xml',
+      ]),
+      'https://www.x.example/sitemap_products_1.xml': sitemapOf([
+        'https://x.example/p/10429551',
+        'https://x.example/p/10429552',
+      ]),
+      'https://www.x.example/sitemap_content.xml': sitemapOf([
+        'https://x.example/about-us',
+      ]),
+    });
+    const r = await crawlViaSitemap({ ...opts, http });
+    expect(r.urlsDiscovered).toBe(2);
+  });
+
+  it('ignores non-product sitemaps when deciding what is generic', async () => {
+    const { http, asked } = server({
+      'https://www.x.example/sitemap.xml': sitemapOf([
+        'https://www.x.example/sitemap_content.xml',
+      ]),
+      'https://www.x.example/sitemap_content.xml': sitemapOf([
+        'https://x.example/about-us',
+      ]),
+    });
+    const r = await crawlViaSitemap({ ...opts, http });
+    // A content sitemap is not descended into at all, so nothing is collected.
+    expect(r.urlsDiscovered).toBe(0);
+    expect(asked).not.toContain('https://x.example/about-us');
+  });
+
+  it('prefers named fragrance URLs over generic ones when both exist', async () => {
+    const { http } = server({
+      'https://www.x.example/sitemap.xml': sitemapOf([
+        'https://www.x.example/sitemap_products_1.xml',
+      ]),
+      'https://www.x.example/sitemap_products_1.xml': sitemapOf([
+        'https://x.example/perfume/aventus',
+        'https://x.example/p/99999',
+      ]),
+    });
+    const r = await crawlViaSitemap({ ...opts, http });
+    expect(r.urlsDiscovered).toBe(1);
+  });
+
+  it('falls back to the conventional path when the declared sitemap is dead', async () => {
+    // John Lewis's shape: robots.txt names a siteindex.xml that never answers.
+    const { http, asked } = server({
+      'https://www.x.example/sitemap.xml': sitemapOf(['https://x.example/perfume/a']),
+    });
+    const robots = { ...NO_RESTRICTIONS, sitemaps: ['https://www.x.example/siteindex.xml'] };
+    const r = await crawlViaSitemap({ ...opts, robots, http });
+
+    expect(asked).toContain('https://www.x.example/siteindex.xml');
+    expect(asked).toContain('https://www.x.example/sitemap.xml');
+    expect(r.urlsDiscovered).toBe(1);
+  });
+});

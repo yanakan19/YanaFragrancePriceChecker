@@ -54,7 +54,7 @@ const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
 async function robotsFor(origin: string): Promise<RobotsRules> {
   const res = await http(`${origin}/robots.txt`, BROWSER_HEADERS);
-  if (res.ok && res.body) return parseRobots(res.body, 'scentdaybot');
+  if (res.ok && res.body) return parseRobots(res.body, 'pricesniffsbot');
   if (res.status >= 400 && res.status < 500) return NO_RESTRICTIONS;
   return UNREACHABLE_ROBOTS;
 }
@@ -194,11 +194,41 @@ async function harvestHouse(house: House): Promise<HouseOutcome> {
     blockers: [...house.blockers],
   };
 
-  const robots = await robotsFor(house.origin);
+  // A house is registered under one spelling of its origin, but only one of
+  // `https://www.house.com` and `https://house.com` necessarily answers — the
+  // other can refuse TLS or never resolve, which reads here as an unreachable
+  // robots.txt and stops the house dead. Afnan and Al Attaar both failed that
+  // way on the first live run. Trying the other spelling costs one request and
+  // is not a guess about permission: whichever origin answers, its own
+  // robots.txt is what gets obeyed.
+  const alternate = house.origin.includes('://www.')
+    ? house.origin.replace('://www.', '://')
+    : house.origin.replace('://', '://www.');
+
+  let origin = house.origin;
+  let robots = await robotsFor(origin);
+
   if (robots.unavailable) {
-    errors.push('robots.txt unreachable — holding off rather than guessing we are welcome');
+    const viaAlternate = await robotsFor(alternate);
+    if (!viaAlternate.unavailable) {
+      origin = alternate;
+      robots = viaAlternate;
+      outcome.origin = origin;
+      errors.push(`${house.origin} did not answer; used ${alternate} instead`);
+    }
+  }
+
+  if (robots.unavailable) {
+    errors.push(
+      `robots.txt unreachable at ${house.origin} and ${alternate} — ` +
+        'holding off rather than guessing we are welcome',
+    );
     return outcome;
   }
+
+  // Everything below must use the origin that actually answered, not the one
+  // the registry happened to be written with.
+  house = { ...house, origin };
 
   // Currency first: it changes how every price below is recorded, and getting
   // it wrong is worse than getting nothing.

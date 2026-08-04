@@ -1,4 +1,4 @@
--- ScentDay catalogue schema.
+-- PriceSniffs catalogue schema.
 --
 -- The JSON store in store.ts is a stand in for this while the project has no
 -- database. The shapes match one to one, so moving over is a port of the store

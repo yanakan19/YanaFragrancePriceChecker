@@ -1,6 +1,6 @@
 # The fragrance database
 
-How ScentDay knows what each shop sells, how that updates daily, and where the
+How PriceSniffs knows what each shop sells, how that updates daily, and where the
 NEW badge comes from.
 
 ## Two questions, two tables
