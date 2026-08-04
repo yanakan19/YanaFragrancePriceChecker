@@ -101,7 +101,10 @@
      sections below. Chosen once on first load from a real device signal
      (see demo/app.ts's detectDefaultLayout), then remembered per visitor
      once they pick for themselves. */
-  :root[data-layout="desktop"] { --col: 1180px; }
+  /* No cap: the desktop layout fills the browser window rather than sitting
+     in a centred column, so --col only still matters to elements that opt
+     back into a narrower measure themselves (.doc, .hero-mission below). */
+  :root[data-layout="desktop"] { --col: none; }
 
   * { box-sizing: border-box; }
 
@@ -332,9 +335,11 @@
   .art-img { width: 100%; height: 100%; object-fit: contain; display: block; }
   /* Fixed, not theme-driven: the placeholder sits inside a tile that is
      always white now, so it needs a colour that reads the same way whichever
-     mode the rest of the page is in. */
+     mode the rest of the page is in. Background matches the tile itself
+     (and a real photo's own white ground) so only the mark and caption
+     read as content, not the box around them. */
   .art-empty {
-    background: #F0EDEF; border: 1px solid #E7E3E7;
+    background: #FFFFFF; border: 1px solid #E7E3E7;
     display: flex; align-items: center; justify-content: center; color: #8A838F;
   }
   .art-none { width: 82%; height: 82%; }
@@ -782,6 +787,10 @@
   :root[data-layout="desktop"] main { padding-inline: 32px; }
   :root[data-layout="desktop"] .intro { padding-top: 56px; }
   :root[data-layout="desktop"] .hero-wordmark { font-size: 46px; }
+  /* The page itself now runs edge to edge, but a line of prose stretched
+     across a whole ultrawide window stops being readable, so the mission
+     line keeps its own measure regardless of how wide .app gets. */
+  :root[data-layout="desktop"] .hero-mission { max-width: 640px; }
   :root[data-layout="desktop"] .intro-points {
     display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px 40px; margin: 30px auto 0; max-width: 900px;
