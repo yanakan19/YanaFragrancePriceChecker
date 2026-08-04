@@ -1,8 +1,208 @@
 {
-  "checkedAt": "2026-08-04T18:48:06.288Z",
-  "totalChecked": 1974,
-  "brokenCount": 57,
+  "checkedAt": "2026-08-04T19:44:48.607Z",
+  "totalChecked": 2142,
+  "brokenCount": 78,
   "broken": [
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1737019404-38151200.jpg?v=1763391441&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1643027888-18653400.jpg?v=1763391062&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1738315293-44252200.jpg?v=1763390637&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/963_a2a81a73-41d1-4130-b540-12a6345dd930.jpg?v=1774438885&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1736948099-95969700.jpg?v=1763390715&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1639585256-45295500.jpg?v=1763390737&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1645101743-56120000.jpg?v=1763390739&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1697620665-93316300.jpg?v=1763390863&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1734366492-28170600.jpg?v=1763390876&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1533908094-17638900.png?v=1763389017&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1552051860-11873400.jpg?v=1763389196&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1473760242-68995100.jpg?v=1763388777&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1473437351-55810800.jpg?v=1763388805&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1579603964-50813200.jpg?v=1763388817&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1728400841-71010900.jpg?v=1763389927&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1382630985-42768200.jpg?v=1763389985&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1602176240-08524000.jpg?v=1763390039&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1602176476-85197700.jpg?v=1763390043&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1614590845-35376300.jpg?v=1763390067&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/100ml_43e55946-d4cb-4887-ade7-6ca02f715d51.jpg?v=1775561459&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
+    },
     {
       "url": "https://boots.com/images/boo-sauvage.jpg",
       "retailers": [
@@ -212,6 +412,16 @@
       "status": null,
       "contentType": null,
       "error": "AbortError: This operation was aborted"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/JPG0029.png?v=1764673320&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed"
     },
     {
       "url": "https://notino.co.uk/images/not-sauvage.jpg",
