@@ -429,7 +429,7 @@ function fragranceList(list: DemoFragrance[], empty: string): string {
   if (list.length === 0) return `<p class="empty-note">${esc(empty)}</p>`;
   const control = perRowControl();
   return `${control ? `<div class="controls">${control}</div>` : ''}
-    <ul class="tile-grid">${list.map((f) => fragranceTile(f)).join('')}</ul>`;
+    <ul class="tile-grid">${chunked(list, fragranceTile)}</ul>`;
 }
 
 /* ── home ────────────────────────────────────────────────────────────────── */
@@ -692,19 +692,16 @@ function dealsPanel(): string {
     return `${controls}<p class="empty-note">No shop is publishing a reference price right now.</p>`;
   }
 
-  const tiles = sorted
-    .map((d) =>
-      fragranceTile(d.fragrance, {
-        trailing: `<span class="off">${d.percentOff}% off</span>
-          <span class="amt">${formatGbp(d.price)}</span>
-          <span class="was">RRP ${formatGbp(d.wasPrice)}</span>`,
-      }),
-    )
-    .join('');
+  const dealTile = (d: (typeof sorted)[number]) =>
+    fragranceTile(d.fragrance, {
+      trailing: `<span class="off">${d.percentOff}% off</span>
+        <span class="amt">${formatGbp(d.price)}</span>
+        <span class="was">RRP ${formatGbp(d.wasPrice)}</span>`,
+    });
 
   return `${controls}
     <p class="panel-note">Savings are against the shop's own published recommended retail price.</p>
-    <ul class="tile-grid">${tiles}</ul>`;
+    <ul class="tile-grid">${chunked(sorted, dealTile)}</ul>`;
 }
 
 /* ── explore: retailers ──────────────────────────────────────────────────── */
@@ -972,6 +969,27 @@ function exploreView(): string {
  * is the price on the house's own page. What is missing is any claim about
  * the UK.
  */
+/** One house product. Extracted so the chunked renderer can call it per item. */
+function houseCard(p: (typeof HOUSE_PRODUCTS)[number]): string {
+  return `<li class="house-card">
+    <a href="${esc(p.url)}" target="_blank" rel="noopener nofollow sponsored">
+      ${
+        p.image
+          ? `<img class="house-img" src="${esc(p.image)}" alt="" loading="lazy"
+               decoding="async" referrerpolicy="no-referrer" />`
+          : `<span class="house-img house-img-none" aria-hidden="true"></span>`
+      }
+      <span class="house-name">${esc(p.name)}</span>
+      <span class="house-price">${
+        p.nativePrice
+          ? `${esc(p.nativePrice.currency)} ${p.nativePrice.amount.toFixed(2)}`
+          : 'Price not published'
+      }</span>
+      <span class="house-caveat">at the house, not a UK price</span>
+    </a>
+  </li>`;
+}
+
 function housesPanel(): string {
   if (HOUSE_PRODUCTS.length === 0) {
     return `<p class="empty-note">No house storefront has returned listings yet.</p>`;
@@ -995,29 +1013,7 @@ function housesPanel(): string {
         ([house, items]) => `
         <section class="house-group">
           <h3>${esc(house)} <span class="house-count">${items.length}</span></h3>
-          <ul class="house-grid">
-            ${items
-              .map(
-                (p) => `<li class="house-card">
-                  <a href="${esc(p.url)}" target="_blank" rel="noopener nofollow sponsored">
-                    ${
-                      p.image
-                        ? `<img class="house-img" src="${esc(p.image)}" alt="" loading="lazy"
-                             decoding="async" referrerpolicy="no-referrer" />`
-                        : `<span class="house-img house-img-none" aria-hidden="true"></span>`
-                    }
-                    <span class="house-name">${esc(p.name)}</span>
-                    <span class="house-price">${
-                      p.nativePrice
-                        ? `${esc(p.nativePrice.currency)} ${p.nativePrice.amount.toFixed(2)}`
-                        : 'Price not published'
-                    }</span>
-                    <span class="house-caveat">at the house, not a UK price</span>
-                  </a>
-                </li>`,
-              )
-              .join('')}
-          </ul>
+          <ul class="house-grid">${chunked(items, houseCard)}</ul>
         </section>`,
       )
       .join('')}`;
@@ -1076,14 +1072,12 @@ function settingsView(): string {
       <p id="contact-confirm" class="contact-confirm" hidden></p>
 
       <h3>Follow</h3>
-      <details class="social">
-        <summary>${ICON_TIKTOK}<span>TikTok</span></summary>
-        <p><a href="https://www.tiktok.com/@yannysniffs" target="_blank" rel="noopener">@yannysniffs on TikTok</a></p>
-      </details>
-      <details class="social">
-        <summary>${ICON_INSTAGRAM}<span>Instagram</span></summary>
-        <p><a href="https://www.instagram.com/yannysniffs" target="_blank" rel="noopener">@yannysniffs on Instagram</a></p>
-      </details>
+      <a class="social" href="https://www.tiktok.com/@yannysniffs">
+        ${ICON_TIKTOK}<span>TikTok</span><span class="social-handle">@yannysniffs</span>
+      </a>
+      <a class="social" href="https://www.instagram.com/yannysniffs">
+        ${ICON_INSTAGRAM}<span>Instagram</span><span class="social-handle">@yannysniffs</span>
+      </a>
 
       <h3>About</h3>
       <nav class="foot-links">
@@ -1111,6 +1105,99 @@ function legalView(): string {
     </article>`;
 }
 
+
+/* ── long lists ──────────────────────────────────────────────────────────────
+   Rendering an entire result set in one innerHTML assignment was the single
+   biggest cause of the app feeling sluggish: browse-all built roughly 35,000
+   nodes and 769 images synchronously, blocking the main thread for about two
+   seconds before anything appeared. Measured rather than guessed — scrolling
+   and the ambient background were both already holding 60fps, so the animation
+   was never the problem.
+
+   So a list paints its first screenful immediately and appends the rest a chunk
+   at a time as the reader approaches the end. Nothing is hidden or dropped: the
+   same items arrive, just not all in the same frame. */
+
+const CHUNK = 48;
+
+/**
+ * Lists on the current page that still have items waiting, keyed by sentinel id.
+ *
+ * A map rather than a single slot because a page can hold more than one chunked
+ * list: the Houses tab renders one grid per house, so a single shared slot let
+ * the second group overwrite the first and the first could never finish loading
+ * — it sat at 48 of its items forever with a dead sentinel below it.
+ */
+const pendingLists = new Map<string, { items: unknown[]; render: (item: unknown) => string }>();
+let listObserver: IntersectionObserver | null = null;
+let chunkSeq = 0;
+
+/** Clear anything held for the previous page. Called at the top of render(). */
+function resetChunkedLists(): void {
+  listObserver?.disconnect();
+  listObserver = null;
+  pendingLists.clear();
+  chunkSeq = 0;
+}
+
+/** Emit the first chunk plus a sentinel, and hold the remainder for later. */
+function chunked<T>(items: readonly T[], renderItem: (item: T) => string): string {
+  const first = items.slice(0, CHUNK);
+  const rest = items.slice(CHUNK);
+  if (rest.length === 0) return first.map(renderItem).join('');
+
+  const id = `chunk-${++chunkSeq}`;
+  pendingLists.set(id, {
+    items: rest as unknown[],
+    render: renderItem as (i: unknown) => string,
+  });
+  return (
+    first.map(renderItem).join('') +
+    `<li class="grid-more" data-more="${id}" aria-hidden="true"></li>`
+  );
+}
+
+/**
+ * Watch every sentinel on the page and append the next chunk as it nears view.
+ *
+ * insertAdjacentHTML on the sentinel leaves every already-painted tile
+ * untouched, so appending never re-creates or re-decodes what is on screen.
+ * The 600px margin means the next chunk is built before the reader reaches the
+ * gap where it would otherwise appear.
+ */
+function mountChunkedList(): void {
+  listObserver?.disconnect();
+  listObserver = null;
+  if (pendingLists.size === 0) return;
+
+  listObserver = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+
+        const el = entry.target as HTMLElement;
+        const id = el.dataset.more;
+        const held = id ? pendingLists.get(id) : undefined;
+        if (!id || !held) continue;
+
+        const next = held.items.slice(0, CHUNK);
+        const rest = held.items.slice(CHUNK);
+        el.insertAdjacentHTML('beforebegin', next.map(held.render).join(''));
+
+        if (rest.length === 0) {
+          pendingLists.delete(id);
+          listObserver?.unobserve(el);
+          el.remove();
+        } else {
+          pendingLists.set(id, { items: rest, render: held.render });
+        }
+      }
+    },
+    { rootMargin: '600px 0px' },
+  );
+
+  for (const el of document.querySelectorAll('[data-more]')) listObserver.observe(el);
+}
 
 /* ── routing ─────────────────────────────────────────────────────────────────
    The view functions and render() know nothing about URLs. Everything here is
@@ -1217,6 +1304,7 @@ function syncUrl(mode: 'push' | 'replace' = 'push'): void {
 /* ── chrome ──────────────────────────────────────────────────────────────── */
 
 function render(): void {
+  resetChunkedLists();
   const body =
     state.view === 'home'
       ? homeView()
@@ -1239,6 +1327,10 @@ function render(): void {
   // The wrapper is a fresh element on every render, so the fade it carries just
   // plays on insertion. No JS animation retriggering needed.
   $('#view').innerHTML = `<div class="view-fade">${body}</div>`;
+
+  // Any list that emitted a sentinel now gets its observer. Done here rather
+  // than inside each view so no view has to remember to do it.
+  mountChunkedList();
 
   // The sub nav belongs to Explore and its leaves, and appears nowhere else.
   const inExplore =
