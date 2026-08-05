@@ -57,6 +57,37 @@ export const BRAND_SITES: Record<string, string> = {
   // Sub-brand of Afnan Perfumes (same founder, Imran Fazlani), launched 2023,
   // with its own UK subdomain — hence a retailers.ts entry rather than a house.
   zimaya: 'https://uk.zimayaperfumes.com/',
+
+  // ── Added 2026-08-05 on request. UK storefront preferred where the brand
+  // runs one, because that is the site a UK reader should land on.
+  kayali: 'https://uk.kayali.com/',
+  // Zara's fragrance aisle rather than its homepage: linking a reader chasing
+  // a perfume into a fashion storefront's front door is a dead end.
+  'maison alhambra': 'https://maisonalhambra.co/',
+  // The brand's own global site. arabianperfumes.uk is their stated sole UK
+  // distributor, which is a shop rather than the brand, so it belongs in the
+  // retailer registry if anywhere and not on this button.
+  'swiss arabian': 'https://swissarabian.com/',
+  'fragrance world': 'https://fragranceworld.ae/',
+  ajmal: 'https://www.ajmal.com/',
+  dumont: 'https://www.dumontparis.com/',
+  'dumont paris': 'https://www.dumontparis.com/',
+  // Catalogue spells it "Al-Rehab"; brandKey strips the hyphen so one entry
+  // covers both spellings.
+  alrehab: 'https://www.alrehab.com/',
+  // Two houses, one perfumer (Alessandro Gualtieri), separate storefronts.
+  'orto parisi': 'https://ortoparisi.com/',
+  nasomatto: 'https://nasomatto.com/',
+  gissah: 'https://gissahuae.com/',
+  reef: 'https://www.reef-parfum.com/en/',
+  'al wataniah': 'https://www.alwataniah.com/',
+  'sol de janeiro': 'https://soldejaneiro.com/',
+  lush: 'https://www.lush.com/uk/en',
+  'bdk parfums': 'https://bdkparfums.com/en',
+  amouage: 'https://amouage.com/',
+  khadlaj: 'https://www.khadlaj-perfumes.co.uk/',
+  zara: 'https://www.zara.com/uk/en/woman-accessories-perfumes-l1017.html',
+  'bath body works': 'https://www.bathandbodyworks.co.uk/',
   // Elysia has no entry: search turned up only individual perfume names
   // ("Elysia Vanilla", "Elysia Elegance") sold under Fragrance World, not a
   // standalone Elysia storefront — there is no site to link to yet.

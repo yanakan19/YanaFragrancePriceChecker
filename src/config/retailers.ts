@@ -1133,6 +1133,132 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
   },
+  {
+    id: 'khadlaj',
+    name: 'Khadlaj',
+    domain: 'khadlaj-perfumes.co.uk',
+    homepage: 'https://www.khadlaj-perfumes.co.uk',
+    tiers: ['mideast'],
+    singleBrandOnly: 'Khadlaj',
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [4, 6],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        "The brand's own .co.uk site exists but its delivery cost was not found; only third-party " +
+        'UK stockists (Emirates Oud free over £50, Perfume Heaven free over £40) turned up, and ' +
+        "those are not this shop's terms. The shipping:discover run will try khadlaj-perfumes." +
+        'co.uk directly.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'kayali',
+    name: 'KAYALI',
+    domain: 'uk.kayali.com',
+    homepage: 'https://uk.kayali.com',
+    tiers: ['designer', 'niche'],
+    singleBrandOnly: 'Kayali',
+    enabled: true,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 5.5,
+      freeOverGbp: 79,
+      estimatedDays: [2, 3],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        "Both figures from the brand's own Zendesk help centre (kayalihelp.zendesk.com): UK " +
+        'delivery £5.50, free over £79, 2-3 business days. Founded by Mona Kattan; also stocked ' +
+        'by Boots, Selfridges, Sephora and Cult Beauty, so expect overlap once this harvest runs.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'zara',
+    name: 'Zara',
+    domain: 'zara.com',
+    homepage: 'https://www.zara.com/uk',
+    tiers: ['designer'],
+    singleBrandOnly: 'Zara',
+    // A fashion retailer, not a fragrance specialist, but its own perfume line
+    // is single-brand the same way Armaf's shop is — Zara does not stock any
+    // other house's fragrance.
+    enabled: true,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 3.95,
+      freeOverGbp: 50,
+      estimatedDays: [2, 3],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        'Standard £3.95, free over £50, 2-3 days — read from Zara UK\'s own delivery-methods ' +
+        "page via search summary. Next-day (£4.95) and same-day London (£7.95) exist and are " +
+        'out of scope for the standard-only model. Fragrance since 1998 via Puig.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'lush',
+    name: 'LUSH',
+    domain: 'lush.com',
+    homepage: 'https://www.lush.com/uk/en',
+    tiers: ['niche'],
+    singleBrandOnly: 'Lush',
+    enabled: true,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 3.95,
+      freeOverGbp: 50,
+      estimatedDays: [2, 3],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        "Standard £3.95, free over £50, 2-3 working days from dispatch — read from Lush UK's own " +
+        'delivery information page via search summary. A paid Delivery Pass subscription also ' +
+        'exists and is not modelled, per the membership-perk rule. Fragrance is a small part of a ' +
+        'much larger bath/body/cosmetics catalogue; expect most harvested listings to be rejected ' +
+        'by the isFragrance filter.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'bath-body-works-uk',
+    name: 'Bath & Body Works',
+    domain: 'bathandbodyworks.co.uk',
+    homepage: 'https://www.bathandbodyworks.co.uk',
+    tiers: ['designer'],
+    singleBrandOnly: 'Bath & Body Works',
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 6],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        'Search only surfaced the US site\'s $50 threshold, which is not this UK site\'s terms. ' +
+        'No standard-delivery cost for bathandbodyworks.co.uk found. Fine fragrance mists rather ' +
+        'than EDP/EDT in the main, worth confirming isFragrance actually recognises their listings.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
 ] as const;
 
 /** Registry lookup by id. Built once — the registry is static. */
