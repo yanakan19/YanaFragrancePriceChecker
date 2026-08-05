@@ -473,11 +473,29 @@ if (existsSync(housesDir)) {
   }
 }
 
-houseProducts.sort((a, b) => a.house.localeCompare(b.house) || a.name.localeCompare(b.name));
+// Same rule as the retailer catalogue above: smallest bottle first within one
+// perfume. A house listing may have no size at all, and those sort last rather
+// than being treated as zero millilitres and leading the group.
+houseProducts.sort(
+  (a, b) =>
+    a.house.localeCompare(b.house) ||
+    a.name.localeCompare(b.name) ||
+    (a.sizeMl ?? Infinity) - (b.sizeMl ?? Infinity) ||
+    a.id.localeCompare(b.id),
+);
 
 // Most shops first, so the comparison leads with products that have one.
+// Name and then size break the remaining ties, both ascending: without them
+// the three sizes of one bottle came out in whatever order the Map happened to
+// hold them, which is neither reproducible between builds nor sensible to
+// read. Smallest bottle first — see compareVariants in demo/data.ts, which
+// applies the same rule at display time.
 const ordered = [...products.values()].sort(
-  (a, b) => b.offers.length - a.offers.length || a.brand.localeCompare(b.brand),
+  (a, b) =>
+    b.offers.length - a.offers.length ||
+    a.brand.localeCompare(b.brand) ||
+    a.name.localeCompare(b.name) ||
+    a.sizeMl - b.sizeMl,
 );
 
 // `description` is read for its notes above and then deliberately dropped: it

@@ -11,7 +11,7 @@ describe('retailer registry', () => {
     // French Avenue and Armaf (promoted out of houses.ts once their UK
     // storefronts turned up), Al Haramain, Riiffs, IBRAQ, BellaVita Luxury,
     // Oud Arabian, Manchester Ouds and Perfumeo.
-    expect(RETAILERS).toHaveLength(28);
+    expect(RETAILERS).toHaveLength(30);
   });
 
   // The whole point of allowing `standardGbp: null` is that "we have not

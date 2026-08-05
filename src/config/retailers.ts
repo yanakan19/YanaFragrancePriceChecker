@@ -1048,6 +1048,90 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
   },
+  {
+    id: 'the-beauty-store-uk',
+    name: 'The Beauty Store UK',
+    domain: 'thebeautystore.com',
+    homepage: 'https://www.thebeautystore.com',
+    blurb:
+      'We keep costs down with an honest to goodness no-frills approach. We do not pay for ' +
+      'fancy marketing campaigns or luxurious offices, so we can pass on all our savings to you.',
+    tiers: ['designer'],
+    // Disabled, and likely to stay that way longer than most: their published
+    // terms of sale name no standard delivery charge and no free-delivery
+    // threshold anywhere, only a 10 day long-stop for despatch. The twice
+    // daily shipping:discover run will try their delivery page, but there is
+    // a real chance the figure is only ever shown at checkout.
+    enabled: false,
+    adapter: 'affiliate-feed',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      // Not a typical window. Their terms state only that goods arrive "within
+      // 10 days of your order", which is the contractual maximum they bind
+      // themselves to, so the upper bound is theirs and the lower is a guess
+      // held deliberately wide rather than flattering.
+      estimatedDays: [2, 10],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        'Read from their Awin programme terms and their own terms of sale, 5 Aug 2026. Those ' +
+        'documents state no delivery price and no free-delivery threshold at all — only the 10 ' +
+        'day despatch long-stop recorded above. Identity is confirmed: The Beauty Store London ' +
+        'Ltd, company 10805437, VAT GB325347215, returns to Unit 2 Orchard Business Park, ' +
+        'Forsyth Road, Woking GU21 5FH. Note the storefront is thebeautystore.com, not the ' +
+        '.co.uk domain first assumed here.',
+    },
+    catalogue: null,
+    affiliate: {
+      ...awinActive('116255', '3017443'),
+      // Their branding terms read "No branding guidelines", which is an
+      // absence of instruction, not a grant of permission. imageBasis stays
+      // unset, so their photography is not displayed — see the ImageBasis doc
+      // comment in src/types/retailer.ts.
+      notes:
+        'Merchant id 116255, joined 5 Aug 2026. Programme terms last updated 30 May 2025. ' +
+        'Commission is calculated on a transaction value that includes VAT, delivery, card fees ' +
+        'and gift wrapping, and no product category is excluded. Paid search on their brand name ' +
+        'is heavily restricted, which does not affect this site — we run no ads. Feed not yet ' +
+        'checked: Toolbox > Create-a-Feed. Import with npm run catalogue:feed -- ' +
+        '--file=<feed.csv> --retailer=the-beauty-store-uk'
+    },
+  },
+  {
+    id: 'zimaya',
+    name: 'Zimaya',
+    domain: 'uk.zimayaperfumes.com',
+    homepage: 'https://uk.zimayaperfumes.com',
+    tiers: ['mideast'],
+    singleBrandOnly: 'Zimaya',
+    // Disabled pending a standard delivery cost, and with a currency question
+    // on top — see the note below. The twice-daily shipping:discover run reads
+    // their delivery page, so this should resolve without anyone opening a
+    // browser.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [2, 5],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        'A UK subdomain exists (uk.zimayaperfumes.com), which is why this is a retailer rather ' +
+        'than a houses.ts entry, on the same reasoning as French Avenue and Armaf. But the UK ' +
+        'site advertises "FREE DELIVERY OVER $50" in dollars, so it is not confirmed that it ' +
+        'actually prices and ships in sterling — a Shopify storefront left unlocalised would ' +
+        'look exactly like this. Confirm the checkout currency before enabling: currency is ' +
+        "declared 'GBP' above because the type permits nothing else, which is itself the claim " +
+        'being flagged here. Third-party UK stockists quote £50 and £80 free-delivery ' +
+        'thresholds, but those are their terms, not this shop\'s.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
 ] as const;
 
 /** Registry lookup by id. Built once — the registry is static. */

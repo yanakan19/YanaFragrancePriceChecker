@@ -98,12 +98,26 @@ jobs:
       # delivered price is the default sort, so a wrong-low delivery charge
       # makes a shop falsely win it. A human reads the quoted sentence and
       # types the number. See scripts/shipping-discover.ts.
+      #
+      # Twice a day rather than hourly: a shop revises its delivery terms a few
+      # times a year, so checking every hour would be 24 times the requests to
+      # learn the same thing. 06:00 and 18:00 UTC are picked off the hourly
+      # schedule below rather than by adding a second cron, because two crons
+      # both firing at those hours would run the whole harvest twice.
       - name: Discover shipping terms
-        if: ${{ inputs.shipping_discover }}
-        run: npm run shipping:discover
+        if: ${{ inputs.shipping_discover || github.event_name == 'schedule' }}
+        run: |
+          HOUR=$(date -u +%H)
+          if [ "${{ inputs.shipping_discover }}" = "true" ] || [ "$HOUR" = "06" ] || [ "$HOUR" = "18" ]; then
+            npm run shipping:discover
+          else
+            echo "Not a 06:00 or 18:00 UTC tick (currently ${HOUR}:00) — skipping."
+          fi
 
+      # No-ops when the step above skipped: commit-and-push.sh exits cleanly
+      # when nothing changed.
       - name: Commit the shipping report
-        if: ${{ inputs.shipping_discover }}
+        if: ${{ inputs.shipping_discover || github.event_name == 'schedule' }}
         run: |
           ./scripts/commit-and-push.sh \
             "Shipping terms: what each delivery page says $(date -u +%Y-%m-%d)" \

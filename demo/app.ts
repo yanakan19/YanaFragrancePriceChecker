@@ -25,7 +25,7 @@ import type { PresentedOffer, StockState } from '../src/types/offer.js';
 import type { Retailer, RetailerTier } from '../src/types/retailer.js';
 import {
   DEMO_FRAGRANCES, BY_POPULARITY, DEALS, NOTE_INDEX,
-  brandTierFor, fragranceById, fragrancesAt, listingCountAt, fragrancesWithNote, lowestPrice,
+  brandTierFor, fragranceById, fragrancesAt, listingCountAt, fragrancesWithNote, lowestPrice, compareVariants,
   type DemoFragrance, type NoteLayer,
 } from './data.js';
 import { productArt, type ArtSize } from './photo.js';
@@ -528,12 +528,29 @@ function control(id: string, label: string, ico: string, options: { value: strin
  * retailer: alphabetical both ways, price both ways. Shared so the three
  * pages that use it cannot drift into three slightly different orderings.
  */
+/**
+ * Every sort ends on bottle size, smallest first.
+ *
+ * Without that last step the four sorts here only ever compared brand, name or
+ * price, all three of which are identical across the sizes of one perfume — so
+ * the three Versace Dylan Blue bottles came out in whatever order the input
+ * happened to be in, which read as 10ml, 50ml, 30ml. Size ascending is the
+ * tiebreaker in all four directions, including Z to A: reversing the alphabet
+ * is a statement about names, not a reason to start listing bottles largest
+ * first. See compareVariants in demo/data.ts.
+ */
 function sortFragrances(list: DemoFragrance[], sort: ListSort): DemoFragrance[] {
   return [...list].sort((a, b) => {
-    if (sort === 'az') return `${a.brand} ${a.name}`.localeCompare(`${b.brand} ${b.name}`);
-    if (sort === 'za') return `${b.brand} ${b.name}`.localeCompare(`${a.brand} ${a.name}`);
+    if (sort === 'az' || sort === 'za') {
+      const names = `${a.brand} ${a.name}`.localeCompare(`${b.brand} ${b.name}`);
+      if (names !== 0) return sort === 'az' ? names : -names;
+      return compareVariants(a, b);
+    }
     const diff = lowestPrice(a.id) - lowestPrice(b.id);
-    return sort === 'price-low' ? diff : -diff;
+    if (diff !== 0) return sort === 'price-low' ? diff : -diff;
+    const names = `${a.brand} ${a.name}`.localeCompare(`${b.brand} ${b.name}`);
+    if (names !== 0) return names;
+    return compareVariants(a, b);
   });
 }
 
