@@ -72,10 +72,23 @@ export interface ShippingClaim {
   isUpgradeTier: boolean;
 }
 
-/** Strip tags, decode the handful of entities that matter, collapse whitespace. */
+/**
+ * Strip tags, decode the handful of entities that matter, collapse whitespace.
+ *
+ * Block boundaries become an explicit separator before the tags go, because
+ * otherwise a nav bar and the paragraph beneath it collapse into one run of
+ * text with no sentence break between them. On a real page that meant a header
+ * basket total sat in the same "sentence" as the actual delivery rate, and
+ * discarding the chrome discarded the answer with it.
+ */
 export function textFromHtml(html: string): string {
   return html
     .replace(/<(script|style|noscript)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
+    .replace(/<br\s*\/?>/gi, ' | ')
+    .replace(
+      /<\/(p|div|li|tr|td|th|h[1-6]|section|article|header|footer|nav|ul|ol|table|dt|dd|blockquote)\s*>/gi,
+      ' | ',
+    )
     .replace(/<[^>]+>/g, ' ')
     .replace(/&nbsp;|&#160;/gi, ' ')
     .replace(/&pound;|&#163;/gi, '£')
@@ -85,6 +98,10 @@ export function textFromHtml(html: string): string {
     .replace(/&lt;/gi, '<')
     .replace(/&gt;/gi, '>')
     .replace(/\s+/g, ' ')
+    // Collapse runs of the separator left by nested blocks, and drop the ones
+    // that end up at either end with nothing to separate.
+    .replace(/(?:\s*\|\s*)+/g, ' | ')
+    .replace(/^\s*\|\s*|\s*\|\s*$/g, '')
     .trim();
 }
 
@@ -113,6 +130,26 @@ const NOT_SHIPPING_CONTEXT =
 const AMOUNT = /£\s?(\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?)/;
 const AMOUNT_G = /£\s?(\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?)/g;
 
+/**
+ * A live cart widget, not a statement of terms.
+ *
+ * Real pages carry "You are £200 away from free shipping" and a header cart
+ * reading "0 / £0.00". Both parse as a delivery charge on a delivery page and
+ * both are whatever the current basket happens to be — the first run of this
+ * tool recorded £200 as Manchester Ouds' standard rate on exactly that
+ * sentence.
+ */
+const CART_WIDGET =
+  /\b(away from free|qualifies for free ship|your (?:cart|bag|order) (?:is|total)|items? in (?:your )?(?:cart|bag)|skip to content|hurry up)\b/i;
+
+/** "Spend over £X" as a condition, whatever the reward is — free, half-price,
+ *  discounted. A threshold, never the cost of the delivery itself. */
+const SPEND_THRESHOLD =
+  /\b(?:when you )?spend(?:ing)?\s*(?:over|above|of|more than)?\s*£\s?(\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?)|\b(?:half[- ]price|discounted|reduced)\b[\s\S]{0,40}?\b(?:over|above)\s*£\s?(\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?)/i;
+
+/** The sentence explicitly calls this the standard/normal service. */
+const NAMES_STANDARD = /\b(standard|normal|regular|basic|economy)\b/i;
+
 function toNumber(raw: string): number {
   return Number.parseFloat(raw.replace(/,/g, ''));
 }
@@ -132,8 +169,22 @@ export function extractShippingClaims(html: string): ShippingClaim[] {
     // A sentence has to be about delivery at all before any number in it counts.
     if (!/\b(deliver\w*|shipping|postage|dispatch\w*|p&p)\b/i.test(sentence)) continue;
     if (NOT_SHIPPING_CONTEXT.test(sentence)) continue;
+    // Whatever the basket currently says is not a statement of terms.
+    if (CART_WIDGET.test(sentence)) continue;
 
     const isUpgradeTier = UPGRADE_WORDS.test(sentence);
+
+    // "Spend over £150 for half-price shipping" is a condition, not a charge.
+    const spend = SPEND_THRESHOLD.exec(sentence);
+    if (spend) {
+      claims.push({
+        kind: 'free-threshold',
+        amountGbp: toNumber(spend[1] ?? spend[2]!),
+        evidence: sentence,
+        isUpgradeTier,
+      });
+      continue;
+    }
     const freeOver =
       /\bfree\b[\s\S]{0,60}?\b(?:on (?:all )?orders? )?(?:over|above|of|from)\s*£\s?(\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?)/i.exec(sentence) ??
       /\b(?:orders?|spend|spending)\b[\s\S]{0,40}?\bover\s*£\s?(\d{1,3}(?:,\d{3})*(?:\.\d{1,2})?)[\s\S]{0,40}?\bfree\b/i.exec(sentence);
@@ -205,10 +256,22 @@ export function readShippingTerms(html: string): ShippingReading {
   const claims = extractShippingClaims(html);
   const caveats: string[] = [];
 
-  const standardCandidates = claims.filter((c) => c.kind === 'standard-cost' && !c.isUpgradeTier);
+  const standardCandidates = claims.filter(
+    // A £0.00 in prose is a cart total or a stray, never a stated charge:
+    // genuine free delivery is written in words, which is what
+    // `free-unconditional` is for.
+    (c) => c.kind === 'standard-cost' && !c.isUpgradeTier && c.amountGbp > 0,
+  );
   const thresholds = claims.filter((c) => c.kind === 'free-threshold' && !c.isUpgradeTier);
 
-  const distinctStandard = [...new Set(standardCandidates.map((c) => c.amountGbp))];
+  // A sentence that says "Standard Delivery (3-5 Working Days): £3.99" is
+  // telling us outright, and beats one that merely mentions a number near the
+  // word delivery. Without this the lowest figure wins, and on a real page
+  // that was a £0.00 basket total sitting above the answer.
+  const named = standardCandidates.filter((c) => NAMES_STANDARD.test(c.evidence));
+  const preferred = named.length > 0 ? named : standardCandidates;
+
+  const distinctStandard = [...new Set(preferred.map((c) => c.amountGbp))];
   if (distinctStandard.length > 1) {
     caveats.push(
       `page names ${distinctStandard.length} different delivery charges (${distinctStandard

@@ -24,6 +24,7 @@ import type { StoredListing } from '../src/catalogue/types.js';
 import { RETAILERS } from '../src/config/retailers.js';
 import { HOUSES } from '../src/config/houses.js';
 import { buildBrandCanon } from '../src/catalogue/brandName.js';
+import { findDuplicateGroups } from '../src/catalogue/productMatch.js';
 
 /**
  * Retailers whose product photos may be displayed, and on what grounds.
@@ -393,6 +394,24 @@ if (existsSync(dir)) {
   }
 }
 
+/* ── one bottle, one product ───────────────────────────────────────────────
+   Keying on EAN alone left the same bottle listed twice whenever only one
+   shop published a barcode — Afnan Supremacy In Extrait De Parfum, 100ml,
+   appeared at £38.99 and £50.00 as two products. Folding them together is
+   what turns two listings into an actual comparison. See
+   src/catalogue/productMatch.ts for when two listings count as the same
+   bottle and where it refuses to decide. */
+const duplicateGroups = findDuplicateGroups([...products.values()]);
+for (const { canonical, absorbed } of duplicateGroups) {
+  for (const dupe of absorbed) {
+    canonical.offers.push(...dupe.offers);
+    // The barcode is worth keeping if the canonical record lacked one.
+    canonical.ean ??= dupe.ean;
+    products.delete(dupe.id);
+  }
+}
+const mergedProducts = duplicateGroups.reduce((n, g) => n + g.absorbed.length, 0);
+
 /* ── houses we source direct, which we cannot price in sterling yet ────────── */
 
 /**
@@ -592,6 +611,7 @@ console.log(
   `demo/catalogue.generated.ts written from LIVE data only:\n` +
     `  ${liveShops} shops, ${considered} listings considered, ${rejected} were not fragrance\n` +
     `  ${ordered.length} products, ${multi} of them stocked by more than one shop\n` +
+    `  ${mergedProducts} duplicate listings folded into an existing product\n` +
     `  ${houseProducts.length} house products, catalogue-only (no sterling price yet)` +
     (skippedShops.length
       ? `\n  skipped: ${skippedShops.join(', ')}`
