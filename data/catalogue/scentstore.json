@@ -1,0 +1,22 @@
+{
+  "retailerId": "scentstore",
+  "updatedAt": "2026-08-05T12:37:37.736Z",
+  "source": "live",
+  "listings": [],
+  "runs": [
+    {
+      "runId": "scentstore-2026-08-05T12:37:25.216Z",
+      "retailerId": "scentstore",
+      "startedAt": "2026-08-05T12:37:25.216Z",
+      "finishedAt": "2026-08-05T12:37:37.736Z",
+      "status": "ok",
+      "baseline": true,
+      "pagesFetched": 1,
+      "listingsSeen": 0,
+      "newListings": 0,
+      "delistedListings": 0,
+      "relistedListings": 0,
+      "errors": []
+    }
+  ]
+}
