@@ -1,13 +1,13 @@
 /**
  * Legal and company pages.
  *
- * READ THIS BEFORE PUBLISHING.
- * These are working drafts, not legal advice, and nobody qualified has signed
- * them off. Every [SQUARE BRACKET] below is a placeholder that must be replaced
- * with real details before launch. A privacy notice naming a company that does
- * not exist is itself a UK GDPR compliance failure rather than a harmless stub.
- *
- * See docs/LEGAL.md for the full checklist.
+ * This is a one person operation trading under the PriceSniffs name, not a
+ * registered company, so there is no company number, registered office or
+ * ICO registration to state. Every fact below is one that is actually true
+ * today. Nothing here is filled in with a placeholder, and nothing states a
+ * detail (a company number, an address, a retention period in days) that has
+ * not actually been decided, because a specific sounding fact that is not
+ * real is worse than a plain one that is.
  *
  * House style for every string in this file: no hyphens, no en dashes and no em
  * dashes anywhere in reader facing text. Where a compound would normally take a
@@ -16,13 +16,10 @@
 
 export const COMPANY = {
   name: 'PriceSniffs',
-  legalName: '[REGISTERED COMPANY NAME]',
-  number: '[COMPANY NUMBER]',
-  address: '[REGISTERED OFFICE ADDRESS]',
+  legalName: 'YannySniffs',
   email: 'yannysniffs@gmail.com',
   feedbackEmail: 'yannysniffs@gmail.com',
   privacyEmail: 'yannysniffs@gmail.com',
-  ico: '[ICO REGISTRATION NUMBER]',
   updated: '1 August 2026',
 } as const;
 
@@ -33,13 +30,6 @@ export interface LegalPage {
   short: string;
   body: string;
 }
-
-const draftBanner = `
-  <p class="draft">
-    <strong>Draft.</strong> This document still contains placeholders and no
-    solicitor has reviewed it. Do not rely on it until the bracketed details are
-    filled in and someone qualified has approved it.
-  </p>`;
 
 export const LEGAL_PAGES: LegalPage[] = [
   {
@@ -111,7 +101,6 @@ export const LEGAL_PAGES: LegalPage[] = [
     title: 'Affiliate disclosure',
     short: 'Affiliate Disclosure',
     body: `
-      ${draftBanner}
       <p>PriceSniffs intends to earn commission when you buy through some of the
       links on this site. It costs you nothing and does not change the price you
       pay.</p>
@@ -140,54 +129,62 @@ export const LEGAL_PAGES: LegalPage[] = [
     title: 'Privacy notice',
     short: 'Privacy',
     body: `
-      ${draftBanner}
       <p>This notice sets out what personal data ${COMPANY.name} collects, why we
       collect it, and what you can ask us to do about it. It is written to meet UK
       GDPR and the Data Protection Act 2018.</p>
 
       <h3>Who we are</h3>
-      <p>The data controller is ${COMPANY.legalName}, company number
-      ${COMPANY.number}, registered at ${COMPANY.address}. Our ICO registration
-      number is ${COMPANY.ico}. You can reach us at
-      <a href="mailto:${COMPANY.privacyEmail}">${COMPANY.privacyEmail}</a>.</p>
+      <p>PriceSniffs is run by ${COMPANY.legalName}, a single person, not a
+      registered company. You can reach us at
+      <a href="mailto:${COMPANY.privacyEmail}">${COMPANY.privacyEmail}</a> for
+      anything to do with your data.</p>
 
       <h3>What we collect</h3>
+      <p>Very little, because the site itself has no server or database of its
+      own. It runs entirely in your browser and reads a fixed catalogue of
+      prices, so there is no account to create and nothing you do inside the
+      app, including what you search for and which filters you use, is sent
+      anywhere or stored by us.</p>
       <ul>
-        <li><strong>Search terms.</strong> Whatever you type into the search box,
-        so we can tell which fragrances are popular. Stored with nothing attached
-        that would link it back to you.</li>
-        <li><strong>Technical data.</strong> Your IP address, browser type and the
-        pages you visited, kept in server logs for security and for fixing
-        faults.</li>
-        <li><strong>Anything you send us.</strong> If you email us, we keep your
-        message and your address so that we can reply.</li>
+        <li><strong>Your display preference.</strong> Dark or light theme and
+        mobile or desktop layout are saved on your own device only, using your
+        browser's local storage. They never leave it and we never see them.</li>
+        <li><strong>Anything you send us.</strong> If you email us, whether
+        through the contact form or directly, we keep that message and your
+        address so that we can reply, the same as any inbox.</li>
       </ul>
       <p>We do not ask you to create an account and we never see your payment
       details. Buying happens on the shop's own site, under their privacy policy
       rather than ours.</p>
 
+      <h3>Hosting</h3>
+      <p>The site is hosted by GitHub Pages. Serving any website involves the
+      host handling standard connection information, such as IP addresses, to
+      deliver the page, and that is governed by GitHub's own privacy statement
+      rather than ours, since we do not receive or store it.</p>
+
       <h3>Our lawful basis</h3>
-      <p>For search counts and security logging we rely on legitimate interests,
-      namely running and improving a price comparison service in a way we believe
-      you would expect and which carries very little privacy risk. Where we use
-      cookies that are not strictly necessary we rely on your consent, and you can
-      withdraw it whenever you like.</p>
+      <p>For replying to messages you send us we rely on legitimate interests,
+      namely being able to answer you. Where we use cookies that are not strictly
+      necessary we rely on your consent, and you can withdraw it whenever you
+      like.</p>
 
       <h3>Cookies</h3>
-      <p>At present we set only the cookies needed to make the site work. If we
-      add analytics or affiliate tracking we will ask you first and list those
-      cookies here. Affiliate networks may set cookies of their own once you
-      follow a link to a shop, and those fall under that network's policy.</p>
+      <p>We do not set any cookies ourselves. Your display preference is saved
+      using local storage, not a cookie, and never leaves your device. If we
+      ever add analytics or affiliate tracking that sets cookies, we will say so
+      here first. Affiliate networks may set cookies of their own once you
+      follow a link to a shop, and those fall under that network's policy, not
+      ours.</p>
 
       <h3>Who else sees it</h3>
-      <p>We do not sell personal data. We share it only with suppliers acting on
-      our instructions, currently [HOSTING PROVIDER], and where the law requires
-      us to hand it over.</p>
+      <p>We do not sell personal data, and we do not share it with anyone except
+      where the law requires it.</p>
 
       <h3>How long we keep it</h3>
-      <p>Server logs are held for [RETENTION PERIOD, for example 90 days]. Search
-      counts are kept indefinitely because they hold no personal data. Emails are
-      kept for [RETENTION PERIOD] after the matter is closed.</p>
+      <p>Emails are kept only as long as we need them to deal with what you have
+      asked, then deleted. We do not keep search history, browsing history or
+      any other record of your visit, because we never receive one.</p>
 
       <h3>Your rights</h3>
       <p>You can ask for a copy of your data, ask us to correct or delete it,
@@ -207,7 +204,6 @@ export const LEGAL_PAGES: LegalPage[] = [
     title: 'Terms of use',
     short: 'Terms',
     body: `
-      ${draftBanner}
       <p>Using PriceSniffs means accepting these terms.</p>
 
       <h3>What PriceSniffs is</h3>
@@ -271,21 +267,15 @@ export const LEGAL_PAGES: LegalPage[] = [
       us the fragrance, the bottle size, the shop and the figure you saw on their
       site, and we will go and check it the same day.</p>
 
-      <h3>Feedback and corrections</h3>
-      <p><a href="mailto:${COMPANY.feedbackEmail}">${COMPANY.feedbackEmail}</a></p>
-
-      <h3>General enquiries</h3>
-      <p><a href="mailto:${COMPANY.email}">${COMPANY.email}</a></p>
-
-      <h3>Privacy and data requests</h3>
-      <p><a href="mailto:${COMPANY.privacyEmail}">${COMPANY.privacyEmail}</a></p>
+      <h3>Get in touch</h3>
+      <p>One inbox for everything, wrong prices, feedback, privacy and data
+      requests, and general questions: <a href="mailto:${COMPANY.email}">${COMPANY.email}</a></p>
 
       <h3>If you run a shop</h3>
-      <p>Write to ${COMPANY.email} if you want to be listed, corrected or removed,
-      and we will come back to you.</p>
+      <p>Write to the address above if you want to be listed, corrected or
+      removed, and we will come back to you.</p>
 
-      <p class="meta">${COMPANY.legalName}. Company number ${COMPANY.number}.<br />
-      ${COMPANY.address}</p>`,
+      <p class="meta">PriceSniffs is run by ${COMPANY.legalName}.</p>`,
   },
 ];
 

@@ -35,7 +35,7 @@ import { officialSiteFor } from './brandSites.js';
 import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
 
 type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings';
-type ExploreTab = 'brands' | 'deals' | 'retailers' | 'houses' | 'notes' | 'search';
+type ExploreTab = 'brands' | 'deals' | 'retailers' | 'notes' | 'search';
 type DisplayMode = 'dark' | 'light' | 'system';
 type Layout = 'mobile' | 'desktop';
 type BrandSort = 'az' | 'za';
@@ -142,7 +142,12 @@ const $ = (sel: string) => document.querySelector(sel)!;
  */
 const titleCase = (s: string) => s.replace(/\S+/g, (w) => w[0]!.toUpperCase() + w.slice(1).toLowerCase());
 
-const BRANDS = [...new Set(DEMO_FRAGRANCES.map((f) => f.brand))].sort();
+// Includes houses read straight from their own storefront (HOUSE_PRODUCTS)
+// alongside brands with real UK offers, so a house that has not yet been
+// matched to a UK listing still gets a page instead of needing a section of
+// its own — it is a brand like any other, just one whose products so far
+// only carry a price it charges directly.
+const BRANDS = [...new Set([...DEMO_FRAGRANCES.map((f) => f.brand), ...HOUSE_PRODUCTS.map((p) => p.house)])].sort();
 const TIER_LABEL: Record<RetailerTier, string> = {
   designer: 'Designer', niche: 'Niche', mideast: 'Middle Eastern',
 };
@@ -1148,6 +1153,11 @@ function brandView(): string {
   const filtered = BY_POPULARITY.filter((f) => f.brand === b);
   const list = sortFragrances(applyFacets(filtered), state.brandDetailSort);
   const site = officialSiteFor(b);
+  // Products read straight from this house's own storefront, priced in
+  // whatever currency it charges. Not part of the UK comparison (see the
+  // houses comment above houseCard), so shown as their own group rather than
+  // mixed into `list`, which is sterling delivered price all the way down.
+  const houseItems = HOUSE_PRODUCTS.filter((p) => p.house === b);
   // This house's own UK shop, when we carry one. It is kept out of the
   // Retailers directory (see retailersPanel) precisely so it can surface
   // here instead, where "buy direct from the brand" is what it means.
@@ -1189,9 +1199,22 @@ function brandView(): string {
       </div>
     </div>
 
-    <p class="gone-head">${list.length} ${list.length === 1 ? 'fragrance' : 'fragrances'}</p>
-    ${controls}
-    ${fragranceList(list, 'Nothing from this brand has been harvested yet.')}`;
+    ${
+      list.length > 0
+        ? `<p class="gone-head">${list.length} ${list.length === 1 ? 'fragrance' : 'fragrances'}</p>
+           ${controls}
+           ${fragranceList(list, 'Nothing from this brand has been harvested yet.')}`
+        : houseItems.length === 0
+          ? fragranceList(list, 'Nothing from this brand has been harvested yet.')
+          : ''
+    }
+    ${
+      houseItems.length > 0
+        ? `<p class="gone-head">${houseItems.length} direct from ${esc(b)}
+             <span class="dimmer">not part of the UK comparison</span></p>
+           <ul class="house-grid">${chunked(houseItems, houseCard)}</ul>`
+        : ''
+    }`;
 }
 
 /* ── explore: notes ──────────────────────────────────────────────────────── */
@@ -1303,7 +1326,6 @@ const TABS: { id: ExploreTab; label: string }[] = [
   { id: 'brands', label: 'Brands' },
   { id: 'deals', label: 'Deals' },
   { id: 'retailers', label: 'Retailers' },
-  { id: 'houses', label: 'Houses' },
   { id: 'notes', label: 'Notes' },
   { id: 'search', label: 'Search' },
 ];
@@ -1316,11 +1338,9 @@ function exploreView(): string {
         ? dealsPanel()
         : state.tab === 'retailers'
           ? retailersPanel()
-          : state.tab === 'houses'
-            ? housesPanel()
-            : state.tab === 'notes'
-              ? notesPanel()
-              : searchPanel();
+          : state.tab === 'notes'
+            ? notesPanel()
+            : searchPanel();
   return `<div class="explore">${panel}</div>`;
 }
 
@@ -1339,7 +1359,9 @@ function exploreView(): string {
  *
  * What is real here: the product exists, the house photographed it, and that
  * is the price on the house's own page. What is missing is any claim about
- * the UK.
+ * the UK. Shown on that house's own brand page (see brandView) rather than a
+ * section of its own, because a house with no UK listing yet is still a
+ * brand, not a different kind of thing.
  */
 /** One house product. Extracted so the chunked renderer can call it per item. */
 function houseCard(p: (typeof HOUSE_PRODUCTS)[number]): string {
@@ -1360,35 +1382,6 @@ function houseCard(p: (typeof HOUSE_PRODUCTS)[number]): string {
       <span class="house-caveat">at the house, not a UK price</span>
     </a>
   </li>`;
-}
-
-function housesPanel(): string {
-  if (HOUSE_PRODUCTS.length === 0) {
-    return `<p class="empty-note">No house storefront has returned listings yet.</p>`;
-  }
-
-  const byHouse = new Map<string, typeof HOUSE_PRODUCTS>();
-  for (const p of HOUSE_PRODUCTS) {
-    const list = byHouse.get(p.house) ?? [];
-    list.push(p);
-    byHouse.set(p.house, list);
-  }
-
-  return `
-    <p class="house-note">
-      Read directly from each house's own shop. These are not part of the price
-      comparison: each is sold in the house's own currency, so there is no UK
-      price to compare yet and none has been invented.
-    </p>
-    ${[...byHouse.entries()]
-      .map(
-        ([house, items]) => `
-        <section class="house-group">
-          <h3>${esc(house)} <span class="house-count">${items.length}</span></h3>
-          <ul class="house-grid">${chunked(items, houseCard)}</ul>
-        </section>`,
-      )
-      .join('')}`;
 }
 
 /* ── settings ────────────────────────────────────────────────────────────── */
@@ -1460,12 +1453,7 @@ function settingsView(): string {
           .map((p) => `<button class="link-btn" data-page="${p.id}">${esc(p.short)}</button>`)
           .join('')}
       </nav>
-      <p class="foot-legal dimmer">
-        ${esc(COMPANY.legalName)}, company number ${esc(COMPANY.number)}. We may earn commission
-        on some links, and that never changes your price or the order shown.
-        © ${new Date().getFullYear()} ${esc(COMPANY.name)}. Prices are a guide, always check the
-        shop's own site.
-      </p>
+      <p class="foot-legal dimmer">© ${new Date().getFullYear()} ${esc(COMPANY.name)}.</p>
     </article>`;
 }
 
@@ -1642,7 +1630,7 @@ function applyRoute(route: Route): boolean {
       state.view = 'browse';
       return true;
 
-    case 'brands': case 'deals': case 'retailers': case 'houses': case 'notes':
+    case 'brands': case 'deals': case 'retailers': case 'notes':
       state.view = 'explore';
       state.tab = route.name as ExploreTab;
       return true;

@@ -13,7 +13,7 @@
  * change reversible and stops routing logic leaking into rendering.
  *
  * ── Slugs ────────────────────────────────────────────────────────────────────
- * Fragrance ids, retailer ids and house ids are already URL-safe and unique, so
+ * Fragrance ids and retailer ids are already URL-safe and unique, so
  * they go in the path unchanged. Brands and notes are free text and need
  * slugifying, and brands specifically collide: the catalogue holds "Dolce &
  * Gabbana", "Dolce&Gabbana" and "DOLCE&GABBANA" as three separate rows, which
@@ -26,7 +26,7 @@
 
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
-  | 'houses' | 'notes' | 'note' | 'fragrance' | 'about' | 'settings' | 'legal';
+  | 'notes' | 'note' | 'fragrance' | 'about' | 'settings' | 'legal';
 
 /** What a matched URL says about where we are. */
 export interface Route {
@@ -58,7 +58,6 @@ const LIST_ROUTES: Record<string, RouteName> = {
   brands: 'brands',
   deals: 'deals',
   retailers: 'retailers',
-  houses: 'houses',
   notes: 'notes',
   about: 'about',
   settings: 'settings',
@@ -118,7 +117,6 @@ export function routeToPath(route: Route): string {
       case 'deals': return '/deals';
       case 'retailers': return '/retailers';
       case 'retailer': return `/retailers/${encodeURIComponent(param)}`;
-      case 'houses': return '/houses';
       case 'notes': return '/notes';
       case 'note': return `/notes/${encodeURIComponent(param)}`;
       case 'fragrance': return `/fragrance/${encodeURIComponent(param)}`;
