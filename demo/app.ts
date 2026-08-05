@@ -502,6 +502,9 @@ const icon = (paths: string) =>
 const ICON_FILTER = icon('<path d="M3.5 5h17l-6.6 7.8V20l-3.8-2.2v-5L3.5 5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>');
 const ICON_SORT = icon('<path d="M4 7h16M6.5 12h11M10 17h4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>');
 const ICON_RANK = icon('<path d="M7.5 20V5m0 0L4 8.5M7.5 5 11 8.5M16.5 4v15m0 0 3.5-3.5M16.5 19 13 15.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>');
+// Stands in for the native <select> arrow once appearance: none removes it —
+// see .control-chevron in template.html.
+const ICON_CHEVRON = icon('<path d="M6 9.5 12 15.5 18 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>');
 const ICON_SEARCH = icon('<circle cx="11" cy="11" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>');
 const ICON_GRID = icon('<rect x="3" y="3" width="7.5" height="7.5" rx="1.6" stroke="currentColor" stroke-width="1.7"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.6" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.6" stroke="currentColor" stroke-width="1.7"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.6" stroke="currentColor" stroke-width="1.7"/>');
 const ICON_MOBILE = icon('<rect x="7" y="2.5" width="10" height="19" rx="2.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="18.3" r=".9" fill="currentColor"/>');
@@ -520,6 +523,7 @@ function control(id: string, label: string, ico: string, options: { value: strin
     <select id="${id}" class="dropdown">
       ${options.map((o) => `<option value="${esc(o.value)}" ${o.value === current ? 'selected' : ''}>${esc(o.label)}</option>`).join('')}
     </select>
+    <span class="control-chevron" aria-hidden="true">${ICON_CHEVRON}</span>
   </label>`;
 }
 
@@ -673,6 +677,7 @@ function perRowControl(): string {
         (n) => `<option value="${n}" ${n === state.perRow ? 'selected' : ''}>${n} per row</option>`,
       ).join('')}
     </select>
+    <span class="control-chevron" aria-hidden="true">${ICON_CHEVRON}</span>
   </label>`;
 }
 
@@ -1160,12 +1165,11 @@ function brandView(): string {
         }
         ${
           ownShop
-            ? `<p class="org-hero-blurb">Sells direct in the UK as
-                 <button class="link-btn" data-retailer="${esc(ownShop.id)}">${esc(ownShop.name)}</button>${
-                   ownShop.enabled
-                     ? ', and its prices are compared below like any other shop.'
-                     : ', but its delivery terms are not confirmed yet, so its prices are not compared.'
-                 }</p>`
+            ? `<p class="org-hero-blurb">Sells direct in the UK${
+                ownShop.enabled
+                  ? ', and its own price is compared below like any other shop’s.'
+                  : ', but its delivery terms are not confirmed yet, so its price is not compared.'
+              }</p>`
             : ''
         }
       </div>

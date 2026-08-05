@@ -667,16 +667,29 @@
   .control {
     display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
     background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
-    padding: 0 10px 0 9px;
+    padding: 0 10px 0 9px; transition: border-color .12s ease, box-shadow .12s ease;
   }
-  .control:focus-within { border-color: var(--accent); }
+  /* box-shadow rather than outline: it follows the pill's own border-radius,
+     so the ring reads as one smooth rounded shape instead of the browser's
+     native (square-cornered) focus box a bare <select> would otherwise draw. */
+  .control:focus-within { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-sf); }
   .control-ico { display: flex; color: var(--faint); }
   .ico { width: 17px; height: 17px; display: block; }
+  /* A plain <select> keeps its own native chrome — including, in current
+     Chrome, a focus ring painted by the OS/engine itself that `outline: none`
+     cannot reach. appearance: none hands the whole control over to this CSS,
+     so .control's rounded box-shadow above is the only focus indicator left;
+     the chevron beside it (.control-chevron, in the markup) stands in for the
+     arrow appearance: none removes. */
   .dropdown {
     font: inherit; font-size: 13px; font-weight: 600; color: var(--ink);
     background: none; border: 0; padding: 8px 2px; cursor: pointer;
+    appearance: none; -webkit-appearance: none; -moz-appearance: none; outline: none;
   }
-  .dropdown:focus-visible { outline: none; }
+  .dropdown::-ms-expand { display: none; }
+  .dropdown:focus, .dropdown:focus-visible { outline: none; }
+  .control-chevron { display: flex; color: var(--faint); pointer-events: none; margin-left: -2px; }
+  .control-chevron .ico { width: 13px; height: 13px; }
 
   /* ── brands ────────────────────────────────────────────────────────────── */
   .brand-list { list-style: none; margin: 0; padding: 0; }
