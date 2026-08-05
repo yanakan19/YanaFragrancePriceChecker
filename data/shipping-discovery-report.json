@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-05T16:03:21.384Z",
+  "checkedAt": "2026-08-05T18:49:30.180Z",
   "outcomes": [
     {
       "retailerId": "the-fragrance-counter",
@@ -47,7 +47,7 @@
         "quotedAgainst": null,
         "basketGbp": null,
         "rates": [],
-        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "error": "products.json: fetch failed",
         "steps": [
           "https://www.thefragrancecounter.co.uk/products.json?limit=250"
         ]
@@ -122,7 +122,9 @@
         }
       ],
       "quote": null,
-      "errors": [],
+      "errors": [
+        "https://gloriousbeauty.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
       "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
     },
     {
@@ -144,7 +146,8 @@
         "https://uk.shopfrenchavenue.com/pages/delivery: disallowed by robots.txt — not fetched",
         "https://uk.shopfrenchavenue.com/shipping-policy: disallowed by robots.txt — not fetched",
         "https://uk.shopfrenchavenue.com/delivery: disallowed by robots.txt — not fetched",
-        "https://uk.shopfrenchavenue.com/shipping: disallowed by robots.txt — not fetched"
+        "https://uk.shopfrenchavenue.com/shipping: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
       ],
       "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
     },
@@ -158,8 +161,10 @@
       "pagesTried": 9,
       "findings": [],
       "quote": null,
-      "errors": [],
-      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+      "errors": [
+        "https://armaf.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
     },
     {
       "retailerId": "al-haramain",
@@ -243,7 +248,9 @@
         }
       ],
       "quote": null,
-      "errors": [],
+      "errors": [
+        "https://alharamainperfumes.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
       "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
     },
     {
@@ -265,7 +272,8 @@
         "https://uk.riiffsperfumes.com/pages/delivery: disallowed by robots.txt — not fetched",
         "https://uk.riiffsperfumes.com/shipping-policy: disallowed by robots.txt — not fetched",
         "https://uk.riiffsperfumes.com/delivery: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/shipping: disallowed by robots.txt — not fetched"
+        "https://uk.riiffsperfumes.com/shipping: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
       ],
       "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
     },
@@ -288,7 +296,8 @@
         "https://ibraquk.com/pages/delivery: disallowed by robots.txt — not fetched",
         "https://ibraquk.com/shipping-policy: disallowed by robots.txt — not fetched",
         "https://ibraquk.com/delivery: disallowed by robots.txt — not fetched",
-        "https://ibraquk.com/shipping: disallowed by robots.txt — not fetched"
+        "https://ibraquk.com/shipping: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
       ],
       "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
     },
@@ -339,7 +348,9 @@
         }
       ],
       "quote": null,
-      "errors": [],
+      "errors": [
+        "https://manchesterouds.com/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
       "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
     },
     {
@@ -349,164 +360,63 @@
       "currentStandardGbp": null,
       "currentFreeOverGbp": null,
       "enabled": false,
-      "pagesTried": 0,
-      "findings": [],
-      "quote": null,
-      "errors": [
-        "https://www.perfumeo.co.uk/policies/shipping-policy: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/pages/shipping-policy: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/pages/shipping-details: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/pages/delivery-information: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/pages/shipping: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/pages/delivery: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/shipping-policy: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/delivery: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/shipping: disallowed by robots.txt — not fetched"
-      ],
-      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
-    },
-    {
-      "retailerId": "the-beauty-store-uk",
-      "name": "The Beauty Store UK",
-      "homepage": "https://www.thebeautystore.com",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "enabled": false,
       "pagesTried": 9,
       "findings": [
         {
-          "url": "https://www.thebeautystore.com/policies/shipping-policy",
-          "status": 200,
-          "standardGbp": 2.95,
-          "freeOverGbp": 50,
-          "caveats": [],
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE DELIVERY OVER £50",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE DELIVERY OVER £50",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 2.95,
-              "sentence": "Standard Delivery (UK Mainland) : £2.95",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 4.95,
-              "sentence": "Express Delivery (UK Mainland) : £4.95",
-              "isUpgradeTier": true
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 2.95,
-              "sentence": "Standard Delivery (UK Mainland) : £2.95",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 4.95,
-              "sentence": "Express Delivery (UK Mainland) : £4.95",
-              "isUpgradeTier": true
-            }
-          ]
-        },
-        {
-          "url": "https://www.thebeautystore.com/pages/shipping-policy",
+          "url": "https://www.perfumeo.co.uk/policies/shipping-policy",
           "status": 200,
           "standardGbp": null,
-          "freeOverGbp": 50,
-          "caveats": [],
+          "freeOverGbp": null,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
           "evidence": [
             {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE DELIVERY OVER £50",
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Fast & Free UK Delivery &mdash; No Minimum Spend",
               "isUpgradeTier": false
             },
             {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE DELIVERY OVER £50",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://www.thebeautystore.com/pages/delivery-information",
-          "status": 200,
-          "standardGbp": null,
-          "freeOverGbp": 50,
-          "caveats": [],
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE DELIVERY OVER £50",
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Fast + Free Tracked Delivery on All UK Orders 100% Genuine — Sealed & Batch-Coded Up to 40% Off Lattafa Best Sellers — While Stock Lasts",
               "isUpgradeTier": false
             },
             {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE DELIVERY OVER £50",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://www.thebeautystore.com/pages/shipping",
-          "status": 200,
-          "standardGbp": null,
-          "freeOverGbp": 50,
-          "caveats": [],
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE DELIVERY OVER £50",
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "+ FREE Fast-Tracked Delivery No Minimum Spend",
               "isUpgradeTier": false
             },
             {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE DELIVERY OVER £50",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://www.thebeautystore.com/shipping-policy",
-          "status": 200,
-          "standardGbp": null,
-          "freeOverGbp": 50,
-          "caveats": [],
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE DELIVERY OVER £50",
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "15% OFF + free fast-tracked delivery &middot; COPY CODE",
               "isUpgradeTier": false
             },
             {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "FREE DELIVERY OVER £50",
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "100% Authentic Fragrances Fast UK Dispatch FREE Fast-Tracked Delivery",
               "isUpgradeTier": false
             }
           ]
         }
       ],
-      "quote": null,
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.perfumeo.co.uk/products.json?limit=250"
+        ]
+      },
       "errors": [],
-      "verdict": "CONFIRM: £2.95 standard, from https://www.thebeautystore.com/policies/shipping-policy — read the quoted sentence, then set standardGbp and enable"
+      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
     },
     {
       "retailerId": "zimaya",
@@ -519,9 +429,48 @@
       "findings": [],
       "quote": null,
       "errors": [
-        "https://uk.zimayaperfumes.com/policies/shipping-policy: disallowed by robots.txt — not fetched"
+        "https://uk.zimayaperfumes.com/policies/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://uk.zimayaperfumes.com/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
       ],
       "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "khadlaj",
+      "name": "Khadlaj",
+      "homepage": "https://www.khadlaj-perfumes.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": null,
+      "errors": [
+        "https://www.khadlaj-perfumes.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "bath-body-works-uk",
+      "name": "Bath & Body Works",
+      "homepage": "https://www.bathandbodyworks.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.bathandbodyworks.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
     }
   ]
 }
