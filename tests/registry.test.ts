@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { RETAILERS, getRetailer, enabledRetailers, retailersForTier } from '../src/config/retailers.js';
+import { RETAILERS, getRetailer, enabledRetailers, retailersForTier, cannotCarryBrand } from '../src/config/retailers.js';
 
 describe('retailer registry', () => {
   it('contains the retailers from the plan plus any live affiliate or direct additions', () => {
@@ -134,6 +134,45 @@ describe('retailer registry', () => {
     it('only returns enabled retailers from tier and enabled lookups', () => {
       for (const r of [...enabledRetailers(), ...retailersForTier('designer')]) {
         expect(r.enabled).toBe(true);
+      }
+    });
+  });
+
+  describe('single-brand storefronts', () => {
+    const armaf = getRetailer('armaf')!;
+    const boots = getRetailer('boots')!;
+
+    it("does not claim a house's own shop merely lacks another house's fragrance", () => {
+      expect(cannotCarryBrand(armaf, 'Dior')).toBe(true);
+      expect(cannotCarryBrand(armaf, 'Calvin Klein')).toBe(true);
+    });
+
+    it("still reports a house's own shop as genuinely missing its own fragrance", () => {
+      // Armaf's own shop not listing an Armaf bottle IS a real absence, and
+      // has to keep reading as one rather than being explained away.
+      expect(cannotCarryBrand(armaf, 'Armaf')).toBe(false);
+    });
+
+    it('never excuses an ordinary multi-brand retailer', () => {
+      for (const brand of ['Dior', 'Armaf', 'Lattafa', 'Anything At All']) {
+        expect(cannotCarryBrand(boots, brand)).toBe(false);
+      }
+    });
+
+    it('matches a house across the casing and suffixes feeds actually use', () => {
+      const bellavita = getRetailer('bellavita-luxury')!;
+      // Real strings from this shop's own harvested listings.
+      expect(cannotCarryBrand(bellavita, 'BellaVita Luxury (UK)')).toBe(false);
+      expect(cannotCarryBrand(bellavita, 'BELLAVITA')).toBe(false);
+      // But a different house is still a different house.
+      expect(cannotCarryBrand(bellavita, 'Bella Donna')).toBe(true);
+    });
+
+    it('only flags shops that genuinely sell one house', () => {
+      // Oud Arabian and Manchester Ouds stock many houses between them, so
+      // "not available" there is an ordinary, truthful absence.
+      for (const id of ['oud-arabian', 'manchester-ouds', 'perfumeo']) {
+        expect(getRetailer(id)!.singleBrandOnly, id).toBeUndefined();
       }
     });
   });

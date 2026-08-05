@@ -14,7 +14,7 @@ export type {
   DeliveryDisplay,
 } from './types/offer.js';
 
-export { RETAILERS, getRetailer, enabledRetailers, retailersForTier } from './config/retailers.js';
+export { RETAILERS, getRetailer, enabledRetailers, retailersForTier, cannotCarryBrand } from './config/retailers.js';
 export {
   TIKTOK_SELLERS,
   TIKTOK_BETA_CONFIG,

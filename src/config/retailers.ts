@@ -1,4 +1,5 @@
 import type { Retailer } from '../types/retailer.js';
+import { brandKey } from '../catalogue/brandName.js';
 
 /**
  * The PriceSniffs retailer registry.
@@ -814,6 +815,7 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'uk.shopfrenchavenue.com',
     homepage: 'https://uk.shopfrenchavenue.com',
     tiers: ['mideast'],
+    singleBrandOnly: 'French Avenue',
     // Single-brand seller — Fragrance World's UK storefront for their French
     // Avenue line — but unlike Pairfum London this one is worth comparing
     // against, because other enabled retailers here also stock French Avenue,
@@ -843,6 +845,7 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'armaf.uk',
     homepage: 'https://armaf.uk',
     tiers: ['mideast'],
+    singleBrandOnly: 'Armaf',
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -868,6 +871,7 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'alharamainperfumes.co.uk',
     homepage: 'https://alharamainperfumes.co.uk',
     tiers: ['mideast'],
+    singleBrandOnly: 'Al Haramain',
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -892,6 +896,7 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'uk.riiffsperfumes.com',
     homepage: 'https://uk.riiffsperfumes.com',
     tiers: ['mideast'],
+    singleBrandOnly: 'Riiffs',
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -915,6 +920,7 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'ibraquk.com',
     homepage: 'https://ibraquk.com',
     tiers: ['mideast'],
+    singleBrandOnly: 'IBRAQ',
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -939,6 +945,7 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'bellavitaluxury.uk',
     homepage: 'https://bellavitaluxury.uk',
     tiers: ['mideast'],
+    singleBrandOnly: 'BellaVita',
     // "Luxury-inspired" fragrance dupes rather than a heritage Arabic house —
     // the same category Bujairami (houses.ts) trades in — filed under
     // `mideast` as the closest existing tier for this kind of catalogue
@@ -1056,4 +1063,30 @@ export function enabledRetailers(): Retailer[] {
  */
 export function retailersForTier(tier: Retailer['tiers'][number]): Retailer[] {
   return enabledRetailers().filter((r) => r.tiers.includes(tier));
+}
+
+/**
+ * Whether this retailer could never carry this brand, because it is one other
+ * house's own storefront.
+ *
+ * This is the distinction between "does not stock it" and "is not that kind of
+ * shop". Armaf's own UK shop not selling a Dior fragrance is not a gap in
+ * Armaf's range — it is what a single-brand storefront is. Saying "not
+ * available" there states something about Dior's availability that isn't
+ * really about availability at all, so the two are presented separately (see
+ * `detailView` in demo/app.ts).
+ *
+ * Matching goes through `brandKey`, so "BellaVita Luxury (UK)" and "BellaVita"
+ * still resolve to the same house rather than reading as two. A prefix match
+ * is deliberately as far as it goes: retailer feeds suffix the house with
+ * market and entity noise ("(UK)", "Luxury"), but a *substring* match anywhere
+ * would let two genuinely unrelated names collide, which is the one error that
+ * would hide a real shop from a page it belongs on.
+ */
+export function cannotCarryBrand(retailer: Retailer, brand: string): boolean {
+  if (!retailer.singleBrandOnly) return false;
+  const house = brandKey(retailer.singleBrandOnly);
+  const candidate = brandKey(brand);
+  if (!house || !candidate) return false;
+  return !(candidate.startsWith(house) || house.startsWith(candidate));
 }
