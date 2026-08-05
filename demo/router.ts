@@ -26,7 +26,7 @@
 
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
-  | 'houses' | 'notes' | 'note' | 'fragrance' | 'settings' | 'legal';
+  | 'houses' | 'notes' | 'note' | 'fragrance' | 'about' | 'settings' | 'legal';
 
 /** What a matched URL says about where we are. */
 export interface Route {
@@ -60,6 +60,7 @@ const LIST_ROUTES: Record<string, RouteName> = {
   retailers: 'retailers',
   houses: 'houses',
   notes: 'notes',
+  about: 'about',
   settings: 'settings',
 };
 
@@ -121,6 +122,7 @@ export function routeToPath(route: Route): string {
       case 'notes': return '/notes';
       case 'note': return `/notes/${encodeURIComponent(param)}`;
       case 'fragrance': return `/fragrance/${encodeURIComponent(param)}`;
+      case 'about': return '/about';
       case 'settings': return '/settings';
       case 'legal': return `/legal/${encodeURIComponent(param)}`;
     }

@@ -34,7 +34,7 @@ import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.gene
 import { officialSiteFor } from './brandSites.js';
 import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
 
-type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'settings';
+type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings';
 type ExploreTab = 'brands' | 'deals' | 'retailers' | 'houses' | 'notes' | 'search';
 type DisplayMode = 'dark' | 'light' | 'system';
 type Layout = 'mobile' | 'desktop';
@@ -1433,9 +1433,14 @@ function settingsView(): string {
         ${ICON_INSTAGRAM}<span>Instagram</span><span class="social-handle">@yannysniffs</span>
       </a>
 
-      <h3>About</h3>
+      <h3>Legal</h3>
       <nav class="foot-links">
-        ${LEGAL_PAGES.map((p) => `<button class="link-btn" data-page="${p.id}">${esc(p.short)}</button>`).join('')}
+        ${LEGAL_PAGES
+          // About has its own place in the top bar now, so it is not repeated
+          // here — this list is the legal and policy documents.
+          .filter((p) => p.id !== 'about')
+          .map((p) => `<button class="link-btn" data-page="${p.id}">${esc(p.short)}</button>`)
+          .join('')}
       </nav>
       <p class="foot-legal dimmer">
         ${esc(COMPANY.legalName)}, company number ${esc(COMPANY.number)}. We may earn commission
@@ -1447,6 +1452,23 @@ function settingsView(): string {
 }
 
 /* ── legal ───────────────────────────────────────────────────────────────── */
+
+/**
+ * About, as its own top-level page beside Explore and Settings.
+ *
+ * Shares its copy with the legal-page registry so there is one source for the
+ * text, but renders without a Back control: this is a nav destination reached
+ * from the top bar, not a leaf you arrived at from somewhere else.
+ */
+function aboutView(): string {
+  const page = legalPage('about');
+  if (!page) return homeView();
+  return `
+    <article class="doc">
+      <h2>${esc(page.title)}</h2>
+      ${page.body}
+    </article>`;
+}
 
 function legalView(): string {
   const page = legalPage(state.legalId);
@@ -1571,6 +1593,7 @@ function currentRoute(): Route {
     case 'brand': return { name: 'brand', param: slugify(state.brandProfile), query: {} };
     case 'note': return { name: 'note', param: slugify(state.noteName), query: {} };
     case 'legal': return { name: 'legal', param: state.legalId, query: {} };
+    case 'about': return { name: 'about', param: '', query: {} };
     case 'settings': return { name: 'settings', param: '', query: {} };
     case 'explore':
       return {
@@ -1593,6 +1616,7 @@ function applyRoute(route: Route): boolean {
 
   switch (route.name) {
     case 'home': state.view = 'home'; return true;
+    case 'about': state.view = 'about'; return true;
     case 'settings': state.view = 'settings'; return true;
 
     case 'search':
@@ -1674,9 +1698,11 @@ function render(): void {
                 ? brandView()
                 : state.view === 'note'
                   ? noteView()
-                  : state.view === 'settings'
-                    ? settingsView()
-                    : legalView();
+                  : state.view === 'about'
+                    ? aboutView()
+                    : state.view === 'settings'
+                      ? settingsView()
+                      : legalView();
 
   // The wrapper is a fresh element on every render, so the fade it carries just
   // plays on insertion. No JS animation retriggering needed.
@@ -1699,6 +1725,7 @@ function render(): void {
 
   ($('#nav-home') as HTMLElement).classList.toggle('on', state.view === 'home');
   ($('#nav-explore') as HTMLElement).classList.toggle('on', inExplore || state.view === 'browse');
+  ($('#nav-about') as HTMLElement).classList.toggle('on', state.view === 'about');
   ($('#nav-settings') as HTMLElement).classList.toggle('on', state.view === 'settings');
 }
 
@@ -1762,6 +1789,7 @@ function init(): void {
   $('#nav-home').addEventListener('click', goHome);
   $('#brand-home').addEventListener('click', goHome);
   $('#nav-explore').addEventListener('click', () => openExplore(state.tab));
+  $('#nav-about').addEventListener('click', () => go('about'));
   $('#nav-settings').addEventListener('click', () => go('settings'));
 
   document.addEventListener('click', (e) => {

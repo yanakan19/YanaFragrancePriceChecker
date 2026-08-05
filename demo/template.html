@@ -247,6 +247,22 @@
   .navbtn.on { color: var(--ink); border-bottom-color: var(--accent); }
   .navbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
   .navbtn:active { transform: scale(.94); }
+  /* Four nav items plus the wordmark is tight on a phone: at the old 20px gap
+     the wordmark was the flexible child, so it lost the space and rendered as
+     "PriceS...". Closing the gaps up gives it back roughly 30px, which is
+     enough for the full mark. Desktop keeps the roomier spacing. */
+  @media (max-width: 560px) {
+    .bar-row { gap: 13px; }
+    .navbtn { font-size: 14.5px; }
+    .brandmark { font-size: 19.5px; }
+  }
+  /* Smallest phones still in circulation (iPhone 13 mini is 375px) need one
+     more step, or the wordmark clips again. */
+  @media (max-width: 430px) {
+    .bar-row { gap: 10px; }
+    .navbtn { font-size: 13.5px; }
+    .brandmark { font-size: 18px; }
+  }
 
   /* Second level nav, shown only inside Explore and its leaves. Scrolls
      sideways rather than wrapping, so five tabs never push the bar taller on
@@ -1215,6 +1231,7 @@
       <button class="brandmark" id="brand-home" aria-label="PriceSniffs, go to home">Price<em>Sniffs</em></button>
       <button class="navbtn" id="nav-home">Home</button>
       <button class="navbtn" id="nav-explore">Explore</button>
+      <button class="navbtn" id="nav-about">About</button>
       <button class="navbtn" id="nav-settings">Settings</button>
     </div>
     <input type="search" id="search" placeholder="Quick search" aria-label="Quick search by fragrance name" />
