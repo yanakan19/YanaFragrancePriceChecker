@@ -119,6 +119,19 @@ export const HOUSES: readonly House[] = [
       'domain supplied as "alttaffa"; the house also trades as Al Attaar and Lattafa, which are different businesses — confirm which storefront this is before trusting its listings',
     ],
   },
+  {
+    id: 'pairfum-london',
+    name: 'Pairfum London',
+    origin: 'https://www.pairfum.com',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against',
+      'delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere',
+    ],
+  },
 ];
 
 export function houseById(id: string): House | null {

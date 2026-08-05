@@ -3,7 +3,7 @@ import type { Retailer } from '../types/retailer.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * Thirteen UK retailers. Every one of them is a legitimate stockist and every
+ * Nineteen UK retailers. Every one of them is a legitimate stockist and every
  * one is fine to send a customer to — see the header comment in
  * `src/types/retailer.ts` for why there is no `trusted` flag here and what
  * replaced it.
@@ -610,6 +610,152 @@ export const RETAILERS: readonly Retailer[] = [
         'daily. 30-day cookie, 14-day auto-validation. Import with ' +
         'npm run catalogue:feed -- --file=<feed.csv> --retailer=mybeauty-boutique',
     },
+  },
+  {
+    id: 'escentual',
+    name: 'Escentual',
+    domain: 'escentual.com',
+    homepage: 'https://www.escentual.com',
+    tiers: ['designer'],
+    enabled: true,
+    // No Awin approval yet, so this is a direct scrape rather than a feed —
+    // the requested route for this retailer. No live spike was possible from
+    // this environment (network egress to arbitrary hosts is blocked here,
+    // see docs/INGESTION.md and the proxy's own status endpoint), so adapter
+    // is 'unknown' rather than a claimed spike result. The storefront is
+    // Shopify (its pagination follows Shopify's own ?page=N convention),
+    // which is at least a concrete starting point for whoever runs the spike.
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 2.45,
+      freeOverGbp: 30,
+      // Two independently found copies of their delivery page disagreed on
+      // the window (2-5 vs 3-5 working days) — the wider span is recorded so
+      // neither reading is contradicted.
+      estimatedDays: [2, 5],
+      verifiedAt: '2026-08-05',
+      // Not read directly off escentual.com/pages/delivery-information — that
+      // host is unreachable from this environment. Sourced instead from
+      // search-engine cached copies of that page's own text, the same
+      // indirect-but-real-number standard already applied to Fragrance Click
+      // above. Unverified until someone opens the page in a real browser.
+      confidence: 'unverified',
+      notes:
+        'A paid annual "Delivery Pass" (£9.95) gives free next-day delivery on orders over ' +
+        '£20 — a membership perk, not modelled in the headline price. 2-Day (£3.50, order by ' +
+        '22:30) and 1-Day (£5.95, order by 16:30) express tiers also exist and are likewise ' +
+        'out of scope for the standard-delivery-only model this registry uses.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://www.escentual.com/search?q={q}',
+      sections: [
+        { id: 'womens', label: "Women's fragrance", urlTemplate: 'https://www.escentual.com/collections/fragrances-for-women?page={page}', tier: 'designer' },
+        { id: 'mens', label: "Men's fragrance", urlTemplate: 'https://www.escentual.com/collections/fragrances-for-men?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
+    },
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'the-fragrance-counter',
+    name: 'The Fragrance Counter',
+    domain: 'thefragrancecounter.co.uk',
+    homepage: 'https://www.thefragrancecounter.co.uk',
+    tiers: ['designer'],
+    // Disabled: their own delivery page states delivery is free, but no
+    // explicit standard-delivery price or spend threshold could be found to
+    // confirm that is unconditional rather than gated on a minimum spend —
+    // exactly the gap standardGbp: null exists to say honestly. See the
+    // field's doc comment for why leaving it null rather than guessing 0
+    // matters here in particular: guessing free would make this retailer
+    // artificially win the delivered-price sort every time.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        'Search-cached copies of their delivery page say standard delivery is by Royal Mail ' +
+        'Tracked 48 and describe it as free, but none of them state a minimum spend or confirm ' +
+        'it applies to every order. Read thefragrancecounter.co.uk delivery terms directly, ' +
+        'fill in standardGbp/freeOverGbp, then enable. A .com storefront also exists ' +
+        '(thefragrancecounter.com) — confirm its relationship to the .co.uk site before ' +
+        'treating them as the same retailer.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'scentstore',
+    name: 'ScentStore',
+    domain: 'scentstore.com',
+    homepage: 'https://www.scentstore.com',
+    tiers: ['designer', 'niche'],
+    enabled: true,
+    // No Awin approval yet, so this is a direct scrape rather than a feed.
+    // No live spike was possible from this environment — see the note on
+    // Escentual above for why.
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 2.95,
+      freeOverGbp: 30,
+      // One cached source describes standard delivery taking up to 10
+      // working days, which is unusually slow and sits oddly next to a
+      // same-named "24hr tracked" upgrade tier — plausibly two different
+      // named services rather than a contradiction, but not resolved from
+      // here. The wider span is recorded rather than picking a side.
+      estimatedDays: [3, 10],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        'Independent UK perfumery trading since 1996 (Companies House: Scentstore Limited, ' +
+        '05917335). A paid 24hr Tracked upgrade also exists at £3.95. Their own site states ' +
+        'they run an Awin affiliate programme, but no merchant id could be found in this pass ' +
+        '— resolve that before applying for their programme rather than guessing an id.',
+    },
+    catalogue: {
+      searchUrlTemplate: 'https://www.scentstore.com/search?q={q}',
+      sections: [
+        { id: 'fragrance', label: 'Perfume', urlTemplate: 'https://www.scentstore.com/shop/perfume/?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
+    },
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'perfume-shopping',
+    name: 'Perfume Shopping',
+    domain: 'perfumeshopping.com',
+    homepage: 'https://www.perfumeshopping.com',
+    tiers: ['designer'],
+    // Disabled: the free-delivery threshold is reasonably well sourced, but
+    // the standard cost below that threshold is not — one third-party
+    // aggregator cites a figure, but it was never confirmed on the
+    // retailer's own page, which is not a strong enough basis to price a
+    // sort key against. See the field's doc comment on why null, not a
+    // guess, is what belongs here until that changes.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: 50,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        'Free UK delivery over £50, next-day option at £3.99. The under-threshold standard ' +
+        'cost is only aggregator-sourced (not read off perfumeshopping.com/delivery-and-' +
+        'returns directly) — confirm it there before filling in standardGbp and enabling.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
   },
   {
     id: 'glorious-beauty',
