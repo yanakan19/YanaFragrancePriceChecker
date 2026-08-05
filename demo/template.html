@@ -326,7 +326,7 @@
     from { opacity: 0; transform: translateY(14px); }
     to   { opacity: 1; transform: none; }
   }
-  .hero-wordmark, .hero-by, .hero-mission, .intro-points li, .db-count {
+  .hero-wordmark, .hero-by, .hero-mission, .intro-points span, .db-count {
     animation: rise .75s cubic-bezier(.22, 1, .36, 1) backwards;
   }
 
@@ -343,33 +343,34 @@
     color: var(--ink); text-align: center; letter-spacing: -.01em;
     animation-delay: .16s;
   }
+  /* Three quiet italic phrases rather than a bulleted list — no marker, no
+     dot, nothing claiming these are steps or options. A plain <p> with
+     three <em> children, so the only structure is what the words already
+     carry. Stacked on mobile because the three phrases together do not fit
+     one line at a legible size; set as a single divided row on desktop
+     instead of restacking it, see the layout override below. */
   .intro-points {
-    list-style: none; margin: 28px 0 0; padding: 0;
-    display: flex; flex-direction: column; gap: 11px;
+    margin: 26px 0 0; padding: 0;
+    display: flex; flex-direction: column; align-items: center; gap: 9px;
   }
-  /* Centred, so the dot travels with its text instead of hanging off a
-     fixed left edge. That means the dot has to be a flex item rather than
-     an absolutely positioned one — an absolute dot would stay pinned to
-     the li's box while the centred text moved away from it. */
-  .intro-points li {
-    font-size: 14.5px; color: var(--ink-2);
-    display: flex; align-items: center; justify-content: center; gap: 9px;
+  /* A plain span, not <em>: this is a typographic choice, not a claim that
+     these three phrases carry spoken emphasis, and <em> can change how a
+     screen reader's voice reads them. font-style is the CSS property for
+     exactly this reason — it says "italic" without saying "emphasised". */
+  .intro-points span {
+    font-style: italic; font-weight: 500; font-size: 14px;
+    letter-spacing: .01em; color: var(--ink-2);
   }
-  .intro-points li:nth-child(1) { animation-delay: .26s; }
-  .intro-points li:nth-child(2) { animation-delay: .34s; }
-  .intro-points li:nth-child(3) { animation-delay: .42s; }
-  .intro-points li::before {
-    content: ""; flex: none;
-    width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
-  }
-  /* The count is a fact, not a claim, so it sits apart from the bullets
-     rather than reading like a fourth one: smaller, quieter, no dot. */
+  .intro-points span:nth-child(1) { animation-delay: .26s; }
+  .intro-points span:nth-child(2) { animation-delay: .34s; }
+  .intro-points span:nth-child(3) { animation-delay: .42s; }
+  /* The count is a fact, not a claim, so it sits apart from the phrases
+     above rather than reading like a fourth one: smaller, quieter, upright. */
   .db-count {
-    margin: 16px 0 0; font-size: 12.5px; font-weight: 600;
+    margin: 18px 0 0; font-size: 12.5px; font-weight: 600;
     letter-spacing: .02em; color: var(--faint); text-align: center;
     animation-delay: .48s;
   }
-  .intro-points span { color: var(--ink); font-weight: 600; }
 
   /* Sized off the count's own font-size (1em), so it can never read larger
      than the text it follows regardless of viewport. --ok is the token this
@@ -965,9 +966,15 @@
      across a whole ultrawide window stops being readable, so the mission
      line keeps its own measure regardless of how wide .app gets. */
   :root[data-layout="desktop"] .hero-mission { max-width: 640px; }
+  /* One row, wide enough here that the phrases fit on it, separated by a
+     hairline rather than restacked as columns — a divider says "related but
+     distinct" more quietly than a grid gap does. */
   :root[data-layout="desktop"] .intro-points {
-    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px 40px; margin: 30px auto 0; max-width: 900px;
+    flex-direction: row; justify-content: center; gap: 0;
+    margin: 30px auto 0;
+  }
+  :root[data-layout="desktop"] .intro-points span:not(:first-child) {
+    margin-left: 26px; padding-left: 26px; border-left: 1px solid var(--line);
   }
 
   :root[data-layout="desktop"] .pop-item { width: 168px; }

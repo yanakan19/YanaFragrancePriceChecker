@@ -444,11 +444,11 @@ function homeView(): string {
         <p class="hero-by">by YannySniffs</p>
       </div>
       <p class="hero-mission">The only tool you need to find the best price on any fragrance.</p>
-      <ul class="intro-points">
-        <li><span>Delivery Costs Reflected</span></li>
-        <li><span>Real and Live Prices</span></li>
-        <li><span>No Promoted Listings</span></li>
-      </ul>
+      <p class="intro-points">
+        <span>Delivery Costs Reflected</span>
+        <span>Real and Live Prices</span>
+        <span>No Promoted Listings</span>
+      </p>
       <p class="db-count">Current Database: ${DEMO_FRAGRANCES.length.toLocaleString('en-GB')} fragrances
         <span class="live-dot" aria-hidden="true"></span><span class="sr-only"> (live)</span></p>
     </section>
