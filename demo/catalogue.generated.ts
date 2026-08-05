@@ -127,7 +127,7 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     "id": "ean-737052057989",
-    "brand": "HUGO BOSS",
+    "brand": "Hugo Boss",
     "name": "BOSS Woman",
     "concentration": "Eau de Parfum",
     "sizeMl": 90,
@@ -668,6 +668,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3423222015565",
+    "brand": "Dolce & Gabbana",
+    "name": "L’Imperatrice",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3423222015565",
+    "shops": 2,
+    "image": "https://allbeauty.com/cdn/shop/files/72713.jpg?v=1755874881&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-3423473032793",
     "brand": "Dolce & Gabbana",
     "name": "Light Blue Eau Intense",
@@ -705,19 +716,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3423222015565",
-    "brand": "Dolce&Gabbana",
-    "name": "L’Imperatrice",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "3423222015565",
-    "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/72713.jpg?v=1755874881&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-3423473020776",
-    "brand": "DOLCE&GABBANA",
+    "brand": "Dolce & Gabbana",
     "name": "Dolce & Gabbana Pour Homme",
     "concentration": "Eau de Toilette",
     "sizeMl": 125,
@@ -951,19 +951,8 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3274872372153",
-    "brand": "Givenchy",
-    "name": "L'INTERDIT",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": "3274872372153",
-    "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1638876451-60461700.jpg?v=1763390988&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-3274872411678",
-    "brand": "GIVENCHY",
+    "brand": "Givenchy",
     "name": "L'INTERDIT Intense",
     "concentration": "Eau de Parfum",
     "sizeMl": 35,
@@ -987,8 +976,19 @@ export const CATALOGUE: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-3274872372153",
+    "brand": "Givenchy",
+    "name": "L'INTERDIT",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": "3274872372153",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1638876451-60461700.jpg?v=1763390988&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-8005610328799",
-    "brand": "GUCCI",
+    "brand": "Gucci",
     "name": "Rush",
     "concentration": "Eau de Toilette",
     "sizeMl": 75,
@@ -1025,7 +1025,7 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     "id": "ean-737052130729",
-    "brand": "HUGO BOSS",
+    "brand": "Hugo Boss",
     "name": "HUGO XX For Woman",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
@@ -1036,7 +1036,7 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     "id": "ean-737052351018",
-    "brand": "HUGO BOSS",
+    "brand": "Hugo Boss",
     "name": "Bottled (18)",
     "concentration": "Eau de Toilette",
     "sizeMl": 50,
@@ -1047,7 +1047,7 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     "id": "ean-737052351100",
-    "brand": "HUGO BOSS",
+    "brand": "Hugo Boss",
     "name": "Bottled (15)",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
@@ -1058,7 +1058,7 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     "id": "ean-737052352060",
-    "brand": "HUGO BOSS",
+    "brand": "Hugo Boss",
     "name": "Bottled Night (15)",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
@@ -1069,7 +1069,7 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     "id": "ean-737052041353",
-    "brand": "HUGO BOSS",
+    "brand": "Hugo Boss",
     "name": "Femme",
     "concentration": "Eau de Parfum",
     "sizeMl": 75,
@@ -1080,7 +1080,7 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     "id": "ean-737052041247",
-    "brand": "HUGO BOSS",
+    "brand": "Hugo Boss",
     "name": "Femme",
     "concentration": "Eau de Parfum",
     "sizeMl": 30,
@@ -1091,7 +1091,7 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     "id": "ean-737052802800",
-    "brand": "HUGO BOSS",
+    "brand": "Hugo Boss",
     "name": "MA VIE",
     "concentration": "Eau de Parfum",
     "sizeMl": 75,
@@ -1102,7 +1102,7 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     "id": "ean-737052238128",
-    "brand": "HUGO BOSS",
+    "brand": "Hugo Boss",
     "name": "Orange Woman (24)",
     "concentration": "Eau de Toilette",
     "sizeMl": 75,
@@ -1128,7 +1128,7 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     "id": "ean-737052031415",
-    "brand": "HUGO BOSS",
+    "brand": "Hugo Boss",
     "name": "Dark Blue (30)",
     "concentration": "Eau de Toilette",
     "sizeMl": 75,
@@ -1428,7 +1428,7 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     "id": "ean-3607345849867",
-    "brand": "JOOP!",
+    "brand": "Joop",
     "name": "Homme Wild",
     "concentration": "Eau de Toilette",
     "sizeMl": 125,
@@ -1439,7 +1439,7 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     "id": "ean-3414200064064",
-    "brand": "JOOP!",
+    "brand": "Joop",
     "name": "Go!",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
@@ -1450,7 +1450,7 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     "id": "ean-3414206000059",
-    "brand": "JOOP!",
+    "brand": "Joop",
     "name": "Femme",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
@@ -2813,6 +2813,39 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6290171000976",
+    "brand": "Afnan",
+    "name": "Supremacy Pour Homme Silver",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290171000976",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1731672226-10534000.jpg?v=1763390650&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290171070207",
+    "brand": "Afnan",
+    "name": "Supremacy In Extrait De Parfum",
+    "concentration": "Oud",
+    "sizeMl": 100,
+    "ean": "6290171070207",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1731672437-86290500.jpg?v=1763390188&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290171070214",
+    "brand": "Afnan",
+    "name": "Supremacy Not Only Intense De Parfum",
+    "concentration": "Extrait",
+    "sizeMl": 100,
+    "ean": "6290171070214",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1731672339-12274700.jpg?v=1763390198&width=1920",
+    "notes": null
+  },
+  {
     "id": "justmylook-afnn0007",
     "brand": "Afnan",
     "name": "Supremacy Silver Pour Homme",
@@ -2909,39 +2942,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/9am-dive-eau-de-parfum-100ml-p35647-108046_image.jpg?v=1721322135&width=1000",
-    "notes": null
-  },
-  {
-    "id": "ean-6290171000976",
-    "brand": "AFNAN",
-    "name": "Supremacy Pour Homme Silver",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290171000976",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1731672226-10534000.jpg?v=1763390650&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-6290171070207",
-    "brand": "AFNAN",
-    "name": "Supremacy In Extrait De Parfum",
-    "concentration": "Oud",
-    "sizeMl": 100,
-    "ean": "6290171070207",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1731672437-86290500.jpg?v=1763390188&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-6290171070214",
-    "brand": "AFNAN",
-    "name": "Supremacy Not Only Intense De Parfum",
-    "concentration": "Extrait",
-    "sizeMl": 100,
-    "ean": "6290171070214",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1731672339-12274700.jpg?v=1763390198&width=1920",
     "notes": null
   },
   {
@@ -7980,6 +7980,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3508440505064",
+    "brand": "Creed",
+    "name": "Royal Water",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": "3508440505064",
+    "shops": 1,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/235.jpg",
+    "notes": null
+  },
+  {
     "id": "justmylook-creed0024",
     "brand": "Creed",
     "name": "Royal Eau De Parfum",
@@ -8087,17 +8098,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/CREED0002.png?v=1753445102&width=1000",
-    "notes": null
-  },
-  {
-    "id": "ean-3508440505064",
-    "brand": "CREED",
-    "name": "Royal Water",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": "3508440505064",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/235.jpg",
     "notes": null
   },
   {
@@ -8927,6 +8927,39 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3423473020639",
+    "brand": "Dolce & Gabbana",
+    "name": "Pour Femme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3423473020639",
+    "shops": 1,
+    "image": "https://allbeauty.com/cdn/shop/files/954825.jpg?v=1770306027&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3423473021216",
+    "brand": "Dolce & Gabbana",
+    "name": "The One",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 150,
+    "ean": "3423473021216",
+    "shops": 1,
+    "image": "https://allbeauty.com/cdn/shop/files/974140.jpg?v=1755874553&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3423473020042",
+    "brand": "Dolce & Gabbana",
+    "name": "Dolce",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 75,
+    "ean": "3423473020042",
+    "shops": 1,
+    "image": "https://allbeauty.com/cdn/shop/files/1044326.jpg?v=1755874418&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-3423473020509",
     "brand": "Dolce & Gabbana",
     "name": "Light Blue Pour Homme",
@@ -9001,6 +9034,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": "3423473020233",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1611054501-02449600.jpg?v=1763389981&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3423473020783",
+    "brand": "Dolce & Gabbana",
+    "name": "Dolce & Gabbana Pour Homme",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "3423473020783",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1382630985-42768200.jpg?v=1763389985&width=1920",
     "notes": null
   },
   {
@@ -9826,50 +9870,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3423473020639",
-    "brand": "Dolce&Gabbana",
-    "name": "Pour Femme",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3423473020639",
-    "shops": 1,
-    "image": "https://allbeauty.com/cdn/shop/files/954825.jpg?v=1770306027&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3423473021216",
-    "brand": "Dolce&Gabbana",
-    "name": "The One",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 150,
-    "ean": "3423473021216",
-    "shops": 1,
-    "image": "https://allbeauty.com/cdn/shop/files/974140.jpg?v=1755874553&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3423473020042",
-    "brand": "Dolce&Gabbana",
-    "name": "Dolce",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 75,
-    "ean": "3423473020042",
-    "shops": 1,
-    "image": "https://allbeauty.com/cdn/shop/files/1044326.jpg?v=1755874418&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3423473020783",
-    "brand": "DOLCE&GABBANA",
-    "name": "Dolce & Gabbana Pour Homme",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 75,
-    "ean": "3423473020783",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1382630985-42768200.jpg?v=1763389985&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-022548173701",
     "brand": "Donna Karan",
     "name": "DKNY Fresh Blossom",
@@ -9926,7 +9926,7 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     "id": "justmylook-dsq0009",
-    "brand": "DSquared2",
+    "brand": "Dsquared2",
     "name": "Red Wood Pour Femme",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
@@ -9937,7 +9937,7 @@ export const CATALOGUE: CatalogueEntry[] = [
   },
   {
     "id": "justmylook-dsq0003",
-    "brand": "DSquared2",
+    "brand": "Dsquared2",
     "name": "Green Wood Pour Homme",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
@@ -11546,6 +11546,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3274872396180",
+    "brand": "Givenchy",
+    "name": "Ange Ou Démon",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3274872396180",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1379596157-25716100.jpg?v=1763391105&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-3274870222566",
     "brand": "Givenchy",
     "name": "PI",
@@ -11554,6 +11565,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": "3274870222566",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1515422778-33010100.png?v=1763391107&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3274872441033",
+    "brand": "Givenchy",
+    "name": "Gentleman",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3274872441033",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1727281073-50078100.jpg?v=1763390974&width=1920",
     "notes": null
   },
   {
@@ -11568,6 +11590,28 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3274872399020",
+    "brand": "Givenchy",
+    "name": "Gentleman Boisee",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3274872399020",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1727338994-20131800.jpg?v=1763390976&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3274872400719",
+    "brand": "Givenchy",
+    "name": "Irresistible",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 35,
+    "ean": "3274872400719",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1727339561-79147100.jpg?v=1763390980&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-3274872419292",
     "brand": "Givenchy",
     "name": "Irresistible",
@@ -11576,6 +11620,17 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": "3274872419292",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1727341735-88721700.jpg?v=1763390980&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3274872419308",
+    "brand": "Givenchy",
+    "name": "Irresistible",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": "3274872419308",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1727341880-40068800.jpg?v=1763390980&width=1920",
     "notes": null
   },
   {
@@ -11598,6 +11653,28 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": "3274872372146",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1638876228-60369500.jpg?v=1763390986&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3274872369429",
+    "brand": "Givenchy",
+    "name": "Very Irrésistible",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": "3274872369429",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1727348611-68864900.jpg?v=1763390994&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3274872411685",
+    "brand": "Givenchy",
+    "name": "L'INTERDIT Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3274872411685",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1598968857-70759400.jpg?v=1763389873&width=1920",
     "notes": null
   },
   {
@@ -12323,83 +12400,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3274872396180",
-    "brand": "GIVENCHY",
-    "name": "Ange Ou Démon",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "3274872396180",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1379596157-25716100.jpg?v=1763391105&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3274872441033",
-    "brand": "GIVENCHY",
-    "name": "Gentleman",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3274872441033",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727281073-50078100.jpg?v=1763390974&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3274872399020",
-    "brand": "GIVENCHY",
-    "name": "Gentleman Boisee",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3274872399020",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727338994-20131800.jpg?v=1763390976&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3274872400719",
-    "brand": "GIVENCHY",
-    "name": "Irresistible",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 35,
-    "ean": "3274872400719",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727339561-79147100.jpg?v=1763390980&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3274872419308",
-    "brand": "GIVENCHY",
-    "name": "Irresistible",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": "3274872419308",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727341880-40068800.jpg?v=1763390980&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3274872369429",
-    "brand": "GIVENCHY",
-    "name": "Very Irrésistible",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": "3274872369429",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727348611-68864900.jpg?v=1763390994&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3274872411685",
-    "brand": "GIVENCHY",
-    "name": "L'INTERDIT Intense",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "3274872411685",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1598968857-70759400.jpg?v=1763389873&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-3357554720012",
     "brand": "Gloria Vanderbilt",
     "name": "Gloria Vanderbilt For Women Eau De Toilette 100ml Spray",
@@ -12573,6 +12573,50 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/gres-cabochard-cherie-eau-de-parfum-100ml-p31745-87934_image.jpg?v=1721322219&width=1000",
+    "notes": null
+  },
+  {
+    "id": "ean-737052925028",
+    "brand": "Gucci",
+    "name": "Bamboo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "737052925028",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1713782271-50454600.jpg?v=1763391000&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-8005610481081",
+    "brand": "Gucci",
+    "name": "Bloom",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "8005610481081",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1713780336-29089800.jpg?v=1763391004&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-737052626383",
+    "brand": "Gucci",
+    "name": "Guilty Black",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 90,
+    "ean": "737052626383",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1731410032-19937800.jpg?v=1763391004&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3614227758063",
+    "brand": "Gucci",
+    "name": "Guilty",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "3614227758063",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1553082110-43463700.jpg?v=1763389256&width=1920",
     "notes": null
   },
   {
@@ -13340,50 +13384,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-737052925028",
-    "brand": "GUCCI",
-    "name": "Bamboo",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 30,
-    "ean": "737052925028",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1713782271-50454600.jpg?v=1763391000&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-8005610481081",
-    "brand": "GUCCI",
-    "name": "Bloom",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 30,
-    "ean": "8005610481081",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1713780336-29089800.jpg?v=1763391004&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-737052626383",
-    "brand": "GUCCI",
-    "name": "Guilty Black",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 90,
-    "ean": "737052626383",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1731410032-19937800.jpg?v=1763391004&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3614227758063",
-    "brand": "GUCCI",
-    "name": "Guilty",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 30,
-    "ean": "3614227758063",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1553082110-43463700.jpg?v=1763389256&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-3346470243989",
     "brand": "Guerlain",
     "name": "Champs Élysées / 2.5 fl.oz.",
@@ -13910,6 +13910,160 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": "5030645841411",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1387222554-10879600.png?v=1763391116&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3614229823776",
+    "brand": "Hugo Boss",
+    "name": "HUGO Man",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 200,
+    "ean": "3614229823776",
+    "shops": 1,
+    "image": "https://allbeauty.com/cdn/shop/files/963480.jpg?v=1755874583&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-737052351155",
+    "brand": "Hugo Boss",
+    "name": "BOSS Bottled",
+    "concentration": "Aftershave",
+    "sizeMl": 50,
+    "ean": "737052351155",
+    "shops": 1,
+    "image": "https://allbeauty.com/cdn/shop/files/2968.jpg?v=1755875418&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-737052987569",
+    "brand": "Hugo Boss",
+    "name": "HUGO Woman Extreme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 75,
+    "ean": "737052987569",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1595581822-99399300.jpg?v=1763389792&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-737052351001",
+    "brand": "Hugo Boss",
+    "name": "Bottled",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 30,
+    "ean": "737052351001",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1517568130-53955300.png?v=1763391123&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-737052238050",
+    "brand": "Hugo Boss",
+    "name": "Orange Woman",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 30,
+    "ean": "737052238050",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1369145196-89822600.jpg?v=1763391129&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-737052238081",
+    "brand": "Hugo Boss",
+    "name": "Boss Orange Woman",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": "737052238081",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1369145950-63013600.jpg?v=1763391134&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-737052465678",
+    "brand": "Hugo Boss",
+    "name": "Just Different (28)",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "737052465678",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1523977882-52693500.png?v=1763391137&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3614229823790",
+    "brand": "Hugo Boss",
+    "name": "Man",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "3614229823790",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1523982609-51930100.png?v=1763391136&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3614225297687",
+    "brand": "Hugo Boss",
+    "name": "Reversed (30)",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "3614225297687",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1567170763-11427500.jpg?v=1763389426&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-737052972268",
+    "brand": "Hugo Boss",
+    "name": "The Scent (20)",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": "737052972268",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1725638593-16519700.jpg?v=1763391045&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3616301623410",
+    "brand": "Hugo Boss",
+    "name": "Iced (30)",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "3616301623410",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1654609610-63957200.jpg?v=1763391050&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-737052683522",
+    "brand": "Hugo Boss",
+    "name": "Deep Red (15)",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "737052683522",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641989320-68762600.jpg?v=1763391057&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-737052139906",
+    "brand": "Hugo Boss",
+    "name": "Energise",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "737052139906",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1643028420-82334600.jpg?v=1763391057&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3616301623335",
+    "brand": "Hugo Boss",
+    "name": "BOSS No1",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3616301623335",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1637252632-17210100.jpg?v=1763390471&width=1920",
     "notes": null
   },
   {
@@ -14678,160 +14832,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-tonic-eau-de-toilette-50ml-p21058-71520_image.png?v=1721322237&width=1000",
-    "notes": null
-  },
-  {
-    "id": "ean-3614229823776",
-    "brand": "HUGO BOSS",
-    "name": "HUGO Man",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 200,
-    "ean": "3614229823776",
-    "shops": 1,
-    "image": "https://allbeauty.com/cdn/shop/files/963480.jpg?v=1755874583&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-737052351155",
-    "brand": "HUGO BOSS",
-    "name": "BOSS Bottled",
-    "concentration": "Aftershave",
-    "sizeMl": 50,
-    "ean": "737052351155",
-    "shops": 1,
-    "image": "https://allbeauty.com/cdn/shop/files/2968.jpg?v=1755875418&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-737052987569",
-    "brand": "HUGO BOSS",
-    "name": "HUGO Woman Extreme",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 75,
-    "ean": "737052987569",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1595581822-99399300.jpg?v=1763389792&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-737052351001",
-    "brand": "HUGO BOSS",
-    "name": "Bottled",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 30,
-    "ean": "737052351001",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1517568130-53955300.png?v=1763391123&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-737052238050",
-    "brand": "HUGO BOSS",
-    "name": "Orange Woman",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 30,
-    "ean": "737052238050",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1369145196-89822600.jpg?v=1763391129&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-737052238081",
-    "brand": "HUGO BOSS",
-    "name": "Boss Orange Woman",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": "737052238081",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1369145950-63013600.jpg?v=1763391134&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-737052465678",
-    "brand": "HUGO BOSS",
-    "name": "Just Different (28)",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 75,
-    "ean": "737052465678",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1523977882-52693500.png?v=1763391137&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3614229823790",
-    "brand": "HUGO BOSS",
-    "name": "Man",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 75,
-    "ean": "3614229823790",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1523982609-51930100.png?v=1763391136&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3614225297687",
-    "brand": "HUGO BOSS",
-    "name": "Reversed (30)",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 75,
-    "ean": "3614225297687",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1567170763-11427500.jpg?v=1763389426&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-737052972268",
-    "brand": "HUGO BOSS",
-    "name": "The Scent (20)",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": "737052972268",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1725638593-16519700.jpg?v=1763391045&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3616301623410",
-    "brand": "HUGO BOSS",
-    "name": "Iced (30)",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 75,
-    "ean": "3616301623410",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1654609610-63957200.jpg?v=1763391050&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-737052683522",
-    "brand": "HUGO BOSS",
-    "name": "Deep Red (15)",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "737052683522",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1641989320-68762600.jpg?v=1763391057&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-737052139906",
-    "brand": "HUGO BOSS",
-    "name": "Energise",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 75,
-    "ean": "737052139906",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1643028420-82334600.jpg?v=1763391057&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3616301623335",
-    "brand": "HUGO BOSS",
-    "name": "BOSS No1",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "3616301623335",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1637252632-17210100.jpg?v=1763390471&width=1920",
     "notes": null
   },
   {
@@ -16995,6 +16995,28 @@ export const CATALOGUE: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-3414206000615",
+    "brand": "Joop",
+    "name": "Homme",
+    "concentration": "Aftershave",
+    "sizeMl": 75,
+    "ean": "3414206000615",
+    "shops": 1,
+    "image": "https://allbeauty.com/cdn/shop/files/3273.jpg?v=1755875391&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3414200640015",
+    "brand": "Joop",
+    "name": "Jump",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3414200640015",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1641994689-16777100.jpg?v=1763391243&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-3414206000165",
     "brand": "Joop",
     "name": "Le Bain",
@@ -17161,28 +17183,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/JOOP0020.png?v=1766583597&width=1000",
-    "notes": null
-  },
-  {
-    "id": "ean-3414200640015",
-    "brand": "Joop!",
-    "name": "Jump",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "3414200640015",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1641994689-16777100.jpg?v=1763391243&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3414206000615",
-    "brand": "JOOP!",
-    "name": "Homme",
-    "concentration": "Aftershave",
-    "sizeMl": 75,
-    "ean": "3414206000615",
-    "shops": 1,
-    "image": "https://allbeauty.com/cdn/shop/files/3273.jpg?v=1755875391&width=1920",
     "notes": null
   },
   {
@@ -24874,6 +24874,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/051.jpg"
     }
   ],
+  "ean-3423222015565": [
+    {
+      "retailerId": "allbeauty",
+      "price": 39.6,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-dolcegabbana-limperatrice-eau-de-toilette-spray-100ml-11883234",
+      "fetchedAt": "2026-08-04T18:26:23.818Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/72713.jpg?v=1755874881&width=1920"
+    },
+    {
+      "retailerId": "beautybase",
+      "price": 41.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/d-g-limperatrice-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1604073483-84811200.jpg?v=1763389980&width=1920"
+    }
+  ],
   "ean-3423473032793": [
     {
       "retailerId": "beautybase",
@@ -24924,32 +24950,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/8/080.jpg"
-    }
-  ],
-  "ean-3423222015565": [
-    {
-      "retailerId": "allbeauty",
-      "price": 39.6,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-dolcegabbana-limperatrice-eau-de-toilette-spray-100ml-11883234",
-      "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://allbeauty.com/cdn/shop/files/72713.jpg?v=1755874881&width=1920"
-    },
-    {
-      "retailerId": "beautybase",
-      "price": 41.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/d-g-limperatrice-eau-de-toilette-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1604073483-84811200.jpg?v=1763389980&width=1920"
     }
   ],
   "ean-3423473020776": [
@@ -25446,32 +25446,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494.jpg"
     }
   ],
-  "ean-3274872372153": [
-    {
-      "retailerId": "beautybase",
-      "price": 112,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/givenchy-linterdit-eau-de-parfum-80ml-spray",
-      "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-04T18:26:23.818Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1638876451-60461700.jpg?v=1763390988&width=1920"
-    },
-    {
-      "retailerId": "fragrance-click",
-      "price": 68.95,
-      "wasPrice": 131,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44475854355&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61r_mpn1fsl.jpg"
-    }
-  ],
   "ean-3274872411678": [
     {
       "retailerId": "beautybase",
@@ -25496,6 +25470,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/_/l_interdit_intense_35ml_.png"
+    }
+  ],
+  "ean-3274872372153": [
+    {
+      "retailerId": "beautybase",
+      "price": 112,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/givenchy-linterdit-eau-de-parfum-80ml-spray",
+      "fetchedAt": "2026-08-04T18:26:23.818Z",
+      "firstSeenAt": "2026-08-04T18:26:23.818Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1638876451-60461700.jpg?v=1763390988&width=1920"
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 68.95,
+      "wasPrice": 131,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44475854355&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61r_mpn1fsl.jpg"
     }
   ],
   "ean-8005610328799": [
@@ -27788,6 +27788,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1461601073-07469400.jpg?v=1774439430&width=1920"
     }
   ],
+  "ean-6290171000976": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/supremacy-pour-homme-silver-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T16:30:04.615Z",
+      "firstSeenAt": "2026-08-04T16:30:04.615Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731672226-10534000.jpg?v=1763390650&width=1920"
+    }
+  ],
+  "ean-6290171070207": [
+    {
+      "retailerId": "beautybase",
+      "price": 50,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/afnan-supremacy-in-oud-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731672437-86290500.jpg?v=1763390188&width=1920"
+    }
+  ],
+  "ean-6290171070214": [
+    {
+      "retailerId": "beautybase",
+      "price": 50,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/supremacy-not-only-intense-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731672339-12274700.jpg?v=1763390198&width=1920"
+    }
+  ],
   "justmylook-afnn0007": [
     {
       "retailerId": "justmylook",
@@ -27912,48 +27954,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/9am-dive-eau-de-parfum-100ml-p35647-108046_image.jpg?v=1721322135&width=1000"
-    }
-  ],
-  "ean-6290171000976": [
-    {
-      "retailerId": "beautybase",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/supremacy-pour-homme-silver-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-04T16:30:04.615Z",
-      "firstSeenAt": "2026-08-04T16:30:04.615Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731672226-10534000.jpg?v=1763390650&width=1920"
-    }
-  ],
-  "ean-6290171070207": [
-    {
-      "retailerId": "beautybase",
-      "price": 50,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/afnan-supremacy-in-oud-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731672437-86290500.jpg?v=1763390188&width=1920"
-    }
-  ],
-  "ean-6290171070214": [
-    {
-      "retailerId": "beautybase",
-      "price": 50,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/supremacy-not-only-intense-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731672339-12274700.jpg?v=1763390198&width=1920"
     }
   ],
   "justmylook-agen0002": [
@@ -33612,6 +33612,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://allbeauty.com/cdn/shop/files/120883_2735306d-da37-4b98-8966-eea812de2819.jpg?v=1770026741&width=1920"
     }
   ],
+  "ean-3508440505064": [
+    {
+      "retailerId": "fragrance-click",
+      "price": 121.95,
+      "wasPrice": 195,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089041768&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/235.jpg"
+    }
+  ],
   "justmylook-creed0024": [
     {
       "retailerId": "justmylook",
@@ -33750,20 +33764,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0002.png?v=1753445102&width=1000"
-    }
-  ],
-  "ean-3508440505064": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 121.95,
-      "wasPrice": 195,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089041768&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/235.jpg"
     }
   ],
   "ean-5060524510008": [
@@ -34760,6 +34760,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/DKNY0003.png?v=1760692587&width=1000"
     }
   ],
+  "ean-3423473020639": [
+    {
+      "retailerId": "allbeauty",
+      "price": 55,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://allbeauty.com/products/p-dolcegabbana-pour-femme-eau-de-parfum-spray-100ml-11883227",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/954825.jpg?v=1770306027&width=1920"
+    }
+  ],
+  "ean-3423473021216": [
+    {
+      "retailerId": "allbeauty",
+      "price": 64.65,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://allbeauty.com/products/p-dolcegabbana-the-one-for-men-eau-de-toilette-spray-150ml-17770826",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/974140.jpg?v=1755874553&width=1920"
+    }
+  ],
+  "ean-3423473020042": [
+    {
+      "retailerId": "allbeauty",
+      "price": 55.3,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-dolcegabbana-dolce-eau-de-parfum-spray-75ml-11883176",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/1044326.jpg?v=1755874418&width=1920"
+    }
+  ],
   "ean-3423473020509": [
     {
       "retailerId": "beautybase",
@@ -34856,6 +34898,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1611054501-02449600.jpg?v=1763389981&width=1920"
+    }
+  ],
+  "ean-3423473020783": [
+    {
+      "retailerId": "beautybase",
+      "price": 69,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/dolce-gabbana-pour-homme-eau-de-toilette-75ml-spray",
+      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1382630985-42768200.jpg?v=1763389985&width=1920"
     }
   ],
   "ean-3423473020981": [
@@ -35738,62 +35794,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/light-blue-eau-intense-femme-eau-de-parfum-50ml-p26701-65022_image.jpg?v=1721322200&width=1000"
-    }
-  ],
-  "ean-3423473020639": [
-    {
-      "retailerId": "allbeauty",
-      "price": 55,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://allbeauty.com/products/p-dolcegabbana-pour-femme-eau-de-parfum-spray-100ml-11883227",
-      "fetchedAt": "2026-08-04T19:00:21.352Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://allbeauty.com/cdn/shop/files/954825.jpg?v=1770306027&width=1920"
-    }
-  ],
-  "ean-3423473021216": [
-    {
-      "retailerId": "allbeauty",
-      "price": 64.65,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://allbeauty.com/products/p-dolcegabbana-the-one-for-men-eau-de-toilette-spray-150ml-17770826",
-      "fetchedAt": "2026-08-04T19:00:21.352Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://allbeauty.com/cdn/shop/files/974140.jpg?v=1755874553&width=1920"
-    }
-  ],
-  "ean-3423473020042": [
-    {
-      "retailerId": "allbeauty",
-      "price": 55.3,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-dolcegabbana-dolce-eau-de-parfum-spray-75ml-11883176",
-      "fetchedAt": "2026-08-04T19:00:21.352Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://allbeauty.com/cdn/shop/files/1044326.jpg?v=1755874418&width=1920"
-    }
-  ],
-  "ean-3423473020783": [
-    {
-      "retailerId": "beautybase",
-      "price": 69,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/dolce-gabbana-pour-homme-eau-de-toilette-75ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1382630985-42768200.jpg?v=1763389985&width=1920"
     }
   ],
   "ean-022548173701": [
@@ -37896,6 +37896,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1474542610-37949300.jpg?v=1763391103&width=1920"
     }
   ],
+  "ean-3274872396180": [
+    {
+      "retailerId": "beautybase",
+      "price": 93,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/givenchy-ange-ou-demon-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1379596157-25716100.jpg?v=1763391105&width=1920"
+    }
+  ],
   "ean-3274870222566": [
     {
       "retailerId": "beautybase",
@@ -37908,6 +37922,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1515422778-33010100.png?v=1763391107&width=1920"
+    }
+  ],
+  "ean-3274872441033": [
+    {
+      "retailerId": "beautybase",
+      "price": 101,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/givenchy-gentleman-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T18:26:23.818Z",
+      "firstSeenAt": "2026-08-04T18:26:23.818Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727281073-50078100.jpg?v=1763390974&width=1920"
     }
   ],
   "ean-3274872423008": [
@@ -37924,6 +37952,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727338157-36198300.jpg?v=1763390974&width=1920"
     }
   ],
+  "ean-3274872399020": [
+    {
+      "retailerId": "beautybase",
+      "price": 101,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/givenchy-gentleman-boisee-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-04T18:26:23.818Z",
+      "firstSeenAt": "2026-08-04T18:26:23.818Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727338994-20131800.jpg?v=1763390976&width=1920"
+    }
+  ],
+  "ean-3274872400719": [
+    {
+      "retailerId": "beautybase",
+      "price": 61,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/givenchy-irresistible-eau-de-parfum-35ml-spray",
+      "fetchedAt": "2026-08-04T18:26:23.818Z",
+      "firstSeenAt": "2026-08-04T18:26:23.818Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727339561-79147100.jpg?v=1763390980&width=1920"
+    }
+  ],
   "ean-3274872419292": [
     {
       "retailerId": "beautybase",
@@ -37936,6 +37992,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727341735-88721700.jpg?v=1763390980&width=1920"
+    }
+  ],
+  "ean-3274872419308": [
+    {
+      "retailerId": "beautybase",
+      "price": 59,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/givenchy-irresistible-eau-de-toilette-50ml-spray",
+      "fetchedAt": "2026-08-04T18:26:23.818Z",
+      "firstSeenAt": "2026-08-04T18:26:23.818Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727341880-40068800.jpg?v=1763390980&width=1920"
     }
   ],
   "ean-3274872372139": [
@@ -37964,6 +38034,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1638876228-60369500.jpg?v=1763390986&width=1920"
+    }
+  ],
+  "ean-3274872369429": [
+    {
+      "retailerId": "beautybase",
+      "price": 78,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/givenchy-very-irresistible-eau-de-toilette-50ml-spray",
+      "fetchedAt": "2026-08-04T18:26:23.818Z",
+      "firstSeenAt": "2026-08-04T18:26:23.818Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727348611-68864900.jpg?v=1763390994&width=1920"
+    }
+  ],
+  "ean-3274872411685": [
+    {
+      "retailerId": "beautybase",
+      "price": 90,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/givenchy-linterdit-eau-de-parfum-intense-50ml-spray",
+      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1598968857-70759400.jpg?v=1763389873&width=1920"
     }
   ],
   "ean-3274872428058": [
@@ -38680,104 +38778,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0018.png?v=1753445103&width=1000"
     }
   ],
-  "ean-3274872396180": [
-    {
-      "retailerId": "beautybase",
-      "price": 93,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/givenchy-ange-ou-demon-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-04T19:00:21.352Z",
-      "firstSeenAt": "2026-08-04T19:00:21.352Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1379596157-25716100.jpg?v=1763391105&width=1920"
-    }
-  ],
-  "ean-3274872441033": [
-    {
-      "retailerId": "beautybase",
-      "price": 101,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/givenchy-gentleman-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-04T18:26:23.818Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727281073-50078100.jpg?v=1763390974&width=1920"
-    }
-  ],
-  "ean-3274872399020": [
-    {
-      "retailerId": "beautybase",
-      "price": 101,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/givenchy-gentleman-boisee-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-04T18:26:23.818Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727338994-20131800.jpg?v=1763390976&width=1920"
-    }
-  ],
-  "ean-3274872400719": [
-    {
-      "retailerId": "beautybase",
-      "price": 61,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/givenchy-irresistible-eau-de-parfum-35ml-spray",
-      "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-04T18:26:23.818Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727339561-79147100.jpg?v=1763390980&width=1920"
-    }
-  ],
-  "ean-3274872419308": [
-    {
-      "retailerId": "beautybase",
-      "price": 59,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/givenchy-irresistible-eau-de-toilette-50ml-spray",
-      "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-04T18:26:23.818Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727341880-40068800.jpg?v=1763390980&width=1920"
-    }
-  ],
-  "ean-3274872369429": [
-    {
-      "retailerId": "beautybase",
-      "price": 78,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/givenchy-very-irresistible-eau-de-toilette-50ml-spray",
-      "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-04T18:26:23.818Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727348611-68864900.jpg?v=1763390994&width=1920"
-    }
-  ],
-  "ean-3274872411685": [
-    {
-      "retailerId": "beautybase",
-      "price": 90,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/givenchy-linterdit-eau-de-parfum-intense-50ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1598968857-70759400.jpg?v=1763389873&width=1920"
-    }
-  ],
   "ean-3357554720012": [
     {
       "retailerId": "beautybase",
@@ -39000,6 +39000,62 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-cabochard-cherie-eau-de-parfum-100ml-p31745-87934_image.jpg?v=1721322219&width=1000"
+    }
+  ],
+  "ean-737052925028": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/gucci-bamboo-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-04T18:26:23.818Z",
+      "firstSeenAt": "2026-08-04T18:26:23.818Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1713782271-50454600.jpg?v=1763391000&width=1920"
+    }
+  ],
+  "ean-8005610481081": [
+    {
+      "retailerId": "beautybase",
+      "price": 55,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/gucci-bloom-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-04T18:26:23.818Z",
+      "firstSeenAt": "2026-08-04T18:26:23.818Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1713780336-29089800.jpg?v=1763391004&width=1920"
+    }
+  ],
+  "ean-737052626383": [
+    {
+      "retailerId": "beautybase",
+      "price": 97,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/gucci-guilty-black-eau-de-toilette-90ml-spray",
+      "fetchedAt": "2026-08-04T18:26:23.818Z",
+      "firstSeenAt": "2026-08-04T18:26:23.818Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731410032-19937800.jpg?v=1763391004&width=1920"
+    }
+  ],
+  "ean-3614227758063": [
+    {
+      "retailerId": "beautybase",
+      "price": 66,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/gucci-guilty-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-04T18:26:23.818Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1553082110-43463700.jpg?v=1763389256&width=1920"
     }
   ],
   "ean-737052925073": [
@@ -39772,62 +39828,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/GUCC0024.png?v=1780055153&width=1000"
     }
   ],
-  "ean-737052925028": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/gucci-bamboo-eau-de-parfum-30ml-spray",
-      "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-04T18:26:23.818Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1713782271-50454600.jpg?v=1763391000&width=1920"
-    }
-  ],
-  "ean-8005610481081": [
-    {
-      "retailerId": "beautybase",
-      "price": 55,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/gucci-bloom-eau-de-parfum-30ml-spray",
-      "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-04T18:26:23.818Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1713780336-29089800.jpg?v=1763391004&width=1920"
-    }
-  ],
-  "ean-737052626383": [
-    {
-      "retailerId": "beautybase",
-      "price": 97,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/gucci-guilty-black-eau-de-toilette-90ml-spray",
-      "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-04T18:26:23.818Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731410032-19937800.jpg?v=1763391004&width=1920"
-    }
-  ],
-  "ean-3614227758063": [
-    {
-      "retailerId": "beautybase",
-      "price": 66,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/gucci-guilty-eau-de-parfum-30ml-spray",
-      "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1553082110-43463700.jpg?v=1763389256&width=1920"
-    }
-  ],
   "ean-3346470243989": [
     {
       "retailerId": "allbeauty",
@@ -40414,6 +40414,202 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1387222554-10879600.png?v=1763391116&width=1920"
+    }
+  ],
+  "ean-3614229823776": [
+    {
+      "retailerId": "allbeauty",
+      "price": 51.6,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-hugo-boss-hugo-man-eau-de-toilette-spray-200ml-11858188",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/963480.jpg?v=1755874583&width=1920"
+    }
+  ],
+  "ean-737052351155": [
+    {
+      "retailerId": "allbeauty",
+      "price": 41.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-hugo-boss-boss-bottled-aftershave-splash-50ml-11858151",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:32:03.579Z",
+      "isNew": false,
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/2968.jpg?v=1755875418&width=1920"
+    }
+  ],
+  "ean-737052987569": [
+    {
+      "retailerId": "beautybase",
+      "price": 30,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/hugo-woman-extreme-eau-de-parfum-75ml-spray",
+      "fetchedAt": "2026-08-05T00:00:56.420Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1595581822-99399300.jpg?v=1763389792&width=1920"
+    }
+  ],
+  "ean-737052351001": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/boss-bottled-eau-de-toilette-30ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1517568130-53955300.png?v=1763391123&width=1920"
+    }
+  ],
+  "ean-737052238050": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/boss-orange-woman-eau-de-toilette-30ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369145196-89822600.jpg?v=1763391129&width=1920"
+    }
+  ],
+  "ean-737052238081": [
+    {
+      "retailerId": "beautybase",
+      "price": 22,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/boss-orange-woman-eau-de-toilette-50ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369145950-63013600.jpg?v=1763391134&width=1920"
+    }
+  ],
+  "ean-737052465678": [
+    {
+      "retailerId": "beautybase",
+      "price": 29,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/hugo-just-different-eau-de-toilette-75ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1523977882-52693500.png?v=1763391137&width=1920"
+    }
+  ],
+  "ean-3614229823790": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/hugo-man-eau-de-toilette-75ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1523982609-51930100.png?v=1763391136&width=1920"
+    }
+  ],
+  "ean-3614225297687": [
+    {
+      "retailerId": "beautybase",
+      "price": 27,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/hugo-reversed-eau-de-toilette-75ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1567170763-11427500.jpg?v=1763389426&width=1920"
+    }
+  ],
+  "ean-737052972268": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/boss-the-scent-eau-de-toilette-50ml",
+      "fetchedAt": "2026-08-04T18:26:23.818Z",
+      "firstSeenAt": "2026-08-04T18:26:23.818Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1725638593-16519700.jpg?v=1763391045&width=1920"
+    }
+  ],
+  "ean-3616301623410": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/hugo-boss-iced-eau-de-toilette-75ml-spray",
+      "fetchedAt": "2026-08-04T18:26:23.818Z",
+      "firstSeenAt": "2026-08-04T18:26:23.818Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1654609610-63957200.jpg?v=1763391050&width=1920"
+    }
+  ],
+  "ean-737052683522": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/hugo-deep-red-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-04T18:26:23.818Z",
+      "firstSeenAt": "2026-08-04T18:26:23.818Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641989320-68762600.jpg?v=1763391057&width=1920"
+    }
+  ],
+  "ean-737052139906": [
+    {
+      "retailerId": "beautybase",
+      "price": 32,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/hugo-boss-energise-eau-de-toilette-75ml-spray",
+      "fetchedAt": "2026-08-04T18:26:23.818Z",
+      "firstSeenAt": "2026-08-04T18:26:23.818Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1643028420-82334600.jpg?v=1763391057&width=1920"
+    }
+  ],
+  "ean-3616301623335": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/boss-no1-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-01T21:42:34.212Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1637252632-17210100.jpg?v=1763390471&width=1920"
     }
   ],
   "ean-3616302968237": [
@@ -41282,202 +41478,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-tonic-eau-de-toilette-50ml-p21058-71520_image.png?v=1721322237&width=1000"
-    }
-  ],
-  "ean-3614229823776": [
-    {
-      "retailerId": "allbeauty",
-      "price": 51.6,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-hugo-boss-hugo-man-eau-de-toilette-spray-200ml-11858188",
-      "fetchedAt": "2026-08-04T19:00:21.352Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://allbeauty.com/cdn/shop/files/963480.jpg?v=1755874583&width=1920"
-    }
-  ],
-  "ean-737052351155": [
-    {
-      "retailerId": "allbeauty",
-      "price": 41.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-hugo-boss-boss-bottled-aftershave-splash-50ml-11858151",
-      "fetchedAt": "2026-08-04T19:00:21.352Z",
-      "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false,
-      "imageUrl": "https://allbeauty.com/cdn/shop/files/2968.jpg?v=1755875418&width=1920"
-    }
-  ],
-  "ean-737052987569": [
-    {
-      "retailerId": "beautybase",
-      "price": 30,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/hugo-woman-extreme-eau-de-parfum-75ml-spray",
-      "fetchedAt": "2026-08-05T00:00:56.420Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1595581822-99399300.jpg?v=1763389792&width=1920"
-    }
-  ],
-  "ean-737052351001": [
-    {
-      "retailerId": "beautybase",
-      "price": 35,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/boss-bottled-eau-de-toilette-30ml-spray",
-      "fetchedAt": "2026-08-04T19:00:21.352Z",
-      "firstSeenAt": "2026-08-04T19:00:21.352Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1517568130-53955300.png?v=1763391123&width=1920"
-    }
-  ],
-  "ean-737052238050": [
-    {
-      "retailerId": "beautybase",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/boss-orange-woman-eau-de-toilette-30ml-spray",
-      "fetchedAt": "2026-08-04T19:00:21.352Z",
-      "firstSeenAt": "2026-08-04T19:00:21.352Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369145196-89822600.jpg?v=1763391129&width=1920"
-    }
-  ],
-  "ean-737052238081": [
-    {
-      "retailerId": "beautybase",
-      "price": 22,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/boss-orange-woman-eau-de-toilette-50ml-spray",
-      "fetchedAt": "2026-08-04T19:00:21.352Z",
-      "firstSeenAt": "2026-08-04T19:00:21.352Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369145950-63013600.jpg?v=1763391134&width=1920"
-    }
-  ],
-  "ean-737052465678": [
-    {
-      "retailerId": "beautybase",
-      "price": 29,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/hugo-just-different-eau-de-toilette-75ml-spray",
-      "fetchedAt": "2026-08-04T19:00:21.352Z",
-      "firstSeenAt": "2026-08-04T19:00:21.352Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1523977882-52693500.png?v=1763391137&width=1920"
-    }
-  ],
-  "ean-3614229823790": [
-    {
-      "retailerId": "beautybase",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/hugo-man-eau-de-toilette-75ml-spray",
-      "fetchedAt": "2026-08-04T19:00:21.352Z",
-      "firstSeenAt": "2026-08-04T19:00:21.352Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1523982609-51930100.png?v=1763391136&width=1920"
-    }
-  ],
-  "ean-3614225297687": [
-    {
-      "retailerId": "beautybase",
-      "price": 27,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/hugo-reversed-eau-de-toilette-75ml-spray",
-      "fetchedAt": "2026-08-04T19:00:21.352Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1567170763-11427500.jpg?v=1763389426&width=1920"
-    }
-  ],
-  "ean-737052972268": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/boss-the-scent-eau-de-toilette-50ml",
-      "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-04T18:26:23.818Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1725638593-16519700.jpg?v=1763391045&width=1920"
-    }
-  ],
-  "ean-3616301623410": [
-    {
-      "retailerId": "beautybase",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/hugo-boss-iced-eau-de-toilette-75ml-spray",
-      "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-04T18:26:23.818Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1654609610-63957200.jpg?v=1763391050&width=1920"
-    }
-  ],
-  "ean-737052683522": [
-    {
-      "retailerId": "beautybase",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/hugo-deep-red-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-04T18:26:23.818Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641989320-68762600.jpg?v=1763391057&width=1920"
-    }
-  ],
-  "ean-737052139906": [
-    {
-      "retailerId": "beautybase",
-      "price": 32,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/hugo-boss-energise-eau-de-toilette-75ml-spray",
-      "fetchedAt": "2026-08-04T18:26:23.818Z",
-      "firstSeenAt": "2026-08-04T18:26:23.818Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1643028420-82334600.jpg?v=1763391057&width=1920"
-    }
-  ],
-  "ean-3616301623335": [
-    {
-      "retailerId": "beautybase",
-      "price": 35,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/boss-no1-eau-de-toilette-100ml-spray",
-      "fetchedAt": "2026-08-01T21:42:34.212Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1637252632-17210100.jpg?v=1763390471&width=1920"
     }
   ],
   "ean-799575501295": [
@@ -43902,6 +43902,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/89332390_o.jpeg"
     }
   ],
+  "ean-3414206000615": [
+    {
+      "retailerId": "allbeauty",
+      "price": 21.25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://allbeauty.com/products/p-joop-homme-aftershave-splash-75ml-10002651",
+      "fetchedAt": "2026-08-05T00:00:56.420Z",
+      "firstSeenAt": "2026-08-01T21:32:03.579Z",
+      "isNew": false,
+      "imageUrl": "https://allbeauty.com/cdn/shop/files/3273.jpg?v=1755875391&width=1920"
+    }
+  ],
+  "ean-3414200640015": [
+    {
+      "retailerId": "beautybase",
+      "price": 20,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/joop-jump-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-04T19:00:21.352Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641994689-16777100.jpg?v=1763391243&width=1920"
+    }
+  ],
   "ean-3414206000165": [
     {
       "retailerId": "fragrance-click",
@@ -44096,34 +44124,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/JOOP0020.png?v=1766583597&width=1000"
-    }
-  ],
-  "ean-3414200640015": [
-    {
-      "retailerId": "beautybase",
-      "price": 20,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/joop-jump-eau-de-toilette-100ml-spray",
-      "fetchedAt": "2026-08-04T19:00:21.352Z",
-      "firstSeenAt": "2026-08-04T19:00:21.352Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1641994689-16777100.jpg?v=1763391243&width=1920"
-    }
-  ],
-  "ean-3414206000615": [
-    {
-      "retailerId": "allbeauty",
-      "price": 21.25,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://allbeauty.com/products/p-joop-homme-aftershave-splash-75ml-10002651",
-      "fetchedAt": "2026-08-05T00:00:56.420Z",
-      "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false,
-      "imageUrl": "https://allbeauty.com/cdn/shop/files/3273.jpg?v=1755875391&width=1920"
     }
   ],
   "ean-035017009029": [
@@ -51235,7 +51235,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-35196",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "BEAU STAR MEN 3.4 OZ",
     "sizeMl": 101,
     "url": "https://www.armaf.com/products/beau-star-1",
@@ -51249,7 +51249,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313441",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "BON BON",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/bon-bon",
@@ -51263,7 +51263,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313414",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CHECKMATE BLACK KNIGHT",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/checkmate-black-knight",
@@ -51277,7 +51277,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313502",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CHECKMATE WHITE KNIGHT",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/checkmate-white-knight-1",
@@ -51291,7 +51291,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312718",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "Christian Provenzano I",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/christian-provenzano",
@@ -51305,7 +51305,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312719",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "Christian Provenzano II",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/christian-provenzano-ii",
@@ -51319,7 +51319,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312720",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "Christian Provenzano III",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/christian-provenzano-iii",
@@ -51333,7 +51333,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312721",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "Christian Provenzano IV",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/christian-provenzano-iv",
@@ -51347,7 +51347,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313492",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLOUD 9",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/cloud-9",
@@ -51361,7 +51361,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313469",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT BLING",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-bling",
@@ -51375,7 +51375,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312033",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT COLLECTORS'S PRIDE 10 PIECE BRIEFCASE",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-collectorss-pride-10-piece-briefcase",
@@ -51403,7 +51403,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312607",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT ICONIC BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-iconic-body-spray",
@@ -51445,7 +51445,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312611",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT IMPERIALE BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-imperiale-body-spray",
@@ -51459,7 +51459,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-24329",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT INTENSE MAN",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-intense-man-4",
@@ -51515,7 +51515,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-32008",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT INTENSE MAN BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-intense-man-body-spray",
@@ -51557,7 +51557,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312864",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT INTENSE MAN PARFUM EXTREME EDITION",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-intense-man-parfum-extreme-edition",
@@ -51571,7 +51571,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312450",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT INTENSE MAN UAE NATIONAL DAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/cdn-intense-uae-national-day-spr",
@@ -51585,7 +51585,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-314123",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT INTENSE OVERDOSE 3.6 Oz",
     "sizeMl": 106,
     "url": "https://www.armaf.com/products/club-de-nuit-intense-overdose",
@@ -51599,7 +51599,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312605",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT INTENSE WOMAN BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-intense-woman-body-spray",
@@ -51613,7 +51613,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312715",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT MALEKA",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-maleka",
@@ -51627,7 +51627,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-6295199810651",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "Club De Nuit Maleka Luxury Handcrafted Soap",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-maleka-luxury-handcrafted-soap",
@@ -51641,7 +51641,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313851",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT MAN BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-man-body-spray",
@@ -51683,7 +51683,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312609",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT MILESTONE BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-milestone-body-spray",
@@ -51697,7 +51697,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312714",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT PRECIEUX IV",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-precieux-iv",
@@ -51711,7 +51711,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-31816",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT SILLAGE 3.6",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-sillage-3-6",
@@ -51725,7 +51725,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313282",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT SILLAGE 8.4 OZ 8.45 OZ",
     "sizeMl": 248,
     "url": "https://www.armaf.com/products/club-de-nuit-sillage-8-4-oz",
@@ -51739,7 +51739,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312608",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT SILLAGE BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-sillage-body-spray",
@@ -51767,7 +51767,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312606",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT UNTOLD BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-untold-body-spray",
@@ -51809,7 +51809,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312760",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT URBAN MAN ELIXIR BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-urban-man-elixir-body-spray",
@@ -51893,7 +51893,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-29525",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT WOMAN BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-woman-body-spray",
@@ -51907,7 +51907,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312863",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "CLUB DE NUIT WOMAN PARFUM EXTREME EDITION",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/club-de-nuit-woman-parfum-extreme-edition",
@@ -51921,7 +51921,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312716",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "COOL ACE",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/cool-ace-edp-spr",
@@ -51935,7 +51935,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313499",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "DELIGHTS DUBAI DELICACY COTTON CANDY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/cotton-candy",
@@ -51949,7 +51949,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312487",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "DUBAI NIGHTS MIDNIGHT",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/dubai-nights-midnight-spr",
@@ -51963,7 +51963,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312486",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "DUBAI NIGHTS UMBRA",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/dubai-nights-umbra-spr",
@@ -51977,7 +51977,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313496",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "DUNESCAPE",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/dunescape-1",
@@ -52019,7 +52019,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-27832",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "HUNTER INTENSE",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/hunter-intense-1",
@@ -52033,7 +52033,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313645",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "I AM CELESTIAL FRAGRANCE BODY MIST",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-mandarin-sky-body-spray-copy",
@@ -52047,7 +52047,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313287",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "I AM DIVINE FRAGRANCE BODY MIST",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/i-am-divine-fragrance-body-mist",
@@ -52061,7 +52061,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313284",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "I AM EBA FRAGRANCE BODY MIST",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/i-am-eba-fragrance-body-mist",
@@ -52075,7 +52075,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313639",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "I AM ENIGMA FRAGRANCE BODY MIST",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/i-am-enigma-fragrance-body-mist",
@@ -52089,7 +52089,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313642",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "I AM FIRE FRAGRANCE BODY MIST",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/i-am-fire-fragrance-body-mist",
@@ -52103,7 +52103,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313641",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "I AM FROZEN BLOSSOM FRAGRANCE BODY MIST",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/i-am-frozen-blossom-fragrance-body-mist",
@@ -52117,7 +52117,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313285",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "I AM HEAVENLY FRAGRANCE BODY MIST",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/i-am-heavenly-fragrance-body-mist",
@@ -52131,7 +52131,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313643",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "I AM KAYA FRAGRANCE BODY MIST",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/i-am-kaya-fragrance-body-mist",
@@ -52145,7 +52145,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313288",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "I AM LEGACY FRAGRANCE BODY MIST",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/i-am-legacy-fragrance-body-mist",
@@ -52159,7 +52159,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313283",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "I AM LYNA FRAGRANCE BODY MIST",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/i-am-lyna-fragrance-body-mist",
@@ -52173,7 +52173,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313644",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "I AM MAGIC FRAGRANCE BODY MIST",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/i-am-magic-fragrance-body-mist",
@@ -52187,7 +52187,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313638",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "I AM SELFLESS FRAGRANCE BODY MIST",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/i-am-selfless-fragrance-body-mist",
@@ -52201,7 +52201,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313286",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "I AM VELVET MIRAGE FRAGRANCE BODY MIST",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/i-am-velvet-mirage-fragrance-body-mist",
@@ -52215,7 +52215,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313335",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ISLAND BREEZE",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/island-breeze",
@@ -52229,7 +52229,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-25530",
     "house": "Armaf",
-    "brand": "ARMAF – Online Shop",
+    "brand": "ARMAF Online Shop",
     "name": "JUST FOR YOU FEMME WOMAN 3.4 Oz",
     "sizeMl": 101,
     "url": "https://www.armaf.com/products/just-for-you-femme",
@@ -52243,7 +52243,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313501",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "KUNAFA CHOCOLATE",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/kunafa-chocolate",
@@ -52257,7 +52257,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312624",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "LA ROSA GOLD EDITION",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/la-rosa-gold-edition",
@@ -52299,7 +52299,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313222",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "LE PARFAIT ADIKA",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/le-parfait-adika",
@@ -52313,7 +52313,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313211",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "LE PARFAIT AZURE ANTI-PERSPIRANT ROLL ON",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/le-parfait-azure-anti-perspirant-roll-on",
@@ -52341,7 +52341,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312538",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "LE PARFAIT MON AMOUR",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/le-parfait-mon-amour",
@@ -52355,7 +52355,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312539",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "LE PARFAIT OPUS",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/le-parfait-opus-1",
@@ -52383,7 +52383,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313212",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "LE PARFAIT PANACHE ANTI-PERSPIRANT ROLL ON",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/le-parfait-panache-anti-perspirant-roll-on",
@@ -52425,7 +52425,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313843",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "LET'S MOVE SALSA",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/lets-move-salsa",
@@ -52453,7 +52453,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313491",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "LUNA",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/luna",
@@ -52467,7 +52467,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312449",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "MAGNIFICENT SATIN",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/magnificient-satin-spray",
@@ -52481,7 +52481,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312717",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "MATCH POINT",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/armaf-match-point",
@@ -52495,7 +52495,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313206",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "MIRAGE MAN",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/mirage",
@@ -52509,7 +52509,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313478",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "MIRAGE WOMAN",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/mirage-woman",
@@ -52551,7 +52551,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313203",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "MOSAIC OPAL MALAKY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/mosaic-opal-malaky",
@@ -52565,7 +52565,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313204",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "MOSAIC TOPAZ MALAKY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/mosaic-topaz-malaky",
@@ -52579,7 +52579,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-35255",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "NICHE PURPLE AMETHYST 3.0 OZ",
     "sizeMl": 89,
     "url": "https://www.armaf.com/products/niche-purple-amethyst-1",
@@ -52607,7 +52607,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312613",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY AOUD BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-aoud-body-spray",
@@ -52621,7 +52621,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312617",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY AQUA BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-aqua-body-spray",
@@ -52635,7 +52635,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312836",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY ARTISTO",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-artisto",
@@ -52649,7 +52649,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313216",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY BA HA MAS",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-ba-ha-mas",
@@ -52663,7 +52663,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313217",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY BLACK FOREST",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-toffee-coffee-copy-1",
@@ -52677,7 +52677,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313768",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY BLACK FOREST BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-black-forest-body-spray-1",
@@ -52691,7 +52691,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313637",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY CANDEE ANTI-PERSPIRANT ROLL ON",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-candee-anti-perspirant-roll-on",
@@ -52705,7 +52705,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312612",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY CANDEE BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-candee-body-spray",
@@ -52719,7 +52719,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312550",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY CANDEE PERFUMED STICK",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-candee-perfumed-stick",
@@ -52733,7 +52733,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313480",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY DUBAI CHOCOLAT BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-dubai-chocolat-body-spray",
@@ -52747,7 +52747,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312610",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY DUBAI CHOCOLATE 2.0 Oz 2.02 oz",
     "sizeMl": 59,
     "url": "https://www.armaf.com/products/odyssey-dubai-chocolate-2-0-oz",
@@ -52761,7 +52761,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312568",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY DUBAI CHOCOLATE 3.4 Oz 3.4 Oz",
     "sizeMl": 101,
     "url": "https://www.armaf.com/products/odyssey-dubai-chocolat-copy",
@@ -52775,7 +52775,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312879",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY EAU DE MONTAGNE",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-eau-de-montagne",
@@ -52789,7 +52789,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313766",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY EAU DE MONTAGNE BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-eau-de-montagne-body-spray",
@@ -52803,7 +52803,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-30285",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY FEMME WHITE EDITION",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-femme-white-edition",
@@ -52817,7 +52817,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313277",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY GO MANGO",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-go-mango",
@@ -52831,7 +52831,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313767",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY GO MANGO BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-go-mango-body-spray",
@@ -52845,7 +52845,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313209",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY HOMME ANTI-PERSPIRANT ROLL ON",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-homme-anti-perspirant-roll-on",
@@ -52859,7 +52859,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312620",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY HOMME BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-homme-body-spray",
@@ -52915,7 +52915,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313210",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY HOMME WHITE EDITION ANTI-PERSPIRANT ROLL ON",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-homme-white-edition-anti-perspirant-roll-on",
@@ -52929,7 +52929,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312616",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY HOMME WHITE EDITION BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-homme-white-edition-body-spray",
@@ -52943,7 +52943,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313987",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY LI'CHI LUSH EDP",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-lichi-lush-edp",
@@ -52957,7 +52957,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312621",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY LIMONI BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-limoni-body-spray",
@@ -52971,7 +52971,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312548",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY MANDARIN SKY ANTI-PERSPIRANT ROLL ON",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-mandarin-sky-anti-perspirant-roll-on",
@@ -52985,7 +52985,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312619",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY MANDARIN SKY BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-mandarin-sky-body-spray",
@@ -52999,7 +52999,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312835",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY MANDARIN SKY ELIXIR",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-mandarin-sky-elixir",
@@ -53013,7 +53013,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313479",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY MANDARIN SKY ELIXIR BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-mandarin-sky-elixir-body-spray",
@@ -53027,7 +53027,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312549",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY MANDARIN SKY PERFUMED STICK",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-mandarin-sky-perfumed-stick",
@@ -53041,7 +53041,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313788",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY MANDARIN SKY VINTAGE EDITION",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-mandarin-sky-vintage-edition",
@@ -53055,7 +53055,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313220",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY MARSHMALLOW",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-marshmallow",
@@ -53069,7 +53069,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313808",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY MARSHMALLOW BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-marshmallow-body-spray",
@@ -53111,7 +53111,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313208",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY MEGA ANTI-PERSPIRANT ROLL ON",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-mega-anti-perspirant-roll-on",
@@ -53125,7 +53125,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312615",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY MEGA BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-mega-body-spray",
@@ -53139,7 +53139,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313986",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY PINK POP EDP",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-pink-pop-edp",
@@ -53153,7 +53153,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313810",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY REVOLUTION BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-revolution-body-spray",
@@ -53167,7 +53167,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312880",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY REVOLUTION ULTRA EDITION",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-revolution-ultra-edition-edp-spr",
@@ -53181,7 +53181,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-314072",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY SODA POP",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-soda-pop",
@@ -53195,7 +53195,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313770",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY SPECTRA ANTI-PERSPIRANT ROLL ON",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-spectra-anti-perspirant-roll-on",
@@ -53209,7 +53209,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313806",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY SPECTRA BLU BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-spectra-blu-body-spray",
@@ -53223,7 +53223,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313219",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY SPECTRA BLUE EDITION",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-spectra-blue-edition",
@@ -53237,7 +53237,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312622",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY SPECTRA BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-spectra-body-spray",
@@ -53251,7 +53251,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313218",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY TOFFEE COFFEE",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-toffee-coffee",
@@ -53265,7 +53265,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313809",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY TOFFEE COFFEE 6.8 CAN BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-toffee-coffee-6-8-can-body-spray",
@@ -53279,7 +53279,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312618",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY TYRANT BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-tyrant-body-spray",
@@ -53293,7 +53293,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312614",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ODYSSEY WILD ONE BODY SPRAY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/odyssey-wild-one-body-spray",
@@ -53307,7 +53307,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313864",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "OLD MONEY",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/old-money",
@@ -53321,7 +53321,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313085",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "OMBRE D'OR",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/ombre-dor",
@@ -53335,7 +53335,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313495",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "OMBRE FRESH EDP",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/ombre-fresh-edp",
@@ -53349,7 +53349,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313201",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ORCHESTRA LEGATO LUX",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/orchestra-legato-lux",
@@ -53363,7 +53363,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313202",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "ORCHESTRA TEMPO TUNE",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/orchestra-tempo-tune",
@@ -53377,7 +53377,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-26038",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "OROS",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/oros-4",
@@ -53391,7 +53391,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-25643",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "OROS FLEUR",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/oros-fleur-2",
@@ -53405,7 +53405,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-26685",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "OROS HOLIDAY EDITION 2.9 OZ",
     "sizeMl": 86,
     "url": "https://www.armaf.com/products/oros-holiday-edition-1",
@@ -53419,7 +53419,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-25642",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "OROS LIMITED EDITION",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/oros-limited-edition-1",
@@ -53447,7 +53447,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-33439",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "OROS PURE BLOOMING MAGUEY 3.4 OZ",
     "sizeMl": 101,
     "url": "https://www.armaf.com/products/oros-pure-blooming-maguey-1",
@@ -53461,7 +53461,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-33441",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "OROS PURE EVENING ROSE 3.4 OZ",
     "sizeMl": 101,
     "url": "https://www.armaf.com/products/oros-pure-evening-rose-1",
@@ -53475,7 +53475,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313215",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "PERLE D'OR",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/perle-dor",
@@ -53489,7 +53489,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313500",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "RED VELVET",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/red-velvet",
@@ -53503,7 +53503,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313528",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "SCENTASY MATCHA MAGIX",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/scentasy-matcha-magix",
@@ -53517,7 +53517,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313361",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "SCENTASY NOIR DE PECHE",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/scentasy-noir-de-peche",
@@ -53531,7 +53531,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-31879",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "SEDUCTION POUR FEMME 3.4 OZ",
     "sizeMl": 101,
     "url": "https://www.armaf.com/products/seduction-pour-femme-1",
@@ -53545,7 +53545,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313205",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "SEHR ALEUYUN SAWDAA",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/sehr-aleuyun-sawdaa",
@@ -53559,7 +53559,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313468",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "SEHR ALEUYUN ZARQAA",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/sehr-aleuyun-zarqaa",
@@ -53573,7 +53573,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313200",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "SEINE AMOUR BELVICO",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/seine-amour-belvico",
@@ -53587,7 +53587,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312580",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "SHK I BY SAOUD ALKAABI",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/shk-i-by-saoud-alkaabi",
@@ -53601,7 +53601,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-312583",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "SHK II BY SAOUD ALKAABI",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/shk-ii-by-saoud-alkaabi",
@@ -53615,7 +53615,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313702",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "SHK III BY SAOUD ALKAABI",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/shk-ii-by-saoud-alkaabi-copy",
@@ -53629,7 +53629,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313787",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "SHK IV BY SAOUD ALKAABI",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/shk-iv-by-saoud-alkaabi",
@@ -53643,7 +53643,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313887",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "SPARTACUS EDP",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/spartacus-edp",
@@ -53657,7 +53657,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-24345",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "TAG HER",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/tag-her",
@@ -53671,7 +53671,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-32005",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "TAG HER PRESTIGE BODY SPRAY 6.8 OZ",
     "sizeMl": 201,
     "url": "https://www.armaf.com/products/tag-her-prestige-1",
@@ -53685,7 +53685,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313214",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "TAG HIM ANTI-PERSPIRANT ROLL ON",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/tag-him-anti-perspirant-roll-on",
@@ -53699,7 +53699,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313213",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "TAG UOMO ROSSO ANTI-PERSPIRANT ROLL ON",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/tag-uomo-rosso-anti-perspirant-roll-on",
@@ -53727,7 +53727,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313498",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "THE LION'S CLUB MAJESTUEUX",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/the-lions-club-valer-copy",
@@ -53741,7 +53741,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-313497",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "THE LION'S CLUB VALER",
     "sizeMl": null,
     "url": "https://www.armaf.com/products/the-lions-club-valer",
@@ -53769,7 +53769,7 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
   {
     "id": "armaf-30742",
     "house": "Armaf",
-    "brand": "ARMAF",
+    "brand": "Armaf",
     "name": "THE PRIDE OF ARMAF POUR FEMME 8.5 OZ",
     "sizeMl": 251,
     "url": "https://www.armaf.com/products/the-pride-of-armaf-pour-femme-2",

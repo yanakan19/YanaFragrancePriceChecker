@@ -129,7 +129,7 @@ jobs:
         run: |
           ./scripts/commit-and-push.sh \
             "Harvest: real prices $(date -u +%Y-%m-%d)" \
-            data/catalogue demo/catalogue.generated.ts demo/index.html \
+            data/catalogue demo/catalogue.generated.ts demo/index.html demo/404.html \
             data/houses data/house-sourcing-report.json
 
       # No product photo is ever downloaded or hosted here — every tile links
@@ -170,7 +170,7 @@ jobs:
         run: |
           ./scripts/commit-and-push.sh \
             "Catalogue: $(date -u +%Y-%m-%d)" \
-            data/catalogue demo/catalogue.generated.ts demo/index.html
+            data/catalogue demo/catalogue.generated.ts demo/index.html demo/404.html
 
       # Keep the failure loud. A crawl that quietly stops working leaves stale
       # prices on the site, which is worse than showing nothing.

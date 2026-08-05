@@ -23,6 +23,7 @@ import { isNewListing } from '../src/catalogue/newBadge.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 import { RETAILERS } from '../src/config/retailers.js';
 import { HOUSES } from '../src/config/houses.js';
+import { buildBrandCanon } from '../src/catalogue/brandName.js';
 
 /**
  * Retailers whose product photos may be displayed, and on what grounds.
@@ -279,6 +280,37 @@ function pickNotes(offers: Offer[]): Notes | null {
   return null;
 }
 
+/**
+ * One display spelling per brand, decided before anything is built.
+ *
+ * Retailer feeds disagree about casing for the same house, and every variant
+ * used to become its own row in the Brands list: "ARMAF" and "Armaf" were two
+ * brands, "Dolce & Gabbana" was three. Ten such groups across 166 strings.
+ * See src/catalogue/brandName.ts for how the winner is chosen and why it is
+ * not simply the most common one.
+ */
+const brandCanon = (() => {
+  const seen: string[] = [];
+  for (const d of [dir, resolve(root, 'data/houses')]) {
+    if (!existsSync(d)) continue;
+    const s = new CatalogueStore(d);
+    for (const file of readdirSync(d).filter((f) => f.endsWith('.json'))) {
+      const snap = s.read(file.replace(/\.json$/, ''));
+      if (snap.source !== 'live') continue;
+      for (const l of snap.listings) {
+        if (l.status === 'active' && l.rawBrand) seen.push(l.rawBrand);
+      }
+    }
+  }
+  return buildBrandCanon(seen);
+})();
+
+/** The chosen spelling for a brand, or the raw one if it was never grouped. */
+function canonBrand(raw: string | null | undefined): string | null {
+  if (!raw) return null;
+  return brandCanon.get(raw.trim()) ?? raw.trim();
+}
+
 const products = new Map<string, Product>();
 let liveShops = 0;
 let considered = 0;
@@ -349,7 +381,7 @@ if (existsSync(dir)) {
       } else {
         products.set(id, {
           id,
-          brand: l.rawBrand ?? 'Unbranded',
+          brand: canonBrand(l.rawBrand) ?? 'Unbranded',
           name: displayName(l.rawTitle, l.rawBrand),
           concentration: concentration(l.rawTitle),
           sizeMl: size,
@@ -408,7 +440,7 @@ if (existsSync(housesDir)) {
       houseProducts.push({
         id: `${id}-${l.retailerSku}`.replace(/[^a-z0-9-]/gi, '-').toLowerCase(),
         house: houseName,
-        brand: l.rawBrand ?? houseName,
+        brand: canonBrand(l.rawBrand) ?? houseName,
         name: l.rawTitle,
         sizeMl: sizeMl(l.rawTitle),
         url: l.url,
