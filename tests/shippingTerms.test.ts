@@ -82,6 +82,56 @@ describe('shipping terms extraction', () => {
     });
   });
 
+  // Every sentence below is verbatim from data/shipping-discovery-report.json,
+  // the first live run of this tool. Each one produced a wrong answer.
+  describe('regressions from the first live run', () => {
+    it('does not read a cart widget as a delivery charge', () => {
+      // Manchester Ouds: this made £200 the "confirmed" standard rate.
+      const r = readShippingTerms(
+        '<p>Your order qualifies for free shipping You are £200 away from free shipping.</p>' +
+          '<p>Standard shipping is free on orders over £50, while a nominal fee applies to orders below £50.</p>',
+      );
+      expect(r.standardGbp).not.toBe(200);
+      expect(r.freeOverGbp).toBe(50);
+    });
+
+    it('does not read a header basket total as a delivery charge', () => {
+      // Oud Arabian: "Hurry Up 0 0 / £0.00 ... Shipping policy ..." ranked
+      // above the real figure because zero is the lowest candidate.
+      const r = readShippingTerms(
+        '<p>Hurry Up 0 0 / £0.00 New Releases Best Sellers Brands Contact Us Shipping policy We work with trusted third-party delivery companies.</p>' +
+          '<p>Standard Delivery (3–5 Working Days): £3.99 Our standard delivery option ensures your order arrives within 3–5 working days.</p>',
+      );
+      expect(r.standardGbp).toBe(3.99);
+    });
+
+    it('picks the sentence that names the standard service over one that does not', () => {
+      const r = readShippingTerms(
+        '<p>A delivery charge of £1.50 may apply to certain postcodes.</p>' +
+          '<p>Standard Delivery (3–5 Working Days): £3.99.</p>',
+      );
+      expect(r.standardGbp).toBe(3.99);
+    });
+
+    it('treats "spend over £X" as a threshold whatever the reward is', () => {
+      // Al Haramain: "Half-Price Shipping when you spend over £150" became a
+      // £150 standard rate.
+      const r = readShippingTerms(
+        '<p>We offer three shipping options: Standard Shipping, Discounted Shipping when you spend over £150, and Half-Price Shipping.</p>',
+      );
+      expect(r.standardGbp).toBeNull();
+    });
+
+    it('still reads the real rate off a page that also has cart chrome', () => {
+      const r = readShippingTerms(
+        '<p>0 items in your cart £0.00</p>' +
+          '<p>Standard delivery £2.95, free on orders over £40.</p>',
+      );
+      expect(r.standardGbp).toBe(2.95);
+      expect(r.freeOverGbp).toBe(40);
+    });
+  });
+
   describe('evidence', () => {
     it('quotes the sentence every candidate came from', () => {
       const claims = extractShippingClaims('<p>Standard UK delivery costs £3.95.</p>');
