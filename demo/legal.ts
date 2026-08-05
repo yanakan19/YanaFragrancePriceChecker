@@ -43,6 +43,29 @@ const draftBanner = `
 
 export const LEGAL_PAGES: LegalPage[] = [
   {
+    id: 'about',
+    title: 'About PriceSniffs',
+    short: 'About',
+    body: `
+      <p>PriceSniffs tells you what a bottle of fragrance actually costs across 30 UK shops, delivery included. Right now that covers 1,912 fragrances.</p>
+      <p>Hi, I am Yanny.</p>
+      <p>This started because I kept getting caught out. I bought a 100ml bottle of Club de Nuit, felt pleased with myself, and spotted it twelve pounds cheaper four days later. Comparing by hand meant nine tabs open across Boots, Notino and Beauty Base, and half of them hid the postage until I reached checkout.</p>
+      <p>So I spent five days building the thing I wanted to use. Go and look at what the shops charge right now, add the delivery they will actually bill you, put the answer on one screen. Roughly 250 tests keep it honest.</p>
+      <h3>What it does</h3>
+      <p>Prices are checked every hour, so 24 times a day. Boots, Selfridges, Superdrug, LOOKFANTASTIC, Escentual and the rest all get looked at on the same clock. Not one of those 1,912 prices is typed in by hand. A fragrance shows up here because a shop was genuinely selling it when we looked, and the number beside it came off that page.</p>
+      <p>Delivery terms get their own check twice a day, at 6am and 6pm. Boots posts free once you spend £25 and charges £3.95 under that. Harvey Nichols wants £300, which one bottle will never reach, so its listings always carry £5.95 on top. Shops rewrite those rules maybe twice a year, so checking them hourly would be 24 times the effort for the same answer.</p>
+      <p>That gap between Boots and Harvey Nichols is the whole point. A bottle at £24.99 from Superdrug can cost you more than the same bottle at £26 from Beauty Base, once postage lands.</p>
+      <h3>Being straight with you</h3>
+      <p>If we do not know something, we say so instead of filling the gap with a guess. Twelve of the 30 shops sit switched off for exactly that reason. Take Manchester Ouds. Their site advertises free postage over £50 but never prints what it charges below that, so they stay switched off entirely until someone reads it. Sounds harsh over one missing number. But a blank postage figure quietly counted as zero would shove that shop to the top of every result as the cheapest, and it would be a lie.</p>
+      <p>Nothing here is a paid placement. No shop buys its way up. We earn commission on four of the 30, and on those the link still lands exactly where it would have anyway.</p>
+      <h3>About the photos</h3>
+      <p>Every product photo loads straight from the shop's own website. PriceSniffs does not copy them, save them, or put them on its own server. Your browser fetches that picture from Justmylook or Allbeauty exactly as it would if you were stood on their page, and it sits beside a link sending you to buy from them. Fragrance Click told us in writing we may use theirs, so we note that. For the rest we say plainly that we have no such permission. Any shop that wants us to stop, whether that is Notino or Harvey Nichols or anyone else, we stop, the day they ask.</p>
+      <h3>Finding what you want</h3>
+      <p>Filter by bottle size, by strength, by price bracket from under £20 up past £300, by what is on offer, by what is in stock. Pick 50ml and the strength list narrows to what actually comes in 50ml, so Eau de Parfum and Eau de Toilette only stay on screen if a 50ml bottle exists. You can never tap something and land on an empty page. Sort by price, low to high or high to low, or run through it A to Z.</p>
+      <h3>Say hello</h3>
+      <p>I post about fragrance on <a href="https://www.tiktok.com/@yannysniffs" target="_blank" rel="noopener">TikTok</a> and <a href="https://www.instagram.com/yannysniffs" target="_blank" rel="noopener">Instagram</a> as yannysniffs. Come and tell me what I have got wrong, or which shop should be the 31st. Zimaya was added because someone asked.</p>`,
+  },
+  {
     id: 'how-it-works',
     title: 'How PriceSniffs works',
     short: 'How It Works',

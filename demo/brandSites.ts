@@ -54,6 +54,9 @@ export const BRAND_SITES: Record<string, string> = {
   'arabiyat prestige': 'https://arabiyatprestige.shop/',
   mykonos: 'https://officialmykonos.com/',
   bujairami: 'https://bujairami.ae/',
+  // Sub-brand of Afnan Perfumes (same founder, Imran Fazlani), launched 2023,
+  // with its own UK subdomain — hence a retailers.ts entry rather than a house.
+  zimaya: 'https://uk.zimayaperfumes.com/',
   // Elysia has no entry: search turned up only individual perfume names
   // ("Elysia Vanilla", "Elysia Elegance") sold under Fragrance World, not a
   // standalone Elysia storefront — there is no site to link to yet.
