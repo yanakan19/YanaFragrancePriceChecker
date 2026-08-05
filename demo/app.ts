@@ -712,11 +712,25 @@ function homeView(): string {
     <section class="pop-section">
       <div class="section-head">
         <h3>Most stocked</h3>
-        <button class="link-btn" data-browse>See top ${TOP_N}</button>
+        <button class="link-btn see-top" data-browse>See Top ${TOP_N} <span aria-hidden="true">→</span></button>
       </div>
       <ul class="pop-rail">
         ${POPULAR.map((f, i) => fragranceTile(f, { rank: i, rail: true })).join('')}
       </ul>
+    </section>
+
+    <section class="suggest-section">
+      <h3>Got an idea?</h3>
+      <p class="panel-note">Tell us what you would like to see. There is no server behind this
+        page, so sending opens your own email app with this addressed and ready to go.</p>
+      <form id="home-suggest-form" class="contact-form">
+        <label class="field">
+          <span>Your suggestion</span>
+          <textarea id="home-suggest-body" rows="3" placeholder="What should we add or change?"></textarea>
+        </label>
+        <button type="submit" class="contact-send">Send</button>
+      </form>
+      <p id="home-suggest-confirm" class="contact-confirm" hidden></p>
     </section>`;
 }
 
@@ -1955,6 +1969,18 @@ function init(): void {
   // confirmation says exactly that rather than pretending we received it.
   document.addEventListener('submit', (e) => {
     const form = e.target as HTMLElement;
+    if (form.id === 'home-suggest-form') {
+      e.preventDefault();
+      const body = ($('#home-suggest-body') as HTMLTextAreaElement).value.trim();
+      const subject = `PriceSniffs: A suggestion`;
+      const mailto = `mailto:${COMPANY.feedbackEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+
+      const confirm = $('#home-suggest-confirm') as HTMLElement;
+      confirm.textContent = `Your email app should now be open with your suggestion ready to send. Hit send there to reach us, we really appreciate it.`;
+      confirm.hidden = false;
+      return;
+    }
     if (form.id !== 'contact-form') return;
     e.preventDefault();
 

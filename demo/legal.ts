@@ -19,9 +19,9 @@ export const COMPANY = {
   legalName: '[REGISTERED COMPANY NAME]',
   number: '[COMPANY NUMBER]',
   address: '[REGISTERED OFFICE ADDRESS]',
-  email: 'hello@pricesniffs.example',
-  feedbackEmail: 'pricesniffs@gmail.com',
-  privacyEmail: 'privacy@pricesniffs.example',
+  email: 'yannysniffs@gmail.com',
+  feedbackEmail: 'yannysniffs@gmail.com',
+  privacyEmail: 'yannysniffs@gmail.com',
   ico: '[ICO REGISTRATION NUMBER]',
   updated: '1 August 2026',
 } as const;
