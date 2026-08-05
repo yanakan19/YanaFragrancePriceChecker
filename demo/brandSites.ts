@@ -91,6 +91,123 @@ export const BRAND_SITES: Record<string, string> = {
   // Elysia has no entry: search turned up only individual perfume names
   // ("Elysia Vanilla", "Elysia Elegance") sold under Fragrance World, not a
   // standalone Elysia storefront — there is no site to link to yet.
+
+  // ── Added 2026-08-05, confirmation pass against a ~130-brand volume list.
+  // Every URL below came back as the brand's own domain in a web search this
+  // session actually ran (title + snippet showing it as the official site),
+  // not a guess. A few carry a specific caveat inline because the search
+  // didn't fully resolve one — noted rather than smoothed over.
+  'acqua di parma': 'https://www.acquadiparma.com/en_gb/',
+  afnan: 'https://www.afnan.com/',
+  chanel: 'https://www.chanel.com/gb/',
+  dior: 'https://www.dior.com/en_gb/beauty/fragrance/home',
+  gucci: 'https://www.gucci.com/uk/en_gb/',
+  // UK-specific fragrance path not separately confirmed; this is the main
+  // Hermès site with a general fragrance category.
+  'herm s': 'https://www.hermes.com/uk/en/',
+  'tom ford': 'https://www.tomfordbeauty.com/',
+  'yves saint laurent': 'https://www.yslbeauty.com/int/fragrances.html',
+  // Only the US beauty domain turned up in search; no UK-specific one found.
+  'giorgio armani': 'https://www.giorgioarmanibeauty-usa.com/',
+  burberry: 'https://uk.burberry.com/',
+  bvlgari: 'https://www.bulgari.com/',
+  prada: 'https://www.prada-beauty.com/',
+  // US site only — no UK-specific Louis Vuitton fragrance page found.
+  'louis vuitton': 'https://us.louisvuitton.com/',
+  versace: 'https://www.versace.com/gb/en/fragrances/',
+  // Multiple Valentino beauty domains exist (valentino.com, valentino-beauty.us,
+  // valentino-beauty.co.uk); this is the brand's own primary site.
+  valentino: 'https://www.valentino.com/en-gb/experience/valentino-beauty',
+  'van cleef arpels': 'https://www.vancleefarpels.com/',
+  guerlain: 'https://www.guerlain.com/uk/en-uk/fragrance/',
+  'lanc me': 'https://www.lancome.co.uk/',
+  'jo malone london': 'https://www.jomalone.com/',
+  'penhaligon s': 'https://www.penhaligons.com/',
+  creed: 'https://creedfragrances.co.uk/',
+  diptyque: 'https://www.diptyqueparis.com/',
+  byredo: 'https://www.byredo.com/',
+  'le labo': 'https://www.lelabofragrances.com/',
+  'narciso rodriguez': 'https://www.narcisorodriguezparfums.com/',
+  'clive christian': 'https://www.clivechristian.com/',
+  'serge lutens': 'https://www.sergelutens.co.uk/',
+  'ariana grande': 'https://arianagrandefragrances.com/',
+  avon: 'https://avon.uk.com/',
+  azzaro: 'https://www.azzaro.com/',
+  'boadicea the victorious': 'https://boadiceaperfume.com/',
+  'bond no': 'https://www.bondno9.com/',
+  'britney spears': 'https://britneyspearsperfumes.com/',
+  'by kilian': 'https://www.bykilian.com/',
+  // Casamorati is a Xerjoff sub-line, not a separate company — this is its
+  // collection page on Xerjoff's own site, not an independent storefront.
+  casamorati: 'https://www.xerjoff.com/en-us/collections/casamorati-perfumes',
+  chloe: 'https://www.chloe.com/en-gb/c/fragrances',
+  'comme des garcons': 'https://comme-des-garcons-parfum.com/',
+  'demeter fragrance': 'https://demeterfragrance.com/',
+  'elizabeth arden': 'https://www.elizabetharden.co.uk/',
+  'essential parfums': 'https://www.essentialparfums.com/en',
+  // Site returned a maintenance notice when checked; domain is still the
+  // brand's own registered one, kept here rather than dropped.
+  'etat libre d orange': 'https://www.etatlibredorange.com/',
+  'ex nihilo': 'https://www.ex-nihilo-paris.com/',
+  'filippo sorcinelli': 'https://filipposorcinelli.com/en',
+  'frederic malle': 'https://www.fredericmalle.com/',
+  fugazzi: 'https://fugazzifragrances.com/',
+  'giardini di toscana': 'https://www.giardiniditoscana.com/en',
+  givenchy: 'https://www.givenchybeauty.com/gb/',
+  'goldfield banks australia': 'https://www.goldfieldandbanks.com/',
+  // Brazilian house; .eu is the closest confirmed site to a UK reader — no
+  // .com.br turned up in search results.
+  granado: 'https://www.granado.eu/',
+  'hugo boss': 'https://www.hugoboss.com/uk/',
+  'initio parfums prives': 'https://initioparfums.com/',
+  'issey miyake': 'https://uk.isseymiyake.com/',
+  'juliette has a gun': 'https://www.juliettehasagun.com/en',
+  kenzo: 'https://www.kenzo.com/uk/en/',
+  'l artisan parfumeur': 'https://www.artisanparfumeur.com/uk/en_GB/',
+  lalique: 'https://uk.lalique.com/',
+  'les liquides imaginaires': 'https://www.liquidesimaginaires.com/',
+  loewe: 'https://www.perfumesloewe.com/int/en_GB/',
+  'lorenzo pazzaglia': 'https://www.lorenzopazzaglia.com/en/',
+  'maison francis kurkdjian': 'https://www.franciskurkdjian.com/uk-en',
+  'maison martin margiela': 'https://www.maisonmargiela.com/en-gb/',
+  mancera: 'https://manceraparfums.com/en/',
+  // Main marcjacobs.com reads US-first; mymarcjacobs.com is the brand's own
+  // dedicated fragrance storefront.
+  'marc jacobs': 'https://mymarcjacobs.com/',
+  'marc antoine barrois': 'https://marcantoinebarrois.com/',
+  'matiere premiere': 'https://matiere-premiere.com/en',
+  'memo paris': 'https://www.memoparis.com/',
+  'mind games': 'https://www.mindgamesfragrance.com/',
+  montale: 'https://montaleparfums.com/en/',
+  montblanc: 'https://www.montblanc.com/en-gb/fragrances',
+  moschino: 'https://www.moschino.com/gb_en/',
+  mugler: 'https://www.mugler.co.uk/',
+  natura: 'https://www.naturabrasil.com/',
+  nishane: 'https://nishane.com/',
+  // Normalises to this because normalizeBrand strips the accented í as a
+  // non-letter — consistent with how the same feed string would look up.
+  'o botic rio': 'https://www.boticario.com/',
+  'parfums de marly': 'https://parfums-de-marly.com/',
+  phlur: 'https://phlur.com/',
+  'ralph lauren': 'https://www.ralphlauren.co.uk/',
+  rasasi: 'https://www.rasasi.com/',
+  // Roja Dove's own brand is sold as Roja Parfums at rojalondon.com;
+  // rojadoveperfumery.com is a separate multi-brand boutique he also runs.
+  'roja dove': 'https://rojalondon.com/',
+  sorce: 'https://shopsorce.com/',
+  'sospiro perfumes': 'https://sospirointernational.com/',
+  'tiziana terenzi': 'https://tizianaterenzi.com/en/',
+  // US site only — no UK-specific Victoria's Secret fragrance page found.
+  'victoria s secret': 'https://www.victoriassecret.com/',
+  'viktor rolf': 'https://fragrances.viktor-rolf.com/uk',
+  'vilhelm parfumerie': 'https://vilhelmparfumerie.com/',
+  xerjoff: 'https://www.xerjoff.com/',
+  'zoologist perfumes': 'https://www.zoologistperfumes.com/',
+  'd annam': 'https://dannam.co/',
+  // BORNTOSTANDOUT, Maison Crivelli and We Pink have no entry: search turned
+  // up only third-party retailers (Jovoy, ZGO Perfumery, Fragrantica, 50ml)
+  // for all three, never a brand-owned domain — so there is no site to link
+  // to yet, the same "absent rather than invented" rule as Elysia above.
 };
 
 /** Lowercase, strip everything but letters — so "Dolce & Gabbana", "Dolce&Gabbana"
