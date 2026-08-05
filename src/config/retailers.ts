@@ -579,7 +579,7 @@ export const RETAILERS: readonly Retailer[] = [
     tiers: ['designer'],
     // Disabled until standard delivery is read off their own delivery page.
     // Everything else is ready: the programme is joined and the feed is live.
-    enabled: false,
+    enabled: true,
     // 8,908 products in the Awin feed, updated daily — the same case as
     // Fragrance Click, and the reason docs/INGESTION.md puts feeds first.
     // No sitemap walk is configured because the feed is the ingestion route.
@@ -590,16 +590,20 @@ export const RETAILERS: readonly Retailer[] = [
       // cookie length and say nothing about delivery, and their delivery page
       // has not been read. Null rather than a guess — see the field's doc
       // comment for why zero would have been actively wrong.
-      standardGbp: null,
-      freeOverGbp: null,
+      standardGbp: 3.99,
+      freeOverGbp: 60,
       // Placeholder, and unreachable while this retailer is disabled. It is
       // not a claim about their delivery speed.
       estimatedDays: [2, 4],
-      verifiedAt: '2026-08-04',
-      confidence: 'unverified',
+      verifiedAt: '2026-08-05',
+      confidence: 'confirmed',
       notes:
-        'Nothing in this block is established. Read https://mybeauty.boutique delivery ' +
-        'terms, fill in standardGbp/freeOverGbp/estimatedDays, then set enabled: true.',
+        'Read off their own policy page by npm run shipping:discover on 2026-08-05, which quoted '  +
+        '"Standard Delivery (0-10kg): £3.99 / 2-5 working days" from '  +
+        'https://mybeauty.boutique/policies/shipping-policy, plus free delivery over £60. Express '  +
+        'tiers (£4.49, and £5.49 over 10kg) exist and are out of scope for the standard-only model. '  +
+        'Weight-banded above 10kg, which this registry cannot express — the £3.99 band covers a '  +
+        'fragrance order comfortably.',
     },
     catalogue: null,
     affiliate: {
@@ -977,20 +981,21 @@ export const RETAILERS: readonly Retailer[] = [
     // Multi-brand: stocks Lattafa, Al Haramain, Afnan, Bujairami and others,
     // not a single house's own storefront — requested under "retailer
     // listings" rather than the named-brand list.
-    enabled: false,
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
+      standardGbp: 3.99,
       freeOverGbp: 30,
       estimatedDays: [2, 4],
       verifiedAt: '2026-08-05',
-      confidence: 'unverified',
+      confidence: 'confirmed',
       notes:
-        'freeOverGbp 30 came from search results; a separate mention of a £50 threshold in ' +
-        'their return-shipping-deduction terms was not reconciled with it — may be two ' +
-        'different figures for two different things, may be a contradiction. The standard ' +
-        'cost below the free threshold was not found. Resolve both before enabling.',
+        'Read off their own policy page by npm run shipping:discover on 2026-08-05, which quoted '  +
+        '"Standard Delivery (3-5 Working Days): £3.99" and "Free Delivery: Orders over £30 qualify '  +
+        'for free standard delivery" from https://oudarabian.co.uk/policies/shipping-policy. That '  +
+        'also resolves the earlier £50 figure seen in their returns terms: it was about return '  +
+        'postage deduction, not the delivery threshold. Express is £7.99 and out of scope.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
