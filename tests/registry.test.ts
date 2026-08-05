@@ -2,11 +2,13 @@ import { describe, expect, it } from 'vitest';
 import { RETAILERS, getRetailer, enabledRetailers, retailersForTier } from '../src/config/retailers.js';
 
 describe('retailer registry', () => {
-  it('contains the retailers from the plan plus any live affiliate additions', () => {
-    // Twelve from the original plan, plus three added as their Awin programmes
-    // actually approved us: Fragrance Click UK, MyBeauty.Boutique and Glorious
-    // Beauty. None of the three was part of the original twelve.
-    expect(RETAILERS).toHaveLength(15);
+  it('contains the retailers from the plan plus any live affiliate or direct additions', () => {
+    // Twelve from the original plan, three added as their Awin programmes
+    // actually approved us (Fragrance Click UK, MyBeauty.Boutique, Glorious
+    // Beauty), and four added as direct scrapes — Escentual, The Fragrance
+    // Counter, ScentStore and Perfume Shopping — sourced without Awin
+    // approval, per the same request that added the Awin three.
+    expect(RETAILERS).toHaveLength(19);
   });
 
   // The whole point of allowing `standardGbp: null` is that "we have not
