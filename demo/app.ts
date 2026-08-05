@@ -1029,8 +1029,25 @@ function retailerCountMark(retailerId: string): string {
   return n > 0 ? `(${n.toLocaleString('en-GB')})` : '(-)';
 }
 
+/**
+ * The Retailers directory: shops you could go to for many different houses.
+ *
+ * A house's own storefront is deliberately not here. Armaf's UK shop is a
+ * genuine source of a genuine sterling price — that is why it is in the
+ * retailer registry at all, and why its prices appear on Armaf fragrances the
+ * same as anyone else's. But it is not somewhere you browse *for fragrance*,
+ * only somewhere you buy Armaf, so listing it beside Boots and Selfridges
+ * invites a reader to open it expecting a shop and find a single brand.
+ *
+ * Those shops are reached the way they actually make sense: through the brand.
+ * Explore > Brands > Armaf carries both its fragrances and the link to its own
+ * site. Being a price source and being a destination to browse are two
+ * different jobs, and only the second belongs in this list.
+ */
 function retailersPanel(): string {
-  const shops = [...RETAILERS].sort((a, b) => a.name.localeCompare(b.name));
+  const shops = [...RETAILERS]
+    .filter((r) => !r.singleBrandOnly)
+    .sort((a, b) => a.name.localeCompare(b.name));
   return `<ul class="shop-list">
     ${shops
       .map((r) => {
@@ -1095,6 +1112,10 @@ function brandView(): string {
   const filtered = BY_POPULARITY.filter((f) => f.brand === b);
   const list = sortFragrances(applyFacets(filtered), state.brandDetailSort);
   const site = officialSiteFor(b);
+  // This house's own UK shop, when we carry one. It is kept out of the
+  // Retailers directory (see retailersPanel) precisely so it can surface
+  // here instead, where "buy direct from the brand" is what it means.
+  const ownShop = RETAILERS.find((r) => r.singleBrandOnly && !cannotCarryBrand(r, b));
 
   // Sort and facets, no tier filter: every fragrance from one brand shares
   // that brand's tier (brandTierFor is a function of the brand name alone),
@@ -1119,6 +1140,16 @@ function brandView(): string {
                  <span>Open Brand Website</span>
                </a>`
             : `<p class="org-hero-domain dimmer">Official site not yet confirmed</p>`
+        }
+        ${
+          ownShop
+            ? `<p class="org-hero-blurb">Sells direct in the UK as
+                 <button class="link-btn" data-retailer="${esc(ownShop.id)}">${esc(ownShop.name)}</button>${
+                   ownShop.enabled
+                     ? ', and its prices are compared below like any other shop.'
+                     : ', but its delivery terms are not confirmed yet, so its prices are not compared.'
+                 }</p>`
+            : ''
         }
       </div>
     </div>
