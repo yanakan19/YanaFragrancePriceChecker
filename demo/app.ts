@@ -449,6 +449,7 @@ function homeView(): string {
         <li><span>Real and Live Prices</span></li>
         <li><span>No Promoted Listings</span></li>
       </ul>
+      <p class="db-count">Current Database: ${DEMO_FRAGRANCES.length.toLocaleString('en-GB')} fragrances</p>
     </section>
 
     <section class="pop-section">
