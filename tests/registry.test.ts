@@ -5,10 +5,13 @@ describe('retailer registry', () => {
   it('contains the retailers from the plan plus any live affiliate or direct additions', () => {
     // Twelve from the original plan, three added as their Awin programmes
     // actually approved us (Fragrance Click UK, MyBeauty.Boutique, Glorious
-    // Beauty), and four added as direct scrapes — Escentual, The Fragrance
+    // Beauty), four added as direct scrapes — Escentual, The Fragrance
     // Counter, ScentStore and Perfume Shopping — sourced without Awin
-    // approval, per the same request that added the Awin three.
-    expect(RETAILERS).toHaveLength(19);
+    // approval, and nine Middle Eastern / Arabic shops added 2026-08-05:
+    // French Avenue and Armaf (promoted out of houses.ts once their UK
+    // storefronts turned up), Al Haramain, Riiffs, IBRAQ, BellaVita Luxury,
+    // Oud Arabian, Manchester Ouds and Perfumeo.
+    expect(RETAILERS).toHaveLength(28);
   });
 
   // The whole point of allowing `standardGbp: null` is that "we have not

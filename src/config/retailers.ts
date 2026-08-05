@@ -801,6 +801,241 @@ export const RETAILERS: readonly Retailer[] = [
         'cookie, 21-day auto-validation.',
     },
   },
+  // ── 2026-08-05: Middle Eastern / Arabic single-brand and multi-brand shops ──
+  // Sourced the same way as Escentual and ScentStore above: this session's
+  // network is blocked at the gateway for arbitrary hosts, so every fact below
+  // came from a web search quoting the shop's own page text, never a page
+  // actually opened. Every shipping figure below is therefore `unverified`,
+  // and every entry without a confirmed standardGbp stays `enabled: false` —
+  // the registry's existing rule, not a new one, applied to a new batch.
+  {
+    id: 'french-avenue',
+    name: 'French Avenue',
+    domain: 'uk.shopfrenchavenue.com',
+    homepage: 'https://uk.shopfrenchavenue.com',
+    tiers: ['mideast'],
+    // Single-brand seller — Fragrance World's UK storefront for their French
+    // Avenue line — but unlike Pairfum London this one is worth comparing
+    // against, because other enabled retailers here also stock French Avenue,
+    // so it competes on price rather than existing in isolation.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [2, 5],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        'Was in houses.ts as frenchavenue.com (the global, AED-priced site) until this UK-' +
+        'specific storefront turned up. A £50 free-delivery figure appears in search results ' +
+        'but is attributed to third-party UK retailers stocking French Avenue, not confirmed ' +
+        "as this site's own policy — do not carry it over without checking " +
+        'uk.shopfrenchavenue.com directly. No standard-delivery cost found at all.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'armaf',
+    name: 'Armaf',
+    domain: 'armaf.uk',
+    homepage: 'https://armaf.uk',
+    tiers: ['mideast'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [2, 5],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        'Was in houses.ts as armaf.com (global) until this UK entity turned up: ARMAF (UK) ' +
+        'LTD, Companies House 12161258. Their own shipping page exists at ' +
+        'armaf.uk/pages/shipping-details (Royal Mail, Mon-Sat, no bank-holiday deliveries) but ' +
+        'search results did not surface the actual cost or free-delivery threshold — read that ' +
+        'page directly before enabling.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'al-haramain',
+    name: 'Al Haramain Perfumes',
+    domain: 'alharamainperfumes.co.uk',
+    homepage: 'https://alharamainperfumes.co.uk',
+    tiers: ['mideast'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: 50,
+      estimatedDays: [2, 5],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        'freeOverGbp is their own stated figure (free UK delivery over £50, half-price over ' +
+        '£150). The standard cost below £50 was not found — read alharamainperfumes.co.uk/' +
+        'en-us/pages/shipping-policy directly, then enable. UK-founded (opened a London retail ' +
+        'store), part of the wider Al Haramain group trading since 1970.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'riiffs',
+    name: 'Riiffs Perfumes',
+    domain: 'uk.riiffsperfumes.com',
+    homepage: 'https://uk.riiffsperfumes.com',
+    tiers: ['mideast'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: 100,
+      estimatedDays: [2, 3],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        'freeOverGbp and the 2-3 working day window are their own stated figures. The ' +
+        'standard cost below £100 was not found — read the shipping policy at ' +
+        'uk.riiffsperfumes.com directly, then enable.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'ibraq',
+    name: 'IBRAQ',
+    domain: 'ibraquk.com',
+    homepage: 'https://ibraquk.com',
+    tiers: ['mideast'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: 50,
+      estimatedDays: [1, 2],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        'The Saudi house formerly trading as Ibrahim Al Qurashi, rebranded IBRAQ — this is ' +
+        'its dedicated UK storefront. freeOverGbp and 1-2 working day processing are their ' +
+        'own stated figures; the standard cost below £50 was not found. Requested as ' +
+        '"Ibraq (formerly Ibrahim Al Quarashi)" — spelling matches.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'bellavita-luxury',
+    name: 'BellaVita Luxury',
+    domain: 'bellavitaluxury.uk',
+    homepage: 'https://bellavitaluxury.uk',
+    tiers: ['mideast'],
+    // "Luxury-inspired" fragrance dupes rather than a heritage Arabic house —
+    // the same category Bujairami (houses.ts) trades in — filed under
+    // `mideast` as the closest existing tier for this kind of catalogue
+    // rather than inventing a new one for a single retailer.
+    enabled: true,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 4.5,
+      freeOverGbp: 22,
+      estimatedDays: [1, 3],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        "Both figures read off this site's own Shipping Policy page in search results: free " +
+        'over £22, flat £4.50 below that, 1-3 business days to hand-off. Not to be confused ' +
+        'with Bella Vita Organic (bellavitaorganic.com), an unrelated Indian skincare brand ' +
+        'that also trades as "Bellavita" — see the matching caution in demo/brandSites.ts.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'oud-arabian',
+    name: 'Oud Arabian',
+    domain: 'oudarabian.co.uk',
+    homepage: 'https://oudarabian.co.uk',
+    tiers: ['mideast'],
+    // Multi-brand: stocks Lattafa, Al Haramain, Afnan, Bujairami and others,
+    // not a single house's own storefront — requested under "retailer
+    // listings" rather than the named-brand list.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: 30,
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        'freeOverGbp 30 came from search results; a separate mention of a £50 threshold in ' +
+        'their return-shipping-deduction terms was not reconciled with it — may be two ' +
+        'different figures for two different things, may be a contradiction. The standard ' +
+        'cost below the free threshold was not found. Resolve both before enabling.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'manchester-ouds',
+    name: 'Manchester Ouds',
+    domain: 'manchesterouds.com',
+    homepage: 'https://manchesterouds.com',
+    tiers: ['mideast'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: 50,
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        'freeOverGbp 50 is their own stated figure ("free UK shipping on orders over £50"). ' +
+        'The standard cost below that was not found — read manchesterouds.com directly, ' +
+        'then enable.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'perfumeo',
+    name: 'Perfumeo',
+    domain: 'perfumeo.co.uk',
+    homepage: 'https://www.perfumeo.co.uk',
+    tiers: ['designer'],
+    // General discount fragrance retailer, not Middle Eastern focused —
+    // requested under "retailer listings" alongside the oud specialists.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [2, 5],
+      verifiedAt: '2026-08-05',
+      confidence: 'unverified',
+      notes:
+        'Nothing about their delivery terms turned up in search results at all beyond the ' +
+        'shop existing and trading as Perfumeo Ltd. Read perfumeo.co.uk delivery terms ' +
+        'directly, fill in every field above, then enable.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
 ] as const;
 
 /** Registry lookup by id. Built once — the registry is static. */
