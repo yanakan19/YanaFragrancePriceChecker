@@ -1,12 +1,66 @@
 {
-  "checkedAt": "2026-08-05T16:00:54.165Z",
+  "checkedAt": "2026-08-05T16:03:21.384Z",
   "outcomes": [
     {
-      "retailerId": "zimaya",
-      "name": "Zimaya",
-      "homepage": "https://uk.zimayaperfumes.com",
+      "retailerId": "the-fragrance-counter",
+      "name": "The Fragrance Counter",
+      "homepage": "https://www.thefragrancecounter.co.uk",
       "currentStandardGbp": null,
       "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [
+        {
+          "url": "https://www.thefragrancecounter.co.uk/delivery",
+          "status": 200,
+          "standardGbp": null,
+          "freeOverGbp": null,
+          "caveats": [
+            "only named express/upgraded services carried a price — standard rate not stated",
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "evidence": [
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Delivery Information Free Gifts With Purchase: Shop Now",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 4.95,
+              "sentence": "Royal Mail 24hr Tracked UK Delivery - £4.95*",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 9.95,
+              "sentence": "Royal Mail Special Delivery - £9.95",
+              "isUpgradeTier": true
+            }
+          ]
+        }
+      ],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.thefragrancecounter.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
+    },
+    {
+      "retailerId": "perfume-shopping",
+      "name": "Perfume Shopping",
+      "homepage": "https://www.perfumeshopping.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 50,
       "enabled": false,
       "pagesTried": 9,
       "findings": [],
@@ -18,19 +72,454 @@
         "rates": [],
         "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
         "steps": [
-          "https://uk.zimayaperfumes.com/products.json?limit=250"
+          "https://www.perfumeshopping.com/products.json?limit=250"
         ]
       },
       "errors": [
-        "https://uk.zimayaperfumes.com/policies/shipping-policy: HTTP 403",
-        "https://uk.zimayaperfumes.com/pages/shipping-policy: HTTP 403",
-        "https://uk.zimayaperfumes.com/pages/shipping-details: HTTP 403",
-        "https://uk.zimayaperfumes.com/pages/delivery-information: HTTP 403",
-        "https://uk.zimayaperfumes.com/pages/shipping: HTTP 403",
-        "https://uk.zimayaperfumes.com/pages/delivery: HTTP 403",
-        "https://uk.zimayaperfumes.com/shipping-policy: HTTP 403",
-        "https://uk.zimayaperfumes.com/delivery: HTTP 403",
-        "https://uk.zimayaperfumes.com/shipping: HTTP 403"
+        "https://www.perfumeshopping.com/policies/shipping-policy: HTTP 403",
+        "https://www.perfumeshopping.com/pages/shipping-policy: HTTP 403",
+        "https://www.perfumeshopping.com/pages/shipping-details: HTTP 403",
+        "https://www.perfumeshopping.com/pages/delivery-information: HTTP 403",
+        "https://www.perfumeshopping.com/pages/shipping: HTTP 403",
+        "https://www.perfumeshopping.com/pages/delivery: HTTP 403",
+        "https://www.perfumeshopping.com/shipping-policy: HTTP 403",
+        "https://www.perfumeshopping.com/delivery: HTTP 403",
+        "https://www.perfumeshopping.com/shipping: HTTP 403"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "glorious-beauty",
+      "name": "Glorious Beauty",
+      "homepage": "https://gloriousbeauty.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 28,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [
+        {
+          "url": "https://gloriousbeauty.co.uk/policies/shipping-policy",
+          "status": 200,
+          "standardGbp": null,
+          "freeOverGbp": 28,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "evidence": [
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Spend $28 more and get free shipping!",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 28,
+              "sentence": "Free UK Shipping on Orders over £28",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [],
+      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
+    },
+    {
+      "retailerId": "french-avenue",
+      "name": "French Avenue",
+      "homepage": "https://uk.shopfrenchavenue.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 0,
+      "findings": [],
+      "quote": null,
+      "errors": [
+        "https://uk.shopfrenchavenue.com/policies/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/pages/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/pages/shipping-details: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/pages/delivery-information: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/pages/shipping: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/pages/delivery: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/delivery: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/shipping: disallowed by robots.txt — not fetched"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "armaf",
+      "name": "Armaf",
+      "homepage": "https://armaf.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": null,
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "al-haramain",
+      "name": "Al Haramain Perfumes",
+      "homepage": "https://alharamainperfumes.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 50,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [
+        {
+          "url": "https://alharamainperfumes.co.uk/policies/shipping-policy",
+          "status": 200,
+          "standardGbp": null,
+          "freeOverGbp": 50,
+          "caveats": [],
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE UK Delivery on orders over £50",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://alharamainperfumes.co.uk/pages/shipping-policy",
+          "status": 200,
+          "standardGbp": null,
+          "freeOverGbp": 50,
+          "caveats": [
+            "page names 2 different free-delivery thresholds (£50.00, £150.00)"
+          ],
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE UK Delivery on orders over £50",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "Orders over £50 are entitled to free delivery which will be shipped out through 48 Tracked service with the option to select a faster tracked service at checkout.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 150,
+              "sentence": "Half-Price Shipping when you spend over £150 - (Minimum Value will slightly vary based upon Currency differences)",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 150,
+              "sentence": "Half-Price Shipping when you spend over £150 - (Minimum Value will slightly vary based upon Currency differences)",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://alharamainperfumes.co.uk/pages/delivery-information",
+          "status": 200,
+          "standardGbp": null,
+          "freeOverGbp": 50,
+          "caveats": [],
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE UK Delivery on orders over £50",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE UK Delivery on orders over £50 (Royal Mail Standard Service)",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [],
+      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
+    },
+    {
+      "retailerId": "riiffs",
+      "name": "Riiffs Perfumes",
+      "homepage": "https://uk.riiffsperfumes.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 100,
+      "enabled": false,
+      "pagesTried": 0,
+      "findings": [],
+      "quote": null,
+      "errors": [
+        "https://uk.riiffsperfumes.com/policies/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/pages/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/pages/shipping-details: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/pages/delivery-information: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/pages/shipping: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/pages/delivery: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/delivery: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/shipping: disallowed by robots.txt — not fetched"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "ibraq",
+      "name": "IBRAQ",
+      "homepage": "https://ibraquk.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 50,
+      "enabled": false,
+      "pagesTried": 0,
+      "findings": [],
+      "quote": null,
+      "errors": [
+        "https://ibraquk.com/policies/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/pages/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/pages/shipping-details: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/pages/delivery-information: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/pages/shipping: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/pages/delivery: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/delivery: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/shipping: disallowed by robots.txt — not fetched"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "name": "Manchester Ouds",
+      "homepage": "https://manchesterouds.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 50,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [
+        {
+          "url": "https://manchesterouds.com/policies/shipping-policy",
+          "status": 200,
+          "standardGbp": null,
+          "freeOverGbp": 50,
+          "caveats": [],
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "Free shipping on orders over £50",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "Standard shipping is free on orders over £50, while a nominal fee applies to orders below £50.",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://manchesterouds.com/pages/shipping-policy",
+          "status": 200,
+          "standardGbp": null,
+          "freeOverGbp": 50,
+          "caveats": [],
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "Free shipping on orders over £50",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [],
+      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
+    },
+    {
+      "retailerId": "perfumeo",
+      "name": "Perfumeo",
+      "homepage": "https://www.perfumeo.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 0,
+      "findings": [],
+      "quote": null,
+      "errors": [
+        "https://www.perfumeo.co.uk/policies/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/pages/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/pages/shipping-details: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/pages/delivery-information: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/pages/shipping: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/pages/delivery: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/delivery: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/shipping: disallowed by robots.txt — not fetched"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "name": "The Beauty Store UK",
+      "homepage": "https://www.thebeautystore.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [
+        {
+          "url": "https://www.thebeautystore.com/policies/shipping-policy",
+          "status": 200,
+          "standardGbp": 2.95,
+          "freeOverGbp": 50,
+          "caveats": [],
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE DELIVERY OVER £50",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE DELIVERY OVER £50",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 2.95,
+              "sentence": "Standard Delivery (UK Mainland) : £2.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 4.95,
+              "sentence": "Express Delivery (UK Mainland) : £4.95",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 2.95,
+              "sentence": "Standard Delivery (UK Mainland) : £2.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 4.95,
+              "sentence": "Express Delivery (UK Mainland) : £4.95",
+              "isUpgradeTier": true
+            }
+          ]
+        },
+        {
+          "url": "https://www.thebeautystore.com/pages/shipping-policy",
+          "status": 200,
+          "standardGbp": null,
+          "freeOverGbp": 50,
+          "caveats": [],
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE DELIVERY OVER £50",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE DELIVERY OVER £50",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://www.thebeautystore.com/pages/delivery-information",
+          "status": 200,
+          "standardGbp": null,
+          "freeOverGbp": 50,
+          "caveats": [],
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE DELIVERY OVER £50",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE DELIVERY OVER £50",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://www.thebeautystore.com/pages/shipping",
+          "status": 200,
+          "standardGbp": null,
+          "freeOverGbp": 50,
+          "caveats": [],
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE DELIVERY OVER £50",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE DELIVERY OVER £50",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://www.thebeautystore.com/shipping-policy",
+          "status": 200,
+          "standardGbp": null,
+          "freeOverGbp": 50,
+          "caveats": [],
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE DELIVERY OVER £50",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE DELIVERY OVER £50",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [],
+      "verdict": "CONFIRM: £2.95 standard, from https://www.thebeautystore.com/policies/shipping-policy — read the quoted sentence, then set standardGbp and enable"
+    },
+    {
+      "retailerId": "zimaya",
+      "name": "Zimaya",
+      "homepage": "https://uk.zimayaperfumes.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 8,
+      "findings": [],
+      "quote": null,
+      "errors": [
+        "https://uk.zimayaperfumes.com/policies/shipping-policy: disallowed by robots.txt — not fetched"
       ],
       "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
     }
