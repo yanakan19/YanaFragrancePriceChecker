@@ -498,6 +498,18 @@ function browseView(): string {
 
 /* ── detail ──────────────────────────────────────────────────────────────── */
 
+/**
+ * A retailer's own feed carries only a true/false in-stock flag, never a unit
+ * count — nothing this project harvests from anywhere has ever included one.
+ * "(-)" says so honestly rather than being silent about it, which otherwise
+ * reads as an oversight rather than a genuine gap in what shops publish.
+ * Only shown against a state that claims some stock exists; "Sold out (-)"
+ * would just be a confusing way to repeat "zero".
+ */
+function stockQtyMark(stock: StockState): string {
+  return stock === 'inStock' || stock === 'lowStock' ? ' (-)' : '';
+}
+
 function offerRow(row: PresentedOffer, isBest: boolean): string {
   const d = row.discount;
   const sub: string[] = [
@@ -520,7 +532,7 @@ function offerRow(row: PresentedOffer, isBest: boolean): string {
       </span>
       <span class="offer-bot">
         <span class="facts">
-          <span class="dot ${STOCK_CLASS[row.stock]}"></span>${STOCK_LABEL[row.stock]}
+          <span class="dot ${STOCK_CLASS[row.stock]}"></span>${STOCK_LABEL[row.stock]}${stockQtyMark(row.stock)}
           <span class="sep">·</span>${esc(sub.join(' · '))}
         </span>
         ${d ? `<span class="off">${d.percentOff}% off RRP</span>` : ''}
@@ -743,18 +755,28 @@ function deliveryLines(r: Retailer): string[] {
   return lines;
 }
 
+/**
+ * How many fragrances a retailer currently lists, as the plainest mark that
+ * says so: `(n)` when we hold real live data, `(-)` when we do not — a shop
+ * still on fixtures, or one added but not yet enabled, has genuinely nothing
+ * to report here rather than a zero that would read as "definitely none".
+ */
+function retailerCountMark(retailerId: string): string {
+  const n = listingCountAt(retailerId);
+  return n > 0 ? `(${n.toLocaleString('en-GB')})` : '(-)';
+}
+
 function retailersPanel(): string {
   const shops = [...RETAILERS].sort((a, b) => a.name.localeCompare(b.name));
   return `<ul class="shop-list">
     ${shops
       .map((r) => {
-        const n = listingCountAt(r.id);
         return `<li>
           <button class="shop-row" data-retailer="${esc(r.id)}">
             ${monogram(r.name)}
             <span class="shop-row-text">
               <span class="shop-row-name">${esc(r.name)}</span>
-              <span class="shop-row-meta">${n > 0 ? `${n} fragrances listed` : 'No listings yet'}</span>
+              <span class="shop-row-meta">${retailerCountMark(r.id)}</span>
             </span>
             <span class="shop-row-go" aria-hidden="true">→</span>
           </button>
@@ -782,7 +804,7 @@ function retailerView(): string {
     <div class="org-hero">
       ${monogram(r.name)}
       <div class="org-hero-text">
-        <h2 class="org-hero-name">${esc(r.name)}</h2>
+        <h2 class="org-hero-name">${esc(r.name)} <span class="org-hero-count">${retailerCountMark(r.id)}</span></h2>
         <p class="org-hero-domain">${esc(r.domain)}</p>
         ${r.blurb ? `<p class="org-hero-blurb">${esc(r.blurb)}</p>` : ''}
         <ul class="fact-list">
