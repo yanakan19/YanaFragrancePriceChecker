@@ -1,6 +1,6 @@
 {
   "retailerId": "pairfum-london",
-  "updatedAt": "2026-08-05T08:57:05.601Z",
+  "updatedAt": "2026-08-05T13:30:41.483Z",
   "source": "live",
   "listings": [
     {
@@ -17,11 +17,32 @@
       "sectionId": "house-direct",
       "retailerId": "pairfum-london",
       "firstSeenAt": "2026-08-05T08:57:05.601Z",
-      "lastSeenAt": "2026-08-05T08:57:05.601Z",
+      "lastSeenAt": "2026-08-05T13:30:41.483Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
       "eligibleForNewBadge": false,
+      "variantId": null
+    },
+    {
+      "retailerSku": "1000-wholesale-set",
+      "url": "https://www.pairfum.com/product/1000-wholesale-set/",
+      "rawTitle": "£1,000 Wholesale Set",
+      "rawBrand": "Pairfum",
+      "ean": null,
+      "imageUrl": null,
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": false,
+      "sectionId": "house-direct",
+      "retailerId": "pairfum-london",
+      "firstSeenAt": "2026-08-05T13:30:41.483Z",
+      "lastSeenAt": "2026-08-05T13:30:41.483Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
       "variantId": null
     }
   ],
