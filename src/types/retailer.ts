@@ -265,6 +265,26 @@ export interface Retailer {
   blurb?: string;
   /** Catalogue segments this retailer is worth querying for. */
   tiers: RetailerTier[];
+  /**
+   * Set when this "retailer" is actually one house's own storefront — Armaf's
+   * UK shop, French Avenue's UK shop, and so on — rather than a multi-brand
+   * shop that happens to carry that house alongside others.
+   *
+   * This matters for one specific correctness question: on another brand's
+   * fragrance page, is it true to say this retailer does not have it? For an
+   * ordinary multi-brand retailer, yes — they could plausibly stock anything
+   * in their tiers, and today they don't. For a single-brand storefront it is
+   * not just untrue today, it could never become true: Armaf's own shop
+   * structurally cannot sell a Dior fragrance. Presenting the two the same
+   * way under "Not available" claims a fact about the second that isn't real.
+   *
+   * The value is the brand name exactly as it appears on `DemoFragrance.brand`
+   * once matched (matching itself goes through `brandKey` from
+   * `src/catalogue/brandName.ts`, so casing/punctuation differences between
+   * this field and a harvested brand string don't cause a false mismatch).
+   * `undefined` for every ordinary multi-brand retailer.
+   */
+  singleBrandOnly?: string;
   /** Whether the pipeline currently fetches from this retailer at all. */
   enabled: boolean;
   adapter: AdapterStrategy;
