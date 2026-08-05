@@ -371,6 +371,25 @@
   }
   .intro-points span { color: var(--ink); font-weight: 600; }
 
+  /* Sized off the count's own font-size (1em), so it can never read larger
+     than the text it follows regardless of viewport. --ok is the token this
+     stylesheet already uses for "good/live" states elsewhere. */
+  .live-dot {
+    display: inline-block; width: .5em; height: .5em; margin-left: .45em;
+    border-radius: 50%; background: var(--ok); vertical-align: middle;
+    animation: live-pulse 1.8s ease-in-out infinite;
+  }
+  @keyframes live-pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: .25; }
+  }
+  /* Visually hidden but present for anyone using a screen reader, since the
+     dot itself is aria-hidden and conveys nothing without this. */
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+  }
+
   /* ── popular rail ──────────────────────────────────────────────────────── */
   .pop-section { margin-top: 32px; }
   .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
