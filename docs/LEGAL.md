@@ -1,35 +1,25 @@
-# Legal pages — what still needs doing
+# Legal pages
 
-Five pages are drafted and live in the footer: **How it works**, **Affiliate
-disclosure**, **Privacy notice**, **Terms of use**, **Contact & feedback**.
+Five pages live in the footer: **How it works**, **Affiliate disclosure**,
+**Privacy notice**, **Terms of use**, **Contact & feedback**.
 
 They live in one place, [`demo/legal.ts`](../demo/legal.ts), rather than being
 duplicated as markdown here — two copies of a privacy notice will drift, and the
 one that drifts is always the one nobody reads.
 
-> **These are drafts, not legal advice, and no solicitor has seen them.** They
-> are a starting point that covers the right ground for a UK price comparison
-> site. Get them reviewed before launch — the affiliate disclosure and privacy
-> notice are the two with real regulatory exposure.
+> **Written for what is actually true today, not a template.** PriceSniffs is
+> run by one person (YannySniffs) trading under that name, not a registered
+> company — so there is no company number, registered office or ICO number to
+> state, and the pages say that rather than filling the gap with an invented
+> one. If that changes (incorporation, an ICO registration, a real office
+> address), update `COMPANY` in `demo/legal.ts` and the paragraphs that
+> currently explain their absence. These still are not a substitute for a
+> solicitor's review before anything with real regulatory exposure (the
+> affiliate disclosure, the privacy notice) is relied on at scale.
 
-## Before the site goes live
-
-Every `[SQUARE BRACKET]` in `demo/legal.ts` is a placeholder. Publishing with
-them intact is worse than having no policy, because a privacy notice naming a
-company that does not exist is itself a UK GDPR failure.
-
-| Placeholder | What it needs |
-|---|---|
-| `[REGISTERED COMPANY NAME]` | Your registered company name, or trading name if you are a sole trader |
-| `[COMPANY NUMBER]` | Companies House number (omit the whole line if not incorporated) |
-| `[REGISTERED OFFICE ADDRESS]` | A real correspondence address — required on a privacy notice |
-| `[ICO REGISTRATION NUMBER]` | Most UK organisations processing personal data must register with the ICO and pay the annual data protection fee. Check at [ico.org.uk](https://ico.org.uk) |
-| `[HOSTING PROVIDER]` | Whoever ends up hosting — they are a processor and must be named |
-| `[RETENTION PERIOD]` | How long you keep logs and correspondence. 90 days for logs is a common, defensible answer |
-
-Also replace the three `@pricesniffs.example` addresses with mailboxes someone
-actually monitors. A data request must be answered within one month, so
-`privacy@` cannot be a black hole.
+All contact addresses across the pages are the one real inbox,
+`yannysniffs@gmail.com`. A data request must be answered within one month, so
+that inbox has to actually be checked.
 
 ## Things the drafts commit you to
 
