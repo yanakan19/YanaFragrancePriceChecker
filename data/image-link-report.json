@@ -1,6 +1,17 @@
 {
-  "checkedAt": "2026-08-05T20:11:03.738Z",
-  "totalChecked": 3057,
-  "brokenCount": 0,
-  "broken": []
+  "checkedAt": "2026-08-05T21:49:17.367Z",
+  "totalChecked": 3140,
+  "brokenCount": 1,
+  "broken": [
+    {
+      "url": "https://www.beautybase.com/cdn/shop/files/1641922281-58518400.jpg?v=1763391161&width=1920",
+      "retailers": [
+        "beautybase"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    }
+  ]
 }
