@@ -1,15 +1,21 @@
 /**
- * Read each disabled retailer's own delivery page and report what it says.
+ * Find each disabled retailer's standard delivery cost, and report the evidence.
  *
  *   npm run shipping:discover
  *   npm run shipping:discover -- --shop=armaf
  *   npm run shipping:discover -- --all      # include already-enabled shops too
  *
- * Eight retailers are disabled purely because `shipping.standardGbp` is null:
- * the free-over threshold was findable by research, the flat rate below it was
- * not. This walks the candidate policy-page paths for each one, parses whatever
- * delivery terms the page states, and writes the findings — with the sentence
- * each figure came from — to data/shipping-discovery-report.json.
+ * Retailers are disabled purely because `shipping.standardGbp` is null: the
+ * free-over threshold is findable by research, the flat rate below it usually
+ * is not. Two tiers, cheapest first:
+ *
+ *   1. Read the shop's own delivery policy page and parse what it states.
+ *   2. Where that says nothing usable, ask the shop's own checkout estimator
+ *      what it would charge to deliver one cheap bottle to a London postcode.
+ *      See src/catalogue/shippingQuote.ts for exactly what that exchange is.
+ *
+ * Findings go to data/shipping-discovery-report.json with the sentence or the
+ * quoted rate each figure came from.
  *
  * ── What this deliberately does not do ───────────────────────────────────────
  * It does not edit the registry. It does not enable anybody. `standardGbp` is
@@ -27,6 +33,7 @@ import { createHttp } from '../src/catalogue/httpFetch.js';
 import { loadRobots } from '../src/catalogue/attempt.js';
 import { isAllowed } from '../src/catalogue/robots.js';
 import { SHIPPING_PAGE_PATHS, readShippingTerms } from '../src/catalogue/shippingTerms.js';
+import { quoteShipping, QUOTE_POSTCODE } from '../src/catalogue/shippingQuote.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -73,6 +80,16 @@ interface ShopOutcome {
   enabled: boolean;
   pagesTried: number;
   findings: PageFinding[];
+  /** What the shop's own checkout estimator quoted, when the page could not say. */
+  quote: {
+    ok: boolean;
+    postcode: string;
+    quotedAgainst: string | null;
+    basketGbp: number | null;
+    rates: { name: string; priceGbp: number; currency: string }[];
+    error: string | null;
+    steps: string[];
+  } | null;
   errors: string[];
   /** What a human should do next, in one line. */
   verdict: string;
@@ -95,6 +112,7 @@ for (const retailer of shops) {
     enabled: retailer.enabled,
     pagesTried: 0,
     findings: [],
+    quote: null,
     errors: [],
     verdict: '',
   };
@@ -140,7 +158,37 @@ for (const retailer of shops) {
   const withStandard = outcome.findings.filter((f) => f.standardGbp !== null);
   const clean = withStandard.filter((f) => f.caveats.length === 0);
 
-  if (clean.length > 0) {
+  // Second tier, only where the policy page could not answer cleanly: ask the
+  // shop's own checkout estimator what it would charge to send one cheap
+  // bottle to a London postcode. See src/catalogue/shippingQuote.ts for exactly
+  // what that exchange is and why it stops short of a real checkout.
+  if (clean.length === 0 && isAllowed(robots, `${origin}/cart/shipping_rates.json`)) {
+    const q = await quoteShipping(origin);
+    outcome.quote = {
+      ok: q.ok,
+      postcode: QUOTE_POSTCODE,
+      quotedAgainst: q.productTitle,
+      basketGbp: q.productPriceGbp,
+      rates: q.rates,
+      error: q.error,
+      steps: q.steps,
+    };
+  }
+
+  const quotedRates = outcome.quote?.ok ? outcome.quote.rates : [];
+  // The cheapest quoted rate is the standard one by definition: everything
+  // dearer is an upgrade the buyer opts into.
+  const quotedStandard = quotedRates[0] ?? null;
+
+  if (clean.length === 0 && quotedStandard && quotedStandard.currency === 'GBP') {
+    outcome.verdict =
+      `CONFIRM (checkout): £${quotedStandard.priceGbp.toFixed(2)} quoted as "${quotedStandard.name}" ` +
+      `on a £${outcome.quote!.basketGbp?.toFixed(2)} basket to ${QUOTE_POSTCODE} — ` +
+      `${quotedRates.length} rate(s) offered`;
+  } else if (clean.length === 0 && quotedStandard) {
+    outcome.verdict =
+      `CURRENCY MISMATCH: checkout quoted ${quotedStandard.currency} ${quotedStandard.priceGbp.toFixed(2)}, not GBP — this shop may not sell in sterling`;
+  } else if (clean.length > 0) {
     outcome.verdict =
       `CONFIRM: £${clean[0]!.standardGbp!.toFixed(2)} standard, from ${clean[0]!.url} — read the quoted sentence, then set standardGbp and enable`;
   } else if (withStandard.length > 0) {
@@ -156,8 +204,10 @@ for (const retailer of shops) {
 
   const mark = outcome.verdict.split(':')[0]!;
   console.log(
-    `  ${retailer.name.padEnd(24)} ${String(outcome.findings.length).padStart(2)} pages read   ${mark}`,
+    `  ${retailer.name.padEnd(24)} ${String(outcome.findings.length).padStart(2)} pages` +
+      `${outcome.quote ? (outcome.quote.ok ? '  +quote' : '  +quote(x)') : '        '}   ${mark}`,
   );
+  if (outcome.quote && !outcome.quote.ok) console.log(`      quote: ${outcome.quote.error}`);
   for (const e of outcome.errors.slice(0, 2)) console.log(`      ${e}`);
 
   outcomes.push(outcome);
@@ -171,6 +221,10 @@ writeFileSync(
 );
 
 const confirmable = outcomes.filter((o) => o.verdict.startsWith('CONFIRM')).length;
-console.log(`\n${confirmable} of ${outcomes.length} shops produced an unambiguous standard rate`);
+const viaCheckout = outcomes.filter((o) => o.verdict.startsWith('CONFIRM (checkout)')).length;
+console.log(
+  `\n${confirmable} of ${outcomes.length} shops produced an unambiguous standard rate` +
+    (viaCheckout ? ` (${viaCheckout} of them from the checkout estimator)` : ''),
+);
 console.log('Nothing was written to the registry — confirm each quoted sentence first.');
 console.log(`Report: data/shipping-discovery-report.json\n`);

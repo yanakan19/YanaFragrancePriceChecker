@@ -1086,10 +1086,15 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: null,
     affiliate: {
       ...awinActive('116255', '3017443'),
-      // Their branding terms read "No branding guidelines", which is an
-      // absence of instruction, not a grant of permission. imageBasis stays
-      // unset, so their photography is not displayed — see the ImageBasis doc
-      // comment in src/types/retailer.ts.
+      // Permission to use their product photography was given directly by
+      // their team on a call, 5 Aug 2026, after the site was explained to
+      // them: they confirmed that "No branding guidelines" in the programme
+      // terms is permissive rather than silent. That is a stronger basis than
+      // reading a terms page, which is why imageBasis is set — but it is
+      // spoken rather than written, so it is recorded here with its date and
+      // provenance so anyone auditing can ask for it in writing.
+      imageUsageConfirmed: true,
+      imageBasis: 'affiliate-terms',
       notes:
         'Merchant id 116255, joined 5 Aug 2026. Programme terms last updated 30 May 2025. ' +
         'Commission is calculated on a transaction value that includes VAT, delivery, card fees ' +
