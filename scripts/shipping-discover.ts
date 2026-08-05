@@ -162,8 +162,16 @@ for (const retailer of shops) {
   // shop's own checkout estimator what it would charge to send one cheap
   // bottle to a London postcode. See src/catalogue/shippingQuote.ts for exactly
   // what that exchange is and why it stops short of a real checkout.
-  if (clean.length === 0 && isAllowed(robots, `${origin}/cart/shipping_rates.json`)) {
-    const q = await quoteShipping(origin);
+  if (clean.length === 0) {
+    const rateUrl = `${origin}/cart/shipping_rates.json`;
+    if (!isAllowed(robots, rateUrl)) {
+      // Shopify's stock robots.txt carries `Disallow: /cart`, so on most
+      // Shopify shops this route is closed before it starts. That is the
+      // shop's own instruction and is honoured, but it has to be *recorded*:
+      // an unexplained absence in the report reads as "the tool did not try".
+      outcome.errors.push(`${rateUrl}: disallowed by robots.txt — checkout estimator not attempted`);
+    } else {
+      const q = await quoteShipping(origin);
     outcome.quote = {
       ok: q.ok,
       postcode: QUOTE_POSTCODE,
@@ -172,7 +180,8 @@ for (const retailer of shops) {
       rates: q.rates,
       error: q.error,
       steps: q.steps,
-    };
+      };
+    }
   }
 
   const quotedRates = outcome.quote?.ok ? outcome.quote.rates : [];

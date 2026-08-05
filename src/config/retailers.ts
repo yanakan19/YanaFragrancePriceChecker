@@ -1057,31 +1057,27 @@ export const RETAILERS: readonly Retailer[] = [
       'We keep costs down with an honest to goodness no-frills approach. We do not pay for ' +
       'fancy marketing campaigns or luxurious offices, so we can pass on all our savings to you.',
     tiers: ['designer'],
-    // Disabled, and likely to stay that way longer than most: their published
-    // terms of sale name no standard delivery charge and no free-delivery
-    // threshold anywhere, only a 10 day long-stop for despatch. The twice
-    // daily shipping:discover run will try their delivery page, but there is
-    // a real chance the figure is only ever shown at checkout.
-    enabled: false,
+    enabled: true,
     adapter: 'affiliate-feed',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
+      standardGbp: 2.95,
+      freeOverGbp: 50,
       // Not a typical window. Their terms state only that goods arrive "within
       // 10 days of your order", which is the contractual maximum they bind
       // themselves to, so the upper bound is theirs and the lower is a guess
       // held deliberately wide rather than flattering.
       estimatedDays: [2, 10],
       verifiedAt: '2026-08-05',
-      confidence: 'unverified',
+      confidence: 'confirmed',
       notes:
-        'Read from their Awin programme terms and their own terms of sale, 5 Aug 2026. Those ' +
-        'documents state no delivery price and no free-delivery threshold at all — only the 10 ' +
-        'day despatch long-stop recorded above. Identity is confirmed: The Beauty Store London ' +
-        'Ltd, company 10805437, VAT GB325347215, returns to Unit 2 Orchard Business Park, ' +
-        'Forsyth Road, Woking GU21 5FH. Note the storefront is thebeautystore.com, not the ' +
-        '.co.uk domain first assumed here.',
+        'Read off their own policy page by npm run shipping:discover on 2026-08-05, which quoted '  +
+        '"Standard Delivery (UK Mainland) : £2.95" and "FREE DELIVERY OVER £50" from '  +
+        'https://www.thebeautystore.com/policies/shipping-policy. Express is £4.95 and out of '  +
+        'scope for the standard-only model. Their terms of sale separately bind them to despatch '  +
+        'within 10 days, which is the upper bound recorded above rather than a typical window. '  +
+        'Identity confirmed: The Beauty Store London Ltd, company 10805437, VAT GB325347215. '  +
+        'Note the storefront is thebeautystore.com, not the .co.uk domain first assumed here.',
     },
     catalogue: null,
     affiliate: {
