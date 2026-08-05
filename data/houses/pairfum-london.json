@@ -1,0 +1,29 @@
+{
+  "retailerId": "pairfum-london",
+  "updatedAt": "2026-08-05T08:57:05.601Z",
+  "source": "live",
+  "listings": [
+    {
+      "retailerSku": "5050515907030",
+      "url": "https://www.pairfum.com/product/black-acrylic-display-plinth/",
+      "rawTitle": "Black Acrylic Display Plinth",
+      "rawBrand": "Pairfum",
+      "ean": null,
+      "imageUrl": null,
+      "priceGbp": null,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "house-direct",
+      "retailerId": "pairfum-london",
+      "firstSeenAt": "2026-08-05T08:57:05.601Z",
+      "lastSeenAt": "2026-08-05T08:57:05.601Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": false,
+      "variantId": null
+    }
+  ],
+  "runs": []
+}
