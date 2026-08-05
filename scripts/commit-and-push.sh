@@ -136,9 +136,37 @@ for attempt in 1 2 3 4 5; do
   sleep "$delay"
   delay=$(( delay * 2 ))
 
+  # A rebase will not start at all while the tree is dirty, and the build
+  # reliably leaves it dirty: `npm run demo` writes demo/404.html and
+  # dist-demo/artifact.html whether or not the caller listed them, so anything
+  # the caller did not name stays modified. That produced "cannot pull with
+  # rebase: You have unstaged changes", which aborted the retry before it began
+  # and cost a complete 40-minute harvest.
+  #
+  # Discarding them is safe and is not a judgement call: everything still
+  # uncommitted at this point is build output, reproducible from the inputs that
+  # were just committed. Restricted to tracked files so nothing unknown is
+  # touched, and deliberately not a `git stash` — there is nothing worth
+  # restoring, and a stash left behind on a runner is just litter.
+  if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
+    echo "Discarding uncommitted build output before rebasing."
+    git checkout -- .
+  fi
+
   if ! git pull --rebase origin "$branch"; then
     if resolve_generated_conflicts; then
       echo "Conflicts were confined to generated files; rebuilt them and continued."
+    elif [ -z "$(git diff --name-only --diff-filter=U)" ]; then
+      # No conflicted paths means the rebase never started — a dirty tree, a
+      # network failure, a detached HEAD. Saying "conflicts in a file that is
+      # not generated" here would be a lie, and it was: that is exactly what
+      # this printed when the real message underneath was "cannot pull with
+      # rebase: You have unstaged changes", sending the next reader after a
+      # conflict that did not exist.
+      git rebase --abort 2>/dev/null || true
+      echo "::error::Could not start a rebase onto origin/${branch}. See the git error above." >&2
+      echo "::error::Nothing was pushed." >&2
+      exit 1
     else
       git rebase --abort || true
       echo "::error::Could not rebase onto origin/${branch}: the incoming change conflicts" >&2
