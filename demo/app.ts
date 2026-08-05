@@ -48,6 +48,11 @@ type NoteLayerFilter = NoteLayer | 'any';
  *  price both ways (Deals). */
 type ListSort = 'az' | 'za' | 'price-low' | 'price-high';
 
+/** One of the price bands offered under the Price facet. */
+type PriceBand = '0-20' | '20-30' | '30-50' | '50-80' | '80-150' | '150-300' | '300+';
+/** Every facet a fragrance list can be narrowed by. Matches the state.facet* fields below 1:1. */
+type FacetGroup = 'volume' | 'concentration' | 'priceBand' | 'tier' | 'onSale' | 'inStock';
+
 const MODE_KEY = 'pricesniffs.display';
 const LAYOUT_KEY = 'pricesniffs.layout';
 const PER_ROW_KEY = 'pricesniffs.perrow';
@@ -78,7 +83,47 @@ const state = {
   brandDetailSort: 'az' as ListSort,
   retailerDetailSort: 'az' as ListSort,
   retailerDetailFilter: 'all' as BrandFilter,
+
+  // ── facets ────────────────────────────────────────────────────────────────
+  // One shared set of selections rather than one per page: every list page
+  // resets them on navigation (see `go`), so nothing carries over somewhere it
+  // would not make sense, and one implementation covers Browse, Search, Deals,
+  // a retailer's page, a brand's page and a note's page alike.
+  facetsOpen: false,
+  facetVolume: new Set<number>(),
+  facetConcentration: new Set<string>(),
+  facetPriceBand: new Set<PriceBand>(),
+  facetTier: new Set<RetailerTier>(),
+  facetOnSale: false,
+  facetInStock: false,
 };
+
+/** Every facet selection back to empty. Called on every navigation — see `go`. */
+function clearFacets(): void {
+  state.facetsOpen = false;
+  state.facetVolume.clear();
+  state.facetConcentration.clear();
+  state.facetPriceBand.clear();
+  state.facetTier.clear();
+  state.facetOnSale = false;
+  state.facetInStock = false;
+}
+
+function activeFacetCount(): number {
+  return (
+    state.facetVolume.size +
+    state.facetConcentration.size +
+    state.facetPriceBand.size +
+    state.facetTier.size +
+    (state.facetOnSale ? 1 : 0) +
+    (state.facetInStock ? 1 : 0)
+  );
+}
+
+function toggleInSet<T>(set: Set<T>, value: T): void {
+  if (set.has(value)) set.delete(value);
+  else set.add(value);
+}
 
 const esc = (s: string) =>
   s.replace(/[&<>"']/g, (c) =>
@@ -128,6 +173,176 @@ const POPULAR = BY_POPULARITY.slice(0, 12);
  */
 function rowsFor(frag: DemoFragrance): PresentedOffer[] {
   return buildComparison(offersFor(frag.id), { sortBy: 'delivered', tier: frag.tier });
+}
+
+/* ── facets ──────────────────────────────────────────────────────────────────
+   Amazon's own rule, not just a description of it: an option only appears if
+   at least one fragrance in the list actually has it, and its count reflects
+   every *other* active facet but never its own group — so ticking a second
+   volume never zeroes out the first, but ticking Volume can still empty out
+   Concentration. Ticking a filter that would leave nothing selected is not
+   possible, because that option would never have been offered. */
+
+const PRICE_BANDS: { id: PriceBand; label: string; min: number; max: number | null }[] = [
+  { id: '0-20', label: 'Under £20', min: 0, max: 20 },
+  { id: '20-30', label: '£20 - £30', min: 20, max: 30 },
+  { id: '30-50', label: '£30 - £50', min: 30, max: 50 },
+  { id: '50-80', label: '£50 - £80', min: 50, max: 80 },
+  { id: '80-150', label: '£80 - £150', min: 80, max: 150 },
+  { id: '150-300', label: '£150 - £300', min: 150, max: 300 },
+  { id: '300+', label: '£300 and over', min: 300, max: null },
+];
+
+function priceBandFor(deliveredPriceGbp: number): PriceBand {
+  return (PRICE_BANDS.find((b) => deliveredPriceGbp >= b.min && (b.max === null || deliveredPriceGbp < b.max)) ?? PRICE_BANDS[PRICE_BANDS.length - 1]!).id;
+}
+
+/**
+ * Whether one fragrance survives every active facet except `exclude`. Passing
+ * a group's own id when computing that same group's option counts is what
+ * makes ticking a second option within a group additive rather than
+ * self-defeating — see the header comment above.
+ */
+function passesFacets(f: DemoFragrance, exclude: FacetGroup | null): boolean {
+  if (exclude !== 'volume' && state.facetVolume.size && !state.facetVolume.has(f.sizeMl)) return false;
+  if (exclude !== 'concentration' && state.facetConcentration.size && !state.facetConcentration.has(f.concentration)) return false;
+  if (exclude !== 'tier' && state.facetTier.size && !state.facetTier.has(f.tier)) return false;
+
+  if (exclude !== 'priceBand' && state.facetPriceBand.size) {
+    const best = bestOffer(rowsFor(f));
+    if (!best || !state.facetPriceBand.has(priceBandFor(best.deliveredPriceGbp))) return false;
+  }
+  if (exclude !== 'onSale' && state.facetOnSale) {
+    if (!rowsFor(f).some((r) => r.discount !== null)) return false;
+  }
+  if (exclude !== 'inStock' && state.facetInStock) {
+    if (!rowsFor(f).some((r) => r.isPurchasable)) return false;
+  }
+  return true;
+}
+
+function applyFacets(list: DemoFragrance[]): DemoFragrance[] {
+  return list.filter((f) => passesFacets(f, null));
+}
+
+interface FacetOption {
+  value: string;
+  label: string;
+  count: number;
+}
+
+/**
+ * Every facet option worth offering for this list, each with a live count —
+ * `list` should be the *pre-facet* candidates for the page (everything Browse
+ * or a brand page would show with no facets applied), not the already-filtered
+ * result, or every count would just read as "however many are left".
+ */
+function facetGroups(list: DemoFragrance[]) {
+  const volume = new Map<number, number>();
+  const concentration = new Map<string, number>();
+  const priceBand = new Map<PriceBand, number>();
+  const tier = new Map<RetailerTier, number>();
+  let onSale = 0;
+  let inStock = 0;
+
+  for (const f of list) {
+    const rows = rowsFor(f);
+    if (passesFacets(f, 'volume')) volume.set(f.sizeMl, (volume.get(f.sizeMl) ?? 0) + 1);
+    if (passesFacets(f, 'concentration')) {
+      concentration.set(f.concentration, (concentration.get(f.concentration) ?? 0) + 1);
+    }
+    if (passesFacets(f, 'tier')) tier.set(f.tier, (tier.get(f.tier) ?? 0) + 1);
+    if (passesFacets(f, 'priceBand')) {
+      const best = bestOffer(rows);
+      if (best) {
+        const band = priceBandFor(best.deliveredPriceGbp);
+        priceBand.set(band, (priceBand.get(band) ?? 0) + 1);
+      }
+    }
+    if (passesFacets(f, 'onSale') && rows.some((r) => r.discount !== null)) onSale++;
+    if (passesFacets(f, 'inStock') && rows.some((r) => r.isPurchasable)) inStock++;
+  }
+
+  const toOptions = <T extends string | number>(counts: Map<T, number>, label: (v: T) => string): FacetOption[] =>
+    [...counts.entries()]
+      .filter(([, count]) => count > 0)
+      .sort((a, b) => (typeof a[0] === 'number' ? (a[0] as number) - (b[0] as number) : String(a[0]).localeCompare(String(b[0]))))
+      .map(([value, count]) => ({ value: String(value), label: label(value), count }));
+
+  return {
+    volume: toOptions(volume, (v) => `${v}ml`),
+    concentration: toOptions(concentration, (v) => shortConcentration(v)),
+    priceBand: PRICE_BANDS.filter((b) => (priceBand.get(b.id) ?? 0) > 0).map((b) => ({
+      value: b.id, label: b.label, count: priceBand.get(b.id)!,
+    })),
+    tier: toOptions(tier, (v) => TIER_LABEL[v as RetailerTier]),
+    onSale,
+    inStock,
+  };
+}
+
+/** A single toggle pill within a facet group — a button, not a native
+ *  checkbox, so it fits the rest of the app's delegated-click-handler
+ *  pattern rather than needing a second kind of listener just for this. */
+function facetPill(group: FacetGroup, value: string, label: string, count: number, active: boolean): string {
+  return `<button type="button" class="facet-pill${active ? ' is-active' : ''}" data-facet-group="${group}" data-facet-value="${esc(value)}" aria-pressed="${active}">
+    ${esc(label)} <span class="facet-count">${count}</span>
+  </button>`;
+}
+
+/**
+ * The filter control for a fragrance list: a toggle button (badge shows how
+ * many facets are active) that opens a panel of pill groups underneath.
+ * Groups with nothing to narrow — every candidate shares the one available
+ * value — are left out entirely rather than shown with a single dead option.
+ */
+function facetsBlock(list: DemoFragrance[]): string {
+  const g = facetGroups(list);
+  const count = activeFacetCount();
+
+  const group = (title: string, groupId: FacetGroup, options: FacetOption[], isSelected: (value: string) => boolean): string => {
+    if (options.length < 2) return '';
+    return `<fieldset class="facet-group">
+      <legend>${esc(title)}</legend>
+      <div class="facet-pills">${options.map((o) => facetPill(groupId, o.value, o.label, o.count, isSelected(o.value))).join('')}</div>
+    </fieldset>`;
+  };
+
+  const onSalePill = g.onSale > 0
+    ? `<fieldset class="facet-group"><legend>Offers</legend><div class="facet-pills">
+         ${facetPill('onSale', '1', 'On sale', g.onSale, state.facetOnSale)}
+       </div></fieldset>`
+    : '';
+  const inStockPill = g.inStock > 0 && g.inStock < list.length
+    ? `<fieldset class="facet-group"><legend>Availability</legend><div class="facet-pills">
+         ${facetPill('inStock', '1', 'In stock only', g.inStock, state.facetInStock)}
+       </div></fieldset>`
+    : '';
+
+  const panel = `${group('Volume', 'volume', g.volume, (v) => state.facetVolume.has(Number(v)))}
+    ${group('Concentration', 'concentration', g.concentration, (v) => state.facetConcentration.has(v))}
+    ${group('Price', 'priceBand', g.priceBand, (v) => state.facetPriceBand.has(v as PriceBand))}
+    ${group('Type', 'tier', g.tier, (v) => state.facetTier.has(v as RetailerTier))}
+    ${onSalePill}
+    ${inStockPill}`;
+
+  if (!panel.trim()) return '';
+
+  return `<div class="facets">
+    <button type="button" class="control facets-toggle" data-facets-toggle aria-expanded="${state.facetsOpen}">
+      <span class="control-ico">${ICON_FILTER}</span>
+      <span>Filters</span>
+      ${count > 0 ? `<span class="facets-badge">${count}</span>` : ''}
+    </button>
+    ${
+      state.facetsOpen
+        ? `<div class="facets-panel">
+             ${panel}
+             ${count > 0 ? `<button type="button" class="link-btn facets-clear" data-facets-clear>Clear all filters</button>` : ''}
+           </div>`
+        : ''
+    }
+  </div>`;
 }
 
 /* ── display mode ────────────────────────────────────────────────────────────
@@ -496,10 +711,11 @@ function visibleFragrances(): DemoFragrance[] {
 
 function browseView(): string {
   const filtered = visibleFragrances();
+  const faceted = applyFacets(filtered);
   // With no brand or query in play this is the leading list, which is capped:
   // an 879 row wall is not a starting point anyone can use.
   const isTop = !state.brand && !state.query.trim();
-  const list = isTop ? filtered.slice(0, TOP_N) : filtered;
+  const list = isTop ? faceted.slice(0, TOP_N) : faceted;
   const title = state.brand ?? (state.query.trim() ? `Results for "${state.query.trim()}"` : `Most stocked`);
 
   return `
@@ -512,6 +728,7 @@ function browseView(): string {
              views or purchases, so it is never presented as if it did.</p>`
         : ''
     }
+    <div class="controls">${facetsBlock(filtered)}</div>
     ${fragranceList(list, 'Nothing here matches that search.')}`;
 }
 
@@ -712,6 +929,10 @@ function dealsPanel(): string {
     if (state.dealSort === 'highest') return b.price - a.price;
     return b.percentOff - a.percentOff;
   });
+  // Facets are computed and applied against the fragrance each deal is on,
+  // not the deal record itself — same groups, same counts, as everywhere
+  // else a fragrance list appears.
+  const filtered = sorted.filter((d) => passesFacets(d.fragrance, null));
 
   const controls = `<div class="controls">
     ${control('deal-sort', 'Sort deals', ICON_RANK, [
@@ -720,10 +941,14 @@ function dealsPanel(): string {
       { value: 'highest', label: 'Highest price' },
     ], state.dealSort)}
     ${perRowControl()}
+    ${facetsBlock(sorted.map((d) => d.fragrance))}
   </div>`;
 
   if (sorted.length === 0) {
     return `${controls}<p class="empty-note">No shop is publishing a reference price right now.</p>`;
+  }
+  if (filtered.length === 0) {
+    return `${controls}<p class="empty-note">No deal matches that filter.</p>`;
   }
 
   const dealTile = (d: (typeof sorted)[number]) =>
@@ -735,7 +960,7 @@ function dealsPanel(): string {
 
   return `${controls}
     <p class="panel-note">Savings are against the shop's own published recommended retail price.</p>
-    <ul class="tile-grid">${chunked(sorted, dealTile)}</ul>`;
+    <ul class="tile-grid">${chunked(filtered, dealTile)}</ul>`;
 }
 
 /* ── explore: retailers ──────────────────────────────────────────────────── */
@@ -812,11 +1037,12 @@ function retailerView(): string {
   const filtered = fragrancesAt(r.id).filter(
     (f) => state.retailerDetailFilter === 'all' || f.tier === state.retailerDetailFilter,
   );
-  const list = sortFragrances(filtered, state.retailerDetailSort);
+  const list = sortFragrances(applyFacets(filtered), state.retailerDetailSort);
 
   const controls = `<div class="controls">
     ${listSortControl('retailer-detail-sort', state.retailerDetailSort)}
     ${tierFilterControl('retailer-detail-filter', state.retailerDetailFilter)}
+    ${facetsBlock(filtered)}
   </div>`;
 
   return `
@@ -848,13 +1074,19 @@ function retailerView(): string {
 function brandView(): string {
   const b = state.brandProfile;
   if (!b) return exploreView();
-  const list = sortFragrances(BY_POPULARITY.filter((f) => f.brand === b), state.brandDetailSort);
+  const filtered = BY_POPULARITY.filter((f) => f.brand === b);
+  const list = sortFragrances(applyFacets(filtered), state.brandDetailSort);
   const site = officialSiteFor(b);
 
-  // Sort only, no tier filter: every fragrance from one brand shares that
-  // brand's tier (brandTierFor is a function of the brand name alone), so a
-  // tier filter here would only ever show everything or nothing.
-  const controls = `<div class="controls">${listSortControl('brand-detail-sort', state.brandDetailSort)}</div>`;
+  // Sort and facets, no tier filter: every fragrance from one brand shares
+  // that brand's tier (brandTierFor is a function of the brand name alone),
+  // so a tier filter here would only ever show everything or nothing — the
+  // Type facet group already knows this and hides itself for exactly that
+  // reason (an option only appears when at least two values exist).
+  const controls = `<div class="controls">
+    ${listSortControl('brand-detail-sort', state.brandDetailSort)}
+    ${facetsBlock(filtered)}
+  </div>`;
 
   return `
     <button class="back" data-back-explore>Back</button>
@@ -933,11 +1165,12 @@ function noteView(): string {
   const filtered = fragrancesWithNote(state.noteName, state.noteLayer).filter(
     (f) => state.noteDetailFilter === 'all' || f.tier === state.noteDetailFilter,
   );
-  const list = sortFragrances(filtered, state.noteDetailSort);
+  const list = sortFragrances(applyFacets(filtered), state.noteDetailSort);
 
   const controls = `<div class="controls">
     ${listSortControl('note-detail-sort', state.noteDetailSort)}
     ${tierFilterControl('note-detail-filter', state.noteDetailFilter)}
+    ${facetsBlock(filtered)}
   </div>`;
 
   return `
@@ -950,9 +1183,22 @@ function noteView(): string {
 
 /* ── explore: search ─────────────────────────────────────────────────────── */
 
+/**
+ * The results half of the Search tab — its own function because the live
+ * keystroke handler further down replaces just this block's innerHTML rather
+ * than re-rendering the whole page, and needs the exact same markup.
+ */
+function searchResultsHtml(q: string): string {
+  if (!q) return `<p class="empty-note">Type to search all ${DEMO_FRAGRANCES.length} fragrances.</p>`;
+  const filtered = visibleFragrances();
+  const list = applyFacets(filtered);
+  return `<div class="page-head"><h2>Results</h2><span class="count">${list.length}</span></div>
+    <div class="controls">${facetsBlock(filtered)}</div>
+    ${fragranceList(list, 'Nothing matches that search.')}`;
+}
+
 function searchPanel(): string {
   const q = state.query.trim();
-  const list = q ? visibleFragrances() : [];
   return `
     <label class="search-big">
       ${ICON_SEARCH}
@@ -964,12 +1210,7 @@ function searchPanel(): string {
         ? `<p class="panel-note">Filtered to ${esc(state.brand)}. <button class="link-btn" data-clear-brand>Clear</button></p>`
         : ''
     }
-    <div class="search-results">${
-      q
-        ? `<div class="page-head"><h2>Results</h2><span class="count">${list.length}</span></div>
-           ${fragranceList(list, 'Nothing matches that search.')}`
-        : `<p class="empty-note">Type to search all ${DEMO_FRAGRANCES.length} fragrances.</p>`
-    }</div>`;
+    <div class="search-results">${searchResultsHtml(q)}</div>`;
 }
 
 /* ── explore shell ───────────────────────────────────────────────────────── */
@@ -1396,6 +1637,10 @@ function render(): void {
 }
 
 function go(view: View): void {
+  // Every navigation lands on a different list (or none at all), so facet
+  // selections from wherever we just were would only ever be stale here —
+  // see clearFacets' own comment.
+  clearFacets();
   state.view = view;
   render();
   syncUrl('push');
@@ -1539,6 +1784,36 @@ function init(): void {
       render();
       return;
     }
+
+    if (t.closest('[data-facets-toggle]')) {
+      state.facetsOpen = !state.facetsOpen;
+      render();
+      return;
+    }
+
+    if (t.closest('[data-facets-clear]')) {
+      clearFacets();
+      state.facetsOpen = true; // stay open — the reader is mid-filtering, not leaving the page
+      render();
+      return;
+    }
+
+    const facetPillBtn = t.closest<HTMLElement>('[data-facet-group]');
+    if (facetPillBtn) {
+      const group = facetPillBtn.getAttribute('data-facet-group') as FacetGroup;
+      const value = facetPillBtn.getAttribute('data-facet-value')!;
+      // Two shapes: most groups are a Set toggled by value, onSale/inStock
+      // are single booleans — same data-facet-group/value markup either way,
+      // read differently by group id.
+      if (group === 'onSale') state.facetOnSale = !state.facetOnSale;
+      else if (group === 'inStock') state.facetInStock = !state.facetInStock;
+      else if (group === 'volume') toggleInSet(state.facetVolume, Number(value));
+      else if (group === 'concentration') toggleInSet(state.facetConcentration, value);
+      else if (group === 'priceBand') toggleInSet(state.facetPriceBand, value as PriceBand);
+      else if (group === 'tier') toggleInSet(state.facetTier, value as RetailerTier);
+      render();
+      return;
+    }
   });
 
   document.addEventListener('input', (e) => {
@@ -1549,14 +1824,8 @@ function init(): void {
     // Re-rendering would tear out the field mid keystroke and lose focus, so
     // only the results below it are replaced.
     const panel = $('.explore') as HTMLElement;
-    const q = state.query.trim();
-    const list = q ? visibleFragrances() : [];
     const results = panel.querySelector('.search-results');
-    const html = q
-      ? `<div class="page-head"><h2>Results</h2><span class="count">${list.length}</span></div>
-         ${fragranceList(list, 'Nothing matches that search.')}`
-      : `<p class="empty-note">Type to search all ${DEMO_FRAGRANCES.length} fragrances.</p>`;
-    if (results) results.innerHTML = html;
+    if (results) results.innerHTML = searchResultsHtml(state.query.trim());
   });
 
   document.addEventListener('change', (e) => {

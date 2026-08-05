@@ -777,6 +777,47 @@
     .note-chip:hover { border-color: var(--accent); color: var(--accent); }
   }
   .notes-none { font-size: 13.5px; color: var(--faint); margin: 0; }
+
+  /* ── facets ────────────────────────────────────────────────────────────────
+     The toggle sits in the same .controls row as sort/filter dropdowns and
+     matches their shading exactly (it *is* a .control). flex-basis: 100% on
+     the open panel forces it onto its own line below the row rather than
+     squeezing in beside the dropdowns — the same wrap-onto-a-new-row trick
+     .controls' own flex-wrap already relies on. */
+  .facets { display: contents; }
+  .facets-toggle { position: relative; }
+  .facets-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 16px; height: 16px; padding: 0 4px; margin-left: 1px;
+    background: var(--accent); color: var(--accent-on);
+    font-size: 10px; font-weight: 700; border-radius: 999px;
+  }
+  .facets-panel {
+    flex-basis: 100%; display: flex; flex-direction: column; gap: 12px;
+    margin: 2px 0 10px; padding: 14px; background: var(--surface);
+    border: 1px solid var(--line); border-radius: 12px;
+  }
+  .facet-group { border: 0; margin: 0; padding: 0; min-width: 0; }
+  .facet-group legend {
+    font-size: 10.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+    color: var(--faint); margin: 0 0 7px; padding: 0;
+  }
+  .facet-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .facet-pill {
+    background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px;
+    padding: 5px 11px; font: inherit; font-size: 12.5px; font-weight: 600; color: var(--ink);
+    cursor: pointer; transition: border-color .12s ease, color .12s ease, background .12s ease;
+  }
+  .facet-count { color: var(--faint); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .facet-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (hover: hover) and (pointer: fine) {
+    .facet-pill:hover { border-color: var(--accent); }
+  }
+  .facet-pill.is-active {
+    background: var(--accent-sf); border-color: var(--accent); color: var(--accent);
+  }
+  .facet-pill.is-active .facet-count { color: inherit; }
+  .facets-clear { align-self: flex-start; }
   .notes-source { font-size: 11.5px; color: var(--faint); margin: 10px 0 0; }
 
   /* ── full search ───────────────────────────────────────────────────────── */
