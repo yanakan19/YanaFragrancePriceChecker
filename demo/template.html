@@ -441,18 +441,24 @@
   .phead { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
   .phead-text { min-width: 0; flex: 1; }
   /* The brand's own control, sitting just above .phead rather than inside it
-     (see brandButton in app.ts) — a real button, reset back down to the
-     plain label it visually replaces, then given the hover/focus a control
-     needs that a label never did. */
+     (see brandButton in app.ts). A bordered pill, not a plain label — the
+     same outline-says-tap-me language as .sold-by, the retailer pill lower
+     down on the same tile, so the one other clickable label on the tile
+     already taught the reader what this shape means. Sized to its own text
+     (inline-block) rather than the full tile width, and pinned to the
+     start edge of the tile's flex column below. */
   .phead-brand {
-    display: block; width: 100%; background: none; border: 0; margin: 0; padding: 0;
-    font: inherit; font-size: 10px; font-weight: 600; letter-spacing: .08em;
-    text-transform: uppercase; text-align: left; color: var(--faint); cursor: pointer;
+    display: inline-block; align-self: flex-start; max-width: 100%;
+    background: var(--surface-2); border: 1px solid var(--line); color: var(--faint);
+    font: inherit; font-size: 10px; font-weight: 700; letter-spacing: .05em;
+    text-transform: uppercase; text-align: left; cursor: pointer;
+    padding: 3px 10px; margin: 0; border-radius: 999px;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    transition: border-color .12s ease, color .12s ease;
   }
-  .phead-brand:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+  .phead-brand:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   @media (hover: hover) and (pointer: fine) {
-    .phead-brand:hover { color: var(--accent); }
+    .phead-brand:hover { border-color: var(--accent); color: var(--accent); }
   }
   .phead-name {
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
@@ -555,9 +561,15 @@
   }
   .tile-body:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
   .tile-body:active { transform: scale(.97); }
-  .tile .phead-brand, .tile .phead-meta { color: #8A838F; }
+  .tile .phead-meta { color: #8A838F; }
+  /* Same pill as .sold-by lower down the tile — same background, border and
+     ink — so the two read as a matched pair: this is the shop pill's brand
+     counterpart, not a differently styled control. */
+  .tile .phead-brand {
+    background: #F0EDEF; border-color: #E7E3E7; color: #55505A; font-size: 9px;
+  }
   @media (hover: hover) and (pointer: fine) {
-    .tile .phead-brand:hover { color: #17141A; }
+    .tile .phead-brand:hover { border-color: var(--accent); color: var(--accent); }
   }
   /* Two lines' worth of room whether the name needs one or two, so the picture
      starts at the same offset in every tile and the grid reads as columns
@@ -710,6 +722,24 @@
   .org-hero-domain { font-size: 12.5px; color: var(--faint); margin: 2px 0 0; }
   .org-hero-domain a { color: inherit; }
   .org-hero-blurb { font-size: 13.5px; color: var(--ink-2); margin: 8px 0 0; line-height: 1.5; }
+
+  /* The brand's own site: same icon-then-label shape and shading as the
+     sort/filter controls (.control) above, so it reads as one more control
+     rather than a plain text link — but a fixed destination rather than a
+     dropdown, so its own class rather than a literal reuse of .control. */
+  .brand-site-link {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 10px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 8px 13px 8px 10px; text-decoration: none;
+    font: inherit; font-size: 13px; font-weight: 600; color: var(--ink);
+    transition: border-color .12s ease, color .12s ease;
+  }
+  .brand-site-link .control-ico { transition: color .12s ease; }
+  .brand-site-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (hover: hover) and (pointer: fine) {
+    .brand-site-link:hover { border-color: var(--accent); color: var(--accent); }
+    .brand-site-link:hover .control-ico { color: var(--accent); }
+  }
 
   .fact-list { list-style: none; margin: 8px 0 6px; padding: 0; }
   .fact-list li {

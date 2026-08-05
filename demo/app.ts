@@ -295,6 +295,7 @@ const ICON_DESKTOP = icon('<rect x="2.5" y="4" width="19" height="13" rx="2" str
    licence to reproduce those. */
 const ICON_TIKTOK = icon('<path d="M14 3v11.2a3.3 3.3 0 1 1-3.3-3.3c.3 0 .6 0 .9.1V8.4a6.1 6.1 0 1 0 5.1 6V9.8a7.5 7.5 0 0 0 4.3 1.4V8.5A4.6 4.6 0 0 1 17 4.5V3h-3Z" fill="currentColor"/>');
 const ICON_INSTAGRAM = icon('<rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/>');
+const ICON_EXTERNAL = icon('<path d="M14 4h6v6M20 4l-8.5 8.5M19 13.5V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>');
 
 /** A labelled dropdown with its icon, used for every sort and filter control. */
 function control(id: string, label: string, ico: string, options: { value: string; label: string }[], current: string): string {
@@ -863,7 +864,10 @@ function brandView(): string {
         <h2 class="org-hero-name">${esc(b)}</h2>
         ${
           site
-            ? `<p class="org-hero-domain"><a href="${esc(site)}" target="_blank" rel="noopener nofollow">${esc(site.replace(/^https?:\/\//, '').replace(/\/$/, ''))}</a></p>`
+            ? `<a class="brand-site-link" href="${esc(site)}" target="_blank" rel="noopener nofollow">
+                 <span class="control-ico">${ICON_EXTERNAL}</span>
+                 <span>Open Brand Website</span>
+               </a>`
             : `<p class="org-hero-domain dimmer">Official site not yet confirmed</p>`
         }
       </div>
