@@ -553,6 +553,15 @@
      visibly misaligned from the brand/name beside it. */
   .phead-name-wrap { display: flex; align-items: center; }
   .tile .phead-name-wrap { min-height: 2.5em; }
+  /* .phead-name-wrap's own centring (above) spaces a one-line name in the
+     middle of that reserved room, which reads as a gap between brand and
+     name and also drags .phead's centring of .phead-meta down against a box
+     taller than what's actually on screen. Anchoring both to the top instead
+     keeps brand and name close together and puts the meta column level with
+     them — the reserved room still exists for a wrapped second line, it just
+     no longer pushes anything visible around. */
+  .tile .phead { align-items: flex-start; }
+  .tile .phead-name-wrap { align-items: flex-start; }
   /* The slack absorber: with every row the same height (grid-auto-rows above),
      whatever height the text does not use ends up here, which keeps the price
      and the shop tag on the tile's bottom edge across the whole row. */
@@ -676,6 +685,7 @@
   .org-hero .monogram { flex: none; width: 56px; height: 56px; border-radius: 15px; font-size: 18px; }
   .org-hero-text { flex: 1; min-width: 0; }
   .org-hero-name { font-size: 21px; font-weight: 700; letter-spacing: -.02em; margin: 0; }
+  .org-hero-count { font-size: 14px; font-weight: 500; color: var(--faint); }
   .org-hero-domain { font-size: 12.5px; color: var(--faint); margin: 2px 0 0; }
   .org-hero-domain a { color: inherit; }
   .org-hero-blurb { font-size: 13.5px; color: var(--ink-2); margin: 8px 0 0; line-height: 1.5; }
