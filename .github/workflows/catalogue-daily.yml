@@ -41,6 +41,10 @@ on:
         description: 'Retry genuinely blocked shops through the Apify proxy. Requires the APIFY_PROXY_PASSWORD secret. Costs money.'
         type: boolean
         default: false
+      shipping_discover:
+        description: "Read disabled shops' own delivery pages and report what they say. Writes a report only, never the registry."
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -85,6 +89,25 @@ jobs:
           ./scripts/commit-and-push.sh \
             "Probe: what the crawler learned $(date -u +%Y-%m-%d)" \
             data/strategy-memory.json
+
+      # Reads each disabled shop's own delivery page, because the flat standard
+      # rate is what keeps them disabled and it is not findable by research —
+      # shops advertise the free-over threshold and bury the rate below it.
+      #
+      # Report only. This step cannot enable a retailer or set standardGbp:
+      # delivered price is the default sort, so a wrong-low delivery charge
+      # makes a shop falsely win it. A human reads the quoted sentence and
+      # types the number. See scripts/shipping-discover.ts.
+      - name: Discover shipping terms
+        if: ${{ inputs.shipping_discover }}
+        run: npm run shipping:discover
+
+      - name: Commit the shipping report
+        if: ${{ inputs.shipping_discover }}
+        run: |
+          ./scripts/commit-and-push.sh \
+            "Shipping terms: what each delivery page says $(date -u +%Y-%m-%d)" \
+            data/shipping-discovery-report.json
 
       # The route the probe proved works: ask the sitemap instead of guessing.
       # This is now what runs every night, not just on request. The plain
