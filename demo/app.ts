@@ -343,17 +343,19 @@ function tierFilterControl(id: string, current: BrandFilter): string {
 /* ── shared pieces ───────────────────────────────────────────────────────── */
 
 /**
- * Brand, name, size and concentration as one block.
+ * Name, size and concentration as one block. The brand used to live here too,
+ * but it is now its own clickable control (see `brandButton`) rendered
+ * beside this rather than inside it — the fragrance tile wraps most of this
+ * in a button already, and a button cannot nest another interactive element.
  *
- * Brand and name sit together on the left; size and concentration ride on the
- * right, smaller and quieter, vertically centred against them rather than
- * hanging off the top. Used everywhere a product appears so the same product
- * reads identically in a rail, a list row and a page heading.
+ * Size and concentration ride on the right, smaller and quieter, vertically
+ * centred against the name rather than hanging off the top. Used everywhere
+ * a product appears so the same product reads identically in a rail, a list
+ * row and a page heading.
  */
 function productHead(f: DemoFragrance, tag = 'span'): string {
   return `<${tag} class="phead">
     <span class="phead-text">
-      <span class="phead-brand">${esc(f.brand)}</span>
       <span class="phead-name-wrap"><span class="phead-name">${esc(f.name)}</span></span>
     </span>
     <span class="phead-meta">
@@ -361,6 +363,16 @@ function productHead(f: DemoFragrance, tag = 'span'): string {
       <span>${esc(shortConcentration(f.concentration))}</span>
     </span>
   </${tag}>`;
+}
+
+/**
+ * Brand name, clickable wherever a product appears, to that brand's own
+ * profile page. A real `<button>`, styled to match the `.phead-brand` label
+ * it replaces, so it is reachable and activatable by keyboard exactly like
+ * every other control in the app — see the delegated `data-brand` handler.
+ */
+function brandButton(brand: string): string {
+  return `<button type="button" class="phead-brand" data-brand="${esc(brand)}">${esc(brand)}</button>`;
 }
 
 function priceLine(f: DemoFragrance): string {
@@ -398,16 +410,22 @@ function fragranceTile(
   // falls back to an invisible placeholder, purely to hold the row's height.
   const badgeRetailer = best?.retailer.name ?? rows[0]?.retailer.name ?? null;
   const medal = opts?.rank !== undefined && opts.rank < 3 ? MEDALS[opts.rank] : null;
+  // Two sibling buttons, not one wrapping the other: the brand's own control
+  // and the rest of the tile (name, art, price, shop) each need their own
+  // click and keyboard target, and a button cannot contain another button.
   return `<li${opts?.rail ? ' class="pop-item"' : ''}>
-    <button class="tile" data-frag="${f.id}">
-      ${productHead(f)}
-      <span class="tile-art">
-        ${medal ? `<span class="medal ${medal}" aria-label="Number ${opts!.rank! + 1} most popular">${opts!.rank! + 1}</span>` : ''}
-        ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`)}
-      </span>
-      <span class="tile-price">${opts?.trailing ?? priceLine(f)}</span>
-      ${badgeRetailer ? `<span class="sold-by">${esc(badgeRetailer)}</span>` : `<span class="sold-by" aria-hidden="true" style="visibility:hidden">&nbsp;</span>`}
-    </button>
+    <div class="tile">
+      ${brandButton(f.brand)}
+      <button class="tile-body" data-frag="${f.id}" aria-label="${esc(f.brand)} ${esc(f.name)}">
+        ${productHead(f)}
+        <span class="tile-art">
+          ${medal ? `<span class="medal ${medal}" aria-label="Number ${opts!.rank! + 1} most popular">${opts!.rank! + 1}</span>` : ''}
+          ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`)}
+        </span>
+        <span class="tile-price">${opts?.trailing ?? priceLine(f)}</span>
+        ${badgeRetailer ? `<span class="sold-by">${esc(badgeRetailer)}</span>` : `<span class="sold-by" aria-hidden="true" style="visibility:hidden">&nbsp;</span>`}
+      </button>
+    </div>
   </li>`;
 }
 
@@ -605,6 +623,7 @@ function detailView(): string {
     <div class="detail-grid">
       <div class="hero">
         <div class="hero-art">${productArt(frag.photoUrl, 'lg', `${frag.brand} ${frag.name}`)}</div>
+        ${brandButton(frag.brand)}
         ${productHead(frag, 'div')}
         ${
           best
