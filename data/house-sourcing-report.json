@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-05T15:54:35.814Z",
+  "checkedAt": "2026-08-05T18:12:07.605Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -256,6 +256,243 @@
         "storefront currency and UK delivery terms not yet established",
         "an Australian-founded house (bujairami.com.au, AUD) with a separate Dubai storefront (bujairami.ae) pointed at here as the more plausible source for GCC-market pricing — not confirmed which, if either, reaches UK buyers",
         "prices are in AED, not GBP — needs a UK price source before these are comparable"
+      ]
+    },
+    {
+      "houseId": "maison-alhambra",
+      "name": "Maison Alhambra",
+      "origin": "https://maisonalhambra.co",
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
+      "errors": [
+        "storefront currency could not be established — no sterling price recorded",
+        "https://maisonalhambra.co/sitemap_index.xml: HTTP 404"
+      ],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "a Lattafa Perfumes Industries brand, so it shares a manufacturer with the Lattafa entry above but is sold separately",
+        "several near-identical domains exist (themaison-alhambra.com, maisonalhambraperfume.com, maisonalhambras.com) — only maisonalhambra.co presents itself as the official one, confirm before trusting listings from any other",
+        "no listings retrieved from the storefront on this run"
+      ]
+    },
+    {
+      "houseId": "swiss-arabian",
+      "name": "Swiss Arabian",
+      "origin": "https://swissarabian.com",
+      "routeUsed": "shopify-products-json",
+      "currency": "USD",
+      "listings": 171,
+      "pricedInGbp": 0,
+      "withPhoto": 171,
+      "errors": [],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "the brand names arabianperfumes.uk as its sole UK distributor; that is a shop rather than the house, so if its prices are wanted it belongs in retailers.ts, not here",
+        "prices are in USD, not GBP — needs a UK price source before these are comparable"
+      ]
+    },
+    {
+      "houseId": "fragrance-world",
+      "name": "Fragrance World",
+      "origin": "https://fragranceworld.ae",
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
+      "errors": [
+        "storefront currency could not be established — no sterling price recorded"
+      ],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "parent of French Avenue, which is already a retailers.ts entry on its own UK subdomain — expect overlapping products between the two",
+        "no listings retrieved from the storefront on this run"
+      ]
+    },
+    {
+      "houseId": "ajmal",
+      "name": "Ajmal",
+      "origin": "https://www.ajmal.com",
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
+      "errors": [
+        "storefront currency could not be established — no sterling price recorded",
+        "https://www.ajmal.com/sitemap.xml: HTTP 404"
+      ],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "no listings retrieved from the storefront on this run"
+      ]
+    },
+    {
+      "houseId": "dumont",
+      "name": "Dumont Paris",
+      "origin": "https://dumontparfums.com",
+      "routeUsed": "shopify-products-json",
+      "currency": "AED",
+      "listings": 175,
+      "pricedInGbp": 0,
+      "withPhoto": 175,
+      "errors": [],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "dumontparis.com is the brand site and dumontparfums.com the shop; this points at the shop because that is what carries prices, but the relationship between the two was not confirmed",
+        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+      ]
+    },
+    {
+      "houseId": "al-rehab",
+      "name": "Al-Rehab",
+      "origin": "https://www.alrehab.com",
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
+      "errors": [
+        "storefront currency could not be established — no sterling price recorded"
+      ],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "trading since 1975 out of Jeddah. Four separate domains present themselves as official (alrehab.com, al-rehab.com, alrehaboriental.com, alrehabstore.com) — this points at the first, unconfirmed",
+        "no listings retrieved from the storefront on this run"
+      ]
+    },
+    {
+      "houseId": "orto-parisi",
+      "name": "Orto Parisi",
+      "origin": "https://ortoparisi.com",
+      "routeUsed": "shopify-products-json",
+      "currency": "EUR",
+      "listings": 14,
+      "pricedInGbp": 0,
+      "withPhoto": 14,
+      "errors": [],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "Italian niche rather than Middle Eastern, so it does not fit the mideast tier this registry was built around — kept here because it is still a house selling direct",
+        "prices are in EUR, not GBP — needs a UK price source before these are comparable"
+      ]
+    },
+    {
+      "houseId": "nasomatto",
+      "name": "Nasomatto",
+      "origin": "https://nasomatto.com",
+      "routeUsed": "shopify-products-json",
+      "currency": "EUR",
+      "listings": 25,
+      "pricedInGbp": 0,
+      "withPhoto": 25,
+      "errors": [],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "same perfumer as Orto Parisi above (Alessandro Gualtieri), separate house and separate storefront",
+        "prices are in EUR, not GBP — needs a UK price source before these are comparable"
+      ]
+    },
+    {
+      "houseId": "gissah",
+      "name": "Gissah",
+      "origin": "https://gissahuae.com",
+      "routeUsed": "shopify-products-json",
+      "currency": "AED",
+      "listings": 79,
+      "pricedInGbp": 0,
+      "withPhoto": 78,
+      "errors": [],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "Kuwait-founded (2010) niche house, UAE storefront. A UK stockist exists (arabianfragranceshop.co.uk) if a comparison point is wanted sooner than this harvest can provide one",
+        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+      ]
+    },
+    {
+      "houseId": "reef",
+      "name": "REEF",
+      "origin": "https://www.reef-parfum.com",
+      "routeUsed": "sitemap-jsonld",
+      "currency": null,
+      "listings": 30,
+      "pricedInGbp": 30,
+      "withPhoto": 30,
+      "errors": [
+        "storefront currency could not be established — no sterling price recorded"
+      ],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "Saudi niche house, founded 2018. \"REEF\" is a generic enough word that search results carry a lot of noise — confirm this domain before trusting its listings"
+      ]
+    },
+    {
+      "houseId": "al-wataniah",
+      "name": "Al Wataniah",
+      "origin": "https://www.alwataniah.com",
+      "routeUsed": "shopify-products-json",
+      "currency": "AED",
+      "listings": 117,
+      "pricedInGbp": 0,
+      "withPhoto": 117,
+      "errors": [],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "Dubai, founded 2012",
+        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+      ]
+    },
+    {
+      "houseId": "amouage",
+      "name": "Amouage",
+      "origin": "https://amouage.com",
+      "routeUsed": "shopify-products-json",
+      "currency": "USD",
+      "listings": 100,
+      "pricedInGbp": 0,
+      "withPhoto": 100,
+      "errors": [],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "ships from Oman to 63 countries per their own shipping policy page, so UK delivery may genuinely exist — worth confirming currency at checkout before assuming it is not GBP",
+        "already stocked by several UK retailers (Harrods, 50-ml.co.uk, Perfume Warehouse), so this house entry is for a direct-from-Oman comparison point rather than filling a coverage gap",
+        "prices are in USD, not GBP — needs a UK price source before these are comparable"
+      ]
+    },
+    {
+      "houseId": "bdk-parfums",
+      "name": "BDK Parfums",
+      "origin": "https://bdkparfums.com",
+      "routeUsed": "shopify-products-json",
+      "currency": "EUR",
+      "listings": 128,
+      "pricedInGbp": 0,
+      "withPhoto": 128,
+      "errors": [],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "Paris niche house (David Benedek). No UK-specific storefront found; likely EUR pricing",
+        "prices are in EUR, not GBP — needs a UK price source before these are comparable"
+      ]
+    },
+    {
+      "houseId": "sol-de-janeiro",
+      "name": "Sol de Janeiro",
+      "origin": "https://soldejaneiro.com",
+      "routeUsed": "shopify-products-json",
+      "currency": "USD",
+      "listings": 631,
+      "pricedInGbp": 0,
+      "withPhoto": 631,
+      "errors": [],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "their own site states it ships within the United States only — this is likely to stay catalogue-only permanently rather than pending, since there may be no order a UK buyer can place here at all",
+        "already stocked by several UK retailers (Boots, Space NK, Harrods) for anyone wanting a UK price sooner than confirming that",
+        "prices are in USD, not GBP — needs a UK price source before these are comparable"
       ]
     }
   ]
