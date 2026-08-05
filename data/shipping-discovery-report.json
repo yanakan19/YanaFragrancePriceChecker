@@ -1,0 +1,385 @@
+{
+  "checkedAt": "2026-08-05T12:37:23.720Z",
+  "outcomes": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "name": "MyBeauty.Boutique",
+      "homepage": "https://mybeauty.boutique",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "the-fragrance-counter",
+      "name": "The Fragrance Counter",
+      "homepage": "https://www.thefragrancecounter.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "perfume-shopping",
+      "name": "Perfume Shopping",
+      "homepage": "https://www.perfumeshopping.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 50,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "errors": [
+        "https://www.perfumeshopping.com/policies/shipping-policy: HTTP 403",
+        "https://www.perfumeshopping.com/pages/shipping-policy: HTTP 403",
+        "https://www.perfumeshopping.com/pages/shipping-details: HTTP 403",
+        "https://www.perfumeshopping.com/pages/delivery-information: HTTP 403",
+        "https://www.perfumeshopping.com/pages/shipping: HTTP 403",
+        "https://www.perfumeshopping.com/pages/delivery: HTTP 403",
+        "https://www.perfumeshopping.com/shipping-policy: HTTP 403",
+        "https://www.perfumeshopping.com/delivery: HTTP 403",
+        "https://www.perfumeshopping.com/shipping: HTTP 403"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "glorious-beauty",
+      "name": "Glorious Beauty",
+      "homepage": "https://gloriousbeauty.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 28,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "french-avenue",
+      "name": "French Avenue",
+      "homepage": "https://uk.shopfrenchavenue.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 0,
+      "findings": [],
+      "errors": [
+        "https://uk.shopfrenchavenue.com/policies/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/pages/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/pages/shipping-details: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/pages/delivery-information: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/pages/shipping: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/pages/delivery: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/delivery: disallowed by robots.txt — not fetched",
+        "https://uk.shopfrenchavenue.com/shipping: disallowed by robots.txt — not fetched"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "armaf",
+      "name": "Armaf",
+      "homepage": "https://armaf.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "al-haramain",
+      "name": "Al Haramain Perfumes",
+      "homepage": "https://alharamainperfumes.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 50,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [
+        {
+          "url": "https://alharamainperfumes.co.uk/pages/shipping-policy",
+          "status": 200,
+          "standardGbp": 150,
+          "freeOverGbp": 50,
+          "caveats": [],
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "Orders over £50 are entitled to free delivery which will be shipped out through 48 Tracked service with the option to select a faster tracked service at checkout.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "FREE Click and Collect Available from our showroom located at 4 Corners Distribution Ltd, Unit 3 Renwick Industrial Estate, Renwick Rd, Barking , IG11 0SD We recommend that to ensure your items are delivered on time please place your order as early as possible to allow time for unforeseen delays, or choose our Next Day Courier delivery option.",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 150,
+              "sentence": "We offer three convenient shipping options to meet our customers' needs: Standard Shipping Discounted Shipping when you spend over a specified amount Half-Price Shipping when you spend over £150 - (Minimum Value will slightly vary based upon Currency differences) What is the dangerous goods fee?",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "If you have any questions regarding delivery, our customer service team are on hand to assist you at sales@alharamainperfumes.co.uk For hassle-free communication, and for your convenience, please add the e-mail address sales@alharamainperfumes.co.uk to your address book to ensure our emails are not filtered out by your spam/junk mail filters.",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "verdict": "CONFIRM: £150.00 standard, from https://alharamainperfumes.co.uk/pages/shipping-policy — read the quoted sentence, then set standardGbp and enable"
+    },
+    {
+      "retailerId": "riiffs",
+      "name": "Riiffs Perfumes",
+      "homepage": "https://uk.riiffsperfumes.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 100,
+      "enabled": false,
+      "pagesTried": 0,
+      "findings": [],
+      "errors": [
+        "https://uk.riiffsperfumes.com/policies/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/pages/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/pages/shipping-details: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/pages/delivery-information: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/pages/shipping: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/pages/delivery: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/delivery: disallowed by robots.txt — not fetched",
+        "https://uk.riiffsperfumes.com/shipping: disallowed by robots.txt — not fetched"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "ibraq",
+      "name": "IBRAQ",
+      "homepage": "https://ibraquk.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 50,
+      "enabled": false,
+      "pagesTried": 0,
+      "findings": [],
+      "errors": [
+        "https://ibraquk.com/policies/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/pages/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/pages/shipping-details: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/pages/delivery-information: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/pages/shipping: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/pages/delivery: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/delivery: disallowed by robots.txt — not fetched",
+        "https://ibraquk.com/shipping: disallowed by robots.txt — not fetched"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "name": "Oud Arabian",
+      "homepage": "https://oudarabian.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 30,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [
+        {
+          "url": "https://oudarabian.co.uk/policies/shipping-policy",
+          "status": 200,
+          "standardGbp": 0,
+          "freeOverGbp": 30,
+          "caveats": [
+            "page names 2 different delivery charges (£0.00, £3.99) — confirm which is standard"
+          ],
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Shipping policy &ndash; Oud Arabian Skip to content Use code Launch10 and get 10% Discount Free Shipping on orders over £30 Today deal sale off 70% .",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 0,
+              "sentence": "Hurry Up 0 0 / £0.00 New Releases Best Sellers Unisex For Him For Her Brands Locations Contact Us Shipping policy We work with trusted third-party delivery companies to ensure your order reaches you safely and on time.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 7.99,
+              "sentence": "Delivery Options Express Delivery (1–2 Working Days): £7.99 For customers who wish to receive their order urgently, we offer an express service that typically delivers within 1–2 working days after dispatch.",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 3.99,
+              "sentence": "Standard Delivery (3–5 Working Days): £3.99 Our standard delivery option ensures your order arrives within 3–5 working days .",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Free Delivery: Orders over £30 qualify for free standard delivery .",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://oudarabian.co.uk/pages/shipping-policy",
+          "status": 200,
+          "standardGbp": 0,
+          "freeOverGbp": 30,
+          "caveats": [
+            "page names 2 different delivery charges (£0.00, £3.99) — confirm which is standard"
+          ],
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Shipping Policy &ndash; Oud Arabian Skip to content Use code Launch10 and get 10% Discount Free Shipping on orders over £30 Today deal sale off 70% .",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 0,
+              "sentence": "Hurry Up 0 0 / £0.00 New Releases Best Sellers Unisex For Him For Her Brands Locations Contact Us We work with trusted third-party delivery companies to ensure your order reaches you safely and on time.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 7.99,
+              "sentence": "Delivery Options Express Delivery (1–2 Working Days): £7.99 For customers who wish to receive their order urgently, we offer an express service that typically delivers within 1–2 working days after dispatch.",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 3.99,
+              "sentence": "Standard Delivery (3–5 Working Days): £3.99 Our standard delivery option ensures your order arrives within 3–5 working days .",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Free Delivery: Orders over £30 qualify for free standard delivery .",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "verdict": "AMBIGUOUS: candidate £0.00 but the page is unclear — page names 2 different delivery charges (£0.00, £3.99) — confirm which is standard"
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "name": "Manchester Ouds",
+      "homepage": "https://manchesterouds.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 50,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [
+        {
+          "url": "https://manchesterouds.com/policies/shipping-policy",
+          "status": 200,
+          "standardGbp": 200,
+          "freeOverGbp": 50,
+          "caveats": [],
+          "evidence": [
+            {
+              "kind": "standard-cost",
+              "amountGbp": 200,
+              "sentence": "Your order qualifies for free shipping You are £200 away from free shipping.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "Standard shipping is free on orders over £50, while a nominal fee applies to orders below £50.",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://manchesterouds.com/pages/shipping-policy",
+          "status": 200,
+          "standardGbp": 200,
+          "freeOverGbp": null,
+          "caveats": [],
+          "evidence": [
+            {
+              "kind": "standard-cost",
+              "amountGbp": 200,
+              "sentence": "Your order qualifies for free shipping You are £200 away from free shipping.",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "verdict": "CONFIRM: £200.00 standard, from https://manchesterouds.com/policies/shipping-policy — read the quoted sentence, then set standardGbp and enable"
+    },
+    {
+      "retailerId": "perfumeo",
+      "name": "Perfumeo",
+      "homepage": "https://www.perfumeo.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [
+        {
+          "url": "https://www.perfumeo.co.uk/policies/shipping-policy",
+          "status": 200,
+          "standardGbp": null,
+          "freeOverGbp": null,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "evidence": [
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Service Speed Tracking Cost Standard Tracked 2&ndash;3 working days Fully tracked to your door FREE Processing Same-day pick & pack Orders are picked, checked and dispatched promptly from our own UK warehouse, typically the same working day.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Delivery FAQ Do you really ship every order for free?",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "EXCLUSIVE WELCOME OFFER 15% OFF Your First Order + FREE Fast-Tracked Delivery No Minimum Spend Your private code is revealed instantly the moment you join.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "YOUR PRIVATE CODE 15% OFF + free fast-tracked delivery &middot; COPY CODE EXPLORE NEW ARRIVALS Code applied at checkout.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "100% Authentic Fragrances Fast UK Dispatch FREE Fast-Tracked Delivery &times; Perfumeo Ltd , registered in England & Wales, company no.",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "errors": [],
+      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
+    }
+  ]
+}
