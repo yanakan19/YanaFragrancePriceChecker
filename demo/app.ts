@@ -449,7 +449,8 @@ function homeView(): string {
         <li><span>Real and Live Prices</span></li>
         <li><span>No Promoted Listings</span></li>
       </ul>
-      <p class="db-count">Current Database: ${DEMO_FRAGRANCES.length.toLocaleString('en-GB')} fragrances</p>
+      <p class="db-count">Current Database: ${DEMO_FRAGRANCES.length.toLocaleString('en-GB')} fragrances
+        <span class="live-dot" aria-hidden="true"></span><span class="sr-only"> (live)</span></p>
     </section>
 
     <section class="pop-section">
