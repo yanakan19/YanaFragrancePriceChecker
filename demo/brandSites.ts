@@ -21,6 +21,42 @@ export const BRAND_SITES: Record<string, string> = {
   rabanne: 'https://www.rabanne.com/',
   'carolina herrera': 'https://www.carolinaherrera.com/',
   'jean paul gaultier': 'https://www.jeanpaulgaultier.com/uk/en/',
+
+  // ── Middle Eastern / Arabic houses, resolved 2026-08-05 ──────────────────
+  // This session's own network is locked at the gateway (confirmed: even a
+  // plain fetch to example.com is rejected by the proxy), so none of these
+  // were opened directly the way the rest of this file's entries were. Each
+  // one comes from a web search that returned the domain from the house's
+  // own site content (a shipping page, an About page, a contact address) —
+  // stronger than a guessed pattern, weaker than actually opening the page.
+  // Treat these as the starting point for the next confirmation pass, not
+  // page-verified facts.
+  'french avenue': 'https://uk.shopfrenchavenue.com/',
+  armaf: 'https://armaf.uk/',
+  'al haramain': 'https://alharamainperfumes.co.uk/',
+  riiffs: 'https://uk.riiffsperfumes.com/',
+  // Bellavita Luxury (bellavitaluxury.uk) — the UK "luxury-inspired
+  // fragrance dupes" business. Not to be confused with Bella Vita Organic
+  // (bellavitaorganic.com), an unrelated Indian skincare brand that also
+  // trades as "Bellavita" — if that second business ever enters the
+  // catalogue under the same normalised key, this entry would wrongly send
+  // its customers to the fragrance site instead.
+  bellavita: 'https://bellavitaluxury.uk/',
+  ibraq: 'https://ibraquk.com/',
+  assaf: 'https://assaf.ae/',
+  'gulf orchid': 'https://shop-gulforchid.com/',
+  'maison asrar': 'https://maisonasrar.com/',
+  'ahmed al maghribi': 'https://ae.ahmedalmaghribi.com/en',
+  lattafa: 'https://lattafa.com/',
+  surrati: 'https://surrati.ae/',
+  rayhaan: 'https://rayhaanperfumes.com/',
+  'paris corner': 'https://pariscorner.ae/',
+  'arabiyat prestige': 'https://arabiyatprestige.shop/',
+  mykonos: 'https://officialmykonos.com/',
+  bujairami: 'https://bujairami.ae/',
+  // Elysia has no entry: search turned up only individual perfume names
+  // ("Elysia Vanilla", "Elysia Elegance") sold under Fragrance World, not a
+  // standalone Elysia storefront — there is no site to link to yet.
 };
 
 /** Lowercase, strip everything but letters — so "Dolce & Gabbana", "Dolce&Gabbana"

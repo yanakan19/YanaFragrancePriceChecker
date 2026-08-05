@@ -28,8 +28,25 @@
  *     *try*, in order; what actually worked is written back to the harvest
  *     report from a real run, not asserted here.
  *
- * These five were named as the priority set. They are the starting point, not
- * a finished list.
+ * These were named as the priority set. They are the starting point, not a
+ * finished list.
+ *
+ * ── On research done without opening the storefront ──────────────────────────
+ * The entries added 2026-08-05 (Assaf onward) come from this session's own web
+ * search, not a page actually opened — this environment's network is blocked
+ * at the gateway for arbitrary hosts (confirmed: even a plain fetch to
+ * example.com is rejected by the proxy), the same condition the note above
+ * already describes for the original five. A search result that quotes a
+ * house's own page text is a stronger source than a guessed domain, but it is
+ * still not the page itself, so every `origin` below stays `unverified` until
+ * a run with real egress — the daily harvest, not this session — opens it.
+ *
+ * French Avenue and Armaf used to be here. Both were promoted to
+ * `retailers.ts` instead once their own UK-specific storefronts
+ * (uk.shopfrenchavenue.com, armaf.uk) turned up — a domain that pins UK and
+ * sterling is what this registry exists to distinguish from the global
+ * storefronts still listed below, and a house that clears that bar belongs in
+ * the retailer registry's comparison, not this catalogue-only one.
  */
 
 /** How we will attempt to read a house's catalogue, cheapest first. */
@@ -90,24 +107,6 @@ export const HOUSES: readonly House[] = [
     blockers: ['storefront currency and UK delivery terms not yet established'],
   },
   {
-    id: 'armaf',
-    name: 'Armaf',
-    origin: 'https://www.armaf.com',
-    confidence: 'unverified',
-    routes: ['shopify-products-json', 'sitemap-jsonld'],
-    enabled: true,
-    blockers: ['storefront currency and UK delivery terms not yet established'],
-  },
-  {
-    id: 'french-avenue',
-    name: 'French Avenue',
-    origin: 'https://www.frenchavenue.com',
-    confidence: 'unverified',
-    routes: ['shopify-products-json', 'sitemap-jsonld'],
-    enabled: true,
-    blockers: ['storefront currency and UK delivery terms not yet established'],
-  },
-  {
     id: 'al-attaar',
     name: 'Al Attaar',
     origin: 'https://www.alttaffa.com',
@@ -130,6 +129,139 @@ export const HOUSES: readonly House[] = [
       'storefront currency and UK delivery terms not yet established',
       'single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against',
       'delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere',
+    ],
+  },
+  {
+    id: 'assaf',
+    name: 'Assaf',
+    origin: 'https://assaf.ae',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'Assaf Trading LLC, UAE. A second domain (3saf.com) also brands itself Assaf — not confirmed as the same storefront before trusting its listings',
+    ],
+  },
+  {
+    id: 'gulf-orchid',
+    name: 'Gulf Orchid',
+    origin: 'https://shop-gulforchid.com',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'Dubai-based manufacturer, trading since 1987. Sister brand to Maison Asrar (below) — the two share a manufacturer, not a storefront, so each still needs its own harvest',
+    ],
+  },
+  {
+    id: 'maison-asrar',
+    name: 'Maison Asrar',
+    origin: 'https://maisonasrar.com',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      "manufactured by Gulf Orchid (above), branded and sold separately",
+    ],
+  },
+  {
+    id: 'ahmed-al-maghribi',
+    name: 'Ahmed Al Maghribi',
+    origin: 'https://ae.ahmedalmaghribi.com',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'the UAE storefront (ae.) is what this points at; the brand also runs separate om./us. regional subdomains and no UK one was found — worth checking for a uk. subdomain before assuming there is none',
+    ],
+  },
+  {
+    id: 'lattafa',
+    name: 'Lattafa Perfumes',
+    origin: 'https://lattafa.com',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it',
+      'already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap',
+    ],
+  },
+  {
+    id: 'surrati',
+    name: 'Surrati Perfumes',
+    origin: 'https://surrati.ae',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'founded 1929 in Makkah. Search also surfaced surratiperfumes.com and surrati.com.pk as separate storefronts — not confirmed whether these are the same business or independent distributors before trusting any of them interchangeably',
+    ],
+  },
+  {
+    id: 'rayhaan',
+    name: 'Rayhaan Perfumes',
+    origin: 'https://rayhaanperfumes.com',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'requested as "Rahyaan" — this is the Dubai-based house trading as Rayhaan Perfumes, founded 2020; flagging the spelling in case a differently spelled brand was actually intended',
+    ],
+  },
+  {
+    id: 'paris-corner',
+    name: 'Paris Corner',
+    origin: 'https://pariscorner.ae',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending',
+    ],
+  },
+  {
+    id: 'arabiyat-prestige',
+    name: 'Arabiyat Prestige',
+    origin: 'https://arabiyatprestige.shop',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'a separate arabiyatprestigeus.com exists for the US market; no UK-specific storefront was found',
+    ],
+  },
+  {
+    id: 'mykonos',
+    name: 'Mykonos',
+    origin: 'https://officialmykonos.com',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'a young brand (first edition 2025) sold into the Arabic fragrance market but based in Indonesia — worth confirming this is the brand meant before trusting its listings, since "Mykonos" is otherwise just the Greek island',
+    ],
+  },
+  {
+    id: 'bujairami',
+    name: 'Bujairami',
+    origin: 'https://bujairami.ae',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'an Australian-founded house (bujairami.com.au, AUD) with a separate Dubai storefront (bujairami.ae) pointed at here as the more plausible source for GCC-market pricing — not confirmed which, if either, reaches UK buyers',
     ],
   },
 ];
