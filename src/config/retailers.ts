@@ -204,7 +204,11 @@ export const RETAILERS: readonly Retailer[] = [
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
-    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md.
+    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md. Section URL switched
+    // 6 Aug 2026 to the fuller /shop-all-fragrance listing (confirmed live
+    // in a browser), rather than the narrower landing page previously
+    // guessed — this does not change the 403 outcome, which is IP based
+    // and happens before the URL is even read.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -218,7 +222,7 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: {
       searchUrlTemplate: 'https://www.boots.com/sitesearch?searchTerm={q}',
       sections: [
-        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.boots.com/fragrance?pageNo={page}', tier: 'designer' },
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.boots.com/fragrance/shop-all-fragrance?pageNo={page}', tier: 'designer' },
       ],
       firstPage: 1, maxPages: 60, minRequestGapMs: 2500,
     },
@@ -495,7 +499,12 @@ export const RETAILERS: readonly Retailer[] = [
     tiers: ['niche'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 200 but no product markup found. Either
-    // the section URL is wrong or the grid is drawn by script.
+    // the section URL is wrong or the grid is drawn by script. Re-checked
+    // 6 Aug 2026 against a live browser: the URL below is the real page, so
+    // the URL was never the problem — the grid genuinely needs JavaScript to
+    // render, which this project has no crawling route for yet (see
+    // docs/SCRAPING.md's neighbour problem — the crawler here does retrieval
+    // strategies, not a headless browser).
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -641,8 +650,10 @@ export const RETAILERS: readonly Retailer[] = [
     // this environment (network egress to arbitrary hosts is blocked here,
     // see docs/INGESTION.md and the proxy's own status endpoint), so adapter
     // is 'unknown' rather than a claimed spike result. The storefront is
-    // Shopify (its pagination follows Shopify's own ?page=N convention),
-    // which is at least a concrete starting point for whoever runs the spike.
+    // Shopify (its pagination follows Shopify's own ?page=N convention).
+    // Section URLs below were corrected 6 Aug 2026 against a live browser
+    // check — the gendered /collections/fragrances-for-women(-men) paths
+    // this config guessed earlier do not appear to be the real ones.
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -668,8 +679,7 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: {
       searchUrlTemplate: 'https://www.escentual.com/search?q={q}',
       sections: [
-        { id: 'womens', label: "Women's fragrance", urlTemplate: 'https://www.escentual.com/collections/fragrances-for-women?page={page}', tier: 'designer' },
-        { id: 'mens', label: "Men's fragrance", urlTemplate: 'https://www.escentual.com/collections/fragrances-for-men?page={page}', tier: 'designer' },
+        { id: 'all-fragrance', label: 'Fragrance', urlTemplate: 'https://escentual.com/collections/all-fragrance?page={page}', tier: 'designer' },
       ],
       firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
     },
@@ -792,6 +802,10 @@ export const RETAILERS: readonly Retailer[] = [
     // there is no feed to take. If this shop is ever enabled it will need the
     // sitemap route, which is why the adapter is unknown rather than
     // affiliate-feed — nothing about its retrieval has been established.
+    // The fragrance collection URL below is confirmed live in a browser
+    // 6 Aug 2026, so retrieval is ready the moment this shop is enabled —
+    // what is still missing is the standard delivery cost (see shipping
+    // below), not the crawl target.
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -809,7 +823,15 @@ export const RETAILERS: readonly Retailer[] = [
         'The standard cost below that threshold, and the delivery window, are not ' +
         'established: read https://gloriousbeauty.co.uk delivery page, then enable.',
     },
-    catalogue: null,
+    // Not walked while disabled — see the enabled comment above — but ready
+    // the moment it is, rather than needing this rediscovered from scratch.
+    catalogue: {
+      searchUrlTemplate: 'https://gloriousbeauty.co.uk/search?q={q}',
+      sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://gloriousbeauty.co.uk/collections/fragrance?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
+    },
     affiliate: {
       ...awinActive('107736', '3017443'),
       notes:
