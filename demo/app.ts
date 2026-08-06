@@ -733,6 +733,14 @@ function homeView(): string {
           <span>Your suggestion</span>
           <textarea id="home-suggest-body" rows="3" placeholder="What should we add or change?"></textarea>
         </label>
+        <label class="field">
+          <span>Your name <span class="dimmer">(optional)</span></span>
+          <input id="home-suggest-name" type="text" placeholder="So we know who to thank" />
+        </label>
+        <label class="field">
+          <span>Your email <span class="dimmer">(optional, if you would like a reply)</span></span>
+          <input id="home-suggest-email" type="email" placeholder="you@example.com" />
+        </label>
         <button type="submit" class="contact-send">Send</button>
       </form>
       <p id="home-suggest-confirm" class="contact-confirm" hidden></p>
@@ -1959,8 +1967,15 @@ function init(): void {
     const form = e.target as HTMLElement;
     if (form.id === 'home-suggest-form') {
       e.preventDefault();
-      const body = ($('#home-suggest-body') as HTMLTextAreaElement).value.trim();
+      const suggestion = ($('#home-suggest-body') as HTMLTextAreaElement).value.trim();
+      const name = ($('#home-suggest-name') as HTMLInputElement).value.trim();
+      const email = ($('#home-suggest-email') as HTMLInputElement).value.trim();
       const subject = `PriceSniffs: A suggestion`;
+      const body = [
+        suggestion,
+        name ? `\nFrom: ${name}` : '',
+        email ? `Reply to: ${email}` : '',
+      ].filter(Boolean).join('\n');
       const mailto = `mailto:${COMPANY.feedbackEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       window.location.href = mailto;
 
