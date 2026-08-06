@@ -30,6 +30,7 @@ import {
 } from './data.js';
 import { productArt, type ArtSize } from './photo.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
+import { CHANGELOG } from './changelog.js';
 import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
 import { officialSiteFor } from './brandSites.js';
 import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
@@ -724,27 +725,47 @@ function homeView(): string {
       </ul>
     </section>
 
-    <section class="suggest-section">
-      <h3>Got an idea?</h3>
-      <p class="panel-note">Tell us what you would like to see. There is no server behind this
-        page, so sending opens your own email app with this addressed and ready to go.</p>
-      <form id="home-suggest-form" class="contact-form">
-        <label class="field">
-          <span>Your suggestion</span>
-          <textarea id="home-suggest-body" rows="3" placeholder="What should we add or change?"></textarea>
-        </label>
-        <label class="field">
-          <span>Your name <span class="dimmer">(optional)</span></span>
-          <input id="home-suggest-name" type="text" placeholder="So we know who to thank" />
-        </label>
-        <label class="field">
-          <span>Your email <span class="dimmer">(optional, if you would like a reply)</span></span>
-          <input id="home-suggest-email" type="email" placeholder="you@example.com" />
-        </label>
-        <button type="submit" class="contact-send">Send</button>
-      </form>
-      <p id="home-suggest-confirm" class="contact-confirm" hidden></p>
-    </section>`;
+    <div class="bottom-split">
+      <section class="suggest-section">
+        <h3>Got an idea?</h3>
+        <p class="panel-note">Tell us what you would like to see. There is no server behind this
+          page, so sending opens your own email app with this addressed and ready to go.</p>
+        <form id="home-suggest-form" class="contact-form">
+          <label class="field">
+            <span>Your suggestion</span>
+            <textarea id="home-suggest-body" rows="3" placeholder="What should we add or change?"></textarea>
+          </label>
+          <label class="field">
+            <span>Your name <span class="dimmer">(optional)</span></span>
+            <input id="home-suggest-name" type="text" placeholder="So we know who to thank" />
+          </label>
+          <label class="field">
+            <span>Your email <span class="dimmer">(optional, if you would like a reply)</span></span>
+            <input id="home-suggest-email" type="email" placeholder="you@example.com" />
+          </label>
+          <button type="submit" class="contact-send">Send</button>
+        </form>
+        <p id="home-suggest-confirm" class="contact-confirm" hidden></p>
+      </section>
+
+      <section class="updates-section">
+        <h3>Update History</h3>
+        <ul class="updates-list">
+          ${CHANGELOG.map(
+            (entry) => `<li class="update-entry">
+              <p class="update-head">
+                <span class="update-version">${esc(entry.version)}</span>
+                <span class="update-date">${esc(entry.date)}</span>
+              </p>
+              <p class="update-title">${esc(entry.title)}</p>
+              <ul class="update-points">
+                ${entry.points.map((p) => `<li>${esc(p)}</li>`).join('')}
+              </ul>
+            </li>`,
+          ).join('')}
+        </ul>
+      </section>
+    </div>`;
 }
 
 /* ── browse ──────────────────────────────────────────────────────────────── */

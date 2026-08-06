@@ -1,6 +1,6 @@
 {
   "name": "pricesniffs-price-checker",
-  "version": "0.1.0",
+  "version": "3.1.0",
   "private": true,
   "description": "PriceSniffs fragrance price comparison \u2014 retailer registry and offer presentation core",
   "type": "module",
