@@ -183,9 +183,15 @@ export const RETAILERS: readonly Retailer[] = [
         'Evri home £2.99, DPD home £3.49, Evri pickup £2.49. Free delivery is per-product ' +
         'or promotional, not spend-based — model it per offer, not per retailer.',
     },
+    // The gendered/niche split below was never confirmed live, only
+    // guessed, so it stays rather than being removed on suspicion alone.
+    // /fragrance/ was confirmed live in a browser 6 Aug 2026 (stripped of
+    // the ad-click tracking parameters it was pasted with) and added
+    // alongside it as a general catch-all section.
     catalogue: {
       searchUrlTemplate: 'https://www.notino.co.uk/search.asp?exps={q}',
       sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.notino.co.uk/fragrance/?page={page}', tier: 'designer' },
         { id: 'womens', label: "Women's perfume", urlTemplate: 'https://www.notino.co.uk/perfumes-for-women/?f=page-{page}', tier: 'designer' },
         { id: 'mens', label: "Men's perfume", urlTemplate: 'https://www.notino.co.uk/perfumes-for-men/?f=page-{page}', tier: 'designer' },
         { id: 'niche', label: 'Niche perfume', urlTemplate: 'https://www.notino.co.uk/niche-perfumes/?f=page-{page}', tier: 'niche' },
@@ -238,7 +244,9 @@ export const RETAILERS: readonly Retailer[] = [
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
-    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md.
+    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md. /fragrance/l added
+    // 6 Aug 2026 as a general section confirmed live in a browser; the
+    // gendered sections below were never confirmed wrong, so they stay.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -255,6 +263,7 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: {
       searchUrlTemplate: 'https://www.thefragranceshop.co.uk/search?q={q}',
       sections: [
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.thefragranceshop.co.uk/fragrance/l?page={page}', tier: 'designer' },
         { id: 'womens', label: "Women's fragrance", urlTemplate: 'https://www.thefragranceshop.co.uk/womens-fragrance?page={page}', tier: 'designer' },
         { id: 'mens', label: "Men's fragrance", urlTemplate: 'https://www.thefragranceshop.co.uk/mens-fragrance?page={page}', tier: 'designer' },
       ],
@@ -272,7 +281,10 @@ export const RETAILERS: readonly Retailer[] = [
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
-    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md.
+    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md. Section URLs
+    // replaced 6 Aug 2026 with the real category-code paths confirmed live
+    // in a browser — the generic /womens/c/womens style guessed earlier
+    // was less specific than what the site actually uses.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -290,8 +302,10 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: {
       searchUrlTemplate: 'https://www.theperfumeshop.com/search?q={q}',
       sections: [
-        { id: 'womens', label: "Women's perfume", urlTemplate: 'https://www.theperfumeshop.com/womens/c/womens?page={page}', tier: 'designer' },
-        { id: 'mens', label: "Men's aftershave", urlTemplate: 'https://www.theperfumeshop.com/mens/c/mens?page={page}', tier: 'designer' },
+        { id: 'womens', label: "Women's perfume", urlTemplate: 'https://www.theperfumeshop.com/womens/womens-perfume/c/W2001?page={page}', tier: 'designer' },
+        { id: 'mens', label: "Men's fragrance", urlTemplate: 'https://www.theperfumeshop.com/mens/mens-fragrance/c/M2001?page={page}', tier: 'designer' },
+        { id: 'offers', label: 'Fragrance offers', urlTemplate: 'https://www.theperfumeshop.com/offers/all-offers/fragrance-offers/c/W30050?page={page}', tier: 'designer' },
+        { id: 'gift-sets', label: 'Gift sets', urlTemplate: 'https://www.theperfumeshop.com/products/gift-sets/c/GS2001?page={page}', tier: 'designer' },
       ],
       firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
     },
@@ -304,8 +318,10 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.johnlewis.com',
     tiers: ['designer'],
     enabled: true,
-    // Live spike 1 Aug 2026: HTTP 404. The section URL below is wrong and
-    // needs correcting before this shop can be judged.
+    // Live spike 1 Aug 2026: HTTP 404. The single section URL below was
+    // wrong. Replaced 6 Aug 2026 with the real category URLs (confirmed
+    // live in a browser), which also turned out to be four separate
+    // listings rather than one combined fragrance page.
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -319,7 +335,10 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: {
       searchUrlTemplate: 'https://www.johnlewis.com/search?search-term={q}',
       sections: [
-        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.johnlewis.com/beauty/fragrance/c/e15006?page={page}', tier: 'designer' },
+        { id: 'womens', label: "Women's fragrance", urlTemplate: 'https://www.johnlewis.com/browse/beauty/womens-fragrance/_/N-a63?page={page}', tier: 'designer' },
+        { id: 'mens', label: "Men's aftershave", urlTemplate: 'https://www.johnlewis.com/browse/beauty/mens-aftershave/_/N-a61?page={page}', tier: 'designer' },
+        { id: 'unisex', label: 'Unisex fragrance', urlTemplate: 'https://www.johnlewis.com/browse/beauty/unisex-fragrance/_/N-nx23?page={page}', tier: 'designer' },
+        { id: 'gift-sets', label: 'Fragrance gift sets', urlTemplate: 'https://www.johnlewis.com/browse/beauty/view-all-beauty-fragrance-gift-sets/fragrance-sets/_/N-7d54Z1z0g57k?page={page}', tier: 'designer' },
       ],
       firstPage: 1, maxPages: 50, minRequestGapMs: 2500,
     },
@@ -412,12 +431,17 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Superdrug',
     domain: 'superdrug.com',
     homepage: 'https://www.superdrug.com',
-    tiers: ['designer'],
+    // Niche added 6 Aug 2026 alongside the premium-fragrances section below
+    // — without it here too, priceService's tier gate would skip Superdrug
+    // for every niche fragrance regardless of what the crawl finds there.
+    tiers: ['designer', 'niche'],
     enabled: true,
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
-    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md.
+    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md. Main section URL
+    // confirmed correct in a live browser check 6 Aug 2026, which also
+    // surfaced a second, premium-fragrances listing added below.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -438,6 +462,7 @@ export const RETAILERS: readonly Retailer[] = [
       searchUrlTemplate: 'https://www.superdrug.com/search?text={q}',
       sections: [
         { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.superdrug.com/fragrance/c/fragrance?page={page}', tier: 'designer' },
+        { id: 'premium', label: 'Premium fragrances', urlTemplate: 'https://www.superdrug.com/fragrance/premium-fragrances/c/premium-brands?page={page}', tier: 'niche' },
       ],
       firstPage: 1, maxPages: 50, minRequestGapMs: 2000,
     },
@@ -464,7 +489,8 @@ export const RETAILERS: readonly Retailer[] = [
     // Live spike 1 Aug 2026: HTTP 403 from a datacentre IP before any
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
-    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md.
+    // See docs/SPIKE-RESULTS.md and docs/INGESTION.md. Section URL
+    // independently confirmed correct in a live browser check 6 Aug 2026.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -715,7 +741,15 @@ export const RETAILERS: readonly Retailer[] = [
         '(thefragrancecounter.com) — confirm its relationship to the .co.uk site before ' +
         'treating them as the same retailer.',
     },
-    catalogue: null,
+    // Not walked while disabled — the gap is the delivery cost above, not
+    // the crawl target. Confirmed live in a browser 6 Aug 2026.
+    catalogue: {
+      searchUrlTemplate: 'https://www.thefragrancecounter.co.uk/catalogsearch/result/?q={q}',
+      sections: [
+        { id: 'womens', label: "Women's fragrance", urlTemplate: 'https://www.thefragrancecounter.co.uk/all-womens-fragrance.html?p={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 40, minRequestGapMs: 1500,
+    },
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -727,7 +761,11 @@ export const RETAILERS: readonly Retailer[] = [
     enabled: true,
     // No Awin approval yet, so this is a direct scrape rather than a feed.
     // No live spike was possible from this environment — see the note on
-    // Escentual above for why.
+    // Escentual above for why. Section URL replaced 6 Aug 2026 with the
+    // real filtered listing confirmed live in a browser (both fragrance
+    // categories selected via repeated filter params), preserved exactly
+    // as given rather than "cleaned", since a guessed fix to unfamiliar
+    // encoding risks breaking a filter that already works.
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -750,7 +788,7 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: {
       searchUrlTemplate: 'https://www.scentstore.com/search?q={q}',
       sections: [
-        { id: 'fragrance', label: 'Perfume', urlTemplate: 'https://www.scentstore.com/shop/perfume/?page={page}', tier: 'designer' },
+        { id: 'fragrance', label: 'Perfume', urlTemplate: 'https://www.scentstore.com/shop-all-products/?page={page}&filters%5Bcategory_lvl_0%5D%5B%5D=Perfume+for+Women&filters%5Bcategory_lvl_0%5D%5B%5D=Men%27s+Fragrance+%26amp%3B+Aftershave', tier: 'designer' },
       ],
       firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
     },
@@ -782,7 +820,18 @@ export const RETAILERS: readonly Retailer[] = [
         'cost is only aggregator-sourced (not read off perfumeshopping.com/delivery-and-' +
         'returns directly) — confirm it there before filling in standardGbp and enabling.',
     },
-    catalogue: null,
+    // Not walked while disabled — the gap is the delivery cost above, not
+    // the crawl target. Confirmed live in a browser 6 Aug 2026. A third
+    // /brands page was also given but is a brand index rather than a
+    // paginated product grid, so it is not a crawl section here.
+    catalogue: {
+      searchUrlTemplate: 'https://www.perfumeshopping.com/en/search?q={q}',
+      sections: [
+        { id: 'women', label: "Women's fragrance", urlTemplate: 'https://www.perfumeshopping.com/en/collection/women?page={page}', tier: 'designer' },
+        { id: 'men', label: "Men's fragrance", urlTemplate: 'https://www.perfumeshopping.com/en/collection/men?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 40, minRequestGapMs: 1500,
+    },
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -1055,7 +1104,15 @@ export const RETAILERS: readonly Retailer[] = [
         'The standard cost below that was not found — read manchesterouds.com directly, ' +
         'then enable.',
     },
-    catalogue: null,
+    // Not walked while disabled — the gap is the delivery cost above, not
+    // the crawl target, which is confirmed live in a browser 6 Aug 2026.
+    catalogue: {
+      searchUrlTemplate: 'https://manchesterouds.com/search?q={q}',
+      sections: [
+        { id: 'all', label: 'All fragrances', urlTemplate: 'https://manchesterouds.com/collections/all?page={page}', tier: 'mideast' },
+      ],
+      firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
+    },
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
