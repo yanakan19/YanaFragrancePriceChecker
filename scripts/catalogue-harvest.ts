@@ -86,8 +86,24 @@ for (const retailer of shops) {
     prior.source === 'live' ? prior.listings.map((l) => [l.url, l.lastSeenAt]) : [],
   );
 
+  // onProgress fires on every fetch, not just at the end of this shop's run —
+  // see the field's own comment in sitemapCrawl.ts. Plain console.log rather
+  // than a carriage-return progress line: CI log capture is not a terminal,
+  // and a `\r`-only update can sit in a buffer instead of reaching the log
+  // stream, which would defeat the entire point of this. A line every 5
+  // fetches is enough to keep the runner convinced the job is alive without
+  // flooding the log — GitHub kills a job after 10 minutes of *no* output,
+  // not after a lot of it. Without this, a shop whose fetches are all slow
+  // (rather than erroring) can go silent long enough for the runner to decide
+  // the job is stuck and kill it — which is exactly what happened to a run
+  // against this exact codepath: no code change caused it, a slow shop just
+  // went unnoticed for the same reason a slow shop always would have.
+  const heartbeat = (fetched: number, found: number) => {
+    if (fetched % 5 === 0) console.log(`      ${retailer.name}: ${fetched} pages fetched, ${found} found so far`);
+  };
+
   let result = await crawlViaSitemap({
-    retailer, http, robots, maxPages, gapMs, headers: BROWSER_HEADERS, knownUrls,
+    retailer, http, robots, maxPages, gapMs, headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat,
   });
   let withPrice = result.listings.filter((l) => l.priceGbp !== null);
   let viaProxy = false;
@@ -101,7 +117,7 @@ for (const retailer of shops) {
     const proxiedRobots = await loadRobots(retailer, proxiedHttp);
     const retry = await crawlViaSitemap({
       retailer, http: proxiedHttp, robots: proxiedRobots, maxPages, gapMs: 0,
-      headers: BROWSER_HEADERS, knownUrls,
+      headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat,
     });
     const retryWithPrice = retry.listings.filter((l) => l.priceGbp !== null);
     if (retryWithPrice.length > 0) {
