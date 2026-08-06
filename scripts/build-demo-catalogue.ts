@@ -58,9 +58,21 @@ const now = new Date();
 const CONCENTRATION =
   /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche|parfum|perfume|edp|edt|edc|aftershave|cologne|extrait|attar|oud)\b/i;
 
-/** Things that live near perfume in a sitemap but are not perfume. */
+/**
+ * Things that live near perfume in a sitemap but are not perfume.
+ *
+ * "hair" was added after "Balmain Hair Silk Perfume 200ml" and "Sachajuan
+ * Protective Hair Perfume 50ml" both passed as fragrance: real products,
+ * genuinely named with the word "Perfume", but a scented hair treatment
+ * rather than something worn as one. No genuine fine fragrance is titled
+ * "[house] Hair [anything]", so the word alone is safe to exclude — the
+ * surrounding \b...\b only matches it as a whole word, so this stays
+ * exactly as safe as the existing "reed" entry already is against "Creed"
+ * (no word boundary between the C and the r, so it is never touched).
+ * Checked against the live catalogue before being added: no collision.
+ */
 const NOT_A_FRAGRANCE =
-  /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|body cream|shampoo|conditioner|deodorant|shower gel|body wash|candle|diffuser|reed|gift ?set|set of|bundle|tester|sample|refill|travel spray|decant|hand wash|moisturis|lotion|balm|scrub|talc)\b/i;
+  /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|body cream|shampoo|conditioner|deodorant|shower gel|body wash|candle|diffuser|reed|gift ?set|set of|bundle|tester|sample|refill|travel spray|decant|hand wash|moisturis|lotion|balm|scrub|talc|hair)\b/i;
 
 /** Size in millilitres, needed before two listings can be compared at all. */
 function sizeMl(title: string): number | null {
