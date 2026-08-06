@@ -15,43 +15,41 @@ published: true
 date: 2026-08-03
 ---
 
-I'm starting a blog to document building **PriceSniffs**, a fragrance price comparison site. Why? Because I want to be transparent about how real projects actually get built—the dead ends, the legal landmines, the bugs that ship live.
+I'm starting this to get more into the Developer Community, and to blog building PriceSniffs, a fragrance price comparison site that I've decided to build from scratch. The honest reason? I want to show how projects actually get built—the failed attempts, the unexpected legal issues, the problems that slip through to production.
 
-### What is PriceSniffs?
+**A Bit About Where I'm Coming From**
 
-A website that shows you the cheapest place to buy any fragrance across UK retailers. That's it. Sounds simple. The building process was not.
+I'm a mechanical engineer by background, not a software one. Most of my working life has been quantitative in a different sense—tolerances, load calculations, failure modes, the kind of work where a number is either right or the part doesn't fit. Somewhere along the way I started writing Python scripts to make my own job less repetitive: automating workflows, batch-processing data I used to handle by hand, small tools that did in seconds what used to take an afternoon. None of it was software engineering in the formal sense. It was just an engineer refusing to do the same manual task twice.
 
-### The Problem I Ran Into
+That's the same instinct that pulled me into PriceSniffs. What draws me in isn't fragrance, specifically—it's the same thing that drew me into mechanical engineering in the first place: a logical, data-focused approach to a real problem. Retailers publish prices. Prices change. Someone has to reconcile that into something a person can actually use to make a decision. That's an engineering problem with a UI on top of it, and I wanted to see if I could build the whole thing myself, end to end.
 
-On August 1st, I had a plan: fetch retailer websites, scrape prices, display them. Straightforward. I tested it against twelve UK beauty retailers.
+**What I'm Building**
 
-Result? **0% success rate.** Not "some worked." Not "one worked." Zero.
+PriceSniffs is a price comparison tool for fragrance across UK retailers. The concept is simple. The execution wasn't.
 
-Every single request hit a 403 or 404 before I even got the HTML. Datacentre IP ranges—the kind cloud servers use—are blocked by retailers before you can blink.
+**The First Wall**
 
-### The Legal Turn
+On August 1st, my plan was straightforward: pull data from retailer websites, extract prices, display them. I tested this against twelve major UK beauty retailers.
 
-That's when I realized something: if I bypass those blocks to scrape anyway, I'm no longer in a technical problem. I'm in a legal one. Scraping a site that's actively refusing you isn't "clever engineering." It's a contract violation.
+The result was complete failure. Not partial failure. Every single request returned a 403 or 404 error before I could even access the HTML. Cloud server IP addresses—the kind you get from hosting providers—are blacklisted by most retailers automatically.
 
-So I pivoted. Hard.
+**Hitting a Legal Problem**
 
-### What Actually Works
+That's when the real issue became clear. If I tried to bypass these blocks just to scrape the data anyway, I'm not solving a technical problem anymore. I'm violating their terms of service. The legal risk wasn't worth it.
 
-Instead of scraping, I went through affiliate networks. Companies like Awin exist because retailers *want* their data distributed. Within two days, I had 893 SKUs from one retailer and 8,908 from another—sanctioned, structured product feeds.
+So I changed direction completely.
 
-For retailers without affiliate programs, I built an adaptive system: six different retrieval strategies, ranked by which one actually works for each shop. No machine learning. No magic. Just: try the best method first, learn what works, repeat.
+**The Approach That Works**
 
-### Why I'm Blogging This
+Affiliate networks turned out to be the answer. Companies like Awin exist specifically because retailers want their product data distributed through legitimate channels. Within two days, I had access to structured product feeds—nearly 900 products from one retailer, over 8,900 from another.
 
-Because the internet is full of "Here's my startup idea" posts that skip the hard parts. This blog is going to show:
+For retailers without affiliate programs, I built something different: a system that tries multiple retrieval methods, ranked by success rate for each retailer. No complex algorithms. Just practical: try the most reliable method first, see what actually works, adjust accordingly. It's the same mindset I'd bring to a failure analysis on a physical part—don't reach for the most sophisticated tool available, reach for the one that actually explains the failure in front of you.
 
-- The 0% spike test and what it taught me
-- How to legally source price data
-- The bugs that shipped live and how I caught them
-- Why I chose a multi-armed bandit over a neural network (and why that matters)
-- Building features that matter, not features that sound impressive
+**Why I'm Documenting This**
 
-I ship something new almost every day. Some days it breaks. Most days it works. I'm going to document both.
+Most write-ups about startups skip the difficult parts. They talk about the idea, then jump to success. This blog is going to show the actual path: the failed retrieval test and what it meant, how to source price data legally, problems that made it into production and how I caught them, and the technical decisions that actually mattered versus the ones that just sounded impressive.
+
+I'm making changes almost daily. Some days things break. Most days they work. Both sides are worth documenting.
 
 Welcome to PriceSniffs.
 
