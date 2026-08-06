@@ -29139,28 +29139,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "lookfantastic-11274779",
-    "brand": "Unbranded",
-    "name": "Balmain Hair Silk ()",
-    "concentration": "Perfume",
-    "sizeMl": 200,
-    "ean": null,
-    "shops": 1,
-    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11274779-5665348400636093.jpg&format=webp&width=1500&height=1500&fit=cover",
-    "notes": null
-  },
-  {
-    "id": "lookfantastic-11274796",
-    "brand": "Unbranded",
-    "name": "Balmain Hair Silk () (Travel Size)",
-    "concentration": "Perfume",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11274796-1915348401067733.jpg&format=webp&width=1500&height=1500&fit=cover",
-    "notes": null
-  },
-  {
     "id": "lookfantastic-11079226",
     "brand": "Unbranded",
     "name": "Calvin Klein Beauty",
@@ -29488,17 +29466,6 @@ export const CATALOGUE: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11173343-5065323126666023.jpg&format=webp&width=1500&height=1500&fit=cover",
-    "notes": null
-  },
-  {
-    "id": "lookfantastic-11220941",
-    "brand": "Unbranded",
-    "name": "Sachajuan Protective Hair",
-    "concentration": "Perfume",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11220941-1145323832179416.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
   },
   {
@@ -70842,34 +70809,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10301201-4445330266053921.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
-  "lookfantastic-11274779": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 37.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/balmain-hair-silk-perfume-200ml/11274779/",
-      "fetchedAt": "2026-08-06T04:10:32.674Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11274779-5665348400636093.jpg&format=webp&width=1500&height=1500&fit=cover"
-    }
-  ],
-  "lookfantastic-11274796": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 12.6,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.lookfantastic.com/p/balmain-hair-silk-perfume-50ml-travel-size/11274796/",
-      "fetchedAt": "2026-08-06T04:10:32.674Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11274796-1915348401067733.jpg&format=webp&width=1500&height=1500&fit=cover"
-    }
-  ],
   "lookfantastic-11079226": [
     {
       "retailerId": "lookfantastic",
@@ -71288,20 +71227,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": true,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11173343-5065323126666023.jpg&format=webp&width=1500&height=1500&fit=cover"
-    }
-  ],
-  "lookfantastic-11220941": [
-    {
-      "retailerId": "lookfantastic",
-      "price": 49.6,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.lookfantastic.com/p/sachajuan-protective-hair-perfume-50ml/11220941/",
-      "fetchedAt": "2026-08-06T04:10:32.674Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": true,
-      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11220941-1145323832179416.jpg&format=webp&width=1500&height=1500&fit=cover"
     }
   ],
   "lookfantastic-12380047": [
@@ -75191,20 +75116,6 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "amouage-45004",
-    "house": "Amouage",
-    "brand": "The House of Amouage",
-    "name": "Guidance Hair Perfume 50ml",
-    "sizeMl": 50,
-    "url": "https://amouage.com/products/new-guidance-hair-perfume",
-    "image": "https://cdn.shopify.com/s/files/1/0823/5099/7796/files/Amouage_CS_Photo_Product_HairPerfume_Guidance_585a4628-00d8-4e4e-a139-0491d1e4072e.jpg?v=1758880849",
-    "nativePrice": {
-      "amount": 130,
-      "currency": "USD"
-    },
-    "inStock": true
-  },
-  {
     "id": "amouage-41071",
     "house": "Amouage",
     "brand": "vendor-unknown",
@@ -75466,20 +75377,6 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0823/5099/7796/files/Love_Delight_100_ml_np_copy.jpg?v=1759219020",
     "nativePrice": {
       "amount": 395,
-      "currency": "USD"
-    },
-    "inStock": true
-  },
-  {
-    "id": "amouage-45005",
-    "house": "Amouage",
-    "brand": "The House of Amouage",
-    "name": "Love Delight Hair Perfume 50ml",
-    "sizeMl": 50,
-    "url": "https://amouage.com/products/new-love-delight-hair-perfume",
-    "image": "https://cdn.shopify.com/s/files/1/0823/5099/7796/files/Amouage_BathBody_CS_Photo_LoveDelight_HairPerfume_Bottle.jpg?v=1758880510",
-    "nativePrice": {
-      "amount": 130,
       "currency": "USD"
     },
     "inStock": true
@@ -84921,20 +84818,6 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "gissah-9993967108382-default-title",
-    "house": "Gissah",
-    "brand": "Gissah Perfumes UAE",
-    "name": "Night Crown Hair Mist",
-    "sizeMl": null,
-    "url": "https://gissahuae.com/products/night-crown-hair-mist",
-    "image": "https://cdn.shopify.com/s/files/1/0967/3005/4942/files/NightCrownHairMist-1.png?v=1769855143",
-    "nativePrice": {
-      "amount": 299,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
     "id": "gissah-9949498704158-default-title",
     "house": "Gissah",
     "brand": "Gissah Perfumes UAE",
@@ -85140,62 +85023,6 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0967/3005/4942/files/Sava_1.jpg?v=1779617397",
     "nativePrice": {
       "amount": 399,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "gissah-9970139693342-default-title",
-    "house": "Gissah",
-    "brand": "Gissah Perfumes UAE",
-    "name": "Scented Hair Serum N°01",
-    "sizeMl": null,
-    "url": "https://gissahuae.com/products/scented-hair-serum-n-01",
-    "image": "https://cdn.shopify.com/s/files/1/0967/3005/4942/files/ScentedHairSerumN_01-1_77c4270b-82ff-4c70-b480-991bdf0fdbd9.png?v=1767973325",
-    "nativePrice": {
-      "amount": 149,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "gissah-9970140152094-default-title",
-    "house": "Gissah",
-    "brand": "Gissah Perfumes UAE",
-    "name": "Scented Hair Serum N°02",
-    "sizeMl": null,
-    "url": "https://gissahuae.com/products/scented-hair-serum-n-02",
-    "image": "https://cdn.shopify.com/s/files/1/0967/3005/4942/files/ScentedHairSerumN_02-1.png?v=1767973405",
-    "nativePrice": {
-      "amount": 149,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "gissah-9970146378014-default-title",
-    "house": "Gissah",
-    "brand": "Gissah Perfumes UAE",
-    "name": "Scented Hair Serum N°03",
-    "sizeMl": null,
-    "url": "https://gissahuae.com/products/scented-hair-serum-n-03",
-    "image": "https://cdn.shopify.com/s/files/1/0967/3005/4942/files/ScentedHairSerumN_03-1_9b747a5e-4ff1-4ec9-b654-a89599d40f5b.png?v=1767973536",
-    "nativePrice": {
-      "amount": 149,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "gissah-9970151424286-default-title",
-    "house": "Gissah",
-    "brand": "Gissah Perfumes UAE",
-    "name": "Scented Hair Serum N°04",
-    "sizeMl": null,
-    "url": "https://gissahuae.com/products/scented-hair-serum-n-04",
-    "image": "https://cdn.shopify.com/s/files/1/0967/3005/4942/files/ScentedHairSerumN_04-1.png?v=1767973569",
-    "nativePrice": {
-      "amount": 149,
       "currency": "AED"
     },
     "inStock": true
@@ -98032,20 +97859,6 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "sol-de-janeiro-sj07220500",
-    "house": "Sol de Janeiro",
-    "brand": "Sol de Janeiro",
-    "name": "Sol Passport - 12ml Brazilian Glossy™ Nourishing Hair Oil",
-    "sizeMl": 12,
-    "url": "https://soldejaneiro.com/products/10ml-brazilian-glossy™-nourishing-hair-oil-1",
-    "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GlossyHairOil12ml.jpg?v=1759244906",
-    "nativePrice": {
-      "amount": 14,
-      "currency": "USD"
-    },
-    "inStock": true
-  },
-  {
     "id": "sol-de-janeiro-sj07210200",
     "house": "Sol de Janeiro",
     "brand": "Sol de Janeiro",
@@ -98167,20 +97980,6 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GlowmotionsGlowOil_RioSunset_-75ml.jpg?v=1775056118",
     "nativePrice": {
       "amount": 36,
-      "currency": "USD"
-    },
-    "inStock": true
-  },
-  {
-    "id": "sol-de-janeiro-mr060500",
-    "house": "Sol de Janeiro",
-    "brand": "Sol de Janeiro",
-    "name": "Sol Passport - Hair Towel - 350 Points",
-    "sizeMl": null,
-    "url": "https://soldejaneiro.com/products/sol-passport-hair-towel",
-    "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Merch_Hair_Towel_Sol_Passport.jpg?v=1728074427",
-    "nativePrice": {
-      "amount": 35,
       "currency": "USD"
     },
     "inStock": true
@@ -99936,20 +99735,6 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "swiss-arabian-casa109701",
-    "house": "Swiss Arabian",
-    "brand": "Swiss Arabian",
-    "name": "CASABLANCA - HAIR MIST",
-    "sizeMl": null,
-    "url": "https://swissarabian.com/products/casablanca-50ml",
-    "image": "https://cdn.shopify.com/s/files/1/0793/9712/6445/files/Casablanca.png?v=1767955770",
-    "nativePrice": {
-      "amount": 31,
-      "currency": "USD"
-    },
-    "inStock": true
-  },
-  {
     "id": "swiss-arabian-gpac007030",
     "house": "Swiss Arabian",
     "brand": "Swiss Arabian KSA",
@@ -100197,20 +99982,6 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0793/9712/6445/files/Top-angle_c5a08087-3cb6-49ba-b133-957220c6997e.webp?v=1783506650",
     "nativePrice": {
       "amount": 68,
-      "currency": "USD"
-    },
-    "inStock": true
-  },
-  {
-    "id": "swiss-arabian-ghar109701",
-    "house": "Swiss Arabian",
-    "brand": "Swiss Arabian",
-    "name": "GHARAAM - HAIR MIST",
-    "sizeMl": null,
-    "url": "https://swissarabian.com/products/gharam",
-    "image": "https://cdn.shopify.com/s/files/1/0793/9712/6445/files/Ghaaraam.png?v=1767955478",
-    "nativePrice": {
-      "amount": 31,
       "currency": "USD"
     },
     "inStock": true
@@ -100636,20 +100407,6 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "swiss-arabian-mus7109701",
-    "house": "Swiss Arabian",
-    "brand": "Swiss Arabian",
-    "name": "MUSK 07 - HAIR MIST",
-    "sizeMl": null,
-    "url": "https://swissarabian.com/products/musk-7",
-    "image": "https://cdn.shopify.com/s/files/1/0793/9712/6445/files/Musk-07_3f3b7895-4731-44c7-aff2-127caf2ba14a.png?v=1767955269",
-    "nativePrice": {
-      "amount": 31,
-      "currency": "USD"
-    },
-    "inStock": true
-  },
-  {
     "id": "swiss-arabian-gpac007063",
     "house": "Swiss Arabian",
     "brand": "Swiss Arabian UAE",
@@ -101056,20 +100813,6 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "swiss-arabian-ros1109701",
-    "house": "Swiss Arabian",
-    "brand": "Swiss Arabian",
-    "name": "ROSE 01 - HAIR MIST",
-    "sizeMl": null,
-    "url": "https://swissarabian.com/products/rose-1",
-    "image": "https://cdn.shopify.com/s/files/1/0793/9712/6445/files/Rose-01_0aa1c371-5557-462e-9938-0a8aa74bd146.png?v=1767955010",
-    "nativePrice": {
-      "amount": 31,
-      "currency": "USD"
-    },
-    "inStock": false
-  },
-  {
     "id": "swiss-arabian-gpac007032",
     "house": "Swiss Arabian",
     "brand": "Swiss Arabian Global",
@@ -101289,20 +101032,6 @@ export const HOUSE_PRODUCTS: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0793/9712/6445/files/Shaghaf-Oud.webp?v=1782984698",
     "nativePrice": {
       "amount": 44,
-      "currency": "USD"
-    },
-    "inStock": true
-  },
-  {
-    "id": "swiss-arabian-soud109701",
-    "house": "Swiss Arabian",
-    "brand": "Swiss Arabian",
-    "name": "SHAGHAF OUD - HAIR MIST",
-    "sizeMl": null,
-    "url": "https://swissarabian.com/products/shaghaf-oud-1",
-    "image": "https://cdn.shopify.com/s/files/1/0793/9712/6445/files/Shagaf-Oud.png?v=1767955614",
-    "nativePrice": {
-      "amount": 31,
       "currency": "USD"
     },
     "inStock": true
