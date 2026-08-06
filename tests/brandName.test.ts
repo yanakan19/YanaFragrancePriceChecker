@@ -62,4 +62,35 @@ describe('buildBrandCanon', () => {
     expect(canon.has('')).toBe(false);
     expect(canon.get('Armaf')).toBe('Armaf');
   });
+
+  it('folds known aliases the mechanical grouping cannot see on its own', () => {
+    const canon = buildBrandCanon([
+      'Ysl', 'Yves Saint Laurent',
+      'Donna Karan', 'DKNY',
+      'Paco Rabanne', 'Rabanne',
+      'Armani', 'Giorgio Armani',
+      'Dunhill London', 'Dunhill',
+      'Estee Lauder', 'Estée Lauder',
+      'Lancome', 'Lancôme',
+      'Hermes', 'Hermès',
+    ]);
+    expect(canon.get('Ysl')).toBe('Yves Saint Laurent');
+    expect(canon.get('Yves Saint Laurent')).toBe('Yves Saint Laurent');
+    expect(canon.get('Donna Karan')).toBe('DKNY');
+    expect(canon.get('DKNY')).toBe('DKNY');
+    expect(canon.get('Paco Rabanne')).toBe('Rabanne');
+    expect(canon.get('Armani')).toBe('Giorgio Armani');
+    expect(canon.get('Giorgio Armani')).toBe('Giorgio Armani');
+    expect(canon.get('Dunhill London')).toBe('Dunhill');
+    expect(canon.get('Estee Lauder')).toBe('Estée Lauder');
+    expect(canon.get('Estée Lauder')).toBe('Estée Lauder');
+    expect(canon.get('Lancome')).toBe('Lancôme');
+    expect(canon.get('Hermes')).toBe('Hermès');
+  });
+
+  it('leaves Emporio Armani alone rather than folding it into Giorgio Armani', () => {
+    const canon = buildBrandCanon(['Armani', 'Emporio Armani']);
+    expect(canon.get('Armani')).toBe('Giorgio Armani');
+    expect(canon.get('Emporio Armani')).toBe('Emporio Armani');
+  });
 });

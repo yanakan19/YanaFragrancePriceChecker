@@ -25,6 +25,34 @@
  * "Dolce&Gabbana" and "Dolce & Gabbana" collapse, "Armaf" and "ARMAF Online
  * Shop" do not, because they are not the same string with different decoration
  * and deciding they are the same house would be a guess.
+ *
+ * ── Known aliases: the mechanical grouping's real blind spot ─────────────────
+ * `brandKey` catches decoration — casing, spacing, punctuation. It cannot
+ * catch two spellings that are letters-and-digits-different: an abbreviation
+ * ("Ysl" against "Yves Saint Laurent"), a retired name ("Paco Rabanne" against
+ * "Rabanne", the house dropped "Paco" from its branding in 2023), a shortened
+ * form ("Armani" against "Giorgio Armani"), a suffix variant ("Dunhill London"
+ * against "Dunhill"), or an accent a shop's feed stripped ("Estee Lauder"
+ * against "Estée Lauder", "Lancome" against "Lancôme", "Hermes" against
+ * "Hermès" — `brandKey` is ASCII only, so it deletes rather than folds an
+ * accented letter, and the two spellings hash to different keys). None of
+ * that is decoration `brandKey` can see, so it needs to be told, once, by
+ * hand — the same discipline as everywhere else here: a fact recorded because
+ * someone checked it, not a rule general enough to guess it.
+ *
+ * "DKNY" is where Donna Karan's diffusion line is sold and searched for, so
+ * "Donna Karan" is folded into it rather than the other way round. Every
+ * other pair keeps whichever name is the house's own current one.
+ *
+ * "Emporio Armani" is deliberately not folded into "Giorgio Armani" here.
+ * It is Giorgio Armani's diffusion line, but it is bottled, marketed and
+ * searched for under its own name, the same way Emporio Armani fragrances
+ * are catalogued as their own line everywhere they are sold — treating it as
+ * a mere spelling of "Armani" would be merging two things that happen to
+ * share a parent company, not two spellings of one name. Plain "Armani" is
+ * different: nothing sells fragrance under the bare word "Armani" as its own
+ * line, so where it appears here it is shorthand for the main house, and it
+ * is folded into "Giorgio Armani".
  */
 
 /**
@@ -37,6 +65,24 @@
 export function brandKey(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, '');
 }
+
+/** See the "Known aliases" section of the module doc above. */
+const KNOWN_ALIASES: Record<string, string> = {
+  [brandKey('Ysl')]: 'Yves Saint Laurent',
+  [brandKey('Yves Saint Laurent')]: 'Yves Saint Laurent',
+  [brandKey('Donna Karan')]: 'DKNY',
+  [brandKey('Paco Rabanne')]: 'Rabanne',
+  [brandKey('Rabanne')]: 'Rabanne',
+  [brandKey('Armani')]: 'Giorgio Armani',
+  [brandKey('Giorgio Armani')]: 'Giorgio Armani',
+  [brandKey('Dunhill London')]: 'Dunhill',
+  [brandKey('Estee Lauder')]: 'Estée Lauder',
+  [brandKey('Estée Lauder')]: 'Estée Lauder',
+  [brandKey('Lancome')]: 'Lancôme',
+  [brandKey('Lancôme')]: 'Lancôme',
+  [brandKey('Hermes')]: 'Hermès',
+  [brandKey('Hermès')]: 'Hermès',
+};
 
 /** True when a string uses ordinary mixed case rather than shouting or whispering. */
 function isMixedCase(name: string): boolean {
@@ -85,8 +131,8 @@ export function buildBrandCanon(allBrandStrings: readonly string[]): Map<string,
   }
 
   const canon = new Map<string, string>();
-  for (const [, variants] of groups) {
-    const chosen = pickBrandName(variants);
+  for (const [key, variants] of groups) {
+    const chosen = KNOWN_ALIASES[key] ?? pickBrandName(variants);
     for (const spelling of variants.keys()) canon.set(spelling, chosen);
   }
   return canon;
