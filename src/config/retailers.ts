@@ -83,8 +83,16 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.allbeauty.com',
     tiers: ['designer', 'niche', 'mideast'],
     enabled: true,
-    // Live spike 1 Aug 2026: HTTP 200 but no product markup found. Either
-    // the section URL is wrong or the grid is drawn by script.
+    // Live spike 1 Aug 2026: the old /uk/fragrance URL returned HTTP 200 with
+    // no product markup. Confirmed live in a browser 6 Aug 2026: the real
+    // page is /collections/fragrance (a Shopify-style collection path) and
+    // the grid loads more products by scrolling — genuinely JS driven past
+    // the first screen, not just a wrong URL. A plain fetch of the corrected
+    // URL may still recover the first batch, since Shopify themes typically
+    // server render an initial page for search engines even when later
+    // products load on scroll, but that is an expectation, not a confirmed
+    // fact, so adapter stays 'unknown' and maxPages stays at 1 until a real
+    // run shows what comes back.
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -101,9 +109,9 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: {
       searchUrlTemplate: 'https://www.allbeauty.com/uk/search?q={q}',
       sections: [
-        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.allbeauty.com/uk/fragrance?page={page}', tier: 'designer' },
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://allbeauty.com/collections/fragrance', tier: 'designer' },
       ],
-      firstPage: 1, maxPages: 60, minRequestGapMs: 1200,
+      firstPage: 1, maxPages: 1, minRequestGapMs: 1200,
     },
     affiliate: {
       ...NO_AFFILIATE_YET,
@@ -359,8 +367,13 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.lookfantastic.com',
     tiers: ['designer', 'niche'],
     enabled: true,
-    // Live spike 1 Aug 2026: HTTP 404. The section URL below is wrong and
-    // needs correcting before this shop can be judged.
+    // Live spike 1 Aug 2026 found the old section URL 404ing (fragrance.list
+    // no longer exists). Corrected 6 Aug 2026 to the real category path,
+    // confirmed live in a browser, not by a fetch from here. Pagination
+    // scheme for the new path is not yet known, so maxPages stays at 1 until
+    // a run against this URL shows what page 2 actually looks like — a wrong
+    // guessed page param is worse than no pagination, since it either wastes
+    // requests or silently repeats page one.
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -377,9 +390,9 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: {
       searchUrlTemplate: 'https://www.lookfantastic.com/elysium.search?search={q}',
       sections: [
-        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.lookfantastic.com/fragrance.list?pageNumber={page}', tier: 'designer' },
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.lookfantastic.com/c/health-beauty/fragrance/', tier: 'designer' },
       ],
-      firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
+      firstPage: 1, maxPages: 1, minRequestGapMs: 1500,
     },
     affiliate: {
       ...awinPending('2082'),
