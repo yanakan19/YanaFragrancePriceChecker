@@ -1752,6 +1752,35 @@ function render(): void {
   ($('#nav-explore') as HTMLElement).classList.toggle('on', inExplore || state.view === 'browse');
   ($('#nav-about') as HTMLElement).classList.toggle('on', state.view === 'about');
   ($('#nav-settings') as HTMLElement).classList.toggle('on', state.view === 'settings');
+
+  syncUpdatesHeight();
+}
+
+/**
+ * On desktop, the update history sits beside the suggestion box rather than
+ * below it. The list of releases only grows over time, so left unchecked it
+ * would run taller than the form next to it and the two columns would end at
+ * different points. Capping the list's height to whatever the suggestion box
+ * actually rendered at, and letting it scroll internally past that, keeps the
+ * two bottoms aligned instead. Stacked on mobile, neither constraint applies,
+ * so the cap is cleared there and the list just flows.
+ */
+function syncUpdatesHeight(): void {
+  const suggest = document.querySelector('.suggest-section') as HTMLElement | null;
+  const list = document.querySelector('.updates-list') as HTMLElement | null;
+  if (!suggest || !list) return;
+  if (state.layout !== 'desktop') {
+    list.style.maxHeight = '';
+    return;
+  }
+  // Measured from the list's own top, not the suggestion box's total height:
+  // the updates column carries its own heading above the list, so matching
+  // the suggestion box's full height would push the list past it. What has
+  // to match is the bottom edge, so the cap is exactly the gap between where
+  // the list starts and where the suggestion box ends.
+  const suggestBottom = suggest.getBoundingClientRect().bottom;
+  const listTop = list.getBoundingClientRect().top;
+  list.style.maxHeight = `${Math.max(120, suggestBottom - listTop)}px`;
 }
 
 function go(view: View): void {
@@ -2017,6 +2046,15 @@ function init(): void {
   window.addEventListener('popstate', () => {
     renderFromUrl();
     window.scrollTo({ top: 0 });
+  });
+
+  // A window resize can change how the suggestion box wraps (and so its
+  // height) without touching state or triggering a re-render on its own, so
+  // the update list's cap would otherwise go stale until the next navigation.
+  let resizeTimer = 0;
+  window.addEventListener('resize', () => {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(syncUpdatesHeight, 120);
   });
 
   // First paint comes from whatever URL we were opened at, so a deep link,

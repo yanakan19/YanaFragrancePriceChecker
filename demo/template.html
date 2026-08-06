@@ -424,7 +424,19 @@
   .suggest-section .panel-note { margin-top: 0; }
 
   .updates-section h3 { margin: 0 0 16px; font-size: 14px; font-weight: 700; }
-  .updates-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+  .updates-list {
+    list-style: none; margin: 0; padding: 0 4px 0 0; display: flex; flex-direction: column; gap: 16px;
+    overflow-y: auto; overscroll-behavior: contain;
+    scrollbar-width: thin; scrollbar-color: var(--line-firm) transparent;
+  }
+  .updates-list::-webkit-scrollbar { width: 6px; }
+  .updates-list::-webkit-scrollbar-track { background: transparent; }
+  .updates-list::-webkit-scrollbar-thumb { background: var(--line-firm); border-radius: 3px; }
+  .updates-list::-webkit-scrollbar-thumb:hover { background: var(--faint); }
+  /* JS (syncUpdatesHeight) sets the real cap once the suggestion box next to
+     it has actually rendered; this is only the pre-JS/no-JS fallback so the
+     list never runs unbounded before that. */
+  :root[data-layout="desktop"] .updates-list { max-height: 480px; }
   .update-entry {
     border-left: 3px solid var(--accent-sf); padding: 12px 0 12px 14px;
     position: relative;
@@ -1266,6 +1278,24 @@
   }
 
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+  /* ── site footer ────────────────────────────────────────────────────────
+     Narrow and quiet on purpose: it is a credit line, not a navigation
+     surface, so it takes as little vertical room as the two touch targets
+     allow and stays out of the way of everything above it. */
+  .site-footer {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    margin-top: 28px; padding: 12px 16px; border-top: 1px solid var(--line);
+    font-size: 11.5px; color: var(--faint);
+  }
+  .footer-credit { white-space: nowrap; font-weight: 600; }
+  .footer-social { display: flex; align-items: center; gap: 16px; flex: none; }
+  .footer-link {
+    display: inline-flex; align-items: center; gap: 5px;
+    color: var(--faint); text-decoration: none; font-size: 11.5px; font-weight: 600;
+  }
+  .footer-link .ico { width: 14px; height: 14px; }
+  .footer-link:hover, .footer-link:focus-visible { color: var(--accent); }
 </style>
 
 <div class="ambient" aria-hidden="true">
@@ -1288,6 +1318,27 @@
   </div>
 
   <main id="view"></main>
+
+  <footer class="site-footer">
+    <span class="footer-credit">Built by YannySniffs</span>
+    <div class="footer-social">
+      <a class="footer-link" href="https://www.tiktok.com/@yannysniffs" target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <circle cx="8" cy="17" r="3" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M11 17V4l6 3.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        TikTok
+      </a>
+      <a class="footer-link" href="https://www.instagram.com/yannysniffs" target="_blank" rel="noopener">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.7"/>
+          <circle cx="12" cy="12" r="3.6" stroke="currentColor" stroke-width="1.7"/>
+          <circle cx="17.2" cy="6.8" r="1" fill="currentColor"/>
+        </svg>
+        Instagram
+      </a>
+    </div>
+  </footer>
 </div>
 
 <div id="sheet-host"></div>
