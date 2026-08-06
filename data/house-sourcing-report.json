@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-05T23:36:22.964Z",
+  "checkedAt": "2026-08-06T00:45:37.154Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,7 +59,7 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 4,
+      "listings": 13,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
@@ -195,17 +195,16 @@
       "houseId": "paris-corner",
       "name": "Paris Corner",
       "origin": "https://pariscorner.ae",
-      "routeUsed": null,
-      "currency": null,
-      "listings": 0,
-      "pricedInGbp": 0,
-      "withPhoto": 0,
-      "errors": [
-        "robots.txt unreachable at https://pariscorner.ae and https://www.pariscorner.ae — holding off rather than guessing we are welcome"
-      ],
+      "routeUsed": "sitemap-jsonld",
+      "currency": "AED",
+      "listings": 60,
+      "pricedInGbp": 60,
+      "withPhoto": 60,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending"
+        "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
+        "prices are in AED, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -269,12 +268,14 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "robots.txt unreachable at https://maisonalhambra.co and https://www.maisonalhambra.co — holding off rather than guessing we are welcome"
+        "storefront currency could not be established — no sterling price recorded",
+        "https://maisonalhambra.co/sitemap_index.xml: HTTP 404"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "a Lattafa Perfumes Industries brand, so it shares a manufacturer with the Lattafa entry above but is sold separately",
-        "several near-identical domains exist (themaison-alhambra.com, maisonalhambraperfume.com, maisonalhambras.com) — only maisonalhambra.co presents itself as the official one, confirm before trusting listings from any other"
+        "several near-identical domains exist (themaison-alhambra.com, maisonalhambraperfume.com, maisonalhambras.com) — only maisonalhambra.co presents itself as the official one, confirm before trusting listings from any other",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {
