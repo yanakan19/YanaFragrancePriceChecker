@@ -909,13 +909,9 @@ function detailView(): string {
   const missing = RETAILERS.filter((r) => !shownIds.has(r.id)).sort((a, b) => a.name.localeCompare(b.name));
   // A shop that stocks many houses and simply does not have this one is a real
   // "not available". One house's own storefront is not: Armaf's shop was never
-  // going to sell a Dior bottle, and listing it the same way states something
-  // about this fragrance's availability that is not really about availability.
-  // Split rather than merged, and a single-brand shop for *this* fragrance's
-  // own house stays in the ordinary list, where "not available" does mean
-  // something.
+  // going to sell a Dior bottle, so it is excluded here rather than listed as
+  // a gap in that shop's range.
   const unavailable = missing.filter((r) => !cannotCarryBrand(r, frag.brand));
-  const otherHouseShops = missing.filter((r) => cannotCarryBrand(r, frag.brand));
 
   return `
     <button class="back" data-back>Back</button>
@@ -956,15 +952,6 @@ function detailView(): string {
           unavailable.length
             ? `<p class="gone-head">Not available</p>
                <ul class="offers">${unavailable.map((r) => unavailableRow(r.name)).join('')}</ul>`
-            : ''
-        }
-
-        ${
-          otherHouseShops.length
-            ? `<p class="gone-head">Other brands' own shops</p>
-               <p class="group-note">These sell only their own brand's fragrances, so they were never
-                 going to carry ${esc(frag.brand)}. Listed for completeness, not as a gap in their range.</p>
-               <ul class="offers">${otherHouseShops.map((r) => unavailableRow(r.name)).join('')}</ul>`
             : ''
         }
       </div>
