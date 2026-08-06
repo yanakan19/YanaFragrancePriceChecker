@@ -27,7 +27,25 @@ export interface SitemapCrawlOptions {
   gapMs: number;
   headers: Record<string, string>;
   sleep?: (ms: number) => Promise<void>;
+  /**
+   * Fires after every fetch in both the discovery walk and the product-page
+   * walk, not just at the end of a shop's run. A CI runner treats 10 minutes
+   * of a job producing no log output as a stuck process and kills it — and a
+   * budgeted walk can genuinely go that long between one shop's start and its
+   * single end-of-run summary line if enough of its fetches hit the timeout.
+   * A caller that logs on every call keeps the runner convinced the job is
+   * still alive; a caller that does nothing is exactly the silence that gets
+   * a healthy-but-slow crawl mistaken for a hang.
+   */
   onProgress?: (fetched: number, found: number) => void;
+  /**
+   * Wall-clock ceiling on this whole call, in milliseconds. `maxPages` caps
+   * request *count*, not time — a shop whose every request is slow rather
+   * than erroring can still burn the job's entire duration on one shop.
+   * Checked between requests, not mid-request, so a single already-in-flight
+   * fetch is left to its own 20-25s timeout to resolve rather than aborted.
+   */
+  maxDurationMs?: number;
   /**
    * Product URLs already stored for this shop, mapped to when each was last
    * fetched (ISO 8601).
@@ -114,8 +132,9 @@ const PRODUCT_SITEMAP = /(^|[^a-z])(product|item|sku|catalog)/i;
 async function discover(
   options: SitemapCrawlOptions,
   budget: number,
+  deadlineAt: number,
 ): Promise<{ urls: string[]; errors: string[] }> {
-  const { retailer, http, robots, headers } = options;
+  const { retailer, http, robots, headers, onProgress } = options;
 
   // A shop's declared sitemap can be unreachable while the conventional path
   // serves fine — John Lewis's robots.txt points at a siteindex.xml that times
@@ -138,7 +157,7 @@ async function discover(
   }));
   let fetched = 0;
 
-  while (queue.length > 0 && fetched < budget && scented.size < MAX_DISCOVERED_URLS) {
+  while (queue.length > 0 && fetched < budget && scented.size < MAX_DISCOVERED_URLS && Date.now() < deadlineAt) {
     const { url, isProductSitemap } = queue.shift()!;
     if (seen.has(url)) continue;
     seen.add(url);
@@ -147,6 +166,7 @@ async function discover(
 
     const res = await http(url, headers);
     fetched++;
+    onProgress?.(fetched, scented.size + generic.size);
     if (!res.ok) {
       errors.push(`${url}: HTTP ${res.status}`);
       continue;
@@ -217,17 +237,27 @@ export async function crawlViaSitemap(
   const { http, robots, headers, maxPages, gapMs } = options;
   const sleep = options.sleep ?? ((ms: number) => new Promise<void>((r) => setTimeout(r, ms)));
 
+  // Default of 8 minutes: generous for a healthy shop, well short of the CI
+  // job's 45-minute total and short enough that one slow shop cannot eat the
+  // whole run even with progress logging keeping the job itself alive.
+  const deadlineAt = Date.now() + (options.maxDurationMs ?? 8 * 60_000);
+
   // A dozen sitemap fetches is plenty to find the fragrance aisle.
-  const { urls, errors } = await discover(options, 12);
+  const { urls, errors } = await discover(options, 12, deadlineAt);
 
   const listings: RawListing[] = [];
   let pagesFetched = 0;
 
   for (const url of selectUrlsToFetch(urls, maxPages, options.knownUrls, options.refreshShare)) {
+    if (Date.now() >= deadlineAt) {
+      errors.push(`stopped early: exceeded this shop's time budget`);
+      break;
+    }
     if (!isAllowed(robots, url)) continue;
 
     const res = await http(url, headers);
     pagesFetched++;
+    options.onProgress?.(pagesFetched, listings.length);
 
     if (!res.ok) {
       errors.push(`${url}: HTTP ${res.status}`);
@@ -241,7 +271,6 @@ export async function crawlViaSitemap(
 
     const found = parseListings(res.body, { sectionId: 'sitemap', pageUrl: url });
     listings.push(...found);
-    options.onProgress?.(pagesFetched, listings.length);
 
     if (gapMs > 0) await sleep(gapMs);
   }

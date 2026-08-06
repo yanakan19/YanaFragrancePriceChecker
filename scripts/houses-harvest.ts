@@ -42,6 +42,19 @@ const http: Http = createHttp();
 
 const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
+// A house whose fetches are all slow (rather than erroring) can otherwise go
+// silent for the whole loop and only print once it finishes — and a CI
+// runner treats 10 minutes of a job producing no log output as a stuck
+// process and kills it. This is what actually happened to a real run against
+// this file: no code change caused it, a slow house's fetches just went
+// unnoticed for exactly this reason. Every fetch below logs a short line
+// for that reason, not for readability.
+//
+// PER_HOUSE_DEADLINE_MS is the second half of the fix: logging keeps the job
+// alive, but does nothing to stop one slow house from spending the entire
+// run's time budget that would otherwise have gone to the other 29.
+const PER_HOUSE_DEADLINE_MS = 3 * 60_000;
+
 async function robotsFor(origin: string): Promise<RobotsRules> {
   const res = await http(`${origin}/robots.txt`, BROWSER_HEADERS);
   if (res.ok && res.body) return parseRobots(res.body, 'pricesniffsbot');
@@ -75,11 +88,17 @@ async function viaShopify(
   robots: RobotsRules,
   currency: string | null,
   errors: string[],
+  deadlineAt: number,
 ): Promise<RawListing[]> {
   const listings: RawListing[] = [];
   const perPage = Math.min(maxProducts, 250);
 
   for (let page = 1; page <= 10; page++) {
+    if (Date.now() >= deadlineAt) {
+      errors.push('stopped early: exceeded this house\'s time budget');
+      break;
+    }
+
     const url = `${house.origin}/products.json?limit=${perPage}&page=${page}`;
     if (!isAllowed(robots, url)) {
       errors.push(`robots.txt disallows ${url}`);
@@ -87,6 +106,7 @@ async function viaShopify(
     }
 
     const res = await http(url, BROWSER_HEADERS);
+    console.log(`      ${house.name}: shopify page ${page}${res.ok ? '' : ` (HTTP ${res.status})`}`);
     if (!res.ok) {
       // A 404 here just means "not a Shopify storefront", which is a fact about
       // the house rather than a failure worth shouting about.
@@ -122,6 +142,7 @@ async function viaSitemap(
   house: House,
   robots: RobotsRules,
   errors: string[],
+  deadlineAt: number,
 ): Promise<RawListing[]> {
   const roots = robots.sitemaps.length ? robots.sitemaps : [`${house.origin}/sitemap.xml`];
   const productUrls = new Set<string>();
@@ -129,7 +150,7 @@ async function viaSitemap(
   const seen = new Set<string>();
   let sitemapFetches = 0;
 
-  while (queue.length > 0 && sitemapFetches < 8 && productUrls.size < maxProducts) {
+  while (queue.length > 0 && sitemapFetches < 8 && productUrls.size < maxProducts && Date.now() < deadlineAt) {
     const url = queue.shift()!;
     if (seen.has(url)) continue;
     seen.add(url);
@@ -137,6 +158,7 @@ async function viaSitemap(
 
     const res = await http(url, BROWSER_HEADERS);
     sitemapFetches++;
+    console.log(`      ${house.name}: sitemap fetch ${sitemapFetches}${res.ok ? '' : ` (HTTP ${res.status})`}`);
     if (!res.ok) {
       errors.push(`${url}: HTTP ${res.status}${res.error ? ` ${res.error}` : ''}`);
       continue;
@@ -152,9 +174,17 @@ async function viaSitemap(
   }
 
   const listings: RawListing[] = [];
-  for (const url of [...productUrls].slice(0, Math.min(maxProducts, 60))) {
+  const productList = [...productUrls].slice(0, Math.min(maxProducts, 60));
+  for (const [i, url] of productList.entries()) {
+    if (Date.now() >= deadlineAt) {
+      errors.push('stopped early: exceeded this house\'s time budget');
+      break;
+    }
     if (!isAllowed(robots, url)) continue;
     const res = await http(url, BROWSER_HEADERS);
+    if ((i + 1) % 5 === 0 || i === productList.length - 1) {
+      console.log(`      ${house.name}: product page ${i + 1}/${productList.length}`);
+    }
     if (!res.ok) {
       if (res.status === 403 || res.status === 429) {
         errors.push('stopped early: the house began refusing requests');
@@ -170,6 +200,7 @@ async function viaSitemap(
 }
 
 async function harvestHouse(house: House): Promise<HouseOutcome> {
+  const deadlineAt = Date.now() + PER_HOUSE_DEADLINE_MS;
   const errors: string[] = [];
   const outcome: HouseOutcome = {
     houseId: house.id,
@@ -235,10 +266,14 @@ async function harvestHouse(house: House): Promise<HouseOutcome> {
 
   let listings: RawListing[] = [];
   for (const route of house.routes) {
+    if (Date.now() >= deadlineAt) {
+      errors.push('stopped early: exceeded this house\'s time budget before trying every route');
+      break;
+    }
     listings =
       route === 'shopify-products-json'
-        ? await viaShopify(house, robots, currency, errors)
-        : await viaSitemap(house, robots, errors);
+        ? await viaShopify(house, robots, currency, errors, deadlineAt)
+        : await viaSitemap(house, robots, errors, deadlineAt);
 
     if (listings.length > 0) {
       outcome.routeUsed = route;
