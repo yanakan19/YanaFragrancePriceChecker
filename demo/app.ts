@@ -752,16 +752,19 @@ function homeView(): string {
         <h3>Update History</h3>
         <ul class="updates-list">
           ${CHANGELOG.map(
-            (entry) => `<li class="update-entry">
-              <p class="update-head">
-                <span class="update-version">${esc(entry.version)}</span>
-                <span class="update-date">${esc(entry.date)}</span>
-              </p>
-              <p class="update-title">${esc(entry.title)}</p>
-              <ul class="update-points">
-                ${entry.points.map((p) => `<li>${esc(p)}</li>`).join('')}
-              </ul>
-            </li>`,
+            (entry) => {
+              const isPrelaunch = entry.version.startsWith('v0.');
+              return `<li class="update-entry${isPrelaunch ? ' prelaunch' : ''}">
+                <p class="update-head">
+                  <span class="update-version">${esc(entry.version)}</span>
+                  <span class="update-date">${esc(entry.date)}</span>
+                </p>
+                <p class="update-title">${esc(entry.title)}</p>
+                <ul class="update-points">
+                  ${entry.points.map((p) => `<li>${esc(p)}</li>`).join('')}
+                </ul>
+              </li>`;
+            },
           ).join('')}
         </ul>
       </section>
