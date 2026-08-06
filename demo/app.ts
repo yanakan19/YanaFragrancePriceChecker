@@ -195,7 +195,7 @@ const PRICE_BANDS: { id: PriceBand; label: string; min: number; max: number | nu
   { id: '50-80', label: '£50 - £80', min: 50, max: 80 },
   { id: '80-150', label: '£80 - £150', min: 80, max: 150 },
   { id: '150-300', label: '£150 - £300', min: 150, max: 300 },
-  { id: '300+', label: '£300 and over', min: 300, max: null },
+  { id: '300+', label: '£300 And Over', min: 300, max: null },
 ];
 
 function priceBandFor(deliveredPriceGbp: number): PriceBand {
@@ -315,12 +315,12 @@ function facetsBlock(list: DemoFragrance[]): string {
 
   const onSalePill = g.onSale > 0
     ? `<fieldset class="facet-group"><legend>Offers</legend><div class="facet-pills">
-         ${facetPill('onSale', '1', 'On sale', g.onSale, state.facetOnSale)}
+         ${facetPill('onSale', '1', 'On Sale', g.onSale, state.facetOnSale)}
        </div></fieldset>`
     : '';
   const inStockPill = g.inStock > 0 && g.inStock < list.length
     ? `<fieldset class="facet-group"><legend>Availability</legend><div class="facet-pills">
-         ${facetPill('inStock', '1', 'In stock only', g.inStock, state.facetInStock)}
+         ${facetPill('inStock', '1', 'In Stock Only', g.inStock, state.facetInStock)}
        </div></fieldset>`
     : '';
 
@@ -565,10 +565,10 @@ function sortFragrances(list: DemoFragrance[], sort: ListSort): DemoFragrance[] 
 
 function listSortControl(id: string, current: ListSort): string {
   return control(id, 'Sort fragrances', ICON_SORT, [
-    { value: 'az', label: 'A to Z' },
-    { value: 'za', label: 'Z to A' },
-    { value: 'price-low', label: 'Lowest price' },
-    { value: 'price-high', label: 'Highest price' },
+    { value: 'az', label: 'A To Z' },
+    { value: 'za', label: 'Z To A' },
+    { value: 'price-low', label: 'Lowest Price' },
+    { value: 'price-high', label: 'Highest Price' },
   ], current);
 }
 
@@ -577,7 +577,7 @@ function listSortControl(id: string, current: ListSort): string {
  *  only ever show everything or nothing — never a real subset. */
 function tierFilterControl(id: string, current: BrandFilter): string {
   return control(id, 'Filter by type', ICON_FILTER, [
-    { value: 'all', label: 'All types' },
+    { value: 'all', label: 'All Types' },
     ...(['designer', 'niche', 'mideast'] as const).map((t) => ({ value: t, label: TIER_LABEL[t] })),
   ], current);
 }
@@ -679,7 +679,7 @@ function perRowControl(): string {
     <span class="sr">Tiles per row</span>
     <select id="per-row" class="dropdown">
       ${PER_ROW_CHOICES.map(
-        (n) => `<option value="${n}" ${n === state.perRow ? 'selected' : ''}>${n} per row</option>`,
+        (n) => `<option value="${n}" ${n === state.perRow ? 'selected' : ''}>${n} Per Row</option>`,
       ).join('')}
     </select>
     <span class="control-chevron" aria-hidden="true">${ICON_CHEVRON}</span>
@@ -951,11 +951,11 @@ function brandsPanel(): string {
 
   const controls = `<div class="controls">
     ${control('brand-sort', 'Sort brands', ICON_SORT, [
-      { value: 'az', label: 'A to Z' },
-      { value: 'za', label: 'Z to A' },
+      { value: 'az', label: 'A To Z' },
+      { value: 'za', label: 'Z To A' },
     ], state.brandSort)}
     ${control('brand-filter', 'Filter brands', ICON_FILTER, [
-      { value: 'all', label: 'All types' },
+      { value: 'all', label: 'All Types' },
       ...(['designer', 'niche', 'mideast'] as const).map((t) => ({ value: t, label: TIER_LABEL[t] })),
     ], state.brandFilter)}
   </div>`;
@@ -995,9 +995,9 @@ function dealsPanel(): string {
 
   const controls = `<div class="controls">
     ${control('deal-sort', 'Sort deals', ICON_RANK, [
-      { value: 'discount', label: 'Biggest saving' },
-      { value: 'lowest', label: 'Lowest price' },
-      { value: 'highest', label: 'Highest price' },
+      { value: 'discount', label: 'Biggest Savings (%)' },
+      { value: 'lowest', label: 'Lowest Price' },
+      { value: 'highest', label: 'Highest Price' },
     ], state.dealSort)}
     ${perRowControl()}
     ${facetsBlock(sorted.map((d) => d.fragrance))}
@@ -1229,14 +1229,14 @@ function notesPanel(): string {
 
   const controls = `<div class="controls">
     ${control('note-sort', 'Sort notes', ICON_SORT, [
-      { value: 'common', label: 'Most common' },
-      { value: 'az', label: 'A to Z' },
+      { value: 'common', label: 'Most Common' },
+      { value: 'az', label: 'A To Z' },
     ], state.noteSort)}
     ${control('note-layer', 'Filter notes', ICON_FILTER, [
-      { value: 'any', label: 'Any layer' },
-      { value: 'top', label: 'Top notes' },
-      { value: 'middle', label: 'Middle notes' },
-      { value: 'base', label: 'Base notes' },
+      { value: 'any', label: 'Any Layer' },
+      { value: 'top', label: 'Top Notes' },
+      { value: 'middle', label: 'Middle Notes' },
+      { value: 'base', label: 'Base Notes' },
     ], state.noteLayer)}
   </div>`;
 
