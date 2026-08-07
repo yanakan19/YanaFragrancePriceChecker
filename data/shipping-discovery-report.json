@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-05T18:49:30.180Z",
+  "checkedAt": "2026-08-07T06:09:24.003Z",
   "outcomes": [
     {
       "retailerId": "the-fragrance-counter",
@@ -47,7 +47,7 @@
         "quotedAgainst": null,
         "basketGbp": null,
         "rates": [],
-        "error": "products.json: fetch failed",
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
         "steps": [
           "https://www.thefragrancecounter.co.uk/products.json?limit=250"
         ]
