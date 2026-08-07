@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-07T22:21:29.218Z",
+  "checkedAt": "2026-08-07T23:17:42.366Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -64,7 +64,7 @@
       "withPhoto": 0,
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
-        "https://www.pairfum.com/sitemap_index.xml: HTTP 503"
+        "stopped early: the house began refusing requests"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
