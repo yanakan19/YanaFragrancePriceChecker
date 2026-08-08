@@ -38,6 +38,16 @@ writeFileSync(resolve(root, 'dist-demo/artifact.html'), body);
 // manifest; iOS additionally wants its own meta tags and a PNG touch icon
 // since Safari has never supported SVG there. See demo/manifest.webmanifest,
 // demo/sw.js and scripts/generate-icons.ts.
+// Every tag below is absolute, deliberately: Facebook's and Twitter's card
+// scrapers resolve a relative og:image against their own fetch of the page,
+// not against pricesniffs.space, and the classic silent failure here is a
+// relative path that happens to work in a browser tab and produces nothing
+// in a shared link. og-preview.png is generated straight from this homepage
+// by scripts/generate-og-preview.ts, so it cannot drift from the real
+// branding the way a hand-made image would.
+const SITE_URL = 'https://pricesniffs.space';
+const OG_DESCRIPTION = 'Compare real UK fragrance prices across every retailer that stocks them. No invented numbers.';
+
 const standalone = `<!doctype html>
 <html lang="en-GB">
 <head>
@@ -53,6 +63,21 @@ const standalone = `<!doctype html>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="PriceSniffs" />
 <meta name="mobile-web-app-capable" content="yes" />
+<meta name="description" content="${OG_DESCRIPTION}" />
+<link rel="canonical" href="${SITE_URL}/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="PriceSniffs" />
+<meta property="og:title" content="PriceSniffs: compare fragrance prices across UK retailers" />
+<meta property="og:description" content="${OG_DESCRIPTION}" />
+<meta property="og:url" content="${SITE_URL}/" />
+<meta property="og:image" content="${SITE_URL}/og-preview.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="PriceSniffs: compare fragrance prices across UK retailers" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="PriceSniffs: compare fragrance prices across UK retailers" />
+<meta name="twitter:description" content="${OG_DESCRIPTION}" />
+<meta name="twitter:image" content="${SITE_URL}/og-preview.png" />
 ${body}
 </html>
 `;

@@ -69,6 +69,13 @@ console.log('');
 
 let totalListings = 0;
 let reached = 0;
+// Tracked separately from the per-shop log line above because that line
+// scrolls away. A shop stuck at zero looks identical, run after run, to a
+// shop having one bad day — unless something rolls it up and says so at the
+// end, which is exactly the gap docs/INGESTION-AUDIT.md found: eight shops
+// sat on week-old fixture data with nothing ever surfacing that as a rollup.
+const neverLive: string[] = [];
+const zeroThisRun: string[] = [];
 
 for (const retailer of shops) {
   const robots = await loadRobots(retailer, http);
@@ -141,6 +148,11 @@ for (const retailer of shops) {
   );
   for (const e of result.errors.slice(0, 1)) console.log(`      ${e}`);
 
+  if (withPrice.length === 0) {
+    zeroThisRun.push(retailer.id);
+    if (prior.source !== 'live') neverLive.push(retailer.id);
+  }
+
   if (dryRun || withPrice.length === 0) continue;
 
   // Live data and fixture data must never be reconciled against each other.
@@ -188,7 +200,10 @@ for (const retailer of shops) {
 }
 
 console.log(`\n${reached} of ${shops.length} shops yielded real priced listings`);
-console.log(`${totalListings} listings total\n`);
+console.log(`${totalListings} listings total`);
+if (zeroThisRun.length) console.log(`zero this run: ${zeroThisRun.join(', ')}`);
+if (neverLive.length) console.log(`never once live: ${neverLive.join(', ')} — still on fixtures, excluded from the site`);
+console.log('');
 
 if (reached === 0) {
   console.error('Nothing harvested. Not writing anything rather than showing an empty app.');
