@@ -24,7 +24,8 @@
     "repair:delist": "tsx scripts/repair-mass-delist.ts",
     "catalogue:feed": "tsx scripts/catalogue-feed.ts",
     "images:check": "tsx scripts/image-link-check.ts",
-    "icons": "tsx scripts/generate-icons.ts"
+    "icons": "tsx scripts/generate-icons.ts",
+    "og:preview": "tsx scripts/generate-og-preview.ts"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",

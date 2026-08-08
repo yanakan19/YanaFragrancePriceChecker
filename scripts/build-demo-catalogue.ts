@@ -334,8 +334,16 @@ if (existsSync(dir)) {
   for (const file of readdirSync(dir).filter((f) => f.endsWith('.json'))) {
     const snapshot = store.read(file.replace(/\.json$/, ''));
 
-    // Invented data never reaches the app, whatever else happens.
-    if (snapshot.source !== 'live') continue;
+    // Invented data never reaches the app, whatever else happens. This used
+    // to be a silent `continue`: correct for what it kept out, but it meant a
+    // retailer stuck on fixtures forever looked identical to a healthy build
+    // in every log this script ever printed. Eight retailers sat that way for
+    // a week before anyone noticed (see docs/INGESTION-AUDIT.md) because
+    // nothing here ever said so.
+    if (snapshot.source !== 'live') {
+      skippedShops.push(`${snapshot.retailerId} (fixtures only, never live-harvested)`);
+      continue;
+    }
 
     // A snapshot can exist for a retailer the app cannot yet price. Importing
     // an affiliate feed writes data/catalogue/<id>.json regardless of whether
