@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-08T23:10:45.469Z",
+  "checkedAt": "2026-08-09T04:23:47.841Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -193,10 +193,12 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 60,
-      "errors": [],
+      "listings": 58,
+      "pricedInGbp": 58,
+      "withPhoto": 58,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
@@ -412,13 +414,13 @@
       "houseId": "reef",
       "name": "REEF",
       "origin": "https://www.reef-parfum.com",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": null,
       "currency": null,
-      "listings": 32,
-      "pricedInGbp": 32,
-      "withPhoto": 32,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "robots.txt unreachable at https://www.reef-parfum.com and https://reef-parfum.com — holding off rather than guessing we are welcome"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
