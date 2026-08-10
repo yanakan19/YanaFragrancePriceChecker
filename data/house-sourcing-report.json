@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-10T13:46:36.789Z",
+  "checkedAt": "2026-08-10T14:53:08.997Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -192,17 +192,18 @@
       "houseId": "paris-corner",
       "name": "Paris Corner",
       "origin": "https://pariscorner.ae",
-      "routeUsed": null,
-      "currency": null,
-      "listings": 0,
-      "pricedInGbp": 0,
-      "withPhoto": 0,
+      "routeUsed": "sitemap-jsonld",
+      "currency": "AED",
+      "listings": 50,
+      "pricedInGbp": 50,
+      "withPhoto": 50,
       "errors": [
-        "robots.txt unreachable at https://pariscorner.ae and https://www.pariscorner.ae — holding off rather than guessing we are welcome"
+        "stopped early: exceeded this house's time budget"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending"
+        "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
+        "prices are in AED, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -266,12 +267,14 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "robots.txt unreachable at https://maisonalhambra.co and https://www.maisonalhambra.co — holding off rather than guessing we are welcome"
+        "storefront currency could not be established — no sterling price recorded",
+        "https://maisonalhambra.co/sitemap_index.xml: HTTP 404"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "a Lattafa Perfumes Industries brand, so it shares a manufacturer with the Lattafa entry above but is sold separately",
-        "several near-identical domains exist (themaison-alhambra.com, maisonalhambraperfume.com, maisonalhambras.com) — only maisonalhambra.co presents itself as the official one, confirm before trusting listings from any other"
+        "several near-identical domains exist (themaison-alhambra.com, maisonalhambraperfume.com, maisonalhambras.com) — only maisonalhambra.co presents itself as the official one, confirm before trusting listings from any other",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {
@@ -412,13 +415,13 @@
       "houseId": "reef",
       "name": "REEF",
       "origin": "https://www.reef-parfum.com",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": null,
       "currency": null,
-      "listings": 32,
-      "pricedInGbp": 32,
-      "withPhoto": 32,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "robots.txt unreachable at https://www.reef-parfum.com and https://reef-parfum.com — holding off rather than guessing we are welcome"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
