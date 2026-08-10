@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-09T18:39:00.231Z",
+  "checkedAt": "2026-08-10T18:42:37.354Z",
   "outcomes": [
     {
       "retailerId": "the-fragrance-counter",
@@ -354,69 +354,59 @@
       "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
     },
     {
-      "retailerId": "perfumeo",
-      "name": "Perfumeo",
-      "homepage": "https://www.perfumeo.co.uk",
+      "retailerId": "emirates-oud",
+      "name": "Emirates Oud",
+      "homepage": "https://emiratesoud.co.uk",
       "currentStandardGbp": null,
       "currentFreeOverGbp": null,
       "enabled": false,
       "pagesTried": 9,
       "findings": [
         {
-          "url": "https://www.perfumeo.co.uk/policies/shipping-policy",
+          "url": "https://emiratesoud.co.uk/policies/shipping-policy",
           "status": 200,
           "standardGbp": null,
-          "freeOverGbp": null,
-          "caveats": [
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
+          "freeOverGbp": 50,
+          "caveats": [],
           "evidence": [
             {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Fast & Free UK Delivery &mdash; No Minimum Spend",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Fast + Free Tracked Delivery on All UK Orders 100% Genuine — Sealed & Batch-Coded Up to 40% Off Lattafa Best Sellers — While Stock Lasts",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "+ FREE Fast-Tracked Delivery No Minimum Spend",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "15% OFF + free fast-tracked delivery &middot; COPY CODE",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "100% Authentic Fragrances Fast UK Dispatch FREE Fast-Tracked Delivery",
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "Free Shipping : Orders over £50 within the UK qualify for free shipping.",
               "isUpgradeTier": false
             }
           ]
         }
       ],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
-        "steps": [
-          "https://www.perfumeo.co.uk/products.json?limit=250"
-        ]
-      },
-      "errors": [],
+      "quote": null,
+      "errors": [
+        "https://emiratesoud.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
       "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
+    },
+    {
+      "retailerId": "perfumeo",
+      "name": "Perfumeo",
+      "homepage": "https://www.perfumeo.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 0,
+      "findings": [],
+      "quote": null,
+      "errors": [
+        "https://www.perfumeo.co.uk/policies/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/pages/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/pages/shipping-details: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/pages/delivery-information: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/pages/shipping: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/pages/delivery: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/delivery: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/shipping: disallowed by robots.txt — not fetched",
+        "https://www.perfumeo.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
     },
     {
       "retailerId": "zimaya",
