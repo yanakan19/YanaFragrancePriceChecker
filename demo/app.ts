@@ -35,8 +35,14 @@ import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.gene
 import { priceHistoryFor } from './priceHistory.generated.js';
 import { officialSiteFor } from './brandSites.js';
 import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
+import { SUPABASE_CONFIGURED } from './supabase.js';
+import {
+  signUp, signIn, signOut, resendVerification, requestPasswordReset, currentUser, isVerified, onAuthChange,
+} from './auth.js';
+import type { User } from '@supabase/supabase-js';
 
-type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings';
+type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account';
+type AuthTab = 'signIn' | 'signUp';
 type ExploreTab = 'brands' | 'deals' | 'retailers' | 'notes' | 'search';
 type DisplayMode = 'dark' | 'light' | 'system';
 type Layout = 'mobile' | 'desktop';
@@ -98,6 +104,20 @@ const state = {
   facetTier: new Set<RetailerTier>(),
   facetOnSale: false,
   facetInStock: false,
+
+  // ── accounts (Module 7) ──────────────────────────────────────────────────
+  authUser: null as User | null,
+  // Set once, at startup, by loadAuthUser — distinct from authUser being null
+  // (signed out) so the account page can show "loading" rather than flash a
+  // signed out state before the first check has even run.
+  authChecked: false,
+  authTab: 'signIn' as AuthTab,
+  authBusy: false,
+  authError: '' as string,
+  // Set after a successful signup or resend, so the "check your email" state
+  // knows which address to offer resending to.
+  authPendingEmail: '' as string,
+  authResetSent: false,
 };
 
 /** Every facet selection back to empty. Called on every navigation — see `go`. */
@@ -1632,6 +1652,10 @@ function settingsView(): string {
     <article class="doc settings-doc">
       <h2>Settings</h2>
 
+      ${SUPABASE_CONFIGURED ? `<button class="account-entry" data-go-account>
+        <span>${accountEntryLabel()}</span>${ICON_CHEVRON}
+      </button>` : ''}
+
       <div class="seg-group">
         <p class="seg-label">Theme</p>
         <div class="seg" role="group" aria-label="Display theme">
@@ -1686,6 +1710,98 @@ function settingsView(): string {
           .join('')}
       </nav>
       <p class="foot-legal dimmer">© ${new Date().getFullYear()} ${esc(COMPANY.name)}.</p>
+    </article>`;
+}
+
+/* ── account ─────────────────────────────────────────────────────────────── */
+
+/** What the Settings entry row says: enough to act on without opening the page. */
+function accountEntryLabel(): string {
+  if (!state.authChecked) return 'Account';
+  const user = state.authUser;
+  if (!user) return 'Sign in or create an account';
+  if (!isVerified(user)) return 'Verify your email';
+  return user.email ?? 'Account';
+}
+
+/**
+ * Signed out: a tabbed sign in / sign up form. Signed in but unverified: a
+ * "check your email" state with a resend action, since a Supabase account
+ * exists the moment signUp() returns but is not yet allowed to do anything
+ * that assumes a real, controlled address. Signed in and verified: the
+ * account itself. Never a form that fails on every submit — SUPABASE_CONFIGURED
+ * being false renders as a plain, honest "not live yet" state instead.
+ */
+function accountView(): string {
+  if (!SUPABASE_CONFIGURED) {
+    return `
+      <button class="back" data-back>Back</button>
+      <article class="doc settings-doc">
+        <h2>Account</h2>
+        <p>Accounts are not switched on for this deployment yet. Check back soon.</p>
+      </article>`;
+  }
+
+  if (!state.authChecked) {
+    return `<button class="back" data-back>Back</button><article class="doc settings-doc"><h2>Account</h2><p>Loading.</p></article>`;
+  }
+
+  const user = state.authUser;
+
+  if (user && isVerified(user)) {
+    return `
+      <button class="back" data-back>Back</button>
+      <article class="doc settings-doc">
+        <h2>Account</h2>
+        <p class="account-note">Signed in as ${esc(user.email ?? '')}.</p>
+        <button class="contact-send" id="auth-sign-out">Sign out</button>
+      </article>`;
+  }
+
+  if (user && !isVerified(user)) {
+    return `
+      <button class="back" data-back>Back</button>
+      <article class="doc settings-doc">
+        <h2>Verify your email</h2>
+        <p class="account-note">
+          We sent a link to ${esc(user.email ?? 'your email address')}. Follow it to finish setting up your
+          account, then come back here.
+        </p>
+        <button class="contact-send" id="auth-resend" data-email="${esc(user.email ?? '')}">Resend the email</button>
+        <p id="auth-notice" class="contact-confirm" hidden></p>
+        <button class="link-btn" id="auth-sign-out-pending">Sign out</button>
+      </article>`;
+  }
+
+  const signUpTab = state.authTab === 'signUp';
+  return `
+    <button class="back" data-back>Back</button>
+    <article class="doc settings-doc">
+      <h2>Account</h2>
+
+      <div class="seg" role="group" aria-label="Sign in or sign up">
+        <button class="seg-btn ${!signUpTab ? 'on' : ''}" data-auth-tab="signIn">Sign in</button>
+        <button class="seg-btn ${signUpTab ? 'on' : ''}" data-auth-tab="signUp">Sign up</button>
+      </div>
+
+      <form id="${signUpTab ? 'auth-signup-form' : 'auth-signin-form'}" class="contact-form">
+        <label class="field">
+          <span>Email</span>
+          <input type="email" id="auth-email" autocomplete="email" required />
+        </label>
+        <label class="field">
+          <span>Password</span>
+          <input type="password" id="auth-password" autocomplete="${signUpTab ? 'new-password' : 'current-password'}" required minlength="8" />
+        </label>
+        <button type="submit" class="contact-send" ${state.authBusy ? 'disabled' : ''}>
+          ${signUpTab ? 'Create account' : 'Sign in'}
+        </button>
+      </form>
+
+      ${!signUpTab ? `<button class="link-btn" id="auth-forgot">Forgot your password</button>` : ''}
+
+      ${state.authError ? `<p class="auth-error">${esc(state.authError)}</p>` : ''}
+      ${state.authResetSent ? `<p class="contact-confirm">If that address has an account, a reset link is on its way.</p>` : ''}
     </article>`;
 }
 
@@ -1929,6 +2045,7 @@ function currentRoute(): Route {
     case 'legal': return { name: 'legal', param: state.legalId, query: {} };
     case 'about': return { name: 'about', param: '', query: {} };
     case 'settings': return { name: 'settings', param: '', query: {} };
+    case 'account': return { name: 'account', param: '', query: {} };
     case 'explore':
       return {
         name: state.tab === 'search' ? 'search' : (state.tab as RouteName),
@@ -1952,6 +2069,7 @@ function applyRoute(route: Route): boolean {
     case 'home': state.view = 'home'; return true;
     case 'about': state.view = 'about'; return true;
     case 'settings': state.view = 'settings'; return true;
+    case 'account': state.view = 'account'; return true;
 
     case 'search':
       // The bar search and the Search subpage are the same destination.
@@ -2043,7 +2161,9 @@ function render(): void {
                     ? aboutView()
                     : state.view === 'settings'
                       ? settingsView()
-                      : legalView();
+                      : state.view === 'account'
+                        ? accountView()
+                        : legalView();
 
   // The wrapper is a fresh element on every render, so the fade it carries just
   // plays on insertion. No JS animation retriggering needed.
@@ -2067,7 +2187,10 @@ function render(): void {
   ($('#nav-home') as HTMLElement).classList.toggle('on', state.view === 'home');
   ($('#nav-explore') as HTMLElement).classList.toggle('on', inExplore || state.view === 'browse');
   ($('#nav-about') as HTMLElement).classList.toggle('on', state.view === 'about');
-  ($('#nav-settings') as HTMLElement).classList.toggle('on', state.view === 'settings');
+  // Account has no top bar entry of its own yet (see settingsView's own
+  // Account section) — Module 2.3 is where "profile picture click routes to
+  // /account everywhere" actually redesigns navigation for accounts.
+  ($('#nav-settings') as HTMLElement).classList.toggle('on', state.view === 'settings' || state.view === 'account');
 
   syncUpdatesHeight();
   mountTrustpilotWidgets();
@@ -2179,6 +2302,24 @@ function init(): void {
   loadMode();
   loadLayout();
   loadPerRow();
+
+  // The very first render happens synchronously below, before this promise
+  // can possibly resolve — accountView's own `!state.authChecked` branch is
+  // what covers that gap rather than this holding up startup for every page
+  // that is not the account page.
+  currentUser().then((user) => {
+    state.authUser = user;
+    state.authChecked = true;
+    if (state.view === 'account') render();
+  });
+  // Fires on every sign in, sign out and token refresh, including the tab
+  // that just followed a verification link back in — see its own comment in
+  // auth.ts for why nothing here needs to poll for that.
+  onAuthChange((user) => {
+    state.authUser = user;
+    state.authChecked = true;
+    if (state.view === 'account') render();
+  });
 
   // The bar search is the quick one: type a name, get results. The Search
   // subpage under Explore is where the same query gains a brand filter and
@@ -2333,6 +2474,57 @@ function init(): void {
       return;
     }
 
+    if (t.closest('[data-go-account]')) {
+      go('account');
+      return;
+    }
+
+    const authTabBtn = t.closest('[data-auth-tab]');
+    if (authTabBtn) {
+      state.authTab = authTabBtn.getAttribute('data-auth-tab') as AuthTab;
+      state.authError = '';
+      state.authResetSent = false;
+      render();
+      return;
+    }
+
+    if (t.closest('#auth-sign-out') || t.closest('#auth-sign-out-pending')) {
+      void signOut();
+      return;
+    }
+
+    const resendBtn = t.closest('#auth-resend');
+    if (resendBtn) {
+      const email = resendBtn.getAttribute('data-email') ?? '';
+      const notice = $('#auth-notice') as HTMLElement;
+      resendVerification(email).then((result) => {
+        notice.textContent = result.ok
+          ? 'Sent. Check your inbox again in a moment.'
+          : result.message;
+        notice.hidden = false;
+      });
+      return;
+    }
+
+    if (t.closest('#auth-forgot')) {
+      const email = ($('#auth-email') as HTMLInputElement | null)?.value.trim() ?? '';
+      if (!email) {
+        state.authError = 'Enter your email above first, then tap Forgot your password again.';
+        render();
+        return;
+      }
+      state.authBusy = true;
+      state.authError = '';
+      render();
+      requestPasswordReset(email).then((result) => {
+        state.authBusy = false;
+        state.authResetSent = result.ok;
+        state.authError = result.ok ? '' : result.message;
+        render();
+      });
+      return;
+    }
+
     if (t.closest('[data-browse]')) {
       state.brand = null;
       go('browse');
@@ -2456,6 +2648,30 @@ function init(): void {
       const confirm = $('#home-suggest-confirm') as HTMLElement;
       confirm.textContent = `Your email app should now be open with your suggestion ready to send. Hit send there to reach us, we really appreciate it.`;
       confirm.hidden = false;
+      return;
+    }
+    if (form.id === 'auth-signin-form' || form.id === 'auth-signup-form') {
+      e.preventDefault();
+      const email = ($('#auth-email') as HTMLInputElement).value.trim();
+      const password = ($('#auth-password') as HTMLInputElement).value;
+      state.authBusy = true;
+      state.authError = '';
+      state.authResetSent = false;
+      render();
+      const action = form.id === 'auth-signup-form' ? signUp(email, password) : signIn(email, password);
+      action.then((result) => {
+        state.authBusy = false;
+        if (!result.ok) {
+          state.authError = result.message;
+          render();
+          return;
+        }
+        if (form.id === 'auth-signup-form') state.authPendingEmail = email;
+        // A successful sign in updates state.authUser itself via
+        // onAuthChange (see init), which re-renders once the session is
+        // actually confirmed rather than optimistically here.
+        render();
+      });
       return;
     }
     if (form.id !== 'contact-form') return;

@@ -1226,6 +1226,33 @@
     width: 100%; max-width: 360px; margin-top: 10px; font-size: 12.5px; color: var(--ok); text-align: left;
   }
 
+  /* ── account (Module 7) ────────────────────────────────────────────────── */
+  .account-note {
+    width: 100%; max-width: 360px; margin: 8px 0 14px; font-size: 13.5px;
+    color: var(--ink-2); text-align: left;
+  }
+  /* Amber, not the brand red: red already means the brand accent throughout
+     this app (see the note at the top of this file), so a form problem here
+     borrows --warn the same way every other cautionary state in the app does. */
+  .auth-error {
+    width: 100%; max-width: 360px; margin-top: 10px; font-size: 12.5px; color: var(--warn); text-align: left;
+  }
+  /* The Settings entry point into /account — no top bar slot for it yet, see
+     the entry row's own comment in app.ts. */
+  .account-entry {
+    display: flex; align-items: center; gap: 9px;
+    width: 100%; max-width: 360px; margin-bottom: 18px; padding: 11px 14px;
+    text-align: left; cursor: pointer;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    font: inherit; font-size: 14px; font-weight: 600; color: var(--ink);
+    transition: border-color .15s ease;
+  }
+  .account-entry svg { margin-left: auto; color: var(--faint); flex: none; width: 18px; height: 18px; }
+  @media (hover: hover) {
+    .account-entry:hover { border-color: var(--accent); }
+  }
+  .account-entry:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
   /* One tap straight to the profile. These used to be <details> that expanded
      to reveal a link which then opened a new tab — two interactions and a lost
      tab to reach a page the reader had already asked for. */

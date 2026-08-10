@@ -26,7 +26,7 @@
 
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
-  | 'notes' | 'note' | 'fragrance' | 'about' | 'settings' | 'legal';
+  | 'notes' | 'note' | 'fragrance' | 'about' | 'settings' | 'legal' | 'account';
 
 /** What a matched URL says about where we are. */
 export interface Route {
@@ -61,6 +61,7 @@ const LIST_ROUTES: Record<string, RouteName> = {
   notes: 'notes',
   about: 'about',
   settings: 'settings',
+  account: 'account',
 };
 
 const LEAF_ROUTES: Record<string, RouteName> = {
@@ -122,6 +123,7 @@ export function routeToPath(route: Route): string {
       case 'fragrance': return `/fragrance/${encodeURIComponent(param)}`;
       case 'about': return '/about';
       case 'settings': return '/settings';
+      case 'account': return '/account';
       case 'legal': return `/legal/${encodeURIComponent(param)}`;
     }
   })();
