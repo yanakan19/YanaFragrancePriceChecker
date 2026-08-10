@@ -49,20 +49,25 @@ this can be reproduced, debugged, or redone from scratch later.
      be treated as compromised — regenerate it in the dashboard and only ever
      store the live one in the local `.env` below, never in chat/logs.
 
+9. Regenerated the unified key (an earlier one had been pasted into chat) and
+   set it in `YanaFreeAPIMerger/.env`.
+10. Pulled the real model ids from the running instance:
+    ```powershell
+    $key = "your-actual-freellmapi-key-here"
+    (Invoke-RestMethod -Uri "http://localhost:3001/v1/models" -Headers @{Authorization="Bearer $key"}).data | Select-Object id | Format-Table -AutoSize
+    ```
+    and updated `YanaFreeAPIMerger/server/config/agents.json` with 28 real,
+    confirmed-working ids spanning all 4 providers (google/groq/mistral/cohere),
+    excluding code-specific models not useful for perfume chat.
+
 ## Still to do
 
-- [ ] Put the (regenerated) unified key into `YanaFreeAPIMerger/.env`:
-      ```
-      FREELLMAPI_BASE_URL=http://localhost:3001
-      FREELLMAPI_API_KEY=freellmapi-your-unified-key
-      ```
-- [ ] Visit `http://localhost:3001/v1/models` and copy the actual available
-      model ids (depends on which of the 4 provider keys are healthy) into
-      `YanaFreeAPIMerger/server/config/agents.json`, replacing the placeholder
-      list.
 - [ ] `cd YanaFreeAPIMerger && npm install && npm start`
 - [ ] Open `http://localhost:4000` and test a price question and a
       notes-suggestion question.
+- [ ] If any agent ids come back failing consistently (check the agent
+      ✓/✗ chips in the UI), remove/replace that id in `agents.json` — a
+      free-tier key can be rate-limited or a model temporarily unavailable.
 
 ## Where things live
 
