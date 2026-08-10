@@ -851,6 +851,82 @@
     font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
     color: var(--faint); margin: 0 0 6px;
   }
+
+  .section-label {
+    font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--faint); margin: 0 0 10px;
+  }
+
+  /* Compact horizontally scrolling row rather than a fixed grid: three
+     groups today reads fine as a row, and a fourth would only ever need to
+     scroll into view rather than force every card narrower to fit. */
+  .notes-groups { margin: 4px 0 20px; }
+  .notes-groups-row {
+    display: flex; gap: 10px; overflow-x: auto; padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+  .notes-groups-row::-webkit-scrollbar { display: none; }
+  .note-group-card {
+    flex: none; display: flex; flex-direction: column; gap: 4px;
+    min-width: 92px; padding: 12px 14px; border-radius: 12px;
+    background: var(--surface); border: 1px solid var(--line);
+    text-align: left; cursor: pointer; font: inherit; color: var(--ink);
+    transition: border-color .12s ease, background .12s ease;
+  }
+  .note-group-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (hover: hover) and (pointer: fine) {
+    .note-group-card:hover { border-color: var(--line-firm); }
+  }
+  .note-group-card.on { background: var(--accent-sf); border-color: var(--accent); }
+  .note-group-count { font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .note-group-label { font-size: 12px; color: var(--faint); }
+  .note-group-card.on .note-group-label { color: var(--ink-2); }
+
+  /* The bottom half: a bounded, independently scrolling region rather than
+     the page's ordinary flow. Two things need that — it is what "Browse
+     Alphabetically" sitting under a fixed-height group row actually means,
+     and the scrubber's whole mechanic (map a finger's Y position to a
+     scroll position) only makes sense against a viewport with a stable,
+     known height, not a list that keeps growing the page underneath it. */
+  .notes-browse { position: relative; }
+  .notes-browse-scroll {
+    max-height: 50vh; overflow-y: auto; overscroll-behavior: contain;
+    scrollbar-width: thin; scrollbar-color: var(--line-firm) transparent;
+    /* Room for the scrubber strip sitting over this same right edge (see
+       .alpha-scrubber below) so a row's own count does not sit underneath
+       its letters. Harmless dead space on desktop, where the strip is
+       hidden — not worth a second, layout-scoped rule just to reclaim it. */
+    padding-right: 26px;
+  }
+  .notes-browse-scroll::-webkit-scrollbar { width: 6px; }
+  .notes-browse-scroll::-webkit-scrollbar-track { background: transparent; }
+  .notes-browse-scroll::-webkit-scrollbar-thumb { background: var(--line-firm); border-radius: 3px; }
+
+  /* iOS Contacts-style index strip, mobile only. Absolutely positioned over
+     the scroll region's own right edge rather than beside it, so it costs no
+     layout width from the list itself. */
+  .alpha-scrubber {
+    position: absolute; top: 0; right: -4px; bottom: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 4px 8px; touch-action: none;
+  }
+  .alpha-scrubber-letter {
+    font-size: 9.5px; font-weight: 700; line-height: 1.55; color: var(--faint);
+    width: 14px; text-align: center;
+  }
+  .alpha-scrubber-letter[data-empty] { opacity: .28; }
+  :root[data-layout="desktop"] .alpha-scrubber { display: none; }
+
+  /* The magnified letter bubble that tracks the finger while dragging the
+     scrubber, mirroring iOS. Only ever inserted/removed by JS, never part
+     of the server-rendered markup — see mountAlphaScrubber in app.ts. */
+  .alpha-scrubber-bubble {
+    position: fixed; z-index: 20; pointer-events: none;
+    width: 64px; height: 64px; border-radius: 50%;
+    background: var(--accent); color: var(--accent-on);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px; font-weight: 800; box-shadow: var(--shadow);
+  }
   .note-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
   .note-chip {
     background: var(--surface-2); border: 1px solid var(--line); border-radius: 999px;
@@ -861,6 +937,8 @@
   @media (hover: hover) and (pointer: fine) {
     .note-chip:hover { border-color: var(--accent); color: var(--accent); }
   }
+  .note-chip.on { background: var(--accent-sf); border-color: var(--accent); color: var(--ink); }
+  .note-chips-profile { margin-bottom: 12px; }
   .notes-none { font-size: 13.5px; color: var(--faint); margin: 0; }
 
   /* ── facets ────────────────────────────────────────────────────────────────
