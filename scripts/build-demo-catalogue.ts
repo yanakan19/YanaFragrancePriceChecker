@@ -25,6 +25,7 @@ import { RETAILERS } from '../src/config/retailers.js';
 import { HOUSES } from '../src/config/houses.js';
 import { buildBrandCanon } from '../src/catalogue/brandName.js';
 import { findDuplicateGroups } from '../src/catalogue/productMatch.js';
+import { isFragrance, sizeMl, fragranceId } from '../src/catalogue/fragranceId.js';
 
 /**
  * Retailers whose product photos may be displayed, and on what grounds.
@@ -73,23 +74,6 @@ const CONCENTRATION =
  */
 const NOT_A_FRAGRANCE =
   /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|body cream|shampoo|conditioner|deodorant|shower gel|body wash|candle|diffuser|reed|gift ?set|set of|bundle|tester|sample|refill|travel spray|decant|hand wash|moisturis|lotion|balm|scrub|talc|hair)\b/i;
-
-/** Size in millilitres, needed before two listings can be compared at all. */
-function sizeMl(title: string): number | null {
-  const ml = title.match(/(\d{1,4}(?:\.\d)?)\s*ml\b/i);
-  if (ml) return Math.round(Number.parseFloat(ml[1]!));
-  const oz = title.match(/(\d{1,2}(?:\.\d)?)\s*(?:fl\.?\s*)?oz\b/i);
-  if (oz) return Math.round(Number.parseFloat(oz[1]!) * 29.5735);
-  return null;
-}
-
-function isFragrance(l: StoredListing): boolean {
-  const t = l.rawTitle;
-  if (NOT_A_FRAGRANCE.test(t)) return false;
-  if (!CONCENTRATION.test(t)) return false;
-  if (sizeMl(t) === null) return false;
-  return l.priceGbp !== null && l.priceGbp > 0;
-}
 
 /**
  * The same question asked of a fragrance house's own storefront.
@@ -375,12 +359,7 @@ if (existsSync(dir)) {
       }
 
       const size = sizeMl(l.rawTitle)!;
-      // EAN groups the same bottle across shops. Without one a listing can only
-      // stand alone, which is honest: we cannot claim two titles are the same
-      // product until the matcher exists.
-      const id = l.ean
-        ? `ean-${l.ean}`
-        : `${l.retailerId}-${l.retailerSku}`.replace(/[^a-z0-9-]/gi, '-').toLowerCase();
+      const id = fragranceId(l);
 
       const existing = products.get(id);
       const offer: Offer = {
