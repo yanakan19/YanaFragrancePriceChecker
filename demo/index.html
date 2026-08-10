@@ -1537,8 +1537,13 @@
   .footer-link:hover, .footer-link:focus-visible { color: var(--accent); }
 
   /* ── Virtual Yanny ─────────────────────────────────────────────────────── */
+  /* bottom uses the same calc(18px + env(safe-area-inset-bottom)) the brand
+     sheet already relies on below. Without it, a plain `bottom: 18px` sits
+     inside the iOS home-indicator safe area, so Safari's own bottom chrome —
+     which grows and shrinks as the page scrolls — periodically overlaps and
+     hides the button instead of sitting above it. */
   .yanny-launcher {
-    position: fixed; right: 18px; bottom: 18px; z-index: 60;
+    position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 60;
     width: 56px; height: 56px; border-radius: 50%; border: 1px solid var(--line-firm);
     background: var(--surface); box-shadow: var(--shadow), 0 4px 18px rgba(0,0,0,.25);
     font-size: 26px; line-height: 1; display: flex; align-items: center; justify-content: center;
@@ -1552,7 +1557,7 @@
   .yanny-launcher[data-open] { display: none; }
 
   .yanny-panel {
-    position: fixed; right: 18px; bottom: 18px; z-index: 61;
+    position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 61;
     width: min(380px, calc(100vw - 24px)); height: min(600px, calc(100vh - 100px));
     display: flex; flex-direction: column; overflow: hidden;
     background: var(--bg); border: 1px solid var(--line-firm); border-radius: 20px;
@@ -1560,8 +1565,13 @@
   }
   @media (max-width: 480px) {
     /* A floating card with that much dead space around it on a phone reads
-       as a mistake, not a design choice — full sheet instead. */
-    .yanny-panel { right: 0; bottom: 0; width: 100vw; height: 100vh; border-radius: 0; }
+       as a mistake, not a design choice — full sheet instead. 100dvh rather
+       than 100vh: the layout viewport (100vh) is sized as if Safari's
+       chrome were always hidden, so a panel that height overshoots the
+       actually-visible area by however much chrome is showing at that
+       moment, and the composer at its bottom edge ends up under it. dvh
+       tracks the real visible viewport as that chrome grows and shrinks. */
+    .yanny-panel { right: 0; bottom: 0; width: 100vw; height: 100vh; height: 100dvh; border-radius: 0; }
   }
 
   .yanny-head {
@@ -1627,7 +1637,13 @@
   .yanny-option-btn.on { background: var(--accent-sf); border-color: var(--accent); color: var(--accent); }
   .yanny-option-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 
-  .yanny-composer { flex: none; display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--line); }
+  /* Bottom padding includes the safe area too: on the mobile full-sheet
+     panel the composer sits at the true screen edge, right where the home
+     indicator lives. */
+  .yanny-composer {
+    flex: none; display: flex; gap: 8px; border-top: 1px solid var(--line);
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  }
   .yanny-composer input {
     flex: 1; min-width: 0; font: inherit; font-size: 13.5px; color: var(--ink); background: var(--surface);
     border: 1px solid var(--line); border-radius: 20px; padding: 10px 14px;
