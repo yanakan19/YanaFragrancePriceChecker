@@ -44,7 +44,26 @@ export function buildOutboundLink(retailer: Retailer, productUrl: string): Outbo
     return { url: productUrl, isAffiliateLink: true };
   }
 
-  if (affiliate.status !== 'active' || !affiliate.deeplinkTemplate || !affiliate.publisherId) {
+  if (affiliate.status !== 'active' || !affiliate.publisherId) {
+    return { url: productUrl, isAffiliateLink: false };
+  }
+
+  // The in-house shape: append a query parameter directly onto the
+  // retailer's own URL rather than wrapping it inside a redirect domain —
+  // see the field's own doc comment in src/types/retailer.ts for why this
+  // cannot reuse deeplinkTemplate's {{url}} substitution (that one
+  // URL-encodes its target, which is correct for a value inside someone
+  // else's redirect and wrong for a parameter on a real, clickable link).
+  if (affiliate.querySuffixTemplate) {
+    const suffix = affiliate.querySuffixTemplate
+      .replace('{{publisherId}}', encodeURIComponent(affiliate.publisherId))
+      .replace(/^[?&]/, '');
+    if (!suffix) return { url: productUrl, isAffiliateLink: false };
+    const separator = productUrl.includes('?') ? '&' : '?';
+    return { url: `${productUrl}${separator}${suffix}`, isAffiliateLink: true };
+  }
+
+  if (!affiliate.deeplinkTemplate) {
     return { url: productUrl, isAffiliateLink: false };
   }
 

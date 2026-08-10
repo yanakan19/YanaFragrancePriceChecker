@@ -107,10 +107,47 @@ export function parseAvailability(value: unknown): boolean | null {
   return null;
 }
 
-function firstOffer(node: JsonValue): JsonValue | null {
-  const offers = node['offers'];
-  const list = flatten(offers);
-  return list.length > 0 ? list[0]! : null;
+/**
+ * An offer's own identity — whichever of these fields it happens to carry —
+ * checked against the listing's already-computed sku so a multi-offer block
+ * can be resolved to the one offer that actually is this listing, not just
+ * whichever came first.
+ */
+function offerIdentity(offer: JsonValue): string | null {
+  return str(offer['sku']) ?? str(offer['mpn']) ?? gtin(offer) ?? skuFromUrl(str(offer['url']) ?? '');
+}
+
+/**
+ * Picks the offer that actually is this listing, not whichever the retailer
+ * happened to list first.
+ *
+ * A Product block with more than one Offer underneath it is almost always
+ * several size or variant offers bundled together — routine on Shopify
+ * storefronts (Allbeauty among them) — and only one of them is genuinely the
+ * variant this listing's own sku refers to. The previous version of this
+ * function took `offers[0]` unconditionally, which attributed a random
+ * sibling variant's price and stock state to every listing: a real,
+ * currently-in-stock bottle could get recorded as out of stock purely
+ * because some other size of the same fragrance happened to sort first in
+ * the retailer's own markup. That is exactly the bug a reader found on
+ * Allbeauty — the fragrance was genuinely purchasable, the stored listing
+ * said otherwise, because it was never that listing's own offer to begin
+ * with.
+ *
+ * Where the correct offer cannot be identified — no offer's own sku matches,
+ * because the retailer's markup gives variant offers no identity of their
+ * own to check — this returns null rather than guessing. A listing with no
+ * resolvable offer gets no price and an unknown stock state (see the
+ * `offer === null` handling in parseListings), which is the honest answer:
+ * unknown is a real, supported state in this app, and reusing the arbitrary
+ * "any offer will do" logic to force it into false would only trade a
+ * proven bug for a plausible-looking one.
+ */
+function selectOffer(node: JsonValue, sku: string): JsonValue | null {
+  const offers = flatten(node['offers']);
+  if (offers.length === 0) return null;
+  if (offers.length === 1) return offers[0]!;
+  return offers.find((o) => offerIdentity(o) === sku) ?? null;
 }
 
 function brandName(node: JsonValue): string | null {
@@ -171,8 +208,16 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
     const title = str(node['name']);
     if (!title) continue;
 
-    const offer = firstOffer(node);
-    const url = str(node['url']) ?? str(offer?.['url']) ?? options.pageUrl;
+    // Computed from the product node itself, never from a *selected* offer —
+    // selectOffer below needs this identity already settled so it has
+    // something fixed to match candidate offers against, rather than a sku
+    // that could itself shift depending on which offer got picked. Falling
+    // back to any offer's url (when the node has none of its own) is still
+    // safe here, unlike falling back to any offer's price or stock: variant
+    // offers overwhelmingly share one canonical product url regardless of
+    // size, so picking among them for a url carries none of the
+    // mismatched-variant risk picking among them for price or stock does.
+    const url = str(node['url']) ?? str(flatten(node['offers'])[0]?.['url']) ?? options.pageUrl;
     const sku = str(node['sku']) ?? str(node['mpn']) ?? gtin(node) ?? skuFromUrl(url);
     if (!sku) continue;
 
@@ -180,6 +225,8 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
     // ItemList entry and a standalone block.
     if (seen.has(sku)) continue;
     seen.add(sku);
+
+    const offer = selectOffer(node, sku);
 
     const price =
       parsePrice(offer?.['price']) ??

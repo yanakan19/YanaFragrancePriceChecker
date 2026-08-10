@@ -59,6 +59,49 @@ describe('buildOutboundLink', () => {
     expect(link.url).toBe(feedUrl);
     expect(link.isAffiliateLink).toBe(true);
   });
+
+  describe('querySuffixTemplate (in-house tools, e.g. GoAffPro)', () => {
+    const inHouse = withAffiliate({
+      network: 'direct',
+      verified: true,
+      status: 'active',
+      publisherId: 'YANAKANSIVAKUMAR1',
+      deeplinkTemplate: null,
+      querySuffixTemplate: 'ref={{publisherId}}',
+    });
+
+    it('appends the ref parameter directly onto the retailer URL, unencoded', () => {
+      const link = buildOutboundLink(inHouse, 'https://emiratesoud.co.uk/products/rayhaan-aquatica');
+      expect(link.url).toBe('https://emiratesoud.co.uk/products/rayhaan-aquatica?ref=YANAKANSIVAKUMAR1');
+      expect(link.isAffiliateLink).toBe(true);
+    });
+
+    it('uses & rather than ? when the product URL already carries a query string', () => {
+      const link = buildOutboundLink(inHouse, 'https://emiratesoud.co.uk/products/rayhaan-aquatica?variant=1');
+      expect(link.url).toBe('https://emiratesoud.co.uk/products/rayhaan-aquatica?variant=1&ref=YANAKANSIVAKUMAR1');
+    });
+
+    it('never URL-encodes the target — that would break a real, clickable retailer link', () => {
+      const link = buildOutboundLink(inHouse, 'https://emiratesoud.co.uk/products/rayhaan-aquatica');
+      expect(link.url).not.toContain('%2F');
+      expect(link.url).not.toContain('%3A');
+    });
+
+    it('takes priority over deeplinkTemplate when both are somehow set', () => {
+      const both = withAffiliate({
+        ...inHouse.affiliate,
+        deeplinkTemplate: 'https://tracker.example/go?u={{url}}',
+      });
+      const link = buildOutboundLink(both, 'https://emiratesoud.co.uk/products/x');
+      expect(link.url).toBe('https://emiratesoud.co.uk/products/x?ref=YANAKANSIVAKUMAR1');
+    });
+
+    it('fails open to the direct URL without a publisherId', () => {
+      const link = buildOutboundLink(withAffiliate({ ...inHouse.affiliate, publisherId: null }), 'https://x/p');
+      expect(link.isAffiliateLink).toBe(false);
+      expect(link.url).toBe('https://x/p');
+    });
+  });
 });
 
 describe('pendingAffiliateSetup', () => {

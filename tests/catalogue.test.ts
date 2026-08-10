@@ -122,12 +122,49 @@ describe('parseListings', () => {
     expect(parseListings(html, OPTS)[0]?.rawBrand).toBe('Versace');
   });
 
-  it('takes the first of an array of offers', () => {
+  it('resolves a single offer with no identity of its own', () => {
+    // Exactly one offer, so there is nothing to disambiguate — no sku on the
+    // offer needed, unlike the multi-offer cases below.
+    const html = page({
+      '@type': 'Product', name: 'X', sku: 'x',
+      offers: [{ price: '10.00' }],
+    });
+    expect(parseListings(html, OPTS)[0]?.priceGbp).toBe(10);
+  });
+
+  it('picks the offer whose own sku matches the listing, not whichever sorts first', () => {
+    // Real shape this was caught from: a Shopify product page bundling
+    // several size/variant offers under one Product block, only one of
+    // which is genuinely the sku this listing is being recorded under. The
+    // old behaviour took offers[0] unconditionally — here that would have
+    // meant recording the 50ml bottle as £99 and out of stock, when it is
+    // genuinely £10 and in stock; only the 100ml sibling is the expensive,
+    // sold-out one.
+    const html = page({
+      '@type': 'Product', name: 'X', sku: 'x-50ml',
+      offers: [
+        { sku: 'x-100ml', price: '99.00', availability: 'https://schema.org/OutOfStock' },
+        { sku: 'x-50ml', price: '10.00', availability: 'https://schema.org/InStock' },
+      ],
+    });
+    const l = parseListings(html, OPTS)[0];
+    expect(l?.priceGbp).toBe(10);
+    expect(l?.inStock).toBe(true);
+  });
+
+  it('reports price and stock as unknown when several offers exist and none can be identified as this listing', () => {
+    // No offer carries a sku, mpn, gtin or url of its own to match against —
+    // genuinely ambiguous which one is this listing's. Guessing (the old
+    // behaviour) traded a proven bug for a plausible-looking one; unknown is
+    // the honest answer, and this app already has a real, supported state
+    // for it rather than treating it as though it were "out of stock".
     const html = page({
       '@type': 'Product', name: 'X', sku: 'x',
       offers: [{ price: '10.00' }, { price: '99.00' }],
     });
-    expect(parseListings(html, OPTS)[0]?.priceGbp).toBe(10);
+    const l = parseListings(html, OPTS)[0];
+    expect(l?.priceGbp).toBeNull();
+    expect(l?.inStock).toBeNull();
   });
 
   it('rejects an identifier that is not a valid GTIN length', () => {

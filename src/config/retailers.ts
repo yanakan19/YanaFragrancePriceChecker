@@ -36,6 +36,7 @@ const NO_AFFILIATE_YET = {
   status: 'not-researched',
   publisherId: null,
   deeplinkTemplate: null,
+  querySuffixTemplate: null,
   signupUrl: null,
 } as const;
 
@@ -47,6 +48,7 @@ function awinPending(merchantId: string) {
     status: 'not-applied',
     publisherId: null,
     deeplinkTemplate: null,
+    querySuffixTemplate: null,
     signupUrl: `https://ui.awin.com/merchant-profile/${merchantId}`,
   } as const;
 }
@@ -71,7 +73,26 @@ function awinActive(merchantId: string, publisherId: string) {
     publisherId,
     deeplinkTemplate:
       `https://www.awin1.com/cread.php?awinmid=${merchantId}&awinaffid={{publisherId}}&ued={{url}}`,
+    querySuffixTemplate: null,
     signupUrl: `https://ui.awin.com/merchant-profile/${merchantId}`,
+  } as const;
+}
+
+/**
+ * An in-house affiliate tool (GoAffPro and similar) that tracks purely from a
+ * query parameter on the retailer's own product URL — see the doc comment on
+ * `AffiliateConfig.querySuffixTemplate` for why this needs its own shape
+ * rather than reusing `awinActive`'s.
+ */
+function inHouseActive(publisherId: string, querySuffixTemplate: string, signupUrl: string | null = null) {
+  return {
+    network: 'direct',
+    verified: true,
+    status: 'active',
+    publisherId,
+    deeplinkTemplate: null,
+    querySuffixTemplate,
+    signupUrl,
   } as const;
 }
 
@@ -472,6 +493,7 @@ export const RETAILERS: readonly Retailer[] = [
       status: 'not-applied',
       publisherId: null,
       deeplinkTemplate: null,
+      querySuffixTemplate: null,
       signupUrl: 'https://ui.awin.com/merchant-profile/search?q=Superdrug',
       notes:
         'Awin-confirmed, ~1.6% commission, 30-day cookie. The programme excludes coupon, ' +
@@ -1114,6 +1136,79 @@ export const RETAILERS: readonly Retailer[] = [
       firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
     },
     affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'emirates-oud',
+    name: 'Emirates Oud',
+    domain: 'emiratesoud.co.uk',
+    homepage: 'https://emiratesoud.co.uk',
+    tiers: ['mideast'],
+    // Multi-brand oud specialist (product paths like /products/rayhaan-aquatica
+    // name "Rayhaan" as the house, not Emirates Oud itself) — a retailer
+    // listing, not a house's own storefront.
+    //
+    // Approved into their affiliate programme (GoAffPro) 10 Aug 2026.
+    // Genuinely blocked from confirming its UK delivery cost, not merely
+    // unresearched: this environment's outbound network denies every request
+    // to emiratesoud.co.uk, through both the harvest's own HTTP path and a
+    // separate web-fetch tool tried specifically to get past that — see the
+    // shipping block below for what is and is not known. `enabled: false`
+    // pending that one figure is the same rule every other retailer in this
+    // registry with an unconfirmed standardGbp follows (see ShippingRule's
+    // own doc comment in src/types/retailer.ts) — flip to `true` once it is
+    // filled in, either by reading emiratesoud.co.uk's delivery page directly
+    // or by npm run shipping:discover, which only needs enabled: true to
+    // include a retailer in its own read (a report, never a guess, so it
+    // cannot itself trip the rule it is trying to satisfy).
+    enabled: false,
+    adapter: 'unknown',
+    // Product paths (/products/<handle>) are the standard Shopify convention,
+    // not confirmed by reading the storefront directly (blocked — see the
+    // note below) but confirmed enough by that convention alone to be worth
+    // trying first: src/catalogue/shopifyProductsCrawl.ts's /products.json
+    // walk, ahead of the generic sitemap route, once this retailer is enabled.
+    shopifyStorefront: true,
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      // Placeholder pending confirmation, same status as standardGbp above —
+      // not sourced, not used in any delivered-price math (unlike
+      // standardGbp, which is why this field tolerates an estimate while
+      // that one does not), only ever shown as indicative text once enabled.
+      estimatedDays: [2, 5],
+      verifiedAt: '2026-08-10',
+      confidence: 'unverified',
+      notes:
+        'Approved affiliate as of 10 Aug 2026. Delivery cost and free-delivery ' +
+        'threshold not yet confirmed — this environment cannot reach ' +
+        'emiratesoud.co.uk to read their delivery page. Needs a human (or a CI ' +
+        'run, which does have live access) to read the real figures from ' +
+        'emiratesoud.co.uk directly, then set standardGbp and enabled: true.',
+    },
+    // No section URLs to guess: the sitemap harvester (crawlViaSitemap)
+    // discovers products from /sitemap.xml and robots.txt on its own, the
+    // same route already proven against every Shopify storefront in this
+    // registry (Allbeauty among them — this is also a Shopify store, going
+    // by its /products/<slug> paths) — a guessed category URL was never
+    // needed for that path, only for the older, deprecated section-crawl
+    // strategies this registry has otherwise moved off.
+    catalogue: null,
+    affiliate: {
+      ...inHouseActive('YANAKANSIVAKUMAR1', 'ref={{publisherId}}', 'https://emiratesoud.co.uk'),
+      // Hot-linked with no separate licence read, on the site owner's own
+      // decision — the same basis most retailers in this registry start on
+      // (see ImageBasis's doc comment) — explicitly requested here rather
+      // than defaulted: "I want you to have all the listings and images
+      // scraped with all my affiliate links active", 10 Aug 2026.
+      imageBasis: 'hotlink-unlicensed',
+      notes:
+        'GoAffPro, not Awin — tracks purely from a ?ref= query parameter on ' +
+        'their own product URL (querySuffixTemplate), not a redirect-domain ' +
+        'deeplink. See querySuffixTemplate\'s own doc comment in ' +
+        'src/types/retailer.ts for why that needed a different mechanism ' +
+        'from every other retailer here.',
+    },
   },
   {
     id: 'perfumeo',
