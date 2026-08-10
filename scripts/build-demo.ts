@@ -28,7 +28,16 @@ if (!template.includes('/*__BUNDLE__*/')) {
 
 // `</script>` inside the bundle would close the inline tag early.
 const safeBundle = bundle.replace(/<\/script>/gi, '<\\/script>');
-const body = template.replace('/*__BUNDLE__*/', safeBundle);
+// A function replacer, not a string one: String.replace treats a string
+// replacement's own `$&`, `$$`, `` $` ``, `$'` and `$<name>` as substitution
+// patterns, and adding @supabase/supabase-js's minified code to the bundle
+// was enough to make one of those turn up by coincidence inside otherwise
+// ordinary library code — silently corrupting the inlined script into a
+// syntax error no test in this repo could catch, since nothing here
+// previously exercised a bundle large enough to hit one. A function
+// replacer's return value is spliced in literally, with no such patterns
+// recognised, which is what this always needed to be doing.
+const body = template.replace('/*__BUNDLE__*/', () => safeBundle);
 
 mkdirSync(resolve(root, 'dist-demo'), { recursive: true });
 writeFileSync(resolve(root, 'dist-demo/artifact.html'), body);
