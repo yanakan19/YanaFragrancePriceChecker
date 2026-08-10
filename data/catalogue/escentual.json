@@ -1,9 +1,23 @@
 {
   "retailerId": "escentual",
-  "updatedAt": "2026-08-06T09:46:03.603Z",
+  "updatedAt": "2026-08-10T23:23:51.634Z",
   "source": "live",
   "listings": [],
   "runs": [
+    {
+      "runId": "escentual-2026-08-10T23:23:42.347Z",
+      "retailerId": "escentual",
+      "startedAt": "2026-08-10T23:23:42.347Z",
+      "finishedAt": "2026-08-10T23:23:51.634Z",
+      "status": "ok",
+      "baseline": true,
+      "pagesFetched": 1,
+      "listingsSeen": 0,
+      "newListings": 0,
+      "delistedListings": 0,
+      "relistedListings": 0,
+      "errors": []
+    },
     {
       "runId": "escentual-2026-08-06T09:45:54.928Z",
       "retailerId": "escentual",
