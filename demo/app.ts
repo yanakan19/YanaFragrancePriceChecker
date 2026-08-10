@@ -1210,6 +1210,37 @@ function retailersPanel(): string {
   </ul>`;
 }
 
+/**
+ * Trustpilot's own "TrustBox" embed, in its Micro Star template — a compact
+ * star rating and review count, right-sized for sitting under delivery facts
+ * rather than a full review carousel. Absent entirely below a configured
+ * `trustpilotBusinessId`, the same rule as every other external fact in this
+ * app: nothing shown is better than something guessed, and there is no way
+ * to derive this id from a domain alone (see the field's own comment in
+ * src/types/retailer.ts). The fallback link inside is Trustpilot's own
+ * convention — if their script never loads (blocked, offline, slow), a
+ * plain link to the real review page is what a reader sees instead of a
+ * blank box.
+ */
+function trustpilotWidget(r: Retailer): string {
+  if (!r.trustpilotBusinessId) return '';
+  const reviewUrl = `https://uk.trustpilot.com/review/${esc(r.domain)}`;
+  return `<div class="trustpilot-block">
+    <div
+      class="trustpilot-widget"
+      data-trustpilot-widget
+      data-locale="en-GB"
+      data-template-id="5419b6ffb0d04a076446a9af"
+      data-businessunit-id="${esc(r.trustpilotBusinessId)}"
+      data-style-height="24px"
+      data-style-width="100%"
+      data-theme="dark"
+    >
+      <a href="${reviewUrl}" target="_blank" rel="noopener nofollow">See reviews on Trustpilot</a>
+    </div>
+  </div>`;
+}
+
 function retailerView(): string {
   const r = getRetailer(state.retailerId);
   if (!r) return exploreView();
@@ -1235,6 +1266,7 @@ function retailerView(): string {
         <ul class="fact-list">
           ${deliveryLines(r).map((l) => `<li>${esc(l)}</li>`).join('')}
         </ul>
+        ${trustpilotWidget(r)}
       </div>
     </div>
 
@@ -1879,6 +1911,7 @@ function render(): void {
   ($('#nav-settings') as HTMLElement).classList.toggle('on', state.view === 'settings');
 
   syncUpdatesHeight();
+  mountTrustpilotWidgets();
 }
 
 /**
@@ -1906,6 +1939,49 @@ function syncUpdatesHeight(): void {
   const suggestBottom = suggest.getBoundingClientRect().bottom;
   const listTop = list.getBoundingClientRect().top;
   list.style.maxHeight = `${Math.max(120, suggestBottom - listTop)}px`;
+}
+
+/** The one method this app calls on Trustpilot's own global once it loads. */
+interface TrustpilotGlobal {
+  loadFromElement(el: Element, forceRedirect?: boolean): void;
+}
+
+let trustpilotScriptState: 'unloaded' | 'loading' | 'loaded' = 'unloaded';
+
+/**
+ * Trustpilot's bootstrap script is loaded on demand, the first time a
+ * retailer page actually has a rating configured to show — never eagerly on
+ * every page load, for a third-party script that today would render nothing
+ * on all but a handful of retailers. Once loaded, the same script instance
+ * serves every widget for the rest of the session; this app is a client-side
+ * router, so a widget appearing on the second retailer page visited is a DOM
+ * mutation the bootstrap script never saw happen on its own, and
+ * `loadFromElement` is Trustpilot's own documented hook for exactly that.
+ */
+function mountTrustpilotWidgets(): void {
+  const widgets = document.querySelectorAll('[data-trustpilot-widget]');
+  if (widgets.length === 0) return;
+
+  if (trustpilotScriptState === 'loaded') {
+    const tp = (window as unknown as { Trustpilot?: TrustpilotGlobal }).Trustpilot;
+    widgets.forEach((el) => tp?.loadFromElement(el, true));
+    return;
+  }
+  if (trustpilotScriptState === 'loading') return; // Its onload below covers these too.
+
+  trustpilotScriptState = 'loading';
+  const script = document.createElement('script');
+  script.src = 'https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js';
+  script.async = true;
+  script.onload = () => {
+    trustpilotScriptState = 'loaded';
+    const tp = (window as unknown as { Trustpilot?: TrustpilotGlobal }).Trustpilot;
+    document.querySelectorAll('[data-trustpilot-widget]').forEach((el) => tp?.loadFromElement(el, true));
+  };
+  // A failed load (offline, blocked) leaves the fallback link inside the
+  // widget div visible, which is exactly what it is there for — no retry,
+  // no error state to manage.
+  document.head.appendChild(script);
 }
 
 function go(view: View): void {

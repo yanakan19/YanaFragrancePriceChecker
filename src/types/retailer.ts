@@ -297,4 +297,17 @@ export interface Retailer {
   catalogue: CatalogueConfig | null;
   /** All registry entries are UK storefronts pricing in sterling. */
   currency: 'GBP';
+  /**
+   * The 24-character hex id Trustpilot assigns a business, found in the
+   * embed snippet their own site generates for that business — the widget's
+   * script needs this specific id to fetch a rating; a domain alone is not
+   * enough, and neither is guessing. `null` (the default for every retailer
+   * below) means exactly what it always means in this registry: not
+   * confirmed yet, so nothing is shown rather than something invented.
+   * `demo/app.ts`'s trustpilotWidget only renders once this is set. Two
+   * fetch mechanisms available while building this were both blocked from
+   * reaching trustpilot.com, so these have to be filled in by hand, one
+   * retailer at a time, from https://www.trustpilot.com/review/<domain>.
+   */
+  trustpilotBusinessId?: string | null;
 }
