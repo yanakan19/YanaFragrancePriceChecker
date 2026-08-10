@@ -53,8 +53,13 @@ import { parsePrice } from './jsonld.js';
 
 const REQUIRED_PRICE_POSITIVE = (n: number | null): n is number => n !== null && n > 0;
 
-/** Parse one CSV/TSV row, honouring RFC4180-style quoting either way. */
-function parseDelimitedText(text: string, delimiter: string): string[][] {
+/**
+ * Parse one CSV/TSV row, honouring RFC4180-style quoting either way.
+ * Exported for reuse: this same tolerant parser also reads the Feed List
+ * Download CSV in awinFeedList.ts, a different Awin export with its own
+ * columns but the same quoting/delimiter rules.
+ */
+export function parseDelimitedText(text: string, delimiter: string): string[][] {
   const rows: string[][] = [];
   let row: string[] = [];
   let field = '';
@@ -107,7 +112,7 @@ function parseDelimitedText(text: string, delimiter: string): string[][] {
 }
 
 /** Comma unless the header line is clearly tab separated. */
-function sniffDelimiter(text: string): string {
+export function sniffDelimiter(text: string): string {
   const headerLine = text.split(/\r?\n/, 1)[0] ?? '';
   const tabs = (headerLine.match(/\t/g) ?? []).length;
   const commas = (headerLine.match(/,/g) ?? []).length;

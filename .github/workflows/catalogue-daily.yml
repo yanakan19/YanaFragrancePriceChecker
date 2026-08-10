@@ -45,6 +45,10 @@ on:
         description: "Read disabled shops' own delivery pages and report what they say. Writes a report only, never the registry."
         type: boolean
         default: false
+      awin_feed_sync:
+        description: 'Sync every affiliate-feed retailer against the Awin Feed List Download URL. Requires the AWIN_FEED_LIST_URL secret.'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -149,6 +153,43 @@ jobs:
           ./scripts/commit-and-push.sh \
             "Shipping terms: what each delivery page says $(date -u +%Y-%m-%d)" \
             data/shipping-discovery-report.json
+
+      # Every affiliate-feed retailer (adapter: 'affiliate-feed' in
+      # src/config/retailers.ts — Fragrance Click UK today) against the Awin
+      # Feed List Download URL. Twice a day, same reasoning and the same
+      # 06:00/18:00 UTC slots as shipping discovery just above: Awin
+      # regenerates a feed roughly daily, so checking it hourly would be 24
+      # times the requests to learn the same thing, and both already share
+      # this schedule rather than each claiming their own cron.
+      #
+      # A no-op, not a failure, when AWIN_FEED_LIST_URL is unset — see
+      # scripts/awin-feed-sync.ts's own header comment. The rebuild only
+      # runs when the sync actually changed something, so an unchanged feed
+      # costs one HTTP request and nothing else.
+      - name: Sync Awin product feeds
+        if: ${{ inputs.awin_feed_sync || github.event_name == 'schedule' }}
+        env:
+          AWIN_FEED_LIST_URL: ${{ secrets.AWIN_FEED_LIST_URL }}
+        run: |
+          HOUR=$(date -u +%H)
+          if [ "${{ inputs.awin_feed_sync }}" = "true" ] || [ "$HOUR" = "06" ] || [ "$HOUR" = "18" ]; then
+            npm run awin:feed-sync
+            if ! git diff --quiet -- data/catalogue data/awin-feed-sync-state.json; then
+              npm run catalogue:demo
+              npm run catalogue:history
+              npm run demo
+            fi
+          else
+            echo "Not a 06:00 or 18:00 UTC tick (currently ${HOUR}:00) — skipping."
+          fi
+
+      - name: Commit synced Awin feeds
+        if: ${{ inputs.awin_feed_sync || github.event_name == 'schedule' }}
+        run: |
+          ./scripts/commit-and-push.sh \
+            "Awin feed sync: $(date -u +%Y-%m-%d)" \
+            data/catalogue data/awin-feed-sync-state.json demo/catalogue.generated.ts \
+            demo/priceHistory.generated.ts demo/index.html demo/404.html
 
       # The route the probe proved works: ask the sitemap instead of guessing.
       # This is now what runs every night, not just on request. The plain
