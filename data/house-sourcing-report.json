@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-10T10:02:55.028Z",
+  "checkedAt": "2026-08-10T11:50:57.680Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -30,10 +30,11 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "robots.txt unreachable at https://www.afnanperfumes.com and https://afnanperfumes.com — holding off rather than guessing we are welcome"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
-        "storefront currency and UK delivery terms not yet established"
+        "storefront currency and UK delivery terms not yet established",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {
@@ -63,7 +64,8 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "storefront currency could not be established — no sterling price recorded",
+        "stopped early: the house began refusing requests"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -193,9 +195,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 52,
-      "pricedInGbp": 52,
-      "withPhoto": 52,
+      "listings": 56,
+      "pricedInGbp": 56,
+      "withPhoto": 56,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -416,9 +418,9 @@
       "origin": "https://www.reef-parfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 32,
-      "pricedInGbp": 32,
-      "withPhoto": 32,
+      "listings": 31,
+      "pricedInGbp": 31,
+      "withPhoto": 31,
       "errors": [
         "storefront currency could not be established — no sterling price recorded"
       ],
