@@ -1,6 +1,3987 @@
 {
-  "checkedAt": "2026-08-10T13:48:34.923Z",
-  "totalChecked": 5350,
-  "brokenCount": 0,
-  "broken": []
+  "checkedAt": "2026-08-10T14:55:17.220Z",
+  "totalChecked": 5377,
+  "brokenCount": 398,
+  "broken": [
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MFK0027.png?v=1771605432&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MFK0019_cbf9ef55-552d-43a4-b091-a83518036bb4.png?v=1772099198&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MFK0018.png?v=1771605433&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MFK0016.png?v=1770719496&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MFK0022.png?v=1772099198&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MFK0026.png?v=1770719496&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MFK0033.png?v=1773420936&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MFK0034.png?v=1772099200&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MFK0035.png?v=1772099200&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MFK0031.png?v=1772099201&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/RAL0058.png?v=1743611640&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ZMYA0014_b2a5628d-12e7-4c64-b4bc-67ca48f4b429.png?v=1758900972&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ZMYA0013.png?v=1758900972&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/STEP0001.png?v=1743611681&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/STEP0003_ff572942-f2fb-4722-9bd4-3cc6ca728adc.png?v=1744129292&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/STEP0005.png?v=1743611683&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0123_e3d85db2-0bbd-415b-b9f4-bee78b5095c1.png?v=1774603052&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/INIT0011_bf40e07b-0965-407e-a9e3-1758676fa66e.png?v=1766583609&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/CREED0041_51b318d0-ab0a-487d-ab97-62e9ca3ad11d.png?v=1753445108&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/CRIV0027.png?v=1771605433&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/INIT0014.png?v=1766583609&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/KP0005.png?v=1744383857&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DKNY0033_ac77026e-1414-4857-abeb-80e1ddb042b0.png?v=1760692588&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/hugo-boss-number-one-eau-de-toilette-100ml-p23939-53800_image.jpg?v=1721322236&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-femme-eau-de-toilette-50ml-p26005-65043_image.jpg?v=1721322238&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-femme-eau-de-parfum-75ml-p31960-90160_image.jpg?v=1721322236&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/hugo-boss-hugo-woman-eau-de-parfum-50ml-p24948-57508_image.jpg?v=1721322236&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/bottled-night-eau-de-toilette-200ml-p20235-42195_image.jpg?v=1721322241&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-femme-eau-de-toilette-100ml-p21860-65038_image.jpg?v=1721322239&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/leau-dissey-pour-homme-sport-eau-de-toilette-100ml-p31961-88143_image.jpg?v=1721322239&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-night-eau-de-toilette-100ml-p20374-42780_image.jpg?v=1721322243&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/hugo-boss-energise-for-him-eau-de-toilette-75ml-p24852-105728_image.jpg?v=1721322239&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/hugo-boss-woman-eau-de-toilette-75ml-p23221-105730_image.jpg?v=1721322241&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-homme-eau-de-toilette-75ml-p20380-65065_image.jpg?v=1721322243&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/reversed-eau-de-toilette-125ml-p25654-60421_image.jpg?v=1721322240&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/JIMC0015.png?v=1738168657&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/leau-dissey-intense-eau-de-toilette-75ml-p22248-65048_image.jpg?v=1721322243&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ISS0012.jpg?v=1730717531&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/jimmy-choo-blossom-eau-de-parfum-100ml-p22649-65785_image.jpg?v=1721322244&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/leau-dissey-pour-homme-sport-eau-de-toilette-50ml-p38037-120110_image.jpg?v=1721322247&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BDK0007_13b91670-a293-49b6-b03f-6f1818e4fc7a.png?v=1776858614&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BRIT0023.png?v=1742576770&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ANNA0009.png?v=1742577214&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ANNA0003.png?v=1742577214&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BDK0003_46555fde-99be-4a61-a3d5-1d4ba58d8614.png?v=1775142595&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BDK0001.png?v=1775142595&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BDK0002_d96b9bfe-ec86-4fc8-b4b2-7938576ac061.png?v=1775142596&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BDK0008_c2097155-36c6-4499-b80c-1eb9a4de18ad.png?v=1775142596&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BDK0009.png?v=1775142597&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ALHA0012.png?v=1743090670&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ALHA0017.png?v=1743090671&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ALHA0006.png?v=1743090671&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ALHA0018.png?v=1743090672&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ALHA0009_8dc27e12-fe24-447b-891e-32989c980dbc.png?v=1765364507&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ALHA0016.png?v=1743090672&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ALHA0014.png?v=1743090672&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ALHA0015.png?v=1743090673&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ESCD0007.png?v=1740748752&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DANDG0124.png?v=1740748575&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BURB0063_08527a78-d777-4d4e-9594-a53b5737e533.png?v=1765452785&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ESCD0008.png?v=1740748752&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BURB0064_41f52ac6-4b80-42d1-b6d4-0983d61b89c8.png?v=1765452785&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0126_e0a12dad-e8d0-462c-820f-ca56d54d55e9.png?v=1772813201&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ABER0017_x100.png?v=1740748575",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0127_b36f6f5e-97b3-45b4-abef-b4cc25c5ebf8.png?v=1765452785&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/LALI0002.png?v=1741364763&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0124.png?v=1765452786&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/CHERR0060.png?v=1741364693&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/COMF0015.png?v=1741364766&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/CAV0014_331bfebe-bb24-40c3-a94b-086ac197a2cd.png?v=1766583608&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/LALI0003.png?v=1741364767&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BDK0006_f28ed315-b01b-4c1c-a618-b64c00f819f0.png?v=1775142593&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/HERM0007.png?v=1766583596&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/PAC0115_d7828207-3a69-4ee3-a590-987d9c11a01c.png?v=1741178531&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/INIT0002_3e9220ee-7b24-4970-b532-5fea5014070e.png?v=1766583607&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/JPG0060.png?v=1753445108&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/JPG0058_12d20bc8-36e4-4ea0-b84d-d488f941260f.png?v=1772813643&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/LAC0014.png?v=1766583608&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/CHL0015.png?v=1765452235&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/VIK0060.jpg?v=1738255239&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/KP0004.png?v=1738255240&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/VIK0062.jpg?v=1738255240&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/VIK0061.jpg?v=1738255241&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/KP0003.png?v=1738255241&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/KP0014.png?v=1738255242&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/KP0016.png?v=1738255242&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/HB0151.png?v=1738856201&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/LANV0005_63502e8f-d20e-4367-8718-280f530804fa.png?v=1741178530&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/INIT0003_a2b49b50-1213-4f87-9e96-27d9907e39f7.png?v=1770982485&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/PAC0108.png?v=1766583607&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GUCC0051.png?v=1776075219&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/PAC0118.png?v=1766583607&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/INIT0004.png?v=1766583607&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/PAC0112_12deab50-7b30-41f8-a6ee-88882ee90ecb.png?v=1741178531&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GUCC0026.png?v=1775142589&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/HERM0014.png?v=1766583596&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/bottled-unlimited-eau-de-toilette-200ml-p22247-48153_image.jpg?v=1721322233&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/man-eau-de-toilette-200ml-p24513-55920_image.jpg?v=1721322232&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-tonic-eau-de-toilette-200ml-p20375-42781_image.jpg?v=1721322236&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/hugo-boss-bottled-tonic-eau-de-toilette-50ml-p21058-71520_image.png?v=1721322237&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BYRE0008.png?v=1753445101&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BURB0012.png?v=1765452780&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/PDM0010.png?v=1766583606&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/FORD0030.png?v=1753445107&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/PDM0013_7eb87f3a-7396-4400-b155-d15c833dd3f3.png?v=1766583606&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/PDM0001.png?v=1766583606&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/PDM0002_f239d54f-95e7-4e12-ba8f-cb5027865a9b.png?v=1766583606&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GUCC0018.png?v=1775142586&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GUCC0017.png?v=1775142586&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GIV0006.png?v=1756720375&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/HERM0016.png?v=1770982472&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/VW0010.png?v=1732354670&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ESCD0003_1508294f-1b96-4a15-a25e-8465b26d0e06.png?v=1741194212&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MASM0028.png?v=1732820614&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MASM0021.png?v=1732820617&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/KIL0020_96425647-f74b-4ebc-9355-21b47a5717dc.png?v=1771241342&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/CHERR0040_5d287f73-5046-4e9a-a868-6204791774ea.png?v=1765452785&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/PAC0079_e09f60d8-3364-44d1-809f-f919c97dde99.png?v=1738168807&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/PAC0086.png?v=1766583603&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/PAC0090_1f0c83b2-4747-4288-8f09-a2c01a777107.png?v=1770887286&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/JPG0015.png?v=1753445107&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ALHA0005.png?v=1732123198&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/CLQ0018_x100.png?v=1739789784",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/HB0144_073f33a1-9c5a-41b1-b5e4-e69eaef3618a.png?v=1732534495&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/LAT0011_fd7eccce-02c6-41ca-a611-8bca76eb1ccd.png?v=1758900970&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/VS0031_bca8c7a2-2e91-4a14-aaa2-5caac46df003.png?v=1769531012&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/HB0142_4fe86fd4-a997-47e3-9394-0d8b4d57e546.png?v=1732537135&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/HB0143_ce4f482e-4f12-4be4-9e08-be3159cc90d9.png?v=1732533659&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ARMA0048.png?v=1749024342&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/giorgio-beverly-hills-eau-de-toilette-30ml-p29808-76284_image.jpg?v=1721322216&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-gold-eau-de-toilette-100ml-p31746-87921_image.jpg?v=1721322215&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GIV0027.png?v=1753445068&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/gloria-vanderbilt-vanderbilt-in-red-eau-de-parfum-100ml-p32502-91084_image.jpg?v=1721322217&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GIV0023.png?v=1753445103&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GUCC0008.png?v=1775142585&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GIV0026.png?v=1753445103&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GUCC019.png?v=1775142483&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GUCC0012.png?v=1775142585&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/armani-code-eau-de-parfum-75ml-p38167-121233_image.jpg?v=1721322218&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/gres-cabochard-cherie-eau-de-parfum-100ml-p31745-87934_image.jpg?v=1721322219&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0024_810f4a88-08e1-45a2-8629-b9c6165b1758.png?v=1758900968&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0003.png?v=1758900968&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DANDG0145.png?v=1761931431&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/JPG0041.png?v=1753445107&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ARI0054.jpg?v=1729263489&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0005.png?v=1742404334&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0006_2739d5aa-1000-4d23-a48e-d04009730dab.png?v=1760692587&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/KIL0001_0d0db23a-b131-40ae-884f-a55b43bdcb61.png?v=1766583602&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0036_ffc1ca06-c299-4aec-a4eb-ec4e7224f6d1.png?v=1758900968&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0028_8d1f151a-9b11-469e-85a2-d334169cc501.png?v=1758900968&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0029_62f8c356-66ff-42b7-8096-37b9bf672b11.png?v=1758900968&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/KIL0003_5417570f-10e7-49be-bd03-2de465277922.png?v=1766583602&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MH0001.png?v=1730888281&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MH0017.png?v=1730888282&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/KIL0005_38ef1ec9-0773-4888-ab29-845783044925.png?v=1766583602&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/KIL0013_bcddc03f-1649-472b-a7b7-43ef89d59682.png?v=1766583602&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0030_0d8ff16c-bdb6-49dd-a0b6-064d4e17518a.png?v=1758900969&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/KIL0007_5da9875a-63f6-4505-aebe-5b9672477852.png?v=1766583603&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0017_b1b9fa26-fe31-4f44-8461-4001a51d40e6.png?v=1758900969&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0022_c3f158cf-c948-4084-9add-5342e9f70355.png?v=1758900969&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/KIL0014_fc880365-cff3-4e80-8f41-7fe0cf2ef9f0.png?v=1766583603&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/PAC0084_08332d4c-bfb1-4762-8ab9-3436936997dd.png?v=1766583603&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0016_6b41971d-ae4b-4792-b91d-7350baa5febf.png?v=1758900969&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/JPG0018_28d47489-e521-4e64-ac88-00ece16c7f08.png?v=1785335402&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/JIMC0082_6fc0f210-d3cc-418b-af96-088c9358ce5a.png?v=1741178528&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/JIMC0081_09128aef-702a-4a85-8226-293f079d3c1f.png?v=1741178528&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/JIMC0080_bc71b6d1-4104-47e7-88d8-d22cc5ff5ed0.png?v=1741178529&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GIV0008_43e3b90f-626d-47e7-9b12-1f5b2ffa9b72.png?v=1753445107&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/JPG0052_75d8a274-f319-4832-b19f-f1038d63351d.png?v=1785335402&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/CHO0002.png?v=1730886320&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/CHO0001.png?v=1730886338&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ISS0038.png?v=1731675666&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/gloria-vanderbilt-jardin-a-new-york-eau-de-parfum-100ml-p32506-91088_image.jpg?v=1721322214&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GIV0031.png?v=1753445067&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GIV0013.png?v=1769433811&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GUCC0007.png?v=1775142582&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/elizabeth-taylor-white-diamonds-eau-de-toilette-100ml-p23487-79053_image.jpg?v=1721322210&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/emporio-armani-stronger-with-you-intensely-mens-eau-de-parfum-50ml-p31694-87950_image.jpg?v=1721322217&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/XERJ0005.png?v=1760366390&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/XERJ0013.png?v=1760366391&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/XERJ0003.png?v=1772099190&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/SOL0055.png?v=1751897941&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/SOL0021.png?v=1751897942&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/YSL0141.jpg?v=1728386523&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/YSL0140.jpg?v=1728386526&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/XERJ0014.png?v=1772099190&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0121_a870b16f-5e8c-45c4-b728-4dc0764329b9.png?v=1765452784&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GUCC0043.png?v=1773420935&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/CHERR0043_d157318f-c455-4cf2-badd-b7d6e3113ab8.png?v=1769523265&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0118_05538e95-f1ca-44c4-88f5-faf21ce96ae1.png?v=1765452784&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/CK0122.jpg?v=1729263417&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0004.png?v=1758900967&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0001.png?v=1758900967&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0023.png?v=1758900967&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0011_6792172d-2306-42fc-b1c8-f263079106bc.png?v=1760692587&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DIOR0002.png?v=1760692587&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/CK0123.jpg?v=1729263450&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ALHA0001.png?v=1774622951&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ARMA0155.jpg?v=1728385637&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/SAB0006_2453ce98-832b-4fc5-ae45-22be4833b1f0_x100.jpg?v=1728987853",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/SAB0005_9cf12784-ae55-481f-aa98-222c7a98c254.jpg?v=1728987436&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/XERJ0008.png?v=1772099188&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/LAT0010.png?v=1758900967&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/XERJ0006.png?v=1760366390&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/XERJ0010.png?v=1772099189&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ARMA0049.png?v=1749024408&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/gloria-vanderbilt-vanderbilt-no-1-eau-de-toilette-100ml-p32503-91085_image.jpg?v=1721322203&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ARMA0034.png?v=1733934744&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/estee-lauder-pleasures-eau-de-parfum-100ml-p24546-61507_image_x100.jpg?v=1721322205",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/EST0007_x100.png?v=1739789782",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/armani-code-femme-eau-de-parfum-30ml-p27842-69682_image.jpg?v=1721322203&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ELIZ0001_x100.png?v=1777037424",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/GIV0016_4bb977de-8ee8-46ae-a35b-ad438d008c6f.png?v=1766569596&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/armani-code-eau-de-parfum-50ml-p38166-121232_image.jpg?v=1721322214&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/armani-code-femme-eau-de-parfum-50ml-p27843-69683_image.jpg?v=1721322203&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/yellow-fine-fragrance-mist-240ml-p31955-88138_image.jpg?v=1721322209&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/code-pour-homme-eau-de-toilette-125ml-p30633-80955_image.jpg?v=1721322209&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ARMA0035.png?v=1733934760&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/black-tulip-eau-de-parfum-30ml-p38586-123191_image.jpg?v=1723462491&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/white-peaches-eau-de-parfum-30ml-p38578-123183_image.jpg?v=1723462491&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/atropa-belladonna-eau-de-parfum-30ml-p38582-123187_image.jpg?v=1723462491&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/SJP0045.png?v=1776691996&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MONT0011.png?v=1766583601&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MONT0012.png?v=1766569597&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ari-eau-de-parfum-100ml-p20953-44094_image.jpg?v=1721322147&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0052_7ff6dc0c-244b-4d0a-8077-c06344fb1f13.png?v=1765452779&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0060.png?v=1765452779&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/azzaro-wanted-eau-de-parfum-100ml-p31703-86827_image.jpg?v=1721322150&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ariana-grande-cloud-eau-de-parfum-50ml-p20958-44099_image.jpg?v=1721322150&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ARMA0005_41a22bf5-e97d-408f-b16a-6d6d708459e6.jpg?v=1730741672&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/giorgio-armani-my-way-eau-de-parfum-90ml-p27847-69687_image.jpg?v=1721322195&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/DANDG0019.png?v=1765197717&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/diamonds-she-eau-de-parfum-100ml-p24942-58460_image.jpg?v=1721322203&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ARMA0005_2dc67560-9bcd-4c2c-a578-6abdf6308bd9.jpg?v=1730741592&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ghost-deep-night-eau-de-toilette-75ml-p36255-113655_image.jpg?v=1721322201&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ashleigh-burwood-lamp-fragrance-peony-500ml-p15985-29465_image.jpg?v=1721323239&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/lamp-fragrance-lime-basil-500ml-p37252-116470_image.jpg?v=1721323239&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BYRE0011.png?v=1756720376&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/wax-lyrical-fresh-linen-scented-reed-diffuser-100ml-p23638-52742_image.jpg?v=1721323267&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/wax-lyrical-english-lavender-scented-reed-diffuser-100ml-p23633-52737_image.jpg?v=1721323267&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/wax-lyrical-fresh-linen-scented-reed-diffuser-40ml-p35608-107613_image.jpg?v=1721323268&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/wax-lyrical-lemon-verbena-scented-reed-diffuser-100ml-p23632-52736_image.jpg?v=1721323276&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/yankee-candle-scent-plug-diffuser-organic-p18371-36886_image.jpg?v=1721323303&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/yankee-candle-scent-plug-diffuser-faceted-p18369-36884_image.jpg?v=1721323303&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/luce-di-colonia-scented-jar-candle-200g-p37527-121086_image.jpg?v=1721323328&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/small-fragrance-lamp-golden-sunset-p37238-116456_image.jpg?v=1721323233&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/lamp-fragrance-tea-rose-500ml-p37248-116466_image.jpg?v=1721323233&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ashleigh-burwood-lamp-fragrance-fresh-linen-500ml-p15975-29455_image.jpg?v=1721323237&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ashleigh-burwood-lamp-fragrance-lavender-500ml-p15972-29452_image.jpg?v=1721323235&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/britney-spears-believe-eau-de-parfum-100ml-p22275-49041_image.jpg?v=1721322132&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ARM0037.png?v=1758900964&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/9am-dive-eau-de-parfum-100ml-p35647-108046_image.jpg?v=1721322135&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/britney-spears-curious-eau-de-parfum-30ml-p31714-86835_image.jpg?v=1721322135&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0071.png?v=1765452778&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-intense-eau-de-parfum-50ml-p31704-86828_image.jpg?v=1721322137&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/wanted-eau-de-parfum-50ml-p31702-86826_image.jpg?v=1721322139&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/britney-spears-midnight-fantasy-eau-de-parfum-30ml-p31718-86839_image.jpg?v=1721322138&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/afnan-9am-pour-femme-eau-de-parfum-100ml-p35648-108048_image.jpg?v=1721322139&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ariana-grande-thank-u-next-eau-de-parfum-50ml-p20961-44102_image.jpg?v=1721322138&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/boucheron-pour-homme-eau-de-parfum-100ml-p31713-88220_image.jpg?v=1721322141&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-by-billie-eilish-eau-de-parfum-100ml-p28460-71635_image.jpg?v=1721322138&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0011_dde54f44-03c0-4809-a8a6-0fd9b84b5ea5.png?v=1765452778&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-parfum-100ml-p31707-86831_image.jpg?v=1721322144&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BURB0042_7f9cd321-efde-4aa7-a1e4-5059fa59c9f4.png?v=1765536342&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/yves-saint-laurent-rive-gauche-eau-de-toilette-100ml-p28055-69856_image.jpg?v=1721322389&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ZMYA0006_3f523ec6-0b5e-42a6-925a-bdee4d7f93b8.png?v=1758900966&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/y-for-him-eau-de-parfum-100ml-p28071-69872_image.jpg?v=1721322387&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/zimaya-sharaf-the-club-eau-de-parfum-100ml-p35720-108195_image.jpg?v=1721322385&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ZMYA0001.png?v=1758900966&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ZMYA0003.png?v=1758900966&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/yves-saint-laurent-mon-paris-eau-de-parfum-30ml-p30507-79690_image.jpg?v=1721322395&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/y-for-him-eau-de-parfum-60ml-p28070-69871_image.jpg?v=1721322390&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ZMYA0010.png?v=1758900966&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ZMYA0007.png?v=1758900966&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/JIMC0060_d0cb832a-996b-4191-b0a8-23f42492bf4b.png?v=1738168806&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/drakkar-intense-eau-de-parfum-100ml-p32510-91092_image.jpg?v=1721322398&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MON0045.png?v=1770982478&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MJ0014_979484d5-b499-4bad-9f25-049bf538085b.png?v=1765459932&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/MJ0015_f572f2c8-6309-44c3-8528-af2556593369.png?v=1765459932&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/PAC0022.png?v=1766583600&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/NR0064.png?v=1763646360&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/EST0001_x100.png?v=1738168659",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/PAC0048.png?v=1770887284&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/NR0078.png?v=1775131118&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/FORD0005.png?v=1751897612&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/black-opium-illicit-green-eau-de-parfum-75ml-p25404-59389_image.jpg?v=1721322421&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BURB0055_035d6cfd-6b30-43b4-9ee0-826302d7c52b.png?v=1765452783&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/eternity-aromatic-essence-for-her-eau-de-parfum-100ml-p37119-115810_image.jpg?v=1721322418&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-150ml-p35654-108059_image.jpg?v=1721322130&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/afnan-9pm-pour-homme-eau-de-parfum-100ml-p35649-108050_image.jpg?v=1721322129&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0045_e87e2314-2083-432b-922e-0d7a333f9715.png?v=1765452777&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0012_8423c95c-f940-4d0c-9bb8-f262dd7dfbd0.png?v=1765452777&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-no-2-by-billie-eilish-eau-de-parfum-50ml-p33564-95880_image.jpg?v=1721322133&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/britney-spears-fantasy-eau-de-parfum-100ml-p22273-49037_image.jpg?v=1721322131&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ARM0034.png?v=1758900964&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0097_409701cc-1fc3-4fa3-98ee-699e292c106a.png?v=1785917377&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/wanted-by-night-eau-de-parfum-100ml-p31699-86823_image.jpg?v=1721322134&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/wanted-eau-de-toilette-100ml-p31889-88083_image.jpg?v=1721322131&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0070_7e13f7ef-00fc-42b3-b435-53fb38965957.png?v=1765452778&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/cloud-eau-de-parfum-100ml-p20959-44100_image.jpg?v=1721322133&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/viktor-rolf-flowerbomb-eau-de-parfum-100ml-p28009-69812_image.jpg?v=1721322364&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/black-opium-eau-de-parfum-50ml-p28031-90415_image.jpg?v=1721322379&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/viktor-rolf-bonbon-eau-de-parfum-30ml-p28011-77981_image.jpg?v=1721322369&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/viktor-rolf-spicebomb-night-vision-eau-de-parfum-50ml-p28002-77939_image.jpg?v=1721322377&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/yves-saint-laurent-libre-intense-eau-de-parfum-50ml-p28026-69827_image.jpg?v=1721322372&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/la-nuit-de-lhomme-eau-de-toilette-60ml-p28063-69864_image.jpg?v=1721322373&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/heritage-men-jazz-eau-de-toilette-80ml-p28067-69868_image.jpg?v=1721322373&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/yves-saint-laurent-mon-paris-eau-de-parfum-90ml-p28036-69837_image.jpg?v=1721322372&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/la-nuit-de-lhomme-le-parfum-100ml-p28073-69874_image.jpg?v=1721322372&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/yves-saint-laurent-libre-intense-eau-de-parfum-90ml-p28027-69828_image.jpg?v=1721322375&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/spicebomb-night-vision-eau-de-parfum-90ml-p28003-77945_image.jpg?v=1721322383&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/versace-eros-pour-homme-eau-de-parfum-200ml-p21316-45762_image.jpg?v=1721322377&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/YSL0200.png?v=1784726272&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/yves-saint-laurent-libre-eau-de-toilette-90ml-p31825-87938_image.jpg?v=1721322383&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/yves-saint-laurent-lhomme-eau-de-toilette-100ml-p28062-69863_image.jpg?v=1721322375&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/YSL0201.png?v=1784726271&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/viktor-rolf-spicebomb-night-vision-eau-de-toilette-90ml-p28001-77933_image.jpg?v=1721322386&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/men-y-le-parfum-eau-de-parfum-100ml-p28069-69870_image.jpg?v=1721322377&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ZMYA0012.png?v=1758900965&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/black-opium-eau-de-parfum-150ml-p30508-90427_image.jpg?v=1721322390&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/YSL0198.png?v=1783506388&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/yves-saint-laurent-men-y-le-parfum-eau-de-parfum-60ml-p28068-69869_image.jpg?v=1721322376&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/viktor-rolf-bonbon-eau-de-parfum-90ml-p28013-77991_image.jpg?v=1721322391&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/viktor-rolf-flowerbomb-eau-de-parfum-10ml-p28006-69809_image.jpg?v=1721322374&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/yves-saint-laurent-libre-intense-eau-de-parfum-30ml-p28025-69826_image.jpg?v=1721322378&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/viktor-rolf-spicebomb-infrared-eau-de-parfum-90ml-p32353-90133_image.jpg?v=1721322389&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/yves-saint-laurent-mon-paris-eau-de-parfum-150ml-p35474-107433_image.jpg?v=1721322383&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/viktor-rolf-flowerbomb-eau-de-parfum-50ml-p28008-69811_image.jpg?v=1721322382&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/libre-eau-de-parfum-50ml-p28023-69824_image.jpg?v=1721322380&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/opium-eau-de-parfum-50ml-p28043-69844_image.jpg?v=1721322383&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ZMYA0004.png?v=1758900965&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0032_06ba8cba-6a8f-442f-a306-5df08782ab77.png?v=1765452777&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-parfum-50ml-p31706-86830_image.jpg?v=1721322132&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/BURB0006_40e903f0-b232-419c-ba16-83166f9887ce.png?v=1769523265&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/club-de-nuit-iconic-eau-de-parfum-105ml-p31103-83726_image.jpg?v=1721322126&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ariana-grande-sweet-like-candy-eau-de-parfum-30ml-p20954-44095_image.jpg?v=1721322125&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ariana-grande-r-e-m-eau-de-parfum-100ml-p20965-44106_image.jpg?v=1721322130&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/club-de-nuit-urban-man-elixir-eau-de-parfum-105ml-p30630-80351_image.jpg?v=1721322124&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0053_3fcefe3a-2fe7-42cc-9388-1fb67280b4b9.png?v=1765452777&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-100ml-p35652-108055_image.jpg?v=1721322127&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/ACQ0049.png?v=1766569595&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/VERS0167.png?v=1760428842&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/versace-eros-pour-homme-eau-de-parfum-50ml-p21314-45760_image.jpg?v=1721322352&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/versace-eros-pour-homme-eau-de-parfum-100ml-p21315-45761_image.jpg?v=1721322357&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/versace-red-jeans-eau-de-toilette-75ml-p21358-45804_image.jpg?v=1721322355&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/crystal-noir-eau-de-parfum-90ml-p21324-45770_image.jpg?v=1721322360&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/versace-woman-eau-de-parfum-50ml-p21336-45782_image.jpg?v=1721322355&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/uomo-intense-eau-de-parfum-100ml-p27980-69788_image.jpg?v=1721322359&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/versace-dreamer-eau-de-toilette-100ml-p21301-45747_image.jpg?v=1721322354&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/valentino-uomo-eau-de-toilette-50ml-p27977-69785_image.jpg?v=1721322358&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/valentino-uomo-eau-de-toilette-100ml-p27978-69786_image.jpg?v=1721322358&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/valentino-uomo-intense-eau-de-parfum-50ml-p27979-69787_image.jpg?v=1721322363&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/versace-bright-crystal-eau-de-toilette-30ml-p36122-110379_image.jpg?v=1721322356&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/versace-crystal-noir-eau-de-toilette-90ml-p21351-45797_image.jpg?v=1721322355&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/versace-crystal-noir-eau-de-toilette-30ml-p21349-45795_image.jpg?v=1721322361&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/versace-eros-flame-eau-de-parfum-50ml-p21311-45757_image.jpg?v=1721322358&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/versace-crystal-noir-eau-de-parfum-50ml-p21323-45769_image.jpg?v=1721322358&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/versace-bright-crystal-absolu-eau-de-parfum-90ml-p21322-45768_image.jpg?v=1721322356&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/versace-bright-crystal-eau-de-toilette-50ml-p36123-110382_image.jpg?v=1721322359&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/valentino-uomo-born-in-roma-intense-eau-de-parfum-100ml-p31400-85606_image.jpg?v=1721322361&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/versace-eros-pour-homme-eau-de-toilette-50ml-p21298-45744_image.jpg?v=1721322357&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/viktor-rolf-bonbon-eau-de-parfum-50ml-p28012-77986_image.jpg?v=1721322371&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/flowerbomb-tiger-lily-eau-de-parfum-100ml-p36561-113263_image.jpg?v=1721322373&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/black-opium-eau-de-parfum-90ml-p28032-90421_image.jpg?v=1721322381&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/versace-lhomme-eau-de-toilette-100ml-p21302-45748_image.jpg?v=1721322366&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/AVEE0007.png?v=1774627995&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/unperfumed-naturals-olive-oil-soap-bar-for-sensitive-skin-100g-p27102-65533_image.jpg?v=1721321850&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/CF0022.png?v=1750936228&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/CF0023.png?v=1750936228&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/CF0024.png?v=1750936228&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/bomb-cosmetics-scent-with-love-bath-blaster-p35876-109001_image.jpg?v=1721321890&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/derma-hypoallergenic-fragrance-free-body-wash-400ml-p37826-119330_image.jpg?v=1721321902&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/faith-in-nature-fragrance-free-body-wash-400ml-p16302-96428_image.jpg?v=1721321925&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/faith-in-nature-fragrance-free-hand-made-soap-100g-p17471-96477_image.jpg?v=1721321931&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/hugo-boss-the-scent-for-him-deodorant-150ml-p26001-61649_image.jpg?v=1721321929&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/hugo-boss-the-scent-for-him-deodorant-stick-75g-p26003-61651_image.jpg?v=1721321930&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/LYNX0040_5b02ea32-7d58-472f-aca1-79fb2357516b.png?v=1751530389&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/LYNX0041.png?v=1751530390&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/LYNX0044.png?v=1751530390&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/neutrogena-norwegian-formula-concentrated-hand-cream-unscented-50ml-p24289-109944_image.jpg?v=1721321963&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/neutrogena-norweigian-formula-intense-repair-hand-cream-unscented-100ml-p32039-88588_image.jpg?v=1721321970&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/NUXE0009.png?v=1770719493&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/palmers-fragrance-free-cocoa-butter-formula-daily-intensive-body-lotion-for-toning-skin-250ml-p33334-94719_image_x100.jpg?v=1721321973",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/tommy-hilfiger-tommy-eau-de-toilette-50ml-p23980-71383_image.jpg?v=1721322341&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/tommy-hilfiger-tommy-eau-de-toilette-30ml-p28394-71381_image.jpg?v=1721322340&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/valentino-donna-eau-de-parfum-50ml-p27967-69775_image.jpg?v=1721322344&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/valentino-born-in-roma-uomo-coral-fantasy-eau-de-toilette-100ml-p27974-91610_image.jpg?v=1721322351&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/kirke-extrait-de-parfum-100ml-p36534-114864_image.jpg?v=1721322336&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/tommy-girl-eau-de-toilette-100ml-p23984-71367_image.jpg?v=1721322341&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/born-in-roma-uomo-yellow-dream-eau-de-toilette-100ml-p27989-91685_image.jpg?v=1721322356&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/FORD0014.png?v=1751897996&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/shay-blue-tallulahs-camellia-eau-de-parfum-100ml-p32538-91118_image.jpg?v=1721322339&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/born-in-roma-uomo-coral-fantasy-eau-de-toilette-50ml-p27973-91604_image.jpg?v=1721322350&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/valentino-donna-born-in-roma-intense-eau-de-parfum-50ml-p31402-85585_image.jpg?v=1721322354&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/light-blue-eau-intense-femme-eau-de-parfum-50ml-p26701-65022_image.jpg?v=1721322200&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/elie-saab-le-parfum-in-white-eau-de-parfum-90ml-p27126-65549_image.jpg?v=1721322197&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/elizabeth-taylor-diamonds-sapphires-eau-de-toilette-100ml-p23491-52281_image.jpg?v=1721322196&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    },
+    {
+      "url": "https://www.justmylook.com/cdn/shop/files/diamonds-he-eau-de-toilette-50ml-p24906-71490_image.png?v=1721322194&width=1000",
+      "retailers": [
+        "justmylook"
+      ],
+      "ok": false,
+      "status": null,
+      "contentType": null,
+      "error": "TypeError: fetch failed (AggregateError)"
+    }
+  ]
 }
