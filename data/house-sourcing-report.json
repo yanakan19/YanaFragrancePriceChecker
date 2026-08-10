@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-10T22:24:50.774Z",
+  "checkedAt": "2026-08-10T23:20:37.839Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -60,7 +60,7 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 13,
+      "listings": 15,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
@@ -194,10 +194,12 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 60,
-      "errors": [],
+      "listings": 59,
+      "pricedInGbp": 59,
+      "withPhoto": 59,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
@@ -331,17 +333,16 @@
       "houseId": "dumont",
       "name": "Dumont Paris",
       "origin": "https://dumontparfums.com",
-      "routeUsed": null,
-      "currency": null,
-      "listings": 0,
+      "routeUsed": "shopify-products-json",
+      "currency": "AED",
+      "listings": 175,
       "pricedInGbp": 0,
-      "withPhoto": 0,
-      "errors": [
-        "robots.txt unreachable at https://dumontparfums.com and https://www.dumontparfums.com — holding off rather than guessing we are welcome"
-      ],
+      "withPhoto": 175,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "dumontparis.com is the brand site and dumontparfums.com the shop; this points at the shop because that is what carries prices, but the relationship between the two was not confirmed"
+        "dumontparis.com is the brand site and dumontparfums.com the shop; this points at the shop because that is what carries prices, but the relationship between the two was not confirmed",
+        "prices are in AED, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -479,15 +480,13 @@
     {
       "houseId": "sol-de-janeiro",
       "name": "Sol de Janeiro",
-      "origin": "https://www.soldejaneiro.com",
+      "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
       "listings": 630,
       "pricedInGbp": 0,
       "withPhoto": 630,
-      "errors": [
-        "https://soldejaneiro.com did not answer; used https://www.soldejaneiro.com instead"
-      ],
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "their own site states it ships within the United States only — this is likely to stay catalogue-only permanently rather than pending, since there may be no order a UK buyer can place here at all",
