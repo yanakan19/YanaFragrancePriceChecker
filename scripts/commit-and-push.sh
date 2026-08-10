@@ -89,9 +89,27 @@ is_generated() {
   return 1
 }
 
-# Resolve a rebase that stalled, but only when every conflicted file is a build
-# artefact. Returns non-zero for anything else, so a genuine disagreement in
-# source or data still stops the run loudly.
+# Raw per-retailer/per-house harvest snapshots — data/catalogue/<id>.json,
+# data/houses/<id>.json, and the small standalone report files a scan step
+# writes. These are not rebuildable the way GENERATED_PATHS is: nothing
+# regenerates data/catalogue/allbeauty.json from some other input, it IS the
+# input. A conflict here is two runs each having genuinely harvested the same
+# retailer at two different moments, not a disagreement to adjudicate — every
+# case below matches scripts/catalogue-harvest.ts, scripts/houses-harvest.ts,
+# scripts/awin-feed-sync.ts, scripts/shipping-discover.ts and
+# scripts/image-link-check.ts's own write targets.
+is_raw_snapshot() {
+  case "$1" in
+    data/catalogue/*.json|data/houses/*.json) return 0 ;;
+    data/house-sourcing-report.json|data/shipping-discovery-report.json) return 0 ;;
+    data/image-link-report.json|data/awin-feed-sync-state.json|data/strategy-memory.json) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+# Resolve a rebase that stalled, but only when every conflicted file is a
+# build artefact or a raw harvest snapshot. Returns non-zero for anything
+# else, so a genuine disagreement in actual source still stops the run loudly.
 #
 # Why this exists: the first version of this script treated every conflict as
 # unresolvable. That was right in spirit and wrong in practice — the harvest
@@ -100,32 +118,49 @@ is_generated() {
 # 40-minute crawl guaranteed a conflict in a file neither side actually
 # disagreed about. Two consecutive runs died that way, each discarding a
 # complete harvest, and the second had already gained 154 products.
+#
+# The raw-snapshot half of this (data/catalogue/*.json etc.) was added after
+# runs #124 and #126 both died the same way for a reason this first version
+# never covered: the demo/*.ts files it already handled rebuilt cleanly, but
+# the underlying data/catalogue/allbeauty.json and a dozen data/houses/*.json
+# files conflicted too, and "not generated" was true but not the right
+# category for them — they needed "take the incoming side, no rebuild step,"
+# not the demo files' "take it and then regenerate."
 resolve_generated_conflicts() {
   conflicted="$(git diff --name-only --diff-filter=U)"
   [ -n "$conflicted" ] || return 1
 
+  needs_regenerate=0
   for file in $conflicted; do
-    if ! is_generated "$file"; then
-      echo "Conflict in ${file}, which is not a generated file." >&2
+    if is_generated "$file"; then
+      needs_regenerate=1
+    elif ! is_raw_snapshot "$file"; then
+      echo "Conflict in ${file}, which is neither a generated file nor a raw harvest snapshot." >&2
       return 1
     fi
   done
 
-  # Take the incoming side to get a clean tree, then rebuild from the merged
-  # data so the artefact matches the inputs rather than either parent.
+  # Take the incoming side for everything conflicted. Rebuildable views get
+  # regenerated from the merged inputs below so they stay internally
+  # consistent; raw snapshots do not need that — each is independently valid
+  # on its own, and this run's own freshly harvested delta for whichever
+  # retailer or house conflicted is a one-cycle loss the next scheduled
+  # harvest naturally supersedes, not a permanent one.
   for file in $conflicted; do
     git checkout --theirs -- "$file" 2>/dev/null || git checkout --ours -- "$file"
     git add -- "$file"
   done
 
-  if ! sh -c "$REGENERATE"; then
-    echo "::error::Could not rebuild generated files during conflict resolution." >&2
-    return 1
-  fi
+  if [ "$needs_regenerate" -eq 1 ]; then
+    if ! sh -c "$REGENERATE"; then
+      echo "::error::Could not rebuild generated files during conflict resolution." >&2
+      return 1
+    fi
 
-  for file in $GENERATED_PATHS; do
-    if [ -e "$file" ]; then git add -- "$file"; fi
-  done
+    for file in $GENERATED_PATHS; do
+      if [ -e "$file" ]; then git add -- "$file"; fi
+    done
+  fi
 
   GIT_EDITOR=true git rebase --continue
 }
@@ -162,7 +197,7 @@ for attempt in 1 2 3 4 5; do
 
   if ! git pull --rebase origin "$branch"; then
     if resolve_generated_conflicts; then
-      echo "Conflicts were confined to generated files; rebuilt them and continued."
+      echo "Conflicts were confined to generated files and raw harvest snapshots; resolved and continued."
     elif [ -z "$(git diff --name-only --diff-filter=U)" ]; then
       # No conflicted paths means the rebase never started — a dirty tree, a
       # network failure, a detached HEAD. Saying "conflicts in a file that is
@@ -177,7 +212,8 @@ for attempt in 1 2 3 4 5; do
     else
       git rebase --abort || true
       echo "::error::Could not rebase onto origin/${branch}: the incoming change conflicts" >&2
-      echo "::error::in a file that is not generated. Refusing to guess which version wins." >&2
+      echo "::error::in a file that is neither generated nor a raw harvest snapshot. Refusing to" >&2
+      echo "::error::guess which version wins." >&2
       echo "::error::Nothing was pushed; resolve by hand." >&2
       exit 1
     fi
