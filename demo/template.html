@@ -1007,6 +1007,42 @@
     margin: 7px 0 0; font-size: 12.5px; line-height: 1.5; color: var(--faint);
   }
 
+  /* ── price history chart ───────────────────────────────────────────────── */
+  .history-block { margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--line); }
+  .history-chart { position: relative; margin-top: 10px; }
+  .history-svg { width: 100%; height: 160px; display: block; overflow: visible; }
+  .history-area { fill: var(--accent-sf); opacity: .5; stroke: none; }
+  .history-line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  .history-dot {
+    fill: var(--bg); stroke: var(--accent); stroke-width: 2; cursor: pointer;
+    outline: none; transition: r .12s ease;
+  }
+  .history-dot:hover, .history-dot:focus-visible { r: 6; fill: var(--accent); }
+  /* The live/current price point. Pulses to read as "this one is now", the
+     rest of the line as settled history — purely additive, never the only
+     way the current point is distinguishable (it is also simply the last,
+     rightmost, largest dot). Respects the app-wide reduced-motion rule at
+     the bottom of this file, which strips all animation outright. */
+  .history-dot-last { fill: var(--accent); }
+  .history-dot-live { animation: history-pulse 1.8s ease-in-out infinite; }
+  @keyframes history-pulse {
+    0%, 100% { r: 5; opacity: 1; }
+    50% { r: 7; opacity: .65; }
+  }
+  .history-tip {
+    position: absolute; z-index: 5; pointer-events: none;
+    background: var(--surface-2); border: 1px solid var(--line-firm);
+    border-radius: 8px; padding: 7px 10px; font-size: 12px; line-height: 1.4;
+    box-shadow: var(--shadow); white-space: nowrap;
+    /* Horizontal position is set directly as `left` in JS (clamped to the
+       chart's own bounds — see positionHistoryTip), not centred by transform:
+       a dot at either edge of the chart needs the tip to stay put rather than
+       overflow. Only the vertical lift above the dot stays a transform. */
+    transform: translateY(calc(-100% - 12px));
+  }
+  .history-tip b { color: var(--ink); font-size: 13px; }
+  .history-tip span { display: block; color: var(--faint); }
+
   /* ── settings and documents ────────────────────────────────────────────── */
   .doc { padding: 4px 0 8px; }
   .doc h2 { font-size: 25px; font-weight: 700; letter-spacing: -.025em; margin: 8px 0 16px; }
