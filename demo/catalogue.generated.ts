@@ -251,7 +251,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273638852",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1732027123-46730800.jpg?v=1763393970&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-parfum-100ml-p31707-86831_image.jpg?v=1721322144&width=1000",
     "notes": {
       "top": [
         "Ginger"
@@ -270,7 +270,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273521345",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1732029940-98589500.jpg?v=1763393966&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-intense-eau-de-parfum-50ml-p31704-86828_image.jpg?v=1721322137&width=1000",
     "notes": {
       "top": [
         "Cardamom"
@@ -426,7 +426,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3616302020652",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1740653048-73224400.jpg?v=1763395160&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0042_7f9cd321-efde-4aa7-a1e4-5059fa59c9f4.png?v=1765536342&width=1000",
     "notes": null
   },
   {
@@ -551,7 +551,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061995754",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0009.png?v=1765452782&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728305354-71305100.jpg?v=1763390132&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -1041,7 +1041,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460119269",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/jimmy-choo-i-want-choo-eau-de-parfum-60ml-p22635-65757_image.jpg?v=1721322265&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1626797550-14848700.jpg?v=1763390121&width=1920",
     "notes": null
   },
   {
@@ -2148,7 +2148,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273261425",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/born-in-roma-uomo-yellow-dream-eau-de-toilette-100ml-p27989-91685_image.jpg?v=1721322356&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1612198970-00941000.jpg?v=1763390119&width=1920",
     "notes": null
   },
   {
@@ -2473,7 +2473,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171072836",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1731671607-88829400.jpg?v=1763393769&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/9am-dive-eau-de-parfum-100ml-p35647-108046_image.jpg?v=1721322135&width=1000",
     "notes": null
   },
   {
@@ -2484,7 +2484,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "6290171072591",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1692796374-30833000.png?v=1763393773&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/afnan-9am-pour-femme-eau-de-parfum-100ml-p35648-108048_image.jpg?v=1721322139&width=1000",
     "notes": null
   },
   {
@@ -2781,7 +2781,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "812256021728",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/ariii.jpg?v=1773764465&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/ariana-grande-sweet-like-candy-eau-de-parfum-50ml-p20955-44096_image.jpg?v=1721322135&width=1000",
     "notes": null
   },
   {
@@ -2803,7 +2803,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 105,
     "ean": "6085010044712",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1_d4414ad7-b431-44e9-b7dc-16bca3c02fcd.jpg?v=1774521707&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/ARM0005.png?v=1758900964&width=1000",
     "notes": null
   },
   {
@@ -2825,7 +2825,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273905428",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1732096863-40982700.jpg?v=1763393973&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/wanted-eau-de-parfum-50ml-p31702-86826_image.jpg?v=1721322139&width=1000",
     "notes": null
   },
   {
@@ -2921,7 +2921,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "719346117722",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737024237-99204900.jpg?v=1763390696&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/britney-spears-believe-eau-de-parfum-100ml-p22275-49041_image.jpg?v=1721322132&width=1000",
     "notes": null
   },
   {
@@ -2943,7 +2943,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "719346107297",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737025613-22298000.jpg?v=1763393832&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/britney-spears-midnight-fantasy-eau-de-parfum-30ml-p31718-86839_image.jpg?v=1721322138&width=1000",
     "notes": null
   },
   {
@@ -3057,7 +3057,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614227693241",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1733840836-19636800.jpg?v=1763396796&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0056.png?v=1765536668&width=1000",
     "notes": null
   },
   {
@@ -3171,7 +3171,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "5045252649015",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1747822480-45718900.jpg?v=1763397647&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/BURB0019_f5d4573e-2ee1-4752-a9fc-6d37a33334d8.png?v=1765452783&width=1000",
     "notes": null
   },
   {
@@ -3864,7 +3864,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "8411061041659",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0007_7bc4bbef-1cf0-44fc-99a9-160b38313e4f.png?v=1765452783&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728304620-08811600.jpg?v=1763390127&width=1920",
     "notes": null
   },
   {
@@ -3875,7 +3875,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8411061043875",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0008_7d3832c4-3e08-45dc-a894-a198677fae04.png?v=1765452782&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728304977-93902300.jpg?v=1763390129&width=1920",
     "notes": null
   },
   {
@@ -3963,7 +3963,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 25,
     "ean": "020714005887",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728920139-10542000.jpg?v=1763396034&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/CLQ0001_0e9c6b51-af17-424a-8a6d-bd8dfc23c42a_x100.png?v=1738168659",
     "notes": null
   },
   {
@@ -4018,7 +4018,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "020714881436",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/4006.jpg?v=1760534700&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/1614851043-15937600.jpg?v=1763390074&width=1920",
     "notes": null
   },
   {
@@ -4230,6 +4230,17 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Musk"
       ]
     }
+  },
+  {
+    "id": "ean-3614272631885",
+    "brand": "Diesel",
+    "name": "Spirit Of The Brave",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 75,
+    "ean": "3614272631885",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/ssss1.jpg?v=1774518098&width=1920",
+    "notes": null
   },
   {
     "id": "ean-3348900103870",
@@ -4708,7 +4719,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "085805390600",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1507819313-70608200.png?v=1763389997&width=1920",
+    "image": "https://allbeauty.com/cdn/shop/files/4966.jpg?v=1755875249&width=1920",
     "notes": null
   },
   {
@@ -5895,6 +5906,17 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-737052488257",
+    "brand": "Hugo Boss",
+    "name": "Bottled Night (12)",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 200,
+    "ean": "737052488257",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1770296151-62689900.jpg?v=1772624830&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-737052352060",
     "brand": "Hugo Boss",
     "name": "Bottled Night (15)",
@@ -6983,7 +7005,10 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1738837567-76603700.jpg?v=1763397087&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
   {
     "id": "ean-6290360593142",
     "brand": "Lattafa",
@@ -7005,10 +7030,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/LAT0017.png?v=1758900973&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6290360599120",
     "brand": "Lattafa",
@@ -9270,7 +9292,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273261357",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/valentino-born-in-roma-donna-yellow-dream-eau-de-parfum-50ml-p27991-91667_image.jpg?v=1721322354&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1612195403-72143800.jpg?v=1763390113&width=1920",
     "notes": null
   },
   {
@@ -9281,7 +9303,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273261401",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/valentino-born-in-roma-donna-yellow-dream-eau-de-parfum-100ml-p27992-91673_image.jpg?v=1721322343&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1612194361-86239600.jpg?v=1763390114&width=1920",
     "notes": null
   },
   {
@@ -9347,7 +9369,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273261432",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/born-in-roma-uomo-yellow-dream-eau-de-toilette-50ml-p27988-91679_image.jpg?v=1721322354&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1612198535-24232400.jpg?v=1763390114&width=1920",
     "notes": null
   },
   {
@@ -9472,7 +9494,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273073882",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/valentino-voce-viva-eau-de-parfum-50ml-p27983-69791_image.jpg?v=1721322373&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1602176476-85197700.jpg?v=1763390043&width=1920",
     "notes": null
   },
   {
@@ -10309,7 +10331,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3365440025578",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/opium-pour-homme-eau-de-toilette-100ml-p28065-69866_image.jpg?v=1721322390&width=1000",
+    "image": "https://allbeauty.com/cdn/shop/files/5466.jpg?v=1755875232&width=1920",
     "notes": null
   },
   {
@@ -12252,6 +12274,39 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6290361916926",
+    "brand": "Arabiyat",
+    "name": "Sugar Cotton Blush",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290361916926",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1764930085-63181200.jpg?v=1772624808&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290361916919",
+    "brand": "Arabiyat",
+    "name": "Sugar French Vanilla Latte",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290361916919",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1764929994-86575200.jpg?v=1772624808&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290361916971",
+    "brand": "Arabiyat",
+    "name": "Sugar Strawberry Tres Leches",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290361916971",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1764929784-60361000.jpg?v=1772624813&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-6290102049128",
     "brand": "Arabiyat",
     "name": "Vanilla Musk Concentrated Oil Pipette Bottle",
@@ -12549,6 +12604,17 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6295199810613",
+    "brand": "Armaf",
+    "name": "Bon Bon",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6295199810613",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1770806555-10520600.jpg?v=1772624815&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-6294015170566",
     "brand": "Armaf",
     "name": "Club De Nuit",
@@ -12612,6 +12678,17 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/club-de-nuit-iconic-eau-de-parfum-105ml-p31103-83726_image.jpg?v=1721322126&width=1000",
+    "notes": null
+  },
+  {
+    "id": "ean-6294015164169",
+    "brand": "Armaf",
+    "name": "Club De Nuit Imperiale",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 105,
+    "ean": "6294015164169",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_ce7d696a-b2b3-49f0-8d30-1a87ccb49515.jpg?v=1774525686&width=1920",
     "notes": null
   },
   {
@@ -12917,6 +12994,17 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6295199807217",
+    "brand": "Armaf",
+    "name": "Odyssey Marshmallow",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6295199807217",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771422380-51746200.jpg?v=1772624819&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-6295199805787",
     "brand": "Armaf",
     "name": "Odyssey Revolution",
@@ -12959,7 +13047,10 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/ARM0034.png?v=1758900964&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "ean-6294015182903",
     "brand": "Armaf",
@@ -13047,10 +13138,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1747145754-72235400.jpg?v=1763397850&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6292024081514",
     "brand": "AZAL",
@@ -13872,6 +13960,17 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-719346262187",
+    "brand": "Britney Spears",
+    "name": "Jungle Fantasy",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 30,
+    "ean": "719346262187",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1763638470-66006300.jpg?v=1772624840&width=1920",
+    "notes": null
+  },
+  {
     "id": "justmylook-brit0021",
     "brand": "Britney Spears",
     "name": "Jungle Fantasy",
@@ -13913,6 +14012,116 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "ean": "8711700634922",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1736948099-95969700.jpg?v=1763390715&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000614",
+    "brand": "Bujairami",
+    "name": "Boss Life De Parfum",
+    "concentration": "Extrait",
+    "sizeMl": 100,
+    "ean": "9362014000614",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1769091789-56674200.jpg?v=1774613202&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000072",
+    "brand": "Bujairami",
+    "name": "Candy Crush",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000072",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairami_Candy_Crush1.jpg?v=1774612797&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000478",
+    "brand": "Bujairami",
+    "name": "Emperor",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000478",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairami_Emperor1.jpg?v=1774613735&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000119",
+    "brand": "Bujairami",
+    "name": "Enforcer",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000119",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1770813735-69506900.jpg?v=1774612623&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000157",
+    "brand": "Bujairami",
+    "name": "Hectic De Parfum",
+    "concentration": "Extrait",
+    "sizeMl": 100,
+    "ean": "9362014000157",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1766511040-60500600.jpg?v=1774611897&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000539",
+    "brand": "Bujairami",
+    "name": "Kingsman De Parfum",
+    "concentration": "Extrait",
+    "sizeMl": 100,
+    "ean": "9362014000539",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1766511054-30086700.jpg?v=1774612180&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000201",
+    "brand": "Bujairami",
+    "name": "Mafia Boss De Parfum",
+    "concentration": "Extrait",
+    "sizeMl": 100,
+    "ean": "9362014000201",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairami_Mafia_Boss1.jpg?v=1774612318&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000645",
+    "brand": "Bujairami",
+    "name": "Miss Vanilla De Parfum",
+    "concentration": "Extrait",
+    "sizeMl": 100,
+    "ean": "9362014000645",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1770813347-85847300.jpg?v=1774613023&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000577",
+    "brand": "Bujairami",
+    "name": "Red Static",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000577",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1769091814-98598800.jpg?v=1772624853&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000980",
+    "brand": "Bujairami",
+    "name": "Sydney Say Less",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000980",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairami_Sydney_Say_Less.jpg?v=1774614040&width=1920",
     "notes": null
   },
   {
@@ -14319,7 +14528,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-8906150340633",
     "brand": "BV UK",
-    "name": "CEO Man",
+    "name": "CEO Man Luxury",
     "concentration": "Perfume",
     "sizeMl": 20,
     "ean": null,
@@ -14330,7 +14539,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-5748022538839",
     "brand": "BV UK",
-    "name": "CEO Man Luxury - 3.4 fl oz",
+    "name": "CEO Man Luxury - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -14352,7 +14561,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-8906150342804",
     "brand": "BV UK",
-    "name": "Date Woman - 3.4 fl oz",
+    "name": "Date Woman - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -14363,7 +14572,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-3870003433733",
     "brand": "BV UK",
-    "name": "Fresh Unisex - 3.4 fl oz",
+    "name": "Fresh Unisex - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -14385,7 +14594,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-8906150343351",
     "brand": "BV UK",
-    "name": "G.O.A.T. Man - 3.4 fl oz",
+    "name": "G.O.A.T. Man - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -14407,7 +14616,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-8906150340404",
     "brand": "BV UK",
-    "name": "Honey Unisex Perfume - 3.4 fl oz",
+    "name": "Honey Unisex Perfume - 3.4 fl oz BYOB",
     "concentration": "Oud",
     "sizeMl": 101,
     "ean": null,
@@ -14418,7 +14627,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-8906150343290",
     "brand": "BV UK",
-    "name": "KLUB Man - 3.4 fl oz",
+    "name": "KLUB Man - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -14438,20 +14647,9 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "bellavita-luxury-8906150344624",
-    "brand": "BV UK",
-    "name": "Ocean Man - 3.4 fl oz BYOB",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "bellavita-luxury-8906150340411",
     "brand": "BV UK",
-    "name": "Perfume - 3.4 fl oz",
+    "name": "Perfume - 3.4 fl oz B2G2",
     "concentration": "Oud",
     "sizeMl": 101,
     "ean": null,
@@ -14473,7 +14671,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-3870003433801",
     "brand": "BV UK",
-    "name": "Rose Woman - 3.4 fl oz",
+    "name": "Rose Woman - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -14484,7 +14682,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-8906150342811",
     "brand": "BV UK",
-    "name": "Senorita Woman - 3.4 fl oz",
+    "name": "Senorita Woman - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -14495,7 +14693,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-3870003551925",
     "brand": "BV UK",
-    "name": "Skai Aquatic Unisex - 3.4 fl oz",
+    "name": "Skai Aquatic Unisex - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -14517,7 +14715,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-3870003433771",
     "brand": "BV UK",
-    "name": "White Unisex Perfume - 3.4 fl oz",
+    "name": "White Unisex Perfume - 3.4 fl oz BYOB",
     "concentration": "Oud",
     "sizeMl": 101,
     "ean": null,
@@ -15416,6 +15614,17 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "ean": "3616304183638",
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/108_1.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3616304175978",
+    "brand": "Calvin Klein",
+    "name": "DEFY",
+    "concentration": "Parfum",
+    "sizeMl": 50,
+    "ean": "3616304175978",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1763640600-66072000.jpg?v=1772624858&width=1920",
     "notes": null
   },
   {
@@ -16645,6 +16854,39 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-8411061123591",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl Jasmine Absolute",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "8411061123591",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771338688-41223400.jpg?v=1772624867&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-8411061123607",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl Jasmine Absolute",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "8411061123607",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771339192-94638300.jpg?v=1774437625&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-8411061123614",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl Jasmine Absolute",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": "8411061123614",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771340935-07722500.jpg?v=1772624872&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-8411061907559",
     "brand": "Carolina Herrera",
     "name": "Good Girl Legere",
@@ -16820,6 +17062,17 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Musk"
       ]
     }
+  },
+  {
+    "id": "ean-3432240506610",
+    "brand": "Cartier",
+    "name": "La Panthere",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3432240506610",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771430022-01613300.jpg?v=1772624875&width=1920",
+    "notes": null
   },
   {
     "id": "ean-3432240000989",
@@ -18128,6 +18381,17 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-5060524510886",
+    "brand": "Cristiano Ronaldo",
+    "name": "CR7 Game On",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 30,
+    "ean": "5060524510886",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771411425-06155000.jpg?v=1772624881&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-5060524510909",
     "brand": "Cristiano Ronaldo",
     "name": "CR7 Game On",
@@ -18136,6 +18400,17 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "ean": "5060524510909",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1696956646-46494200.jpg?v=1763394079&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-5060524511166",
+    "brand": "Cristiano Ronaldo",
+    "name": "CR7 Origins",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 30,
+    "ean": "5060524511166",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771411120-83414700.jpg?v=1772624882&width=1920",
     "notes": null
   },
   {
@@ -18436,6 +18711,17 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3442151002712",
+    "brand": "Cyrus",
+    "name": "Writer Extreme",
+    "concentration": "Parfum",
+    "sizeMl": 100,
+    "ean": "3442151002712",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771321121-43018400.jpg?v=1772624888&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-3442151001159",
     "brand": "Cyrus",
     "name": "Writer Gold",
@@ -18488,6 +18774,17 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "ean": "3616302780044",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1736523652-51702200.jpg?v=1763396621&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3616303461966",
+    "brand": "David Beckham",
+    "name": "Classic",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3616303461966",
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -18588,7 +18885,10 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/davidoff-cool-water-aftershave-125ml-p20010-56725_image.jpg?v=1721322175&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "justmylook-dav0001",
     "brand": "Davidoff",
@@ -18885,10 +19185,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/diesel-unisex-d-red-edp-spray-34-oz-fragrances-3614273924450_2.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3605520946592",
     "brand": "Diesel",
@@ -19001,17 +19298,6 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "ean": "3605521534064",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1455902861-97237000.jpg?v=1763389975&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3614272631885",
-    "brand": "Diesel",
-    "name": "Spirit of The Brave",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 75,
-    "ean": "3614272631885",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/8/280.jpg",
     "notes": null
   },
   {
@@ -19500,6 +19786,17 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/DIOR0004.png?v=1758900967&width=1000",
+    "notes": null
+  },
+  {
+    "id": "ean-5022545174331",
+    "brand": "Disney",
+    "name": "Ariel",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": "5022545174331",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1764933975-46450200.jpg?v=1772624894&width=1920",
     "notes": null
   },
   {
@@ -24207,7 +24504,10 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1548246436-93825600.jpg?v=1763389183&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "ean-3614274347388",
     "brand": "Giorgio Armani",
@@ -24217,6 +24517,28 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "ean": "3614274347388",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1738757138-65057500.jpg?v=1763397072&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3614274748949",
+    "brand": "Giorgio Armani",
+    "name": "Stronger With You Powerfully",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3614274748949",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1768394136-75294400.jpg?v=1772624825&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3614274747058",
+    "brand": "Giorgio Armani",
+    "name": "Stronger With You Powerfully",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3614274747058",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1768394637-02778400.jpg?v=1772624824&width=1920",
     "notes": null
   },
   {
@@ -24549,10 +24871,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-giv0024",
     "brand": "Givenchy",
@@ -26665,17 +26984,6 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-737052488257",
-    "brand": "Hugo Boss",
-    "name": "Boss Bottled Night",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 200,
-    "ean": "737052488257",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/668.jpg",
-    "notes": null
-  },
-  {
     "id": "ean-8005610460598",
     "brand": "Hugo Boss",
     "name": "Boss Bottled Travel Set",
@@ -26728,6 +27036,17 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "ean": "3616301623311",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1646934992-56539100.jpg?v=1763392042&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3616307201193",
+    "brand": "Hugo Boss",
+    "name": "BOSS MA VIE",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "3616307201193",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771414133-70234600.jpg?v=1772624836&width=1920",
     "notes": null
   },
   {
@@ -27061,6 +27380,17 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-737052041285",
+    "brand": "Hugo Boss",
+    "name": "Femme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "737052041285",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771415400-51226700.jpg?v=1772624834&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-3616304697364",
     "brand": "Hugo Boss",
     "name": "Hugo Intense Intense",
@@ -27238,6 +27568,17 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "ean": "737052465678",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1523977882-52693500.png?v=1763391137&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-737052802770",
+    "brand": "Hugo Boss",
+    "name": "MA VIE",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "737052802770",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1763639666-01183500.jpg?v=1772624835&width=1920",
     "notes": null
   },
   {
@@ -30183,7 +30524,10 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/JHG0032.png?v=1754647704&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "justmylook-jhg0025",
     "brand": "Juliette Has A Gun",
@@ -30539,10 +30883,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1558004298-11224500.jpg?v=1763392232&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6291107979953",
     "brand": "Khadlaj",
@@ -35839,7 +36180,10 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1551353781-97294300.jpg?v=1763392262&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   {
     "id": "ean-3386460028325",
     "brand": "Montblanc",
@@ -36195,10 +36539,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1736845956-88180900.jpg?v=1763394527&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3439600039511",
     "brand": "Mugler",
@@ -41589,7 +41930,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/PAC0116_f5b330ad-baf9-4ae8-b0bf-2e3589f49842.png?v=1741178531&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "ean-3349668545636",
     "brand": "Rabanne",
@@ -41956,10 +42300,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1665589731-90426400.jpg?v=1763392619&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3605973038202",
     "brand": "Ralph Lauren",
@@ -42376,6 +42717,17 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "ean": "3700066738448",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1615900610-17822400.jpg?v=1763389390&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6223545606801",
+    "brand": "Rihanah",
+    "name": "Basat Al Reeh",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6223545606801",
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -47173,7 +47525,10 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://allbeauty.com/cdn/shop/files/770805_b241471b-6c3b-4bdb-8f7b-2bda160c6cc8.jpg?v=1784119118&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
   {
     "id": "ean-3365440621015",
     "brand": "Yves Saint Laurent",
@@ -47525,10 +47880,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1_4a84ebb6-6e87-4907-a398-6a06b7492477.jpg?v=1774020056&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-ysl0102",
     "brand": "Yves Saint Laurent",
@@ -48061,7 +48413,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-lanvin-arpege-eau-de-parfum-spray-100ml-12611992",
-      "fetchedAt": "2026-08-10T13:03:59.151Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/5936.jpg?v=1766142031&width=1920"
@@ -48111,7 +48463,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-lanvin-eclat-darpege-eau-de-parfum-spray-100ml-12611994",
-      "fetchedAt": "2026-08-10T13:03:59.151Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/5608.jpg?v=1766138711&width=1920"
@@ -48349,7 +48701,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/azzaro-the-most-wanted-parfum-100ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-parfum-100ml-p31707-86831_image.jpg?v=1721322144&width=1000"
@@ -48387,7 +48739,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/azzaro-the-most-wanted-intense-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-intense-eau-de-parfum-50ml-p31704-86828_image.jpg?v=1721322137&width=1000"
@@ -48613,9 +48965,9 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 82.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/burberry-goddess-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0042_7f9cd321-efde-4aa7-a1e4-5059fa59c9f4.png?v=1765536342&width=1000"
@@ -48971,7 +49323,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/carolina-herrera-very-good-girl-eau-de-parfum-80ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728305354-71305100.jpg?v=1763390132&width=1920"
@@ -49199,7 +49551,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-dkny-be-delicious-eau-de-parfum-spray-100ml-10954663",
-      "fetchedAt": "2026-08-10T11:06:39.819Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/5319.jpg?v=1755875239&width=1920"
@@ -49807,7 +50159,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-guerlain-la-petite-robe-noire-eau-de-toilette-spray-100ml-3-3-fl-oz-17748370",
-      "fetchedAt": "2026-08-10T11:06:39.819Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/970605.jpg?v=1755874572&width=1920"
@@ -50301,7 +50653,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/jimmy-choo-i-want-choo-eau-de-parfum-60ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626797550-14848700.jpg?v=1763390121&width=1920"
@@ -52847,7 +53199,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/valentino-born-in-roma-uomo-yellow-dream-eau-de-toilette-100ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1612198970-00941000.jpg?v=1763390119&width=1920"
@@ -53433,7 +53785,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/afnan-9am-dive-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/9am-dive-eau-de-parfum-100ml-p35647-108046_image.jpg?v=1721322135&width=1000"
@@ -53459,7 +53811,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/afnan-9am-pour-femme-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-9am-pour-femme-eau-de-parfum-100ml-p35648-108048_image.jpg?v=1721322139&width=1000"
@@ -54161,7 +54513,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/ariana-grande-sweet-like-candy-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ariana-grande-sweet-like-candy-eau-de-parfum-50ml-p20955-44096_image.jpg?v=1721322135&width=1000"
@@ -54213,7 +54565,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/armaf-club-de-nuit-intense-man-eau-de-toilette-105ml",
-      "fetchedAt": "2026-08-06T04:10:32.674Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0005.png?v=1758900964&width=1000"
@@ -54265,7 +54617,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/azzaro-wanted-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/wanted-eau-de-parfum-50ml-p31702-86826_image.jpg?v=1721322139&width=1000"
@@ -54291,7 +54643,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/bentley-for-men-intense-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/for-men-intense-eau-de-parfum-100ml-p22252-48158_image.jpg?v=1721322431&width=1000"
@@ -54473,7 +54825,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/britney-spears-believe-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/britney-spears-believe-eau-de-parfum-100ml-p22275-49041_image.jpg?v=1721322132&width=1000"
@@ -54525,7 +54877,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/britney-spears-midnight-fantasy-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/britney-spears-midnight-fantasy-eau-de-parfum-30ml-p31718-86839_image.jpg?v=1721322138&width=1000"
@@ -54759,7 +55111,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/burberry-her-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0056.png?v=1765536668&width=1000"
@@ -54993,7 +55345,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/burberry-touch-for-men-eau-de-toilette-50ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0019_f5d4573e-2ee1-4752-a9fc-6d37a33334d8.png?v=1765452783&width=1000"
@@ -55371,7 +55723,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-calvin-klein-contradiction-for-men-eau-de-toilette-100ml-14271190",
-      "fetchedAt": "2026-08-10T11:06:39.819Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/5450.jpg?v=1755875234&width=1920"
@@ -56409,9 +56761,9 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 69.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "outOfStock",
+      "stock": "inStock",
       "url": "https://www.beautybase.com/products/carolina-herrera-very-good-girl-eau-de-parfum-30ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728304620-08811600.jpg?v=1763390127&width=1920"
@@ -56437,7 +56789,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/carolina-herrera-very-good-girl-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728304977-93902300.jpg?v=1763390129&width=1920"
@@ -56654,10 +57006,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "justmylook",
       "price": 19.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-06T00:00:00.000Z",
+      "promoEndsAt": "2027-08-10T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/clinique-aromatics-elixir-eau-de-parfum-25ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CLQ0001_0e9c6b51-af17-424a-8a6d-bd8dfc23c42a_x100.png?v=1738168659"
@@ -56787,7 +57139,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/clinique-happy-heart-perfume-50ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1614851043-15937600.jpg?v=1763390074&width=1920"
@@ -57157,6 +57509,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/7/277_1.jpg"
     }
   ],
+  "ean-3614272631885": [
+    {
+      "retailerId": "beautybase",
+      "price": 29,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/diesel-spirit-of-the-brave-eau-de-toilette-75ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/ssss1.jpg?v=1774518098&width=1920"
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 31.95,
+      "wasPrice": 58,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089041786&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/8/280.jpg"
+    }
+  ],
   "ean-3348900103870": [
     {
       "retailerId": "allbeauty",
@@ -57165,7 +57543,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://allbeauty.com/products/p-dior-dune-eau-de-toilette-spray-100ml-11078994",
-      "fetchedAt": "2026-08-10T11:06:39.819Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/5515.jpg?v=1773833261&width=1920"
@@ -58075,7 +58453,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-elizabeth-arden-5th-avenue-eau-de-parfum-spray-125ml-4-2-fl-oz-10547873",
-      "fetchedAt": "2026-08-10T11:06:39.819Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/4966.jpg?v=1755875249&width=1920"
@@ -58283,7 +58661,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-elizabeth-arden-true-love-eau-de-toilette-spray-100ml-3-3-fl-oz-14574748",
-      "fetchedAt": "2026-08-10T11:06:39.819Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/5211.jpg?v=1755875246&width=1920"
@@ -60483,6 +60861,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/662.jpg"
+    }
+  ],
+  "ean-737052488257": [
+    {
+      "retailerId": "beautybase",
+      "price": 59,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/boss-bottled-night-eau-de-toilette-200ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770296151-62689900.jpg?v=1772624830&width=1920"
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 60.5,
+      "wasPrice": 114,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089041994&a=3017443&m=124166",
+      "fetchedAt": "2026-08-04T09:00:03.486Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/668.jpg"
     }
   ],
   "ean-737052352060": [
@@ -64809,7 +65213,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-prada-amber-eau-de-parfum-spray-80ml-14575043",
-      "fetchedAt": "2026-08-10T11:06:39.819Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/4836.jpg?v=1762859858&width=1920"
@@ -67435,7 +67839,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/valentino-born-in-roma-donna-yellow-dream-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1612195403-72143800.jpg?v=1763390113&width=1920"
@@ -67461,7 +67865,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/valentino-born-in-roma-donna-yellow-dream-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1612194361-86239600.jpg?v=1763390114&width=1920"
@@ -67617,7 +68021,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/valentino-born-in-roma-uomo-yellow-dream-eau-de-toilette-50ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1612198535-24232400.jpg?v=1763390114&width=1920"
@@ -67851,7 +68255,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/valentino-voce-viva-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1602176476-85197700.jpg?v=1763390043&width=1920"
@@ -69723,7 +70127,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://allbeauty.com/products/p-yves-saint-laurent-opium-pour-homme-eau-de-toilette-spray-100ml-11791416",
-      "fetchedAt": "2026-08-10T11:06:39.819Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/5466.jpg?v=1755875232&width=1920"
@@ -70237,7 +70641,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/acqua-di-parma-blu-mediterraneo-fico-di-amalfi-eau-de-toilette-75ml",
-      "fetchedAt": "2026-08-06T04:10:32.674Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0044.png?v=1765452778&width=1000"
@@ -70475,7 +70879,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/acqua-di-parma-colonia-club-eau-de-cologne-100ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0011_dde54f44-03c0-4809-a8a6-0fd9b84b5ea5.png?v=1765452778&width=1000"
@@ -70671,7 +71075,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/acqua-di-parma-oud-eau-de-parfum-180ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0071.png?v=1765452778&width=1000"
@@ -70699,7 +71103,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/acqua-di-parma-oud-spice-eau-de-parfum-180ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ACQ0098_b8dd7095-2ba5-41e6-a435-daca33475fc0.png?v=1785917377&width=1000"
@@ -72007,6 +72411,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1764930192-87790900.jpg?v=1772624807&width=1920"
     }
   ],
+  "ean-6290361916926": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/arabiyat-sugar-cotton-blush-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1764930085-63181200.jpg?v=1772624808&width=1920"
+    }
+  ],
+  "ean-6290361916919": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/arabiyat-sugar-french-vanilla-latte-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1764929994-86575200.jpg?v=1772624808&width=1920"
+    }
+  ],
+  "ean-6290361916971": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/arabiyat-sugar-strawberry-tres-leches-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1764929784-60361000.jpg?v=1772624813&width=1920"
+    }
+  ],
   "ean-6290102049128": [
     {
       "retailerId": "beautybase",
@@ -72323,7 +72769,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/ariana-grande-thank-u-next-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ariana-grande-thank-u-next-eau-de-parfum-50ml-p20961-44102_image.jpg?v=1721322138&width=1000"
@@ -72383,6 +72829,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/100mltyn.jpg?v=1773756195&width=1920"
+    }
+  ],
+  "ean-6295199810613": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/armaf-bon-bon-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770806555-10520600.jpg?v=1772624815&width=1920"
     }
   ],
   "ean-6294015170566": [
@@ -72469,6 +72929,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/club-de-nuit-iconic-eau-de-parfum-105ml-p31103-83726_image.jpg?v=1721322126&width=1000"
     }
   ],
+  "ean-6294015164169": [
+    {
+      "retailerId": "beautybase",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/armaf-club-de-nuit-imperiale-eau-de-parfum-105ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_ce7d696a-b2b3-49f0-8d30-1a87ccb49515.jpg?v=1774525686&width=1920"
+    }
+  ],
   "ean-6294015157765": [
     {
       "retailerId": "beautybase",
@@ -72547,7 +73021,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/armaf-club-de-nuit-intense-women-eau-de-parfum-105ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0037.png?v=1758900964&width=1000"
@@ -72575,7 +73049,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/armaf-club-de-nuit-milestone-eau-de-parfum-105ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0013.png?v=1758900967&width=1000"
@@ -72617,7 +73091,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/armaf-club-de-nuit-untold-eau-de-parfum-105ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0052_a5c6813a-9410-412b-be5f-e7ad9f410b17.png?v=1764175398&width=1000"
@@ -72631,7 +73105,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/armaf-club-de-nuit-urban-man-elixir-eau-de-parfum-10ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0076_1365a2cd-47f8-4358-803f-10ec8068ac07.png?v=1778240537&width=1000"
@@ -72673,7 +73147,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/armaf-craze-men-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0020.png?v=1758900967&width=1000"
@@ -72833,6 +73307,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1742485683-36138000.jpg?v=1763397478&width=1920"
     }
   ],
+  "ean-6295199807217": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/armaf-odyssey-marshmallow-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771422380-51746200.jpg?v=1772624819&width=1920"
+    }
+  ],
   "ean-6295199805787": [
     {
       "retailerId": "beautybase",
@@ -72937,9 +73425,9 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 12.79,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/ashleigh-burwood-lamp-fragrance-bergamot-oud-500ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/lamp-fragrance-bergamot-oud-500ml-p37242-116460_image.jpg?v=1721323221&width=1000"
@@ -72953,7 +73441,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/ashleigh-burwood-lamp-fragrance-midnight-oud-500ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/lamp-fragrance-midnight-oud-500ml-p37245-116463_image.jpg?v=1721323224&width=1000"
@@ -72967,7 +73455,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/ashleigh-burwood-lamp-fragrance-rose-white-oud-500ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ashleigh-burwood-lamp-fragrance-rose-white-oud-500ml-p15984-29464_image.jpg?v=1721323220&width=1000"
@@ -73401,7 +73889,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/bentley-for-men-absolute-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/BENT0007.png?v=1759758675&width=1000"
@@ -73555,7 +74043,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/billie-eilish-eilish-by-billie-eilish-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/billie-eilish-eilish-by-billie-eilish-eau-de-parfum-100ml-p28460-71635_image.jpg?v=1721322138&width=1000"
@@ -73751,7 +74239,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/boucheron-pour-homme-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/boucheron-pour-homme-eau-de-parfum-100ml-p31713-88220_image.jpg?v=1721322141&width=1000"
@@ -73953,6 +74441,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/BRIT0020.png?v=1736413694&width=1000"
     }
   ],
+  "ean-719346262187": [
+    {
+      "retailerId": "beautybase",
+      "price": 10,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/britney-spears-jungle-fantasy-eau-de-toilette-30ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1763638470-66006300.jpg?v=1772624840&width=1920"
+    }
+  ],
   "justmylook-brit0021": [
     {
       "retailerId": "justmylook",
@@ -74007,6 +74509,146 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1736948099-95969700.jpg?v=1763390715&width=1920"
+    }
+  ],
+  "ean-9362014000614": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/bujairami-boss-life-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769091789-56674200.jpg?v=1774613202&width=1920"
+    }
+  ],
+  "ean-9362014000072": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-candy-crush-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairami_Candy_Crush1.jpg?v=1774612797&width=1920"
+    }
+  ],
+  "ean-9362014000478": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/bujairami-emperor-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairami_Emperor1.jpg?v=1774613735&width=1920"
+    }
+  ],
+  "ean-9362014000119": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/bujairami-enforcer-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770813735-69506900.jpg?v=1774612623&width=1920"
+    }
+  ],
+  "ean-9362014000157": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-hectic-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1766511040-60500600.jpg?v=1774611897&width=1920"
+    }
+  ],
+  "ean-9362014000539": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-kingsman-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1766511054-30086700.jpg?v=1774612180&width=1920"
+    }
+  ],
+  "ean-9362014000201": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-mafia-boss-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairami_Mafia_Boss1.jpg?v=1774612318&width=1920"
+    }
+  ],
+  "ean-9362014000645": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-miss-vanilla-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770813347-85847300.jpg?v=1774613023&width=1920"
+    }
+  ],
+  "ean-9362014000577": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-red-static-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769091814-98598800.jpg?v=1772624853&width=1920"
+    }
+  ],
+  "ean-9362014000980": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-sydney-say-less-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairami_Sydney_Say_Less.jpg?v=1774614040&width=1920"
     }
   ],
   "justmylook-burb0006": [
@@ -74395,7 +75037,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/burberry-original-woman-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/original-woman-eau-de-parfum-50ml-p25481-61838_image.jpg?v=1721322431&width=1000"
@@ -74506,8 +75148,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/ceo-man-luxury-perfume",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "url": "https://bellavitaluxury.uk/products/ceo-man-luxury-perfume-20ml",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -74516,12 +75158,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-5748022538839": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 19.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/ceo-man-luxury-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "url": "https://bellavitaluxury.uk/products/ceo-man-luxury-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -74544,12 +75186,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-8906150342804": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 19.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/date-woman-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "url": "https://bellavitaluxury.uk/products/date-woman-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -74562,8 +75204,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
-      "url": "https://bellavitaluxury.uk/products/fresh-unisex-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "url": "https://bellavitaluxury.uk/products/fresh-unisex-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -74586,12 +75228,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-8906150343351": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 19.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/g-o-a-t-man-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "url": "https://bellavitaluxury.uk/products/g-o-a-t-man-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -74604,8 +75246,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/honey-oud-unisex-perfume-1",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "url": "https://bellavitaluxury.uk/products/honey-oud-unisex-perfume-20ml",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -74614,12 +75256,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-8906150340404": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 19.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/honey-oud-unisex-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "url": "https://bellavitaluxury.uk/products/honey-oud-unisex-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -74628,12 +75270,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-8906150343290": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 21.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/klub-man-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "url": "https://bellavitaluxury.uk/products/klub-man-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -74647,21 +75289,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://bellavitaluxury.uk/products/ocean-man-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-8906150344624": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://bellavitaluxury.uk/products/ocean-man-perfume-3-4-fl-oz-copy",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -74674,8 +75302,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
-      "url": "https://bellavitaluxury.uk/products/oud-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "url": "https://bellavitaluxury.uk/products/oud-perfume-3-4-fl-oz-b2g2",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -74698,12 +75326,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-3870003433801": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 19.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/rose-woman-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "url": "https://bellavitaluxury.uk/products/rose-woman-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -74712,12 +75340,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-8906150342811": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 19.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/senorita-woman-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "url": "https://bellavitaluxury.uk/products/senorita-woman-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -74730,8 +75358,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
-      "url": "https://bellavitaluxury.uk/products/skai-aquatic-unisex-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "url": "https://bellavitaluxury.uk/products/skai-aquatic-unisex-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -74754,12 +75382,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-3870003433771": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 19.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/white-oud-unisex-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "url": "https://bellavitaluxury.uk/products/white-oud-unisex-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -75305,7 +75933,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/cacharel-amor-amor-eau-de-toilette-30ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/amor-amor-eau-de-toilette-30ml-p23894-53755_image.jpg?v=1721322428&width=1000"
@@ -75773,6 +76401,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/108_1.jpg"
     }
   ],
+  "ean-3616304175978": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/calvin-klein-defy-parfum-50ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1763640600-66072000.jpg?v=1772624858&width=1920"
+    }
+  ],
   "justmylook-ck0109": [
     {
       "retailerId": "justmylook",
@@ -75977,7 +76619,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/calvin-klein-eternity-aromatic-essence-for-him-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/eternity-aromatic-essence-for-him-eau-de-parfum-100ml-p37121-115812_image.jpg?v=1721322441&width=1000"
@@ -77243,6 +77885,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061122389.jpg"
     }
   ],
+  "ean-8411061123591": [
+    {
+      "retailerId": "beautybase",
+      "price": 79,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/carolina-herrera-good-girl-jasmine-absolute-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771338688-41223400.jpg?v=1772624867&width=1920"
+    }
+  ],
+  "ean-8411061123607": [
+    {
+      "retailerId": "beautybase",
+      "price": 115,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/carolina-herrera-good-girl-jasmine-absolute-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771339192-94638300.jpg?v=1774437625&width=1920"
+    }
+  ],
+  "ean-8411061123614": [
+    {
+      "retailerId": "beautybase",
+      "price": 147,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/carolina-herrera-good-girl-jasmine-absolute-eau-de-parfum-80ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771340935-07722500.jpg?v=1772624872&width=1920"
+    }
+  ],
   "ean-8411061907559": [
     {
       "retailerId": "fragrance-click",
@@ -77409,6 +78093,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/187.jpg"
+    }
+  ],
+  "ean-3432240506610": [
+    {
+      "retailerId": "beautybase",
+      "price": 99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/cartier-la-panthere-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771430022-01613300.jpg?v=1772624875&width=1920"
     }
   ],
   "ean-3432240000989": [
@@ -78116,10 +78814,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "justmylook",
       "price": 15.95,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-06T00:00:00.000Z",
+      "promoEndsAt": "2027-08-10T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/clinique-happy-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CLQ0004_x100.png?v=1738168659"
@@ -79035,6 +79733,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1736511891-57604500.jpg?v=1763396934&width=1920"
     }
   ],
+  "ean-5060524510886": [
+    {
+      "retailerId": "beautybase",
+      "price": 18.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/cr7-game-on-m-eau-de-toilette-30ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771411425-06155000.jpg?v=1772624881&width=1920"
+    }
+  ],
   "ean-5060524510909": [
     {
       "retailerId": "beautybase",
@@ -79047,6 +79759,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1696956646-46494200.jpg?v=1763394079&width=1920"
+    }
+  ],
+  "ean-5060524511166": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/cristiano-ronaldo-cr7-origins-eau-de-toilette-30ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771411120-83414700.jpg?v=1772624882&width=1920"
     }
   ],
   "ean-5060524511142": [
@@ -79427,6 +80153,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1762168728-03113700.jpg?v=1763398784&width=1920"
     }
   ],
+  "ean-3442151002712": [
+    {
+      "retailerId": "beautybase",
+      "price": 22,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/cyrus-writer-extreme-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771321121-43018400.jpg?v=1772624888&width=1920"
+    }
+  ],
   "ean-3442151001159": [
     {
       "retailerId": "beautybase",
@@ -79495,6 +80235,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-08T10:31:17.299Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1736523652-51702200.jpg?v=1763396621&width=1920"
+    }
+  ],
+  "ean-3616303461966": [
+    {
+      "retailerId": "beautybase",
+      "price": 12.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/david-beckham-classic-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-3616303462055": [
@@ -80127,20 +80881,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1455902861-97237000.jpg?v=1763389975&width=1920"
     }
   ],
-  "ean-3614272631885": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 31.95,
-      "wasPrice": 58,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089041786&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/8/280.jpg"
-    }
-  ],
   "ean-4085400271003": [
     {
       "retailerId": "fragrance-click",
@@ -80303,7 +81043,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-dior-higher-energy-eau-de-toilette-spray-100ml-11079067",
-      "fetchedAt": "2026-08-10T13:03:59.151Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/5517.jpg?v=1773833913&width=1920"
@@ -80457,7 +81197,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-dior-jadore-eau-de-toilette-spray-100ml-14271253",
-      "fetchedAt": "2026-08-10T11:06:39.819Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/5504.jpg?v=1773830979&width=1920"
@@ -80741,6 +81481,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-07T19:51:59.683Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/DIOR0004.png?v=1758900967&width=1000"
+    }
+  ],
+  "ean-5022545174331": [
+    {
+      "retailerId": "beautybase",
+      "price": 4.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/disney-ariel-eau-de-toilette-50ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1764933975-46450200.jpg?v=1772624894&width=1920"
     }
   ],
   "ean-085715950468": [
@@ -83929,7 +84683,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/diamond-solitaire-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1610024517-09709600.jpg?v=1763390079&width=1920"
@@ -84055,7 +84809,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/krystal-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1610025827-63793300.jpg?v=1763390084&width=1920"
@@ -84083,7 +84837,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/majestic-for-her-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1610026057-29470100.jpg?v=1763390085&width=1920"
@@ -86637,6 +87391,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738757138-65057500.jpg?v=1763397072&width=1920"
     }
   ],
+  "ean-3614274748949": [
+    {
+      "retailerId": "beautybase",
+      "price": 77,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/armani-stronger-with-you-powerfully-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1768394136-75294400.jpg?v=1772624825&width=1920"
+    }
+  ],
+  "ean-3614274747058": [
+    {
+      "retailerId": "beautybase",
+      "price": 105,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/armani-stronger-with-you-powerfully-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1768394637-02778400.jpg?v=1772624824&width=1920"
+    }
+  ],
   "ean-715885000082": [
     {
       "retailerId": "beautybase",
@@ -86855,7 +87637,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-givenchy-blue-label-pour-homme-eau-de-toilette-spray-100ml-14271263",
-      "fetchedAt": "2026-08-10T11:06:39.819Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/4655_1968375d-2ff0-4615-af09-fc4c91f51533.jpg?v=1778588090&width=1920"
@@ -89095,7 +89877,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-hermes-terre-dhermes-eau-de-toilette-refillable-spray-30ml-14595961",
-      "fetchedAt": "2026-08-10T11:06:39.819Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/967797.jpg?v=1755874576&width=1920"
@@ -89381,20 +90163,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/665.jpg"
     }
   ],
-  "ean-737052488257": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 60.5,
-      "wasPrice": 114,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089041994&a=3017443&m=124166",
-      "fetchedAt": "2026-08-04T09:00:03.486Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/668.jpg"
-    }
-  ],
   "ean-8005610460598": [
     {
       "retailerId": "fragrance-click",
@@ -89463,6 +90231,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-05T08:37:06.512Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1646934992-56539100.jpg?v=1763392042&width=1920"
+    }
+  ],
+  "ean-3616307201193": [
+    {
+      "retailerId": "beautybase",
+      "price": 21,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/boss-ma-vie-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771414133-70234600.jpg?v=1772624836&width=1920"
     }
   ],
   "justmylook-hb0038": [
@@ -89885,6 +90667,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/hugo-boss-extreme-man-eau-de-parfum-75ml-p25569-60314_image.jpg?v=1721322236&width=1000"
     }
   ],
+  "ean-737052041285": [
+    {
+      "retailerId": "beautybase",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/boss-femme-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771415400-51226700.jpg?v=1772624834&width=1920"
+    }
+  ],
   "ean-3616304697364": [
     {
       "retailerId": "beautybase",
@@ -89907,7 +90703,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-hugo-boss-hugo-man-eau-de-toilette-spray-200ml-11858188",
-      "fetchedAt": "2026-08-10T11:06:39.819Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/963480.jpg?v=1755874583&width=1920"
@@ -90093,6 +90889,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T19:00:21.352Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1523977882-52693500.png?v=1763391137&width=1920"
+    }
+  ],
+  "ean-737052802770": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/boss-ma-vie-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1763639666-01183500.jpg?v=1772624835&width=1920"
     }
   ],
   "justmylook-hb0144": [
@@ -94541,7 +95351,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://allbeauty.com/products/p-lacoste-essential-eau-de-toilette-spray-125ml-13935378",
-      "fetchedAt": "2026-08-10T13:03:59.151Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/5653.jpg?v=1755875204&width=1920"
@@ -94555,7 +95365,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/lacoste-essential-men-eau-de-toilette-75ml",
-      "fetchedAt": "2026-08-06T00:01:26.900Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-06T00:01:26.900Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAC0001.png?v=1766583600&width=1000"
@@ -100309,7 +101119,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-montblanc-individuel-for-men-eau-de-toilette-spray-75ml-14604967",
-      "fetchedAt": "2026-08-10T13:03:59.151Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/5931.jpg?v=1770221728&width=1920"
@@ -100575,7 +101385,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-montblanc-presence-for-men-eau-de-toilette-spray-75ml-14271247",
-      "fetchedAt": "2026-08-10T13:03:59.151Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/5932.jpg?v=1770221891&width=1920"
@@ -102546,10 +103356,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-breathless-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -102574,10 +103384,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-candy-carousel-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -102658,10 +103468,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-confessions-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -102672,10 +103482,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-daddy-issues-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -102686,10 +103496,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://oudarabian.co.uk/products/bujairami-dead-serious-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -102700,10 +103510,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 59.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-deep-night-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -102714,10 +103524,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-dirty-money-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -102812,10 +103622,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-first-class-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -102840,10 +103650,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-full-throttle-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -102882,10 +103692,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-glorious-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -102910,10 +103720,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-hectic-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T19:59:39.471Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -102924,10 +103734,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://oudarabian.co.uk/products/bujairami-ibiza-perfume-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -102980,10 +103790,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-jasmime-for-her-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -102994,10 +103804,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-kingsman-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T19:59:39.471Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -103022,10 +103832,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-love-obsession-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -103050,10 +103860,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-mad-love-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -103092,10 +103902,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-magna-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -103134,10 +103944,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 44.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-miss-vanilla-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T19:59:39.471Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -103162,10 +103972,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-muse-x-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -103218,10 +104028,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-odyssey-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -103274,10 +104084,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-oud-it-up-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -103330,10 +104140,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-real-deal-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -103484,10 +104294,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-shadow-script-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -103610,10 +104420,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-sweet-escape-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -103624,10 +104434,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-tea-splash-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -103722,10 +104532,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-too-damn-clean-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -103806,10 +104616,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-vibration-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -103862,10 +104672,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/club-de-nuit-precieux-iv-extrait-de-parfum-55ml",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -103876,10 +104686,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/french-avenue-aromatix-frostbite-perfume-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -103890,10 +104700,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://oudarabian.co.uk/products/french-avenue-aromatix-naughty-dates-perfume-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T19:59:39.471Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -103918,10 +104728,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/french-avenue-obsidian-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T19:59:39.471Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -103932,10 +104742,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 34.5,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/french-avenue-safari-breeze-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T19:59:39.471Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -103960,10 +104770,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 24.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/vulcan-black-100ml-eau-de-parfum-limited-edition",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104002,10 +104812,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 54.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://oudarabian.co.uk/products/ibraq-greek-tobacco-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104044,10 +104854,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 24.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/lataffa-angham-second-song-perfume-100ml-edp",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104086,10 +104896,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 37.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://oudarabian.co.uk/products/lattafa-musamam-black-intense-perfume-100ml-edp",
-      "fetchedAt": "2026-08-10T19:59:39.471Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104100,10 +104910,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 36.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/lattafa-nebras-elixir-100ml-eau-de-parfum-spray",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104226,10 +105036,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 34.5,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/maison-asrar-muharib-100ml-eau-de-parfum-spray",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104268,10 +105078,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 31.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/maison-asrar-vanilla-aura-perfume-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104282,10 +105092,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 31.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/maison-asrar-vanilla-seduction-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104296,10 +105106,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 14.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/maison-asrar-vanilla-voyage-25ml-mini-size-travel-size-miniature-perfume",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104310,10 +105120,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/maison-asrar-x-cal-cologne-iii-thriller-edp-100ml",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104450,10 +105260,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 28.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/rayhaan-aquatica-perfume-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104478,10 +105288,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 29.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/rayhaan-cedarus-blanc-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-07T19:51:59.683Z",
       "isNew": true,
       "imageUrl": null
@@ -104492,10 +105302,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 27.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/rayhaan-italia-perfume-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104506,10 +105316,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 29.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/rayhaan-jungle-vibe-perfume-100ml-eau-da-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104548,10 +105358,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 29.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/rayhaan-nova-sol-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-07T19:51:59.683Z",
       "isNew": true,
       "imageUrl": null
@@ -104562,10 +105372,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 27.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/rayhaan-obsidian-perfume-100ml-eau-da-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104576,10 +105386,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 29.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/rayhaan-pharaoh-perfume-100ml-edp-by-rayhaan",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104604,10 +105414,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 21.5,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/rayhaan-tiger-cal-cologne",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104618,10 +105428,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 27.5,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/rayhaan-tonka-giza-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104688,10 +105498,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 29.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://oudarabian.co.uk/products/sawaar-vanille-blanc-100ml-extrait-de-parfum-by-khadlaj-luxurious-creamy-vanilla-scent",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104702,10 +105512,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 36.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/zenith-blue-by-french-avenue-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -104716,10 +105526,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 59.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://oudarabian.co.uk/products/zimaya-essential-perfume-hamdan",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -106117,9 +106927,9 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 67,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/prada-amber-for-men-eau-de-toilette-100ml-spray",
-      "fetchedAt": "2026-08-05T10:33:01.806Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1369831370-87136900.jpg?v=1763392314&width=1920"
@@ -108533,6 +109343,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1615900610-17822400.jpg?v=1763389390&width=1920"
     }
   ],
+  "ean-6223545606801": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/basat-al-reeh-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
   "ean-6297001574188": [
     {
       "retailerId": "beautybase",
@@ -109143,7 +109967,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/private-blue-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1614590845-35376300.jpg?v=1763390067&width=1920"
@@ -111887,7 +112711,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/calvin-klein-beauty-eau-de-parfum-100ml/11079226/",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11079226-9935318373968502.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -111929,7 +112753,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/dkny-be-delicious-eau-de-parfum-100ml/10954663/",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10954663-1095318373165174.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -112013,7 +112837,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/juicy-couture-eau-de-parfum-50ml/10002885/",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10002885-1375319910557186.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -112055,7 +112879,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/lacoste-l.12.12-noir-eau-de-toilette-spray-100ml/15016795/",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/15016795-2155321257161153.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -112097,7 +112921,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.lookfantastic.com/p/menaji-power-hydrator-aftershave-with-hyaluronic-acid-4oz.-118ml/10588308/",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10588308-2035336083679121.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -112181,7 +113005,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/molton-brown-tobacco-absolute-eau-de-parfum-100ml/12243625/",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243625-1595327414098728.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -112251,7 +113075,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.lookfantastic.com/p/paco-rabanne-invictus-eau-de-toilette-100ml/10952559/",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10952559-2125345308047579.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -112265,7 +113089,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.lookfantastic.com/p/paco-rabanne-olympea-eau-de-parfum-30ml/11173341/",
-      "fetchedAt": "2026-08-10T19:59:39.471Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11173341-6815323126841019.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -112293,7 +113117,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/paco-rabanne-olympea-eau-de-parfum-80ml/11173343/",
-      "fetchedAt": "2026-08-10T19:59:39.471Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11173343-5065323126666023.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -112307,7 +113131,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/tom-ford-beau-de-jour-100ml/12380047/",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12380047-1185328530555982.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -112335,7 +113159,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/versace-bright-crystal-absolu-eau-de-parfum-90ml/11034091/",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11034091-5945348401607583.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -112349,7 +113173,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/versace-bright-crystal-absolu-eau-de-parfum-50ml/11034090/",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11034090-1575322025006851.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -112363,7 +113187,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/versace-crystal-noir-eau-de-toilette-30ml/11034069/",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11034069-9245322024568227.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -112461,7 +113285,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/valentino-born-in-roma-donna-yellow-dream-eau-de-parfum-30ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-10T22:35:31.778Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1612198030-79436100.jpg?v=1763390114&width=1920"
@@ -135854,7 +136678,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Badalada Oversized Beach Towel",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/badalada-beach-towel",
+    "url": "https://soldejaneiro.com/products/badalada-beach-towel",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/FY25_BodyBadalada_MerchTowel_PPage_1_Modular-Unfolded.webp?v=1746817725",
     "nativePrice": {
       "amount": 48,
@@ -135868,7 +136692,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Badalada Relaxed Tee Large",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/badalada-t-shirt",
+    "url": "https://soldejaneiro.com/products/badalada-t-shirt",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/FY25_BodyBadalada_MerchTShirt_PPage_1_Modular.webp?v=1746817720",
     "nativePrice": {
       "amount": 35,
@@ -135882,7 +136706,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Badalada Relaxed Tee Medium",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/badalada-t-shirt",
+    "url": "https://soldejaneiro.com/products/badalada-t-shirt",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/FY25_BodyBadalada_MerchTShirt_PPage_1_Modular.webp?v=1746817720",
     "nativePrice": {
       "amount": 35,
@@ -135896,7 +136720,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Badalada Relaxed Tee Small",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/badalada-t-shirt",
+    "url": "https://soldejaneiro.com/products/badalada-t-shirt",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/FY25_BodyBadalada_MerchTShirt_PPage_1_Modular.webp?v=1746817720",
     "nativePrice": {
       "amount": 35,
@@ -135910,7 +136734,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Beija Flor™ Elasti-Cream 150ml",
     "sizeMl": 150,
-    "url": "https://www.soldejaneiro.com/products/beija-flor-elasti-cream",
+    "url": "https://soldejaneiro.com/products/beija-flor-elasti-cream",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Beija_flor_elasti_Cream_Sol_de_janeiro_0.webp?v=1712946593",
     "nativePrice": {
       "amount": 36,
@@ -135924,7 +136748,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Beija Flor™ Elasti-Cream 75ml",
     "sizeMl": 75,
-    "url": "https://www.soldejaneiro.com/products/beija-flor-elasti-cream",
+    "url": "https://soldejaneiro.com/products/beija-flor-elasti-cream",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Beija_flor_elasti_Cream_Sol_de_janeiro_0.webp?v=1712946593",
     "nativePrice": {
       "amount": 24,
@@ -135938,7 +136762,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Brazilian Bum Bum® Cream 150ml",
     "sizeMl": 150,
-    "url": "https://www.soldejaneiro.com/products/brazilian-bum-bum-cream",
+    "url": "https://soldejaneiro.com/products/brazilian-bum-bum-cream",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Brazilian_Bum_Bum_Cream_Sol_de_Janeiro_0.webp?v=1713788113",
     "nativePrice": {
       "amount": 36,
@@ -135952,7 +136776,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Brazilian Bum Bum® Cream 75ml",
     "sizeMl": 75,
-    "url": "https://www.soldejaneiro.com/products/brazilian-bum-bum-cream",
+    "url": "https://soldejaneiro.com/products/brazilian-bum-bum-cream",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Brazilian_Bum_Bum_Cream_Sol_de_Janeiro_0.webp?v=1713788113",
     "nativePrice": {
       "amount": 24,
@@ -135966,7 +136790,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Brazilian Icons Duo | Online Exclusive",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/brazilian-icons-duo-online-exclusive",
+    "url": "https://soldejaneiro.com/products/brazilian-icons-duo-online-exclusive",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ_Web_Ppage_FragranceCreamDuos2024_BBC.webp?v=1720643681",
     "nativePrice": {
       "amount": 78,
@@ -135980,7 +136804,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Brazilian Kiss Cupuaçu Lip Butter 6.2g",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/brazilian-kiss-cupuacu-lip-butter-doce-de-leite",
+    "url": "https://soldejaneiro.com/products/brazilian-kiss-cupuacu-lip-butter-doce-de-leite",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/DTC_Brazilian_Kiss_Render.webp?v=1741731030",
     "nativePrice": {
       "amount": 18,
@@ -135994,7 +136818,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Brazilian Play Moisturizing Shower Cream-Gel 1 Liter",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/brazilian-play-moisturizing-shower-cream-gel-pistachio-caramel",
+    "url": "https://soldejaneiro.com/products/brazilian-play-moisturizing-shower-cream-gel-pistachio-caramel",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Brazilian_Play_Body_Wash_Sol_de_Janeiro_0_6da4b104-70b8-483f-a481-a4e131e3f29a.webp?v=1715882428",
     "nativePrice": {
       "amount": 58,
@@ -136008,7 +136832,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Brazilian Play Moisturizing Shower Cream-Gel 90ml",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/brazilian-play-moisturizing-shower-cream-gel-pistachio-caramel",
+    "url": "https://soldejaneiro.com/products/brazilian-play-moisturizing-shower-cream-gel-pistachio-caramel",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Brazilian_Play_Body_Wash_Sol_de_Janeiro_0_6da4b104-70b8-483f-a481-a4e131e3f29a.webp?v=1715882428",
     "nativePrice": {
       "amount": 12,
@@ -136022,7 +136846,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Bright Side Body Duo",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/bright-side-mini-body-duo",
+    "url": "https://soldejaneiro.com/products/bright-side-mini-body-duo",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ_Web_Ppage_Bright_Side_Body_Duo_update.webp?v=1726177246",
     "nativePrice": {
       "amount": 32,
@@ -136036,7 +136860,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Cheirosa 40 Bom Dia Bright™ Perfume Mist 90ml",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/cheirosa-40-hair-body-fragrance-mist",
+    "url": "https://soldejaneiro.com/products/cheirosa-40-hair-body-fragrance-mist",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/cheirosa40_perfume_Mist_240mL_Sol_de_Janeiro_0-webp.webp?v=1720730190",
     "nativePrice": {
       "amount": 26,
@@ -136050,7 +136874,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Cheirosa 59 Delícia Drench™ Perfume Mist 90ml",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/cheirosa-59-perfume-mist",
+    "url": "https://soldejaneiro.com/products/cheirosa-59-perfume-mist",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Cheirosa59_Perfume_Mist_Sol_de_Janeiro_0.webp?v=1771446095",
     "nativePrice": {
       "amount": 26,
@@ -136064,7 +136888,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Cheirosa 62™ Perfume Mist 90ml",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/cheirosa-62-hair-body-fragrance-mist",
+    "url": "https://soldejaneiro.com/products/cheirosa-62-hair-body-fragrance-mist",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Cheriosa62_perfume_Mist_240mL_Sol_de_Janeiro_0-webp.webp?v=1720730189",
     "nativePrice": {
       "amount": 26,
@@ -136081,7 +136905,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Cheirosa 68 Beija Flor™ Perfume Mist 90ml",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/cheirosa-68-perfume-mist",
+    "url": "https://soldejaneiro.com/products/cheirosa-68-perfume-mist",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Cheirosa68_perfume_Mist_240mL_Sol_de_Janeiro_0-webp.webp?v=1720730188",
     "nativePrice": {
       "amount": 26,
@@ -136095,7 +136919,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Cheirosa 71 Perfume Mist 90ml",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/cheirosa-71-body-fragrance-mist",
+    "url": "https://soldejaneiro.com/products/cheirosa-71-body-fragrance-mist",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/sdj_Cheirosa71_perfume_Mist_240mL_Sol_de_Janeiro_0-webp.webp?v=1720730187",
     "nativePrice": {
       "amount": 26,
@@ -136109,7 +136933,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Cheirosa 76 Perfume Mist 90ml",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/cheirosa-76-perfume-mist",
+    "url": "https://soldejaneiro.com/products/cheirosa-76-perfume-mist",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/C76_Render_240ml_SDJ.com.webp?v=1720643678",
     "nativePrice": {
       "amount": 26,
@@ -136123,7 +136947,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Cheirosa 87 Rio Radiance™ Perfume Mist 90ml",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/cheirosa-87-rio-radiance-perfume-mist",
+    "url": "https://soldejaneiro.com/products/cheirosa-87-rio-radiance-perfume-mist",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Cheriosa87_perfume_Mist_240mL_Sol_de_Janeiro_0-webp.webp?v=1720730188",
     "nativePrice": {
       "amount": 26,
@@ -136137,7 +136961,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Cheirosa 91 Perfume Mist 240ml",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/cheirosa-91-perfume-mist",
+    "url": "https://soldejaneiro.com/products/cheirosa-91-perfume-mist",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/C91-Render.webp?v=1765106187",
     "nativePrice": {
       "amount": 39,
@@ -136151,7 +136975,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Cheirosa 91 Perfume Mist 90ml",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/cheirosa-91-perfume-mist",
+    "url": "https://soldejaneiro.com/products/cheirosa-91-perfume-mist",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/C91-Render.webp?v=1765106187",
     "nativePrice": {
       "amount": 26,
@@ -136165,7 +136989,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Cheiroso 10 Cologne Mist 90ml",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/cheiroso-10",
+    "url": "https://soldejaneiro.com/products/cheiroso-10",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ_CHEIROSO10_Packshot_Ppage_01_1600x1600_dc14362b-30cc-4cfd-a7c6-0c8a5269e783.webp?v=1783976978",
     "nativePrice": {
       "amount": 26,
@@ -136179,7 +137003,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Cheiroso 7 Cologne Mist 90ml",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/cheiroso-7",
+    "url": "https://soldejaneiro.com/products/cheiroso-7",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ_CHEIROSO7_Packshot_Ppage_01_1600x1600_5c6798b0-89be-473d-a5f0-e423c64d47d3.webp?v=1783977011",
     "nativePrice": {
       "amount": 26,
@@ -136193,7 +137017,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Cheiroso Cologne Mist Duo",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/cheiroso-cologne-mist-duo",
+    "url": "https://soldejaneiro.com/products/cheiroso-cologne-mist-duo",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/BundlePDP_CheirosoDuoBundle_1600x1600_CheirosoRegionalLaunch_Duo.webp?v=1783372060",
     "nativePrice": {
       "amount": 47,
@@ -136207,7 +137031,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Cheiroso Layering Play",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/cheiroso-layering-play",
+    "url": "https://soldejaneiro.com/products/cheiroso-layering-play",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/BundlePDP_Cheiroso7Cheirosa62_1600x1600_CheirosoRegionalLaunch.webp?v=1783955231",
     "nativePrice": {
       "amount": 47,
@@ -136221,7 +137045,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136235,7 +137059,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136249,7 +137073,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136263,7 +137087,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136277,7 +137101,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136291,7 +137115,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136305,7 +137129,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136319,7 +137143,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136333,7 +137157,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136347,7 +137171,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136361,7 +137185,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136375,7 +137199,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136389,7 +137213,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136403,7 +137227,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136417,7 +137241,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136431,7 +137255,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136445,7 +137269,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136459,7 +137283,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136473,7 +137297,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136487,7 +137311,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136501,7 +137325,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136515,7 +137339,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136529,7 +137353,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136543,7 +137367,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136557,7 +137381,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136571,7 +137395,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136585,7 +137409,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136599,7 +137423,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136613,7 +137437,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136627,7 +137451,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136641,7 +137465,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136655,7 +137479,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136669,7 +137493,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136683,7 +137507,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136697,7 +137521,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136711,7 +137535,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136725,7 +137549,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136739,7 +137563,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136753,7 +137577,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136767,7 +137591,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136781,7 +137605,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136795,7 +137619,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136809,7 +137633,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136823,7 +137647,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136837,7 +137661,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136851,7 +137675,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136865,7 +137689,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136879,7 +137703,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136893,7 +137717,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136907,7 +137731,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136921,7 +137745,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136935,7 +137759,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136949,7 +137773,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136963,7 +137787,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136977,7 +137801,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -136991,7 +137815,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137005,7 +137829,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137019,7 +137843,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137033,7 +137857,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137047,7 +137871,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137061,7 +137885,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137075,7 +137899,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137089,7 +137913,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137103,7 +137927,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137117,7 +137941,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137131,7 +137955,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137145,7 +137969,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137159,7 +137983,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137173,7 +137997,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137187,7 +138011,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137201,7 +138025,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137215,7 +138039,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137229,7 +138053,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137243,7 +138067,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137257,7 +138081,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137271,7 +138095,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137285,7 +138109,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137299,7 +138123,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137313,7 +138137,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137327,7 +138151,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137341,7 +138165,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137355,7 +138179,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137369,7 +138193,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137383,7 +138207,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137397,7 +138221,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137411,7 +138235,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137425,7 +138249,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137439,7 +138263,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137453,7 +138277,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137467,7 +138291,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137481,7 +138305,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137495,7 +138319,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137509,7 +138333,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137523,7 +138347,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137537,7 +138361,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137551,7 +138375,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137565,7 +138389,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137579,7 +138403,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137593,7 +138417,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137607,7 +138431,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 240ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-240ml-Render.webp?v=1778598471",
     "nativePrice": {
       "amount": 70,
@@ -137621,7 +138445,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137635,7 +138459,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137649,7 +138473,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137663,7 +138487,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137677,7 +138501,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137691,7 +138515,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137705,7 +138529,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137719,7 +138543,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137733,7 +138557,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137747,7 +138571,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137761,7 +138585,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Leite Café - latte accord, coconut milk, lychee sorbet",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137775,7 +138599,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 39 - coconut cream, tropical orchid, toasted praline / Leite Néctar - juicy peach, coconut milk, sweet cream",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137789,7 +138613,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137803,7 +138627,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137817,7 +138641,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137831,7 +138655,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137845,7 +138669,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137859,7 +138683,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137873,7 +138697,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137887,7 +138711,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137901,7 +138725,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137915,7 +138739,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137929,7 +138753,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Leite Café - latte accord, coconut milk, lychee sorbet",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137943,7 +138767,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods / Leite Néctar - juicy peach, coconut milk, sweet cream",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137957,7 +138781,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137971,7 +138795,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137985,7 +138809,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -137999,7 +138823,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138013,7 +138837,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138027,7 +138851,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138041,7 +138865,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138055,7 +138879,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138069,7 +138893,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138083,7 +138907,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138097,7 +138921,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Leite Café - latte accord, coconut milk, lychee sorbet",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138111,7 +138935,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 48 - guava nectar, sunlit orchid, pink musk / Leite Néctar - juicy peach, coconut milk, sweet cream",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138125,7 +138949,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138139,7 +138963,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138153,7 +138977,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138167,7 +138991,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138181,7 +139005,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138195,7 +139019,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138209,7 +139033,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138223,7 +139047,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138237,7 +139061,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138251,7 +139075,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138265,7 +139089,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Leite Café - latte accord, coconut milk, lychee sorbet",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138279,7 +139103,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood / Leite Néctar - juicy peach, coconut milk, sweet cream",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138293,7 +139117,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138307,7 +139131,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138321,7 +139145,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138335,7 +139159,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138349,7 +139173,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138363,7 +139187,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138377,7 +139201,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138391,7 +139215,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138405,7 +139229,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138419,7 +139243,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 62 - pistachio, salted caramel, vanilla / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138433,7 +139257,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 62 - pistachio, salted caramel, vanilla / Leite Café - latte accord, coconut milk, lychee sorbet",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138447,7 +139271,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 62 - pistachio, salted caramel, vanilla / Leite Néctar - juicy peach, coconut milk, sweet cream",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138461,7 +139285,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138475,7 +139299,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138489,7 +139313,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138503,7 +139327,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138517,7 +139341,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138531,7 +139355,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138545,7 +139369,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138559,7 +139383,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138573,7 +139397,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138587,7 +139411,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138601,7 +139425,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Leite Café - latte accord, coconut milk, lychee sorbet",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138615,7 +139439,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air / Leite Néctar - juicy peach, coconut milk, sweet cream",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138629,7 +139453,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138643,7 +139467,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138657,7 +139481,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138671,7 +139495,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138685,7 +139509,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138699,7 +139523,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138713,7 +139537,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138727,7 +139551,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138741,7 +139565,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138755,7 +139579,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138769,7 +139593,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Leite Café - latte accord, coconut milk, lychee sorbet",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138783,7 +139607,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean / Leite Néctar - juicy peach, coconut milk, sweet cream",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138797,7 +139621,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138811,7 +139635,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138825,7 +139649,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138839,7 +139663,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138853,7 +139677,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138867,7 +139691,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138881,7 +139705,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138895,7 +139719,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138909,7 +139733,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138923,7 +139747,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138937,7 +139761,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Leite Café - latte accord, coconut milk, lychee sorbet",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138951,7 +139775,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 76 - midnight jasmine, black currant, amber woods / Leite Néctar - juicy peach, coconut milk, sweet cream",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138965,7 +139789,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138979,7 +139803,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -138993,7 +139817,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139007,7 +139831,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139021,7 +139845,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139035,7 +139859,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139049,7 +139873,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139063,7 +139887,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139077,7 +139901,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139091,7 +139915,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139105,7 +139929,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Leite Café - latte accord, coconut milk, lychee sorbet",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139119,7 +139943,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 87 - solar tuberose, leite de coco, warm sand / Leite Néctar - juicy peach, coconut milk, sweet cream",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139133,7 +139957,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139147,7 +139971,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139161,7 +139985,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139175,7 +139999,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139189,7 +140013,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139203,7 +140027,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139217,7 +140041,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139231,7 +140055,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139245,7 +140069,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139259,7 +140083,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139273,7 +140097,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Leite Café - latte accord, coconut milk, lychee sorbet",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139287,7 +140111,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Cheirosa 91 - passionfruit, rio pink rose, honey caramel / Leite Néctar - juicy peach, coconut milk, sweet cream",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139301,7 +140125,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Café - latte accord, coconut milk, lychee sorbet / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139315,7 +140139,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Café - latte accord, coconut milk, lychee sorbet / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139329,7 +140153,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Café - latte accord, coconut milk, lychee sorbet / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139343,7 +140167,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Café - latte accord, coconut milk, lychee sorbet / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139357,7 +140181,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Café - latte accord, coconut milk, lychee sorbet / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139371,7 +140195,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Café - latte accord, coconut milk, lychee sorbet / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139385,7 +140209,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Café - latte accord, coconut milk, lychee sorbet / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139399,7 +140223,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Café - latte accord, coconut milk, lychee sorbet / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139413,7 +140237,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Café - latte accord, coconut milk, lychee sorbet / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139427,7 +140251,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Café - latte accord, coconut milk, lychee sorbet / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139441,7 +140265,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Café - latte accord, coconut milk, lychee sorbet / Leite Café - latte accord, coconut milk, lychee sorbet",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139455,7 +140279,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Café - latte accord, coconut milk, lychee sorbet / Leite Néctar - juicy peach, coconut milk, sweet cream",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139469,7 +140293,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Néctar - juicy peach, coconut milk, sweet cream / Cheirosa 39 - coconut cream, tropical orchid, toasted praline",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139483,7 +140307,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Néctar - juicy peach, coconut milk, sweet cream / Cheirosa 40 - black amber plum, jasmine blooms, vanilla woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139497,7 +140321,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Néctar - juicy peach, coconut milk, sweet cream / Cheirosa 48 - guava nectar, sunlit orchid, pink musk",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139511,7 +140335,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Néctar - juicy peach, coconut milk, sweet cream / Cheirosa 59 - vanilla orchid, sugared violet, sheer sandalwood",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139525,7 +140349,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Néctar - juicy peach, coconut milk, sweet cream / Cheirosa 62 - pistachio, salted caramel, vanilla",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139539,7 +140363,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Néctar - juicy peach, coconut milk, sweet cream / Cheirosa 68 - pink dragon fruit, Brazilian jasmine, ocean air",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139553,7 +140377,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Néctar - juicy peach, coconut milk, sweet cream / Cheirosa 71 - caramelized vanilla, toasted macadamia nut, tonka bean",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139567,7 +140391,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Néctar - juicy peach, coconut milk, sweet cream / Cheirosa 76 - midnight jasmine, black currant, amber woods",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139581,7 +140405,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Néctar - juicy peach, coconut milk, sweet cream / Cheirosa 87 - solar tuberose, leite de coco, warm sand",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139595,7 +140419,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Néctar - juicy peach, coconut milk, sweet cream / Cheirosa 91 - passionfruit, rio pink rose, honey caramel",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139609,7 +140433,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Néctar - juicy peach, coconut milk, sweet cream / Leite Café - latte accord, coconut milk, lychee sorbet",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139623,7 +140447,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Choose Your Perfume Mist Duo | 90ml Leite Néctar - juicy peach, coconut milk, sweet cream / Leite Néctar - juicy peach, coconut milk, sweet cream",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
+    "url": "https://soldejaneiro.com/products/choose-your-perfume-mist-duo-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/CustomDuoMistBundle-90ml-Render.webp?v=1781536030",
     "nativePrice": {
       "amount": 47,
@@ -139637,7 +140461,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Daily Hydration Duo",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/daily-hydration-duo",
+    "url": "https://soldejaneiro.com/products/daily-hydration-duo",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Render-Badalada-BrazilianPlayWash-Bundle_1.webp?v=1750698511",
     "nativePrice": {
       "amount": 49,
@@ -139651,7 +140475,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Deep Moisture Routine",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/deep-moisture-routine",
+    "url": "https://soldejaneiro.com/products/deep-moisture-routine",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/sdj_Delicia_Bundle_DTC_Render.webp?v=1732135111",
     "nativePrice": {
       "amount": 96,
@@ -139665,7 +140489,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Delícia Drench™ Body Butter 75ml",
     "sizeMl": 75,
-    "url": "https://www.soldejaneiro.com/products/delicia-drench-body-butter",
+    "url": "https://soldejaneiro.com/products/delicia-drench-body-butter",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Delicia_Drench_Body_Butter_Sol_de_Janeiro_0.webp?v=1712946919",
     "nativePrice": {
       "amount": 24,
@@ -139679,7 +140503,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Delícia Drench™ Shower Oil 1 Liter",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/delicia-drench-shower-oil",
+    "url": "https://soldejaneiro.com/products/delicia-drench-shower-oil",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/sdj_DeliciaDrench_ShowerOil_DTC_Render_385mL.jpg?v=1727210428",
     "nativePrice": {
       "amount": 58,
@@ -139693,7 +140517,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Delícia Drench™ Shower Oil 90ml",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/delicia-drench-shower-oil",
+    "url": "https://soldejaneiro.com/products/delicia-drench-shower-oil",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/sdj_DeliciaDrench_ShowerOil_DTC_Render_385mL.jpg?v=1727210428",
     "nativePrice": {
       "amount": 12,
@@ -139707,7 +140531,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $100.00 / Brazilian Inspired Beauty",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 100,
@@ -139721,7 +140545,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $100.00 / Feliza Aniversario",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 100,
@@ -139735,7 +140559,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $100.00 / Love This For You",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 100,
@@ -139749,7 +140573,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $100.00 / Picked Just For You",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 100,
@@ -139763,7 +140587,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $100.00 / Skip the Bouquet, Share The Rosa",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 100,
@@ -139777,7 +140601,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $150.00 / Brazilian Inspired Beauty",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 150,
@@ -139791,7 +140615,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $150.00 / Feliza Aniversario",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 150,
@@ -139805,7 +140629,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $150.00 / Love This For You",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 150,
@@ -139819,7 +140643,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $150.00 / Picked Just For You",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 150,
@@ -139833,7 +140657,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $150.00 / Skip the Bouquet, Share The Rosa",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 150,
@@ -139847,7 +140671,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $200.00 / Brazilian Inspired Beauty",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 200,
@@ -139861,7 +140685,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $200.00 / Feliza Aniversario",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 200,
@@ -139875,7 +140699,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $200.00 / Love This For You",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 200,
@@ -139889,7 +140713,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $200.00 / Picked Just For You",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 200,
@@ -139903,7 +140727,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $200.00 / Skip the Bouquet, Share The Rosa",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 200,
@@ -139917,7 +140741,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $25.00 / Brazilian Inspired Beauty",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 25,
@@ -139931,7 +140755,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $25.00 / Feliza Aniversario",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 25,
@@ -139945,7 +140769,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $25.00 / Love This For You",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 25,
@@ -139959,7 +140783,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $25.00 / Picked Just For You",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 25,
@@ -139973,7 +140797,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $25.00 / Skip the Bouquet, Share The Rosa",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 25,
@@ -139987,7 +140811,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $50.00 / Brazilian Inspired Beauty",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 50,
@@ -140001,7 +140825,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $50.00 / Feliza Aniversario",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 50,
@@ -140015,7 +140839,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $50.00 / Love This For You",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 50,
@@ -140029,7 +140853,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $50.00 / Picked Just For You",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 50,
@@ -140043,7 +140867,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "E-gift Card $50.00 / Skip the Bouquet, Share The Rosa",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-e-gift-card",
+    "url": "https://soldejaneiro.com/products/new-e-gift-card",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GiftCard-Rosa-PickedJustForYou.png?v=1768332587",
     "nativePrice": {
       "amount": 50,
@@ -140057,7 +140881,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Elasticity-Boosting Duo",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/elasticity-boosting-duo",
+    "url": "https://soldejaneiro.com/products/elasticity-boosting-duo",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/sdj_Beijaflor_Bundle_DTC_Render.webp?v=1732135116",
     "nativePrice": {
       "amount": 85,
@@ -140071,7 +140895,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Forever Cheirosa Duo | Online Exclusive",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/forever-cheirosa-duo",
+    "url": "https://soldejaneiro.com/products/forever-cheirosa-duo",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Forever_Cheirosa_Bundle_Render_Update.webp?v=1721075546",
     "nativePrice": {
       "amount": 90,
@@ -140085,7 +140909,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Badalada Crossbody Belt Bag",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 35,
@@ -140099,7 +140923,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Beija Flor™ Elasti-Body Oil",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 52,
@@ -140113,7 +140937,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Beija Flor™ Elasti-Cream",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 48,
@@ -140127,7 +140951,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Body Firmeza Massage Tool",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 20,
@@ -140141,7 +140965,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Brazilian Bum Bum Surfboard Spatula",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 9,
@@ -140155,7 +140979,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Brazilian Bum Bum® Cream",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 48,
@@ -140169,7 +140993,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Brazilian Play Moisturizing Shower Cream-Gel",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 26,
@@ -140183,7 +141007,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Bum Bum Body Firmeza Oil",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 52,
@@ -140197,7 +141021,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Cheirosa 39 Perfume Mist",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 39,
@@ -140211,7 +141035,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Cheirosa 40 Bom Dia Bright™ Perfume Mist",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 39,
@@ -140225,7 +141049,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Cheirosa 48 Perfume Mist",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 39,
@@ -140239,7 +141063,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Cheirosa 59 Delícia Drench™ Perfume Mist",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 39,
@@ -140253,7 +141077,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Cheirosa 62™ Perfume Mist",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 39,
@@ -140267,7 +141091,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Cheirosa 71 Perfume Mist",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 39,
@@ -140281,7 +141105,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Cheirosa 76 Perfume Mist",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 39,
@@ -140295,7 +141119,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Cheirosa 87 Rio Radiance™ Perfume Mist",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 39,
@@ -140309,7 +141133,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Delícia Drench™ Body Butter",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 48,
@@ -140323,7 +141147,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Delícia Drench™ Shower Oil",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 26,
@@ -140337,7 +141161,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder Dry Body Brush",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 20,
@@ -140351,7 +141175,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder SOL Cheirosa 62™",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 80,
@@ -140365,7 +141189,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder SOL Recycled Canvas Tote Bag",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 30,
@@ -140379,7 +141203,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Full-Sized Routine Builder SOL Yellow Wide Tooth Comb",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/full-size-routine-builder",
+    "url": "https://soldejaneiro.com/products/full-size-routine-builder",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Full-Size-Routine-Builder_2.gif?v=1777662434",
     "nativePrice": {
       "amount": 16,
@@ -140393,7 +141217,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "GlowMotions™ Glow Body Oil Copacabana Bronze",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/new-glowmotions-glow-oils-page",
+    "url": "https://soldejaneiro.com/products/new-glowmotions-glow-oils-page",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ_DTC_Glowmotions2025_CopacabanaBronze_Ppage_1600x1600_1.webp?v=1759325301",
     "nativePrice": {
       "amount": 36,
@@ -140407,7 +141231,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Irresistible Hydration Duo",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/irresistible-hydration-duo",
+    "url": "https://soldejaneiro.com/products/irresistible-hydration-duo",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/S25_BodyBadalada62_C62Mist_RGB_1600.webp?v=1745262510",
     "nativePrice": {
       "amount": 60,
@@ -140421,7 +141245,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Limited Edition Leite Perfume Mist Duo",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/limited-edition-leite-perfume-mist-duo",
+    "url": "https://soldejaneiro.com/products/limited-edition-leite-perfume-mist-duo",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/BundlePDP_LeiteBundle.webp?v=1783072180",
     "nativePrice": {
       "amount": 47,
@@ -140435,7 +141259,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Mini Body Badalada™ Trio",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/mini-body-badalada-trio",
+    "url": "https://soldejaneiro.com/products/mini-body-badalada-trio",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Badalada100mLBundle.webp?v=1785848860",
     "nativePrice": {
       "amount": 43,
@@ -140449,7 +141273,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Mood-Boosting Duo | Online Exclusive",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/mood-boosting-duo",
+    "url": "https://soldejaneiro.com/products/mood-boosting-duo",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/Mood_Boosting_Duo_Sol_de_Janeiro_0.webp?v=1716227192",
     "nativePrice": {
       "amount": 78,
@@ -140463,7 +141287,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Rio Radiance™ Sun Visor",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/rio-radiance-sun-visor",
+    "url": "https://soldejaneiro.com/products/rio-radiance-sun-visor",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/RIo_Radiance_Sun_Visor_Sol_de_Janeiro_0.webp?v=1717076911",
     "nativePrice": {
       "amount": 30,
@@ -140477,7 +141301,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Rosa Charmosa™ Dewy Cream 75ml",
     "sizeMl": 75,
-    "url": "https://www.soldejaneiro.com/products/rosa-charmosa-dewy-cream",
+    "url": "https://soldejaneiro.com/products/rosa-charmosa-dewy-cream",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/RosaCream-Render.webp?v=1771446095",
     "nativePrice": {
       "amount": 24,
@@ -140491,7 +141315,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Rosa Charmosa™ Duo | Online Exclusive",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/rosa-charmosa-duo",
+    "url": "https://soldejaneiro.com/products/rosa-charmosa-duo",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/1-C91-Render.webp?v=1772226759",
     "nativePrice": {
       "amount": 78,
@@ -140505,7 +141329,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Rosa Poplin Boxer Shorts Large",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/rosa-poplin-boxer-shorts",
+    "url": "https://soldejaneiro.com/products/rosa-poplin-boxer-shorts",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ_RosaMerch_Boxers01.webp?v=1770246491",
     "nativePrice": {
       "amount": 38,
@@ -140519,7 +141343,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Rosa Poplin Boxer Shorts Medium",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/rosa-poplin-boxer-shorts",
+    "url": "https://soldejaneiro.com/products/rosa-poplin-boxer-shorts",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ_RosaMerch_Boxers01.webp?v=1770246491",
     "nativePrice": {
       "amount": 38,
@@ -140533,7 +141357,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Rosa Poplin Boxer Shorts Small",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/rosa-poplin-boxer-shorts",
+    "url": "https://soldejaneiro.com/products/rosa-poplin-boxer-shorts",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ_RosaMerch_Boxers01.webp?v=1770246491",
     "nativePrice": {
       "amount": 38,
@@ -140547,7 +141371,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Rosa Poplin Boxer Shorts X-Large",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/rosa-poplin-boxer-shorts",
+    "url": "https://soldejaneiro.com/products/rosa-poplin-boxer-shorts",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ_RosaMerch_Boxers01.webp?v=1770246491",
     "nativePrice": {
       "amount": 38,
@@ -140561,7 +141385,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Rosa Poplin Boxer Shorts X-Small",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/rosa-poplin-boxer-shorts",
+    "url": "https://soldejaneiro.com/products/rosa-poplin-boxer-shorts",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ_RosaMerch_Boxers01.webp?v=1770246491",
     "nativePrice": {
       "amount": 38,
@@ -140575,7 +141399,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Samba Foot Fetish Care 90ml",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/samba-2-step-foot-fetish-care",
+    "url": "https://soldejaneiro.com/products/samba-2-step-foot-fetish-care",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/sdj_SambaFootFetishCream_DTC_Render_DTC_1.jpg?v=1744232911",
     "nativePrice": {
       "amount": 27,
@@ -140589,7 +141413,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Scent Your Shower Quad | Online Exclusive",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/scent-your-shower-quad",
+    "url": "https://soldejaneiro.com/products/scent-your-shower-quad",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/sdj_BodyWash_Bundle_DTC_Render_fffb790b-f4ae-4c55-8816-92d8279a52de.webp?v=1733431231",
     "nativePrice": {
       "amount": 43,
@@ -140603,7 +141427,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "SOL Cheirosa 62™ 8ml",
     "sizeMl": 8,
-    "url": "https://www.soldejaneiro.com/products/sol-cheirosa-62",
+    "url": "https://soldejaneiro.com/products/sol-cheirosa-62",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/SOL_Cheirosa_62_Sol_de_Janeiro_0.webp?v=1771446095",
     "nativePrice": {
       "amount": 28,
@@ -140617,7 +141441,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport - 25ml Brazilian Bum Bum Cream - 120 points",
     "sizeMl": 25,
-    "url": "https://www.soldejaneiro.com/products/25ml-brazilian-bum-bum-cream",
+    "url": "https://soldejaneiro.com/products/25ml-brazilian-bum-bum-cream",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/BBC25mL.jpg?v=1783072271",
     "nativePrice": {
       "amount": 12,
@@ -140631,7 +141455,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport - Badalada Baseball Cap - 280 Points",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/sol-passport-baseball-hat",
+    "url": "https://soldejaneiro.com/products/sol-passport-baseball-hat",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/FY25_BodyBadalada_MerchHat_PPage_1_Modular_36e8b885-2112-46c9-abef-49b23aecce22.webp?v=1746817723",
     "nativePrice": {
       "amount": 28,
@@ -140645,7 +141469,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport - Bala Bangles Free Product Reward",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/sol-passport-bala-bangles",
+    "url": "https://soldejaneiro.com/products/sol-passport-bala-bangles",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/BalaBangles.jpg?v=1783070980",
     "nativePrice": {
       "amount": 55,
@@ -140659,7 +141483,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport - Brazilian Touch™ Hand Cream (50ml) - 160 Points",
     "sizeMl": 50,
-    "url": "https://www.soldejaneiro.com/products/50ml-brazilian-touch™-hand-cream",
+    "url": "https://soldejaneiro.com/products/50ml-brazilian-touch™-hand-cream",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/BrazilianTouchHandCream.jpg?v=1766509715",
     "nativePrice": {
       "amount": 16,
@@ -140673,7 +141497,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport - Cheirosa 39 Perfume Mist (90ml) - 260 points",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/sp-90ml-cheirosa-39-coco-cabana™-perfume-mist",
+    "url": "https://soldejaneiro.com/products/sp-90ml-cheirosa-39-coco-cabana™-perfume-mist",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/C39_90ml.jpg?v=1766509951",
     "nativePrice": {
       "amount": 26,
@@ -140687,7 +141511,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport - Cheirosa 48 Perfume Mist (90ml) Free Product Reward",
     "sizeMl": 90,
-    "url": "https://www.soldejaneiro.com/products/sol-passport-cheirosa-48-perfume-mist-90ml",
+    "url": "https://soldejaneiro.com/products/sol-passport-cheirosa-48-perfume-mist-90ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/C4890ml.jpg?v=1774905039",
     "nativePrice": {
       "amount": 26,
@@ -140701,7 +141525,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport - Cheirosa 68 Beija Flor™ Perfume Mist (240ml) - 390 Points Free Product Reward",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/sol-passport-cheirosa-68-beija-flor™-perfume-mist-240ml-390-points",
+    "url": "https://soldejaneiro.com/products/sol-passport-cheirosa-68-beija-flor™-perfume-mist-240ml-390-points",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/C68240ml.jpg?v=1774904920",
     "nativePrice": {
       "amount": 39,
@@ -140715,7 +141539,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport - Cheirosa 76 Perfume Mist (30ml)",
     "sizeMl": 30,
-    "url": "https://www.soldejaneiro.com/products/sol-passport-cheirosa-76-perfume-mist-30ml",
+    "url": "https://soldejaneiro.com/products/sol-passport-cheirosa-76-perfume-mist-30ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/C76_Render_30ml_SDJ.com.webp?v=1720643671",
     "nativePrice": {
       "amount": 10,
@@ -140729,7 +141553,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport - Glowmotions Body Oil (Rio Sunset) - 360 Points",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/sol-passport-glowmotions-body-oil-rio-sunset",
+    "url": "https://soldejaneiro.com/products/sol-passport-glowmotions-body-oil-rio-sunset",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/GlowmotionsGlowOil_RioSunset_-75ml.jpg?v=1775056118",
     "nativePrice": {
       "amount": 36,
@@ -140743,7 +141567,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport - Leite Café Perfume Mist Free Product Reward",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/sol-passport-leite-cafe-perfume-mist",
+    "url": "https://soldejaneiro.com/products/sol-passport-leite-cafe-perfume-mist",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/LELeiteCafePerfumeMist.jpg?v=1783073056",
     "nativePrice": {
       "amount": 26,
@@ -140757,7 +141581,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport - Leite Néctar Perfume Mist Free Product Reward",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/sol-passport-leite-nectar-perfume-mist",
+    "url": "https://soldejaneiro.com/products/sol-passport-leite-nectar-perfume-mist",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/LELeiteNectarPerfumeMist.jpg?v=1783072871",
     "nativePrice": {
       "amount": 26,
@@ -140771,7 +141595,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport - Mini Milky Leave-In Trio Free Product Reward",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/sol-passport-mini-milky-leave-in-trio",
+    "url": "https://soldejaneiro.com/products/sol-passport-mini-milky-leave-in-trio",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/MilkyLeave-InTrio_62_68_5960mlBundle.jpg?v=1783071040",
     "nativePrice": {
       "amount": 43,
@@ -140785,7 +141609,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport - Mini Perfume Mist Trio Free Product Reward",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/sol-passport-mini-perfume-mist-trio",
+    "url": "https://soldejaneiro.com/products/sol-passport-mini-perfume-mist-trio",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/30mlMistTrio_62_39_87Bundle.jpg?v=1783071010",
     "nativePrice": {
       "amount": 36,
@@ -140799,7 +141623,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport - Rosa Charmosa™ Dewy Cream (240ml)",
     "sizeMl": 240,
-    "url": "https://www.soldejaneiro.com/products/sol-passport-rosa-charmosa™-dewy-cream-240ml",
+    "url": "https://soldejaneiro.com/products/sol-passport-rosa-charmosa™-dewy-cream-240ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/RoseBodyCream240ml.jpg?v=1766509830",
     "nativePrice": {
       "amount": 48,
@@ -140813,7 +141637,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport - Rosa Phone Charm Free Product Reward",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/sol-passport-rosa-phone-charm",
+    "url": "https://soldejaneiro.com/products/sol-passport-rosa-phone-charm",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/f436d838-2912-4d81-aaa0-d59c83b25730.jpg?v=1770073718",
     "nativePrice": {
       "amount": 38,
@@ -140827,7 +141651,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport Birthday Gift - Perfume Mist (30ml) Cheirosa 48",
     "sizeMl": 30,
-    "url": "https://www.soldejaneiro.com/products/sol-passport-birthday-gift-perfume-mist-30ml",
+    "url": "https://soldejaneiro.com/products/sol-passport-birthday-gift-perfume-mist-30ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/C62_30ml.webp?v=1773774490",
     "nativePrice": {
       "amount": 12,
@@ -140841,7 +141665,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport Birthday Gift - Perfume Mist (30ml) Cheirosa 59",
     "sizeMl": 30,
-    "url": "https://www.soldejaneiro.com/products/sol-passport-birthday-gift-perfume-mist-30ml",
+    "url": "https://soldejaneiro.com/products/sol-passport-birthday-gift-perfume-mist-30ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/C62_30ml.webp?v=1773774490",
     "nativePrice": {
       "amount": 12,
@@ -140855,7 +141679,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Sol Passport Birthday Gift - Perfume Mist (30ml) Cheirosa 62",
     "sizeMl": 30,
-    "url": "https://www.soldejaneiro.com/products/sol-passport-birthday-gift-perfume-mist-30ml",
+    "url": "https://soldejaneiro.com/products/sol-passport-birthday-gift-perfume-mist-30ml",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/C62_30ml.webp?v=1773774490",
     "nativePrice": {
       "amount": 12,
@@ -140869,7 +141693,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "brand": "Sol de Janeiro",
     "name": "Trashie Take Back Bag™",
     "sizeMl": null,
-    "url": "https://www.soldejaneiro.com/products/trashie-take-back-bag",
+    "url": "https://soldejaneiro.com/products/trashie-take-back-bag",
     "image": "https://cdn.shopify.com/s/files/1/2826/2250/files/SDJ_TrashieBag_Render.webp?v=1770765010",
     "nativePrice": {
       "amount": 20,
@@ -144413,7 +145237,7 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
 export const HOUSE_PRODUCTS: HouseProduct[] = [...HOUSE_PRODUCTS_CHUNK_0, ...HOUSE_PRODUCTS_CHUNK_1, ...HOUSE_PRODUCTS_CHUNK_2, ...HOUSE_PRODUCTS_CHUNK_3, ...HOUSE_PRODUCTS_CHUNK_4];
 
 /** When the harvest that produced this data ran. */
-export const CRAWLED_AT = "2026-08-10T21:39:43.387Z";
+export const CRAWLED_AT = "2026-08-10T22:35:31.778Z";
 
 /** How many shops the data came from. */
 export const SHOP_COUNT = 7;
