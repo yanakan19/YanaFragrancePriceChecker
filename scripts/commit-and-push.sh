@@ -69,11 +69,18 @@ delay=2
 # sources disagreeing about a fact — it is two runs having built the same
 # artefact at different moments, and the answer is to rebuild it from the
 # merged inputs rather than to pick a side.
-GENERATED_PATHS="demo/index.html demo/404.html demo/catalogue.generated.ts dist-demo/artifact.html"
+GENERATED_PATHS="demo/index.html demo/404.html demo/catalogue.generated.ts demo/priceHistory.generated.ts dist-demo/artifact.html"
 
 # How to rebuild them. Overridable so this script does not hard-code knowledge
 # of the app's build for callers that generate something else.
-REGENERATE="${REGENERATE:-npm run catalogue:demo && npm run demo}"
+#
+# priceHistory.generated.ts is a full deterministic replay of every catalogue
+# commit in git, never a diff against its own previous content — so unlike a
+# hand-maintained file, there is no real ambiguity to a conflict in it: both
+# sides are trying to say the same thing from the same source of truth, and
+# rebuilding it fresh is not picking a winner, it is the only correct answer
+# either side could have given.
+REGENERATE="${REGENERATE:-npm run catalogue:demo && npm run catalogue:history && npm run demo}"
 
 is_generated() {
   for known in $GENERATED_PATHS; do

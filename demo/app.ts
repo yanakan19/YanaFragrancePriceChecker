@@ -32,6 +32,7 @@ import { productArt, type ArtSize } from './photo.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
+import { priceHistoryFor } from './priceHistory.generated.js';
 import { officialSiteFor } from './brandSites.js';
 import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
 
@@ -867,6 +868,87 @@ function unavailableRow(name: string): string {
   </li>`;
 }
 
+/** "6 Aug" — enough to place a point in time without crowding a small chart. */
+function shortDate(iso: string): string {
+  return new Date(iso).toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+}
+
+/**
+ * The historical cheapest-price line for one fragrance, reconstructed from
+ * real harvest commits — see scripts/build-price-history.ts for how. Omitted
+ * entirely below two points: a single dot has no trend to show, and showing
+ * one anyway would read as a chart implying history that is not there. Most
+ * fragrances are below that bar today (coverage is young), which is the
+ * honest state to show rather than papering over with a flat invented line.
+ */
+function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): string {
+  const points = priceHistoryFor(f.id);
+  if (points.length < 2) return '';
+
+  const W = 600;
+  const H = 160;
+  const PAD_X = 8;
+  const PAD_Y = 14;
+
+  const times = points.map((p) => Date.parse(p.at));
+  const prices = points.map((p) => p.priceGbp);
+  const minT = Math.min(...times);
+  const maxT = Math.max(...times);
+  const minP = Math.min(...prices);
+  const maxP = Math.max(...prices);
+  // A flat line (every point the same price) would divide by zero placing y;
+  // treated as its own one-point-wide band, centred, rather than crashing.
+  const spanP = maxP - minP || 1;
+  const spanT = maxT - minT || 1;
+
+  const xy = (t: number, p: number): [number, number] => [
+    PAD_X + ((t - minT) / spanT) * (W - PAD_X * 2),
+    PAD_Y + (1 - (p - minP) / spanP) * (H - PAD_Y * 2),
+  ];
+
+  const coords = points.map((p) => xy(Date.parse(p.at), p.priceGbp));
+  const linePath = coords.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+  // Filled area under the line, purely decorative, closed back along the
+  // baseline rather than the data — never read as a second data series.
+  const areaPath = `${linePath} L${coords.at(-1)![0].toFixed(1)},${H - PAD_Y} L${coords[0]![0].toFixed(1)},${H - PAD_Y} Z`;
+
+  const dots = points
+    .map((p, i) => {
+      const [x, y] = coords[i]!;
+      const isLast = i === points.length - 1;
+      // The pulse means "this is a live price right now", so it only belongs
+      // on the final point when the fragrance is actually purchasable this
+      // moment — a fragrance that has since sold out everywhere still gets
+      // its last known point marked as the most recent (bigger, filled), just
+      // without a live animation implying a currency this data no longer has.
+      const isLive = isLast && isCurrentlyPurchasable;
+      const label = `${formatGbp(p.priceGbp)} at ${esc(getRetailer(p.retailerId)?.name ?? p.retailerId)}, ${shortDate(p.at)}`;
+      return `<circle
+        class="history-dot${isLast ? ' history-dot-last' : ''}${isLive ? ' history-dot-live' : ''}"
+        cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${isLast ? 5 : 3.5}"
+        tabindex="0" role="button"
+        data-price="${esc(formatGbp(p.priceGbp))}"
+        data-retailer="${esc(getRetailer(p.retailerId)?.name ?? p.retailerId)}"
+        data-date="${esc(shortDate(p.at))}"
+        aria-label="${label}"
+      ><title>${label}</title></circle>`;
+    })
+    .join('');
+
+  return `<div class="history-block">
+    <p class="gone-head">Price history</p>
+    <div class="history-chart" data-history-chart>
+      <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" class="history-svg" aria-hidden="true" focusable="false">
+        <path d="${areaPath}" class="history-area" />
+        <path d="${linePath}" class="history-line" />
+        ${dots}
+      </svg>
+      <div class="history-tip" data-history-tip hidden></div>
+    </div>
+    <p class="notes-source">Cheapest live price recorded at each harvest, from ${esc(shortDate(points[0]!.at))}. Tap or hover a point for the exact price, date and retailer.</p>
+  </div>`;
+}
+
 function notesBlock(f: DemoFragrance): string {
   if (!f.notes) {
     return `<div class="notes-block">
@@ -947,6 +1029,8 @@ function detailView(): string {
                <ul class="offers">${gone.map((r) => offerRow(r, false)).join('')}</ul>`
             : ''
         }
+
+        ${priceHistoryChart(frag, best !== null)}
 
         ${
           unavailable.length
@@ -1600,6 +1684,47 @@ function mountChunkedList(): void {
   for (const el of document.querySelectorAll('[data-more]')) listObserver.observe(el);
 }
 
+/* ── price history tooltip ──────────────────────────────────────────────────
+   A hover shows it, a tap pins it — the same touch has no hover state to fall
+   back on, so tapping a point has to be the way it stays open rather than
+   flickering shut the instant the finger lifts. Only ever one tip live at a
+   time, tracked here rather than per-dot, since a fresh render replaces every
+   dot in the DOM on navigation anyway. */
+let pinnedHistoryDot: Element | null = null;
+
+function positionHistoryTip(dot: Element): void {
+  const chart = dot.closest('[data-history-chart]');
+  const tip = chart?.querySelector('[data-history-tip]') as HTMLElement | null;
+  if (!chart || !tip) return;
+
+  tip.innerHTML =
+    `<b>${esc(dot.getAttribute('data-price') ?? '')}</b>` +
+    `<span>${esc(dot.getAttribute('data-retailer') ?? '')} · ${esc(dot.getAttribute('data-date') ?? '')}</span>`;
+  tip.hidden = false;
+
+  const chartRect = chart.getBoundingClientRect();
+  const dotRect = dot.getBoundingClientRect();
+  const dotX = dotRect.left + dotRect.width / 2 - chartRect.left;
+  const y = dotRect.top - chartRect.top;
+
+  // Centring the tip on the dot is right everywhere except the two points
+  // that matter most — the first and, especially, the last (the current
+  // price, the one someone is most likely to check) — which sit flush
+  // against the chart's own edges and would push the tip half off-screen.
+  // Measured after the content is in and unhidden, since an empty or
+  // stale-content tip has the wrong width to clamp against.
+  const tipWidth = tip.offsetWidth;
+  const left = Math.min(Math.max(dotX - tipWidth / 2, 4), chartRect.width - tipWidth - 4);
+
+  tip.style.left = `${left}px`;
+  tip.style.top = `${Math.max(y, 40)}px`;
+}
+
+function hideHistoryTip(): void {
+  for (const tip of document.querySelectorAll('[data-history-tip]')) (tip as HTMLElement).hidden = true;
+  pinnedHistoryDot = null;
+}
+
 /* ── routing ─────────────────────────────────────────────────────────────────
    The view functions and render() know nothing about URLs. Everything here is
    a translation between `state` and the address bar, so routing stays
@@ -1846,8 +1971,45 @@ function init(): void {
   $('#nav-about').addEventListener('click', () => go('about'));
   $('#nav-settings').addEventListener('click', () => go('settings'));
 
+  // Hover shows a price history point; leaving it hides that point again
+  // unless it is the one currently pinned by a tap (see the click handler
+  // below). `focusin`/`focusout` carry the identical pair for keyboard users
+  // tabbing across dots, so nothing here works only for a mouse.
+  document.addEventListener('mouseover', (e) => {
+    const dot = (e.target as HTMLElement).closest('.history-dot');
+    if (dot) positionHistoryTip(dot);
+  });
+  document.addEventListener('mouseout', (e) => {
+    const dot = (e.target as HTMLElement).closest('.history-dot');
+    if (dot && dot !== pinnedHistoryDot) hideHistoryTip();
+  });
+  document.addEventListener('focusin', (e) => {
+    const dot = (e.target as HTMLElement).closest('.history-dot');
+    if (dot) positionHistoryTip(dot);
+  });
+  document.addEventListener('focusout', (e) => {
+    const dot = (e.target as HTMLElement).closest('.history-dot');
+    if (dot && dot !== pinnedHistoryDot) hideHistoryTip();
+  });
+
   document.addEventListener('click', (e) => {
     const t = e.target as HTMLElement;
+
+    // Touch has no hover state to show a tip on, so a tap has to double as
+    // both "show" and "stay open" — pinning it here is what keeps it up once
+    // the finger lifts, and tapping the same point again (or anywhere else,
+    // handled just below) is what closes it again.
+    const historyDot = t.closest('.history-dot');
+    if (historyDot) {
+      if (pinnedHistoryDot === historyDot) {
+        hideHistoryTip();
+      } else {
+        pinnedHistoryDot = historyDot;
+        positionHistoryTip(historyDot);
+      }
+      return;
+    }
+    if (pinnedHistoryDot && !t.closest('.history-tip')) hideHistoryTip();
 
     // Deliberately not `data-mode`: that attribute lives on <html> to drive the
     // palette, and closest() would match it for every click in the app.

@@ -62,7 +62,18 @@ jobs:
     timeout-minutes: 45
 
     steps:
+      # fetch-depth: 0 is load-bearing, not a nicety. actions/checkout@v4
+      # defaults to a shallow clone (depth 1) — fine for every other step
+      # here, which only ever look at the working tree — but
+      # scripts/build-price-history.ts replays the *entire* commit history of
+      # data/catalogue via `git log`/`git show` to reconstruct a real price
+      # history. Against a depth-1 clone it would silently see only this run's
+      # single commit, rebuild demo/priceHistory.generated.ts from just that
+      # one point, and never accumulate history from here on — with no error,
+      # nothing failing, just a chart that quietly never grows past one dot.
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -159,6 +170,7 @@ jobs:
         if: ${{ inputs.harvest || github.event_name == 'schedule' }}
         run: |
           npm run catalogue:demo
+          npm run catalogue:history
           npm run demo
 
       - name: Commit harvested prices
@@ -166,7 +178,8 @@ jobs:
         run: |
           ./scripts/commit-and-push.sh \
             "Harvest: real prices $(date -u +%Y-%m-%d)" \
-            data/catalogue demo/catalogue.generated.ts demo/index.html demo/404.html \
+            data/catalogue demo/catalogue.generated.ts demo/priceHistory.generated.ts \
+            demo/index.html demo/404.html \
             data/houses data/house-sourcing-report.json
 
       # No product photo is ever downloaded or hosted here — every tile links
