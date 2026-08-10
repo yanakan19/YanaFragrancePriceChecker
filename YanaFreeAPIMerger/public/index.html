@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>pricesniffs.space — Scent Council</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="app-header">
+      <div class="brand">🌸 pricesniffs<span class="dot">.space</span></div>
+      <div class="subtitle">Ask about prices, or get fragrance picks by scent notes.</div>
+    </header>
+
+    <main id="thread" class="thread"></main>
+
+    <div id="options" class="options">
+      <button class="option-btn" data-intent="price">💲 Check a price</button>
+      <button class="option-btn" data-intent="suggest">🌿 Suggest by notes</button>
+      <button class="option-btn" data-intent="general">💬 General question</button>
+    </div>
+
+    <form id="composer" class="composer">
+      <input id="input" type="text" placeholder="e.g. how much is Bleu de Chanel EDP?" autocomplete="off" />
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

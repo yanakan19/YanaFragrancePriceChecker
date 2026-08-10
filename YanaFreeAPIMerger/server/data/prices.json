@@ -1,0 +1,70 @@
+{
+  "_comment": "MOCK DATA. Shaped like a pricesniffs.space listing. Replace with a real scrape/export/API — see server/priceLookup.js.",
+  "updated": "2026-08-01",
+  "listings": [
+    {
+      "name": "Bleu de Chanel EDP",
+      "brand": "Chanel",
+      "size_ml": 100,
+      "lowest_price_usd": 118.5,
+      "retailer": "FragranceNet",
+      "notes": ["citrus", "cedar", "sandalwood", "ginger", "amber"]
+    },
+    {
+      "name": "Sauvage EDT",
+      "brand": "Dior",
+      "size_ml": 100,
+      "lowest_price_usd": 92.0,
+      "retailer": "FragranceX",
+      "notes": ["bergamot", "ambroxan", "pepper", "lavender"]
+    },
+    {
+      "name": "Aventus",
+      "brand": "Creed",
+      "size_ml": 100,
+      "lowest_price_usd": 335.0,
+      "retailer": "Luckyscent",
+      "notes": ["pineapple", "birch", "musk", "oakmoss", "blackcurrant"]
+    },
+    {
+      "name": "Baccarat Rouge 540 EDP",
+      "brand": "Maison Francis Kurkdjian",
+      "size_ml": 70,
+      "lowest_price_usd": 245.0,
+      "retailer": "Nordstrom",
+      "notes": ["saffron", "jasmine", "amberwood", "ambergris"]
+    },
+    {
+      "name": "Black Orchid EDP",
+      "brand": "Tom Ford",
+      "size_ml": 100,
+      "lowest_price_usd": 152.0,
+      "retailer": "FragranceNet",
+      "notes": ["black truffle", "ylang-ylang", "patchouli", "vanilla", "incense"]
+    },
+    {
+      "name": "Oud Wood EDP",
+      "brand": "Tom Ford",
+      "size_ml": 50,
+      "lowest_price_usd": 199.0,
+      "retailer": "Sephora",
+      "notes": ["oud", "rosewood", "sandalwood", "vanilla"]
+    },
+    {
+      "name": "Coco Mademoiselle EDP",
+      "brand": "Chanel",
+      "size_ml": 100,
+      "lowest_price_usd": 149.0,
+      "retailer": "Nordstrom",
+      "notes": ["orange", "rose", "jasmine", "patchouli", "vanilla"]
+    },
+    {
+      "name": "La Vie Est Belle EDP",
+      "brand": "Lancome",
+      "size_ml": 100,
+      "lowest_price_usd": 104.0,
+      "retailer": "FragranceX",
+      "notes": ["iris", "praline", "vanilla", "blackcurrant"]
+    }
+  ]
+}
