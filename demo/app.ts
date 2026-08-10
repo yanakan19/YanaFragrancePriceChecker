@@ -40,6 +40,7 @@ import {
   signUp, signIn, signOut, resendVerification, requestPasswordReset, currentUser, isVerified, onAuthChange,
 } from './auth.js';
 import type { User } from '@supabase/supabase-js';
+import { fetchWishlist, addToWishlist, removeFromWishlist, type WishlistEntry } from './wishlist.js';
 
 type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account';
 type AuthTab = 'signIn' | 'signUp';
@@ -118,6 +119,18 @@ const state = {
   // knows which address to offer resending to.
   authPendingEmail: '' as string,
   authResetSent: false,
+
+  // ── wishlist (Module 7 continued) ────────────────────────────────────────
+  // The signed-in reader's own saved fragrance ids, loaded once verification
+  // is confirmed and cleared on sign out (see loadWishlist/init). A Set so
+  // the detail page's toggle button is an O(1) lookup rather than scanning
+  // the full list on every render.
+  wishlistIds: new Set<string>(),
+  wishlistLoaded: false,
+  wishlistBusy: false,
+  // Full entries only fetched for the account page's own list, not needed
+  // just to render a toggle button correctly on the detail page.
+  wishlistEntries: [] as WishlistEntry[],
 };
 
 /** Every facet selection back to empty. Called on every navigation — see `go`. */
@@ -541,6 +554,11 @@ const ICON_DESKTOP = icon('<rect x="2.5" y="4" width="19" height="13" rx="2" str
 const ICON_TIKTOK = icon('<path d="M14 3v11.2a3.3 3.3 0 1 1-3.3-3.3c.3 0 .6 0 .9.1V8.4a6.1 6.1 0 1 0 5.1 6V9.8a7.5 7.5 0 0 0 4.3 1.4V8.5A4.6 4.6 0 0 1 17 4.5V3h-3Z" fill="currentColor"/>');
 const ICON_INSTAGRAM = icon('<rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/>');
 const ICON_EXTERNAL = icon('<path d="M14 4h6v6M20 4l-8.5 8.5M19 13.5V18a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>');
+// Outline by default; .wishlist-toggle.on switches it to a filled heart via
+// the shared .ico fill/stroke rule in template.html, the same on/off
+// language every other toggle in this app already uses (.seg-btn.on, etc).
+const ICON_HEART = icon('<path d="M12 20.5s-7.5-4.6-10-9.3C.5 7.8 2.6 4.5 6 4.5c2 0 3.4 1 6 3.6 2.6-2.6 4-3.6 6-3.6 3.4 0 5.5 3.3 4 6.7-2.5 4.7-10 9.3-10 9.3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>');
+const ICON_CLOSE = icon('<path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>');
 
 /** A labelled dropdown with its icon, used for every sort and filter control. */
 function control(id: string, label: string, ico: string, options: { value: string; label: string }[], current: string): string {
@@ -994,6 +1012,74 @@ function notesBlock(f: DemoFragrance): string {
   </div>`;
 }
 
+/** The account page's own wishlist list — a saved fragrance no longer in the
+ *  live catalogue (delisted everywhere since it was saved) is skipped rather
+ *  than rendered as a broken link; the row in the database is untouched, so
+ *  it would reappear if the fragrance ever comes back into stock somewhere. */
+function wishlistSectionHtml(): string {
+  if (!state.wishlistLoaded) return `<h3>Wishlist</h3><p class="settings-note">Loading.</p>`;
+
+  const rows = state.wishlistEntries
+    .map((e) => ({ entry: e, frag: fragranceById(e.fragranceId) }))
+    .filter((x): x is { entry: WishlistEntry; frag: DemoFragrance } => x.frag != null);
+
+  if (rows.length === 0) {
+    return `<h3>Wishlist</h3><p class="settings-note">Nothing saved yet. Tap Save on a fragrance to add it here.</p>`;
+  }
+
+  return `
+    <h3>Wishlist</h3>
+    <ul class="shop-list">
+      ${rows
+        .map(
+          ({ frag }) => `<li class="wishlist-row">
+            <button class="shop-row" data-frag="${esc(frag.id)}">
+              ${monogram(frag.brand)}
+              <span class="shop-row-text">
+                <span class="shop-row-name">${esc(frag.brand)} ${esc(frag.name)}</span>
+                <span class="shop-row-meta">${esc(frag.concentration)}, ${frag.sizeMl}ml</span>
+              </span>
+              <span class="shop-row-go" aria-hidden="true">→</span>
+            </button>
+            <button class="wishlist-remove" data-wishlist-remove="${esc(frag.id)}"
+                aria-label="Remove ${esc(frag.brand)} ${esc(frag.name)} from your wishlist">${ICON_CLOSE}</button>
+          </li>`,
+        )
+        .join('')}
+    </ul>`;
+}
+
+/** Fetches the signed-in reader's wishlist once verification is confirmed,
+ *  and re-renders when it lands — see handleAuthUser in init(). */
+function loadWishlist(): void {
+  fetchWishlist().then((entries) => {
+    state.wishlistEntries = entries;
+    state.wishlistIds = new Set(entries.map((e) => e.fragranceId));
+    state.wishlistLoaded = true;
+    render();
+  });
+}
+
+/**
+ * Invisible while accounts are not configured (nothing to save into yet).
+ * Once configured: an inviting "Sign in to save" for a signed out reader —
+ * this is one of the few places worth nudging toward /account, since saving
+ * something is exactly the moment an account earns its keep — and a real
+ * on/off toggle once signed in and verified.
+ */
+function wishlistButton(fragranceId: string): string {
+  if (!SUPABASE_CONFIGURED) return '';
+  if (!state.authChecked) return '';
+  if (!state.authUser || !isVerified(state.authUser)) {
+    return `<button class="wishlist-toggle" data-go-account>${ICON_HEART}<span>Sign in to save</span></button>`;
+  }
+  const saved = state.wishlistIds.has(fragranceId);
+  return `<button class="wishlist-toggle ${saved ? 'on' : ''}" data-wishlist-toggle="${esc(fragranceId)}"
+      aria-pressed="${saved}" ${state.wishlistBusy ? 'disabled' : ''}>
+    ${ICON_HEART}<span>${saved ? 'Saved' : 'Save'}</span>
+  </button>`;
+}
+
 function detailView(): string {
   const frag = fragranceById(state.fragranceId);
   if (!frag) return homeView();
@@ -1023,6 +1109,7 @@ function detailView(): string {
         <div class="hero-art">${productArt(frag.photoUrl, 'lg', `${frag.brand} ${frag.name}`)}</div>
         ${brandButton(frag.brand)}
         ${productHead(frag, 'div')}
+        ${wishlistButton(frag.id)}
         ${
           best
             ? `<div class="price-box">
@@ -1755,6 +1842,7 @@ function accountView(): string {
         <h2>Account</h2>
         <p class="account-note">Signed in as ${esc(user.email ?? '')}.</p>
         <button class="contact-send" id="auth-sign-out">Sign out</button>
+        ${wishlistSectionHtml()}
       </article>`;
   }
 
@@ -2303,23 +2391,30 @@ function init(): void {
   loadLayout();
   loadPerRow();
 
-  // The very first render happens synchronously below, before this promise
-  // can possibly resolve — accountView's own `!state.authChecked` branch is
-  // what covers that gap rather than this holding up startup for every page
-  // that is not the account page.
-  currentUser().then((user) => {
+  // The very first render happens synchronously below, before either of
+  // these callbacks can possibly fire — accountView's own `!state.authChecked`
+  // branch, and wishlistButton's own `!state.authChecked` branch, are what
+  // cover that gap rather than this holding up startup for every page.
+  const handleAuthUser = (user: User | null) => {
     state.authUser = user;
     state.authChecked = true;
-    if (state.view === 'account') render();
-  });
+    if (user && isVerified(user)) {
+      loadWishlist();
+    } else {
+      // A different reader may be signing in on the same device, or this one
+      // just signed out — either way, the previous session's saved ids must
+      // not linger and render as if they belonged to whoever is here now.
+      state.wishlistIds = new Set();
+      state.wishlistEntries = [];
+      state.wishlistLoaded = false;
+    }
+    render();
+  };
+  currentUser().then(handleAuthUser);
   // Fires on every sign in, sign out and token refresh, including the tab
   // that just followed a verification link back in — see its own comment in
   // auth.ts for why nothing here needs to poll for that.
-  onAuthChange((user) => {
-    state.authUser = user;
-    state.authChecked = true;
-    if (state.view === 'account') render();
-  });
+  onAuthChange(handleAuthUser);
 
   // The bar search is the quick one: type a name, get results. The Search
   // subpage under Explore is where the same query gains a brand filter and
@@ -2520,6 +2615,48 @@ function init(): void {
         state.authBusy = false;
         state.authResetSent = result.ok;
         state.authError = result.ok ? '' : result.message;
+        render();
+      });
+      return;
+    }
+
+    const wishlistRemoveBtn = t.closest('[data-wishlist-remove]');
+    if (wishlistRemoveBtn) {
+      const fragranceId = wishlistRemoveBtn.getAttribute('data-wishlist-remove')!;
+      state.wishlistIds.delete(fragranceId);
+      state.wishlistEntries = state.wishlistEntries.filter((e) => e.fragranceId !== fragranceId);
+      render();
+      removeFromWishlist(fragranceId).then((result) => {
+        if (!result.ok) {
+          // Roll back by reloading from the server rather than guessing what
+          // the entry's own target price was, since this optimistic removal
+          // already discarded it.
+          loadWishlist();
+        }
+      });
+      return;
+    }
+
+    const wishlistBtn = t.closest('[data-wishlist-toggle]');
+    if (wishlistBtn) {
+      const fragranceId = wishlistBtn.getAttribute('data-wishlist-toggle')!;
+      const saved = state.wishlistIds.has(fragranceId);
+      state.wishlistBusy = true;
+      // Reflects the change immediately rather than waiting on the round
+      // trip — a save button that visibly lags behind the tap reads as
+      // broken, and the worst case of being wrong is a re-render once the
+      // request actually settles a moment later.
+      if (saved) state.wishlistIds.delete(fragranceId);
+      else state.wishlistIds.add(fragranceId);
+      render();
+      const action = saved ? removeFromWishlist(fragranceId) : addToWishlist(fragranceId);
+      action.then((result) => {
+        state.wishlistBusy = false;
+        if (!result.ok) {
+          // Roll back: the optimistic flip above did not actually happen.
+          if (saved) state.wishlistIds.add(fragranceId);
+          else state.wishlistIds.delete(fragranceId);
+        }
         render();
       });
       return;
