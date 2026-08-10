@@ -1,0 +1,17 @@
+[Unit]
+Description=YanaFreeAPIMerger perfume council chatbot
+After=network.target docker.service
+Requires=docker.service
+
+[Service]
+Type=simple
+# Adjust User/WorkingDirectory to match where you actually cloned the repo.
+User=opc
+WorkingDirectory=/home/opc/YanaFragrancePriceChecker/YanaFreeAPIMerger
+ExecStart=/usr/bin/node server/index.js
+Restart=on-failure
+RestartSec=5
+EnvironmentFile=/home/opc/YanaFragrancePriceChecker/YanaFreeAPIMerger/.env
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,34 @@
+# Example reverse proxy so the chatbot is reachable at a real subdomain
+# (e.g. api.pricesniffs.space) instead of a raw IP:port, and so SSE
+# (Server-Sent Events, used for the splash sequence) survives the proxy.
+#
+# 1. Point api.pricesniffs.space's DNS A record at this VM's public IP.
+# 2. Install nginx: sudo dnf -y install nginx
+# 3. Copy this file to /etc/nginx/conf.d/pricesniffs-api.conf (edit the
+#    server_name first), then: sudo systemctl enable --now nginx
+# 4. Get a real cert: sudo dnf -y install certbot python3-certbot-nginx
+#    && sudo certbot --nginx -d api.pricesniffs.space
+# 5. Open port 80/443 in both firewalld AND the OCI Security List — port
+#    4000 itself should NOT need to be open publicly once this is in place.
+
+server {
+    listen 80;
+    server_name api.pricesniffs.space;
+
+    location / {
+        proxy_pass http://127.0.0.1:4000;
+        proxy_http_version 1.1;
+
+        # Required for the SSE splash-sequence stream (/api/chat) to work
+        # through the proxy instead of being buffered/held.
+        proxy_set_header Connection '';
+        proxy_buffering off;
+        proxy_cache off;
+        chunked_transfer_encoding off;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_read_timeout 120s;
+    }
+}
