@@ -812,6 +812,21 @@
   .shop-row-meta { display: block; font-size: 12.5px; color: var(--faint); }
   .shop-row-go { flex: none; color: var(--accent); font-weight: 700; }
 
+  /* Module 7: the account page's own wishlist list. A remove control sits
+     beside the row rather than inside it — a <button> cannot nest inside
+     another <button>, and the row itself is one (it navigates to the
+     fragrance on tap, same as every other .shop-row in this app). */
+  .wishlist-row { display: flex; align-items: center; gap: 4px; }
+  .wishlist-row .shop-row { width: auto; flex: 1; min-width: 0; }
+  .wishlist-remove {
+    flex: none; display: flex; align-items: center; justify-content: center;
+    width: 34px; height: 34px; border-radius: 50%; border: 0; background: none;
+    color: var(--faint); cursor: pointer;
+  }
+  .wishlist-remove .ico { width: 15px; height: 15px; }
+  .wishlist-remove:hover, .wishlist-remove:focus-visible { color: var(--accent); }
+  .wishlist-remove:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
   /* Logo left, everything else — name, domain, blurb, delivery — condensed
      into a right column that reads top to bottom. Replaces the old
      everything-centred-and-stacked layout, which spent most of a screen's
@@ -1039,6 +1054,25 @@
   .hero .phead-brand { font-size: 11px; letter-spacing: .12em; }
   .hero .phead-meta { font-size: 11.5px; }
   .hero-blurb { font-size: 13.5px; color: var(--faint); margin: 9px auto 0; max-width: 32ch; }
+
+  /* Module 7: save a fragrance. Outline heart, unfilled, until .on — never
+     shown at all unless accounts are actually configured, see its own
+     comment in app.ts. */
+  .wishlist-toggle {
+    display: flex; align-items: center; gap: 6px; margin: 12px auto 0;
+    padding: 8px 16px; border-radius: 20px; border: 1px solid var(--line-firm);
+    background: var(--surface); color: var(--ink-2);
+    font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
+    transition: border-color .15s ease, color .15s ease, background-color .15s ease;
+  }
+  .wishlist-toggle .ico { width: 16px; height: 16px; }
+  .wishlist-toggle.on {
+    border-color: var(--accent); color: var(--accent); background: var(--accent-sf);
+  }
+  .wishlist-toggle.on .ico { fill: var(--accent); }
+  .wishlist-toggle:active { transform: scale(.96); }
+  .wishlist-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .wishlist-toggle[disabled] { opacity: .6; cursor: default; }
 
   /* The one number on the page a reader actually needs, in its own glowing
      card so it cannot be mistaken for just another line of text. */
