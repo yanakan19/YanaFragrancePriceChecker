@@ -1505,6 +1505,110 @@
   }
   .footer-link .ico { width: 14px; height: 14px; }
   .footer-link:hover, .footer-link:focus-visible { color: var(--accent); }
+
+  /* ── Virtual Yanny ─────────────────────────────────────────────────────── */
+  .yanny-launcher {
+    position: fixed; right: 18px; bottom: 18px; z-index: 60;
+    width: 56px; height: 56px; border-radius: 50%; border: 1px solid var(--line-firm);
+    background: var(--surface); box-shadow: var(--shadow), 0 4px 18px rgba(0,0,0,.25);
+    font-size: 26px; line-height: 1; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: transform .15s ease;
+  }
+  .yanny-launcher:hover, .yanny-launcher:focus-visible { transform: scale(1.06); }
+  .yanny-launcher:active { transform: scale(.94); }
+  .yanny-launcher:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  /* Hidden rather than removed while the panel is open — its position is
+     exactly where the panel visually "came from", which is worth keeping. */
+  .yanny-launcher[data-open] { display: none; }
+
+  .yanny-panel {
+    position: fixed; right: 18px; bottom: 18px; z-index: 61;
+    width: min(380px, calc(100vw - 24px)); height: min(600px, calc(100vh - 100px));
+    display: flex; flex-direction: column; overflow: hidden;
+    background: var(--bg); border: 1px solid var(--line-firm); border-radius: 20px;
+    box-shadow: var(--shadow), 0 12px 40px rgba(0,0,0,.35);
+  }
+  @media (max-width: 480px) {
+    /* A floating card with that much dead space around it on a phone reads
+       as a mistake, not a design choice — full sheet instead. */
+    .yanny-panel { right: 0; bottom: 0; width: 100vw; height: 100vh; border-radius: 0; }
+  }
+
+  .yanny-head {
+    flex: none; display: flex; align-items: center; gap: 10px;
+    padding: 14px 14px 14px 18px; border-bottom: 1px solid var(--line);
+  }
+  .yanny-head-mark { font-size: 20px; flex: none; }
+  .yanny-head-text { flex: 1; min-width: 0; }
+  .yanny-head-name { margin: 0; font-size: 15px; font-weight: 800; letter-spacing: -.01em; }
+  .yanny-head-sub { margin: 1px 0 0; font-size: 11.5px; color: var(--faint); }
+  .yanny-close {
+    flex: none; width: 32px; height: 32px; border-radius: 50%; border: 0; background: none;
+    color: var(--faint); cursor: pointer; display: flex; align-items: center; justify-content: center;
+  }
+  .yanny-close:hover, .yanny-close:focus-visible { color: var(--accent); }
+  .yanny-close:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+  .yanny-close .ico { width: 18px; height: 18px; }
+
+  .yanny-body { flex: 1; min-height: 0; overflow-y: auto; padding: 14px 16px; }
+
+  .yanny-unavailable {
+    height: 100%; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; text-align: center; gap: 10px; padding: 24px;
+  }
+  .yanny-unavailable-mark { font-size: 40px; opacity: .6; }
+  .yanny-unavailable p { margin: 0; font-size: 13.5px; color: var(--ink-2); max-width: 26ch; }
+  .yanny-checking { height: 100%; display: flex; align-items: center; justify-content: center; }
+
+  .yanny-msg {
+    max-width: 84%; margin: 0 0 10px; padding: 9px 13px; border-radius: 14px;
+    font-size: 13.5px; line-height: 1.45; white-space: pre-wrap;
+  }
+  .yanny-msg.user { margin-left: auto; background: var(--accent); color: var(--accent-on); border-bottom-right-radius: 4px; }
+  .yanny-msg.bot { background: var(--surface); border: 1px solid var(--line); border-bottom-left-radius: 4px; }
+
+  .yanny-splash { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 12.5px; color: var(--faint); }
+  .yanny-spinner {
+    width: 13px; height: 13px; flex: none; border-radius: 50%;
+    border: 2px solid var(--line-firm); border-top-color: var(--accent);
+    animation: yanny-spin .7s linear infinite;
+  }
+  @keyframes yanny-spin { to { transform: rotate(360deg); } }
+
+  .yanny-agent-chips { display: flex; flex-wrap: wrap; gap: 5px; margin: 0 0 10px; }
+  .yanny-agent-chip {
+    font-size: 10.5px; font-weight: 700; padding: 3px 8px; border-radius: 20px;
+    background: var(--surface); border: 1px solid var(--line);
+  }
+  .yanny-agent-chip.ok { color: var(--ok); border-color: var(--ok); }
+  .yanny-agent-chip.fail { color: var(--faint); }
+
+  .yanny-ranking { margin: 0 0 10px; font-size: 12px; }
+  .yanny-ranking summary { cursor: pointer; color: var(--faint); font-weight: 600; }
+  .yanny-ranking table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 11px; }
+  .yanny-ranking th, .yanny-ranking td { padding: 4px 6px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  .yanny-ranking tr.winner { color: var(--accent); font-weight: 700; }
+
+  .yanny-options { flex: none; display: flex; gap: 6px; padding: 0 16px 10px; flex-wrap: wrap; }
+  .yanny-option-btn {
+    font: inherit; font-size: 12px; font-weight: 600; padding: 7px 11px; border-radius: 20px;
+    background: var(--surface); border: 1px solid var(--line); color: var(--ink-2); cursor: pointer;
+  }
+  .yanny-option-btn.on { background: var(--accent-sf); border-color: var(--accent); color: var(--accent); }
+  .yanny-option-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  .yanny-composer { flex: none; display: flex; gap: 8px; padding: 12px 16px; border-top: 1px solid var(--line); }
+  .yanny-composer input {
+    flex: 1; min-width: 0; font: inherit; font-size: 13.5px; color: var(--ink); background: var(--surface);
+    border: 1px solid var(--line); border-radius: 20px; padding: 10px 14px;
+  }
+  .yanny-composer input:focus-visible { outline: 2px solid var(--accent); outline-offset: -1px; }
+  .yanny-composer button {
+    flex: none; width: 40px; height: 40px; border-radius: 50%; border: 0;
+    background: var(--accent); color: var(--accent-on); font-size: 16px; cursor: pointer;
+  }
+  .yanny-composer button:disabled { opacity: .5; cursor: default; }
+  .yanny-composer button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 </style>
 
 <div class="ambient" aria-hidden="true">
@@ -1551,6 +1655,9 @@
 </div>
 
 <div id="sheet-host"></div>
+
+<button id="yanny-launcher" class="yanny-launcher" aria-label="Chat with Virtual Yanny" aria-haspopup="dialog">🤖</button>
+<div id="yanny-panel-host"></div>
 
 <script>/*__BUNDLE__*/</script>
 <script>

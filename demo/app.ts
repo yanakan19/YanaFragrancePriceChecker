@@ -41,6 +41,9 @@ import {
 } from './auth.js';
 import type { User } from '@supabase/supabase-js';
 import { fetchWishlist, addToWishlist, removeFromWishlist, type WishlistEntry } from './wishlist.js';
+import {
+  VIRTUAL_YANNY_CONFIGURED, checkYannyHealth, askVirtualYanny, type YannyIntent, type YannyResult, type YannyEvent,
+} from './virtualYanny.js';
 
 type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account';
 type AuthTab = 'signIn' | 'signUp';
@@ -131,6 +134,23 @@ const state = {
   // Full entries only fetched for the account page's own list, not needed
   // just to render a toggle button correctly on the detail page.
   wishlistEntries: [] as WishlistEntry[],
+
+  // ── Virtual Yanny ─────────────────────────────────────────────────────────
+  yannyOpen: false,
+  // 'idle' before the panel has ever been opened this session; the health
+  // check only ever runs on open (see openYanny), never speculatively, so a
+  // reader who never clicks the launcher never pays for it.
+  yannyStatus: 'idle' as 'idle' | 'checking' | 'unavailable' | 'ready',
+  yannyIntent: null as YannyIntent | null,
+  yannyThread: [] as YannyThreadItem[],
+  yannyBusy: false,
+  yannySplash: '',
+  yannyAgentChips: [] as { agentNumber: number; ok: boolean }[],
+  yannyLastResult: null as YannyResult | null,
+  // Focus returns here on close — whatever had focus before the panel opened,
+  // almost always the launcher button itself but not necessarily (a reader
+  // could open it via keyboard from anywhere focus happens to be).
+  yannyOpenedFrom: null as HTMLElement | null,
 };
 
 /** Every facet selection back to empty. Called on every navigation — see `go`. */
@@ -2226,6 +2246,180 @@ function syncUrl(mode: 'push' | 'replace' = 'push'): void {
   }
 }
 
+/* ── virtual yanny ───────────────────────────────────────────────────────── */
+
+type YannyThreadItem =
+  | { kind: 'msg'; who: 'user' | 'bot'; text: string }
+  | { kind: 'ranking'; result: YannyResult };
+
+const YANNY_INTENT_LABEL: Record<YannyIntent, string> = {
+  price: 'Check a price',
+  suggest: 'Suggest by notes',
+  general: 'General question',
+};
+const YANNY_PLACEHOLDER: Record<YannyIntent, string> = {
+  price: 'e.g. how much is Bleu de Chanel EDP?',
+  suggest: 'e.g. vanilla, oud, no florals',
+  general: 'Ask anything about this site…',
+};
+
+function yannyHeadHtml(): string {
+  return `<div class="yanny-head">
+    <span class="yanny-head-mark" aria-hidden="true">🤖</span>
+    <div class="yanny-head-text">
+      <p class="yanny-head-name">Virtual Yanny</p>
+      <p class="yanny-head-sub">Grounded only in what this site actually shows</p>
+    </div>
+    <button class="yanny-close" id="yanny-close" aria-label="Close chat">${ICON_CLOSE}</button>
+  </div>`;
+}
+
+function yannyRankingHtml(result: YannyResult): string {
+  if (!result.ok || !result.matrix || !result.criteria) return '';
+  const critKeys = result.criteria.map((c) => c.key);
+  return `<details class="yanny-ranking">
+    <summary>Scoring matrix, ${result.respondedCount}/${result.agentCount} agents responded, ranked anonymously</summary>
+    <table>
+      <thead><tr><th>Rank</th><th>Agent</th>${critKeys.map((k) => `<th>${esc(k)}</th>`).join('')}<th>Total</th></tr></thead>
+      <tbody>
+        ${result.matrix
+          .map(
+            (m) => `<tr class="${m.rank === 1 ? 'winner' : ''}">
+              <td>#${m.rank}</td><td>Agent ${m.agentNumber}</td>
+              ${critKeys.map((k) => `<td>${m.criteriaScores[k]}</td>`).join('')}
+              <td><strong>${m.totalScore}</strong></td>
+            </tr>`,
+          )
+          .join('')}
+      </tbody>
+    </table>
+  </details>`;
+}
+
+function yannyThreadHtml(): string {
+  const items = state.yannyThread
+    .map((item) => (item.kind === 'msg' ? `<div class="yanny-msg ${item.who}">${esc(item.text)}</div>` : yannyRankingHtml(item.result)))
+    .join('');
+
+  if (!state.yannyBusy) return items;
+
+  const chips = state.yannyAgentChips.length
+    ? `<div class="yanny-agent-chips">${state.yannyAgentChips
+        .map((c) => `<span class="yanny-agent-chip ${c.ok ? 'ok' : 'fail'}">Agent ${c.agentNumber} ${c.ok ? '✓' : '✗'}</span>`)
+        .join('')}</div>`
+    : '';
+  return `${items}<div class="yanny-splash"><span class="yanny-spinner" aria-hidden="true"></span><span>${esc(state.yannySplash)}</span></div>${chips}`;
+}
+
+function yannyPanelHtml(): string {
+  if (state.yannyStatus === 'idle' || state.yannyStatus === 'checking') {
+    return `<div class="yanny-panel">${yannyHeadHtml()}<div class="yanny-checking"><span class="yanny-spinner" aria-hidden="true"></span></div></div>`;
+  }
+  if (state.yannyStatus === 'unavailable') {
+    return `<div class="yanny-panel">${yannyHeadHtml()}
+      <div class="yanny-unavailable">
+        <div class="yanny-unavailable-mark" aria-hidden="true">🤖💤</div>
+        <p>Virtual Yanny isn't available right now. Check back soon.</p>
+      </div>
+    </div>`;
+  }
+
+  const intent = state.yannyIntent ?? 'general';
+  return `<div class="yanny-panel">
+    ${yannyHeadHtml()}
+    <div class="yanny-body" id="yanny-body">${yannyThreadHtml()}</div>
+    <div class="yanny-options" role="group" aria-label="What is this about">
+      ${(['price', 'suggest', 'general'] as const)
+        .map((i) => `<button class="yanny-option-btn ${state.yannyIntent === i ? 'on' : ''}" data-yanny-intent="${i}">${YANNY_INTENT_LABEL[i]}</button>`)
+        .join('')}
+    </div>
+    <form id="yanny-composer" class="yanny-composer">
+      <label class="sr" for="yanny-input">Message Virtual Yanny</label>
+      <input id="yanny-input" type="text" placeholder="${esc(YANNY_PLACEHOLDER[intent])}" autocomplete="off" ${state.yannyBusy ? 'disabled' : ''} />
+      <button type="submit" aria-label="Send" ${state.yannyBusy ? 'disabled' : ''}>&#10148;</button>
+    </form>
+  </div>`;
+}
+
+/** Redraws just the launcher/panel pair — never the full app render(), so
+ *  opening or using the chat never disturbs whatever page sits behind it. */
+function renderYanny(): void {
+  const launcher = $('#yanny-launcher') as HTMLElement;
+  const host = $('#yanny-panel-host') as HTMLElement;
+  launcher.toggleAttribute('data-open', state.yannyOpen);
+  host.innerHTML = state.yannyOpen ? yannyPanelHtml() : '';
+  if (state.yannyOpen && state.yannyStatus === 'ready') {
+    const body = $('#yanny-body') as HTMLElement | null;
+    if (body) body.scrollTop = body.scrollHeight;
+  }
+}
+
+/**
+ * The health check runs every single time the panel opens, never cached
+ * from an earlier open in the same session — the backend or its own
+ * FreeLLMAPI router can go down between one open and the next, and a stale
+ * "it worked last time" would show a chat box that then hangs on the first
+ * real question instead of the honest unavailable state up front.
+ */
+function openYanny(triggeredBy: HTMLElement): void {
+  state.yannyOpen = true;
+  state.yannyOpenedFrom = triggeredBy;
+  state.yannyStatus = 'checking';
+  renderYanny();
+  (document.querySelector('#yanny-close') as HTMLElement | null)?.focus();
+
+  checkYannyHealth().then((health) => {
+    state.yannyStatus = health.ok ? 'ready' : 'unavailable';
+    if (state.yannyStatus === 'ready' && state.yannyThread.length === 0) {
+      state.yannyThread.push({
+        kind: 'msg',
+        who: 'bot',
+        text: "Hi, I'm Virtual Yanny. Ask about a price, get fragrance picks by notes, or ask how this site works.",
+      });
+    }
+    renderYanny();
+    (document.querySelector('#yanny-close') as HTMLElement | null)?.focus();
+  });
+}
+
+function closeYanny(): void {
+  state.yannyOpen = false;
+  renderYanny();
+  state.yannyOpenedFrom?.focus();
+  state.yannyOpenedFrom = null;
+}
+
+function sendYannyMessage(text: string): void {
+  const trimmed = text.trim();
+  if (!trimmed || state.yannyBusy) return;
+
+  state.yannyThread.push({ kind: 'msg', who: 'user', text: trimmed });
+  state.yannyBusy = true;
+  state.yannySplash = 'Thinking…';
+  state.yannyAgentChips = [];
+  renderYanny();
+
+  askVirtualYanny(trimmed, state.yannyIntent, (event: YannyEvent) => {
+    if (event.type === 'status') {
+      state.yannySplash = event.message;
+    } else if (event.type === 'agent') {
+      state.yannyAgentChips.push({ agentNumber: event.agentNumber, ok: event.ok });
+    } else if (event.type === 'result') {
+      state.yannyBusy = false;
+      if (event.result.ok && event.result.winner) {
+        state.yannyThread.push({ kind: 'msg', who: 'bot', text: event.result.winner.content });
+        state.yannyThread.push({ kind: 'ranking', result: event.result });
+      } else {
+        state.yannyThread.push({ kind: 'msg', who: 'bot', text: `The council could not answer that: ${event.result.error ?? 'unknown error'}.` });
+      }
+    } else if (event.type === 'error') {
+      state.yannyBusy = false;
+      state.yannyThread.push({ kind: 'msg', who: 'bot', text: event.message });
+    }
+    renderYanny();
+  });
+}
+
 /* ── chrome ──────────────────────────────────────────────────────────────── */
 
 function render(): void {
@@ -2390,6 +2584,10 @@ function init(): void {
   loadMode();
   loadLayout();
   loadPerRow();
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && state.yannyOpen) closeYanny();
+  });
 
   // The very first render happens synchronously below, before either of
   // these callbacks can possibly fire — accountView's own `!state.authChecked`
@@ -2571,6 +2769,23 @@ function init(): void {
 
     if (t.closest('[data-go-account]')) {
       go('account');
+      return;
+    }
+
+    if (t.closest('#yanny-launcher')) {
+      openYanny(t.closest('#yanny-launcher') as HTMLElement);
+      return;
+    }
+    if (t.closest('#yanny-close')) {
+      closeYanny();
+      return;
+    }
+    const yannyIntentBtn = t.closest('[data-yanny-intent]');
+    if (yannyIntentBtn) {
+      const intent = yannyIntentBtn.getAttribute('data-yanny-intent') as YannyIntent;
+      state.yannyIntent = state.yannyIntent === intent ? null : intent;
+      renderYanny();
+      (document.querySelector('#yanny-input') as HTMLElement | null)?.focus();
       return;
     }
 
@@ -2785,6 +3000,14 @@ function init(): void {
       const confirm = $('#home-suggest-confirm') as HTMLElement;
       confirm.textContent = `Your email app should now be open with your suggestion ready to send. Hit send there to reach us, we really appreciate it.`;
       confirm.hidden = false;
+      return;
+    }
+    if (form.id === 'yanny-composer') {
+      e.preventDefault();
+      const input = $('#yanny-input') as HTMLInputElement;
+      const text = input.value;
+      input.value = '';
+      sendYannyMessage(text);
       return;
     }
     if (form.id === 'auth-signin-form' || form.id === 'auth-signup-form') {

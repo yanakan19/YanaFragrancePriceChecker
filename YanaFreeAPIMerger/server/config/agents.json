@@ -1,0 +1,33 @@
+{
+  "_comment": "Real, confirmed-working model ids from Yana's own FreeLLMAPI instance (GET /v1/models with the unified key), captured after adding Google AI Studio, Groq, Mistral, and Cohere free-tier keys. Code-specific models (codestral, devstral, mistral-code*, north-mini-code) were left out as not useful for perfume chat. Update this list any time providers/keys change.",
+  "models": [
+    "gemini-3.5-flash",
+    "gemini-3-flash-preview",
+    "gemini-3.1-flash-lite",
+    "gemini-2.5-flash",
+    "gemini-2.5-flash-lite",
+    "gemma-4-31b-it",
+    "gemma-4-26b-it",
+    "compound",
+    "compound-mini",
+    "gpt-oss-120b",
+    "gpt-oss-20b",
+    "qwen3.6-27b",
+    "allam-2-7b",
+    "command-a-2",
+    "command-a-reasoning",
+    "command-a-vision",
+    "command-a",
+    "command-r",
+    "command-r-2",
+    "command-r7b",
+    "aya-vision-32b",
+    "aya-expanse-32b",
+    "mistral-large-3",
+    "mistral-medium-3.5",
+    "mistral-small-4",
+    "magistral-medium",
+    "magistral-small",
+    "ministral-14b"
+  ]
+}

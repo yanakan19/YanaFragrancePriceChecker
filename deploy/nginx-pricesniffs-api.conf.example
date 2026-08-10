@@ -1,0 +1,78 @@
+# Reverse proxy for the Virtual Yanny backend (YanaFreeAPIMerger), fronting
+# the Node/Express service on 127.0.0.1:4000 (see yanafreeapimerger.service).
+#
+# pricesniffs.space itself is served over HTTPS from GitHub Pages, and the
+# chat widget calls this API straight from the browser (see the parent
+# repo's demo/virtualYanny.ts) — a plain http:// API origin would be mixed
+# content and get silently blocked by every browser, so TLS here is not
+# optional, it is what makes the widget work at all. Run certbot for
+# whatever hostname you actually point at this VM before enabling this file;
+# the paths below are certbot's own default layout.
+#
+# Copy to /etc/nginx/sites-available/pricesniffs-api.conf (or the Oracle
+# Linux 9 equivalent, /etc/nginx/conf.d/), fill in your real hostname, then
+# symlink into sites-enabled (Debian/Ubuntu) or just reload (RHEL family,
+# conf.d is read directly).
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name api.pricesniffs.space;  # replace with the real hostname once one exists
+
+    # certbot's HTTP-01 challenge, then redirect everything else to HTTPS.
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name api.pricesniffs.space;  # replace with the real hostname once one exists
+
+    ssl_certificate     /etc/letsencrypt/live/api.pricesniffs.space/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/api.pricesniffs.space/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    # CORS itself is handled by the app (see YanaFreeAPIMerger/server/index.js);
+    # nginx only needs to get out of the way of it, not duplicate it.
+
+    location /api/chat {
+        proxy_pass http://127.0.0.1:4000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # This endpoint is Server-Sent Events, not a single request/response —
+        # buffering here would hold the whole splash sequence (Thinking...,
+        # Consulting our N agents..., each agent chip) until the stream ended,
+        # which defeats the entire point of streaming it. chunked_transfer_encoding
+        # off lets each `data: ...\n\n` chunk reach the browser as the app writes it.
+        proxy_buffering off;
+        proxy_cache off;
+        chunked_transfer_encoding off;
+        # A council round can genuinely take up to AGENT_TIMEOUT_SECONDS (default
+        # 25s) per agent, run in parallel but still slower than an ordinary API
+        # call — nginx's default 60s read timeout is close enough to that to be
+        # worth widening rather than risk cutting a real, in-progress answer off.
+        proxy_read_timeout 90s;
+    }
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:4000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    location / {
+        return 404;
+    }
+}

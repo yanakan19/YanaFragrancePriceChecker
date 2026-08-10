@@ -1,0 +1,36 @@
+[Unit]
+Description=Virtual Yanny backend (YanaFreeAPIMerger)
+# The site's data source is this same checkout's demo/ and src/ trees (see
+# YanaFreeAPIMerger/server/siteData.js) — nothing here is useful before the
+# hourly harvest's own network access exists, but that is a systemd ordering
+# nicety, not a hard dependency, since siteData.js re-reads from disk on
+# every request regardless of when this unit started relative to a git pull.
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Set to wherever this repo is checked out on the VM. provision-oracle-linux9.sh
+# clones it to /opt/pricesniffs/YanaFragrancePriceChecker by default.
+WorkingDirectory=/opt/pricesniffs/YanaFragrancePriceChecker/YanaFreeAPIMerger
+EnvironmentFile=/opt/pricesniffs/YanaFragrancePriceChecker/YanaFreeAPIMerger/.env
+ExecStart=/usr/bin/npm start
+Restart=on-failure
+RestartSec=5
+# A stray process would otherwise survive the harvest's own git pull and
+# keep answering from a stale checkout underneath a newer one.
+KillMode=mixed
+
+# Least privilege: a dedicated user, no shell, and no write access to the
+# checkout at all — this service only ever reads it (see siteData.js's own
+# comment on why every read is re-done fresh per request rather than
+# cached). Whatever pulls the hourly harvest's updates onto this VM runs as
+# a separate, separately-privileged step, not this service.
+User=virtualyanny
+Group=virtualyanny
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target
