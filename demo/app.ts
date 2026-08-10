@@ -1354,6 +1354,31 @@ function brandView(): string {
 
 /* ── explore: notes ──────────────────────────────────────────────────────── */
 
+const ALPHABET = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+
+/**
+ * The vertical A-to-Z index strip, iOS Contacts-style. Mobile only — hidden
+ * on desktop by CSS (`:root[data-layout="desktop"]`), where a mouse can
+ * already reach any point in a shorter list without one. `aria-hidden`
+ * unconditionally, on both layouts: this is a supplementary rapid-jump
+ * gesture over content that already exists as an ordinary, keyboard-reachable
+ * list right next to it, not a second copy of that content, so nothing here
+ * needs its own accessible path — the letters underneath do.
+ *
+ * A letter with nothing under it still renders, just dimmed and inert
+ * (`data-empty`, no `data-letter`), rather than being left out: removing it
+ * would shift every letter below it sideways under the finger mid-drag,
+ * which is the one thing an index strip must never do.
+ */
+function alphaScrubber(activeLetters: Set<string>): string {
+  const letters = ALPHABET.map((l) =>
+    activeLetters.has(l)
+      ? `<span class="alpha-scrubber-letter" data-letter="${l}">${l}</span>`
+      : `<span class="alpha-scrubber-letter" data-empty>${l}</span>`,
+  ).join('');
+  return `<div class="alpha-scrubber" data-alpha-scrubber aria-hidden="true">${letters}</div>`;
+}
+
 function notesPanel(): string {
   const filtered = NOTE_INDEX.filter(
     (n) => state.noteLayer === 'any' || n.layers.has(state.noteLayer),
@@ -1375,35 +1400,79 @@ function notesPanel(): string {
     ], state.noteLayer)}
   </div>`;
 
+  // "Fragrance Note Groups" as the three layers the sourced note data
+  // genuinely carries — top, middle, base — rather than a scent-family
+  // taxonomy (floral, woody, gourmand...) this dataset has no real source
+  // for. Tapping one filters the alphabetical list below exactly like the
+  // dropdown above does; tapping the active one again clears it.
+  const groupCard = (id: NoteLayer, label: string) => {
+    const count = NOTE_INDEX.filter((n) => n.layers.has(id)).length;
+    return `<button class="note-group-card${state.noteLayer === id ? ' on' : ''}" data-note-layer="${id}">
+      <span class="note-group-count">${count}</span>
+      <span class="note-group-label">${label} Notes</span>
+    </button>`;
+  };
+  const groups = `<div class="notes-groups">
+    <p class="section-label">Note Groups</p>
+    <div class="notes-groups-row">
+      ${groupCard('top', 'Top')}
+      ${groupCard('middle', 'Middle')}
+      ${groupCard('base', 'Base')}
+    </div>
+  </div>`;
+
   if (list.length === 0) {
-    return `${controls}<p class="empty-note">No notes recorded for that layer yet.</p>`;
+    return `${groups}${controls}<p class="empty-note">No notes recorded for that layer yet.</p>`;
   }
 
   // The same row-list shape as Brands, including the alphabetical dividers —
   // but only under the A-to-Z sort. Under "most common" the list is ranked by
   // count, not by letter, so a divider between two counts would land on
   // whichever letter their names happen to start with and break up entries
-  // that belong together in the ranking.
+  // that belong together in the ranking. The scrubber follows the same rule:
+  // it only makes sense to jump to a letter the list is actually ordered by.
   let out = '';
   let current = '';
+  const seenLetters = new Set<string>();
   for (const n of list) {
     if (state.noteSort === 'az') {
       const initial = (n.name[0] ?? '').toUpperCase();
       if (initial !== current) {
         current = initial;
-        out += `<li class="alpha-break" aria-hidden="true"><span>${esc(initial)}</span><i></i></li>`;
+        seenLetters.add(initial);
+        out += `<li class="alpha-break" data-alpha="${esc(initial)}" aria-hidden="true"><span>${esc(initial)}</span><i></i></li>`;
       }
     }
     out += `<li><button class="brand-row note-row" data-note="${esc(n.name)}">
       <span>${esc(titleCase(n.name))}</span><span class="note-row-count">(${n.count})</span>
     </button></li>`;
   }
-  return `${controls}
+
+  return `${groups}
+    ${controls}
     <p class="panel-note">Only notes a shop has explicitly published. ${DEMO_FRAGRANCES.filter((f) => f.notes).length} of ${DEMO_FRAGRANCES.length} fragrances list them.</p>
-    <ul class="brand-list">${out}</ul>`;
+    <div class="notes-browse">
+      <p class="section-label">Browse Alphabetically</p>
+      <div class="notes-browse-scroll" data-notes-scroll>
+        <ul class="brand-list">${out}</ul>
+      </div>
+      ${state.noteSort === 'az' ? alphaScrubber(seenLetters) : ''}
+    </div>`;
 }
 
+/**
+ * A note's own profile: this page already is that, and has been since Notes
+ * shipped — a real URL (survives Back, is directly linkable), every
+ * fragrance that carries it. What was missing is the note's own layer
+ * breakdown, added below as tappable chips that filter the list under
+ * them exactly the way the group cards on notesPanel do. Real counts read
+ * straight from NOTE_INDEX, not a written description: this codebase has no
+ * source for what a note "smells like" beyond what a retailer's own listing
+ * says, and inventing one here would be exactly the kind of fabricated fact
+ * this app exists to avoid.
+ */
 function noteView(): string {
+  const entry = NOTE_INDEX.find((n) => n.name === state.noteName);
   const filtered = fragrancesWithNote(state.noteName, state.noteLayer).filter(
     (f) => state.noteDetailFilter === 'all' || f.tier === state.noteDetailFilter,
   );
@@ -1415,9 +1484,20 @@ function noteView(): string {
     ${facetsBlock(filtered)}
   </div>`;
 
+  const layerChips = entry
+    ? (['top', 'middle', 'base'] as NoteLayer[])
+        .filter((l) => entry.layers.has(l))
+        .map((l) => {
+          const count = fragrancesWithNote(state.noteName, l).length;
+          return `<button class="note-chip${state.noteLayer === l ? ' on' : ''}" data-note-layer="${l}">${titleCase(l)} &middot; ${count}</button>`;
+        })
+        .join('')
+    : '';
+
   return `
     <button class="back" data-back-explore>Back</button>
     <div class="page-head"><h2>${esc(titleCase(state.noteName))}</h2><span class="count">${list.length}</span></div>
+    ${layerChips ? `<p class="note-chips note-chips-profile">${layerChips}</p>` : ''}
     <p class="panel-note">Fragrances listing ${esc(titleCase(state.noteName))}${state.noteLayer === 'any' ? '' : ` as a ${state.noteLayer} note`}.</p>
     ${controls}
     ${fragranceList(list, 'Nothing matches that filter.')}`;
@@ -1757,6 +1837,61 @@ function hideHistoryTip(): void {
   pinnedHistoryDot = null;
 }
 
+/* ── A-to-Z scrubber ─────────────────────────────────────────────────────────
+   Touch-drag and tap both resolve to the same question — which letter is the
+   finger over — asked continuously on touchstart and every touchmove, so a
+   tap is simply a drag with zero movement rather than a separate code path. */
+
+/**
+ * Divides the strip's own height into 26 even bands and reads off which one
+ * a Y coordinate falls in, rather than hit-testing via elementFromPoint: the
+ * letters are laid out in one straight column with nothing else overlapping
+ * them, so the geometry is simpler and does not care whether the coordinate
+ * is technically still over a `<span>` once a fast drag has outrun layout.
+ * A band with nothing in it (no notes for that letter) resolves to the
+ * nearest real one instead of going dead, so dragging through a gap in the
+ * alphabet still tracks continuously — the same feel as iOS's own strip.
+ */
+function letterAtY(scrubber: HTMLElement, clientY: number): string | null {
+  const rect = scrubber.getBoundingClientRect();
+  if (rect.height === 0) return null;
+  const ratio = Math.min(Math.max((clientY - rect.top) / rect.height, 0), 0.999);
+  const index = Math.floor(ratio * ALPHABET.length);
+  const isActive = (i: number) => !!scrubber.querySelector(`.alpha-scrubber-letter[data-letter="${ALPHABET[i]}"]`);
+  if (isActive(index)) return ALPHABET[index]!;
+  for (let d = 1; d < ALPHABET.length; d++) {
+    if (index - d >= 0 && isActive(index - d)) return ALPHABET[index - d]!;
+    if (index + d < ALPHABET.length && isActive(index + d)) return ALPHABET[index + d]!;
+  }
+  return null;
+}
+
+/** Instant, not smooth: an animated scroll lags a fast-moving finger, and the
+ *  point of a scrubber is that the list keeps pace with the drag exactly. */
+function jumpToLetter(letter: string): void {
+  document.querySelector(`[data-notes-scroll] [data-alpha="${letter}"]`)?.scrollIntoView({ block: 'start' });
+}
+
+let scrubberBubble: HTMLElement | null = null;
+
+function showScrubberBubble(letter: string, x: number, y: number): void {
+  if (!scrubberBubble) {
+    scrubberBubble = document.createElement('div');
+    scrubberBubble.className = 'alpha-scrubber-bubble';
+    document.body.appendChild(scrubberBubble);
+  }
+  scrubberBubble.textContent = letter;
+  // Left of the finger and vertically centred on it, so the strip along the
+  // right edge and the bubble it spawns never sit on top of each other.
+  scrubberBubble.style.left = `${x - 90}px`;
+  scrubberBubble.style.top = `${y - 32}px`;
+}
+
+function hideScrubberBubble(): void {
+  scrubberBubble?.remove();
+  scrubberBubble = null;
+}
+
 /* ── routing ─────────────────────────────────────────────────────────────────
    The view functions and render() know nothing about URLs. Everything here is
    a translation between `state` and the address bar, so routing stays
@@ -1833,7 +1968,14 @@ function applyRoute(route: Route): boolean {
       return true;
     }
     case 'note': {
-      const note = Object.keys(NOTE_INDEX).find((n) => slugify(n) === route.param);
+      // NOTE_INDEX is an array of {name, count, layers}, not a lookup keyed
+      // by name — Object.keys() on it silently returned numeric indices
+      // ('0', '1', ...) instead, so a slug never matched anything and every
+      // direct link to a note (a reload, a shared URL, Back landing on one)
+      // fell through to home instead. Only ever exposed via a real URL, not
+      // the in-app buttons that set state.noteName directly — which is
+      // exactly why it went unnoticed.
+      const note = NOTE_INDEX.find((n) => slugify(n.name) === route.param)?.name;
       if (!note) return false;
       state.noteName = note;
       state.view = 'note';
@@ -2068,6 +2210,32 @@ function init(): void {
     if (dot && dot !== pinnedHistoryDot) hideHistoryTip();
   });
 
+  // The A-to-Z scrubber. `{ passive: false }` is what lets preventDefault
+  // actually stop the page behind it scrolling during the drag — scoped to
+  // only fire when the touch itself is on the strip, so nothing about
+  // scrolling anywhere else in the app is affected. touchmove's `target`
+  // stays whatever touchstart hit, not whatever is under the finger now (per
+  // the Touch Events spec), so `closest` here keeps resolving correctly for
+  // the rest of a drag that has moved off the strip's own bounds.
+  const scrubberTouch = (e: TouchEvent): void => {
+    const scrubber = (e.target as HTMLElement).closest('.alpha-scrubber') as HTMLElement | null;
+    if (!scrubber) return;
+    e.preventDefault();
+    const touch = e.touches[0];
+    if (!touch) return;
+    const letter = letterAtY(scrubber, touch.clientY);
+    if (letter) {
+      jumpToLetter(letter);
+      showScrubberBubble(letter, touch.clientX, touch.clientY);
+    }
+  };
+  document.addEventListener('touchstart', scrubberTouch, { passive: false });
+  document.addEventListener('touchmove', scrubberTouch, { passive: false });
+  document.addEventListener('touchend', (e) => {
+    if ((e.target as HTMLElement).closest('.alpha-scrubber')) hideScrubberBubble();
+  });
+  document.addEventListener('touchcancel', hideScrubberBubble);
+
   document.addEventListener('click', (e) => {
     const t = e.target as HTMLElement;
 
@@ -2127,6 +2295,17 @@ function init(): void {
     if (note) {
       state.noteName = note.getAttribute('data-note')!;
       go('note');
+      return;
+    }
+
+    // A group card filters the alphabetical list below it in place, the same
+    // in-panel update the layer dropdown already does — clicking the active
+    // one again clears back to "any", the same toggle a filter chip implies.
+    const noteGroup = t.closest('[data-note-layer]');
+    if (noteGroup) {
+      const layer = noteGroup.getAttribute('data-note-layer') as NoteLayerFilter;
+      state.noteLayer = state.noteLayer === layer ? 'any' : layer;
+      render();
       return;
     }
 
