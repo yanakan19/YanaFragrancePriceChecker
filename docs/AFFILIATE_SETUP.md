@@ -44,7 +44,7 @@ into the Phase 1 matcher.
 | Beautybase | — | — | not researched |
 | Selfridges | — | — | not researched |
 | Harvey Nichols | — | — | not researched |
-| *Fragrance Click UK* | Awin (merchant 124166) | ids confirmed | **active on Awin, no `Retailer` entry yet — domain + shipping still needed, see below** |
+| Fragrance Click UK | Awin (merchant 124166) | yes | **live**: `Retailer` entry active, real feed data, sync automated twice daily — see below |
 
 Only the three marked *confirmed* have been verified against a network's own
 merchant listing. The other nine are genuinely unresearched — they are not
@@ -137,47 +137,61 @@ as an aspiration the feed alone won't fully deliver — worth a quick look at
 a handful of the 895 feed entries once it's pulled, before assuming every row
 is gallery quality.
 
-**The feed ingestion module is now built** (`src/catalogue/awinFeed.ts`,
-`scripts/catalogue-feed.ts`). What's still missing is the feed file itself —
-nobody in this environment has downloaded it from the Awin dashboard or holds
-feed-download API credentials, and that is a real, current blocker, not
-something to route around. Once someone has:
+**This is now live and automated**, as of 2026-08-11. Fragrance Click UK's
+own feed has been pulled and ingested for real — `data/catalogue/
+fragrance-click.json` holds genuine feed listings, not fixture data.
 
-1. In the Awin publisher dashboard, go to **Toolbox → Product Feeds**, find
-   Fragrance Click UK (merchant 124166), and download the feed — the standard
-   "generic" datafeed format, almost certainly CSV, possibly TSV. Awin lets a
-   publisher choose which columns to include, so don't assume every column
-   named in `awinFeed.ts`'s header comment will be present; the parser reads
-   by column name and only requires `aw_deep_link`, `product_name` and
-   `search_price` to produce a listing.
-2. Save it somewhere on disk, then run:
+### How the automated sync works
 
-   ```
-   npm run catalogue:feed -- --file=path/to/feed.csv --retailer=fragrance-click
-   ```
+`scripts/awin-feed-sync.ts` (`npm run awin:feed-sync`) is the ongoing path,
+wired into `catalogue-daily.yml` at 06:00 and 18:00 UTC — the same twice-a-day
+slots shipping discovery already uses, because Awin regenerates a feed
+roughly daily and checking hourly would just be 24x the requests for the same
+answer:
 
-   This parses the file, runs it through the same `reconcile()` flow
-   `npm run harvest` uses for every scraped retailer, and writes
-   `data/catalogue/fragrance-click.json` with `source: 'live'`. It refuses to
-   write anything if the file parses to zero usable rows — matching
-   `catalogue-harvest.ts`'s own refusal — so a wrong file or an empty export
-   fails loudly instead of quietly producing an empty or partial-looking
-   catalogue.
-3. From there it's the same as any other shop: `npm run catalogue:demo` picks
-   up the new snapshot and folds it into the app's catalogue alongside every
-   scraped retailer.
+1. Fetches the account's **Feed List Download URL** (Toolbox → Product Feeds
+   → Feed List Download in the Awin dashboard) — a per-publisher URL with a
+   live API credential baked into it. Stored **only** as the
+   `AWIN_FEED_LIST_URL` GitHub Actions secret, never in any committed file —
+   the same rule this doc already states for a publisher id or an OAuth2
+   token. The script itself refuses to run without it, cleanly, not an error.
+2. Parses that CSV (`src/catalogue/awinFeedList.ts`) into one row per feed
+   the account can see, matches each `affiliate-feed` retailer in
+   `src/config/retailers.ts` to its row by Awin merchant id (read straight
+   out of that retailer's own `signupUrl`, never a second hand-entered
+   field), and only re-downloads and re-ingests a feed whose `Last Imported`
+   timestamp has actually moved since the last sync — tracked in
+   `data/awin-feed-sync-state.json`.
+3. A changed feed goes through `src/catalogue/awinFeedIngest.ts` — the same
+   parse-then-`reconcile()` core the manual route below always used, now
+   shared between both so they can never quietly behave differently.
 
-**Honesty check, matching how the Apify section above treats itself:** this
-parser has **not** been run against Fragrance Click UK's real feed data yet.
-`tests/awinFeed.test.ts` exercises it only against small, obviously-synthetic
-fixture rows (`"Test Fragrance EDP 100ml"` and the like) invented purely to
-cover the parsing logic — header-driven column mapping in a shuffled order,
-malformed and missing prices, EAN and image passthrough, quoted-comma CSV
-fields. None of that is real Fragrance Click UK inventory, and none of it has
-been near a live app. The first run against the actual downloaded feed is the
-real verification step — treat it as one, and look over what it wrote to
-`data/catalogue/fragrance-click.json` before trusting it the way the rest of
-the registry is trusted.
+**Verified against the real thing, not just fixtures**: unlike the parser
+itself (still only exercised by `tests/awinFeed.test.ts`'s synthetic rows —
+see below), the sync path was proven end to end against a local mock
+standing in for Awin before this shipped, and the manual route it grew out of
+had already been run against Fragrance Click UK's real 896-row export.
+
+### Manual route (still works, useful for a one-off or a new merchant)
+
+```
+npm run catalogue:feed -- --file=path/to/feed.csv --retailer=fragrance-click
+```
+
+Same underlying ingest as the automated sync, pointed at a file downloaded by
+hand from the Awin dashboard (Toolbox → Product Feeds) instead of fetched via
+the Feed List Download URL. Worth reaching for when onboarding a merchant
+that isn't in `AWIN_FEED_LIST_URL`'s account yet, or when the CI schedule is
+too slow for a specific refresh.
+
+**Honesty check on the parser itself, matching how the Apify section above
+treats itself:** `tests/awinFeed.test.ts` and `tests/awinFeedList.test.ts`
+exercise the CSV parsing only against small, obviously-synthetic fixture rows
+invented purely to cover header-driven column mapping, malformed and missing
+prices, EAN/image passthrough and quoted-comma fields — never a copy of real
+Fragrance Click UK inventory. The real verification is what actually lands in
+`data/catalogue/fragrance-click.json` after a real sync, which is exactly
+what the automated path above now does, on a schedule, rather than once.
 
 ---
 

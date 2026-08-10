@@ -20,8 +20,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { RETAILERS, getRetailer } from '../src/config/retailers.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
-import { reconcile } from '../src/catalogue/reconcile.js';
-import { parseAwinFeed } from '../src/catalogue/awinFeed.js';
+import { ingestAwinFeedCsv } from '../src/catalogue/awinFeedIngest.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -72,13 +71,14 @@ console.log(`retailer  ${retailer.name} (${retailer.id})`);
 console.log(`file      ${resolvedFile}`);
 console.log('');
 
-const parsed = parseAwinFeed(csvText);
-const withPrice = parsed.filter((l) => l.priceGbp !== null);
+const store = new CatalogueStore(resolve(root, 'data/catalogue'));
+const now = new Date().toISOString();
+const outcome = ingestAwinFeedCsv(store, retailer, csvText, now);
 
-console.log(`${withPrice.length} priced listings parsed from the feed\n`);
+console.log(`${outcome.withPriceCount} priced listings parsed from the feed\n`);
 
-if (withPrice.length === 0) {
-  console.error('Nothing parsed. Not writing anything rather than showing an empty app.');
+if (!outcome.written) {
+  console.error(`Nothing parsed (${outcome.reason}). Not writing anything rather than showing an empty app.`);
   console.error(
     'Check the file is really an Awin generic datafeed export (header row present, ' +
       '"aw_deep_link", "product_name" and "search_price" columns populated).',
@@ -86,25 +86,5 @@ if (withPrice.length === 0) {
   process.exit(1);
 }
 
-const store = new CatalogueStore(resolve(root, 'data/catalogue'));
-const now = new Date().toISOString();
-
-// Live data and fixture data must never be reconciled against each other —
-// the same rule scripts/catalogue-harvest.ts enforces.
-const snapshot = store.read(retailer.id);
-const existing = snapshot.source === 'live' ? snapshot.listings : [];
-
-const outcome = reconcile({
-  existing, crawled: withPrice, retailerId: retailer.id, now, complete: true,
-});
-
-store.write({
-  retailerId: retailer.id,
-  updatedAt: now,
-  source: 'live',
-  listings: outcome.listings,
-  runs: snapshot.source === 'live' ? snapshot.runs : [],
-});
-
 console.log(`${outcome.newIds.length} new, ${outcome.delistedIds.length} delisted, ${outcome.relistedIds.length} relisted`);
-console.log(`\nWrote ${outcome.listings.length} listings for ${retailer.name} to data/catalogue/${retailer.id}.json\n`);
+console.log(`\nWrote ${outcome.totalListings} listings for ${retailer.name} to data/catalogue/${retailer.id}.json\n`);
