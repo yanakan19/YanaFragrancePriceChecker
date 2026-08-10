@@ -828,6 +828,14 @@
     width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
   }
 
+  /* Trustpilot's own widget renders its own star icons and colour once its
+     script loads; this only sets the box it lands in. The fallback link
+     (shown until the script loads, or forever if it never does) borrows the
+     app's ordinary link styling rather than looking like a broken widget. */
+  .trustpilot-block { margin-top: 4px; }
+  .trustpilot-widget a { font-size: 12.5px; color: var(--accent); text-decoration: none; }
+  .trustpilot-widget a:hover { text-decoration: underline; }
+
   /* ── notes ─────────────────────────────────────────────────────────────── */
   /* Same row as .brand-row (block, one column, alphabetical dividers) — this
      just adds the count on the right, so it needs flex instead of block. */
