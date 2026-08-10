@@ -42,16 +42,25 @@ export const BRAND_SITES: Record<string, string> = {
   // catalogue under the same normalised key, this entry would wrongly send
   // its customers to the fragrance site instead.
   bellavita: 'https://bellavitaluxury.uk/',
+  // Same business, fuller feed string: "BellaVita Luxury (UK)".
+  'bellavita luxury uk': 'https://bellavitaluxury.uk/',
   ibraq: 'https://ibraquk.com/',
   assaf: 'https://assaf.ae/',
   'gulf orchid': 'https://shop-gulforchid.com/',
   'maison asrar': 'https://maisonasrar.com/',
   'ahmed al maghribi': 'https://ae.ahmedalmaghribi.com/en',
   lattafa: 'https://lattafa.com/',
+  // Catalogue also carries this house as plain "Lattafa Perfumes" — same
+  // company, same site, just the fuller trading name some feeds use.
+  'lattafa perfumes': 'https://lattafa.com/',
   surrati: 'https://surrati.ae/',
+  'surrati perfumes': 'https://surrati.ae/',
   rayhaan: 'https://rayhaanperfumes.com/',
+  'rayhaan perfumes': 'https://rayhaanperfumes.com/',
   'paris corner': 'https://pariscorner.ae/',
   'arabiyat prestige': 'https://arabiyatprestige.shop/',
+  // "Arabiyat" alone in some feeds; Arabiyat Prestige is the full trading name.
+  arabiyat: 'https://arabiyatprestige.shop/',
   mykonos: 'https://officialmykonos.com/',
   bujairami: 'https://bujairami.ae/',
   // Sub-brand of Afnan Perfumes (same founder, Imran Fazlani), launched 2023,
@@ -72,9 +81,12 @@ export const BRAND_SITES: Record<string, string> = {
   ajmal: 'https://www.ajmal.com/',
   dumont: 'https://www.dumontparis.com/',
   'dumont paris': 'https://www.dumontparis.com/',
-  // Catalogue spells it "Al-Rehab"; brandKey strips the hyphen so one entry
-  // covers both spellings.
-  alrehab: 'https://www.alrehab.com/',
+  // Catalogue spells it "Al-Rehab"; normalizeBrand below turns the hyphen
+  // into a space, so the key has to carry that space too, or this lookup
+  // silently misses despite the URL already being verified. (Was "alrehab",
+  // with no space, which never matched — caught in the 2026-08-10 brand
+  // storefront-link audit.)
+  'al rehab': 'https://www.alrehab.com/',
   // Two houses, one perfumer (Alessandro Gualtieri), separate storefronts.
   'orto parisi': 'https://ortoparisi.com/',
   nasomatto: 'https://nasomatto.com/',
@@ -109,6 +121,9 @@ export const BRAND_SITES: Record<string, string> = {
   'yves saint laurent': 'https://www.yslbeauty.com/int/fragrances.html',
   // Only the US beauty domain turned up in search; no UK-specific one found.
   'giorgio armani': 'https://www.giorgioarmanibeauty-usa.com/',
+  // Emporio Armani fragrances are produced and sold through the same Giorgio
+  // Armani Beauty business, not a separate storefront.
+  'emporio armani': 'https://www.giorgioarmanibeauty-usa.com/',
   burberry: 'https://uk.burberry.com/',
   bvlgari: 'https://www.bulgari.com/',
   prada: 'https://www.prada-beauty.com/',
@@ -122,6 +137,8 @@ export const BRAND_SITES: Record<string, string> = {
   guerlain: 'https://www.guerlain.com/uk/en-uk/fragrance/',
   'lanc me': 'https://www.lancome.co.uk/',
   'jo malone london': 'https://www.jomalone.com/',
+  // Catalogue also carries this house as plain "Jo Malone".
+  'jo malone': 'https://www.jomalone.com/',
   'penhaligon s': 'https://www.penhaligons.com/',
   creed: 'https://creedfragrances.co.uk/',
   diptyque: 'https://www.diptyqueparis.com/',
@@ -137,6 +154,8 @@ export const BRAND_SITES: Record<string, string> = {
   'bond no': 'https://www.bondno9.com/',
   'britney spears': 'https://britneyspearsperfumes.com/',
   'by kilian': 'https://www.bykilian.com/',
+  // Catalogue also carries this house as plain "Kilian".
+  kilian: 'https://www.bykilian.com/',
   // Casamorati is a Xerjoff sub-line, not a separate company — this is its
   // collection page on Xerjoff's own site, not an independent storefront.
   casamorati: 'https://www.xerjoff.com/en-us/collections/casamorati-perfumes',
@@ -160,6 +179,8 @@ export const BRAND_SITES: Record<string, string> = {
   granado: 'https://www.granado.eu/',
   'hugo boss': 'https://www.hugoboss.com/uk/',
   'initio parfums prives': 'https://initioparfums.com/',
+  // Catalogue also carries this house as plain "Initio".
+  initio: 'https://initioparfums.com/',
   'issey miyake': 'https://uk.isseymiyake.com/',
   'juliette has a gun': 'https://www.juliettehasagun.com/en',
   kenzo: 'https://www.kenzo.com/uk/en/',
@@ -194,8 +215,13 @@ export const BRAND_SITES: Record<string, string> = {
   // Roja Dove's own brand is sold as Roja Parfums at rojalondon.com;
   // rojadoveperfumery.com is a separate multi-brand boutique he also runs.
   'roja dove': 'https://rojalondon.com/',
+  // Catalogue also carries this house as "Roja Parfums" — the brand name on
+  // the bottle; "Roja Dove" is the founder's name some other feeds use.
+  'roja parfums': 'https://rojalondon.com/',
   sorce: 'https://shopsorce.com/',
   'sospiro perfumes': 'https://sospirointernational.com/',
+  // Catalogue also carries this house as plain "Sospiro".
+  sospiro: 'https://sospirointernational.com/',
   'tiziana terenzi': 'https://tizianaterenzi.com/en/',
   // US site only — no UK-specific Victoria's Secret fragrance page found.
   'victoria s secret': 'https://www.victoriassecret.com/',
@@ -208,6 +234,33 @@ export const BRAND_SITES: Record<string, string> = {
   // up only third-party retailers (Jovoy, ZGO Perfumery, Fragrantica, 50ml)
   // for all three, never a brand-owned domain — so there is no site to link
   // to yet, the same "absent rather than invented" rule as Elysia above.
+
+  // ── Added 2026-08-10, storefront-link audit against the highest-volume
+  // brands still missing an entry. This sandbox's network is still locked at
+  // the gateway the same way it was on 2026-08-05 (confirmed again this
+  // session: a direct fetch to any retailer/brand domain is rejected), so
+  // these again come from a web search returning the domain in the result
+  // itself, not from opening the page — the same caveat as the Middle
+  // Eastern section above, and the same reason to treat this as a starting
+  // point for the next live-confirmation pass rather than a finished list.
+  'jimmy choo': 'https://www.jimmychoo.com/',
+  'est e lauder': 'https://www.esteelauder.co.uk/',
+  davidoff: 'https://www.zinodavidoff.com/',
+  // UK fragrance category; the .com root redirects by region rather than
+  // exposing one fixed UK URL.
+  lacoste: 'https://www.lacoste.com/gb/',
+  orientica: 'https://www.orientica.co.uk/',
+  diesel: 'https://uk.diesel.com/',
+  // UK-specific fragrance storefront, separate from the main eliesaab.com.
+  'elie saab': 'https://eliesaabperfume.co.uk/',
+  // No UK-specific path found; the .com fragrance collection is the closest.
+  dkny: 'https://www.dkny.com/collections/fragrance',
+  joop: 'https://www.joop.com/',
+  clinique: 'https://www.clinique.co.uk/',
+  'michael kors': 'https://www.michaelkors.co.uk/',
+  // Ted Baker's own physical fragrance stores closed; this collection page
+  // on the brand's own site is still where it sells fragrance directly.
+  'ted baker': 'https://www.tedbaker.com/collections/womens-fragrance',
 };
 
 /** Lowercase, strip everything but letters — so "Dolce & Gabbana", "Dolce&Gabbana"

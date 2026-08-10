@@ -151,7 +151,7 @@ const titleCase = (s: string) => s.replace(/\S+/g, (w) => w[0]!.toUpperCase() + 
 // only carry a price it charges directly.
 const BRANDS = [...new Set([...DEMO_FRAGRANCES.map((f) => f.brand), ...HOUSE_PRODUCTS.map((p) => p.house)])].sort();
 const TIER_LABEL: Record<RetailerTier, string> = {
-  designer: 'Designer', niche: 'Niche', mideast: 'Middle Eastern',
+  designer: 'Designer', niche: 'Niche', mideast: 'Middle Eastern / Dupe Houses',
 };
 
 /**
@@ -1127,6 +1127,23 @@ function dealsPanel(): string {
 
 /* ── explore: retailers ──────────────────────────────────────────────────── */
 
+/**
+ * Deterministic hue (0-359) from a name, so the same shop or brand always
+ * tints the same way and different ones are visually distinct at a glance.
+ * Not a lookup of that brand's real colour — this project has no licence to
+ * reproduce brand identity, the same restriction .monogram's initials-only
+ * rule already applies, just extended to colour. A plain djb2-style hash: no
+ * cryptographic property needed, only that it is stable and spreads names
+ * across the wheel rather than clustering them.
+ */
+function monogramHue(name: string): number {
+  let hash = 5381;
+  for (let i = 0; i < name.length; i++) {
+    hash = (hash * 33 + name.charCodeAt(i)) | 0;
+  }
+  return Math.abs(hash) % 360;
+}
+
 /** Initials, drawn as a monogram. Deliberately not a copy of the shop's logo. */
 function monogram(name: string): string {
   const initials = name
@@ -1136,7 +1153,7 @@ function monogram(name: string): string {
     .slice(0, 2)
     .map((w) => w[0]!.toUpperCase())
     .join('');
-  return `<span class="monogram" aria-hidden="true">${esc(initials || '?')}</span>`;
+  return `<span class="monogram" style="--mh:${monogramHue(name)}" aria-hidden="true">${esc(initials || '?')}</span>`;
 }
 
 function deliveryLines(r: Retailer): string[] {
