@@ -57,9 +57,25 @@ concurrency:
 jobs:
   crawl:
     runs-on: ubuntu-latest
-    # A full walk of twelve shops with politeness delays takes a while, but it
-    # should never run for an hour.
-    timeout-minutes: 45
+    # Measured, not guessed: the "Harvest via sitemap" step alone took 38m55s
+    # on run #122 (2026-08-10) and 25m29s on run #123 the same day — politeness
+    # delays across a dozen shops make this inherently slow and genuinely
+    # variable, not stuck. At the old 45-minute cap that variance meant a
+    # scheduled run was cancelled mid-pipeline more often than it finished (6
+    # of the 8 runs immediately before this change), almost always partway
+    # through "Harvest houses direct" or the rebuild — after the slow part had
+    # already happened, but before "Commit harvested prices" could run. The
+    # harvest was real and complete; it was just never saved, so the site
+    # quietly went a full hour without the fresher data that hour's run had
+    # already gathered. 75 minutes gives the slowest observed run (~49
+    # minutes end to end, reconstructed from its own step timings) real
+    # headroom, including room for the catalogue's steady growth to make the
+    # rebuild and image-check steps a little slower over time, without
+    # papering over an actual hang: every cancelled run inspected while
+    # diagnosing this showed steady progress right up to the cutoff, never a
+    # step stuck doing nothing, so there was no runaway process here to guard
+    # against — only too little time for real, finite work.
+    timeout-minutes: 75
 
     steps:
       # fetch-depth: 0 is load-bearing, not a nicety. actions/checkout@v4
