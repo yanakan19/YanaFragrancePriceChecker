@@ -21,7 +21,8 @@ import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { reconcile } from '../src/catalogue/reconcile.js';
-import { crawlViaSitemap } from '../src/catalogue/sitemapCrawl.js';
+import { crawlViaSitemap, type SitemapCrawlResult } from '../src/catalogue/sitemapCrawl.js';
+import { crawlViaShopifyProducts } from '../src/catalogue/shopifyProductsCrawl.js';
 import { loadRobots, BROWSER_HEADERS, type Http } from '../src/catalogue/attempt.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import {
@@ -109,9 +110,33 @@ for (const retailer of shops) {
     if (fetched % 5 === 0) console.log(`      ${retailer.name}: ${fetched} pages fetched, ${found} found so far`);
   };
 
-  let result = await crawlViaSitemap({
-    retailer, http, robots, maxPages, gapMs, headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat,
-  });
+  // Retailers confirmed to run on Shopify get their official, paginated
+  // /products.json catalogue tried first — no guessing which sitemap entries
+  // are actually fragrance, the gap crawlViaSitemap has always had. Only
+  // fall back to the sitemap walk if that endpoint turns out not to be
+  // Shopify after all, or genuinely returns nothing.
+  let result: SitemapCrawlResult;
+  if (retailer.shopifyStorefront) {
+    const shopifyResult = await crawlViaShopifyProducts({
+      retailer, http, robots, headers: BROWSER_HEADERS, maxPages, gapMs, onProgress: heartbeat,
+    });
+    if (shopifyResult.isShopify && shopifyResult.listings.length > 0) {
+      result = {
+        listings: shopifyResult.listings,
+        pagesFetched: shopifyResult.pagesFetched,
+        urlsDiscovered: shopifyResult.listings.length,
+        errors: shopifyResult.errors,
+      };
+    } else {
+      result = await crawlViaSitemap({
+        retailer, http, robots, maxPages, gapMs, headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat,
+      });
+    }
+  } else {
+    result = await crawlViaSitemap({
+      retailer, http, robots, maxPages, gapMs, headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat,
+    });
+  }
   let withPrice = result.listings.filter((l) => l.priceGbp !== null);
   let viaProxy = false;
 

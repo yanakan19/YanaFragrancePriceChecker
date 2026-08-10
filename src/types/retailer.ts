@@ -86,8 +86,30 @@ export interface AffiliateConfig {
   /**
    * Deeplink template. `{{publisherId}}` and `{{url}}` (URL-encoded target)
    * are substituted at link-build time. Null until the programme is live.
+   *
+   * Only right for a redirect-domain affiliate network — Awin, Rakuten and
+   * the like — where the retailer's own URL becomes an encoded *value*
+   * inside someone else's tracking link (`awin1.com/cread.php?...&ued={{url}}`).
+   * Wrong for an in-house tool that tracks a sale from a query parameter
+   * appended straight onto the retailer's own product page, with no redirect
+   * domain at all — see `querySuffixTemplate` for that shape instead.
    */
   deeplinkTemplate: string | null;
+  /**
+   * The other affiliate URL shape: some in-house tools (GoAffPro among them)
+   * track purely from a query parameter on the retailer's own product URL —
+   * no redirect domain, the page a shopper lands on is genuinely the
+   * retailer's own. `{{publisherId}}` is the only substitution, e.g.
+   * `ref={{publisherId}}`. Applied by appending it onto `productUrl` with
+   * `?` or `&` as already present query parameters require — never through
+   * `deeplinkTemplate`'s `{{url}}`, which URL-encodes its target for exactly
+   * the redirect-wrapping case this is not: encoding productUrl here would
+   * turn a real, clickable retailer link into a broken, percent-escaped
+   * string with a query parameter stuck on the end of it. Null until the
+   * programme is live, same as `deeplinkTemplate`; a retailer sets one or
+   * the other, never both.
+   */
+  querySuffixTemplate: string | null;
   /** Where to sign up, so the reminder output is actionable rather than nagging. */
   signupUrl: string | null;
   /**
@@ -288,6 +310,19 @@ export interface Retailer {
   /** Whether the pipeline currently fetches from this retailer at all. */
   enabled: boolean;
   adapter: AdapterStrategy;
+  /**
+   * Confirmed to run on Shopify, so scripts/catalogue-harvest.ts tries
+   * src/catalogue/shopifyProductsCrawl.ts's `/products.json` walk before
+   * falling back to the sitemap route — Shopify's own complete, paginated
+   * catalogue rather than a keyword-matched guess at which sitemap entries
+   * are fragrance. Unset (not merely `false`) for every retailer this has
+   * not been checked for, the same "not yet confirmed" convention `catalogue:
+   * null` and `standardGbp: null` already use elsewhere in this type — this
+   * only ever adds one extra route to try, so leaving it unset costs
+   * nothing, but setting it without confirming would waste a request on
+   * every harvest for a retailer that turns out not to be Shopify at all.
+   */
+  shopifyStorefront?: boolean;
   shipping: ShippingRule;
   affiliate: AffiliateConfig;
   /**

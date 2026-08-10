@@ -11,8 +11,9 @@ describe('retailer registry', () => {
     // Avenue and Armaf promoted out of houses.ts, Al Haramain, Riiffs, IBRAQ,
     // BellaVita Luxury, Oud Arabian, Manchester Ouds, Perfumeo), The Beauty
     // Store UK, Zimaya, and five single-brand UK storefronts added the same
-    // day on request: Khadlaj, KAYALI, Zara, LUSH, Bath & Body Works.
-    expect(RETAILERS).toHaveLength(35);
+    // day on request: Khadlaj, KAYALI, Zara, LUSH, Bath & Body Works. Emirates
+    // Oud added 2026-08-10 on approval into their GoAffPro programme.
+    expect(RETAILERS).toHaveLength(36);
   });
 
   // The whole point of allowing `standardGbp: null` is that "we have not
@@ -103,11 +104,17 @@ describe('retailer registry', () => {
     it('never has an active programme with placeholder ids', () => {
       // status: 'active' is what flips buildOutboundLink into producing a
       // real tracked link — if it were ever set without real ids behind it,
-      // every link for that retailer would silently be broken.
+      // every link for that retailer would silently be broken. A retailer
+      // sets one of deeplinkTemplate (redirect-domain networks) or
+      // querySuffixTemplate (in-house tools like GoAffPro), never neither —
+      // see buildOutboundLink's own handling of the two shapes.
       for (const r of RETAILERS) {
         if (r.affiliate.status === 'active') {
           expect(r.affiliate.publisherId, `${r.name} is active with no publisherId`).toBeTruthy();
-          expect(r.affiliate.deeplinkTemplate, `${r.name} is active with no deeplinkTemplate`).toBeTruthy();
+          expect(
+            r.affiliate.deeplinkTemplate || r.affiliate.querySuffixTemplate,
+            `${r.name} is active with neither a deeplinkTemplate nor a querySuffixTemplate`,
+          ).toBeTruthy();
         }
       }
     });

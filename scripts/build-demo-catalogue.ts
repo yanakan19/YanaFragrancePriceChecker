@@ -47,17 +47,25 @@ const now = new Date();
 /* ── deciding what is actually a fragrance ─────────────────────────────────── */
 
 /**
- * Concentrations, which are the strongest signal a listing is a scent.
+ * Concentrations, split into two tiers so a match can be tried by
+ * specificity — the full "eau de X" phrases first, then the bare
+ * single-word alternatives — rather than by whichever happens to sit first
+ * in the title. See concentrationMatch below for why that distinction is
+ * load-bearing, not tidiness: "cologne" alone is ambiguous between a real
+ * concentration and part of a product line's own name (Creed's "Aventus
+ * Cologne"), where a full "eau de parfum" is never anything but the
+ * concentration.
  *
- * "perfume" was a real gap here: a title reading "Chanel No 5 Perfume 100ml"
- * matched none of the French-derived terms and was silently rejected as not
- * a fragrance, despite being an obvious one — plain English listings (feeds
- * especially) favour "perfume" over "parfum". "attar" and "oud" cover the
- * concentrated-oil style Middle Eastern perfumery uses, relevant because the
- * registry already models a 'mideast' tier for three retailers.
+ * "perfume" was a real gap in the generic tier: a title reading "Chanel No 5
+ * Perfume 100ml" matched none of the French-derived terms and was silently
+ * rejected as not a fragrance, despite being an obvious one — plain English
+ * listings (feeds especially) favour "perfume" over "parfum". "attar" and
+ * "oud" cover the concentrated-oil style Middle Eastern perfumery uses,
+ * relevant because the registry already models a 'mideast' tier for three
+ * retailers.
  */
-const CONCENTRATION =
-  /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche|parfum|perfume|edp|edt|edc|aftershave|cologne|extrait|attar|oud)\b/i;
+const CONCENTRATION_SPECIFIC = /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche)\b/i;
+const CONCENTRATION_GENERIC = /\b(parfum|perfume|edp|edt|edc|aftershave|cologne|extrait|attar|oud)\b/i;
 
 /**
  * Things that live near perfume in a sitemap but are not perfume.
@@ -119,12 +127,37 @@ const CONCENTRATION_DISPLAY: Record<string, string> = {
   cologne: 'Cologne', extrait: 'Extrait', attar: 'Attar', oud: 'Oud',
 };
 
+/**
+ * Whichever concentration phrase a title actually names, by specificity
+ * rather than by which one merely occurs first in the string.
+ *
+ * A single combined alternation isn't global, so `.match()` stops at the
+ * first alternative that matches, scanning left to right — not the most
+ * specific one. That is usually harmless, but Creed's own "Aventus Cologne"
+ * line breaks it: the
+ * title reads "Creed Aventus Cologne Eau De Parfum 50ml", where "Cologne" is
+ * genuinely part of that line's own name (Creed formulates its Cologne
+ * expressions at Eau de Parfum strength — an oddity of that one house, not a
+ * general rule) and "Eau De Parfum" right after it is the actual
+ * concentration. Because "Cologne" sits earlier in the string, the old
+ * single match picked it as *the* concentration and left "Eau De Parfum"
+ * sitting unremoved in the display name — "Aventus Eau De Parfum" labelled
+ * Cologne, on the same product this file's other fix was written for.
+ * Checking the specific "eau de X" phrases first, regardless of position,
+ * is what a reader would call the actual concentration; a bare word like
+ * "cologne" only gets to answer the question when nothing more specific
+ * appears anywhere in the title.
+ */
+function concentrationMatch(title: string): string | null {
+  return title.match(CONCENTRATION_SPECIFIC)?.[0] ?? title.match(CONCENTRATION_GENERIC)?.[0] ?? null;
+}
+
 /** Concentration as a display string. */
 function concentration(title: string): string {
-  const m = title.match(CONCENTRATION);
-  if (!m) return 'Fragrance';
-  const raw = m[0].toLowerCase();
-  return CONCENTRATION_DISPLAY[raw] ?? raw.replace(/\b\w/g, (c) => c.toUpperCase());
+  const raw = concentrationMatch(title);
+  if (!raw) return 'Fragrance';
+  const key = raw.toLowerCase();
+  return CONCENTRATION_DISPLAY[key] ?? key.replace(/\b\w/g, (c) => c.toUpperCase());
 }
 
 /**
@@ -132,14 +165,44 @@ function concentration(title: string): string {
  *
  * Deliberately conservative. Where this cannot do better it leaves the shop's
  * own words alone, because a mangled name is worse than a verbose one.
+ *
+ * `for men/women/him/her` used to be stripped here alongside genuine format
+ * noise like "spray" and "splash", on the assumption that it was always
+ * redundant gender marketing on an otherwise identical bottle. It is not:
+ * Creed sells "Aventus" and "Aventus For Her" as two different fragrances
+ * with different compositions, not one fragrance with an optional label, and
+ * the same pattern repeats across the catalogue under whichever name a house
+ * gives its own paired lines — Calvin Klein's "Eternity" and "Eternity for
+ * Him", Dolce & Gabbana's "The One" and "The One For Men", Hugo Boss's "The
+ * Scent" and "The Scent For Her" are each two distinct products, not a men's
+ * and women's presentation of one. Stripping the phrase collapsed "Aventus"
+ * and "Aventus For Her" to the same displayed name, which is how a reader
+ * ended up looking at what read as three identical Creed Aventus listings —
+ * checked against the live catalogue: 302 listings carry this phrase, so
+ * this was never a Creed-only edge case. Kept in the name from here on,
+ * because a shop's own genuine distinguishing word being dropped is a worse
+ * failure than a name that reads a little more verbose than strictly needed.
+ *
+ * Only the specific phrase concentrationMatch actually identified gets
+ * stripped here, not the whole CONCENTRATION alternation — the same
+ * "Aventus Cologne Eau De Parfum" case again: blindly stripping every
+ * concentration-shaped word would take "Cologne" out too, and "Cologne" is
+ * part of that line's own name, not just a concentration descriptor,
+ * exactly the same category of mistake this function stopped making with
+ * "For Her" above. Removing only the one phrase that was actually used to
+ * decide the concentration badge leaves the rest of the title's own words
+ * alone, which is the whole rule this function follows everywhere else.
  */
 function displayName(title: string, brand: string | null): string {
   let s = title;
   if (brand) s = s.replace(new RegExp(`^${brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*`, 'i'), '');
+  const matchedConcentration = concentrationMatch(title);
+  if (matchedConcentration) {
+    s = s.replace(new RegExp(`\\b${matchedConcentration.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i'), '');
+  }
   s = s
-    .replace(CONCENTRATION, '')
     .replace(/\b\d{1,4}(?:\.\d)?\s*ml\b/gi, '')
-    .replace(/\b(spray|splash|for (?:men|women|him|her)|refillable|vapo|natural)\b/gi, '')
+    .replace(/\b(spray|splash|refillable|vapo|natural)\b/gi, '')
     .replace(/\s{2,}/g, ' ')
     .replace(/^[\s,\-|]+|[\s,\-|]+$/g, '');
   return s || title;
@@ -522,6 +585,28 @@ const catalogue = ordered.map((p) => ({
   notes: pickNotes(p.offers),
 }));
 
+/**
+ * TypeScript's checker can choke ("Expression produces a union type that is
+ * too complex to represent", TS2590) when a single array literal this large
+ * is checked against an interface in one pass — the catalogue crossed that
+ * threshold at around 3,950 products, right after the Aventus-style naming
+ * fix stopped over-merging distinct product lines and pushed the count back
+ * up. Splitting the literal into fixed-size chunks, each independently typed
+ * and then spread into the exported array, keeps every individual check well
+ * under the threshold no matter how large the catalogue grows from here.
+ */
+function chunkedArrayLiteral(varName: string, typeName: string, items: unknown[], chunkSize = 500): string {
+  if (items.length === 0) return `export const ${varName}: ${typeName}[] = [];`;
+  const chunkDecls: string[] = [];
+  const chunkNames: string[] = [];
+  for (let i = 0; i < items.length; i += chunkSize) {
+    const chunkName = `${varName}_CHUNK_${chunkNames.length}`;
+    chunkNames.push(chunkName);
+    chunkDecls.push(`const ${chunkName}: ${typeName}[] = ${JSON.stringify(items.slice(i, i + chunkSize), null, 2)};`);
+  }
+  return `${chunkDecls.join('\n\n')}\n\nexport const ${varName}: ${typeName}[] = [${chunkNames.map((n) => `...${n}`).join(', ')}];`;
+}
+
 const body = `// Generated by scripts/build-demo-catalogue.ts. Do not edit by hand.
 //
 // Every product and every price below was harvested from a live UK shop through
@@ -570,7 +655,7 @@ export interface CatalogueEntry {
 }
 
 /** Products, most widely stocked first. */
-export const CATALOGUE: CatalogueEntry[] = ${JSON.stringify(catalogue, null, 2)};
+${chunkedArrayLiteral('CATALOGUE', 'CatalogueEntry', catalogue)}
 
 export const CRAWLED: Record<string, CrawledOffer[]> = ${JSON.stringify(crawled, null, 2)};
 
@@ -593,7 +678,7 @@ export interface HouseProduct {
   inStock: boolean | null;
 }
 
-export const HOUSE_PRODUCTS: HouseProduct[] = ${JSON.stringify(houseProducts, null, 2)};
+${chunkedArrayLiteral('HOUSE_PRODUCTS', 'HouseProduct', houseProducts)}
 
 /** When the harvest that produced this data ran. */
 export const CRAWLED_AT = ${JSON.stringify(crawledAt)};
