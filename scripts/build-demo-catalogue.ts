@@ -255,6 +255,38 @@ export interface Notes {
   base: string[];
 }
 
+/** Groups spelling variants for the Notes key so counting them once, not once per spelling. */
+const noteKey = (s: string): string => s.toLowerCase().replace(/[-\s]+/g, ' ').trim();
+
+/**
+ * Real spelling and typo variants of one note, checked against the live
+ * catalogue's own Notes list before being added — a fragrance house's own
+ * inconsistent spelling within a single feed ("Ylang-Ylang" and "Ylang
+ * ylang" a few products apart), not a guess at what might be the same note.
+ * Kept small and specific rather than an automated fuzzy match, the same
+ * reason `brandName.ts`'s KNOWN_ALIASES stays a short hand-checked list:
+ * a wrong merge silently hides two genuinely different notes as one entry.
+ */
+const NOTE_ALIASES: Record<string, string> = {
+  [noteKey('Woody')]: 'Woods',
+  [noteKey('Ylang ylang')]: 'Ylang-Ylang',
+  [noteKey('Cyrpiol')]: 'Cypriol',
+  [noteKey('Guiacwoof')]: 'Guaiac Wood',
+  [noteKey('Gaiac wood')]: 'Guaiac Wood',
+  [noteKey('Haiti Vetiver')]: 'Haitian Vetiver',
+  [noteKey('Haiti Vetyver')]: 'Haitian Vetiver',
+  [noteKey('Ooakmoss')]: 'Oakmoss',
+  [noteKey('Oak Moss')]: 'Oakmoss',
+  [noteKey('Muget')]: 'Lily-of-the-Valley',
+  [noteKey('Muguet')]: 'Lily-of-the-Valley',
+  [noteKey('Mandarino')]: 'Mandarin',
+  [noteKey('Vetyver')]: 'Vetiver',
+  [noteKey('Jasmin')]: 'Jasmine',
+  [noteKey('Cedar Wood')]: 'Cedarwood',
+};
+
+const canonicalNoteName = (s: string): string => NOTE_ALIASES[noteKey(s)] ?? s;
+
 /**
  * Pull the note pyramid out of a retailer's own product copy.
  *
@@ -295,6 +327,36 @@ function parseNotes(description: string | null | undefined): Notes | null {
   const PROSE =
     /\b(take|takes|taken|over|through|leading|with|into|from|that|which|while|before|after|creating|providing|making|giving|adding|fairly|quickly|slowly|gently|softly|deeply|subtly|really|quite|very|soon|later|eventually|immediately)\b/i;
 
+  /**
+   * Trims a real note back out of a sentence describing how it behaves —
+   * "Amber  emerge", "Musk provide depth", "Vetiver come forth" all name a
+   * genuine note in their first word or two and then run straight into the
+   * clause that says what it does. Two rules catch this before the shape
+   * check below ever sees it:
+   *
+   *   1. A real note phrase never contains two consecutive spaces — only
+   *      prose does, wherever the source's own markup ("<br>" and similar)
+   *      collapsed to whitespace. Cutting at the first such run recovers
+   *      "Amaryllis" from "Amaryllis  🍮" the same way it recovers "Amber"
+   *      from "Amber  emerge", with no need to name every stray glyph.
+   *   2. A fixed list of description verbs ("emerge", "provide depth", "come
+   *      forth" and the rest) that a note name itself never contains, cutting
+   *      at the first one found even across a single space ("Vetiver come
+   *      forth", "Patchouli for depth").
+   *
+   * Checked against the live catalogue before being written: every note name
+   * that actually exists survives both cuts unchanged.
+   */
+  const TRAILING_CLAUSE =
+    /\s+(emerge|emerges|develop|develops|settle|settles|unfold|unfolds|linger|lingers|intertwine|intertwines|provide|provides|contribute|contributes|add|adds|offer|offers|come\s+forth|comes\s+forth|greet|greets|resonate|resonates|lend|lends|uplift|steam|delivery|for\s+her|for\s+him|for\s+depth|these\b).*$/i;
+
+  const cleanCandidate = (s: string): string =>
+    s
+      .split(/\s{2,}/)[0]!
+      .replace(TRAILING_CLAUSE, '')
+      .replace(/[|*•·™®—–-]+$/, '')
+      .trim();
+
   const looksLikeNote = (s: string): boolean =>
     s.length > 1 &&
     s.length <= 24 &&
@@ -304,7 +366,15 @@ function parseNotes(description: string | null | undefined): Notes | null {
     // Feed copy capitalises note names. A lowercase start means the split
     // landed inside a sentence rather than on a list item.
     /^[A-Z]/.test(s) &&
-    !PROSE.test(s);
+    !PROSE.test(s) &&
+    // A real note never opens on a bare article or pronoun — nothing genuinely
+    // named "A Bright", "As It Develops" or "At Its Core" exists, those are a
+    // sentence's own opening words ("A bright, sparkling, vibrant citrus...",
+    // "As it develops...", "At its core...") caught by the comma split before
+    // the sentence itself was recognised as prose. "the" is checked only at
+    // the very start, not anywhere in the phrase — "Lily of the Valley" keeps
+    // its own "the" mid-phrase, which this must never touch.
+    !/^(a|as|at|it|its|the)\b/i.test(s);
 
   const section = (label: string): string[] => {
     const re = new RegExp(`${label}\\s*:?\\s*([\\s\\S]*?)(?=(?:top|middle|heart|base)\\s+notes?\\s*:|$)`, 'i');
@@ -315,8 +385,9 @@ function parseNotes(description: string | null | undefined): Notes | null {
     const listOnly = m[1].split(/\.\s|\.$/)[0] ?? '';
     return listOnly
       .split(/[,;/]|\band\b/i)
-      .map((s) => s.trim())
+      .map((s) => cleanCandidate(s.trim()))
       .filter(looksLikeNote)
+      .map(canonicalNoteName)
       .slice(0, 14);
   };
 
