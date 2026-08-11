@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-11T08:11:45.617Z",
+  "checkedAt": "2026-08-11T09:38:38.052Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -12,8 +12,8 @@
       "withPhoto": 0,
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
-        "https://www.rasasi.com/products.json?limit=250&page=1: HTTP 522",
-        "https://www.rasasi.com/sitemap.xml: HTTP 522"
+        "https://www.rasasi.com/products.json?limit=250&page=1: HTTP 500",
+        "https://www.rasasi.com/sitemap.xml: HTTP 500"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -58,19 +58,21 @@
       "houseId": "pairfum-london",
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": null,
       "currency": null,
-      "listings": 2,
+      "listings": 0,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
+        "https://www.pairfum.com/products.json?limit=250&page=1: HTTP 500",
         "stopped early: the house began refusing requests"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {
@@ -194,9 +196,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 48,
-      "pricedInGbp": 48,
-      "withPhoto": 48,
+      "listings": 51,
+      "pricedInGbp": 51,
+      "withPhoto": 51,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
