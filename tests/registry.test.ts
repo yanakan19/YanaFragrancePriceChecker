@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { RETAILERS, getRetailer, enabledRetailers, retailersForTier, cannotCarryBrand } from '../src/config/retailers.js';
+import { buildComparison, bestOffer, presentOffer } from '../src/services/priceService.js';
+import type { RawOffer } from '../src/types/offer.js';
 
 describe('retailer registry', () => {
   it('contains the retailers from the plan plus any live affiliate or direct additions', () => {
@@ -26,13 +28,116 @@ describe('retailer registry', () => {
   });
 
   // The whole point of allowing `standardGbp: null` is that "we have not
-  // established this" stops being unsayable. It is only safe because such a
-  // retailer never reaches the offer pipeline — delivered price is the default
-  // sort key, and an unknown delivery cost counted as zero would sort that shop
-  // to the top as artificially cheapest. This test is what keeps that true.
-  it('never enables a retailer whose standard delivery cost is unknown', () => {
-    const leaked = RETAILERS.filter((r) => r.shipping.standardGbp === null && r.enabled);
-    expect(leaked.map((r) => r.id)).toEqual([]);
+  // established this" stops being unsayable.
+  //
+  // It used to be made safe by keeping such a retailer out of the offer
+  // pipeline entirely: `enabled: false`, and a test here enforcing it. That
+  // protected the comparison by hiding real shops, which is its own kind of
+  // dishonesty, so the guarantee has been narrowed to the part that actually
+  // matters. Delivered price is the default sort key, so an unknown delivery
+  // cost counted as zero would sort that shop to the top as artificially
+  // cheapest. What is now enforced instead is:
+  //
+  //   - an unknown delivery cost produces a null delivered price, never a
+  //     number, and never the item price wearing a delivered price's clothes;
+  //   - such an offer can never outrank one with a known delivered price under
+  //     the default sort, and is never named as the best offer while any
+  //     comparable offer exists;
+  //   - a real, sourced `standardGbp: 0` still means free delivery and is
+  //     never confused with "we don't know".
+  //
+  // The tests below are what keep that true. Between them they cover the exact
+  // failure the old test existed to prevent.
+  describe('retailers with an unknown standard delivery cost', () => {
+    // Every retailer that is enabled without a stated standard delivery cost.
+    // This is deliberately not asserted to be empty any more — it is asserted
+    // to behave.
+    const unstated = RETAILERS.filter((r) => r.shipping.standardGbp === null && r.enabled);
+
+    const rawOffer = (retailerId: string, price: number): RawOffer => ({
+      retailerId,
+      variantId: 'test-variant',
+      price,
+      currency: 'GBP',
+      stock: 'inStock',
+      url: 'https://example.com/p/1',
+      fetchedAt: '2026-08-01T11:55:00Z',
+    });
+
+    it('is a short, deliberate list rather than everything unresearched', () => {
+      // Being shown without a delivery cost is safe, but it is not free: each
+      // of these is a shop a reader can open and be sent to. They are here
+      // because each has a real ingestion route (a catalogue config) and a
+      // real reason to be listed. The other retailers carrying
+      // standardGbp: null have catalogue: null and adapter: 'unknown' —
+      // nothing to fetch, so they would render as empty shops — and mostly a
+      // pending affiliate application, so listing them as live partners would
+      // describe a relationship that does not exist yet.
+      expect(unstated.map((r) => r.id).sort()).toEqual([
+        'glorious-beauty',
+        'manchester-ouds',
+        'perfume-shopping',
+        'the-fragrance-counter',
+      ]);
+      for (const r of unstated) {
+        expect(r.catalogue, `${r.name} is enabled with no way to fetch anything`).not.toBeNull();
+      }
+    });
+
+    it('yields a null delivered price, never a number', () => {
+      for (const r of unstated) {
+        const row = presentOffer(rawOffer(r.id, 42), r);
+        expect(row.deliveredPriceGbp, `${r.name} invented a delivered price`).toBeNull();
+        expect(row.delivery.costGbp, `${r.name} invented a delivery cost`).toBeNull();
+        // The item price is still shown; it is simply never passed off as a
+        // delivered one.
+        expect(row.itemPriceGbp).toBe(42);
+        // Nothing about free delivery can be claimed for a cost nobody has.
+        expect(row.delivery.isFree).toBe(false);
+        expect(row.delivery.freeReason).toBeNull();
+        expect(row.delivery.spendMoreForFreeGbp).toBeNull();
+      }
+    });
+
+    it('never sorts above a known-delivery offer, however cheap the item', () => {
+      // Boots at £90 delivers at £90 (its £25 threshold is long cleared). The
+      // unknown-delivery shop is listed at £1 — the most extreme form of the
+      // error this guards against — and still has to come second.
+      for (const r of unstated) {
+        const rows = buildComparison([rawOffer(r.id, 1), rawOffer('boots', 90)]);
+        expect(rows.map((row) => row.retailer.id), `${r.name} outranked a priced offer`).toEqual([
+          'boots',
+          r.id,
+        ]);
+        expect(bestOffer(rows)!.retailer.id, `${r.name} was named cheapest`).toBe('boots');
+      }
+    });
+
+    it('orders unknown-delivery offers among themselves by item price', () => {
+      // They are comparable to each other on the only figure they have.
+      const [a, b] = unstated;
+      const rows = buildComparison([rawOffer(b!.id, 80), rawOffer(a!.id, 20)]);
+      expect(rows.map((row) => row.retailer.id)).toEqual([a!.id, b!.id]);
+      expect(rows.every((row) => row.deliveredPriceGbp === null)).toBe(true);
+    });
+
+    it('keeps a real zero distinct from an unknown cost', () => {
+      // Fragrance Click UK ships free on every order. That is a sourced claim,
+      // not an absence of one, and it must keep producing a genuine delivered
+      // price equal to the item price — the exact output an unknown cost is
+      // forbidden from producing.
+      const free = getRetailer('fragrance-click')!;
+      expect(free.shipping.standardGbp).toBe(0);
+      const row = presentOffer(rawOffer('fragrance-click', 42), free);
+      expect(row.delivery.costGbp).toBe(0);
+      expect(row.delivery.isFree).toBe(true);
+      expect(row.delivery.freeReason).toBe('always-free');
+      expect(row.deliveredPriceGbp).toBe(42);
+      // And it competes normally: free delivery is a real advantage, unlike
+      // an unstated cost, so it is allowed to win.
+      const rows = buildComparison([rawOffer('fragrance-click', 42), rawOffer('boots', 90)]);
+      expect(bestOffer(rows)!.retailer.id).toBe('fragrance-click');
+    });
   });
 
   it('has unique ids and domains', () => {

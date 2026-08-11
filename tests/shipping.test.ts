@@ -68,6 +68,51 @@ describe('resolveDelivery', () => {
     const d = resolveDelivery(free, 5);
     expect(d.isFree).toBe(true);
     expect(d.freeReason).toBe('always-free');
+    // A sourced zero, not an absence of a figure. It stays a number.
+    expect(d.costGbp).toBe(0);
+  });
+
+  describe('when the retailer states no standard delivery cost', () => {
+    // This used to throw, on the reasoning that such a retailer must never
+    // reach the pipeline at all. It now resolves to an explicitly unstated
+    // cost instead, which the sort demotes and the UI labels — the shop is
+    // shown, and it still cannot win on a price nobody has established.
+    const unstated: Retailer = {
+      ...boots,
+      shipping: { ...boots.shipping, standardGbp: null, freeOverGbp: 25 },
+    };
+
+    it('returns a null cost rather than throwing', () => {
+      expect(() => resolveDelivery(unstated, 20)).not.toThrow();
+      expect(resolveDelivery(unstated, 20).costGbp).toBeNull();
+    });
+
+    it('claims nothing about free delivery', () => {
+      // Not free, no reason it might be, and no shortfall to quote — a
+      // threshold is meaningless without the cost it is a threshold on. Even
+      // at a basket that clears the £25 free-over figure, "free" is a claim
+      // this retailer has not made.
+      for (const basket of [20, 25, 500]) {
+        const d = resolveDelivery(unstated, basket);
+        expect(d.isFree).toBe(false);
+        expect(d.freeReason).toBeNull();
+        expect(d.spendMoreForFreeGbp).toBeNull();
+      }
+    });
+
+    it('still reports everything it does know', () => {
+      const d = resolveDelivery(unstated, 20);
+      expect(d.estimatedDays).toEqual(boots.shipping.estimatedDays);
+      expect(d.confirmed).toBe(false);
+    });
+
+    it('is not confused with a genuinely free retailer', () => {
+      const free: Retailer = { ...boots, shipping: { ...boots.shipping, standardGbp: 0 } };
+      expect(resolveDelivery(free, 5).costGbp).toBe(0);
+      expect(resolveDelivery(unstated, 5).costGbp).toBeNull();
+      expect(resolveDelivery(free, 5).isFree).toBe(true);
+      expect(resolveDelivery(unstated, 5).isFree).toBe(false);
+    });
   });
 });
 
@@ -82,6 +127,13 @@ describe('deliveredPrice', () => {
 
   it('rounds to pence rather than leaking float drift', () => {
     expect(deliveredPrice(notino, 19.99)).toBe(22.98);
+  });
+
+  it('is null, never the item price, when the cost is unstated', () => {
+    // Returning the item price here would be indistinguishable from free
+    // delivery to every caller downstream.
+    const unstated: Retailer = { ...boots, shipping: { ...boots.shipping, standardGbp: null } };
+    expect(deliveredPrice(unstated, 20)).toBeNull();
   });
 
   it('can make a cheaper item more expensive delivered', () => {

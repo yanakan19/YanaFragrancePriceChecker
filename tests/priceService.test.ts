@@ -99,6 +99,46 @@ describe('buildComparison ordering', () => {
     expect(rows.map((r) => r.retailer.id)).toEqual(['boots', 'superdrug', 'lookfantastic']);
   });
 
+  it('ranks every priced offer above every unpriced one, however cheap', () => {
+    // The Fragrance Counter states no standard delivery cost, so it has no
+    // delivered price to compare. Listing it at £1 is the extreme form of the
+    // failure this rule exists to prevent: treating "we don't know" as £0
+    // would make it the cheapest row in the table.
+    const rows = buildComparison(
+      [offer('the-fragrance-counter', 1), offer('boots', 90), offer('lookfantastic', 85)],
+      { now: NOW },
+    );
+
+    expect(rows.map((r) => [r.retailer.id, r.deliveredPriceGbp])).toEqual([
+      ['lookfantastic', 85],
+      ['boots', 90],
+      ['the-fragrance-counter', null],
+    ]);
+  });
+
+  it('orders unpriced offers among themselves by item price', () => {
+    // Between two shops that both state nothing, item price is the only thing
+    // there is to go on, and it is a fair comparison — neither is being
+    // credited with delivery it has not quoted.
+    const rows = buildComparison(
+      [offer('perfume-shopping', 60), offer('the-fragrance-counter', 40)],
+      { now: NOW },
+    );
+    expect(rows.map((r) => r.retailer.id)).toEqual(['the-fragrance-counter', 'perfume-shopping']);
+    expect(rows.every((r) => r.deliveredPriceGbp === null)).toBe(true);
+  });
+
+  it('leaves the item sort alone — item price is known for everyone', () => {
+    // No demotion here: nothing being sorted on is unknown, so an
+    // unknown-delivery shop with the cheapest bottle genuinely does have the
+    // cheapest bottle.
+    const rows = buildComparison(
+      [offer('boots', 90), offer('the-fragrance-counter', 40)],
+      { sortBy: 'item', now: NOW },
+    );
+    expect(rows.map((r) => r.retailer.id)).toEqual(['the-fragrance-counter', 'boots']);
+  });
+
   it('breaks ties deterministically by retailer name', () => {
     const a = buildComparison([offer('boots', 30), offer('superdrug', 30)], { now: NOW });
     const b = buildComparison([offer('superdrug', 30), offer('boots', 30)], { now: NOW });
@@ -156,6 +196,15 @@ describe('presentOffer', () => {
     expect(row.outboundUrl).toBe('https://boots.com/p/1');
   });
 
+  it('never turns an unstated delivery cost into a delivered price', () => {
+    const tfc = getRetailer('the-fragrance-counter')!;
+    const row = presentOffer(offer('the-fragrance-counter', 55), tfc, NOW);
+    expect(row.itemPriceGbp).toBe(55);
+    expect(row.deliveredPriceGbp).toBeNull();
+    expect(row.delivery.costGbp).toBeNull();
+    expect(row.delivery.isFree).toBe(false);
+  });
+
   it('reports price age for the staleness label', () => {
     expect(presentOffer(offer('boots', 80), boots, NOW).ageSeconds).toBe(300);
   });
@@ -182,6 +231,26 @@ describe('result grouping', () => {
 
   it('never headlines a price nobody can pay', () => {
     expect(bestOffer(rows)!.retailer.id).toBe('lookfantastic');
+  });
+
+  it('never headlines an offer whose delivery cost is unknown', () => {
+    // Enforced in bestOffer itself, not left to the sort, so it holds even
+    // when the caller ordered the rows some other way.
+    const mixed = buildComparison(
+      [offer('the-fragrance-counter', 10), offer('boots', 90)],
+      { sortBy: 'item', now: NOW },
+    );
+    expect(mixed[0]!.retailer.id).toBe('the-fragrance-counter');
+    expect(bestOffer(mixed)!.retailer.id).toBe('boots');
+  });
+
+  it('falls back to an unknown-delivery offer only when it is the only one', () => {
+    // Naming the one shop that has it beats showing nothing, and the UI
+    // labels it as delivery not stated rather than as a winning price.
+    const only = buildComparison([offer('the-fragrance-counter', 55)], { now: NOW });
+    const best = bestOffer(only)!;
+    expect(best.retailer.id).toBe('the-fragrance-counter');
+    expect(best.deliveredPriceGbp).toBeNull();
   });
 
   it('returns null when nothing is buyable', () => {
