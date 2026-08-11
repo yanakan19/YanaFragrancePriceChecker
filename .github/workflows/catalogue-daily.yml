@@ -41,6 +41,10 @@ on:
         description: 'Limit the harvest to one retailer id (e.g. lookfantastic). Empty runs every enabled shop, same as the schedule.'
         type: string
         default: ''
+      harvest_gap_min:
+        description: 'Floor on the delay between requests, in ms, on top of the registry/robots.txt gap. Use for a gentler deep run against one shop after a normal-pace run got throttled.'
+        type: string
+        default: ''
       allow_metered:
         description: 'Retry genuinely blocked shops through the Apify proxy. Requires the APIFY_PROXY_PASSWORD secret. Costs money.'
         type: boolean
@@ -217,6 +221,7 @@ jobs:
           npm run harvest -- \
             --max=${{ inputs.harvest_max || '60' }} \
             ${{ inputs.harvest_shop && format('--shop={0}', inputs.harvest_shop) || '' }} \
+            ${{ inputs.harvest_gap_min && format('--gap-min={0}', inputs.harvest_gap_min) || '' }} \
             ${{ (inputs.allow_metered || github.event_name == 'schedule') && '--allow-metered' || '' }}
 
       # The Middle Eastern houses sell direct rather than through the UK shops
