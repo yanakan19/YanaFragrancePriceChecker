@@ -17,18 +17,6 @@ import { roundPence } from './money.js';
 export function resolveDelivery(retailer: Retailer, basketGbp: number): DeliveryDisplay {
   const { shipping } = retailer;
 
-  // Unknown is not zero. A retailer whose standard delivery cost has never been
-  // established must be disabled (see the field's doc comment and the registry
-  // test that enforces it), so reaching here with null means a disabled shop
-  // has leaked into the offer pipeline. Failing loudly is right: the quiet
-  // alternative is treating unknown as free and sorting that shop to the top.
-  if (shipping.standardGbp === null) {
-    throw new Error(
-      `${retailer.id}: standard delivery cost is not established, so a delivered ` +
-        'price cannot be computed. This retailer should be enabled: false.',
-    );
-  }
-  const standardGbp = shipping.standardGbp;
   const membershipNote = shipping.membershipPerk
     ? `${shipping.membershipPerk.scheme}: ${shipping.membershipPerk.description}`
     : null;
@@ -39,7 +27,32 @@ export function resolveDelivery(retailer: Retailer, basketGbp: number): Delivery
     confirmed: shipping.confidence === 'confirmed',
   };
 
-  // Some retailers ship free at any basket value.
+  // Unknown is not zero, and it is not a reason to hide the shop either.
+  //
+  // This used to throw, because the only safe way to handle a shop with no
+  // established delivery cost was to keep it out of the pipeline entirely
+  // (`enabled: false`). That protected the sort at the cost of hiding real
+  // shops. The rule is now narrower and does the same job: an unstated cost
+  // stays unstated all the way to the screen, the delivered price is null
+  // rather than invented, and a row with a null delivered price can never
+  // outrank one with a real number (see buildComparison and bestOffer). It is
+  // shown, labelled "delivery not stated", and it cannot win on price.
+  if (shipping.standardGbp === null) {
+    return {
+      ...base,
+      costGbp: null,
+      // Nothing below can be asserted about a cost nobody has established.
+      // "Free" in particular would be a claim, not an absence of one.
+      isFree: false,
+      freeReason: null,
+      spendMoreForFreeGbp: null,
+    };
+  }
+  const standardGbp = shipping.standardGbp;
+
+  // Some retailers ship free at any basket value. This is a real, sourced zero
+  // — a claim that the shop ships free — and is deliberately distinct from the
+  // null case above.
   if (standardGbp === 0) {
     return {
       ...base,
@@ -80,7 +93,15 @@ export function resolveDelivery(retailer: Retailer, basketGbp: number): Delivery
   };
 }
 
-/** Item price plus applicable delivery — the default comparison sort key. */
-export function deliveredPrice(retailer: Retailer, itemPriceGbp: number): number {
-  return roundPence(itemPriceGbp + resolveDelivery(retailer, itemPriceGbp).costGbp);
+/**
+ * Item price plus applicable delivery — the default comparison sort key.
+ *
+ * `null` when the retailer does not state a delivery cost. Callers must carry
+ * that null rather than coalescing it to the item price: a delivered price
+ * that quietly equals the item price is indistinguishable from free delivery,
+ * which is exactly the claim we are refusing to make.
+ */
+export function deliveredPrice(retailer: Retailer, itemPriceGbp: number): number | null {
+  const { costGbp } = resolveDelivery(retailer, itemPriceGbp);
+  return costGbp === null ? null : roundPence(itemPriceGbp + costGbp);
 }

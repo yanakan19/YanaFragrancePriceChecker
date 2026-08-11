@@ -53,8 +53,23 @@ export interface DiscountDisplay {
 
 /** How delivery resolves for this offer at this basket value. */
 export interface DeliveryDisplay {
-  /** Delivery cost applied to the delivered price. */
-  costGbp: number;
+  /**
+   * Delivery cost applied to the delivered price.
+   *
+   * `null` means the retailer does not state one, and it never means zero. A
+   * shop can be shown without this figure — it is displayed as "delivery not
+   * stated" and is barred from ever ranking as the cheapest offer (see
+   * `buildComparison` and `bestOffer`) — but it can never be silently priced
+   * at £0, which would sort it to the top as artificially cheapest.
+   *
+   * `0` is a different statement entirely: it is a real, sourced claim that
+   * this shop ships free. The two must never be conflated.
+   *
+   * When null, `isFree` is false, `freeReason` is null and
+   * `spendMoreForFreeGbp` is null: none of those can be asserted about a cost
+   * nobody has established.
+   */
+  costGbp: number | null;
   isFree: boolean;
   /** Why delivery is free, when it is. */
   freeReason: 'threshold-met' | 'always-free' | null;
@@ -76,8 +91,15 @@ export interface PresentedOffer {
   variantId: string;
   /** Price of the item itself, excluding delivery. */
   itemPriceGbp: number;
-  /** Item price plus applicable delivery. The default sort key. */
-  deliveredPriceGbp: number;
+  /**
+   * Item price plus applicable delivery. The default sort key.
+   *
+   * `null` exactly when `delivery.costGbp` is null — the retailer does not
+   * state a delivery cost, so no delivered price exists. It is never filled in
+   * with the item price: that would be the same lie as pricing delivery at
+   * zero, just written somewhere else.
+   */
+  deliveredPriceGbp: number | null;
   currency: 'GBP';
   discount: DiscountDisplay | null;
   delivery: DeliveryDisplay;

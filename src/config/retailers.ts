@@ -17,6 +17,12 @@ import { brandKey } from '../catalogue/brandName.js';
  * retailer's own delivery page before the delivered-price sort is trusted in
  * production. `npm run shipping:staleness` lists what needs re-checking.
  *
+ * `standardGbp: null` says "this shop has never published a flat standard
+ * rate". Such a shop may be enabled: its offers carry no delivered price at
+ * all, render as "delivery not stated", and are ranked below every offer that
+ * has one, so it can never be presented as the cheapest. What is never done,
+ * for any retailer here under any circumstance, is inventing the figure.
+ *
  * Only standard delivery is modelled. Express tiers and membership schemes
  * (Boots Advantage, TFS MYTFS, LOOKFANTASTIC Premier, Superdrug Beautycard,
  * Selfridges+) are recorded as footnotes and never priced in — we cannot assume
@@ -780,14 +786,15 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'thefragrancecounter.co.uk',
     homepage: 'https://www.thefragrancecounter.co.uk',
     tiers: ['designer'],
-    // Disabled: their own delivery page states delivery is free, but no
-    // explicit standard-delivery price or spend threshold could be found to
-    // confirm that is unconditional rather than gated on a minimum spend —
-    // exactly the gap standardGbp: null exists to say honestly. See the
-    // field's doc comment for why leaving it null rather than guessing 0
-    // matters here in particular: guessing free would make this retailer
-    // artificially win the delivered-price sort every time.
-    enabled: false,
+    // Enabled with delivery not stated. Their own delivery page describes
+    // delivery as free, but no explicit standard price or spend threshold
+    // could be found to confirm that is unconditional rather than gated on a
+    // minimum spend — exactly the gap standardGbp: null exists to say
+    // honestly, and guessing 0 would make this retailer artificially win the
+    // delivered-price sort every time. Shown rather than hidden: with
+    // standardGbp null its offers carry no delivered price, render as
+    // "delivery not stated", and rank below every shop that publishes a rate.
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -797,15 +804,16 @@ export const RETAILERS: readonly Retailer[] = [
       verifiedAt: '2026-08-05',
       confidence: 'unverified',
       notes:
+        'THE FLAT STANDARD RATE IS UNCONFIRMED, so this shop is shown with delivery not ' +
+        'stated: no delivered price is computed for it and it can never rank as cheapest. ' +
         'Search-cached copies of their delivery page say standard delivery is by Royal Mail ' +
         'Tracked 48 and describe it as free, but none of them state a minimum spend or confirm ' +
-        'it applies to every order. Read thefragrancecounter.co.uk delivery terms directly, ' +
-        'fill in standardGbp/freeOverGbp, then enable. A .com storefront also exists ' +
-        '(thefragrancecounter.com) — confirm its relationship to the .co.uk site before ' +
-        'treating them as the same retailer.',
+        'it applies to every order. Read thefragrancecounter.co.uk delivery terms directly and ' +
+        'fill in standardGbp/freeOverGbp to bring it into the delivered-price comparison. A ' +
+        '.com storefront also exists (thefragrancecounter.com) — confirm its relationship to ' +
+        'the .co.uk site before treating them as the same retailer.',
     },
-    // Not walked while disabled — the gap is the delivery cost above, not
-    // the crawl target. Confirmed live in a browser 6 Aug 2026.
+    // Confirmed live in a browser 6 Aug 2026.
     catalogue: {
       searchUrlTemplate: 'https://www.thefragrancecounter.co.uk/catalogsearch/result/?q={q}',
       sections: [
@@ -866,13 +874,13 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'perfumeshopping.com',
     homepage: 'https://www.perfumeshopping.com',
     tiers: ['designer'],
-    // Disabled: the free-delivery threshold is reasonably well sourced, but
-    // the standard cost below that threshold is not — one third-party
-    // aggregator cites a figure, but it was never confirmed on the
-    // retailer's own page, which is not a strong enough basis to price a
-    // sort key against. See the field's doc comment on why null, not a
-    // guess, is what belongs here until that changes.
-    enabled: false,
+    // Enabled with delivery not stated. The free-delivery threshold is
+    // reasonably well sourced, but the standard cost below it is not — one
+    // third-party aggregator cites a figure, never confirmed on the retailer's
+    // own page, which is not a strong enough basis to price a sort key
+    // against. So standardGbp stays null and this shop is shown without a
+    // delivered price rather than either hidden or given an invented one.
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -882,12 +890,14 @@ export const RETAILERS: readonly Retailer[] = [
       verifiedAt: '2026-08-05',
       confidence: 'unverified',
       notes:
+        'THE FLAT STANDARD RATE IS UNCONFIRMED, so this shop is shown with delivery not ' +
+        'stated: no delivered price is computed for it and it can never rank as cheapest. ' +
         'Free UK delivery over £50, next-day option at £3.99. The under-threshold standard ' +
         'cost is only aggregator-sourced (not read off perfumeshopping.com/delivery-and-' +
-        'returns directly) — confirm it there before filling in standardGbp and enabling.',
+        'returns directly) — confirm it there, then fill in standardGbp to bring this shop ' +
+        'into the delivered-price comparison.',
     },
-    // Not walked while disabled — the gap is the delivery cost above, not
-    // the crawl target. Confirmed live in a browser 6 Aug 2026. A third
+    // Confirmed live in a browser 6 Aug 2026. A third
     // /brands page was also given but is a brand index rather than a
     // paginated product grid, so it is not a crawl section here.
     catalogue: {
@@ -913,17 +923,19 @@ export const RETAILERS: readonly Retailer[] = [
       'Glorious Beauty presents a curated, handpicked portfolio of glorious make-up, ' +
       'skincare, fragrance and wellness brands inspired to bring out the glorious in you.',
     tiers: ['designer'],
-    // Disabled until standard delivery is established. Unlike MyBeauty above,
-    // this one has no product feed at all to fall back on.
-    enabled: false,
+    // Enabled with delivery not stated: an active Awin partner whose standard
+    // rate has still never been established, so it is shown without a
+    // delivered price rather than kept out of the app entirely. Unlike
+    // MyBeauty above, this one has no product feed at all to fall back on.
+    enabled: true,
     // Their Awin programme reports 0 products and "last updated: never", so
-    // there is no feed to take. If this shop is ever enabled it will need the
-    // sitemap route, which is why the adapter is unknown rather than
-    // affiliate-feed — nothing about its retrieval has been established.
-    // The fragrance collection URL below is confirmed live in a browser
-    // 6 Aug 2026, so retrieval is ready the moment this shop is enabled —
-    // what is still missing is the standard delivery cost (see shipping
-    // below), not the crawl target.
+    // there is no feed to take. It needs the sitemap route, which is why the
+    // adapter is unknown rather than affiliate-feed — nothing about its
+    // retrieval has been established. The fragrance collection URL below is
+    // confirmed live in a browser 6 Aug 2026, so retrieval is ready; what is
+    // still missing is the standard delivery cost (see shipping below), which
+    // now costs this shop its place in the delivered-price ranking rather than
+    // its place in the app.
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -932,17 +944,18 @@ export const RETAILERS: readonly Retailer[] = [
       // This one IS confirmed: "Free shipping on orders over £28", stated in
       // their own programme terms on Awin.
       freeOverGbp: 28,
-      // Placeholder, unreachable while disabled, and not a delivery-speed claim.
+      // Indicative only, and not a delivery-speed claim.
       estimatedDays: [2, 4],
       verifiedAt: '2026-08-04',
       confidence: 'unverified',
       notes:
-        'freeOverGbp 28 is confirmed from the advertiser\'s own Awin programme terms. ' +
-        'The standard cost below that threshold, and the delivery window, are not ' +
-        'established: read https://gloriousbeauty.co.uk delivery page, then enable.',
+        'THE FLAT STANDARD RATE IS UNCONFIRMED, so this shop is shown with delivery not ' +
+        'stated: no delivered price is computed for it and it can never rank as cheapest. ' +
+        'freeOverGbp 28 is confirmed from the advertiser\'s own Awin programme terms. The ' +
+        'standard cost below that threshold, and the delivery window, are not established: ' +
+        'read https://gloriousbeauty.co.uk delivery page to bring this shop into the ' +
+        'delivered-price comparison.',
     },
-    // Not walked while disabled — see the enabled comment above — but ready
-    // the moment it is, rather than needing this rediscovered from scratch.
     catalogue: {
       searchUrlTemplate: 'https://gloriousbeauty.co.uk/search?q={q}',
       sections: [
@@ -1159,7 +1172,11 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'manchesterouds.com',
     homepage: 'https://manchesterouds.com',
     tiers: ['mideast'],
-    enabled: false,
+    // Enabled with delivery not stated. The gap is the flat standard rate, not
+    // the shop's legitimacy or its crawl target, and an unstated rate now
+    // costs a shop its place in the delivered-price ranking rather than its
+    // place in the app.
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -1169,12 +1186,13 @@ export const RETAILERS: readonly Retailer[] = [
       verifiedAt: '2026-08-05',
       confidence: 'unverified',
       notes:
+        'THE FLAT STANDARD RATE IS UNCONFIRMED, so this shop is shown with delivery not ' +
+        'stated: no delivered price is computed for it and it can never rank as cheapest. ' +
         'freeOverGbp 50 is their own stated figure ("free UK shipping on orders over £50"). ' +
-        'The standard cost below that was not found — read manchesterouds.com directly, ' +
-        'then enable.',
+        'The standard cost below that was not found — read manchesterouds.com directly to ' +
+        'bring this shop into the delivered-price comparison.',
     },
-    // Not walked while disabled — the gap is the delivery cost above, not
-    // the crawl target, which is confirmed live in a browser 6 Aug 2026.
+    // Crawl target confirmed live in a browser 6 Aug 2026.
     catalogue: {
       searchUrlTemplate: 'https://manchesterouds.com/search?q={q}',
       sections: [
@@ -1238,7 +1256,17 @@ export const RETAILERS: readonly Retailer[] = [
       // that one does not), only ever shown as indicative text once enabled.
       estimatedDays: [2, 5],
       verifiedAt: '2026-08-11',
-      confidence: 'confirmed',
+      // 'unverified', not 'confirmed', and the distinction is real rather than
+      // cautious boilerplate. £3.99 is genuinely their own figure, but it was
+      // read off a returns clause explaining what a refund deducts, not off a
+      // rate card — and their shipping-policy page says in terms that
+      // "Shipping fees depend on the delivery destination and order size. The
+      // final price is calculated at checkout." So a single flat number cannot
+      // be true for every basket, and this is exactly what ShippingRule's own
+      // doc comment means by sourced indirectly: treat the delivered price as
+      // indicative. This flag reaches the reader as a reliability signal, so
+      // claiming 'confirmed' here would overstate what we actually have.
+      confidence: 'unverified',
       notes:
         'Approved affiliate as of 10 Aug 2026. Free delivery over £50 is ' +
         'confirmed from their own shipping policy page, read by CI on ' +

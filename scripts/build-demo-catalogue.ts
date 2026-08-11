@@ -463,22 +463,19 @@ if (existsSync(dir)) {
       continue;
     }
 
-    // A snapshot can exist for a retailer the app cannot yet price. Importing
-    // an affiliate feed writes data/catalogue/<id>.json regardless of whether
-    // that retailer's delivery terms have been established, and every offer
-    // here eventually reaches resolveDelivery, which refuses to guess a
-    // delivery cost it was never given. Skipping them here is what keeps a
-    // freshly imported feed from either crashing the app or — far worse —
-    // quietly sorting an unpriceable shop to the top of the delivered-price
-    // comparison.
+    // A snapshot can exist for a retailer that is not in the registry or is
+    // switched off. Those are skipped.
+    //
+    // A retailer with no established standard delivery cost is no longer one
+    // of them. It used to be, because resolveDelivery threw rather than guess
+    // a figure it was never given. It now returns a null delivery cost, which
+    // travels all the way to the screen as "delivery not stated" and is ranked
+    // below every offer with a real delivered price — so importing such a shop
+    // can no longer sort it to the top of the comparison, which was the whole
+    // reason for excluding it here.
     const retailer = RETAILERS.find((r) => r.id === snapshot.retailerId);
-    if (!retailer || !retailer.enabled || retailer.shipping.standardGbp === null) {
-      const why = !retailer
-        ? 'not in the registry'
-        : !retailer.enabled
-          ? 'disabled'
-          : 'standard delivery cost not established';
-      skippedShops.push(`${snapshot.retailerId} (${why})`);
+    if (!retailer || !retailer.enabled) {
+      skippedShops.push(`${snapshot.retailerId} (${retailer ? 'disabled' : 'not in the registry'})`);
       continue;
     }
 

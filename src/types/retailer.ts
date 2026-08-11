@@ -189,11 +189,24 @@ export interface ShippingRule {
    * delivery costs below it, and the registry previously had no way to say so:
    * the only options were to invent a figure or to leave the retailer out.
    *
-   * A retailer whose standard cost is null must be `enabled: false` — there is
-   * a test enforcing exactly that. Delivered price is the comparison's default
-   * sort key, so a shop with an unknown delivery cost silently counted as zero
+   * A retailer whose standard cost is null used to have to be
+   * `enabled: false`, which protected the comparison by hiding the shop. It no
+   * longer does. Such a retailer may be enabled, and then:
+   *
+   *   - `resolveDelivery` returns `costGbp: null` and its offers carry
+   *     `deliveredPriceGbp: null` — never the item price, never zero;
+   *   - the UI renders it as "delivery not stated" everywhere a delivery cost
+   *     or delivered price would appear;
+   *   - the delivered-price sort ranks every offer with a known delivered
+   *     price above every offer without one, and `bestOffer` will not name an
+   *     unknown-delivery offer as cheapest while any comparable offer exists.
+   *
+   * The guarantee that matters is unchanged and is enforced by tests in
+   * tests/registry.test.ts: delivered price is the comparison's default sort
+   * key, so a shop with an unknown delivery cost silently counted as zero
    * would sort as artificially cheapest, which is the single most damaging
-   * error this app can make.
+   * error this app can make. It is now prevented by ranking rather than by
+   * hiding the shop.
    */
   standardGbp: number | null;
   /**

@@ -257,8 +257,19 @@ const PRICE_BANDS: { id: PriceBand; label: string; min: number; max: number | nu
   { id: '300+', label: '£300 And Over', min: 300, max: null },
 ];
 
-function priceBandFor(deliveredPriceGbp: number): PriceBand {
-  return (PRICE_BANDS.find((b) => deliveredPriceGbp >= b.min && (b.max === null || deliveredPriceGbp < b.max)) ?? PRICE_BANDS[PRICE_BANDS.length - 1]!).id;
+/**
+ * Which band a delivered price falls in, or null when there is no delivered
+ * price because the shop does not state its delivery cost.
+ *
+ * Banding such an offer on its item price instead would place it in a cheaper
+ * band than it can be shown to belong to, which is the same "looks artificially
+ * cheap" error the whole delivered-price model exists to avoid — so it is left
+ * out of the price facet rather than filed under a number nobody has.
+ */
+function priceBandFor(deliveredPriceGbp: number | null): PriceBand | null {
+  if (deliveredPriceGbp === null) return null;
+  const price = deliveredPriceGbp;
+  return (PRICE_BANDS.find((b) => price >= b.min && (b.max === null || price < b.max)) ?? PRICE_BANDS[PRICE_BANDS.length - 1]!).id;
 }
 
 /**
@@ -274,7 +285,8 @@ function passesFacets(f: DemoFragrance, exclude: FacetGroup | null): boolean {
 
   if (exclude !== 'priceBand' && state.facetPriceBand.size) {
     const best = bestOffer(rowsFor(f));
-    if (!best || !state.facetPriceBand.has(priceBandFor(best.deliveredPriceGbp))) return false;
+    const band = best ? priceBandFor(best.deliveredPriceGbp) : null;
+    if (band === null || !state.facetPriceBand.has(band)) return false;
   }
   if (exclude !== 'onSale' && state.facetOnSale) {
     if (!rowsFor(f).some((r) => r.discount !== null)) return false;
@@ -318,8 +330,8 @@ function facetGroups(list: DemoFragrance[]) {
     if (passesFacets(f, 'tier')) tier.set(f.tier, (tier.get(f.tier) ?? 0) + 1);
     if (passesFacets(f, 'priceBand')) {
       const best = bestOffer(rows);
-      if (best) {
-        const band = priceBandFor(best.deliveredPriceGbp);
+      const band = best ? priceBandFor(best.deliveredPriceGbp) : null;
+      if (band !== null) {
         priceBand.set(band, (priceBand.get(band) ?? 0) + 1);
       }
     }
@@ -683,11 +695,18 @@ function brandButton(brand: string): string {
 
 function priceLine(f: DemoFragrance): string {
   const best = bestOffer(rowsFor(f));
+  if (!best) return `<span class="amt none">Sold out</span>`;
   // One element, not a bare text node beside a span: .tile-price stacks its
   // children, so anything left loose would drop the arrow onto its own line.
-  return best
-    ? `<span class="amt">from ${formatGbp(best.deliveredPriceGbp)} <span aria-hidden="true">→</span></span>`
-    : `<span class="amt none">Sold out</span>`;
+  if (best.deliveredPriceGbp !== null) {
+    return `<span class="amt">from ${formatGbp(best.deliveredPriceGbp)} <span aria-hidden="true">→</span></span>`;
+  }
+  // Only reachable when no shop with a stated delivery cost has it: the number
+  // shown is the item price alone, and the line under it says so, because
+  // "from £45" beside every other tile's delivered price would read as the
+  // same kind of figure when it is not.
+  return `<span class="amt">${formatGbp(best.itemPriceGbp)} <span aria-hidden="true">→</span></span>
+    <span class="amt-note">delivery not stated</span>`;
 }
 
 /**
@@ -884,8 +903,17 @@ function stockQtyMark(stock: StockState): string {
 
 function offerRow(row: PresentedOffer, isBest: boolean): string {
   const d = row.discount;
+  // A shop that has never published a standard delivery rate gets said out
+  // loud, the same way "No longer stocked" is. Anything quieter — a blank, a
+  // "Free delivery", a £0 — would be us filling in a number the shop has not
+  // given, and this row is deliberately never the cheapest one as a result.
+  const deliveryUnknown = row.delivery.costGbp === null;
   const sub: string[] = [
-    row.delivery.isFree ? 'Free delivery' : `plus ${formatGbp(row.delivery.costGbp)} delivery`,
+    deliveryUnknown
+      ? 'Delivery not stated'
+      : row.delivery.isFree
+        ? 'Free delivery'
+        : `plus ${formatGbp(row.delivery.costGbp!)} delivery`,
   ];
   if (row.delivery.spendMoreForFreeGbp !== null) {
     sub.push(`${formatGbp(row.delivery.spendMoreForFreeGbp)} more for free postage`);
@@ -899,7 +927,9 @@ function offerRow(row: PresentedOffer, isBest: boolean): string {
         }${isBest ? '<span class="tag">Cheapest</span>' : ''}</span>
         <span class="price">
           ${d ? `<span class="was">RRP ${formatGbp(d.wasPrice)}</span>` : ''}
-          <span class="now ${d ? 'sale' : ''}">${formatGbp(row.deliveredPriceGbp)}</span>
+          <span class="now ${d ? 'sale' : ''}">${formatGbp(
+            row.deliveredPriceGbp ?? row.itemPriceGbp,
+          )}${deliveryUnknown ? '<span class="excl-del">+ delivery</span>' : ''}</span>
         </span>
       </span>
       <span class="offer-bot">
@@ -1227,10 +1257,20 @@ function detailView(): string {
         ${wishlistButton(frag.id)}
         ${
           best
-            ? `<div class="price-box">
+            ? best.deliveredPriceGbp !== null
+              ? `<div class="price-box">
                  <p class="price-box-label">Cheapest price</p>
                  <p class="price-box-amount">${formatGbp(best.deliveredPriceGbp)}</p>
                  <p class="price-box-from">from ${esc(best.retailer.name)}, incl. delivery</p>
+               </div>`
+              : // No shop that states its delivery cost has this one, so there is
+                // no cheapest delivered price to name. The box says what it is
+                // actually showing — an item price with delivery unknown —
+                // rather than calling it the cheapest anything.
+                `<div class="price-box">
+                 <p class="price-box-label">Lowest item price</p>
+                 <p class="price-box-amount">${formatGbp(best.itemPriceGbp)}</p>
+                 <p class="price-box-from">from ${esc(best.retailer.name)} &mdash; delivery not stated, so this is not a delivered price</p>
                </div>`
             : `<p class="hero-price none">Sold out everywhere<span class="hero-at">no shop has it in stock right now</span></p>`
         }
@@ -1241,7 +1281,13 @@ function detailView(): string {
         ${live.length ? '<p class="gone-head">Available at</p>' : ''}
         <div class="results-head">
           <span>${live.length} ${live.length === 1 ? 'shop' : 'shops'}</span>
-          <span class="dim">delivery included, checked ${esc(age(newest))}</span>
+          <span class="dim">${
+            // "delivery included" is a claim about every row underneath, so it
+            // is only made when it is true of every row underneath.
+            rows.some((r) => r.deliveredPriceGbp === null)
+              ? 'delivery included where the shop states it'
+              : 'delivery included'
+          }, checked ${esc(age(newest))}</span>
         </div>
 
         <ul class="offers">${live.map((r) => offerRow(r, r === best)).join('')}</ul>
@@ -1384,7 +1430,7 @@ function deliveryLines(r: Retailer): string[] {
   const lines: string[] = [];
   lines.push(
     s.standardGbp === null
-      ? 'Standard delivery cost not yet confirmed'
+      ? 'Delivery not stated — this shop does not publish a standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest'
       : s.standardGbp === 0
         ? 'Free standard delivery on every order'
         : `Standard delivery ${formatGbp(s.standardGbp)}`,

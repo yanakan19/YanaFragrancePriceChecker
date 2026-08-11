@@ -703,6 +703,13 @@
   }
   .tile-price .amt { font-size: 15.5px; }
   .tile-price .amt.none { color: #8A838F; font-weight: 600; font-size: 13.5px; }
+  /* "delivery not stated" under a tile price. Quiet, but present: the number
+     above it is an item price where every other tile shows a delivered one,
+     and leaving that unsaid is what would be dishonest. */
+  .tile-price .amt-note {
+    font-size: 10.5px; font-weight: 600; color: var(--faint);
+    text-transform: uppercase; letter-spacing: .05em;
+  }
   .tile-price .was {
     font-size: 11px; font-weight: 600; color: #8A838F;
     text-decoration: line-through; font-variant-numeric: tabular-nums;
@@ -1143,6 +1150,14 @@
   .now { font-size: 17px; font-weight: 700; font-variant-numeric: tabular-nums; }
   .now.sale { color: var(--ok); }
   .now.none { color: var(--faint); font-weight: 500; }
+  /* Marks the one case where .now is an item price rather than a delivered
+     one, because the shop states no delivery cost. Sits with the number, not
+     in the facts line, so it cannot be read separately from it. */
+  .excl-del {
+    display: block; margin-top: 1px; text-align: right;
+    font-size: 10px; font-weight: 600; color: var(--faint);
+    text-transform: uppercase; letter-spacing: .05em;
+  }
 
   .offer-bot { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
   .facts { font-size: 12.5px; color: var(--ink-2); }
