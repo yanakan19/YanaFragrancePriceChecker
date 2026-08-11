@@ -131,7 +131,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273903172",
     "shops": 4,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/_/8.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/azzaro-wanted-eau-de-parfum-100ml-p31703-86827_image.jpg?v=1721322150&width=1000",
     "notes": {
       "top": [
         "Lemon",
@@ -443,7 +443,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "027131595045",
     "shops": 4,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/1/413.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/11116_bad96f3f-4f6c-4da5-97d6-75ee10501a9a.jpg?v=1764680702&width=1920",
     "notes": {
       "top": [
         "Lily",
@@ -491,7 +491,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614272907690",
     "shops": 4,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/350_1.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/giorgio-armani-my-way-eau-de-parfum-90ml-p27847-69687_image.jpg?v=1721322195&width=1000",
     "notes": null
   },
   {
@@ -502,7 +502,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3274872424982",
     "shops": 4,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/487_1.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1652794564-95331600.jpg?v=1763392396&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -2909,7 +2909,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "027131043294",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1714063193-29561200.jpg?v=1763390916&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/EST0008_x100.png?v=1739789782",
     "notes": null
   },
   {
@@ -2920,7 +2920,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "027131286905",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1763636404-65974200.jpg?v=1772624908&width=1920",
+    "image": "https://allbeauty.com/cdn/shop/files/9295_87b5b218-5c81-47d6-8f18-a3a394b724b8.jpg?v=1761654694&width=1920",
     "notes": null
   },
   {
@@ -3551,7 +3551,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "8435415076944",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/796.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/JPG0034.png?v=1756720376&width=1000",
     "notes": {
       "top": [
         "Bergamot",
@@ -4576,7 +4576,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222055547",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1109.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1655120442-56907000.jpg?v=1763392501&width=1920",
     "notes": null
   },
   {
@@ -5722,7 +5722,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "8011003890798",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1724943655-94361700.jpg?v=1763395595&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/eros-energy-eau-de-parfum-50ml-p38636-123241_image.jpg?v=1723462512&width=1000",
     "notes": null
   },
   {
@@ -5733,7 +5733,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8011003890804",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1724943460-58400300.jpg?v=1763395598&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/eros-energy-eau-de-parfum-100ml-p38637-123242_image.jpg?v=1723462513&width=1000",
     "notes": null
   },
   {
@@ -5744,7 +5744,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "8011003890811",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1724943316-90723300.jpg?v=1763395599&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/eros-energy-eau-de-parfum-200ml-p38638-123243_image.jpg?v=1723462512&width=1000",
     "notes": null
   },
   {
@@ -6151,7 +6151,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423474896257",
     "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/1514.jpg",
+    "image": "https://www.justmylook.com/cdn/shop/files/ZV0002.png?v=1766583601&width=1000",
     "notes": {
       "top": [
         "Black Pepper"
@@ -6822,7 +6822,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "812256023296",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/cl50ml.jpg?v=1773751147&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/ariana-grande-cloud-eau-de-parfum-50ml-p20958-44099_image.jpg?v=1721322150&width=1000",
     "notes": null
   },
   {
@@ -7241,7 +7241,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460036405",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/o/boucheron_pour_homme_100ml_eau_de_toilette.jpg",
+    "image": "https://allbeauty.com/cdn/shop/files/27825.jpg?v=1766143869&width=1920",
     "notes": {
       "top": [
         "Bergamot",
@@ -8486,7 +8486,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8411061099759",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0044_3bbf3ff3-ee57-4e4a-98a5-4d8aab09816d.png?v=1765452785&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728380995-43556700.jpg?v=1763392381&width=1920",
     "notes": null
   },
   {
@@ -9793,6 +9793,17 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-3423473020523",
+    "brand": "Dolce & Gabbana",
+    "name": "Light Blue Pour Homme",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 40,
+    "ean": "3423473020523",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771415609-83752800.jpg?v=1772625022&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-8057971188116",
     "brand": "Dolce & Gabbana",
     "name": "Light Blue Pour Homme",
@@ -10307,7 +10318,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "085805558420",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1507817368-94373800.png?v=1763390003&width=1920",
+    "image": "https://www.justmylook.com/cdn/shop/files/ELIZ0006_x100.png?v=1777037412",
     "notes": null
   },
   {
@@ -12314,6 +12325,31 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3423473949954",
+    "brand": "Issey Miyake",
+    "name": "Pleats Please L'Eau",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": "3423473949954",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1763640016-27131700.jpg?v=1772625075&width=1920",
+    "notes": {
+      "top": [
+        "Pear"
+      ],
+      "middle": [
+        "Sweet Pea",
+        "Peony",
+        "Indole"
+      ],
+      "base": [
+        "White Musk",
+        "Vanilla Absolute",
+        "Patchouli"
+      ]
+    }
+  },
+  {
     "id": "ean-3562700373084",
     "brand": "Jaguar",
     "name": "Classic",
@@ -12837,7 +12873,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3386460129848",
     "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/874.jpg",
+    "image": "https://www.beautybase.com/cdn/shop/files/1653659482-33062900.jpg?v=1763392454&width=1920",
     "notes": null
   },
   {
@@ -13559,6 +13595,17 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6290360598338",
+    "brand": "Lattafa",
+    "name": "Angham",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360598338",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1763981205-38556300.jpg?v=1772625001&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-6291108735411",
     "brand": "Lattafa",
     "name": "Asad",
@@ -14254,6 +14301,17 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-8011003858156",
+    "brand": "Missoni",
+    "name": "Wave",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "8011003858156",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1764946839-71269300.jpg?v=1772625046&width=1920",
+    "notes": null
+  },
+  {
     "id": "justmylook-monc0005",
     "brand": "Moncler",
     "name": "Pour Femme",
@@ -14482,7 +14540,10 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       "middle": [],
       "base": []
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "ean-3386460144247",
     "brand": "Montblanc",
@@ -14532,10 +14593,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/o/montblanc_legend_red_eau_de_parfum_200ml_spray_.png",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3386460074841",
     "brand": "Montblanc",
@@ -15106,7 +15164,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3423222055523",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/for-her-musc-noir-rose-eau-de-parfum-50ml-p28504-71676_image.jpg?v=1721322309&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1655303396-93205400.jpg?v=1763392501&width=1920",
     "notes": null
   },
   {
@@ -21104,7 +21162,10 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338168971401-44926986289289",
     "brand": "Al Haramain",
@@ -21157,10 +21218,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416627753097-45146956660873",
     "brand": "Al Haramain",
@@ -28148,7 +28206,10 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Siberian Pine"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338176508041-44926995726473",
     "brand": "Boucheron",
@@ -28198,10 +28259,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://allbeauty.com/cdn/shop/files/619153.jpg?v=1766146578&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338176770185-44926995792009",
     "brand": "Boucheron",
@@ -29562,7 +29620,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-8906150340633",
     "brand": "BV UK",
-    "name": "CEO Man",
+    "name": "CEO Man Luxury",
     "concentration": "Perfume",
     "sizeMl": 20,
     "ean": null,
@@ -29573,7 +29631,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-5748022538839",
     "brand": "BV UK",
-    "name": "CEO Man Luxury - 3.4 fl oz",
+    "name": "CEO Man Luxury - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -29595,7 +29653,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-8906150342804",
     "brand": "BV UK",
-    "name": "Date Woman - 3.4 fl oz",
+    "name": "Date Woman - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -29606,7 +29664,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-3870003433733",
     "brand": "BV UK",
-    "name": "Fresh Unisex - 3.4 fl oz",
+    "name": "Fresh Unisex - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -29628,7 +29686,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-8906150343351",
     "brand": "BV UK",
-    "name": "G.O.A.T. Man - 3.4 fl oz",
+    "name": "G.O.A.T. Man - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -29650,7 +29708,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-8906150340404",
     "brand": "BV UK",
-    "name": "Honey Unisex Perfume - 3.4 fl oz",
+    "name": "Honey Unisex Perfume - 3.4 fl oz BYOB",
     "concentration": "Oud",
     "sizeMl": 101,
     "ean": null,
@@ -29661,7 +29719,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-8906150343290",
     "brand": "BV UK",
-    "name": "KLUB Man - 3.4 fl oz",
+    "name": "KLUB Man - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -29681,20 +29739,9 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "bellavita-luxury-8906150344624",
-    "brand": "BV UK",
-    "name": "Ocean Man - 3.4 fl oz BYOB",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "bellavita-luxury-8906150340411",
     "brand": "BV UK",
-    "name": "Perfume - 3.4 fl oz",
+    "name": "Perfume - 3.4 fl oz B2G2",
     "concentration": "Oud",
     "sizeMl": 101,
     "ean": null,
@@ -29716,7 +29763,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-3870003433801",
     "brand": "BV UK",
-    "name": "Rose Woman - 3.4 fl oz",
+    "name": "Rose Woman - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -29727,7 +29774,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-8906150342811",
     "brand": "BV UK",
-    "name": "Senorita Woman - 3.4 fl oz",
+    "name": "Senorita Woman - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -29738,7 +29785,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-3870003551925",
     "brand": "BV UK",
-    "name": "Skai Aquatic Unisex - 3.4 fl oz",
+    "name": "Skai Aquatic Unisex - 3.4 fl oz BYOB",
     "concentration": "Perfume",
     "sizeMl": 101,
     "ean": null,
@@ -29760,7 +29807,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "bellavita-luxury-3870003433771",
     "brand": "BV UK",
-    "name": "White Unisex Perfume - 3.4 fl oz",
+    "name": "White Unisex Perfume - 3.4 fl oz BYOB",
     "concentration": "Oud",
     "sizeMl": 101,
     "ean": null,
@@ -34681,7 +34728,10 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe-nomade-jasmine-naturel-50ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338380456073-44927310692489",
     "brand": "Chloe",
@@ -34714,10 +34764,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/1/218.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3616302038626",
     "brand": "Chloe",
@@ -40869,7 +40916,10 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
         "Amberwood"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338205769865-44927043895433",
     "brand": "Dolce & Gabbana",
@@ -40924,10 +40974,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/light-blue-eau-intense-femme-eau-de-parfum-50ml-p26701-65022_image.jpg?v=1721322200&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-dandg0046",
     "brand": "Dolce & Gabbana",
@@ -40937,17 +40984,6 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/light-blue-eau-intense-femme-eau-de-parfum-100ml-p29805-76281_image.jpg?v=1721322190&width=1000",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338205835401-44927044092041",
-    "brand": "Dolce & Gabbana",
-    "name": "Light Blue Pour Homme",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 40,
-    "ean": null,
-    "shops": 1,
-    "image": null,
     "notes": null
   },
   {
@@ -44163,17 +44199,6 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "justmylook-arma0177",
-    "brand": "Emporio Armani",
-    "name": "Stronger With You For Him",
-    "concentration": "Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/ARMA0177.jpg?v=1737650803&width=1000",
-    "notes": null
-  },
-  {
     "id": "justmylook-arma0105",
     "brand": "Emporio Armani",
     "name": "Stronger With You For Him",
@@ -44182,6 +44207,17 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/stronger-with-you-for-him-eau-de-toilette-100ml-p31692-87343_image.jpg?v=1721322209&width=1000",
+    "notes": null
+  },
+  {
+    "id": "justmylook-arma0177",
+    "brand": "Emporio Armani",
+    "name": "Stronger With You For Him",
+    "concentration": "Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARMA0177.jpg?v=1737650803&width=1000",
     "notes": null
   },
   {
@@ -47121,7 +47157,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/FRED0008_b9d5974f-6ca8-4ea6-a929-13b99ba72707.png?v=1772804344&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "justmylook-fred0009",
     "brand": "Frederic Malle",
@@ -47143,10 +47182,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/FRED0010_6cc244ec-1378-49be-bfb6-a496b2001770.png?v=1773420937&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-fred0011",
     "brand": "Frederic Malle",
@@ -53510,7 +53546,10 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1752247116-49134600.jpg?v=1763398326&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338386452617-44927319244937",
     "brand": "Guy Laroche",
@@ -53549,10 +53588,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
       ],
       "base": []
     }
-  }
-];
-
-const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338228379785-44927072075913",
     "brand": "Gwen Stefani",
@@ -56607,6 +56643,17 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3423474874750",
+    "brand": "Issey Miyake",
+    "name": "Nuit D'issey (20)",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": "3423474874750",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771320619-08617100.jpg?v=1772625061&width=1920",
+    "notes": null
+  },
+  {
     "id": "mybeauty-boutique-shopify-gb-8338263769225-44927129550985",
     "brand": "Issey Miyake",
     "name": "Nuit D'Issey by Issey Miyake For Men",
@@ -56660,31 +56707,6 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338232836233-44927086690441",
-    "brand": "Issey Miyake",
-    "name": "Pleats Please L'Eau",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Pear"
-      ],
-      "middle": [
-        "Sweet Pea",
-        "Peony",
-        "Indole"
-      ],
-      "base": [
-        "White Musk",
-        "Vanilla Absolute",
-        "Patchouli"
-      ]
-    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338232967305-44927086821513",
@@ -59829,7 +59851,10 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1693496825-83121100.jpg?v=1763393278&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416700858505-45147068694665",
     "brand": "Jimmy Choo",
@@ -59861,10 +59886,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
         "Raspberry"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-jimc0014",
     "brand": "Jimmy Choo",
@@ -65687,6 +65709,28 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-3614274509779",
+    "brand": "Lancôme",
+    "name": "Lancome Idole Peach and Roses",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 25,
+    "ean": "3614274509779",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1770044551-29003800.jpg?v=1772624993&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3614274510089",
+    "brand": "Lancôme",
+    "name": "Lancome Idole Peach and Roses",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3614274510089",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1770044704-08701600.jpg?v=1772624994&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-3614274510133",
     "brand": "Lancôme",
     "name": "Lancome Idole Peach and Roses",
@@ -66005,7 +66049,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       ],
       "base": []
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "ean-3605532423203",
     "brand": "Lancôme",
@@ -66070,10 +66117,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "White Musk"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338387337353-44927322620041",
     "brand": "Lanvin",
@@ -66445,14 +66489,14 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "justmylook-lat0024",
+    "id": "ean-6290362345671",
     "brand": "Lattafa",
-    "name": "Angham",
+    "name": "Angham Second Song",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": null,
+    "ean": "6290362345671",
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/LAT0024_cd9f8ba7-4a14-4a14-ace8-d48527f50c7b.png?v=1758900974&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1770980900-39640300.jpg?v=1772625002&width=1920",
     "notes": null
   },
   {
@@ -66896,6 +66940,17 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6290360598956",
+    "brand": "Lattafa",
+    "name": "Mishlah",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360598956",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771001847-30499600.jpg?v=1772625008&width=1920",
+    "notes": null
+  },
+  {
     "id": "mybeauty-boutique-shopify-gb-7633051517065-42357961293961",
     "brand": "Lattafa",
     "name": "Mood Room",
@@ -66904,6 +66959,17 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-6290362345527",
+    "brand": "Lattafa",
+    "name": "Musamam Black Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362345527",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1767184805-93728200.jpg?v=1772625012&width=1920",
     "notes": null
   },
   {
@@ -67050,6 +67116,17 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6290362349334",
+    "brand": "Lattafa",
+    "name": "Pride Eternal Vanille",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362349334",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1770132607-98026600.jpg?v=1772625013&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-6290360592756",
     "brand": "Lattafa",
     "name": "Pride Kashan",
@@ -67124,6 +67201,17 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/ramz-lattafa-silver-eau-de-parfum-100ml-p38198-121261_image.jpg?v=1721322261&width=1000",
+    "notes": null
+  },
+  {
+    "id": "ean-6290360590349",
+    "brand": "Lattafa",
+    "name": "RAVE Now White",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360590349",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1764934349-91190600.jpg?v=1772625015&width=1920",
     "notes": null
   },
   {
@@ -67212,6 +67300,17 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "ean": "6290360592909",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1728314382-19723800.jpg?v=1763395787&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6423080728925",
+    "brand": "Lattafa",
+    "name": "Yara",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "6423080728925",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728648557-39195600.jpg?v=1772625018&width=1920",
     "notes": null
   },
   {
@@ -69105,6 +69204,17 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "ean": "5060186261171",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1483009943-04437400.jpg?v=1763392245&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-5060630899271",
+    "brand": "Laurelle Parfums",
+    "name": "Noir Desire",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 85,
+    "ean": "5060630899271",
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -72046,6 +72156,17 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-6290362164920",
+    "brand": "Maison Asrar",
+    "name": "Coffee Blend",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 25,
+    "ean": "6290362164920",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1770806955-56042100.jpg?v=1772625023&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-6290362161776",
     "brand": "Maison Asrar",
     "name": "Coffee Blend",
@@ -72123,6 +72244,17 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6290362164623",
+    "brand": "Maison Asrar",
+    "name": "Milky Way",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362164623",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1769765099-08911200.jpg?v=1772625023&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-6290362164487",
     "brand": "Maison Asrar",
     "name": "Muharib",
@@ -72156,6 +72288,17 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6290362164906",
+    "brand": "Maison Asrar",
+    "name": "Vanguard",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362164906",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1769789926-51639000.jpg?v=1772625024&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-6290362164944",
     "brand": "Maison Asrar",
     "name": "Vanilla Aura",
@@ -72175,6 +72318,17 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "ean": "6290362164630",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1762338587-87677200.jpg?v=1763399388&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290362164913",
+    "brand": "Maison Asrar",
+    "name": "Vanilla Voyage",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 25,
+    "ean": "6290362164913",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1770806792-99755100.jpg?v=1772625028&width=1920",
     "notes": null
   },
   {
@@ -72200,6 +72354,17 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6290362166405",
+    "brand": "Maison Asrar",
+    "name": "X Cal Thriller Extrait De Parfum",
+    "concentration": "Cologne",
+    "sizeMl": 100,
+    "ean": "6290362166405",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1770116252-25759500.jpg?v=1772625029&width=1920",
+    "notes": null
+  },
+  {
     "id": "justmylook-criv0025",
     "brand": "Maison Crivelli",
     "name": "Ambre Chromatique De Parfum",
@@ -72209,7 +72374,10 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/CRIV0025_954b6250-1b4b-4e85-b3b2-3ac2f434d511.png?v=1770719496&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "justmylook-criv0023",
     "brand": "Maison Crivelli",
@@ -72390,10 +72558,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/MFK0016.png?v=1770719496&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-mfk0017",
     "brand": "Maison Francis Kurkdjian",
@@ -75067,6 +75232,17 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-5060751950004",
+    "brand": "Millionaires Choice",
+    "name": "MC1 Sprayes",
+    "concentration": "Parfum",
+    "sizeMl": 100,
+    "ean": "5060751950004",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1763645457-88588300.jpg?v=1772625043&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-5060751950011",
     "brand": "Millionaires Choice",
     "name": "MC2 Sprayeses",
@@ -75097,6 +75273,17 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "ean": "5060751950035",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1763646469-79614000.jpg?v=1774348895&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-5060751950042",
+    "brand": "Millionaires Choice",
+    "name": "MC5 Sprayes",
+    "concentration": "Parfum",
+    "sizeMl": 100,
+    "ean": "5060751950042",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1763646245-85784000.jpg?v=1772625044&width=1920",
     "notes": null
   },
   {
@@ -75722,17 +75909,6 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "brand": "Missoni",
     "name": "Pour Homme",
     "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338399068297-44927350964361",
-    "brand": "Missoni",
-    "name": "Wave",
-    "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -77618,6 +77794,39 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3614274503227",
+    "brand": "Mugler",
+    "name": "Alien Pulp",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "3614274503227",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1769189304-68830100.jpg?v=1772625055&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3614274503234",
+    "brand": "Mugler",
+    "name": "Alien Pulp",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 60,
+    "ean": "3614274503234",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1770053000-22399700.jpg?v=1772625057&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3614274503203",
+    "brand": "Mugler",
+    "name": "Alien Pulp",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 90,
+    "ean": "3614274503203",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1770053229-00019200.jpg?v=1772625059&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-3439600039511",
     "brand": "Mugler",
     "name": "Alien Travel Set",
@@ -78366,7 +78575,10 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "ean-3423222121976",
     "brand": "Narciso Rodriguez",
@@ -78605,10 +78817,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338262982793-44927128764553",
     "brand": "Nicole Scherzinger",
@@ -79285,6 +79494,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6291109271048",
+    "brand": "ORIENTICA",
+    "name": "Billion",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "6291109271048",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771410119-87883500.jpg?v=1772625066&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-6291109270867",
     "brand": "ORIENTICA",
     "name": "Billion Concentrated Oil Roll-On",
@@ -79359,6 +79579,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "ean": "6291106811131",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1626700789-92604200.jpg?v=1763389797&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6291109271079",
+    "brand": "ORIENTICA",
+    "name": "Fleur Amber",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "6291109271079",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771410558-45370600.jpg?v=1772625066&width=1920",
     "notes": null
   },
   {
@@ -79880,6 +80111,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "ean": "3252550812573",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1701709828-05081500.jpg?v=1763393903&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-085715564207",
+    "brand": "Oscar De La Renta",
+    "name": "Oscar De Renta Bella Rosa",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "085715564207",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1763476000-16255700.jpg?v=1772625069&width=1920",
     "notes": null
   },
   {
@@ -81725,6 +81967,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "ean": "10408376435030",
     "shops": 1,
     "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-5055958468995",
+    "brand": "Oud Elixir",
+    "name": "Dubai Imperial",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "5055958468995",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1769591535-16928100.jpg?v=1772625072&width=1920",
     "notes": null
   },
   {
@@ -84267,7 +84520,10 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338273042569-44927142789257",
     "brand": "Police",
@@ -84639,10 +84895,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338382160009-44927314002057",
     "brand": "Police",
@@ -85848,6 +86101,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-3349668562671",
+    "brand": "Rabanne",
+    "name": "1 Million Lucky",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "3349668562671",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1768219879-44666600.jpg?v=1772625078&width=1920",
+    "notes": null
+  },
+  {
     "id": "mybeauty-boutique-shopify-gb-8416748372105-45147130757257",
     "brand": "Rabanne",
     "name": "1 Million Parfum",
@@ -86642,17 +86906,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "justmylook-pac0043",
-    "brand": "Rabanne",
-    "name": "One Million",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/PAC0043_0413e6b7-e925-4edd-ac37-cc7d4a0ff9e4.png?v=1738168805&width=1000",
-    "notes": null
-  },
-  {
     "id": "justmylook-pac0050",
     "brand": "Rabanne",
     "name": "One Million",
@@ -86661,6 +86914,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/PAC0050_b78a2279-9ad5-49fa-bc09-b99ecc9a2e8a.png?v=1738168806&width=1000",
+    "notes": null
+  },
+  {
+    "id": "justmylook-pac0043",
+    "brand": "Rabanne",
+    "name": "One Million",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://www.justmylook.com/cdn/shop/files/PAC0043_0413e6b7-e925-4edd-ac37-cc7d4a0ff9e4.png?v=1738168805&width=1000",
     "notes": null
   },
   {
@@ -90691,7 +90955,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       "middle": [],
       "base": []
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416765182089-45147150188681",
     "brand": "Sarah Jessica Parker",
@@ -91004,10 +91271,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338279825545-44927172149385",
     "brand": "Scotch & Soda",
@@ -96868,7 +97132,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/VAN0001_91a5d71a-a19d-4438-a39a-7054ea7a974f.png?v=1766583611&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "justmylook-van0007",
     "brand": "Van Cleef & Arpels",
@@ -97140,10 +97407,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/versace-dreamer-eau-de-toilette-100ml-p21301-45747_image.jpg?v=1721322354&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8011003834723",
     "brand": "Versace",
@@ -100939,7 +101203,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/azzaro-wanted-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/azzaro-wanted-eau-de-parfum-100ml-p31703-86827_image.jpg?v=1721322150&width=1000"
@@ -101515,7 +101779,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-dolcegabbana-limperatrice-eau-de-toilette-spray-100ml-11883234",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/72713.jpg?v=1755874881&width=1920"
@@ -101615,7 +101879,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-estee-lauder-sensuous-eau-de-parfum-spray-50ml-11141486",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/11116_bad96f3f-4f6c-4da5-97d6-75ee10501a9a.jpg?v=1764680702&width=1920"
@@ -101789,7 +102053,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/giorgio-armani-my-way-eau-de-parfum-90ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/giorgio-armani-my-way-eau-de-parfum-90ml-p27847-69687_image.jpg?v=1721322195&width=1000"
@@ -101815,7 +102079,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/givenchy-gentleman-eau-de-parfum-60ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1652794564-95331600.jpg?v=1763392396&width=1920"
@@ -102865,7 +103129,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-marc-jacobs-honey-eau-de-parfum-100ml-17882567",
-      "fetchedAt": "2026-08-10T14:21:50.324Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/996158.jpg?v=1755874513&width=1920"
@@ -106027,7 +106291,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://allbeauty.com/products/p-calvin-klein-man-eau-de-toilette-100ml-10043839",
-      "fetchedAt": "2026-08-10T14:21:50.324Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/9085.jpg?v=1755875052&width=1920"
@@ -106787,7 +107051,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-davidoff-adventure-eau-de-toilette-spray-for-him-100ml-11210195",
-      "fetchedAt": "2026-08-10T14:21:50.324Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/9089.jpg?v=1755875051&width=1920"
@@ -107860,10 +108124,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "justmylook",
       "price": 24.5,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-07T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/estee-lauder-pleasures-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/EST0008_x100.png?v=1739789782"
@@ -107889,7 +108153,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-estee-lauder-pleasures-intense-eau-de-parfum-spray-100ml-14271220",
-      "fetchedAt": "2026-08-10T14:21:50.324Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/9295_87b5b218-5c81-47d6-8f18-a3a394b724b8.jpg?v=1761654694&width=1920"
@@ -108129,7 +108393,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/giorgio-armani-si-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-07T12:59:21.968Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0049.png?v=1749024408&width=1000"
@@ -109547,7 +109811,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/jean-paul-gaultier-le-male-elixir-parfum-125ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/JPG0034.png?v=1756720376&width=1000"
@@ -111955,7 +112219,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/narciso-rodriguez-for-her-musc-noir-rose-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1655120442-56907000.jpg?v=1763392501&width=1920"
@@ -114931,7 +115195,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/versace-eros-energy-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/eros-energy-eau-de-parfum-50ml-p38636-123241_image.jpg?v=1723462512&width=1000"
@@ -114969,7 +115233,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/versace-eros-energy-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/eros-energy-eau-de-parfum-100ml-p38637-123242_image.jpg?v=1723462513&width=1000"
@@ -115007,7 +115271,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/versace-eros-energy-eau-de-parfum-200ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/eros-energy-eau-de-parfum-200ml-p38638-123243_image.jpg?v=1723462512&width=1000"
@@ -116071,7 +116335,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/zadig-voltaire-this-is-him-eau-de-toilette-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZV0002.png?v=1766583601&width=1000"
@@ -117369,7 +117633,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/ariana-grande-cloud-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ariana-grande-cloud-eau-de-parfum-50ml-p20958-44099_image.jpg?v=1721322150&width=1000"
@@ -117747,7 +118011,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/armaf-club-de-nuit-sillage-eau-de-parfum-105ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARM0016.png?v=1758900965&width=1000"
@@ -118215,7 +118479,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-boucheron-pour-homme-eau-de-toilette-spray-100ml-14592675",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/27825.jpg?v=1766143869&width=1920"
@@ -119281,7 +119545,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/byredo-black-saffron-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/BYRE0015.png?v=1753445105&width=1000"
@@ -120503,7 +120767,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/carolina-herrera-bad-boy-cobalt-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728380995-43556700.jpg?v=1763392381&width=1920"
@@ -121491,7 +121755,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/creed-bois-du-portugal-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0026.png?v=1751897612&width=1000"
@@ -121569,7 +121833,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/creed-millesime-imperial-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0030.png?v=1751897613&width=1000"
@@ -121595,7 +121859,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/creed-original-vetiver-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0032_ab2393e9-ed31-4865-9922-d9ad1d6a37b1.png?v=1751897613&width=1000"
@@ -121647,7 +121911,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/creed-virgin-island-water-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0035.png?v=1753445105&width=1000"
@@ -121673,7 +121937,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/creed-virgin-island-water-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0036.png?v=1751897613&width=1000"
@@ -122635,7 +122899,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/dolce-gabbana-dolce-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1655119158-90417600.jpg?v=1763392489&width=1920"
@@ -122989,6 +123253,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/357.jpg"
+    }
+  ],
+  "ean-3423473020523": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/light-blue-pour-homme-eau-de-toilette-40ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771415609-83752800.jpg?v=1772625022&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 61.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928612&a=3026001&m=106925",
+      "fetchedAt": "2026-08-10T23:22:35.325Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-8057971188116": [
@@ -123776,10 +124066,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "justmylook",
       "price": 10.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-07T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/elizabeth-arden-beauty-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-07T12:59:21.968Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ELIZ0004_x100.png?v=1777037415"
@@ -124048,10 +124338,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "justmylook",
       "price": 28.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-07T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/elizabeth-arden-red-door-eau-de-toilette-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ELIZ0006_x100.png?v=1777037412"
@@ -127575,7 +127865,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/issey-miyake-a-drop-dissey-eau-de-parfum-essentielle-50ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1753106929-93689400.jpg?v=1763392495&width=1920"
@@ -127799,6 +128089,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-07T21:37:24.399Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ISS0037.png?v=1731675663&width=1000"
+    }
+  ],
+  "ean-3423473949954": [
+    {
+      "retailerId": "beautybase",
+      "price": 14.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/pleats-please-leau-eau-de-toilette-50ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1763640016-27131700.jpg?v=1772625075&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 17.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157929289&a=3026001&m=106925",
+      "fetchedAt": "2026-08-10T23:22:35.325Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3562700373084": [
@@ -128159,7 +128475,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/jean-paul-gaultier-le-male-elixir-parfum-75ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/JPG0033.png?v=1756720376&width=1000"
@@ -128823,7 +129139,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/jimmy-choo-man-aqua-eau-de-toilette-30ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1653659482-33062900.jpg?v=1763392454&width=1920"
@@ -128849,7 +129165,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/jimmy-choo-man-aqua-eau-de-toilette-50ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1655302935-48943100.jpg?v=1763392453&width=1920"
@@ -130191,6 +130507,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-05T04:06:55.385Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0001.png?v=1758900965&width=1000"
+    }
+  ],
+  "ean-6290360598338": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-angham-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1763981205-38556300.jpg?v=1772625001&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/lattafa-angham-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-09T03:40:47.179Z",
+      "firstSeenAt": "2026-08-09T03:40:47.179Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0024_cd9f8ba7-4a14-4a14-ace8-d48527f50c7b.png?v=1758900974&width=1000"
     }
   ],
   "ean-6291108735411": [
@@ -131597,6 +131939,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/missoni-man-eau-de-parfum-100ml-p21308-45754_image.jpg?v=1721322274&width=1000"
     }
   ],
+  "ean-8011003858156": [
+    {
+      "retailerId": "beautybase",
+      "price": 29,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/missoni-wave-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1764946839-71269300.jpg?v=1772625046&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 52.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174943172&a=3026001&m=106925",
+      "fetchedAt": "2026-08-10T23:22:35.325Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "justmylook-monc0005": [
     {
       "retailerId": "justmylook",
@@ -131813,7 +132181,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/montale-dark-purple-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/MONT0005.png?v=1766583601&width=1000"
@@ -131839,7 +132207,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/montale-starry-nights-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/MONT0012.png?v=1766569597&width=1000"
@@ -133243,7 +133611,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/narciso-rodriguez-for-her-musc-noir-rose-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1655303396-93205400.jpg?v=1763392501&width=1920"
@@ -134049,7 +134417,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-prada-infusion-de-fleur-doranger-eau-de-parfum-spray-100ml-13522066",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/53453.jpg?v=1755874886&width=1920"
@@ -136779,7 +137147,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-tom-ford-grey-vetiver-eau-de-parfum-spray-50ml-12018680",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/75053.jpg?v=1770289058&width=1920"
@@ -136961,7 +137329,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-tom-ford-private-blend-neroli-portofino-eau-de-parfum-spray-50ml-12709317",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/53473.jpg?v=1770288874&width=1920"
@@ -149893,7 +150261,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-boucheron-pour-homme-eau-de-parfum-spray-100ml-14271215",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/43753.jpg?v=1766145781&width=1920"
@@ -151390,8 +151758,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/ceo-man-luxury-perfume",
-      "fetchedAt": "2026-08-10T23:33:23.067Z",
+      "url": "https://bellavitaluxury.uk/products/ceo-man-luxury-perfume-20ml",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -151400,12 +151768,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-5748022538839": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 19.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/ceo-man-luxury-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T23:33:23.067Z",
+      "url": "https://bellavitaluxury.uk/products/ceo-man-luxury-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -151428,12 +151796,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-8906150342804": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 19.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/date-woman-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T23:33:23.067Z",
+      "url": "https://bellavitaluxury.uk/products/date-woman-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -151446,8 +151814,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
-      "url": "https://bellavitaluxury.uk/products/fresh-unisex-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T23:33:23.067Z",
+      "url": "https://bellavitaluxury.uk/products/fresh-unisex-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -151470,12 +151838,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-8906150343351": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 19.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/g-o-a-t-man-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T23:33:23.067Z",
+      "url": "https://bellavitaluxury.uk/products/g-o-a-t-man-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -151488,8 +151856,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/honey-oud-unisex-perfume-1",
-      "fetchedAt": "2026-08-10T23:33:23.067Z",
+      "url": "https://bellavitaluxury.uk/products/honey-oud-unisex-perfume-20ml",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -151498,12 +151866,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-8906150340404": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 19.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/honey-oud-unisex-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T23:33:23.067Z",
+      "url": "https://bellavitaluxury.uk/products/honey-oud-unisex-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -151512,12 +151880,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-8906150343290": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 21.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/klub-man-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T23:33:23.067Z",
+      "url": "https://bellavitaluxury.uk/products/klub-man-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -151531,21 +151899,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://bellavitaluxury.uk/products/ocean-man-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T23:33:23.067Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-8906150344624": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://bellavitaluxury.uk/products/ocean-man-perfume-3-4-fl-oz-copy",
-      "fetchedAt": "2026-08-10T23:33:23.067Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -151558,8 +151912,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
-      "url": "https://bellavitaluxury.uk/products/oud-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T23:33:23.067Z",
+      "url": "https://bellavitaluxury.uk/products/oud-perfume-3-4-fl-oz-b2g2",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -151582,12 +151936,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-3870003433801": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 19.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/rose-woman-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T23:33:23.067Z",
+      "url": "https://bellavitaluxury.uk/products/rose-woman-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -151596,12 +151950,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-8906150342811": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 19.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/senorita-woman-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T23:33:23.067Z",
+      "url": "https://bellavitaluxury.uk/products/senorita-woman-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -151614,8 +151968,8 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
-      "url": "https://bellavitaluxury.uk/products/skai-aquatic-unisex-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T23:33:23.067Z",
+      "url": "https://bellavitaluxury.uk/products/skai-aquatic-unisex-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -151638,12 +151992,12 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
   "bellavita-luxury-3870003433771": [
     {
       "retailerId": "bellavita-luxury",
-      "price": 19.99,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/white-oud-unisex-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-10T23:33:23.067Z",
+      "url": "https://bellavitaluxury.uk/products/white-oud-unisex-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
       "imageUrl": null
@@ -152301,7 +152655,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/byredo-black-saffron-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/BYRE0014.png?v=1753445105&width=1000"
@@ -158671,7 +159025,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/creed-aventus-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0007.png?v=1753445105&width=1000"
@@ -158755,7 +159109,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/creed-bois-du-portugal-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0025.png?v=1751897612&width=1000"
@@ -158769,7 +159123,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/creed-carmina-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0027.png?v=1751897613&width=1000"
@@ -158783,7 +159137,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/creed-carmina-eau-de-parfum-75ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0028_98c561e8-ee1e-40e7-9cff-89c7fc995e37.png?v=1753445105&width=1000"
@@ -158825,7 +159179,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/creed-green-irish-tweed-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0001.png?v=1751897613&width=1000"
@@ -158853,7 +159207,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/creed-himalaya-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0016_b061d076-c4ff-4d5c-8f9e-64b30bd2e99c.png?v=1753445106&width=1000"
@@ -158965,7 +159319,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/creed-millesime-imperial-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0029.png?v=1751897613&width=1000"
@@ -159007,7 +159361,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/creed-original-vetiver-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0031.png?v=1751897613&width=1000"
@@ -159147,7 +159501,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/creed-silver-mountain-water-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CREED0013.png?v=1751897612&width=1000"
@@ -159833,7 +160187,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/thallium-ii-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1653656100-60067200.jpg?v=1763392460&width=1920"
@@ -161373,7 +161727,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://allbeauty.com/products/p-dior-dolce-vita-eau-de-toilette-spray-100ml-11078996",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/9488.jpg?v=1773851611&width=1920"
@@ -161387,7 +161741,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-dior-dune-pour-homme-eau-de-toilette-spray-100ml-11079071",
-      "fetchedAt": "2026-08-10T14:21:50.324Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/8879.jpg?v=1770302314&width=1920"
@@ -163843,20 +164197,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/light-blue-eau-intense-femme-eau-de-parfum-100ml-p29805-76281_image.jpg?v=1721322190&width=1000"
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338205835401-44927044092041": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 61.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928612&a=3026001&m=106925",
-      "fetchedAt": "2026-08-10T23:22:35.325Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "justmylook-dandg0129": [
     {
       "retailerId": "justmylook",
@@ -164341,7 +164681,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/dolce-gabbana-the-one-for-women-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/DANDG0019.png?v=1765197717&width=1000"
@@ -164621,7 +164961,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/dsquared2-red-wood-eau-de-toilette-pour-femme-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/dsquared2-red-wood-eau-de-toilette-pour-femme-100ml-p20724-43646_image.jpg?v=1721322198&width=1000"
@@ -167155,7 +167495,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/emporio-armani-because-its-you-for-her-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-07T12:59:21.968Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/because-its-you-for-her-eau-de-parfum-50ml-p31696-87945_image.jpg?v=1721322207&width=1000"
@@ -167225,7 +167565,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/emporio-armani-diamonds-he-eau-de-toilette-75ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0004.jpg?v=1733131975&width=1000"
@@ -167253,7 +167593,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/emporio-armani-diamonds-she-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/diamonds-she-eau-de-parfum-100ml-p24942-58460_image.jpg?v=1721322203&width=1000"
@@ -167295,7 +167635,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/emporio-armani-he-eau-de-toilette-50ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0005_41a22bf5-e97d-408f-b16a-6d6d708459e6.jpg?v=1730741672&width=1000"
@@ -167323,7 +167663,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/emporio-armani-she-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0005_2dc67560-9bcd-4c2c-a578-6abdf6308bd9.jpg?v=1730741592&width=1000"
@@ -167441,6 +167781,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0176.jpg?v=1737650803&width=1000"
     }
   ],
+  "justmylook-arma0105": [
+    {
+      "retailerId": "justmylook",
+      "price": 76.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/emporio-armani-stronger-with-you-for-him-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-04T16:30:04.615Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/stronger-with-you-for-him-eau-de-toilette-100ml-p31692-87343_image.jpg?v=1721322209&width=1000"
+    }
+  ],
   "justmylook-arma0177": [
     {
       "retailerId": "justmylook",
@@ -167455,20 +167809,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARMA0177.jpg?v=1737650803&width=1000"
     }
   ],
-  "justmylook-arma0105": [
-    {
-      "retailerId": "justmylook",
-      "price": 76.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/emporio-armani-stronger-with-you-for-him-eau-de-toilette-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
-      "firstSeenAt": "2026-08-04T16:30:04.615Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/stronger-with-you-for-him-eau-de-toilette-100ml-p31692-87343_image.jpg?v=1721322209&width=1000"
-    }
-  ],
   "justmylook-arma0106": [
     {
       "retailerId": "justmylook",
@@ -167477,7 +167817,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/emporio-armani-stronger-with-you-for-him-eau-de-toilette-150ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/stronger-with-you-for-him-eau-de-toilette-150ml-p31693-87347_image.jpg?v=1721322206&width=1000"
@@ -172041,7 +172381,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/ghost-deep-night-eau-de-toilette-75ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ghost-deep-night-eau-de-toilette-75ml-p36255-113655_image.jpg?v=1721322201&width=1000"
@@ -174491,7 +174831,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/givenchy-gentleman-eau-de-toilette-60ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1652794389-50032500.jpg?v=1763392398&width=1920"
@@ -174533,7 +174873,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/givenchy-gentleman-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0019.png?v=1753445105&width=1000"
@@ -176731,7 +177071,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-guerlain-champs-elysees-eau-de-parfum-spray-75ml-2-5-fl-oz-14575325",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/9481.jpg?v=1755875047&width=1920"
@@ -178229,7 +178569,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-hermes-concentre-dorange-verte-eau-de-toilette-spray-100ml-14602817",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/36893.jpg?v=1755874928&width=1920"
@@ -181357,6 +181697,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ISS0038.png?v=1731675666&width=1000"
     }
   ],
+  "ean-3423474874750": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/nuit-dissey-eau-de-toilette-125ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771320619-08617100.jpg?v=1772625061&width=1920"
+    }
+  ],
   "mybeauty-boutique-shopify-gb-8338263769225-44927129550985": [
     {
       "retailerId": "mybeauty-boutique",
@@ -181421,20 +181775,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43157930658&a=3026001&m=106925",
-      "fetchedAt": "2026-08-10T23:22:35.325Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338232836233-44927086690441": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 17.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157929289&a=3026001&m=106925",
       "fetchedAt": "2026-08-10T23:22:35.325Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -182527,7 +182867,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/jean-paul-gaultier-le-beau-le-parfum-125ml-sprayml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728917738-19067600.jpg?v=1763392382&width=1920"
@@ -182555,7 +182895,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/jean-paul-gaultier-le-beau-le-parfum-intense-eau-de-parfum-75ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/JPG0031.png?v=1753445106&width=1000"
@@ -182569,7 +182909,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/jean-paul-gaultier-le-beau-le-parfum-intense-eau-de-parfum-125ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/JPG0032.png?v=1753445105&width=1000"
@@ -185117,7 +185457,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/jimmy-choo-leau-eau-de-toilette-90ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/JIMC0027.jpg?v=1724147600&width=1000"
@@ -185173,7 +185513,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/jimmy-choo-man-aqua-eau-de-toilette-100ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1655302891-65916900.jpg?v=1763392455&width=1920"
@@ -189457,7 +189797,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-lacoste-booster-eau-de-toilette-spray-125ml-14658039",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/18073.jpg?v=1755874977&width=1920"
@@ -191381,6 +191721,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-3614274509779": [
+    {
+      "retailerId": "beautybase",
+      "price": 65,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lancome-idole-peach-and-roses-eau-de-parfum-25ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770044551-29003800.jpg?v=1772624993&width=1920"
+    }
+  ],
+  "ean-3614274510089": [
+    {
+      "retailerId": "beautybase",
+      "price": 95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lancome-idole-peach-and-roses-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770044704-08701600.jpg?v=1772624994&width=1920"
+    }
+  ],
   "ean-3614274510133": [
     {
       "retailerId": "beautybase",
@@ -192235,18 +192603,18 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1755852528-22656700.jpg?v=1763398825&width=1920"
     }
   ],
-  "justmylook-lat0024": [
+  "ean-6290362345671": [
     {
-      "retailerId": "justmylook",
-      "price": 22.99,
+      "retailerId": "beautybase",
+      "price": 29.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.justmylook.com/products/lattafa-angham-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-09T03:40:47.179Z",
-      "firstSeenAt": "2026-08-09T03:40:47.179Z",
+      "url": "https://www.beautybase.com/products/lattafa-angham-second-song-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
       "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0024_cd9f8ba7-4a14-4a14-ace8-d48527f50c7b.png?v=1758900974&width=1000"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770980900-39640300.jpg?v=1772625002&width=1920"
     }
   ],
   "ean-6290360592206": [
@@ -192809,6 +193177,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738748989-55559000.jpg?v=1763397070&width=1920"
     }
   ],
+  "ean-6290360598956": [
+    {
+      "retailerId": "beautybase",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-mishlah-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771001847-30499600.jpg?v=1772625008&width=1920"
+    }
+  ],
   "mybeauty-boutique-shopify-gb-7633051517065-42357961293961": [
     {
       "retailerId": "mybeauty-boutique",
@@ -192821,6 +193203,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": null
+    }
+  ],
+  "ean-6290362345527": [
+    {
+      "retailerId": "beautybase",
+      "price": 49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-musamam-black-intense-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1767184805-93728200.jpg?v=1772625012&width=1920"
     }
   ],
   "ean-6291106063233": [
@@ -193005,6 +193401,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-6290362349334": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-pride-eternal-vanille-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770132607-98026600.jpg?v=1772625013&width=1920"
+    }
+  ],
   "ean-6290360592756": [
     {
       "retailerId": "beautybase",
@@ -193101,6 +193511,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-05T04:06:55.385Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ramz-lattafa-silver-eau-de-parfum-100ml-p38198-121261_image.jpg?v=1721322261&width=1000"
+    }
+  ],
+  "ean-6290360590349": [
+    {
+      "retailerId": "beautybase",
+      "price": 12.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-rave-now-white-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1764934349-91190600.jpg?v=1772625015&width=1920"
     }
   ],
   "ean-6291108738658": [
@@ -193213,6 +193637,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-08T07:47:52.407Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728314382-19723800.jpg?v=1763395787&width=1920"
+    }
+  ],
+  "ean-6423080728925": [
+    {
+      "retailerId": "beautybase",
+      "price": 9.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-yara-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728648557-39195600.jpg?v=1772625018&width=1920"
     }
   ],
   "ean-6290362345718": [
@@ -195117,6 +195555,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1483009943-04437400.jpg?v=1763392245&width=1920"
+    }
+  ],
+  "ean-5060630899271": [
+    {
+      "retailerId": "beautybase",
+      "price": 4.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/laurelle-parfums-noir-desire-eau-de-parfum-85ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": null
     }
   ],
   "ean-5060186261249": [
@@ -197885,7 +198337,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/my-dream-eau-de-parfum-90ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1653305920-37920600.jpg?v=1763392406&width=1920"
@@ -197941,7 +198393,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/urban-men-eau-de-toilette-90ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1653305827-17978700.jpg?v=1763392407&width=1920"
@@ -197969,7 +198421,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/vibes-for-women-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1653304447-61556500.jpg?v=1763392409&width=1920"
@@ -198409,6 +198861,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-6290362164920": [
+    {
+      "retailerId": "beautybase",
+      "price": 14.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/maison-asrar-coffee-blend-eau-de-parfum-25ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770806955-56042100.jpg?v=1772625023&width=1920"
+    }
+  ],
   "ean-6290362161776": [
     {
       "retailerId": "beautybase",
@@ -198507,6 +198973,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1753966754-80809100.jpg?v=1763398618&width=1920"
     }
   ],
+  "ean-6290362164623": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/maison-asrar-milky-way-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769765099-08911200.jpg?v=1772625023&width=1920"
+    }
+  ],
   "ean-6290362164487": [
     {
       "retailerId": "beautybase",
@@ -198549,6 +199029,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759418825-06277200.jpg?v=1763399140&width=1920"
     }
   ],
+  "ean-6290362164906": [
+    {
+      "retailerId": "beautybase",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/maison-asrar-vanguard-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769789926-51639000.jpg?v=1772625024&width=1920"
+    }
+  ],
   "ean-6290362164944": [
     {
       "retailerId": "beautybase",
@@ -198577,6 +199071,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1762338587-87677200.jpg?v=1763399388&width=1920"
     }
   ],
+  "ean-6290362164913": [
+    {
+      "retailerId": "beautybase",
+      "price": 14.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/maison-asrar-vanilla-voyage-eau-de-parfum-25ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770806792-99755100.jpg?v=1772625028&width=1920"
+    }
+  ],
   "ean-6290362161783": [
     {
       "retailerId": "beautybase",
@@ -198603,6 +199111,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T13:03:59.151Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1756291561-86136300.jpg?v=1763398850&width=1920"
+    }
+  ],
+  "ean-6290362166405": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/maison-asrar-x-cal-cologne-thriller-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770116252-25759500.jpg?v=1772625029&width=1920"
     }
   ],
   "justmylook-criv0025": [
@@ -201867,6 +202389,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-5060751950004": [
+    {
+      "retailerId": "beautybase",
+      "price": 350,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/millionaires-choice-mc1-parfum-100ml-sprayes",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1763645457-88588300.jpg?v=1772625043&width=1920"
+    }
+  ],
   "ean-5060751950011": [
     {
       "retailerId": "beautybase",
@@ -201907,6 +202443,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T21:39:43.387Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1763646469-79614000.jpg?v=1774348895&width=1920"
+    }
+  ],
+  "ean-5060751950042": [
+    {
+      "retailerId": "beautybase",
+      "price": 350,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/millionaires-choice-mc5-parfum-100ml-sprayes",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1763646245-85784000.jpg?v=1772625044&width=1920"
     }
   ],
   "ean-5060751950059": [
@@ -202637,20 +203187,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338399068297-44927350964361": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 52.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174943172&a=3026001&m=106925",
-      "fetchedAt": "2026-08-10T23:22:35.325Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3614274520545": [
     {
       "retailerId": "beautybase",
@@ -203191,7 +203727,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/montale-arabians-tonka-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/MONT0002.png?v=1766583601&width=1000"
@@ -203205,7 +203741,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/montale-black-aoud-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/MONT0003.png?v=1769531011&width=1000"
@@ -203233,7 +203769,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/montale-chocolate-greedy-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/MONT0004.png?v=1766583601&width=1000"
@@ -203303,7 +203839,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.justmylook.com/products/montale-honey-aoud-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/MONT0006.png?v=1769531011&width=1000"
@@ -203331,7 +203867,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/montale-intense-cafe-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/MONT0007.png?v=1766583601&width=1000"
@@ -203527,7 +204063,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/montale-roses-musk-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/MONT0010.png?v=1766583601&width=1000"
@@ -203541,7 +204077,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/montale-sensual-instinct-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/MONT0011.png?v=1766583601&width=1000"
@@ -204749,6 +205285,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-07T19:51:59.683Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1736789448-59072700.jpg?v=1763394526&width=1920"
+    }
+  ],
+  "ean-3614274503227": [
+    {
+      "retailerId": "beautybase",
+      "price": 64,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/mugler-alien-pulp-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769189304-68830100.jpg?v=1772625055&width=1920"
+    }
+  ],
+  "ean-3614274503234": [
+    {
+      "retailerId": "beautybase",
+      "price": 92,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/mugler-alien-pulp-eau-de-parfum-60ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770053000-22399700.jpg?v=1772625057&width=1920"
+    }
+  ],
+  "ean-3614274503203": [
+    {
+      "retailerId": "beautybase",
+      "price": 115,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/mugler-alien-pulp-eau-de-parfum-90ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770053229-00019200.jpg?v=1772625059&width=1920"
     }
   ],
   "ean-3439600039511": [
@@ -206529,6 +207107,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1533899663-54427800.png?v=1763388997&width=1920"
     }
   ],
+  "ean-6291109271048": [
+    {
+      "retailerId": "beautybase",
+      "price": 5.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/orientica-billion-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771410119-87883500.jpg?v=1772625066&width=1920"
+    }
+  ],
   "ean-6291109270867": [
     {
       "retailerId": "beautybase",
@@ -206625,6 +207217,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1626700789-92604200.jpg?v=1763389797&width=1920"
+    }
+  ],
+  "ean-6291109271079": [
+    {
+      "retailerId": "beautybase",
+      "price": 5.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/orientica-fleur-amber-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771410558-45370600.jpg?v=1772625066&width=1920"
     }
   ],
   "ean-6291106810677": [
@@ -207257,6 +207863,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1701709828-05081500.jpg?v=1763393903&width=1920"
     }
   ],
+  "ean-085715564207": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/oscar-de-renta-bella-rosa-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1763476000-16255700.jpg?v=1772625069&width=1920"
+    }
+  ],
   "ean-85715592590": [
     {
       "retailerId": "fragrance-click",
@@ -207332,10 +207952,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-bad-n-boujee-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -207346,10 +207966,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-blackjack-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -207402,10 +208022,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-burnt-sugar-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -207472,10 +208092,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-chroma-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -207570,10 +208190,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-dominus-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -207598,10 +208218,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://oudarabian.co.uk/products/bujairami-electric-romance-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -207612,10 +208232,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-emperor-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -207626,10 +208246,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-endless-blue-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -207808,10 +208428,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-ivory-tower-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -207850,10 +208470,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-love-note-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -207878,10 +208498,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-lucid-dream-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -207920,10 +208540,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-madness-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -207962,10 +208582,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-midnight-booz-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -207990,10 +208610,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-mohabaat-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208032,10 +208652,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-nonstop-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208088,10 +208708,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-oohh-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208102,10 +208722,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://oudarabian.co.uk/products/bujairami-oud-dream-100ml-eau-de-parfum-why-youll",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208130,10 +208750,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-ozonic-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208186,10 +208806,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-red-static-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -208200,10 +208820,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-resonance-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208228,10 +208848,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-rizz-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208242,10 +208862,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-roselle-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208256,10 +208876,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-rumour-has-it-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208270,10 +208890,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-sacred-order-100ml-extrait-de-parfum-1",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208284,10 +208904,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-sacred-order-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208298,10 +208918,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-sacred-skin-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208312,10 +208932,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-safari-squeeze-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208340,10 +208960,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://oudarabian.co.uk/products/bujairami-siege-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208354,10 +208974,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-silent-halo-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208368,10 +208988,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-skin2skin-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208382,10 +209002,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-soft-vanilla-10l-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208396,10 +209016,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-stellar-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208410,10 +209030,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://oudarabian.co.uk/products/bujairami-stunner-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208424,10 +209044,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-sugar-rush-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -208438,10 +209058,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-sunset-guava-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208480,10 +209100,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-the-hype-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -208494,10 +209114,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-the-rock-absolutely-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -208592,10 +209212,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-v-luxe-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208606,10 +209226,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-vanilla-static-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208634,10 +209254,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-vanished-100ml-eau-de-parfum-1",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208690,10 +209310,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-zeal-sugar-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208746,10 +209366,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 34.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://oudarabian.co.uk/products/french-avenue-jasmere-perfume-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -208900,10 +209520,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/lataffa-khamrah-waha-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -208914,10 +209534,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 24.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/lattafa-eclaire-pistache-100ml-eau-de-parfum-spray",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -209012,10 +209632,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.95,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/liquid-brun-limited-edition-release-150ml-extrait-de-parfum-by-french-avenue-pre-order",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -209082,10 +209702,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/maison-asrar-regent-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -209096,10 +209716,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 37.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://oudarabian.co.uk/products/maison-asrar-vanguard-perfume-100ml-edp-maison-asrar",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -209180,10 +209800,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 39.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/matcha-obsession-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": true,
       "imageUrl": null
@@ -209208,10 +209828,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 34.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/milky-way-perfume-100ml-edp-maison-asrar",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -209264,10 +209884,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 25.19,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/rasasi-hawas-london-100ml-eau-de-parfum-pre-order",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -209278,10 +209898,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 34.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/rayhaan-aloha-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -209306,10 +209926,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 34.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/rayhaan-azul-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": true,
       "imageUrl": null
@@ -209432,10 +210052,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "retailerId": "oud-arabian",
       "price": 26.99,
       "wasPrice": null,
-      "promoEndsAt": "2027-08-10T00:00:00.000Z",
+      "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/rayhaan-terra-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -209449,7 +210069,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/rayhaan-tiger-cal-cologne",
-      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -209561,7 +210181,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-08-11T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://oudarabian.co.uk/products/zimaya-essential-perfume-hamdan",
-      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
@@ -209593,6 +210213,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-05T15:12:19.785Z",
       "isNew": true,
       "imageUrl": null
+    }
+  ],
+  "ean-5055958468995": [
+    {
+      "retailerId": "beautybase",
+      "price": 40,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/oud-elixir-dubai-imperial-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769591535-16928100.jpg?v=1772625072&width=1920"
     }
   ],
   "ean-5060143795770": [
@@ -214159,6 +214793,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1161.jpg"
     }
   ],
+  "ean-3349668562671": [
+    {
+      "retailerId": "beautybase",
+      "price": 69.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/rabanne-1-million-lucky-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1768219879-44666600.jpg?v=1772625078&width=1920"
+    }
+  ],
   "mybeauty-boutique-shopify-gb-8416748372105-45147130757257": [
     {
       "retailerId": "mybeauty-boutique",
@@ -214503,7 +215151,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/rabanne-invictus-platinum-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1720093347-72627700.jpg?v=1763392385&width=1920"
@@ -214517,7 +215165,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.beautybase.com/products/rabanne-invictus-platinum-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1654094491-88227300.jpg?v=1763392389&width=1920"
@@ -214979,7 +215627,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.beautybase.com/products/rabanne-olympea-solar-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-05T12:50:37.260Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1716376338-30245800.jpg?v=1763392390&width=1920"
@@ -215013,6 +215661,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/PAC0042_1db75fd5-8a04-4489-a131-73e57ae6d00b.png?v=1738168805&width=1000"
     }
   ],
+  "justmylook-pac0050": [
+    {
+      "retailerId": "justmylook",
+      "price": 65.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/paco-rabanne-one-million-parfum-100ml",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-06T23:57:00.047Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/PAC0050_b78a2279-9ad5-49fa-bc09-b99ecc9a2e8a.png?v=1738168806&width=1000"
+    }
+  ],
   "justmylook-pac0043": [
     {
       "retailerId": "justmylook",
@@ -215025,20 +215687,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/PAC0043_0413e6b7-e925-4edd-ac37-cc7d4a0ff9e4.png?v=1738168805&width=1000"
-    }
-  ],
-  "justmylook-pac0050": [
-    {
-      "retailerId": "justmylook",
-      "price": 64.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/paco-rabanne-one-million-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
-      "firstSeenAt": "2026-08-06T23:57:00.047Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/PAC0050_b78a2279-9ad5-49fa-bc09-b99ecc9a2e8a.png?v=1738168806&width=1000"
     }
   ],
   "justmylook-pac0044": [
@@ -219683,7 +220331,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/sarah-jessica-parker-nyc-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/SJP0045.png?v=1776691996&width=1000"
@@ -220271,7 +220919,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/shay-blue-atropa-belladonna-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/atropa-belladonna-eau-de-parfum-30ml-p38582-123187_image.jpg?v=1723462491&width=1000"
@@ -220313,7 +220961,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/shay-blue-black-tulip-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/black-tulip-eau-de-parfum-30ml-p38586-123191_image.jpg?v=1723462491&width=1000"
@@ -220439,7 +221087,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/shay-blue-tallulahs-camellia-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/tallulahs-camellia-eau-de-parfum-30ml-p38587-123192_image.jpg?v=1723462492&width=1000"
@@ -220467,7 +221115,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/shay-blue-white-peaches-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/white-peaches-eau-de-parfum-30ml-p38578-123183_image.jpg?v=1723462491&width=1000"
@@ -224205,7 +224853,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://allbeauty.com/products/p-tom-ford-private-blend-tobacco-vanille-eau-de-parfum-spray-50ml-12709323",
-      "fetchedAt": "2026-08-10T14:21:50.324Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://allbeauty.com/cdn/shop/files/9035.jpg?v=1770288375&width=1920"
@@ -225367,7 +226015,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/dolce-gabbana-pour-femme-eau-de-parfum-100ml/11883227/",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11883227-1575325374908899.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -225409,7 +226057,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/elizabeth-arden-white-tea-wild-rose-eau-de-toilette-100ml/11986296/",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11986296-1745327203139064.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -225437,7 +226085,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/juicy-couture-eau-de-parfum-50ml/10002885/",
-      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10002885-1375319910557186.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -225493,7 +226141,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/marc-jacobs-daisy-love-eau-so-sweet-eau-de-toilette-30ml/12026245/",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12026245-1075321983641606.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -225521,7 +226169,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.lookfantastic.com/p/menaji-power-hydrator-aftershave-with-hyaluronic-acid-4oz.-118ml/10588308/",
-      "fetchedAt": "2026-08-10T22:35:31.778Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/10588308-2035336083679121.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -225535,7 +226183,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/molton-brown-coastal-cypress-sea-fennel-eau-de-parfum-100ml/12243615/",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243615-6385327413782678.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -225549,7 +226197,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/molton-brown-fiery-pink-pepper-eau-de-parfum-100ml/12243616/",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243616-1985348401121403.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -225563,7 +226211,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/molton-brown-flora-luminare-eau-de-parfum-100ml/12243617/",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243617-1275327413959036.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -225577,7 +226225,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/molton-brown-mesmerising-oudh-accord-gold-eau-de-parfum-100ml/12243620/",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243620-4824938932377437.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -225591,7 +226239,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/molton-brown-re-charge-black-pepper-eau-de-parfum-100ml/12243622/",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/12243622-1695348401247745.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -225619,7 +226267,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/murdock-london-vetiver-cologne-100ml/11859241/",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11859241-1825318430776796.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -225815,7 +226463,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.lookfantastic.com/p/versace-l-homme-eau-de-toilette-100ml/11429114/",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11429114-1365348400541620.jpg&format=webp&width=1500&height=1500&fit=cover"
@@ -230337,7 +230985,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.justmylook.com/products/zadig-voltaire-this-is-her-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-06T23:57:00.047Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZV0001.png?v=1766583601&width=1000"
@@ -259895,7 +260543,7 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
 export const HOUSE_PRODUCTS: HouseProduct[] = [...HOUSE_PRODUCTS_CHUNK_0, ...HOUSE_PRODUCTS_CHUNK_1, ...HOUSE_PRODUCTS_CHUNK_2, ...HOUSE_PRODUCTS_CHUNK_3, ...HOUSE_PRODUCTS_CHUNK_4];
 
 /** When the harvest that produced this data ran. */
-export const CRAWLED_AT = "2026-08-10T23:33:23.067Z";
+export const CRAWLED_AT = "2026-08-11T01:38:04.253Z";
 
 /** How many shops the data came from. */
 export const SHOP_COUNT = 8;
