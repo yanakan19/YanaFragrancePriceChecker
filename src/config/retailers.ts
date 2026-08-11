@@ -65,6 +65,31 @@ function awinPending(merchantId: string) {
  * explicitly as `true` only once that merchant's own Terms/Creative tab has
  * actually been read.
  */
+/**
+ * We have applied to this programme and are waiting to hear back. Distinct
+ * from `awinPending` (confusingly named in hindsight — that one means
+ * "confirmed Awin merchant, not yet applied"): this is `status: 'pending'`,
+ * the enum value for an application actually in flight, sourced from this
+ * account's own Awin Activity Stream showing a "requested to join" entry.
+ *
+ * `merchantId` is optional because the Activity Stream gives only the
+ * programme's display name, never its merchant id — that only appears on
+ * the merchant's own profile page, which needs a live Awin session to read.
+ * Passed when already known from an earlier `awinPending`/`awinActive` call
+ * on the same programme; left unset otherwise rather than guessed.
+ */
+function awinRequested(merchantId: string | null = null) {
+  return {
+    network: 'awin',
+    verified: merchantId !== null,
+    status: 'pending',
+    publisherId: null,
+    deeplinkTemplate: null,
+    querySuffixTemplate: null,
+    signupUrl: merchantId ? `https://ui.awin.com/merchant-profile/${merchantId}` : null,
+  } as const;
+}
+
 function awinActive(merchantId: string, publisherId: string) {
   return {
     network: 'awin',
@@ -135,7 +160,10 @@ export const RETAILERS: readonly Retailer[] = [
       firstPage: 1, maxPages: 1, minRequestGapMs: 1200,
     },
     affiliate: {
-      ...NO_AFFILIATE_YET,
+      // Applied via Awin's own Activity Stream 2026-08-11, merchant id not
+      // yet known — only surfaces once the programme accepts and its
+      // profile page becomes readable.
+      ...awinRequested(),
       // Images are hot-linked from this shop's own servers with no licence
       // obtained — see the ImageBasis doc comment. Nothing is copied or
       // rehosted, and every image sits beside a link sending the reader to buy
@@ -253,7 +281,9 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 60, minRequestGapMs: 2500,
     },
-    affiliate: awinPending('2041'),
+    // Applied via Awin's own Activity Stream 2026-08-11 — merchant id 2041
+    // was already known from the earlier awinPending() confirmation.
+    affiliate: awinRequested('2041'),
   },
   {
     id: 'the-fragrance-shop',
@@ -433,13 +463,21 @@ export const RETAILERS: readonly Retailer[] = [
     },
     catalogue: {
       searchUrlTemplate: 'https://www.lookfantastic.com/elysium.search?search={q}',
+      // Full "view all fragrance" URL given directly 2026-08-11, replacing
+      // the narrower category page — this field is only read by the Phase 0
+      // spike probe and catalogue-fixtures.ts, never the live harvester
+      // (crawlViaSitemap discovers real product URLs from lookfantastic.com's
+      // own sitemap.xml regardless of what is written here), so this change
+      // is documentation accuracy, not a fix to what the daily crawl fetches.
       sections: [
-        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.lookfantastic.com/c/health-beauty/fragrance/', tier: 'designer' },
+        { id: 'fragrance', label: 'Fragrance', urlTemplate: 'https://www.lookfantastic.com/c/health-beauty/fragrance/view-all-fragrance/', tier: 'designer' },
       ],
       firstPage: 1, maxPages: 1, minRequestGapMs: 1500,
     },
     affiliate: {
-      ...awinPending('2082'),
+      // Applied via Awin's own Activity Stream 2026-08-11 — merchant id 2082
+      // was already known from the earlier awinPending() confirmation.
+      ...awinRequested('2082'),
       // Images are hot-linked from this shop's own servers with no licence
       // obtained — see the ImageBasis doc comment. Nothing is copied or
       // rehosted, and every image sits beside a link sending the reader to buy
@@ -731,7 +769,10 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
     },
-    affiliate: { ...NO_AFFILIATE_YET },
+    // Applied via Awin's own Activity Stream 2026-08-11, merchant id not yet
+    // known — only surfaces once the programme accepts and its profile page
+    // becomes readable.
+    affiliate: { ...awinRequested() },
   },
   {
     id: 'the-fragrance-counter',
@@ -772,7 +813,10 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 40, minRequestGapMs: 1500,
     },
-    affiliate: { ...NO_AFFILIATE_YET },
+    // Applied via Awin's own Activity Stream 2026-08-11, merchant id not yet
+    // known — only surfaces once the programme accepts and its profile page
+    // becomes readable.
+    affiliate: { ...awinRequested() },
   },
   {
     id: 'scentstore',
@@ -854,7 +898,10 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 40, minRequestGapMs: 1500,
     },
-    affiliate: { ...NO_AFFILIATE_YET },
+    // Applied via Awin's own Activity Stream 2026-08-11, merchant id not yet
+    // known — only surfaces once the programme accepts and its profile page
+    // becomes readable.
+    affiliate: { ...awinRequested() },
   },
   {
     id: 'glorious-beauty',
@@ -1445,6 +1492,371 @@ export const RETAILERS: readonly Retailer[] = [
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
+  },
+
+  // ── Applied via Awin, 2026-08-11 ───────────────────────────────────────────
+  // Temporary placeholders, exactly as requested: every one of these is a
+  // real UK-facing retailer this account has applied to join on Awin (see
+  // the Activity Stream), domain confirmed by web search this session since
+  // this environment cannot open any of them directly. None has had its page
+  // structure, delivery terms, or Awin acceptance confirmed yet — enabled:
+  // false and catalogue: null throughout, same as every other unconfirmed
+  // entry in this file. affiliate.status is 'pending' via awinRequested()
+  // because the application itself is real, not because anything downstream
+  // of it is.
+  {
+    id: 'debenhams',
+    name: 'Debenhams',
+    domain: 'debenhams.com',
+    homepage: 'https://www.debenhams.com',
+    tiers: ['designer'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
+  },
+  {
+    id: 'niche-beauty-uk',
+    name: 'Niche-Beauty UK',
+    domain: 'niche-beauty.com',
+    homepage: 'https://www.niche-beauty.com',
+    tiers: ['niche'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
+  },
+  {
+    id: 'nicchia-luxury-uk',
+    name: 'Nicchia Luxury UK',
+    domain: 'nicchialuxury.com',
+    homepage: 'https://www.nicchialuxury.com',
+    tiers: ['niche'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
+  },
+  {
+    id: 'paco-perfumerias',
+    name: 'Paco Perfumerias',
+    domain: 'pacoperfumerias.com',
+    homepage: 'https://www.pacoperfumerias.com',
+    tiers: ['designer', 'niche'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 7],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes:
+        'Applied via Awin 2026-08-11. A Spanish retailer (pacoperfumerias.com); whether its Awin ' +
+        'UK programme actually checks out in GBP or this is an EU-priced site with a UK-targeted ' +
+        'affiliate programme has not been confirmed. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
+  },
+  {
+    id: 'wowcher',
+    name: 'Wowcher',
+    domain: 'wowcher.co.uk',
+    homepage: 'https://www.wowcher.co.uk',
+    tiers: ['designer'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 7],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes:
+        'Applied via Awin 2026-08-11. A deals marketplace rather than a dedicated fragrance ' +
+        'retailer — most listings will not be fragrance at all. Delivery terms and page ' +
+        'structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
+  },
+  {
+    id: 'beauty-pie',
+    name: 'Beauty Pie',
+    domain: 'beautypie.com',
+    homepage: 'https://www.beautypie.com',
+    tiers: ['designer'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes:
+        'Applied via Awin 2026-08-11. Membership-model retailer (products priced at cost to ' +
+        'members) — worth checking whether its listed prices are even meaningful without a ' +
+        'membership before this goes live. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
+  },
+  {
+    id: 'very',
+    name: 'very.co.uk',
+    domain: 'very.co.uk',
+    homepage: 'https://www.very.co.uk',
+    tiers: ['designer'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
+  },
+  {
+    id: 'gorgeous-shop',
+    name: 'Gorgeous Shop',
+    domain: 'gorgeousshop.com',
+    homepage: 'https://www.gorgeousshop.com',
+    tiers: ['designer'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
+  },
+  {
+    id: 'beauty-flash',
+    name: 'Beauty Flash',
+    domain: 'beautyflash.co.uk',
+    homepage: 'https://www.beautyflash.co.uk',
+    tiers: ['designer'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
+  },
+  {
+    id: 'scentsational',
+    name: 'Scentsational',
+    domain: 'scentsational.com',
+    homepage: 'https://www.scentsational.com',
+    tiers: ['designer'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
+  },
+  {
+    id: 'beauty-the-shop-uk',
+    name: 'Beauty The Shop UK',
+    domain: 'beautytheshop.com',
+    homepage: 'https://www.beautytheshop.com',
+    tiers: ['designer', 'niche'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 7],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes:
+        'Applied via Awin 2026-08-11. Ships from Madrid, Spain — whether UK orders are actually ' +
+        'GBP-priced has not been confirmed. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
+  },
+  {
+    id: 'perfume-market-uk',
+    name: 'Perfume Market UK',
+    domain: 'perfumemarketuk.com',
+    homepage: 'https://www.perfumemarketuk.com',
+    tiers: ['designer'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
+  },
+  {
+    id: 'parfumdreams-uk',
+    name: 'Parfumdreams UK',
+    domain: 'parfumdreams.co.uk',
+    homepage: 'https://www.parfumdreams.co.uk',
+    tiers: ['designer'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
+  },
+  {
+    id: 'perfume-click',
+    name: 'Perfume Click',
+    domain: 'perfume-click.co.uk',
+    homepage: 'https://www.perfume-click.co.uk',
+    tiers: ['designer'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
+  },
+  {
+    id: 'beauty-bay',
+    name: 'Beauty Bay',
+    domain: 'beautybay.com',
+    homepage: 'https://www.beautybay.com',
+    tiers: ['designer'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
+  },
+  {
+    id: 'fragrancedirect',
+    name: 'Fragrancedirect',
+    domain: 'fragrancedirect.co.uk',
+    homepage: 'https://www.fragrancedirect.co.uk',
+    tiers: ['designer'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes:
+        // Merchant id 9, same account-wide network as Fragrance Click UK's — found while
+        // confirming this domain, not guessed.
+        'Applied via Awin 2026-08-11 (merchant id 9). Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested('9') },
+  },
+  {
+    id: 'cult-beauty-global',
+    name: 'Cult Beauty Global',
+    domain: 'cultbeauty.co.uk',
+    homepage: 'https://www.cultbeauty.co.uk',
+    tiers: ['designer', 'niche'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested() },
   },
 ] as const;
 
