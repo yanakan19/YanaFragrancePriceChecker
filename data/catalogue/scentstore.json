@@ -1,9 +1,23 @@
 {
   "retailerId": "scentstore",
-  "updatedAt": "2026-08-11T09:45:05.662Z",
+  "updatedAt": "2026-08-11T11:47:20.257Z",
   "source": "live",
   "listings": [],
   "runs": [
+    {
+      "runId": "scentstore-2026-08-11T11:47:11.124Z",
+      "retailerId": "scentstore",
+      "startedAt": "2026-08-11T11:47:11.124Z",
+      "finishedAt": "2026-08-11T11:47:20.257Z",
+      "status": "ok",
+      "baseline": true,
+      "pagesFetched": 1,
+      "listingsSeen": 0,
+      "newListings": 0,
+      "delistedListings": 0,
+      "relistedListings": 0,
+      "errors": []
+    },
     {
       "runId": "scentstore-2026-08-11T09:44:52.421Z",
       "retailerId": "scentstore",
