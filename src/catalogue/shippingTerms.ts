@@ -46,6 +46,13 @@ export const SHIPPING_PAGE_PATHS: readonly string[] = [
   '/shipping-policy',
   '/delivery',
   '/shipping',
+  '/pages/faq',
+  '/pages/shipping-returns',
+  '/pages/delivery-returns',
+  '/pages/shipping-info',
+  '/pages/help',
+  '/policies/refund-policy',
+  '/pages/terms-of-service',
 ];
 
 /** What a matched sentence is claiming, as far as the wording can be trusted. */
@@ -229,6 +236,10 @@ export function extractShippingClaims(html: string): ShippingClaim[] {
 }
 
 export interface ShippingReading {
+  /** Present only when the caller asked for it (raw debug mode). The full
+   *  plain-text extraction of the page, for a human to read directly when the
+   *  regexes may be missing a rate phrased in an unanticipated way. */
+  rawText?: string;
   /** Best guess at the flat standard rate, or null when nothing qualified. */
   standardGbp: number | null;
   /** Best guess at the free-delivery threshold, or null. */
@@ -252,7 +263,7 @@ export interface ShippingReading {
  * reviewer notices — a suspiciously low delivery charge invites checking,
  * whereas a plausible high one gets waved through.
  */
-export function readShippingTerms(html: string): ShippingReading {
+export function readShippingTerms(html: string, opts?: { includeRawText?: boolean }): ShippingReading {
   const claims = extractShippingClaims(html);
   const caveats: string[] = [];
 
@@ -305,5 +316,6 @@ export function readShippingTerms(html: string): ShippingReading {
     freeOverGbp: distinctThreshold.length ? Math.min(...distinctThreshold) : null,
     caveats,
     claims,
+    ...(opts?.includeRawText ? { rawText: textFromHtml(html) } : {}),
   };
 }
