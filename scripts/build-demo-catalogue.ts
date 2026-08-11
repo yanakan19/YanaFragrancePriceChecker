@@ -48,10 +48,10 @@ const now = new Date();
 
 /**
  * Concentrations, split into two tiers so a match can be tried by
- * specificity — the full "eau de X" phrases first, then the bare
- * single-word alternatives — rather than by whichever happens to sit first
- * in the title. See concentrationMatch below for why that distinction is
- * load-bearing, not tidiness: "cologne" alone is ambiguous between a real
+ * specificity — the full "eau de X" / "extrait de X" phrases first, then the
+ * bare single-word alternatives — rather than by whichever happens to sit
+ * first in the title. See concentrationMatch below for why that distinction
+ * is load-bearing, not tidiness: "cologne" alone is ambiguous between a real
  * concentration and part of a product line's own name (Creed's "Aventus
  * Cologne"), where a full "eau de parfum" is never anything but the
  * concentration.
@@ -63,9 +63,27 @@ const now = new Date();
  * "oud" cover the concentrated-oil style Middle Eastern perfumery uses,
  * relevant because the registry already models a 'mideast' tier for three
  * retailers.
+ *
+ * The generic tier is itself ordered by reliability, not left as one
+ * alternation — see concentrationMatch, which checks each word in this order
+ * rather than taking whichever occurs earliest in the string. "oud" is last
+ * for a concrete reason: it is also an extremely common leading word in a
+ * fragrance's own name in Middle Eastern perfumery — "Oud & Roses", "Oud
+ * Couture", "Oud Ispahan" — so a title like "Oud & Roses Perfume 60ml EDP"
+ * naively matched leftmost picked "Oud" as the concentration, stripped it
+ * from the display name, and left "& Roses Perfume 60ml EDP" with a bare
+ * leading ampersand and the wrong concentration badge, even though "EDP"
+ * sits right there later in the same title. Checked against Emirates Oud's
+ * own catalogue: 38+ titles hit this exact collision.
  */
-const CONCENTRATION_SPECIFIC = /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche)\b/i;
-const CONCENTRATION_GENERIC = /\b(parfum|perfume|edp|edt|edc|aftershave|cologne|extrait|attar|oud)\b/i;
+const CONCENTRATION_SPECIFIC =
+  /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche|extrait de parfum|extrait de toilette)\b/i;
+const CONCENTRATION_GENERIC_PRIORITY = [
+  'edp', 'edt', 'edc', 'parfum', 'perfume', 'aftershave', 'cologne', 'extrait', 'attar', 'oud',
+] as const;
+const CONCENTRATION_GENERIC_PATTERNS: Record<string, RegExp> = Object.fromEntries(
+  CONCENTRATION_GENERIC_PRIORITY.map((w) => [w, new RegExp(`\\b${w}\\b`, 'i')]),
+);
 
 /**
  * Things that live near perfume in a sitemap but are not perfume.
@@ -147,9 +165,22 @@ const CONCENTRATION_DISPLAY: Record<string, string> = {
  * is what a reader would call the actual concentration; a bare word like
  * "cologne" only gets to answer the question when nothing more specific
  * appears anywhere in the title.
+ *
+ * The same reasoning applies one level down, inside the generic tier itself:
+ * checked by CONCENTRATION_GENERIC_PRIORITY order — does EDP appear anywhere,
+ * then EDT, then Parfum, and so on down to "oud" last — rather than by
+ * position. Without this, "Oud & Roses Perfume 60ml EDP" matched bare "Oud"
+ * at position 0 for the exact same reason "Cologne" won above: leftmost, not
+ * most reliable.
  */
 function concentrationMatch(title: string): string | null {
-  return title.match(CONCENTRATION_SPECIFIC)?.[0] ?? title.match(CONCENTRATION_GENERIC)?.[0] ?? null;
+  const specific = title.match(CONCENTRATION_SPECIFIC)?.[0];
+  if (specific) return specific;
+  for (const word of CONCENTRATION_GENERIC_PRIORITY) {
+    const hit = title.match(CONCENTRATION_GENERIC_PATTERNS[word]!)?.[0];
+    if (hit) return hit;
+  }
+  return null;
 }
 
 /** Concentration as a display string. */

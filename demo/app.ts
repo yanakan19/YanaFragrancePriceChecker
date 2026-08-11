@@ -727,13 +727,14 @@ function fragranceTile(
 ): string {
   const rows = rowsFor(f);
   const best = bestOffer(rows);
-  // Sold out everywhere still names a shop, the cheapest one on record even
-  // though it is not buyable right now — never bare "Sold out" floating with
-  // no attribution, and never a shorter tile than an in-stock neighbour in
-  // the same row. Only a fragrance with zero rows ever (should not happen in
-  // real data — every listed fragrance came from at least one real offer)
-  // falls back to an invisible placeholder, purely to hold the row's height.
-  const badgeRetailer = best?.retailer.name ?? rows[0]?.retailer.name ?? null;
+  // No shop named once a fragrance is sold out everywhere. This used to fall
+  // back to rows[0]'s retailer — the cheapest one on record even though it is
+  // not buyable right now — but naming a shop under a "Sold out" tile reads as
+  // "go here for it," which is exactly backwards for a shop that does not
+  // currently have it. The placeholder below still holds the row's height, so
+  // a sold-out tile is never shorter than an in-stock neighbour; it just
+  // never claims a specific shop.
+  const badgeRetailer = best?.retailer.name ?? null;
   const medal = opts?.rank !== undefined && opts.rank < 3 ? MEDALS[opts.rank] : null;
   // Two sibling buttons, not one wrapping the other: the brand's own control
   // and the rest of the tile (name, art, price, shop) each need their own
