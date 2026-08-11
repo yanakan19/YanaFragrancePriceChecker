@@ -1593,9 +1593,27 @@ export const RETAILERS: readonly Retailer[] = [
     name: 'Nicchia Luxury UK',
     domain: 'nicchialuxury.com',
     homepage: 'https://www.nicchialuxury.com',
+    // Their own words, from the programme profile they publish on Awin.
+    blurb:
+      'Nicchia Luxury is an Italian e-commerce site specializing in niche perfumery, ' +
+      'with over 160 brands, along with a curated selection of beauty, cosmetics, and ' +
+      'home products.',
     tiers: ['niche'],
+    // Approved is not yet reachable: the programme accepted this account
+    // 2026-08-11, but nothing about actually getting their products has been
+    // established yet. adapter is set to 'affiliate-feed' as a genuine test,
+    // not a claim: scripts/awin-feed-sync.ts only checks a merchant against
+    // this account's own feed list when its adapter already says
+    // 'affiliate-feed', so this is what lets that script tell us whether
+    // Nicchia Luxury publishes a feed at all. enabled stays false regardless
+    // of the answer — build-demo-catalogue.ts skips every disabled retailer,
+    // so even a successful feed pull writes real data to data/catalogue
+    // without it reaching the site until this is deliberately flipped to
+    // true on real evidence. If no feed turns up, adapter reverts to
+    // 'unknown', the same honest state Glorious Beauty was left in after the
+    // same check came back empty for them (see that entry's comment).
     enabled: false,
-    adapter: 'unknown',
+    adapter: 'affiliate-feed',
     currency: 'GBP',
     shipping: {
       standardGbp: null,
@@ -1603,10 +1621,21 @@ export const RETAILERS: readonly Retailer[] = [
       estimatedDays: [3, 5],
       verifiedAt: '2026-08-11',
       confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+      notes:
+        'Approved into their Awin programme 2026-08-11. Delivery terms and page ' +
+        'structure not yet read.',
     },
     catalogue: null,
-    affiliate: { ...awinRequested() },
+    // Real approval, not another application-in-flight: Awin notified this
+    // account directly that Nicchia Luxury UK accepted it onto their
+    // programme. Merchant id 123544 read off their own merchant profile
+    // (ui.awin.com/merchant-profile/123544, titled "Nicchia Luxury UK
+    // Affiliate Programme"); publisherId 3017443 is this account's own id,
+    // shared with every other approved Awin programme here. Still needs
+    // whatever route actually gets their products in — a confirmed feed via
+    // npm run awin:feed-sync, or a confirmed scrapable page structure — before
+    // this can move past affiliate readiness to enabled: true.
+    affiliate: { ...awinActive('123544', '3017443') },
   },
   {
     id: 'paco-perfumerias',
