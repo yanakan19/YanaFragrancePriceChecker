@@ -40,6 +40,14 @@ const maxPages = Number.parseInt(arg('max') ?? '40', 10);
 const onlyShop = arg('shop');
 const dryRun = process.argv.includes('--dry-run');
 const allowMetered = process.argv.includes('--allow-metered');
+// A floor on top of whatever the registry and robots.txt already require,
+// not a replacement for either — see its use below. Exists for exactly the
+// case that motivated it: run 135 hammered lookfantastic.com with 106
+// requests at its normal 1500ms gap and came back with 1 priced listing out
+// of 106 fetches (most silently empty, not HTTP errors), a request-rate
+// problem the registry's own per-retailer gap has no way to express for a
+// one-off deeper run without permanently slowing its every hourly pass too.
+const gapMinMs = arg('gap-min') ? Number.parseInt(arg('gap-min')!, 10) : 0;
 
 const proxyConfig = apifyProxyConfigFromEnv();
 const useProxy = allowMetered && proxyConfig !== null;
@@ -83,6 +91,7 @@ for (const retailer of shops) {
   const gapMs = Math.max(
     retailer.catalogue?.minRequestGapMs ?? 1500,
     (robots.crawlDelaySeconds ?? 0) * 1000,
+    gapMinMs,
   );
 
   // What we already hold, so the walk can spend its budget on products it has
