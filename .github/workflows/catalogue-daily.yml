@@ -271,36 +271,40 @@ jobs:
       # skips proxied retrieval if it is absent, logging that it did so. It
       # only ever fires for shops the free route returned nothing for.
       #
-      # Budget and refresh share, sized from measurements rather than picked:
+      # Budget and refresh share.
       #
-      # The scraped (non-feed) shops hold ~4,980 listings, and two of them are
-      # nearly all of it — Beauty Base 2,671 and Justmylook 1,941. Refreshing
-      # every one of those inside a 6-hour window means ~446 and ~324 re-fetches
-      # per hourly run respectively, which at their registry request gaps is
-      # 11.2 and 6.5 minutes of wall clock for those two shops alone. That
-      # exceeds crawlViaSitemap's 8-minute per-shop ceiling, and raising the
-      # ceiling to fit would also hand the same 15 minutes to shops that
-      # currently yield nothing (lookfantastic already burns its full 8 minutes
-      # for zero listings while its sitemap 403s), pushing the job past the
-      # hour and cascading into the next scheduled run behind the concurrency
-      # group. So a literal 100% scrape sweep every 6 hours is not something
-      # this pipeline can honestly claim yet, and this step does not pretend to.
+      # This was --max=120 --refresh-share=0.7 for a few hours on 2026-08-11,
+      # on an estimate that it would cost "about 6 extra minutes" per run. That
+      # estimate was wrong, and the real cost showed up directly rather than as
+      # a rounding error: run #143's harvest step took 63 minutes (was ~38),
+      # and the run was killed by the 75-minute job timeout before it could
+      # commit anything. #144, the run right after it, was killed the same way
+      # and committed nothing at all — a full hour of crawling, discarded. Both
+      # failures landed the same week five more shops (the delivery-not-stated
+      # group plus Emirates Oud) were added to the same sweep, which was never
+      # accounted for in the original estimate.
       #
-      # What it does instead: --max 60 -> 120 and refresh share 0.3 -> 0.7 take
-      # the re-priced-per-run figure from 18 to 84 listings per shop, so a shop
-      # sees 504 of its listings re-priced in a 6-hour window instead of 108 —
-      # 4.7x more, for about 6 extra minutes of run time. Combined with the
-      # feed sync above, which does refresh its 9,820 listings completely every
-      # 6 hours, roughly 70% of the catalogue is now genuinely current within
-      # any 6-hour window, against about 45% before.
+      # Pulled back to --max=70 --refresh-share=0.4: a shop sees 28 of its
+      # listings re-priced per run (was 18 before the regression, 84 during
+      # it), 168 in a 6-hour window. That is a real improvement over the
+      # original 108, just a much smaller one than 120/0.7 claimed — and
+      # unlike that number, a run at this size has actually been observed to
+      # finish and commit. Re-measure before raising it again, on the size of
+      # the shop list as it stands at the time, not the list from whenever
+      # this comment was last true.
+      #
+      # The feed sync above is unaffected by any of this: it refreshes its
+      # 9,820 listings completely every 6 hours regardless of what this step
+      # does, and is what genuinely delivers a 6-hourly refresh for that part
+      # of the catalogue.
       - name: Harvest via sitemap
         if: ${{ inputs.harvest || github.event_name == 'schedule' }}
         env:
           APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
         run: |
           npm run harvest -- \
-            --max=${{ inputs.harvest_max || '120' }} \
-            --refresh-share=${{ inputs.harvest_refresh_share || '0.7' }} \
+            --max=${{ inputs.harvest_max || '70' }} \
+            --refresh-share=${{ inputs.harvest_refresh_share || '0.4' }} \
             ${{ inputs.harvest_shop && format('--shop={0}', inputs.harvest_shop) || '' }} \
             ${{ inputs.harvest_gap_min && format('--gap-min={0}', inputs.harvest_gap_min) || '' }} \
             ${{ (inputs.allow_metered || github.event_name == 'schedule') && '--allow-metered' || '' }}
