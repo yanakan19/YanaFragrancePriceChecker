@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-10T18:42:37.354Z",
+  "checkedAt": "2026-08-11T09:44:47.446Z",
   "outcomes": [
     {
       "retailerId": "the-fragrance-counter",
@@ -391,22 +391,63 @@
       "currentStandardGbp": null,
       "currentFreeOverGbp": null,
       "enabled": false,
-      "pagesTried": 0,
-      "findings": [],
-      "quote": null,
-      "errors": [
-        "https://www.perfumeo.co.uk/policies/shipping-policy: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/pages/shipping-policy: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/pages/shipping-details: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/pages/delivery-information: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/pages/shipping: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/pages/delivery: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/shipping-policy: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/delivery: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/shipping: disallowed by robots.txt — not fetched",
-        "https://www.perfumeo.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      "pagesTried": 9,
+      "findings": [
+        {
+          "url": "https://www.perfumeo.co.uk/policies/shipping-policy",
+          "status": 200,
+          "standardGbp": null,
+          "freeOverGbp": null,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "evidence": [
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Delivery Information - Perfumeo Fast & Free UK Delivery &mdash; No Minimum Spend",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Fast + Free Tracked Delivery on All UK Orders 100% Genuine — Sealed & Batch-Coded Up to 40% Off Lattafa Best Sellers — While Stock Lasts",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "+ FREE Fast-Tracked Delivery No Minimum Spend",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "15% OFF + free fast-tracked delivery &middot; COPY CODE",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "100% Authentic Fragrances Fast UK Dispatch FREE Fast-Tracked Delivery",
+              "isUpgradeTier": false
+            }
+          ]
+        }
       ],
-      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.perfumeo.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
     },
     {
       "retailerId": "zimaya",
@@ -457,6 +498,498 @@
         "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
         "steps": [
           "https://www.bathandbodyworks.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "debenhams",
+      "name": "Debenhams",
+      "homepage": "https://www.debenhams.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.debenhams.com/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "niche-beauty-uk",
+      "name": "Niche-Beauty UK",
+      "homepage": "https://www.niche-beauty.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.niche-beauty.com/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "nicchia-luxury-uk",
+      "name": "Nicchia Luxury UK",
+      "homepage": "https://www.nicchialuxury.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [
+        {
+          "url": "https://www.nicchialuxury.com/policies/shipping-policy",
+          "status": 200,
+          "standardGbp": null,
+          "freeOverGbp": null,
+          "caveats": [
+            "only named express/upgraded services carried a price — standard rate not stated",
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "evidence": [
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free express delivery over 140 USD",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free express delivery over 140 USD",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free shipping thresholds (minimum subtotal after discounts and promo codes):",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [
+        "https://www.nicchialuxury.com/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
+      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
+    },
+    {
+      "retailerId": "paco-perfumerias",
+      "name": "Paco Perfumerias",
+      "homepage": "https://www.pacoperfumerias.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.pacoperfumerias.com/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "wowcher",
+      "name": "Wowcher",
+      "homepage": "https://www.wowcher.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.wowcher.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "beauty-pie",
+      "name": "Beauty Pie",
+      "homepage": "https://www.beautypie.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [
+        {
+          "url": "https://www.beautypie.com/policies/shipping-policy",
+          "status": 200,
+          "standardGbp": null,
+          "freeOverGbp": null,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "evidence": [
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "From time to time, we do offer special promotions/benefits for our Members (which may include free shipping).",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "From time to time, we do offer special promotions/perks for our Members (which may include free standard shipping).",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free Shipping",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Free shipping offers and exclusive member perks",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [
+        "https://www.beautypie.com/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
+      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
+    },
+    {
+      "retailerId": "very",
+      "name": "very.co.uk",
+      "homepage": "https://www.very.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.very.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [
+        "https://www.very.co.uk/policies/shipping-policy: HTTP 403",
+        "https://www.very.co.uk/pages/shipping-policy: HTTP 403",
+        "https://www.very.co.uk/pages/shipping-details: HTTP 403",
+        "https://www.very.co.uk/pages/delivery-information: HTTP 403",
+        "https://www.very.co.uk/pages/shipping: HTTP 403",
+        "https://www.very.co.uk/pages/delivery: HTTP 403",
+        "https://www.very.co.uk/shipping-policy: HTTP 403",
+        "https://www.very.co.uk/delivery: HTTP 403",
+        "https://www.very.co.uk/shipping: HTTP 403"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "gorgeous-shop",
+      "name": "Gorgeous Shop",
+      "homepage": "https://www.gorgeousshop.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
+        "steps": [
+          "https://www.gorgeousshop.com/products.json?limit=250"
+        ]
+      },
+      "errors": [
+        "https://www.gorgeousshop.com/policies/shipping-policy: HTTP 403",
+        "https://www.gorgeousshop.com/pages/shipping-policy: HTTP 403",
+        "https://www.gorgeousshop.com/pages/shipping-details: HTTP 403",
+        "https://www.gorgeousshop.com/pages/delivery-information: HTTP 403",
+        "https://www.gorgeousshop.com/pages/shipping: HTTP 403",
+        "https://www.gorgeousshop.com/pages/delivery: HTTP 403",
+        "https://www.gorgeousshop.com/shipping-policy: HTTP 403",
+        "https://www.gorgeousshop.com/delivery: HTTP 403",
+        "https://www.gorgeousshop.com/shipping: HTTP 403"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "beauty-flash",
+      "name": "Beauty Flash",
+      "homepage": "https://www.beautyflash.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
+        "steps": [
+          "https://www.beautyflash.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [
+        "https://www.beautyflash.co.uk/policies/shipping-policy: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/shipping-policy: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/shipping-details: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/delivery-information: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/shipping: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/delivery: HTTP 403",
+        "https://www.beautyflash.co.uk/shipping-policy: HTTP 403",
+        "https://www.beautyflash.co.uk/delivery: HTTP 403",
+        "https://www.beautyflash.co.uk/shipping: HTTP 403"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "scentsational",
+      "name": "Scentsational",
+      "homepage": "https://www.scentsational.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.scentsational.com/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "beauty-the-shop-uk",
+      "name": "Beauty The Shop UK",
+      "homepage": "https://www.beautytheshop.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
+        "steps": [
+          "https://www.beautytheshop.com/products.json?limit=250"
+        ]
+      },
+      "errors": [
+        "https://www.beautytheshop.com/policies/shipping-policy: HTTP 403",
+        "https://www.beautytheshop.com/pages/shipping-policy: HTTP 403",
+        "https://www.beautytheshop.com/pages/shipping-details: HTTP 403",
+        "https://www.beautytheshop.com/pages/delivery-information: HTTP 403",
+        "https://www.beautytheshop.com/pages/shipping: HTTP 403",
+        "https://www.beautytheshop.com/pages/delivery: HTTP 403",
+        "https://www.beautytheshop.com/shipping-policy: HTTP 403",
+        "https://www.beautytheshop.com/delivery: HTTP 403",
+        "https://www.beautytheshop.com/shipping: HTTP 403"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "perfume-market-uk",
+      "name": "Perfume Market UK",
+      "homepage": "https://www.perfumemarketuk.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.perfumemarketuk.com/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "parfumdreams-uk",
+      "name": "Parfumdreams UK",
+      "homepage": "https://www.parfumdreams.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.parfumdreams.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "perfume-click",
+      "name": "Perfume Click",
+      "homepage": "https://www.perfume-click.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
+        "steps": [
+          "https://www.perfume-click.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [
+        "https://www.perfume-click.co.uk/policies/shipping-policy: HTTP 403",
+        "https://www.perfume-click.co.uk/pages/shipping-policy: HTTP 403",
+        "https://www.perfume-click.co.uk/pages/shipping-details: HTTP 403",
+        "https://www.perfume-click.co.uk/pages/delivery-information: HTTP 403",
+        "https://www.perfume-click.co.uk/pages/shipping: HTTP 403",
+        "https://www.perfume-click.co.uk/pages/delivery: HTTP 403",
+        "https://www.perfume-click.co.uk/shipping-policy: HTTP 403",
+        "https://www.perfume-click.co.uk/delivery: HTTP 403",
+        "https://www.perfume-click.co.uk/shipping: HTTP 403"
+      ],
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "beauty-bay",
+      "name": "Beauty Bay",
+      "homepage": "https://www.beautybay.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: Unexpected token '<', \"<!doctype \"... is not valid JSON",
+        "steps": [
+          "https://www.beautybay.com/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "fragrancedirect",
+      "name": "Fragrancedirect",
+      "homepage": "https://www.fragrancedirect.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.fragrancedirect.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "cult-beauty-global",
+      "name": "Cult Beauty Global",
+      "homepage": "https://www.cultbeauty.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "enabled": false,
+      "pagesTried": 9,
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.cultbeauty.co.uk/products.json?limit=250"
         ]
       },
       "errors": [],
