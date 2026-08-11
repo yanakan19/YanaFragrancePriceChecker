@@ -1858,6 +1858,34 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: null,
     affiliate: { ...awinRequested() },
   },
+
+  // ── Applied via Awin, 2026-08-11 (Cosmetify) ────────────────────────────────
+  {
+    id: 'cosmetify',
+    name: 'Cosmetify',
+    domain: 'cosmetify.com',
+    homepage: 'https://www.cosmetify.com',
+    tiers: ['designer', 'niche'],
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-11',
+      confidence: 'unverified',
+      notes:
+        // Surfaced by Microsoft Shopping listing our own Azzaro search alongside
+        // it. Awin merchant id 29993 confirmed via their own merchant profile
+        // (ui.awin.com/merchant-profile/29993); their affiliate page states the
+        // product feed includes EANs. Delivery terms and page structure not yet
+        // read.
+        'Applied via Awin 2026-08-11 (merchant id 29993). EAN-inclusive product feed per Cosmetify\'s own affiliate page. Delivery terms and page structure not yet read.',
+    },
+    catalogue: null,
+    affiliate: { ...awinRequested('29993') },
+  },
 ] as const;
 
 /** Registry lookup by id. Built once — the registry is static. */
