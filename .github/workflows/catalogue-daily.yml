@@ -45,6 +45,10 @@ on:
         description: 'Floor on the delay between requests, in ms, on top of the registry/robots.txt gap. Use for a gentler deep run against one shop after a normal-pace run got throttled.'
         type: string
         default: ''
+      harvest_refresh_share:
+        description: 'Share of each shop budget (0-1) spent re-pricing listings already held, oldest first, rather than discovering new ones. Empty uses the scheduled default.'
+        type: string
+        default: ''
       allow_metered:
         description: 'Retry genuinely blocked shops through the Apify proxy. Requires the APIFY_PROXY_PASSWORD secret. Costs money.'
         type: boolean
@@ -167,24 +171,33 @@ jobs:
             data/shipping-discovery-report.json
 
       # Every affiliate-feed retailer (adapter: 'affiliate-feed' in
-      # src/config/retailers.ts — Fragrance Click UK today) against the Awin
-      # Feed List Download URL. Twice a day, same reasoning and the same
-      # 06:00/18:00 UTC slots as shipping discovery just above: Awin
-      # regenerates a feed roughly daily, so checking it hourly would be 24
-      # times the requests to learn the same thing, and both already share
-      # this schedule rather than each claiming their own cron.
+      # src/config/retailers.ts — Fragrance Click UK, MyBeauty.Boutique and The
+      # Beauty Store UK today) against the Awin Feed List Download URL.
+      #
+      # On the same 6-hourly cadence as Top Deals below (00/06/12/18 UTC), and
+      # deliberately ordered *before* it. Those three shops hold 9,820 of the
+      # catalogue's 14,857 listings — 66% — and a feed sync refreshes every one
+      # of them in a single download rather than page by page. So this step is
+      # what actually delivers "the whole listing set refreshed every six
+      # hours" for most of the site, and running it first means the deals
+      # snapshot below is picked from those fresh prices rather than the
+      # previous window's.
+      #
+      # It was 06:00/18:00 only, which left two thirds of the catalogue on a
+      # 12-hour refresh. Awin regenerates a feed roughly daily, so 6-hourly is
+      # still far short of wasteful — an unchanged feed costs one HTTP request
+      # and stops there, because the rebuild only runs when the sync genuinely
+      # changed something.
       #
       # A no-op, not a failure, when AWIN_FEED_LIST_URL is unset — see
-      # scripts/awin-feed-sync.ts's own header comment. The rebuild only
-      # runs when the sync actually changed something, so an unchanged feed
-      # costs one HTTP request and nothing else.
+      # scripts/awin-feed-sync.ts's own header comment.
       - name: Sync Awin product feeds
         if: ${{ inputs.awin_feed_sync || github.event_name == 'schedule' }}
         env:
           AWIN_FEED_LIST_URL: ${{ secrets.AWIN_FEED_LIST_URL }}
         run: |
           HOUR=$(date -u +%H)
-          if [ "${{ inputs.awin_feed_sync }}" = "true" ] || [ "$HOUR" = "06" ] || [ "$HOUR" = "18" ]; then
+          if [ "${{ inputs.awin_feed_sync }}" = "true" ] || [ "$HOUR" = "00" ] || [ "$HOUR" = "06" ] || [ "$HOUR" = "12" ] || [ "$HOUR" = "18" ]; then
             npm run awin:feed-sync
             if ! git diff --quiet -- data/catalogue data/awin-feed-sync-state.json; then
               npm run catalogue:demo
@@ -192,7 +205,7 @@ jobs:
               npm run demo
             fi
           else
-            echo "Not a 06:00 or 18:00 UTC tick (currently ${HOUR}:00) — skipping."
+            echo "Not a 00/06/12/18 UTC tick (currently ${HOUR}:00) — skipping."
           fi
 
       - name: Commit synced Awin feeds
@@ -202,6 +215,44 @@ jobs:
             "Awin feed sync: $(date -u +%Y-%m-%d)" \
             data/catalogue data/awin-feed-sync-state.json demo/catalogue.generated.ts \
             demo/priceHistory.generated.ts demo/index.html demo/404.html
+
+      # "Top Deals Today" moves on its own fixed 6-hourly cadence rather than
+      # every hourly tick like everything else — see scripts/build-deals.ts's
+      # own header comment for why.
+      #
+      # Ordered here, near the top of the run, for a specific reason: the
+      # sitemap harvest below takes ~38 minutes. With this step after it, the
+      # 00:00 tick did not actually publish its deals until ~00:45, so a
+      # snapshot named for midnight went live three quarters of an hour late,
+      # four times a day. Running it here instead publishes within a couple of
+      # minutes of the hour, against the Awin feeds just synced above plus the
+      # scraped prices committed by the previous hourly run — which finished
+      # around :48 of the previous hour, so nothing it reads is more than an
+      # hour old, and the two thirds of the catalogue that comes from feeds is
+      # seconds old. Fresh and on time beats fresher and late for a snapshot
+      # whose whole purpose is a fixed publication time.
+      #
+      # The rebuild only happens if the snapshot actually changed: an unchanged
+      # deals list costs nothing further.
+      - name: Refresh Top Deals Today
+        if: ${{ inputs.deals_refresh || github.event_name == 'schedule' }}
+        run: |
+          HOUR=$(date -u +%H)
+          if [ "${{ inputs.deals_refresh }}" = "true" ] || [ "$HOUR" = "00" ] || [ "$HOUR" = "06" ] || [ "$HOUR" = "12" ] || [ "$HOUR" = "18" ]; then
+            npm run deals:build
+            if ! git diff --quiet -- demo/deals.generated.ts; then
+              npm run demo
+            fi
+          else
+            echo "Not a 00/06/12/18 UTC tick (currently ${HOUR}:00) — skipping."
+          fi
+
+      - name: Commit refreshed deals
+        if: ${{ inputs.deals_refresh || github.event_name == 'schedule' }}
+        run: |
+          ./scripts/commit-and-push.sh \
+            "Top Deals Today: $(date -u +%Y-%m-%d)" \
+            demo/deals.generated.ts demo/index.html demo/404.html
 
       # The route the probe proved works: ask the sitemap instead of guessing.
       # This is now what runs every night, not just on request. The plain
@@ -213,13 +264,37 @@ jobs:
       # the harvest script checks for APIFY_PROXY_PASSWORD itself and simply
       # skips proxied retrieval if it is absent, logging that it did so. It
       # only ever fires for shops the free route returned nothing for.
+      #
+      # Budget and refresh share, sized from measurements rather than picked:
+      #
+      # The scraped (non-feed) shops hold ~4,980 listings, and two of them are
+      # nearly all of it — Beauty Base 2,671 and Justmylook 1,941. Refreshing
+      # every one of those inside a 6-hour window means ~446 and ~324 re-fetches
+      # per hourly run respectively, which at their registry request gaps is
+      # 11.2 and 6.5 minutes of wall clock for those two shops alone. That
+      # exceeds crawlViaSitemap's 8-minute per-shop ceiling, and raising the
+      # ceiling to fit would also hand the same 15 minutes to shops that
+      # currently yield nothing (lookfantastic already burns its full 8 minutes
+      # for zero listings while its sitemap 403s), pushing the job past the
+      # hour and cascading into the next scheduled run behind the concurrency
+      # group. So a literal 100% scrape sweep every 6 hours is not something
+      # this pipeline can honestly claim yet, and this step does not pretend to.
+      #
+      # What it does instead: --max 60 -> 120 and refresh share 0.3 -> 0.7 take
+      # the re-priced-per-run figure from 18 to 84 listings per shop, so a shop
+      # sees 504 of its listings re-priced in a 6-hour window instead of 108 —
+      # 4.7x more, for about 6 extra minutes of run time. Combined with the
+      # feed sync above, which does refresh its 9,820 listings completely every
+      # 6 hours, roughly 70% of the catalogue is now genuinely current within
+      # any 6-hour window, against about 45% before.
       - name: Harvest via sitemap
         if: ${{ inputs.harvest || github.event_name == 'schedule' }}
         env:
           APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
         run: |
           npm run harvest -- \
-            --max=${{ inputs.harvest_max || '60' }} \
+            --max=${{ inputs.harvest_max || '120' }} \
+            --refresh-share=${{ inputs.harvest_refresh_share || '0.7' }} \
             ${{ inputs.harvest_shop && format('--shop={0}', inputs.harvest_shop) || '' }} \
             ${{ inputs.harvest_gap_min && format('--gap-min={0}', inputs.harvest_gap_min) || '' }} \
             ${{ (inputs.allow_metered || github.event_name == 'schedule') && '--allow-metered' || '' }}
@@ -252,32 +327,6 @@ jobs:
             data/catalogue demo/catalogue.generated.ts demo/priceHistory.generated.ts \
             demo/index.html demo/404.html \
             data/houses data/house-sourcing-report.json
-
-      # "Top Deals Today" moves on its own fixed schedule rather than every
-      # hourly tick like everything else — see scripts/build-deals.ts's own
-      # header comment for why. Runs against whatever the harvest above just
-      # committed, so a deal is never picked from stale prices. The rebuild
-      # only happens if the snapshot actually changed, same shape as the Awin
-      # sync above: an unchanged deals list costs nothing further.
-      - name: Refresh Top Deals Today
-        if: ${{ inputs.deals_refresh || github.event_name == 'schedule' }}
-        run: |
-          HOUR=$(date -u +%H)
-          if [ "${{ inputs.deals_refresh }}" = "true" ] || [ "$HOUR" = "00" ] || [ "$HOUR" = "06" ] || [ "$HOUR" = "12" ] || [ "$HOUR" = "18" ]; then
-            npm run deals:build
-            if ! git diff --quiet -- demo/deals.generated.ts; then
-              npm run demo
-            fi
-          else
-            echo "Not a 00/06/12/18 UTC tick (currently ${HOUR}:00) — skipping."
-          fi
-
-      - name: Commit refreshed deals
-        if: ${{ inputs.deals_refresh || github.event_name == 'schedule' }}
-        run: |
-          ./scripts/commit-and-push.sh \
-            "Top Deals Today: $(date -u +%Y-%m-%d)" \
-            demo/deals.generated.ts demo/index.html demo/404.html
 
       # No product photo is ever downloaded or hosted here — every tile links
       # straight to the retailer's own image URL (see demo/photo.ts) — so a
