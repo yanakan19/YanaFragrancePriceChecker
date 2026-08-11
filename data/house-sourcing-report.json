@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-11T04:27:20.323Z",
+  "checkedAt": "2026-08-11T05:48:59.599Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -58,19 +58,19 @@
       "houseId": "pairfum-london",
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": null,
       "currency": null,
-      "listings": 22,
+      "listings": 0,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded",
-        "stopped early: the house began refusing requests"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {
@@ -144,17 +144,16 @@
       "name": "Lattafa Perfumes",
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
-      "currency": null,
+      "currency": "USD",
       "listings": 60,
       "pricedInGbp": 60,
       "withPhoto": 60,
-      "errors": [
-        "storefront currency could not be established — no sterling price recorded"
-      ],
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
-        "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap"
+        "already the best-represented Middle Eastern house in this catalogue indirectly, stocked by several enabled UK retailers (Beauty Base among them) — this entry is for completeness, not a coverage gap",
+        "prices are in USD, not GBP — needs a UK price source before these are comparable"
       ]
     },
     {
@@ -193,18 +192,17 @@
       "houseId": "paris-corner",
       "name": "Paris Corner",
       "origin": "https://pariscorner.ae",
-      "routeUsed": "sitemap-jsonld",
-      "currency": "AED",
-      "listings": 59,
-      "pricedInGbp": 59,
-      "withPhoto": 59,
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
       "errors": [
-        "stopped early: exceeded this house's time budget"
+        "robots.txt unreachable at https://pariscorner.ae and https://www.pariscorner.ae — holding off rather than guessing we are welcome"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending"
       ]
     },
     {
@@ -268,14 +266,12 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded",
-        "https://maisonalhambra.co/sitemap_index.xml: HTTP 404"
+        "robots.txt unreachable at https://maisonalhambra.co and https://www.maisonalhambra.co — holding off rather than guessing we are welcome"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "a Lattafa Perfumes Industries brand, so it shares a manufacturer with the Lattafa entry above but is sold separately",
-        "several near-identical domains exist (themaison-alhambra.com, maisonalhambraperfume.com, maisonalhambras.com) — only maisonalhambra.co presents itself as the official one, confirm before trusting listings from any other",
-        "no listings retrieved from the storefront on this run"
+        "several near-identical domains exist (themaison-alhambra.com, maisonalhambraperfume.com, maisonalhambras.com) — only maisonalhambra.co presents itself as the official one, confirm before trusting listings from any other"
       ]
     },
     {
