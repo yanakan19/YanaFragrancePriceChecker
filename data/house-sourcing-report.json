@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-11T07:50:13.000Z",
+  "checkedAt": "2026-08-11T08:11:45.617Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -12,8 +12,8 @@
       "withPhoto": 0,
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
-        "https://www.rasasi.com/products.json?limit=250&page=1: HTTP 500",
-        "https://www.rasasi.com/sitemap.xml: HTTP 500"
+        "https://www.rasasi.com/products.json?limit=250&page=1: HTTP 522",
+        "https://www.rasasi.com/sitemap.xml: HTTP 522"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -58,9 +58,9 @@
       "houseId": "pairfum-london",
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
-      "routeUsed": null,
+      "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 0,
+      "listings": 2,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
@@ -70,8 +70,7 @@
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
-        "no listings retrieved from the storefront on this run"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
       ]
     },
     {
@@ -195,9 +194,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 50,
-      "pricedInGbp": 50,
-      "withPhoto": 50,
+      "listings": 48,
+      "pricedInGbp": 48,
+      "withPhoto": 48,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -493,6 +492,94 @@
         "their own site states it ships within the United States only — this is likely to stay catalogue-only permanently rather than pending, since there may be no order a UK buyer can place here at all",
         "already stocked by several UK retailers (Boots, Space NK, Harrods) for anyone wanting a UK price sooner than confirming that",
         "prices are in USD, not GBP — needs a UK price source before these are comparable"
+      ]
+    },
+    {
+      "houseId": "escentric-molecules",
+      "name": "Escentric Molecules",
+      "origin": "https://www.escentric.com",
+      "routeUsed": "shopify-products-json",
+      "currency": "GBP",
+      "listings": 118,
+      "pricedInGbp": 118,
+      "withPhoto": 118,
+      "errors": [],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "applied to their UK Awin programme 2026-08-11; only a US-labelled (escentric.com/en-us) storefront was found, no separate UK domain confirmed",
+        "already stocked by several UK retailers (Liberty, Selfridges, Cult Beauty, Space NK) for anyone wanting a UK price sooner than confirming this"
+      ]
+    },
+    {
+      "houseId": "mugler",
+      "name": "Mugler",
+      "origin": "https://www.mugler.co.uk",
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
+      "errors": [
+        "storefront currency could not be established — no sterling price recorded",
+        "https://www.mugler.co.uk/products.json?limit=250&page=1: HTTP 403",
+        "https://www.mugler.co.uk/sitemap_0.xml: HTTP 403"
+      ],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "applied to their UK Awin programme 2026-08-11; a dedicated mugler.co.uk exists but has not been opened from this environment",
+        "no listings retrieved from the storefront on this run"
+      ]
+    },
+    {
+      "houseId": "the-body-shop",
+      "name": "The Body Shop",
+      "origin": "https://www.thebodyshop.com",
+      "routeUsed": "shopify-products-json",
+      "currency": "GBP",
+      "listings": 429,
+      "pricedInGbp": 429,
+      "withPhoto": 429,
+      "errors": [],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "applied to their UK Awin programme 2026-08-11; no separate UK-specific domain confirmed, thebodyshop.com may resolve UK pricing by geolocation or may not — not established from here",
+        "fragrance is a small part of a much larger bath/body/cosmetics catalogue; expect most harvested listings to be rejected by the isFragrance filter"
+      ]
+    },
+    {
+      "houseId": "jo-loves",
+      "name": "Jo Loves",
+      "origin": "https://www.joloves.com",
+      "routeUsed": "shopify-products-json",
+      "currency": "GBP",
+      "listings": 219,
+      "pricedInGbp": 219,
+      "withPhoto": 217,
+      "errors": [],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "applied to their UK Awin programme (registered as \"Jo Loves Limited\") 2026-08-11 — joloves.com is the company's own registered domain per Companies House, not merely the most likely of several found"
+      ]
+    },
+    {
+      "houseId": "lancome",
+      "name": "Lancôme",
+      "origin": "https://www.lancome.co.uk",
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
+      "errors": [
+        "storefront currency could not be established — no sterling price recorded",
+        "https://www.lancome.co.uk/products.json?limit=250&page=1: HTTP 403",
+        "https://www.lancome.co.uk/sitemap_0.xml: HTTP 403",
+        "https://www.lancome.ie/sitemap_0.xml: HTTP 403"
+      ],
+      "blockers": [
+        "storefront currency and UK delivery terms not yet established",
+        "applied to their UK Awin programme 2026-08-11; a large L'Oréal-group brand, unlikely to run on Shopify — the sitemap-jsonld route is the more likely one to actually work here",
+        "no listings retrieved from the storefront on this run"
       ]
     }
   ]

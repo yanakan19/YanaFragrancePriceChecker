@@ -1,8 +1,29 @@
 {
   "retailerId": "lookfantastic",
-  "updatedAt": "2026-08-11T07:04:39.313Z",
+  "updatedAt": "2026-08-11T07:54:47.781Z",
   "source": "live",
   "listings": [
+    {
+      "retailerSku": "11246323",
+      "url": "https://www.lookfantastic.com/p/aesop-marrakech-intense-parfum-10ml/11246323/",
+      "rawTitle": "Aesop Marrakech Intense Parfum 10ml",
+      "rawBrand": null,
+      "ean": null,
+      "imageUrl": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/11246323-7994965868744572.jpg&format=webp&width=1500&height=1500&fit=cover",
+      "priceGbp": 84,
+      "wasPriceGbp": null,
+      "promoEndsAt": null,
+      "inStock": true,
+      "sectionId": "sitemap",
+      "retailerId": "lookfantastic",
+      "firstSeenAt": "2026-08-11T07:54:47.781Z",
+      "lastSeenAt": "2026-08-11T07:54:47.781Z",
+      "status": "active",
+      "delistedAt": null,
+      "relistedAt": null,
+      "eligibleForNewBadge": true,
+      "variantId": null
+    },
     {
       "retailerSku": "11429114",
       "url": "https://www.lookfantastic.com/p/versace-l-homme-eau-de-toilette-100ml/11429114/",
