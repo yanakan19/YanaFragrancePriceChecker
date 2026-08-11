@@ -30,6 +30,19 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.2.0',
+    date: '11 Aug 2026',
+    title: 'More retailers, a steadier price history, and "Top Deals Today"',
+    points: [
+      'Applied to join a wide batch of new UK retailer and brand partner programmes, several already added as placeholders ready to go live once approved',
+      'Renamed Deals to "Top Deals Today", now refreshed on a fixed schedule a few times a day rather than reshuffling constantly',
+      'Rewrote this update history itself in plain language instead of engineering shorthand',
+      'Price history now plots one point per day, with an unchanged price carried forward as a flat line instead of leaving a gap',
+      'Fixed the price history chart\'s dots so they stay perfectly round at any screen width, and added date labels along the bottom',
+      'Added a proper "Available at" heading above current listings, matching the site\'s other section headings',
+    ],
+  },
+  {
     version: 'v3.1.0',
     date: '6 Aug 2026',
     title: 'Cleanup and correctness pass',
