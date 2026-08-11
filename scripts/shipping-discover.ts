@@ -44,6 +44,11 @@ function arg(name: string): string | null {
 
 const onlyShop = arg('shop');
 const includeEnabled = process.argv.includes('--all');
+// Opt-in debug mode: record the full extracted text of every delivery page
+// fetched for this one retailer, not just the regex-matched sentences. For
+// diagnosing a shop whose page returns 200 but whose rate the parser missed
+// because of unanticipated phrasing. Never runs on ordinary scheduled calls.
+const rawShop = arg('raw');
 
 const BROWSER_HEADERS: Record<string, string> = {
   'user-agent':
@@ -56,10 +61,10 @@ const http = createHttp();
 
 const shops = RETAILERS.filter(
   (r) =>
-    (onlyShop ? r.id === onlyShop : true) &&
+    (onlyShop ? r.id === onlyShop : rawShop ? r.id === rawShop : true) &&
     // The point is the shops we cannot enable. --all overrides for spot-checks
     // against a shop whose figures we already believe.
-    (includeEnabled || r.shipping.standardGbp === null),
+    (includeEnabled || rawShop === r.id || r.shipping.standardGbp === null),
 );
 
 interface PageFinding {
@@ -69,6 +74,8 @@ interface PageFinding {
   freeOverGbp: number | null;
   caveats: string[];
   evidence: { kind: string; amountGbp: number; sentence: string; isUpgradeTier: boolean }[];
+  /** Only populated in --raw=<retailerId> debug mode. */
+  rawText?: string;
 }
 
 interface ShopOutcome {
@@ -134,8 +141,9 @@ for (const retailer of shops) {
       continue;
     }
 
-    const reading = readShippingTerms(res.body);
-    if (reading.claims.length === 0) continue;
+    const isRawTarget = rawShop === retailer.id;
+    const reading = readShippingTerms(res.body, { includeRawText: isRawTarget });
+    if (reading.claims.length === 0 && !isRawTarget) continue;
 
     outcome.findings.push({
       url,
@@ -149,6 +157,7 @@ for (const retailer of shops) {
         sentence: c.evidence,
         isUpgradeTier: c.isUpgradeTier,
       })),
+      ...(isRawTarget ? { rawText: reading.rawText } : {}),
     });
 
     // Politeness between requests to the same shop.

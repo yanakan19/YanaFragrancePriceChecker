@@ -57,6 +57,10 @@ on:
         description: "Read disabled shops' own delivery pages and report what they say. Writes a report only, never the registry."
         type: boolean
         default: false
+      shipping_raw_shop:
+        description: 'Debug: also record the full extracted text of every delivery page fetched for this one retailer id, not just the regex-matched sentences. Empty runs the ordinary discover pass only.'
+        type: string
+        default: ''
       awin_feed_sync:
         description: 'Sync every affiliate-feed retailer against the Awin Feed List Download URL. Requires the AWIN_FEED_LIST_URL secret.'
         type: boolean
@@ -155,7 +159,9 @@ jobs:
         if: ${{ inputs.shipping_discover || github.event_name == 'schedule' }}
         run: |
           HOUR=$(date -u +%H)
-          if [ "${{ inputs.shipping_discover }}" = "true" ] || [ "$HOUR" = "06" ] || [ "$HOUR" = "18" ]; then
+          if [ -n "${{ inputs.shipping_raw_shop }}" ]; then
+            npm run shipping:discover -- --raw=${{ inputs.shipping_raw_shop }}
+          elif [ "${{ inputs.shipping_discover }}" = "true" ] || [ "$HOUR" = "06" ] || [ "$HOUR" = "18" ]; then
             npm run shipping:discover
           else
             echo "Not a 06:00 or 18:00 UTC tick (currently ${HOUR}:00) — skipping."
