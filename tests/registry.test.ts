@@ -20,8 +20,8 @@ describe('retailer registry', () => {
     // Flash, Scentsational, Beauty The Shop UK, Perfume Market UK,
     // Parfumdreams UK, Perfume Click, Beauty Bay, Fragrancedirect and Cult
     // Beauty Global. Cosmetify added the same day after turning up in a
-    // Microsoft Shopping listing, with its real Awin merchant id (29993)
-    // confirmed via their own merchant profile.
+    // Microsoft Shopping listing — a confirmed Awin merchant (id 29993, read
+    // off their own merchant profile) not yet applied to on this account.
     expect(RETAILERS).toHaveLength(54);
   });
 
