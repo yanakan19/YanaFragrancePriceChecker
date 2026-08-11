@@ -37,6 +37,10 @@ on:
         description: 'Product pages to fetch per shop during a harvest.'
         type: string
         default: '40'
+      harvest_shop:
+        description: 'Limit the harvest to one retailer id (e.g. lookfantastic). Empty runs every enabled shop, same as the schedule.'
+        type: string
+        default: ''
       allow_metered:
         description: 'Retry genuinely blocked shops through the Apify proxy. Requires the APIFY_PROXY_PASSWORD secret. Costs money.'
         type: boolean
@@ -208,6 +212,7 @@ jobs:
         run: |
           npm run harvest -- \
             --max=${{ inputs.harvest_max || '60' }} \
+            ${{ inputs.harvest_shop && format('--shop={0}', inputs.harvest_shop) || '' }} \
             ${{ (inputs.allow_metered || github.event_name == 'schedule') && '--allow-metered' || '' }}
 
       # The Middle Eastern houses sell direct rather than through the UK shops

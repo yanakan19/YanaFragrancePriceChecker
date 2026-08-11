@@ -12,8 +12,15 @@ describe('retailer registry', () => {
     // BellaVita Luxury, Oud Arabian, Manchester Ouds, Perfumeo), The Beauty
     // Store UK, Zimaya, and five single-brand UK storefronts added the same
     // day on request: Khadlaj, KAYALI, Zara, LUSH, Bath & Body Works. Emirates
-    // Oud added 2026-08-10 on approval into their GoAffPro programme.
-    expect(RETAILERS).toHaveLength(36);
+    // Oud added 2026-08-10 on approval into their GoAffPro programme. Another
+    // seventeen added 2026-08-11 as temporary placeholders for every UK
+    // retailer this account applied to on Awin that day but had no registry
+    // entry yet: Debenhams, Niche-Beauty UK, Nicchia Luxury UK, Paco
+    // Perfumerias, Wowcher, Beauty Pie, very.co.uk, Gorgeous Shop, Beauty
+    // Flash, Scentsational, Beauty The Shop UK, Perfume Market UK,
+    // Parfumdreams UK, Perfume Click, Beauty Bay, Fragrancedirect and Cult
+    // Beauty Global.
+    expect(RETAILERS).toHaveLength(53);
   });
 
   // The whole point of allowing `standardGbp: null` is that "we have not

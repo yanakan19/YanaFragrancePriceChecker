@@ -118,10 +118,27 @@ describe('pendingAffiliateSetup', () => {
   });
 
   it('points confirmed Awin merchants at their signup page', () => {
-    const gap = pendingAffiliateSetup().find((g) => g.retailerId === 'boots')!;
+    // boots itself no longer fits this case — the real registry now records
+    // it as status: 'pending' (applied via Awin 2026-08-11, see
+    // retailers.ts), so a synthetic 'not-applied' fixture stands in, the
+    // same way LIVE above stands in for a status this registry currently has
+    // no other real example of either.
+    const notApplied = withAffiliate({
+      network: 'awin',
+      verified: true,
+      status: 'not-applied',
+      signupUrl: 'https://ui.awin.com/merchant-profile/2041',
+    });
+    const gap = pendingAffiliateSetup([notApplied]).find((g) => g.retailerId === 'boots')!;
     expect(gap.network).toBe('awin');
     expect(gap.networkVerified).toBe(true);
     expect(gap.action).toContain('awin.com');
+  });
+
+  it('tells an already-applied retailer to chase approval instead', () => {
+    const gap = pendingAffiliateSetup().find((g) => g.retailerId === 'boots')!;
+    expect(gap.status).toBe('pending');
+    expect(gap.action).toContain('chase approval');
   });
 
   it('excludes live programmes', () => {

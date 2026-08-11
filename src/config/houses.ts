@@ -429,4 +429,74 @@ export const HOUSES: readonly House[] = [
       'already stocked by several UK retailers (Boots, Space NK, Harrods) for anyone wanting a UK price sooner than confirming that',
     ],
   },
+
+  // ── Applied via Awin, 2026-08-11 ───────────────────────────────────────────
+  // Temporary placeholders: each is a real, well-known house whose UK Awin
+  // programme this account applied to (see the Activity Stream). Houses
+  // carry no affiliate config of their own — see this file's own header
+  // comment on why — so there is nothing to record about the application
+  // itself here beyond the blocker; the affiliate side lives entirely in
+  // retailers.ts for the shops that actually stock these brands.
+  {
+    id: 'escentric-molecules',
+    name: 'Escentric Molecules',
+    origin: 'https://www.escentric.com',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'applied to their UK Awin programme 2026-08-11; only a US-labelled (escentric.com/en-us) storefront was found, no separate UK domain confirmed',
+      'already stocked by several UK retailers (Liberty, Selfridges, Cult Beauty, Space NK) for anyone wanting a UK price sooner than confirming this',
+    ],
+  },
+  {
+    id: 'mugler',
+    name: 'Mugler',
+    origin: 'https://www.mugler.co.uk',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'applied to their UK Awin programme 2026-08-11; a dedicated mugler.co.uk exists but has not been opened from this environment',
+    ],
+  },
+  {
+    id: 'the-body-shop',
+    name: 'The Body Shop',
+    origin: 'https://www.thebodyshop.com',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'applied to their UK Awin programme 2026-08-11; no separate UK-specific domain confirmed, thebodyshop.com may resolve UK pricing by geolocation or may not — not established from here',
+      'fragrance is a small part of a much larger bath/body/cosmetics catalogue; expect most harvested listings to be rejected by the isFragrance filter',
+    ],
+  },
+  {
+    id: 'jo-loves',
+    name: 'Jo Loves',
+    origin: 'https://www.joloves.com',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'applied to their UK Awin programme (registered as "Jo Loves Limited") 2026-08-11 — joloves.com is the company\'s own registered domain per Companies House, not merely the most likely of several found',
+    ],
+  },
+  {
+    id: 'lancome',
+    name: 'Lancôme',
+    origin: 'https://www.lancome.co.uk',
+    confidence: 'unverified',
+    routes: ['shopify-products-json', 'sitemap-jsonld'],
+    enabled: true,
+    blockers: [
+      'storefront currency and UK delivery terms not yet established',
+      'applied to their UK Awin programme 2026-08-11; a large L\'Oréal-group brand, unlikely to run on Shopify — the sitemap-jsonld route is the more likely one to actually work here',
+    ],
+  },
 ];
