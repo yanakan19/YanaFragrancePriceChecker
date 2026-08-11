@@ -53,6 +53,10 @@ on:
         description: 'Sync every affiliate-feed retailer against the Awin Feed List Download URL. Requires the AWIN_FEED_LIST_URL secret.'
         type: boolean
         default: false
+      deals_refresh:
+        description: 'Force a Top Deals Today snapshot outside its normal 00/06/12/18 UTC schedule.'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -243,6 +247,32 @@ jobs:
             data/catalogue demo/catalogue.generated.ts demo/priceHistory.generated.ts \
             demo/index.html demo/404.html \
             data/houses data/house-sourcing-report.json
+
+      # "Top Deals Today" moves on its own fixed schedule rather than every
+      # hourly tick like everything else — see scripts/build-deals.ts's own
+      # header comment for why. Runs against whatever the harvest above just
+      # committed, so a deal is never picked from stale prices. The rebuild
+      # only happens if the snapshot actually changed, same shape as the Awin
+      # sync above: an unchanged deals list costs nothing further.
+      - name: Refresh Top Deals Today
+        if: ${{ inputs.deals_refresh || github.event_name == 'schedule' }}
+        run: |
+          HOUR=$(date -u +%H)
+          if [ "${{ inputs.deals_refresh }}" = "true" ] || [ "$HOUR" = "00" ] || [ "$HOUR" = "06" ] || [ "$HOUR" = "12" ] || [ "$HOUR" = "18" ]; then
+            npm run deals:build
+            if ! git diff --quiet -- demo/deals.generated.ts; then
+              npm run demo
+            fi
+          else
+            echo "Not a 00/06/12/18 UTC tick (currently ${HOUR}:00) — skipping."
+          fi
+
+      - name: Commit refreshed deals
+        if: ${{ inputs.deals_refresh || github.event_name == 'schedule' }}
+        run: |
+          ./scripts/commit-and-push.sh \
+            "Top Deals Today: $(date -u +%Y-%m-%d)" \
+            demo/deals.generated.ts demo/index.html demo/404.html
 
       # No product photo is ever downloaded or hosted here — every tile links
       # straight to the retailer's own image URL (see demo/photo.ts) — so a

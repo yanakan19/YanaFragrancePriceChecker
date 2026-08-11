@@ -19,6 +19,7 @@
     "catalogue:fixtures": "tsx scripts/catalogue-fixtures.ts",
     "catalogue:demo": "tsx scripts/build-demo-catalogue.ts",
     "catalogue:history": "tsx scripts/build-price-history.ts",
+    "deals:build": "tsx scripts/build-deals.ts",
     "probe": "tsx scripts/catalogue-probe.ts",
     "harvest": "tsx scripts/catalogue-harvest.ts",
     "houses": "tsx scripts/houses-harvest.ts",

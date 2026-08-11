@@ -939,58 +939,148 @@ function shortDate(iso: string): string {
  * fragrances are below that bar today (coverage is young), which is the
  * honest state to show rather than papering over with a flat invented line.
  */
+/** YYYY-MM-DD in UTC, used only to bucket points onto calendar days. */
+function dayKey(iso: string): string {
+  return iso.slice(0, 10);
+}
+
+interface DailyHistoryPoint {
+  dateKey: string;
+  priceGbp: number;
+  retailerId: string;
+  /** The real harvest timestamp this price actually came from. */
+  recordedAt: string;
+  /** True on a day nothing was re-harvested — the price carried forward
+   *  unchanged from recordedAt rather than a fresh reading taken that day. */
+  isCarried: boolean;
+}
+
+/**
+ * One point per calendar day, never one per harvest event.
+ *
+ * The raw history can carry several points on a single busy day and none at
+ * all on a quiet one — real, but noisy and gappy to plot directly. A day
+ * with a real harvest takes its cheapest recorded price that day; a day with
+ * none carries the last real price forward flat, which is not an invented
+ * number — the price did not change, so restating it is accurate, the same
+ * way a stock chart draws flat across a weekend rather than leaving a hole.
+ * `isCarried` keeps that distinction visible in the tooltip rather than
+ * pretending every dot was a fresh reading.
+ */
+function dailyHistory(points: readonly { at: string; priceGbp: number; retailerId: string }[]): DailyHistoryPoint[] {
+  const byDay = new Map<string, { at: string; priceGbp: number; retailerId: string }>();
+  for (const p of points) {
+    const key = dayKey(p.at);
+    const cheapest = byDay.get(key);
+    if (!cheapest || p.priceGbp < cheapest.priceGbp) byDay.set(key, p);
+  }
+
+  const firstDay = new Date(`${dayKey(points[0]!.at)}T00:00:00Z`);
+  const lastDay = new Date(`${dayKey(points.at(-1)!.at)}T00:00:00Z`);
+  const totalDays = Math.round((lastDay.getTime() - firstDay.getTime()) / 86_400_000) + 1;
+
+  const daily: DailyHistoryPoint[] = [];
+  let carrying: { priceGbp: number; retailerId: string; recordedAt: string } | null = null;
+  for (let i = 0; i < totalDays; i++) {
+    const d = new Date(firstDay.getTime() + i * 86_400_000);
+    const key = dayKey(d.toISOString());
+    const real = byDay.get(key);
+    if (real) {
+      carrying = { priceGbp: real.priceGbp, retailerId: real.retailerId, recordedAt: real.at };
+      daily.push({ dateKey: key, priceGbp: real.priceGbp, retailerId: real.retailerId, recordedAt: real.at, isCarried: false });
+    } else if (carrying) {
+      daily.push({ dateKey: key, priceGbp: carrying.priceGbp, retailerId: carrying.retailerId, recordedAt: carrying.recordedAt, isCarried: true });
+    }
+  }
+  return daily;
+}
+
+/**
+ * The historical cheapest-price line for one fragrance, reconstructed from
+ * real harvest commits — see scripts/build-price-history.ts for how. Omitted
+ * entirely below two points: a single dot has no trend to show, and showing
+ * one anyway would read as a chart implying history that is not there. Most
+ * fragrances are below that bar today (coverage is young), which is the
+ * honest state to show rather than papering over with a flat invented line.
+ *
+ * ── Why the dots are not SVG circles ──────────────────────────────────────
+ * The chart's own svg stretches non-uniformly to fill whatever width its
+ * column happens to be (`preserveAspectRatio="none"`, needed so the line
+ * fills the full card width rather than staying locked to its viewBox's own
+ * aspect ratio). That stretch also warps a `<circle>`'s fill into an
+ * ellipse the moment the rendered box's aspect ratio differs from the
+ * viewBox's, which it usually does. Percent-positioned HTML dots, laid over
+ * the svg rather than inside it, size themselves in real CSS pixels and
+ * stay perfectly round regardless of how the chart around them stretches.
+ */
 function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): string {
-  const points = priceHistoryFor(f.id);
+  const raw = priceHistoryFor(f.id);
+  if (raw.length < 2) return '';
+  const points = dailyHistory(raw);
   if (points.length < 2) return '';
 
   const W = 600;
   const H = 160;
-  const PAD_X = 8;
-  const PAD_Y = 14;
+  const PAD_X_PCT = 1.3;
+  const PAD_Y_PCT = 8.75;
 
-  const times = points.map((p) => Date.parse(p.at));
   const prices = points.map((p) => p.priceGbp);
-  const minT = Math.min(...times);
-  const maxT = Math.max(...times);
   const minP = Math.min(...prices);
   const maxP = Math.max(...prices);
   // A flat line (every point the same price) would divide by zero placing y;
   // treated as its own one-point-wide band, centred, rather than crashing.
   const spanP = maxP - minP || 1;
-  const spanT = maxT - minT || 1;
+  const lastIndex = points.length - 1;
 
-  const xy = (t: number, p: number): [number, number] => [
-    PAD_X + ((t - minT) / spanT) * (W - PAD_X * 2),
-    PAD_Y + (1 - (p - minP) / spanP) * (H - PAD_Y * 2),
-  ];
+  const xPct = (i: number): number => PAD_X_PCT + (i / (lastIndex || 1)) * (100 - PAD_X_PCT * 2);
+  const yPct = (p: number): number => PAD_Y_PCT + (1 - (p - minP) / spanP) * (100 - PAD_Y_PCT * 2);
 
-  const coords = points.map((p) => xy(Date.parse(p.at), p.priceGbp));
-  const linePath = coords.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+  const coordsPx = points.map((p, i) => [(xPct(i) / 100) * W, (yPct(p.priceGbp) / 100) * H] as [number, number]);
+  const linePath = coordsPx.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
   // Filled area under the line, purely decorative, closed back along the
   // baseline rather than the data — never read as a second data series.
-  const areaPath = `${linePath} L${coords.at(-1)![0].toFixed(1)},${H - PAD_Y} L${coords[0]![0].toFixed(1)},${H - PAD_Y} Z`;
+  const baseY = ((100 - PAD_Y_PCT) / 100) * H;
+  const areaPath = `${linePath} L${coordsPx.at(-1)![0].toFixed(1)},${baseY.toFixed(1)} L${coordsPx[0]![0].toFixed(1)},${baseY.toFixed(1)} Z`;
 
   const dots = points
     .map((p, i) => {
-      const [x, y] = coords[i]!;
-      const isLast = i === points.length - 1;
+      const isLast = i === lastIndex;
       // The pulse means "this is a live price right now", so it only belongs
       // on the final point when the fragrance is actually purchasable this
       // moment — a fragrance that has since sold out everywhere still gets
       // its last known point marked as the most recent (bigger, filled), just
       // without a live animation implying a currency this data no longer has.
       const isLive = isLast && isCurrentlyPurchasable;
-      const label = `${formatGbp(p.priceGbp)} at ${esc(getRetailer(p.retailerId)?.name ?? p.retailerId)}, ${shortDate(p.at)}`;
-      return `<circle
+      const retailerName = esc(getRetailer(p.retailerId)?.name ?? p.retailerId);
+      const dateLabel = p.isCarried ? `unchanged since ${shortDate(p.recordedAt)}` : shortDate(p.recordedAt);
+      const label = `${formatGbp(p.priceGbp)} at ${retailerName}, ${dateLabel}`;
+      return `<button
+        type="button"
         class="history-dot${isLast ? ' history-dot-last' : ''}${isLive ? ' history-dot-live' : ''}"
-        cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${isLast ? 5 : 3.5}"
-        tabindex="0" role="button"
+        style="left:${xPct(i).toFixed(2)}%;top:${yPct(p.priceGbp).toFixed(2)}%"
         data-price="${esc(formatGbp(p.priceGbp))}"
-        data-retailer="${esc(getRetailer(p.retailerId)?.name ?? p.retailerId)}"
-        data-date="${esc(shortDate(p.at))}"
+        data-retailer="${retailerName}"
+        data-date="${esc(dateLabel)}"
         aria-label="${label}"
-      ><title>${label}</title></circle>`;
+      ></button>`;
     })
+    .join('');
+
+  // A label under every single day would overlap on anything but a very
+  // short history, so a small, even sample is picked instead — always the
+  // first and last day (the range's own edges), spread no closer than
+  // MAX_LABELS apart in between.
+  const MAX_LABELS = 6;
+  const labelStep = Math.max(1, Math.ceil(lastIndex / (MAX_LABELS - 1)));
+  const labelIndices = new Set<number>();
+  for (let i = 0; i <= lastIndex; i += labelStep) labelIndices.add(i);
+  labelIndices.add(lastIndex);
+  const xAxis = [...labelIndices]
+    .sort((a, b) => a - b)
+    // dateKey, not recordedAt: a carried day's recordedAt is the earlier real
+    // reading it copied forward, which would mislabel the axis with the wrong
+    // date even though the tooltip is right to cite it as "unchanged since".
+    .map((i) => `<span class="history-xlabel" style="left:${xPct(i).toFixed(2)}%">${esc(shortDate(points[i]!.dateKey))}</span>`)
     .join('');
 
   return `<div class="history-block">
@@ -999,11 +1089,12 @@ function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): s
       <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" class="history-svg" aria-hidden="true" focusable="false">
         <path d="${areaPath}" class="history-area" />
         <path d="${linePath}" class="history-line" />
-        ${dots}
       </svg>
+      ${dots}
       <div class="history-tip" data-history-tip hidden></div>
     </div>
-    <p class="notes-source">Cheapest live price recorded at each harvest, from ${esc(shortDate(points[0]!.at))}. Tap or hover a point for the exact price, date and retailer.</p>
+    <div class="history-xaxis">${xAxis}</div>
+    <p class="notes-source">One point per day — the cheapest live price recorded that day, or carried flat from the last day it changed. Tap or hover a point for the exact price, retailer and date.</p>
   </div>`;
 }
 
@@ -1143,6 +1234,7 @@ function detailView(): string {
       </div>
 
       <div class="detail-offers">
+        ${live.length ? '<p class="gone-head">Available at</p>' : ''}
         <div class="results-head">
           <span>${live.length} ${live.length === 1 ? 'shop' : 'shops'}</span>
           <span class="dim">delivery included, checked ${esc(age(newest))}</span>
@@ -1683,7 +1775,7 @@ function searchPanel(): string {
 
 const TABS: { id: ExploreTab; label: string }[] = [
   { id: 'brands', label: 'Brands' },
-  { id: 'deals', label: 'Deals' },
+  { id: 'deals', label: 'Top Deals Today' },
   { id: 'retailers', label: 'Retailers' },
   { id: 'notes', label: 'Notes' },
   { id: 'search', label: 'Search' },
