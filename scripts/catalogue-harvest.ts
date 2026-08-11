@@ -5,6 +5,8 @@
  *   npm run harvest -- --max=120           # deeper
  *   npm run harvest -- --shop=allbeauty
  *   npm run harvest -- --allow-metered     # also try Apify proxy for shops the free route can't reach
+ *   npm run harvest -- --shop-minutes=15   # raise the per-shop wall-clock ceiling
+ *   npm run harvest -- --refresh-share=0.8 # spend most of the budget re-pricing what we already hold
  *
  * This is the route the probe proved works for the sites that allow it.
  * Guessed section URLs returned nothing; asking the sitemap returned real
@@ -49,6 +51,30 @@ const allowMetered = process.argv.includes('--allow-metered');
 // one-off deeper run without permanently slowing its every hourly pass too.
 const gapMinMs = arg('gap-min') ? Number.parseInt(arg('gap-min')!, 10) : 0;
 
+// Wall-clock ceiling per shop. crawlViaSitemap defaults this to 8 minutes,
+// which is the real cap on a big shop rather than --max: run 139 asked for 200
+// lookfantastic pages and got 107 because it hit that deadline, not the budget.
+// Sized from the scheduled run rather than guessed — see the sweep arithmetic
+// in .github/workflows/catalogue-daily.yml. Left unset here so the crawler's
+// own default still applies to an ordinary local run.
+const shopMinutes = arg('shop-minutes') ? Number.parseFloat(arg('shop-minutes')!) : null;
+
+// Share of each shop's budget spent re-fetching listings we already hold,
+// oldest first, rather than discovering new ones. The crawler's 0.3 default is
+// tuned for growing a young catalogue; a shop whose catalogue is already
+// substantially discovered needs the opposite bias, or its known prices age out
+// faster than the sweep can come back to them.
+const refreshShare = arg('refresh-share') ? Number.parseFloat(arg('refresh-share')!) : null;
+
+if (shopMinutes !== null && !(shopMinutes > 0)) {
+  console.error(`--shop-minutes must be a positive number, got "${arg('shop-minutes')}"`);
+  process.exit(1);
+}
+if (refreshShare !== null && !(refreshShare >= 0 && refreshShare <= 1)) {
+  console.error(`--refresh-share must be between 0 and 1, got "${arg('refresh-share')}"`);
+  process.exit(1);
+}
+
 const proxyConfig = apifyProxyConfigFromEnv();
 const useProxy = allowMetered && proxyConfig !== null;
 
@@ -73,6 +99,10 @@ const shops = RETAILERS.filter(
 console.log(`\nSitemap harvest`);
 console.log(`shops    ${shops.length}`);
 console.log(`budget   ${maxPages} product pages each`);
+if (shopMinutes !== null) console.log(`ceiling  ${shopMinutes} minutes each`);
+if (refreshShare !== null) {
+  console.log(`refresh  ${Math.round(refreshShare * 100)}% of each budget re-prices listings already held`);
+}
 if (dryRun) console.log(`mode     dry run, nothing written`);
 console.log('');
 
@@ -124,6 +154,14 @@ for (const retailer of shops) {
   // are actually fragrance, the gap crawlViaSitemap has always had. Only
   // fall back to the sitemap walk if that endpoint turns out not to be
   // Shopify after all, or genuinely returns nothing.
+  // Only override what was actually asked for: an absent flag has to leave
+  // crawlViaSitemap's own defaults in place rather than pass undefined through
+  // as if it were a value.
+  const sweep = {
+    ...(shopMinutes !== null ? { maxDurationMs: Math.round(shopMinutes * 60_000) } : {}),
+    ...(refreshShare !== null ? { refreshShare } : {}),
+  };
+
   let result: SitemapCrawlResult;
   if (retailer.shopifyStorefront) {
     const shopifyResult = await crawlViaShopifyProducts({
@@ -138,12 +176,12 @@ for (const retailer of shops) {
       };
     } else {
       result = await crawlViaSitemap({
-        retailer, http, robots, maxPages, gapMs, headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat,
+        retailer, http, robots, maxPages, gapMs, headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat, ...sweep,
       });
     }
   } else {
     result = await crawlViaSitemap({
-      retailer, http, robots, maxPages, gapMs, headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat,
+      retailer, http, robots, maxPages, gapMs, headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat, ...sweep,
     });
   }
   let withPrice = result.listings.filter((l) => l.priceGbp !== null);
