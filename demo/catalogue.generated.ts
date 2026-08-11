@@ -204,7 +204,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Vanilla",
         "Cashmeran",
         "Amber",
-        "Oak Moss",
+        "Oakmoss",
         "Patchouli"
       ]
     }
@@ -468,7 +468,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Oakmoss",
-        "Amber  contribute depth"
+        "Amber"
       ]
     }
   },
@@ -789,7 +789,13 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "ean": "737052949215",
     "shops": 4,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/2/922.jpg",
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Suede"
+      ]
+    }
   },
   {
     "id": "ean-3386461515619",
@@ -1077,7 +1083,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "As it settles",
         "Sugar",
         "Cedar",
         "Cashmeran",
@@ -1136,7 +1141,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Vanilla"
       ],
       "base": [
-        "Benzoin"
+        "Benzoin",
+        "Tonka Bean"
       ]
     }
   },
@@ -1203,7 +1209,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Balsam",
         "Dark Chocolate",
         "Incense",
-        "Amber"
+        "Amber",
+        "Vanilla"
       ]
     }
   },
@@ -1474,11 +1481,13 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "top": [
         "Caramel",
         "Salt",
-        "Fig"
+        "Fig",
+        "Quince"
       ],
       "middle": [],
       "base": [
-        "Musk"
+        "Musk",
+        "Sandalwood"
       ]
     }
   },
@@ -1522,7 +1531,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Quince"
       ],
       "middle": [
-        "Pear Blossom emerge"
+        "Pear Blossom"
       ],
       "base": []
     }
@@ -1547,7 +1556,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Honeysuckle"
       ],
       "base": [
-        "Vanilla"
+        "Vanilla",
+        "Cashmere Wood"
       ]
     }
   },
@@ -1639,7 +1649,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Ambroxan",
         "Amber",
         "Patchouli",
-        "Cedar"
+        "Cedar",
+        "Labdanum"
       ]
     }
   },
@@ -1789,6 +1800,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "image": "https://allbeauty.com/cdn/shop/files/619123.jpg?v=1766146443&width=1920",
     "notes": {
       "top": [
+        "Lemon Verbena",
         "Nutmeg"
       ],
       "middle": [],
@@ -1963,7 +1975,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Tonka Bean"
+        "Tonka Bean",
+        "Vetiver"
       ]
     }
   },
@@ -2112,7 +2125,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Brazilian Rosewood",
-        "Cashmere Wood"
+        "Cashmere Wood",
+        "Sandalwood"
       ]
     }
   },
@@ -2195,7 +2209,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "base": [
         "Vanilla",
         "Sandalwood",
-        "Tonka Bean"
+        "Tonka Bean",
+        "Amber"
       ]
     }
   },
@@ -2225,7 +2240,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Tonka Bean  linger"
+        "Tonka Bean"
       ]
     }
   },
@@ -2398,7 +2413,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Mango"
       ],
       "middle": [
-        "Jasmine"
+        "Jasmine",
+        "Lily-of-the-valley"
       ],
       "base": []
     }
@@ -2486,7 +2502,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       ],
       "middle": [
         "Jasmine",
-        "Muguet"
+        "Lily-of-the-Valley"
       ],
       "base": []
     }
@@ -2624,7 +2640,13 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "ean": "8057971181346",
     "shops": 3,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/357_1.jpg",
-    "notes": null
+    "notes": {
+      "top": [
+        "Granny Smith apple"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "ean-8057971183661",
@@ -2646,7 +2668,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Heliotrope"
       ],
       "base": [
-        "Musk"
+        "Musk",
+        "Cedar"
       ]
     }
   },
@@ -2721,7 +2744,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Benzoin"
+        "Benzoin",
+        "Myrrh"
       ]
     }
   },
@@ -2780,7 +2804,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Peony",
         "Sweet Pea",
         "Apple",
-        "Bergamot"
+        "Bergamot",
+        "Pineapple"
       ],
       "middle": [
         "Lily",
@@ -2809,13 +2834,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "ean": "085805510541",
     "shops": 3,
     "image": "https://www.beautybase.com/cdn/shop/files/1369221616-33346700.jpg?v=1763390007&width=1920",
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "A warm"
-      ]
-    }
+    "notes": null
   },
   {
     "id": "ean-85805210458",
@@ -2841,7 +2860,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Tonka Bean"
+        "Tonka Bean",
+        "Cinnamon"
       ]
     }
   },
@@ -2881,7 +2901,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Pink Violet"
       ],
       "base": [
-        "A warm",
         "Amber",
         "Vetiver",
         "Musk",
@@ -2973,7 +2992,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Styrax",
         "White Cedar Extract",
         "Patchouli",
-        "Vanilla"
+        "Vanilla",
+        "Cashmere Wood"
       ]
     }
   },
@@ -3082,9 +3102,11 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       ],
       "base": [
         "Coumarin",
+        "Cedar",
         "Aromatic",
         "Fresh Spicy",
-        "Warm Spicy"
+        "Warm Spicy",
+        "Powdery"
       ]
     }
   },
@@ -3103,7 +3125,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Palo Santo"
+        "Palo Santo",
+        "Cedar"
       ]
     }
   },
@@ -3425,7 +3448,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Sandalwood",
         "Musk",
         "Resins",
-        "Amber"
+        "Amber",
+        "Patchouli"
       ]
     }
   },
@@ -3695,9 +3719,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "top": [
         "Pink Peppercorn"
       ],
-      "middle": [
-        "At its core"
-      ],
+      "middle": [],
       "base": []
     }
   },
@@ -3721,7 +3743,13 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "ean": "3386460071741",
     "shops": 3,
     "image": "https://www.justmylook.com/cdn/shop/files/illicit-eau-de-parfum-40ml-p24680-65809_image.jpg?v=1721322258&width=1000",
-    "notes": null
+    "notes": {
+      "top": [
+        "Bitter Orange"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "ean-3386460071734",
@@ -3794,7 +3822,13 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "ean": "3386460137553",
     "shops": 3,
     "image": "https://www.justmylook.com/cdn/shop/files/JIMC0060_d0cb832a-996b-4191-b0a8-23f42492bf4b.png?v=1738168806&width=1000",
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Sandalwood"
+      ]
+    }
   },
   {
     "id": "ean-3414206000059",
@@ -4307,6 +4341,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Lemon Verbena"
       ],
       "middle": [
+        "Dried Fruits",
         "Geranium",
         "Coumarin",
         "Rose"
@@ -4353,7 +4388,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Tonka Bean"
+        "Tonka Bean",
+        "Atlas Cedar"
       ]
     }
   },
@@ -4474,7 +4510,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Chocolate"
+        "Chocolate",
+        "Caramel"
       ]
     }
   },
@@ -4524,7 +4561,13 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "ean": "3423478925557",
     "shops": 3,
     "image": "https://www.justmylook.com/cdn/shop/files/for-her-eau-de-toilette-30ml-p28502-71674_image.jpg?v=1721322306&width=1000",
-    "notes": null
+    "notes": {
+      "top": [
+        "African orange flower"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "ean-3423470890013",
@@ -4553,7 +4596,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Fruity",
         "Powdery",
         "Musky",
-        "Leather"
+        "Leather",
+        "Vanilla"
       ]
     }
   },
@@ -4887,7 +4931,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Tonka Bean"
+        "Tonka Bean",
+        "Patchouli"
       ]
     }
   },
@@ -5109,7 +5154,9 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       ],
       "base": [
         "Vanilla",
-        "Lavender"
+        "Lavender",
+        "Vetiver",
+        "Paco Rabanne Phantom"
       ]
     }
   },
@@ -5131,7 +5178,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Tolu Balsam",
-        "Haitian Vetiver  emerge"
+        "Haitian Vetiver"
       ]
     }
   },
@@ -5291,12 +5338,13 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "image": "https://www.beautybase.com/cdn/shop/files/1369144504-79170000.jpg?v=1763392332&width=1920",
     "notes": {
       "top": [
+        "An",
         "Bergamot",
         "Rosewood",
-        "Lavender"
+        "Lavender",
+        "Apple Martini"
       ],
       "middle": [
-        "At the heart",
         "Paper Whites",
         "Orchid"
       ],
@@ -5888,7 +5936,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "image": "https://www.justmylook.com/cdn/shop/files/versace-eros-pour-femme-eau-de-parfum-100ml-p21331-45777_image.jpg?v=1721322342&width=1000",
     "notes": {
       "top": [
-        "Pomegranate"
+        "Pomegranate",
+        "Calabrian Bergamot"
       ],
       "middle": [],
       "base": []
@@ -5924,7 +5973,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "base": [
         "Vanilla",
         "Praline",
-        "Patchouli"
+        "Patchouli",
+        "Tonka Bean"
       ]
     }
   },
@@ -6001,6 +6051,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Jasmine"
       ],
       "base": [
+        "Madagascar Vanilla",
         "Parfum",
         "Aqua",
         "Dipropylene Glycol",
@@ -6013,8 +6064,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Citronellol",
         "Alpha-Isomethyl Ionone",
         "Coumarin",
-        "Geraniol",
-        "Isoeugenol"
+        "Geraniol"
       ]
     }
   },
@@ -6215,7 +6265,13 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "ean": "3614270561658",
     "shops": 3,
     "image": "https://www.justmylook.com/cdn/shop/files/yves-saint-laurent-mon-paris-eau-de-parfum-50ml-p28035-69836_image.jpg?v=1721322390&width=1000",
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Patchouli"
+      ]
+    }
   },
   {
     "id": "ean-3614270561634",
@@ -6791,7 +6847,13 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "ean": null,
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/ANNA0006.png?v=1742577213&width=1000",
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Himalayan cedarwood"
+      ]
+    }
   },
   {
     "id": "justmylook-anna0009",
@@ -6892,6 +6954,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "top": [],
       "middle": [
         "Rose",
+        "Lily-of-the-Valley",
         "Musk"
       ],
       "base": [
@@ -7007,7 +7070,13 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "ean": null,
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/thank-u-next-eau-de-parfum-100ml-p20962-44103_image.jpg?v=1721322124&width=1000",
-    "notes": null
+    "notes": {
+      "top": [
+        "Pear"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "ean-6085010094151",
@@ -7069,7 +7138,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Ambroxan"
+        "Ambroxan",
+        "Sandalwood"
       ]
     }
   },
@@ -7129,7 +7199,13 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "ean": null,
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/ARM0052_a5c6813a-9410-412b-be5f-e7ad9f410b17.png?v=1764175398&width=1000",
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Cedar"
+      ]
+    }
   },
   {
     "id": "ean-6294015189575",
@@ -7201,7 +7277,9 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "shops": 2,
     "image": null,
     "notes": {
-      "top": [],
+      "top": [
+        "Bergamot"
+      ],
       "middle": [
         "Aloe Vera"
       ],
@@ -7259,7 +7337,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Amber"
+        "Amber",
+        "Moss"
       ]
     }
   },
@@ -7389,7 +7468,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Sandalwood"
+        "Sandalwood",
+        "Orris Root"
       ]
     }
   },
@@ -7445,13 +7525,14 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "image": "https://www.justmylook.com/cdn/shop/files/britney-spears-curious-eau-de-parfum-30ml-p31714-86835_image.jpg?v=1721322135&width=1000",
     "notes": {
       "top": [
-        "Pear"
+        "Pear",
+        "Lotus"
       ],
       "middle": [],
       "base": [
         "Vanilla",
         "White Woods",
-        "Sandalwood  linger"
+        "Sandalwood"
       ]
     }
   },
@@ -7492,10 +7573,11 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       ],
       "middle": [
         "White Chocolate",
-        "Orchid"
+        "Orchid",
+        "Jasmine"
       ],
       "base": [
-        "Musk  provide depth"
+        "Musk"
       ]
     }
   },
@@ -7515,7 +7597,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       ],
       "middle": [
         "White Chocolate",
-        "Orchid"
+        "Orchid",
+        "Jasmine"
       ],
       "base": []
     }
@@ -7532,7 +7615,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "notes": {
       "top": [],
       "middle": [
-        "Lily"
+        "Lily",
+        "Jasmine"
       ],
       "base": []
     }
@@ -7574,7 +7658,8 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Himalayan Cedar"
+        "Himalayan Cedar",
+        "Virginia Cedar"
       ]
     }
   },
@@ -7587,7 +7672,13 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "ean": "5045252667392",
     "shops": 2,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/2/7/27.jpg",
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Lavender"
+      ]
+    }
   },
   {
     "id": "ean-5045252667330",
@@ -7820,13 +7911,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "ean": "783320411946",
     "shops": 2,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/man-glacial-essence-783320411946-8945.png",
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "The woody"
-      ]
-    }
+    "notes": null
   },
   {
     "id": "ean-783320414794",
@@ -7899,7 +7984,8 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Siam benzoin"
+        "Siam benzoin",
+        "Musk"
       ]
     }
   },
@@ -7972,7 +8058,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       "base": [
         "Blonde Woods",
         "Musk",
-        "Sandalwood  Delivery"
+        "Sandalwood"
       ]
     }
   },
@@ -8180,7 +8266,8 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       ],
       "base": [
         "Vanilla",
-        "Red Cedar"
+        "Red Cedar",
+        "Amber"
       ]
     }
   },
@@ -8566,7 +8653,13 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "ean": "8411061777183",
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1728391010-28806500.jpg?v=1763389286&width=1920",
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Musk"
+      ]
+    }
   },
   {
     "id": "justmylook-cherr0015",
@@ -9059,15 +9152,21 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Mandarin",
+        "Blackcurrant",
         "Tuberose",
-        "Musk"
+        "Ylang-Ylang",
+        "Musk",
+        "Rose"
       ],
       "middle": [
         "Tuberose",
-        "Musk"
+        "Ylang-Ylang",
+        "Musk",
+        "Rose"
       ],
       "base": [
-        "Musk"
+        "Musk",
+        "Rose"
       ]
     }
   },
@@ -9276,7 +9375,8 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Amberwood"
+        "Amberwood",
+        "Musk"
       ]
     }
   },
@@ -9335,7 +9435,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       ],
       "base": [
         "Texas Cedar",
-        "Vetiver  add depth"
+        "Vetiver"
       ]
     }
   },
@@ -9443,7 +9543,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "Peach",
         "Sandalwood",
         "Orris",
-        "Vetiver come forth"
+        "Vetiver"
       ]
     }
   },
@@ -9545,7 +9645,8 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       "base": [
         "Leather",
         "Benzoin",
-        "French labdanum"
+        "French labdanum",
+        "Styrax"
       ]
     }
   },
@@ -9680,11 +9781,13 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       "top": [
         "Neroli",
         "Narcissus",
-        "Water Lily"
+        "Water Lily",
+        "Cashmere"
       ],
       "middle": [
         "Narcissus",
-        "Water Lily"
+        "Water Lily",
+        "Cashmere"
       ],
       "base": [
         "Cashmere"
@@ -9919,7 +10022,13 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "ean": "8057971188116",
     "shops": 2,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/361.jpg",
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Lavender"
+      ]
+    }
   },
   {
     "id": "ean-8057971188123",
@@ -10227,7 +10336,15 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "ean": "3423473998556",
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1731496956-28386400.jpg?v=1763390884&width=1920",
-    "notes": null
+    "notes": {
+      "top": [
+        "Patchouli"
+      ],
+      "middle": [],
+      "base": [
+        "Patchouli"
+      ]
+    }
   },
   {
     "id": "ean-7640233341001",
@@ -10739,7 +10856,8 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "Caramel",
         "Davana",
         "Myrrh",
-        "Dates"
+        "Dates",
+        "Oud"
       ],
       "base": [
         "Cacao Butter",
@@ -10954,7 +11072,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       ],
       "base": [
         "Vanilla",
-        "Black Tea  unfurl"
+        "Black Tea"
       ]
     }
   },
@@ -11628,9 +11746,11 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       "top": [],
       "middle": [
         "Orange Blossom",
-        "Neroli  unfolds"
+        "Neroli"
       ],
-      "base": []
+      "base": [
+        "Patchouli"
+      ]
     }
   },
   {
@@ -11678,7 +11798,8 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       ],
       "base": [
         "Virginia Cedar",
-        "Patchouli"
+        "Patchouli",
+        "Vanilla"
       ]
     }
   },
@@ -11696,7 +11817,9 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "Balsamic Vinegar"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Patchouli"
+      ]
     }
   },
   {
@@ -11755,9 +11878,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "image": "https://www.justmylook.com/cdn/shop/files/GUER0019_646dbb30-08c1-4e42-9abb-c4b93012b6a2.png?v=1766569598&width=1000",
     "notes": {
       "top": [],
-      "middle": [
-        "At the heart"
-      ],
+      "middle": [],
       "base": [
         "Finally",
         "Vanilla",
@@ -11993,10 +12114,12 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/665.jpg",
     "notes": {
       "top": [
-        "Black Pepper"
+        "Black Pepper",
+        "Bergamot"
       ],
       "middle": [
-        "Cardamom"
+        "Cardamom",
+        "Chestnut"
       ],
       "base": []
     }
@@ -12491,7 +12614,8 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       "base": [
         "White Musk",
         "Vanilla Absolute",
-        "Patchouli"
+        "Patchouli",
+        "Cedar"
       ]
     }
   },
@@ -12758,7 +12882,13 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "ean": "8435415030908",
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1628870775-83801800.jpg?v=1763390303&width=1920",
-    "notes": null
+    "notes": {
+      "top": [
+        "Clary Sage"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "justmylook-jpg0043",
@@ -13042,13 +13172,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "ean": "3386460072625",
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1626794257-58524200.jpg?v=1763388972&width=1920",
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "A warm"
-      ]
-    }
+    "notes": null
   },
   {
     "id": "ean-3386460072588",
@@ -13376,7 +13500,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "image": "https://allbeauty.com/cdn/shop/files/75453.jpg?v=1755874870&width=1920",
     "notes": {
       "top": [
-        "Rice steam",
+        "Rice",
         "White tea"
       ],
       "middle": [
@@ -13489,7 +13613,9 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1747307197-88516000.jpg?v=1763397926&width=1920",
     "notes": {
-      "top": [],
+      "top": [
+        "Turmeric"
+      ],
       "middle": [],
       "base": [
         "Leather",
@@ -13530,10 +13656,10 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "image": "https://www.justmylook.com/cdn/shop/files/LALI0003.png?v=1741364767&width=1000",
     "notes": {
       "top": [
-        "Haiti Vetyver"
+        "Haitian Vetiver"
       ],
       "middle": [
-        "Haiti Vetyver"
+        "Haitian Vetiver"
       ],
       "base": []
     }
@@ -13940,20 +14066,21 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       "top": [
         "Star Anise",
         "Violet",
-        "Ivy  🍒"
+        "Ivy"
       ],
       "middle": [
         "Licorice",
         "Cherry",
         "Iris",
         "Orris Root",
-        "Amaryllis  🍮"
+        "Amaryllis"
       ],
       "base": [
         "Vanilla",
         "Praline",
         "Tonka Bean",
-        "White Musk"
+        "White Musk",
+        "Vetiver"
       ]
     }
   },
@@ -14010,13 +14137,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "ean": null,
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/MAAL0002.png?v=1753456042&width=1000",
-    "notes": {
-      "top": [],
-      "middle": [
-        "At its core"
-      ],
-      "base": []
-    }
+    "notes": null
   },
   {
     "id": "justmylook-maal0003",
@@ -14805,7 +14926,6 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Ylang-Ylang"
       ],
       "middle": [
-        "At its core",
         "Raspberry",
         "Osmanthus"
       ],
@@ -14840,7 +14960,9 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Lily-of-the-Valley"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Ambroxan"
+      ]
     }
   },
   {
@@ -14975,11 +15097,11 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274289473_6.png",
     "notes": {
       "top": [
-        "Petitgrain ·"
+        "Petitgrain"
       ],
       "middle": [
         "Jasmine",
-        "Tuberose ·"
+        "Tuberose"
       ],
       "base": [
         "Cashmeran",
@@ -15083,7 +15205,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       "base": [
         "Musk",
         "Amberwood",
-        "Driftwood  provide depth"
+        "Driftwood"
       ]
     }
   },
@@ -15475,7 +15597,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       ],
       "base": [
         "Tonka Bean",
-        "Vanilla"
+        "Vanilla",
+        "Musk"
       ]
     }
   },
@@ -15678,7 +15801,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Virginia Cedar",
-        "Patchouli  resonate"
+        "Patchouli"
       ]
     }
   },
@@ -15698,7 +15821,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Virginia Cedar",
-        "Patchouli for depth"
+        "Patchouli"
       ]
     }
   },
@@ -15735,9 +15858,12 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "image": "https://www.beautybase.com/cdn/shop/files/1369146229-76692100.jpg?v=1763392308&width=1920",
     "notes": {
       "top": [
-        "Lime"
+        "Lime",
+        "Clementine"
       ],
-      "middle": [],
+      "middle": [
+        "White Flowers"
+      ],
       "base": []
     }
   },
@@ -16039,7 +16165,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Benzoin"
+        "Benzoin",
+        "Musk"
       ]
     }
   },
@@ -16256,7 +16383,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Salt",
-        "Cashmeran"
+        "Cashmeran",
+        "Patchouli"
       ]
     }
   },
@@ -16492,7 +16620,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Jasmine"
       ],
       "base": [
-        "Oakmoss"
+        "Oakmoss",
+        "Amber"
       ]
     }
   },
@@ -16812,6 +16941,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Honeysuckle",
+        "Mandarin Orange",
         "Cashmeran",
         "Jasmine"
       ],
@@ -17151,7 +17281,13 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "ean": null,
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/TIF0001.png?v=1766583608&width=1000",
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Cedarwood"
+      ]
+    }
   },
   {
     "id": "justmylook-ford0045",
@@ -17241,7 +17377,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "image": "https://www.justmylook.com/cdn/shop/files/FORD0014.png?v=1751897996&width=1000",
     "notes": {
       "top": [
-        "Violet Leaf"
+        "Violet Leaf",
+        "Cedar"
       ],
       "middle": [
         "Jasmine",
@@ -17328,7 +17465,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Tonka Bean"
       ],
       "middle": [
-        "Cacao"
+        "Cacao",
+        "Tonka Bean"
       ],
       "base": []
     }
@@ -17857,7 +17995,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Freesia"
       ],
       "base": [
-        "Ambroxan"
+        "Ambroxan",
+        "Patchouli"
       ]
     }
   },
@@ -17921,7 +18060,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Amber  emerge"
+        "Amber"
       ]
     }
   },
@@ -18312,6 +18451,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Bourbon Vanilla",
+        "Coffee",
         "Patchouli"
       ]
     }
@@ -18668,16 +18808,16 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Juniper",
         "Geranium",
         "Patchouli",
-        "Vetiver offer intense"
+        "Vetiver"
       ],
       "middle": [
         "Geranium",
         "Patchouli",
-        "Vetiver offer intense"
+        "Vetiver"
       ],
       "base": [
         "Patchouli",
-        "Vetiver offer intense"
+        "Vetiver"
       ]
     }
   },
@@ -18701,7 +18841,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       "base": [
         "Cedarwood",
         "Patchouli",
-        "Vetiver"
+        "Vetiver",
+        "Grey Amber Accord"
       ]
     }
   },
@@ -18723,7 +18864,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       ],
       "base": [
         "Vanilla",
-        "Musky"
+        "Musky",
+        "Patchouli"
       ]
     }
   },
@@ -18758,7 +18900,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Musky"
       ],
       "base": [
-        "Woody"
+        "Woods",
+        "Sweet"
       ]
     }
   },
@@ -18799,12 +18942,12 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Lavender",
         "Bergamot",
         "Mandarin",
-        "Orange •"
+        "Orange"
       ],
       "middle": [
         "Geranium",
         "Violet",
-        "Jasmine •"
+        "Jasmine"
       ],
       "base": [
         "Vanilla",
@@ -18812,7 +18955,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Sandalwood",
         "Pepper",
         "Patchouli",
-        "Guaiac Wood"
+        "Guaiac Wood",
+        "Caramelised Coffee"
       ]
     }
   },
@@ -18958,7 +19102,9 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Lemon"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Vanilla"
+      ]
     }
   },
   {
@@ -19009,7 +19155,9 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Orange"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Petitgrain"
+      ]
     }
   },
   {
@@ -19045,10 +19193,13 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Bergamot"
+        "Bergamot",
+        "Orange"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Petitgrain"
+      ]
     }
   },
   {
@@ -19308,7 +19459,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Amber"
+        "Amber",
+        "Sandalwood"
       ]
     }
   },
@@ -19655,7 +19807,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       "base": [
         "Juniper",
         "Virginian Cedarwood",
-        "Amber  resonate"
+        "Amber"
       ]
     }
   },
@@ -19838,7 +19990,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Jasmine Sambac Absolute"
       ],
       "base": [
-        "Indonesian Patchouli"
+        "Indonesian Patchouli",
+        "Musk"
       ]
     }
   },
@@ -19880,7 +20033,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Musk provide depth"
+        "Musk"
       ]
     }
   },
@@ -20552,11 +20705,12 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       "middle": [
         "Lavender",
         "Patchouli",
-        "Oak Moss"
+        "Oakmoss"
       ],
       "base": [
         "Saffron",
-        "Musk"
+        "Musk",
+        "Ambergris"
       ]
     }
   },
@@ -20604,7 +20758,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       "base": [
         "Vanilla",
         "Amber Dry",
-        "Musk"
+        "Musk",
+        "Ambroxan"
       ]
     }
   },
@@ -20640,7 +20795,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Musk"
       ],
       "base": [
-        "Juniper"
+        "Juniper",
+        "Sweet"
       ]
     }
   },
@@ -20691,7 +20847,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       "middle": [
         "Oak",
         "Sandalwood",
-        "Caramel"
+        "Caramel",
+        "Dark Chocolate"
       ],
       "base": []
     }
@@ -20738,7 +20895,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       ],
       "base": [
         "Rose",
-        "Musk"
+        "Musk",
+        "Orange Blossom"
       ]
     }
   },
@@ -20780,11 +20938,12 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       ],
       "middle": [
         "Amber",
-        "Woody"
+        "Woods"
       ],
       "base": [
         "Musk",
-        "Patchouli"
+        "Patchouli",
+        "Fresh Spicy"
       ]
     }
   },
@@ -20889,7 +21048,8 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "White Musk"
+        "White Musk",
+        "Ambroxan"
       ]
     }
   },
@@ -21012,7 +21172,13 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Sandalwood"
+      ]
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338215043209-44927055331465",
@@ -21386,7 +21552,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Patchouli",
-        "Vanilla"
+        "Vanilla",
+        "Vetiver"
       ]
     }
   },
@@ -21410,7 +21577,13 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [
+        "Jasmine"
+      ],
+      "base": []
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338168873097-44926986190985",
@@ -21620,10 +21793,11 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       ],
       "base": [
         "Vanilla",
-        "Cedar Wood",
+        "Cedarwood",
         "Vetiver",
         "Tonka Bean",
-        "Sandalwood"
+        "Sandalwood",
+        "Musk"
       ]
     }
   },
@@ -21820,7 +21994,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Sandalwood"
       ],
       "base": [
-        "Amber"
+        "Amber",
+        "Musk"
       ]
     }
   },
@@ -21901,7 +22076,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Moss"
+        "Moss",
+        "Lily-of-the-Valley"
       ]
     }
   },
@@ -22004,7 +22180,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "base": [
         "Patchouli",
         "Sandalwood",
-        "Ambrox"
+        "Ambrox",
+        "Vanilla"
       ]
     }
   },
@@ -22314,7 +22491,9 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Black Rose"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Alcantara Accord"
+      ]
     }
   },
   {
@@ -22508,9 +22687,10 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Amber",
         "Sandalwood",
         "Agarwood",
-        "Ooakmoss",
+        "Oakmoss",
         "Leather",
-        "Tonka Bean"
+        "Tonka Bean",
+        "Musk"
       ]
     }
   },
@@ -22547,7 +22727,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Golden cypress"
+        "Golden cypress",
+        "Himalayan cedar wood"
       ]
     }
   },
@@ -22741,7 +22922,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Olibanum"
       ],
       "base": [
-        "Leather"
+        "Leather",
+        "Cacao"
       ]
     }
   },
@@ -22803,7 +22985,9 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "middle": [
         "Lavender"
       ],
-      "base": []
+      "base": [
+        "Neroli"
+      ]
     }
   },
   {
@@ -22856,7 +23040,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Patchouli",
-        "Vetiver"
+        "Vetiver",
+        "Labdanum"
       ]
     }
   },
@@ -22895,7 +23080,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Carnation"
       ],
       "base": [
-        "Oak Moss",
+        "Oakmoss",
         "Vetiver",
         "Leather",
         "Sandalwood",
@@ -22938,11 +23123,12 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Mandarin Orange",
-        "Lemon  greets you"
+        "Lemon"
       ],
       "middle": [
         "Jasmine",
-        "Apple"
+        "Apple",
+        "Rose"
       ],
       "base": [
         "Finally",
@@ -23239,7 +23425,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       ],
       "base": [
         "Birchwood",
-        "Patchouli"
+        "Patchouli",
+        "Musk"
       ]
     }
   },
@@ -23515,7 +23702,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "base": [
         "Ambroxan",
         "Patchouli",
-        "Agarwood"
+        "Agarwood",
+        "Musk"
       ]
     }
   },
@@ -23542,7 +23730,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "base": [
         "Patchouli",
         "Vanilla",
-        "Musk"
+        "Musk",
+        "Tonka Bean"
       ]
     }
   },
@@ -23570,7 +23759,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "base": [
         "Sandalwood",
         "Amber",
-        "Patchouli"
+        "Patchouli",
+        "Vetiver"
       ]
     }
   },
@@ -23596,10 +23786,12 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
+        "Armaf",
         "Armaf"
       ],
       "middle": [],
       "base": [
+        "Armaf",
         "Armaf"
       ]
     }
@@ -23700,7 +23892,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       ],
       "middle": [
         "Nutmeg",
-        "Melon"
+        "Melon",
+        "Jasmine"
       ],
       "base": []
     }
@@ -23795,7 +23988,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "base": [
         "Patchouli",
         "Vanilla",
-        "Agarwood"
+        "Agarwood",
+        "Amber"
       ]
     }
   },
@@ -23846,7 +24040,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "base": [
         "Musk",
         "Ambergris",
-        "Patchouli"
+        "Patchouli",
+        "Vanilla"
       ]
     }
   },
@@ -24196,7 +24391,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "base": [
         "Vanilla",
         "Cashmeran",
-        "Incense"
+        "Incense",
+        "Cedar"
       ]
     }
   },
@@ -24263,7 +24459,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Coffee",
         "Caramel",
         "Cedarwood",
-        "Patchouli"
+        "Patchouli",
+        "White Musk"
       ]
     }
   },
@@ -24344,7 +24541,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       ],
       "base": [
         "Vetiver",
-        "Olibanum"
+        "Olibanum",
+        "Amber"
       ]
     }
   },
@@ -24366,7 +24564,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       ],
       "base": [
         "Vanilla",
-        "Tonka Bean"
+        "Tonka Bean",
+        "Sandalwood"
       ]
     }
   },
@@ -24382,7 +24581,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "notes": {
       "top": [],
       "middle": [
-        "White Flowers"
+        "White Flowers",
+        "Jasmine to"
       ],
       "base": []
     }
@@ -24453,13 +24653,18 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Vanilla"
+        "Jasmine",
+        "Vanilla",
+        "Moss"
       ],
       "middle": [
-        "Vanilla"
+        "Jasmine",
+        "Vanilla",
+        "Moss"
       ],
       "base": [
-        "Vanilla"
+        "Vanilla",
+        "Moss"
       ]
     }
   },
@@ -24504,7 +24709,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "base": [
         "Ambergris",
         "Benzoin",
-        "Leather Suede"
+        "Leather Suede",
+        "Cedar"
       ]
     }
   },
@@ -24582,7 +24788,9 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Blackcurrant",
         "Pineapple"
       ],
-      "middle": [],
+      "middle": [
+        "Jasmine"
+      ],
       "base": [
         "Musk"
       ]
@@ -24633,6 +24841,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Cedarwood",
         "Agarwood",
         "Vetiver",
+        "Oud",
         "Praline",
         "Agarwood",
         "Vetiver",
@@ -24663,7 +24872,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Praline",
         "Musk",
         "Guaiac Wood",
-        "Ambroxan"
+        "Ambroxan",
+        "Tonka"
       ]
     }
   },
@@ -24692,7 +24902,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Amber",
         "Pink Pepper",
         "Sandalwood",
-        "Patchouli"
+        "Patchouli",
+        "Cardamom"
       ]
     }
   },
@@ -24737,7 +24948,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Tonka Bean",
         "Sandalwood",
         "Vanilla",
-        "Amber"
+        "Amber",
+        "Cedar"
       ]
     }
   },
@@ -24789,19 +25001,21 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Orange",
-        "Mandarin Orange"
+        "Mandarin Orange",
+        "Bergamot"
       ],
       "middle": [
         "Rose",
         "Jasmine",
-        "Mimosa"
+        "Mimosa",
+        "Ylang-Ylang"
       ],
       "base": [
         "Patchouli",
         "Musk",
         "Vetiver",
         "Vanilla",
-        "Tonka   These earthy"
+        "Tonka"
       ]
     }
   },
@@ -24834,7 +25048,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "middle": [
         "Jasmine",
         "Litchi",
-        "Rose  emerge"
+        "Rose"
       ],
       "base": [
         "Patchouli",
@@ -25149,7 +25363,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "base": [
         "Vanilla",
         "Tonka Bean",
-        "Patchouli"
+        "Patchouli",
+        "Tobacco & Amber"
       ]
     }
   },
@@ -25237,7 +25452,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Tonka Bean",
-        "Vanilla"
+        "Vanilla",
+        "Praline"
       ]
     }
   },
@@ -25257,37 +25473,37 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Pink Pepper",
         "Lavender",
         "Apple",
+        "Orange Blossom",
         "Vetiver",
         "Vanilla Absolute",
         "Leather",
-        "Cedarwood add depth",
+        "Cedarwood",
         "LIMONENE",
         "LINALOOL",
         "CITRONELLOL",
-        "BENZYL BENZOATE",
-        "COUMARIN"
+        "BENZYL BENZOATE"
       ],
       "middle": [
         "Lavender",
         "Apple",
+        "Orange Blossom",
         "Vetiver",
         "Vanilla Absolute",
         "Leather",
-        "Cedarwood add depth",
+        "Cedarwood",
         "LIMONENE",
         "LINALOOL",
         "CITRONELLOL",
         "BENZYL BENZOATE",
         "COUMARIN",
         "HYDROXYCITRONELLAL",
-        "CITRAL",
-        "GERANIOL"
+        "CITRAL"
       ],
       "base": [
         "Vetiver",
         "Vanilla Absolute",
         "Leather",
-        "Cedarwood add depth",
+        "Cedarwood",
         "LIMONENE",
         "LINALOOL",
         "CITRONELLOL",
@@ -25325,18 +25541,22 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "top": [
         "Peach",
         "Pear",
+        "Cassis",
         "Amberwood",
         "Sandalwood",
-        "Vanilla"
+        "Vanilla",
+        "Patchouli"
       ],
       "middle": [
         "Amberwood",
         "Sandalwood",
-        "Vanilla"
+        "Vanilla",
+        "Patchouli"
       ],
       "base": [
         "Sandalwood",
-        "Vanilla"
+        "Vanilla",
+        "Patchouli"
       ]
     }
   },
@@ -25655,12 +25875,13 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Neroli"
       ],
       "middle": [
-        "White Flowers"
+        "White Flowers",
+        "Jasmine"
       ],
       "base": [
         "Musk",
         "Patchouli",
-        "Vanilla add depth"
+        "Vanilla"
       ]
     }
   },
@@ -25704,14 +25925,15 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "middle": [
         "Cypriol",
         "Osmanthus",
-        "Jasmin"
+        "Jasmine"
       ],
       "base": [
         "Patchouli",
         "Cashmeran",
         "Ambroxan",
+        "Ambrocenide",
         "Osmanthus",
-        "Jasmin"
+        "Jasmine"
       ]
     }
   },
@@ -25755,7 +25977,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Peony"
       ],
       "base": [
-        "Musk"
+        "Musk",
+        "Vetiver"
       ]
     }
   },
@@ -25781,7 +26004,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Lily-of-the-Valley"
       ],
       "base": [
-        "Oakmoss"
+        "Oakmoss",
+        "Musk"
       ]
     }
   },
@@ -25799,7 +26023,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Sandalwood",
-        "Chinese Black Tea"
+        "Chinese Black Tea",
+        "Guaiac Wood"
       ]
     }
   },
@@ -25816,7 +26041,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Amber"
+        "Amber",
+        "Precious Woods"
       ]
     }
   },
@@ -25939,7 +26165,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Sandalwood"
+        "Sandalwood",
+        "Musk"
       ]
     }
   },
@@ -26045,11 +26272,13 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "middle": [
         "Patchouli",
         "Haitian Vetiver",
-        "Cyrpiol"
+        "Cypriol"
       ],
       "base": [
         "Myrrh",
-        "Cistus"
+        "Cistus",
+        "Musk",
+        "Iris Fauve"
       ]
     }
   },
@@ -26079,7 +26308,9 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Grapefruit"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Musk"
+      ]
     }
   },
   {
@@ -26118,13 +26349,14 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
+        "Galbanum",
         "Cardamom",
-        "Green Tea  intertwine"
+        "Green Tea"
       ],
       "middle": [],
       "base": [
         "Whisky Accord",
-        "Incense  settle in"
+        "Incense"
       ]
     }
   },
@@ -26755,7 +26987,9 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Ginger"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Tonka Bean"
+      ]
     }
   },
   {
@@ -26946,7 +27180,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Amber"
+        "Amber",
+        "Labdanum"
       ]
     }
   },
@@ -26993,10 +27228,11 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Cactus Pear"
       ],
       "middle": [
-        "Jasmine for her"
+        "Jasmine"
       ],
       "base": [
-        "Leather"
+        "Leather",
+        "Patchouli"
       ]
     }
   },
@@ -27012,14 +27248,19 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "notes": {
       "top": [
         "African Violet Leaf",
-        "Musk"
+        "Lavender",
+        "Musk",
+        "Amber"
       ],
       "middle": [
         "African Violet Leaf",
-        "Musk"
+        "Lavender",
+        "Musk",
+        "Amber"
       ],
       "base": [
-        "Musk"
+        "Musk",
+        "Amber"
       ]
     }
   },
@@ -27078,7 +27319,13 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Cashmere wood"
+      ]
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338347229321-44927261114505",
@@ -27288,9 +27535,12 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Tequila"
+        "Tequila",
+        "Watermelon"
       ],
-      "middle": [],
+      "middle": [
+        "Watermelon"
+      ],
       "base": []
     }
   },
@@ -27476,7 +27726,16 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [
+        "Mint Piperita Essences",
+        "Lavender Essence"
+      ],
+      "middle": [
+        "Lavender Essence"
+      ],
+      "base": []
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338175459465-44926993367177",
@@ -27574,7 +27833,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Musk"
+        "Musk",
+        "Ambroxan"
       ]
     }
   },
@@ -27671,7 +27931,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Cypriol oil",
         "Sandalwood",
         "Cedarwood",
-        "Amber"
+        "Amber",
+        "Moss"
       ]
     }
   },
@@ -28011,7 +28272,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       ],
       "base": [
         "Finally",
-        "Patchouli"
+        "Patchouli",
+        "Lorenox"
       ]
     }
   },
@@ -28062,7 +28324,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Cedar",
-        "Amber"
+        "Amber",
+        "Iris"
       ]
     }
   },
@@ -28296,7 +28559,9 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Green Anjou Pears"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Amber"
+      ]
     }
   },
   {
@@ -28443,7 +28708,8 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Indonesian Patchouli",
-        "Siberian Pine"
+        "Siberian Pine",
+        "Sandalwood"
       ]
     }
   },
@@ -28460,7 +28726,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Musk  provide depth"
+        "Musk"
       ]
     }
   },
@@ -29436,7 +29702,19 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [
+        "Peony",
+        "Amber"
+      ],
+      "middle": [
+        "Peony",
+        "Amber"
+      ],
+      "base": [
+        "Amber"
+      ]
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416643743881-45146976026761",
@@ -29827,7 +30105,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       ],
       "middle": [
         "Ivy",
-        "Oak Moss"
+        "Oakmoss"
       ],
       "base": [
         "Musk",
@@ -29879,11 +30157,13 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Tangerine"
+        "Tangerine",
+        "Grapefruit"
       ],
       "middle": [],
       "base": [
-        "Honey"
+        "Honey",
+        "Musk"
       ]
     }
   },
@@ -30492,14 +30772,17 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Cypriol Oil"
+        "Jasmine Sambac",
+        "Cypriol Oil",
+        "Nagarmotha"
       ],
       "middle": [
         "May Rose",
         "Jasmine Sambac"
       ],
       "base": [
-        "Cypriol Oil"
+        "Cypriol Oil",
+        "Nagarmotha"
       ]
     }
   },
@@ -30653,7 +30936,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Pink Rose"
       ],
       "base": [
-        "Oak Moss"
+        "Oakmoss"
       ]
     }
   },
@@ -30780,7 +31063,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       "top": [],
       "middle": [
         "Carrot",
-        "Ginger  emerge"
+        "Ginger"
       ],
       "base": []
     }
@@ -30798,7 +31081,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       "top": [],
       "middle": [
         "Carrot",
-        "Ginger  emerge"
+        "Ginger"
       ],
       "base": []
     }
@@ -31206,7 +31489,8 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       ],
       "base": [
         "Cedar",
-        "White Musk"
+        "White Musk",
+        "Vetiver"
       ]
     }
   },
@@ -31441,7 +31725,8 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       "base": [
         "Vetiver",
         "Sandalwood",
-        "Amber"
+        "Amber",
+        "Patchouli"
       ]
     }
   },
@@ -31534,7 +31819,8 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Lemon",
-        "Bergamot"
+        "Bergamot",
+        "Mandarin Orange"
       ],
       "middle": [],
       "base": [
@@ -31750,7 +32036,8 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Patchouli"
+        "Patchouli",
+        "Amber"
       ]
     }
   },
@@ -31943,7 +32230,17 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [
+        "Eternity Now"
+      ],
+      "middle": [
+        "Eternity Now"
+      ],
+      "base": [
+        "Eternity Now"
+      ]
+    }
   },
   {
     "id": "justmylook-ck0139",
@@ -32277,7 +32574,8 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Vetiver",
         "Benzoin",
         "Vanilla",
-        "Amber"
+        "Amber",
+        "Red Berries"
       ]
     }
   },
@@ -32352,6 +32650,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Nutmeg",
         "Carnation",
         "Brazilian Rosewood",
+        "Pine Tree",
         "Red Berries"
       ],
       "base": []
@@ -32399,7 +32698,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Vanilla",
         "Civet",
         "Musk",
-        "Vetiver  lingers"
+        "Vetiver"
       ]
     }
   },
@@ -32504,7 +32803,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       "top": [
         "Brandy",
         "Pear",
-        "Mastic  or Lentisque",
+        "Mastic",
         "Ginger"
       ],
       "middle": [],
@@ -32643,11 +32942,12 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Mandarin Orange",
-        "Bergamot"
+        "Bergamot",
+        "Lemon"
       ],
       "middle": [
         "Jasmine",
-        "Rose  emerges"
+        "Rose"
       ],
       "base": [
         "Amber",
@@ -32803,7 +33103,9 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Spices",
         "Lavender"
       ],
-      "base": []
+      "base": [
+        "Lavender"
+      ]
     }
   },
   {
@@ -32884,7 +33186,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "notes": {
       "top": [],
       "middle": [
-        "Vanilla Bourbon     *"
+        "Vanilla Bourbon"
       ],
       "base": []
     }
@@ -32911,13 +33213,16 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Seductive Rum"
+        "Seductive Rum",
+        "Passion Fruit"
       ],
       "middle": [
-        "Musk"
+        "Musk",
+        "Gardenia"
       ],
       "base": [
-        "Vanilla"
+        "Vanilla",
+        "Tonka Bean"
       ]
     }
   },
@@ -33022,7 +33327,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Finally",
         "Sandalwood",
         "Amber",
-        "Musk  provide depth"
+        "Musk"
       ]
     }
   },
@@ -33040,7 +33345,9 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Sage"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Frankincense"
+      ]
     }
   },
   {
@@ -33194,7 +33501,8 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Cocoa"
       ],
       "base": [
-        "Patchouli"
+        "Patchouli",
+        "Tonka Beans"
       ]
     }
   },
@@ -33279,7 +33587,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Bourbon vanilla",
-        "Gaiac wood"
+        "Guaiac Wood"
       ]
     }
   },
@@ -33448,7 +33756,8 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Sandalwood",
         "Musk",
         "Tonka Bean",
-        "Amber"
+        "Amber",
+        "Cedar"
       ]
     }
   },
@@ -33532,7 +33841,9 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Mandarin Oil"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Tonka Beans"
+      ]
     }
   },
   {
@@ -33792,7 +34103,8 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       ],
       "middle": [
         "Peach",
-        "Magnolia"
+        "Magnolia",
+        "Jasmine"
       ],
       "base": [
         "Musk",
@@ -33861,7 +34173,13 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Vetiver"
+      ]
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416650887305-45146997457033",
@@ -33876,11 +34194,13 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       "top": [
         "Lily-of-the-Valley",
         "Geranium",
+        "Bulgarian Roses",
         "Musk"
       ],
       "middle": [
         "Lily-of-the-Valley",
         "Geranium",
+        "Bulgarian Roses",
         "Musk"
       ],
       "base": []
@@ -33921,9 +34241,10 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       "top": [
         "Aldehydes",
         "Jasmine",
+        "Rose",
         "Lily-of-the-Valley",
         "Violet",
-        "Cloves  Musk",
+        "Cloves",
         "Oakmoss",
         "Sandalwood"
       ],
@@ -33998,7 +34319,6 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Petitgrain"
       ],
       "middle": [
-        "As it unfolds",
         "Lavender",
         "Jasmine",
         "Violet",
@@ -34018,9 +34338,12 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Mandarin Orange"
+        "Mandarin Orange",
+        "Bergamot"
       ],
-      "middle": [],
+      "middle": [
+        "Orange Blossom"
+      ],
       "base": [
         "Cedar",
         "Guaiac Wood"
@@ -34065,15 +34388,18 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       "top": [
         "Jasmine",
         "Freesia",
-        "Neroli  Sweet",
+        "Neroli",
+        "Musk",
         "Caron",
         "Caron"
       ],
       "middle": [
+        "Musk",
         "Caron",
         "Caron"
       ],
       "base": [
+        "Musk",
         "Caron",
         "Caron"
       ]
@@ -34140,17 +34466,23 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       "top": [
         "Neroli",
         "Orange Blossom",
+        "Bergamot",
         "Magnolia",
         "Jasmine",
-        "Heliotrope"
+        "Tincture of Rose",
+        "Heliotrope",
+        "Sandalwood"
       ],
       "middle": [
         "Magnolia",
         "Jasmine",
-        "Heliotrope"
+        "Tincture of Rose",
+        "Heliotrope",
+        "Sandalwood"
       ],
       "base": [
-        "Heliotrope"
+        "Heliotrope",
+        "Sandalwood"
       ]
     }
   },
@@ -34171,7 +34503,8 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Oakmoss",
-        "Musk"
+        "Musk",
+        "Vanilla"
       ]
     }
   },
@@ -34513,7 +34846,8 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       "base": [
         "Sandalwood",
         "Cedar",
-        "Amber"
+        "Amber",
+        "Vanilla"
       ]
     }
   },
@@ -34613,13 +34947,14 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Violet",
         "Lily-of-the-Valley",
         "Jasmine",
-        "Bergamot**"
+        "Bergamot"
       ],
       "middle": [],
       "base": [
         "Sandalwood",
         "Cedar",
-        "Vanilla"
+        "Vanilla",
+        "Amber"
       ]
     }
   },
@@ -34778,7 +35113,8 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Vanilla Orchid"
+        "Vanilla Orchid",
+        "Vetiver"
       ]
     }
   },
@@ -34895,7 +35231,9 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": {
-      "top": [],
+      "top": [
+        "Mirabelle"
+      ],
       "middle": [],
       "base": [
         "Sandalwood",
@@ -35344,7 +35682,9 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       "middle": [
         "Rose"
       ],
-      "base": []
+      "base": [
+        "Virginia cedar"
+      ]
     }
   },
   {
@@ -35665,7 +36005,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       ],
       "middle": [
         "Mint",
-        "Mimosa  come forth"
+        "Mimosa"
       ],
       "base": []
     }
@@ -35708,7 +36048,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       ],
       "middle": [
         "White Woods",
-        "Orchid  emerge"
+        "Orchid"
       ],
       "base": []
     }
@@ -35789,12 +36129,14 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": {
-      "top": [],
+      "top": [
+        "Verbena"
+      ],
       "middle": [
         "Orange Blossom"
       ],
       "base": [
-        "Musk add depth"
+        "Musk"
       ]
     }
   },
@@ -36380,7 +36722,8 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Summer"
+        "Summer",
+        "Fall"
       ]
     }
   },
@@ -37151,15 +37494,20 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       "top": [
         "Bergamot",
         "Coconut Water",
-        "Jasmine"
+        "Jasmine",
+        "White Flowers",
+        "White Musk"
       ],
       "middle": [
         "Coconut Milk",
         "Coconut Water",
-        "Jasmine"
+        "Jasmine",
+        "White Flowers",
+        "White Musk"
       ],
       "base": [
-        "Tonka Bean"
+        "Tonka Bean",
+        "White Musk"
       ]
     }
   },
@@ -37203,7 +37551,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       "middle": [
         "Cinnamon",
         "Iris",
-        "Cedar wood"
+        "Cedarwood"
       ],
       "base": [
         "Musk",
@@ -37240,7 +37588,13 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Amrostar"
+      ]
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338197610633-44927034359945",
@@ -37266,7 +37620,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
         "Vanilla",
         "Cashmeran",
         "Cistus Labdanum",
-        "Amrostar®"
+        "Amrostar"
       ]
     }
   },
@@ -37317,10 +37671,12 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Mandarin"
+        "Mandarin",
+        "Bay Leaf"
       ],
       "middle": [
-        "Geranium"
+        "Geranium",
+        "Salty Lavender"
       ],
       "base": [
         "Patchouli"
@@ -37560,17 +37916,17 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       "top": [
         "Yang",
         "Bergamot",
-        "Muget",
+        "Lily-of-the-Valley",
         "Rose",
         "Iris",
-        "Jasmin"
+        "Jasmine"
       ],
       "middle": [
         "Bergamot",
-        "Muget",
+        "Lily-of-the-Valley",
         "Rose",
         "Iris",
-        "Jasmin"
+        "Jasmine"
       ],
       "base": []
     }
@@ -38445,14 +38801,15 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Warm Spicy",
-        "Floral  -"
+        "Floral"
       ],
       "middle": [
         "Rose",
-        "Woody  -"
+        "Woods"
       ],
       "base": [
-        "Aromatic"
+        "Aromatic",
+        "Vanilla"
       ]
     }
   },
@@ -38515,7 +38872,8 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       "base": [
         "Tonka",
         "Amber",
-        "Moss"
+        "Moss",
+        "Musk"
       ]
     }
   },
@@ -38533,10 +38891,10 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       "middle": [
         "Lavender",
         "Spearmint",
-        "Muguet",
+        "Lily-of-the-Valley",
         "Rose",
         "Orris",
-        "Ylang ylang"
+        "Ylang-Ylang"
       ],
       "base": [
         "Vanilla",
@@ -38568,13 +38926,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "At its core"
-      ],
-      "base": []
-    }
+    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416667598985-45147029831817",
@@ -38618,7 +38970,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       ],
       "base": [
         "Vetiver",
-        "Cedar Wood",
+        "Cedarwood",
         "Labdanum"
       ]
     }
@@ -38642,7 +38994,8 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       ],
       "base": [
         "Guaiac Wood",
-        "Patchouli"
+        "Patchouli",
+        "Ambergris to"
       ]
     }
   },
@@ -38992,7 +39345,8 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       ],
       "base": [
         "Balsam Fir",
-        "Tonka Bean"
+        "Tonka Bean",
+        "Labdanum"
       ]
     }
   },
@@ -39760,7 +40114,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       "top": [
         "Orange",
         "Bergamot",
-        "Muguet",
+        "Lily-of-the-Valley",
         "White Blossom",
         "Sandalwood",
         "Moss",
@@ -40045,7 +40399,9 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       "top": [
         "Fresh fruity explosion"
       ],
-      "middle": [],
+      "middle": [
+        "Delicate floral blend"
+      ],
       "base": []
     }
   },
@@ -40673,7 +41029,9 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       "middle": [
         "Sugary Guimauve"
       ],
-      "base": []
+      "base": [
+        "Rich Vanilla"
+      ]
     }
   },
   {
@@ -40708,7 +41066,8 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       ],
       "base": [
         "Musk",
-        "Sandalwood"
+        "Sandalwood",
+        "Vanilla"
       ]
     }
   },
@@ -40778,7 +41137,8 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "White Wood"
+        "White Wood",
+        "Sandalwood"
       ]
     }
   },
@@ -41189,7 +41549,8 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
         "White Rose"
       ],
       "base": [
-        "Musk"
+        "Musk",
+        "Amber"
       ]
     }
   },
@@ -41210,7 +41571,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       ],
       "base": [
         "Musk",
-        "Amber provide depth"
+        "Amber"
       ]
     }
   },
@@ -41256,6 +41617,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       "base": [
         "White Musk",
         "Cedar",
+        "Cashmeran",
         "Limonene",
         "Citral",
         "Linalool",
@@ -41456,7 +41818,8 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
         "Heliotrope"
       ],
       "base": [
-        "Musk"
+        "Musk",
+        "Cedar"
       ]
     }
   },
@@ -41750,13 +42113,16 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Ylang-Ylang",
+        "Musk",
         "Autumn"
       ],
       "middle": [
         "Ylang-Ylang",
+        "Musk",
         "Autumn"
       ],
       "base": [
+        "Musk",
         "Autumn"
       ]
     }
@@ -41842,10 +42208,12 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
         "Bergamot"
       ],
       "middle": [
-        "Vanilla"
+        "Vanilla",
+        "Patchouli"
       ],
       "base": [
-        "Vanilla"
+        "Vanilla",
+        "Patchouli"
       ]
     }
   },
@@ -42314,7 +42682,8 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Patchouli"
+        "Patchouli",
+        "Cypriol Oil"
       ]
     }
   },
@@ -42463,7 +42832,8 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
         "Mint"
       ],
       "base": [
-        "Amber"
+        "Amber",
+        "Musk"
       ]
     }
   },
@@ -42819,10 +43189,11 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       ],
       "middle": [
         "Rose honey",
-        "Ylang-ylang"
+        "Ylang-Ylang"
       ],
       "base": [
-        "Patchouli"
+        "Patchouli",
+        "Amber"
       ]
     }
   },
@@ -42989,13 +43360,13 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "notes": {
       "top": [],
       "middle": [
-        "Muguet",
+        "Lily-of-the-Valley",
         "Jasmine",
         "Peach Blossom"
       ],
       "base": [
         "Moss",
-        "Cedar Wood"
+        "Cedarwood"
       ]
     }
   },
@@ -43158,7 +43529,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
         "Musk",
         "Fennel",
         "Carnation",
-        "White Amber  emerge"
+        "White Amber"
       ],
       "base": [
         "Jasmine",
@@ -43392,7 +43763,8 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       ],
       "middle": [
         "Mate",
-        "Rose Water"
+        "Rose Water",
+        "Jasmine"
       ],
       "base": [
         "Amberwood",
@@ -43451,7 +43823,8 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Pear",
-        "Blood Orange"
+        "Blood Orange",
+        "Mandarin Orange"
       ],
       "middle": [],
       "base": [
@@ -43495,7 +43868,8 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Bergamot",
-        "Lemon"
+        "Lemon",
+        "Exotic Fruits"
       ],
       "middle": [],
       "base": [
@@ -43896,7 +44270,8 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Tonka Bean"
+        "Tonka Bean",
+        "Peru Balsam"
       ]
     }
   },
@@ -44194,7 +44569,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Patchouli  emerge"
+        "Patchouli"
       ]
     }
   },
@@ -44696,13 +45071,14 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
         "Fig",
         "Orchid",
         "Violet",
-        "Rose  emerges"
+        "Rose"
       ],
       "base": [
         "Finally",
         "Cedarwood",
         "Ambergris",
-        "Vanilla"
+        "Vanilla",
+        "Sandalwood"
       ]
     }
   },
@@ -44770,7 +45146,13 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [
+        "Japanese rose"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416677068937-45147040317577",
@@ -44838,7 +45220,8 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
         "Jasmine",
         "Magnolia",
         "Rose",
-        "Caraway"
+        "Caraway",
+        "Lily-of-the-Valley"
       ],
       "base": []
     }
@@ -45406,7 +45789,8 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
         "Vetiver",
         "Sandalwood",
         "Amber",
-        "Orris Root"
+        "Orris Root",
+        "Musk"
       ]
     }
   },
@@ -45635,7 +46019,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       ],
       "base": [
         "Musk",
-        "Patchouli  emerge"
+        "Patchouli"
       ]
     }
   },
@@ -46037,7 +46421,8 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       ],
       "base": [
         "Ambergris",
-        "Ambroxide"
+        "Ambroxide",
+        "Labdanum"
       ]
     }
   },
@@ -46182,6 +46567,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       "middle": [
         "Green Tea",
         "Orange Blossom",
+        "Ginger",
         "Spices",
         "Amber"
       ],
@@ -46341,7 +46727,17 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [
+        "Floris London"
+      ],
+      "middle": [
+        "Floris London"
+      ],
+      "base": [
+        "Floris London"
+      ]
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416683720841-45147047788681",
@@ -46515,7 +46911,8 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       "base": [
         "Ambergris",
         "Powdery",
-        "Sandalwood"
+        "Sandalwood",
+        "Musk"
       ]
     }
   },
@@ -46620,13 +47017,14 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       "top": [
         "Galbanum",
         "Mastic",
+        "Pineapple",
         "Musk",
-        "Vanilla add depth"
+        "Vanilla"
       ],
       "middle": [],
       "base": [
         "Musk",
-        "Vanilla add depth"
+        "Vanilla"
       ]
     }
   },
@@ -46773,7 +47171,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
         "Tonka Bean",
         "Cedar",
         "Amber",
-        "Woody",
+        "Musk",
+        "Women",
+        "Woods",
+        "Spicy",
         "Spring",
         "Summer",
         "Autumn"
@@ -47281,6 +47682,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Raspberry",
+        "Orange",
         "Franck Olivier"
       ],
       "middle": [],
@@ -47315,6 +47717,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Labdanum",
+        "Vanilla",
         "Winter"
       ]
     }
@@ -47363,12 +47766,14 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Tagetes",
         "Saffron",
         "White Amber",
-        "Moss"
+        "Moss",
+        "White Cedar Extract"
       ],
       "middle": [],
       "base": [
         "White Amber",
-        "Moss"
+        "Moss",
+        "White Cedar Extract"
       ]
     }
   },
@@ -47573,7 +47978,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Patchouli  provide depth"
+        "Patchouli"
       ]
     }
   },
@@ -47694,7 +48099,8 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
       ],
       "base": [
         "Musk",
-        "Tonka Bean"
+        "Tonka Bean",
+        "Vanilla"
       ]
     }
   },
@@ -47953,6 +48359,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Orange",
+        "Bergamot",
         "French Avenue"
       ],
       "middle": [
@@ -48136,7 +48543,8 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Cedarwood",
         "Leather",
         "Patchouli",
-        "Oud"
+        "Oud",
+        "Vanilla"
       ]
     }
   },
@@ -48154,8 +48562,10 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Cardamom",
         "Cinnamon",
         "Benzoin",
+        "Amber",
         "Cashmere Wood",
         "Heliotrope",
+        "Jasmine",
         "Vanilla",
         "Patchouli",
         "Dry Wood"
@@ -48262,7 +48672,9 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Saffron Accord"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Patchouli Oil"
+      ]
     }
   },
   {
@@ -48854,7 +49266,9 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [],
-      "middle": [],
+      "middle": [
+        "Amber Crystals"
+      ],
       "base": [
         "Amber",
         "Crystal Heliotrope"
@@ -49131,13 +49545,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "At its core"
-      ],
-      "base": []
-    }
+    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338395824265-44927342379145",
@@ -49361,7 +49769,9 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
       "middle": [
         "Balsamic Cistus Absolute"
       ],
-      "base": []
+      "base": [
+        "Rich Everlasting Essence"
+      ]
     }
   },
   {
@@ -49414,6 +49824,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Vanilla",
         "Suede",
         "Musk",
+        "Cedar",
         "Parfum",
         "Fragrance",
         "Aqua",
@@ -49423,8 +49834,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Limonene",
         "Benzyl Alcohol",
         "Geraniol",
-        "Hexyl Cinnamal",
-        "Coumarin"
+        "Hexyl Cinnamal"
       ]
     }
   },
@@ -49534,10 +49944,12 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Vanilla",
         "Suede",
         "Musk",
+        "Cedar",
         "Citrus",
         "Aromatic",
         "Musky",
-        "Powdery"
+        "Powdery",
+        "Lavender"
       ]
     }
   },
@@ -50007,16 +50419,21 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
+        "Davana",
         "Vanilla",
-        "Black tea"
+        "Black tea",
+        "Patchouli"
       ],
       "middle": [
+        "Davana",
         "Vanilla",
-        "Black tea"
+        "Black tea",
+        "Patchouli"
       ],
       "base": [
         "Vanilla",
-        "Black tea"
+        "Black tea",
+        "Patchouli"
       ]
     }
   },
@@ -50291,12 +50708,19 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Pineapple",
-        "Peony"
+        "Bitter Grape",
+        "Peony",
+        "Ginger",
+        "Vetiver"
       ],
       "middle": [
-        "Peony"
+        "Peony",
+        "Ginger",
+        "Vetiver"
       ],
-      "base": []
+      "base": [
+        "Vetiver"
+      ]
     }
   },
   {
@@ -50368,7 +50792,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
       "base": [
         "Patchouli",
         "Amber",
-        "Vanilla  provide depth"
+        "Vanilla"
       ]
     }
   },
@@ -50950,7 +51374,8 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "notes": {
       "top": [],
       "middle": [
-        "Cocoa Nature Print"
+        "Cocoa Nature Print",
+        "Cedarwood Essence"
       ],
       "base": []
     }
@@ -51036,7 +51461,8 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Coriander"
+        "Coriander",
+        "Cacao Nature Print"
       ],
       "middle": [],
       "base": []
@@ -51310,7 +51736,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Orris"
       ],
       "base": [
-        "Musk  provide warmth"
+        "Musk"
       ]
     }
   },
@@ -51509,14 +51935,17 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Apple",
         "Black Currant",
         "Raspberry",
+        "Rose",
         "Vanilla",
         "Cashmeran",
-        "Musk"
+        "Musk",
+        "Dominique Ropion"
       ],
       "base": [
         "Vanilla",
         "Cashmeran",
-        "Musk"
+        "Musk",
+        "Dominique Ropion"
       ]
     }
   },
@@ -51534,7 +51963,9 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "African orange flower"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Virginia cedar"
+      ]
     }
   },
   {
@@ -51704,7 +52135,13 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [
+        "Xeryus Rouge"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "ean-3357554720012",
@@ -52171,7 +52608,8 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Hedione"
       ],
       "base": [
-        "Woody",
+        "Sandalwood Essence",
+        "Woods",
         "Gourmand"
       ]
     }
@@ -52367,10 +52805,12 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Red Chilli Pepper",
-        "Balsamic Vinegar"
+        "Balsamic Vinegar",
+        "Salt"
       ],
       "middle": [
-        "Orange Blossom"
+        "Orange Blossom",
+        "Neroli"
       ],
       "base": []
     }
@@ -52633,14 +53073,15 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Bergamot",
-        "Mandarino"
+        "Mandarin"
       ],
       "middle": [
         "Lilac",
         "Geranium"
       ],
       "base": [
-        "Patchouli"
+        "Patchouli",
+        "Ambergris"
       ]
     }
   },
@@ -52675,7 +53116,13 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [
+        "Amalfi lemon"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416692043913-45147059060873",
@@ -52700,7 +53147,8 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "notes": {
       "top": [],
       "middle": [
-        "Jasmine Petals"
+        "Jasmine Petals",
+        "Musks to"
       ],
       "base": [
         "Cedar"
@@ -52740,7 +53188,8 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
       ],
       "base": [
         "Patchouli",
-        "Natural Vanilla"
+        "Natural Vanilla",
+        "Vetiver"
       ]
     }
   },
@@ -52870,6 +53319,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
       ],
       "middle": [
         "Orange Blossom",
+        "Rose",
         "Vetiver",
         "White Musk"
       ],
@@ -53080,7 +53530,6 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Lemon"
       ],
       "middle": [
-        "As it develops",
         "Licorice",
         "Rose"
       ],
@@ -53120,7 +53569,8 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Patchouli",
-        "Tea"
+        "Tea",
+        "Musk"
       ]
     }
   },
@@ -53135,6 +53585,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
+        "Jasmine",
         "Apple",
         "Orange Blossom",
         "Black Currant"
@@ -53183,7 +53634,8 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Patchouli"
+        "Patchouli",
+        "Tonka Bean"
       ]
     }
   },
@@ -53198,7 +53650,8 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Raspberry"
+        "Raspberry",
+        "Bergamot"
       ],
       "middle": [],
       "base": []
@@ -53256,7 +53709,8 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
       ],
       "base": [
         "Patchouli",
-        "Tonka Bean"
+        "Tonka Bean",
+        "Musk"
       ]
     }
   },
@@ -53562,21 +54016,26 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       "top": [
         "Peony",
         "Orange",
+        "Orange Blossom",
         "Vanilla",
         "Praline",
-        "Musk"
+        "Musk",
+        "Ambroxan"
       ],
       "middle": [
         "Peony",
         "Orange",
+        "Orange Blossom",
         "Vanilla",
         "Praline",
-        "Musk"
+        "Musk",
+        "Ambroxan"
       ],
       "base": [
         "Vanilla",
         "Praline",
-        "Musk"
+        "Musk",
+        "Ambroxan"
       ]
     }
   },
@@ -53648,10 +54107,12 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       "top": [
         "Blackcurrant",
         "Jasmine",
+        "Iris",
         "Olibanum"
       ],
       "middle": [
         "Jasmine",
+        "Iris",
         "Olibanum"
       ],
       "base": [
@@ -53710,7 +54171,8 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Leather",
-        "Pine Tree Needles"
+        "Pine Tree Needles",
+        "Sandalwood"
       ]
     }
   },
@@ -54156,7 +54618,8 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       ],
       "base": [
         "Cedar",
-        "Sandalwood"
+        "Sandalwood",
+        "Musk"
       ]
     }
   },
@@ -54606,7 +55069,9 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       "middle": [
         "Olive Tree"
       ],
-      "base": []
+      "base": [
+        "Green Accord"
+      ]
     }
   },
   {
@@ -54633,7 +55098,8 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Benzoin"
+        "Benzoin",
+        "Amber"
       ]
     }
   },
@@ -54947,7 +55413,13 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [
+        "Cardamom"
+      ],
+      "base": []
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416695124105-45147062239369",
@@ -55159,7 +55631,9 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
         "Mandarin Orange",
         "Bergamot"
       ],
-      "middle": [],
+      "middle": [
+        "Lavender"
+      ],
       "base": []
     }
   },
@@ -55489,7 +55963,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Patchouli",
-        "Oak Moss",
+        "Oakmoss",
         "Vetiver"
       ]
     }
@@ -56067,7 +56541,8 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Warm Spicy",
-        "Musky"
+        "Musky",
+        "Citrus"
       ]
     }
   },
@@ -56554,7 +57029,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Cedar Wood"
+        "Cedarwood"
       ]
     }
   },
@@ -56866,7 +57341,9 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
         "Cedar",
         "Sandalwood",
         "Amber",
-        "Woody"
+        "Tobacco",
+        "Woods",
+        "Aromatic"
       ]
     }
   },
@@ -57202,9 +57679,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": {
-      "top": [
-        "A vibrant"
-      ],
+      "top": [],
       "middle": [],
       "base": [
         "Warm"
@@ -58079,7 +58554,9 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       "middle": [
         "Iris"
       ],
-      "base": []
+      "base": [
+        "Vanilla"
+      ]
     }
   },
   {
@@ -58253,7 +58730,13 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Sandalwood"
+      ]
+    }
   },
   {
     "id": "ean-8435415103268",
@@ -58579,7 +59062,9 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
         "Spices",
         "Lavender"
       ],
-      "base": []
+      "base": [
+        "Lavender"
+      ]
     }
   },
   {
@@ -58911,7 +59396,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Patchouli",
-        "Vanilla  provide depth"
+        "Vanilla"
       ]
     }
   },
@@ -59025,7 +59510,8 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Vanilla",
-        "Musk"
+        "Musk",
+        "Patchouli"
       ]
     }
   },
@@ -59286,7 +59772,8 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
         "Rose"
       ],
       "base": [
-        "Amber"
+        "Amber",
+        "Sandalwood"
       ]
     }
   },
@@ -59300,7 +59787,9 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": {
-      "top": [],
+      "top": [
+        "Grapefruit"
+      ],
       "middle": [
         "Rose",
         "Iris",
@@ -59470,7 +59959,8 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       "base": [
         "Musk",
         "Sandalwood",
-        "Iris"
+        "Iris",
+        "Amber"
       ]
     }
   },
@@ -59520,7 +60010,9 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       "middle": [
         "French Lavender"
       ],
-      "base": []
+      "base": [
+        "Amber"
+      ]
     }
   },
   {
@@ -59598,7 +60090,8 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Virginia cedar",
-        "Patchouli"
+        "Patchouli",
+        "Amber"
       ]
     }
   },
@@ -59634,7 +60127,8 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
         "Grapefruit"
       ],
       "middle": [
-        "Basil"
+        "Basil",
+        "Nutmeg"
       ],
       "base": [
         "Musk"
@@ -59656,7 +60150,8 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Vetiver"
+        "Vetiver",
+        "Patchouli"
       ]
     }
   },
@@ -59671,7 +60166,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Pineapple uplift"
+        "Pineapple"
       ],
       "middle": [],
       "base": [
@@ -59750,7 +60245,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Linden Blossom"
       ],
       "base": [
-        "Bergamot"
+        "Bergamot",
+        "Tarragon"
       ]
     }
   },
@@ -59846,7 +60342,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       "base": [
         "Indonesian Patchouli",
         "Haitian Vetiver",
-        "Bourbon Vanilla"
+        "Bourbon Vanilla",
+        "White Musk"
       ]
     }
   },
@@ -59936,7 +60433,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Rose"
       ],
       "base": [
-        "Musk"
+        "Musk",
+        "Roasted Oak"
       ]
     }
   },
@@ -59965,7 +60463,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Sandalwood",
         "Tonka Bean",
         "White Musk",
-        "Patchouli"
+        "Patchouli",
+        "Vanilla"
       ]
     }
   },
@@ -60258,7 +60757,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Sandalwood",
         "Musk",
         "Styrax",
-        "Tobacco Leaf"
+        "Tobacco Leaf",
+        "Patchouli"
       ]
     }
   },
@@ -61152,7 +61652,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Woody"
+        "Woods"
       ]
     }
   },
@@ -61173,7 +61673,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Jasmine"
       ],
       "base": [
-        "Amber  provide depth"
+        "Amber"
       ]
     }
   },
@@ -61262,7 +61762,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       "base": [
         "Eaglewood",
         "Black Leather",
-        "Auramber"
+        "Auramber",
+        "Sensuous Balsams"
       ]
     }
   },
@@ -61288,14 +61789,17 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Lemon"
+        "Lemon",
+        "Orange"
       ],
       "middle": [
-        "Orange Blossom"
+        "Orange Blossom",
+        "Jasmine"
       ],
       "base": [
         "Amber",
-        "Musk"
+        "Musk",
+        "Vanilla"
       ]
     }
   },
@@ -61357,7 +61861,9 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": {
-      "top": [],
+      "top": [
+        "Coriander"
+      ],
       "middle": [
         "Cardamom",
         "Labdanum",
@@ -61832,11 +62338,13 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": {
-      "top": [],
+      "top": [
+        "Neroli"
+      ],
       "middle": [],
       "base": [
         "Musk",
-        "Hedione  emerge"
+        "Hedione"
       ]
     }
   },
@@ -62015,7 +62523,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "White Musk",
         "Patchouli",
         "Heliotrope",
-        "Caramel"
+        "Caramel",
+        "Sandalwood"
       ]
     }
   },
@@ -62041,7 +62550,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Lime"
+        "Lime",
+        "Lemon"
       ],
       "middle": [],
       "base": [
@@ -62193,7 +62703,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       "middle": [
         "Rose Absolute",
         "Jasmine",
-        "Ambrette Seed |"
+        "Ambrette Seed"
       ],
       "base": [
         "Blonde Woods",
@@ -62250,12 +62760,12 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Orris",
         "Nutmeg",
         "Amber Woods",
-        "Oak Moss"
+        "Oakmoss"
       ],
       "middle": [],
       "base": [
         "Amber Woods",
-        "Oak Moss"
+        "Oakmoss"
       ]
     }
   },
@@ -62318,7 +62828,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       ],
       "middle": [
         "Rose",
-        "Geranium  intertwine"
+        "Geranium"
       ],
       "base": [
         "Musk",
@@ -62574,7 +63084,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       ],
       "base": [
         "Vanilla",
-        "Amber"
+        "Amber",
+        "Patchouli"
       ]
     }
   },
@@ -62757,7 +63268,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Oakmoss",
-        "Musk"
+        "Musk",
+        "Tonka Bean"
       ]
     }
   },
@@ -62848,10 +63360,13 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": {
-      "top": [],
+      "top": [
+        "Mandarin Orange"
+      ],
       "middle": [],
       "base": [
-        "Vanilla"
+        "Vanilla",
+        "Mandarin Orange"
       ]
     }
   },
@@ -62986,9 +63501,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": {
-      "top": [
-        "A sparkling"
-      ],
+      "top": [],
       "middle": [],
       "base": [
         "Warm"
@@ -63051,6 +63564,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Tea Leaf",
+        "Green Almond",
         "Gardenia",
         "Damask Rose"
       ],
@@ -63528,7 +64042,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Musk"
+        "Musk",
+        "Amber"
       ]
     }
   },
@@ -63629,7 +64144,13 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Cedar"
+      ]
+    }
   },
   {
     "id": "justmylook-kil0019",
@@ -63853,7 +64374,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       ],
       "base": [
         "Musk",
-        "Powder"
+        "Powder",
+        "White Sandalwood"
       ]
     }
   },
@@ -63981,7 +64503,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       ],
       "base": [
         "Cashmere Wood",
-        "Oakmoss"
+        "Oakmoss",
+        "Vanilla"
       ]
     }
   },
@@ -64056,7 +64579,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Amber Wood"
+        "Amber Wood",
+        "Vanilla"
       ]
     }
   },
@@ -64075,7 +64599,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Boronia Flower"
       ],
       "base": [
-        "Amber Wood"
+        "Amber Wood",
+        "Vanilla"
       ]
     }
   },
@@ -64113,7 +64638,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Vanilla Orchid",
-        "Ambroxan  linger"
+        "Ambroxan"
       ]
     }
   },
@@ -64533,7 +65058,13 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [
+        "Mint"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416707117193-45147078295689",
@@ -64581,7 +65112,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Vetiver"
+        "Vetiver",
+        "Suede"
       ]
     }
   },
@@ -64771,7 +65303,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Cedar"
+        "Cedar",
+        "Sandalwood"
       ]
     }
   },
@@ -64947,7 +65480,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Carrot Seeds"
       ],
       "base": [
-        "Sandalwood"
+        "Sandalwood",
+        "Musk"
       ]
     }
   },
@@ -65034,10 +65568,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Haiti Vetiver"
+        "Haitian Vetiver"
       ],
       "middle": [
-        "Haiti Vetiver"
+        "Haitian Vetiver"
       ],
       "base": []
     }
@@ -65078,7 +65612,9 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Rose Buds"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Sand"
+      ]
     }
   },
   {
@@ -65376,7 +65912,8 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Patchouli"
+        "Patchouli",
+        "Vetiver"
       ]
     }
   },
@@ -66016,6 +66553,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Fig",
+        "Orange Blossom",
         "Jasmine"
       ],
       "middle": [],
@@ -66860,7 +67398,15 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [
+        "Grapefruit for an"
+      ],
+      "middle": [],
+      "base": [
+        "Patchouli"
+      ]
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338404868233-44927367872649",
@@ -67914,7 +68460,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       ],
       "base": [
         "Leather",
-        "Oakmoss"
+        "Oakmoss",
+        "Amber"
       ]
     }
   },
@@ -67999,7 +68546,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
         "Juniper",
         "Cumin",
         "Patchouli",
-        "Labdanum"
+        "Labdanum",
+        "Frankincense"
       ]
     }
   },
@@ -68041,7 +68589,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "White Musk",
-        "Jasmine"
+        "Jasmine",
+        "Nagarmotha"
       ]
     }
   },
@@ -68127,7 +68676,9 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
         "Sugar"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Labdanum"
+      ]
     }
   },
   {
@@ -68206,7 +68757,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Amber"
+        "Amber",
+        "Vanilla"
       ]
     }
   },
@@ -68234,7 +68786,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Patchouli"
+        "Patchouli",
+        "Musk"
       ]
     }
   },
@@ -68387,7 +68940,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Amberwood",
-        "Cedar"
+        "Cedar",
+        "Vetiver"
       ]
     }
   },
@@ -68426,7 +68980,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
         "Jasmine",
         "Honeysuckle",
         "Tuberose",
-        "Peony"
+        "Peony",
+        "Gardenia"
       ],
       "base": []
     }
@@ -68605,7 +69160,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
         "Tonka Bean",
         "Amberwood",
         "Myrrh",
-        "Benzoin"
+        "Benzoin",
+        "Akigalawood"
       ]
     }
   },
@@ -68656,7 +69212,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Sandalwood",
-        "Musk"
+        "Musk",
+        "Cashmere Wood"
       ]
     }
   },
@@ -68695,7 +69252,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Praline"
+        "Praline",
+        "Musk"
       ]
     }
   },
@@ -68874,7 +69432,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       ],
       "base": [
         "Somalian frankincense",
-        "Akigalawood"
+        "Akigalawood",
+        "Cistus concrete"
       ]
     }
   },
@@ -68964,6 +69523,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Lemon",
+        "Saffron",
         "White Flowers"
       ],
       "middle": [
@@ -69167,10 +69727,13 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [],
-      "middle": [],
+      "middle": [
+        "Patchouli"
+      ],
       "base": [
         "Musk",
-        "Oakmoss"
+        "Oakmoss",
+        "Amber"
       ]
     }
   },
@@ -69327,7 +69890,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Amber",
-        "Sandalwood"
+        "Sandalwood",
+        "Musk"
       ]
     }
   },
@@ -69534,7 +70098,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       ],
       "middle": [
         "Jasmine",
-        "Rose"
+        "Rose",
+        "Lily-of-the-Valley"
       ],
       "base": []
     }
@@ -69580,7 +70145,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       "base": [
         "Finally",
         "Musk",
-        "Sandalwood  settles in"
+        "Sandalwood"
       ]
     }
   },
@@ -69596,6 +70161,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Cardamom",
+        "Bergamot",
         "Geranium",
         "Tonka Bean"
       ],
@@ -69631,7 +70197,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Vanilla"
+        "Vanilla",
+        "Cashmirwood"
       ]
     }
   },
@@ -69809,7 +70376,13 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [
+        "Pepperwood"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416717275273-45147092451465",
@@ -70243,7 +70816,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
         "Cardamom"
       ],
       "middle": [
-        "Jasmine Sambac  unfold"
+        "Jasmine Sambac"
       ],
       "base": []
     }
@@ -70258,7 +70831,9 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": {
-      "top": [],
+      "top": [
+        "Saffron"
+      ],
       "middle": [],
       "base": [
         "White musk"
@@ -70750,7 +71325,13 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Powdery"
+      ]
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338247581833-44927109333129",
@@ -70800,10 +71381,12 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
         "Neroli"
       ],
       "middle": [
-        "Ylang-Ylang"
+        "Ylang-Ylang",
+        "Jasmine"
       ],
       "base": [
-        "Myrrh"
+        "Myrrh",
+        "Sandalwood"
       ]
     }
   },
@@ -70957,7 +71540,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Amberwood  provide depth"
+        "Amberwood"
       ]
     }
   },
@@ -71379,7 +71962,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
         "Orange"
       ],
       "middle": [
-        "Spices  emerge"
+        "Spices"
       ],
       "base": [
         "Tonka Bean",
@@ -71722,7 +72305,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       ],
       "base": [
         "Cedarwood",
-        "Musk"
+        "Musk",
+        "Amber"
       ]
     }
   },
@@ -71759,14 +72343,15 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
         "Jasmine",
         "Lavender",
         "Artemisia",
-        "Iris  emerge"
+        "Iris"
       ],
       "base": [
         "Cedarwood",
         "Patchouli",
         "Vetiver",
         "Castoreum",
-        "Ambergris"
+        "Ambergris",
+        "Vanilla"
       ]
     }
   },
@@ -71797,11 +72382,12 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
         "Green"
       ],
       "middle": [
-        "Woody",
+        "Woods",
         "Fruity"
       ],
       "base": [
-        "Cedarwood"
+        "Cedarwood",
+        "Musk"
       ]
     }
   },
@@ -71845,7 +72431,8 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       ],
       "base": [
         "Sandalwood",
-        "Cedarwood"
+        "Cedarwood",
+        "Agarwood"
       ]
     }
   },
@@ -71965,7 +72552,9 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       ],
       "base": [
         "Vetiver",
-        "Sandalwood"
+        "Sandalwood",
+        "Amber",
+        "Original Oud"
       ]
     }
   },
@@ -72136,7 +72725,9 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
       "middle": [
         "Melon"
       ],
-      "base": []
+      "base": [
+        "Musk"
+      ]
     }
   },
   {
@@ -73637,7 +74228,8 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
       ],
       "base": [
         "Benzoin",
-        "Oud"
+        "Oud",
+        "Vanilla"
       ]
     }
   },
@@ -73657,7 +74249,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
       ],
       "base": [
         "Cashmere Wood",
-        "Vanilla offer warmth"
+        "Vanilla"
       ]
     }
   },
@@ -73677,7 +74269,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
       ],
       "base": [
         "Cashmere Wood",
-        "Vanilla  add depth"
+        "Vanilla"
       ]
     }
   },
@@ -73733,7 +74325,8 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
       ],
       "base": [
         "Sandalwood",
-        "Patchouli"
+        "Patchouli",
+        "Musk"
       ]
     }
   },
@@ -73843,7 +74436,8 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Madagascar Vanilla",
-        "Guaiac Wood"
+        "Guaiac Wood",
+        "Sandalwood"
       ]
     }
   },
@@ -74010,13 +74604,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "A warm"
-      ]
-    }
+    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416735199369-45147116339337",
@@ -74182,11 +74770,13 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Red Currant"
+        "Red Currant",
+        "Pink Pepper"
       ],
       "middle": [],
       "base": [
-        "Amber"
+        "Amber",
+        "Cedar"
       ]
     }
   },
@@ -74337,7 +74927,9 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
       "middle": [
         "Green Pistachio"
       ],
-      "base": []
+      "base": [
+        "Musk"
+      ]
     }
   },
   {
@@ -74649,7 +75241,8 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "Geranium"
       ],
       "base": [
-        "Cedar"
+        "Cedar",
+        "Musk"
       ]
     }
   },
@@ -74778,7 +75371,9 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "Red Rose",
         "Jasmine"
       ],
-      "base": []
+      "base": [
+        "Oud wood"
+      ]
     }
   },
   {
@@ -74868,7 +75463,8 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "Jasmine"
       ],
       "base": [
-        "Cedar"
+        "Cedar",
+        "Sandalwood"
       ]
     }
   },
@@ -74888,7 +75484,8 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "White Amber"
+        "White Amber",
+        "Sandalwood"
       ]
     }
   },
@@ -75353,7 +75950,13 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Sheer Ambrox"
+      ]
+    }
   },
   {
     "id": "justmylook-mcm0002",
@@ -75494,7 +76097,8 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "Cinnamon"
       ],
       "base": [
-        "Amber"
+        "Amber",
+        "Cetalox"
       ]
     }
   },
@@ -75529,13 +76133,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": {
-      "top": [
-        "A bright"
-      ],
-      "middle": [],
-      "base": []
-    }
+    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416737558665-45147119091849",
@@ -75546,13 +76144,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "At its heart"
-      ],
-      "base": []
-    }
+    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338379243657-44927308464265",
@@ -76120,7 +76712,8 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "Watermelon"
       ],
       "middle": [
-        "Rose"
+        "Rose",
+        "Violet"
       ],
       "base": [
         "Amber",
@@ -76259,7 +76852,8 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "Lily"
       ],
       "base": [
-        "Musk"
+        "Musk",
+        "Amber"
       ]
     }
   },
@@ -76297,7 +76891,8 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Fougere",
-        "Spicy  elements"
+        "Spicy",
+        "Woods"
       ],
       "middle": [],
       "base": []
@@ -76323,7 +76918,8 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "Rose"
       ],
       "base": [
-        "Caramel"
+        "Caramel",
+        "Musk"
       ]
     }
   },
@@ -77468,7 +78064,8 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Vanilla",
-        "Amber"
+        "Amber",
+        "Musk"
       ]
     }
   },
@@ -77516,16 +78113,18 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Orange Blossom"
+        "Orange Blossom",
+        "Bergamot"
       ],
       "middle": [
         "Ylang-Ylang",
-        "Heliotrope"
+        "Heliotrope",
+        "Carnation"
       ],
       "base": [
         "Tonka",
         "Cedar",
-        "Benzoin add warmth"
+        "Benzoin"
       ]
     }
   },
@@ -77849,7 +78448,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
       ],
       "base": [
         "Cedar",
-        "Thanaka Wood  emerges"
+        "Thanaka Wood"
       ]
     }
   },
@@ -78131,7 +78730,8 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Bitter Orange"
+        "Bitter Orange",
+        "Lemon"
       ],
       "middle": [],
       "base": []
@@ -78912,7 +79512,8 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "Osmanthus"
       ],
       "base": [
-        "Patchouli"
+        "Patchouli",
+        "Musk"
       ]
     }
   },
@@ -79076,7 +79677,9 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "Ylang-Ylang",
         "White Flowers"
       ],
-      "middle": [],
+      "middle": [
+        "Amber"
+      ],
       "base": [
         "Vanilla",
         "Cedar"
@@ -79225,7 +79828,9 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "Peach"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Vetiver"
+      ]
     }
   },
   {
@@ -79413,7 +80018,8 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Artemisia",
-        "Fig"
+        "Fig",
+        "Osmanthus"
       ],
       "middle": [
         "Coriander",
@@ -79494,7 +80100,8 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "White Orchid"
       ],
       "base": [
-        "Vanilla"
+        "Vanilla",
+        "Musk"
       ]
     }
   },
@@ -79644,16 +80251,18 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Orange Blossom",
-        "Tangerine"
+        "Tangerine",
+        "Lime"
       ],
       "middle": [
         "Immortelle",
         "Pear",
-        "Jasmine  emerge"
+        "Jasmine"
       ],
       "base": [
         "Licorice",
-        "Sandalwood"
+        "Sandalwood",
+        "White Musk"
       ]
     }
   },
@@ -79670,7 +80279,8 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Musk"
+        "Musk",
+        "Virginia Cedar"
       ]
     }
   },
@@ -79747,7 +80357,9 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": {
-      "top": [],
+      "top": [
+        "Granny Smith apple"
+      ],
       "middle": [],
       "base": [
         "Cedar"
@@ -79889,7 +80501,9 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "Citron"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Bourbon Vanilla"
+      ]
     }
   },
   {
@@ -80729,7 +81343,8 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": {
       "top": [],
       "middle": [
-        "Coconut Water"
+        "Coconut Water",
+        "Orange Flower"
       ],
       "base": []
     }
@@ -83606,7 +84221,8 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "Orange Blossom"
       ],
       "base": [
-        "Musk"
+        "Musk",
+        "Amber"
       ]
     }
   },
@@ -83627,7 +84243,8 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Peruvian Balsam"
+        "Peruvian Balsam",
+        "Tonka Bean"
       ]
     }
   },
@@ -83758,7 +84375,9 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
       "middle": [
         "Rose"
       ],
-      "base": []
+      "base": [
+        "Blackcurrant"
+      ]
     }
   },
   {
@@ -84444,7 +85063,9 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": {
-      "top": [],
+      "top": [
+        "Dew Drop"
+      ],
       "middle": [],
       "base": [
         "Cedar"
@@ -84461,7 +85082,9 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": {
-      "top": [],
+      "top": [
+        "Bergamot"
+      ],
       "middle": [
         "Jasmine"
       ],
@@ -84548,9 +85171,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Cedar",
-        "Oak Moss",
+        "Oakmoss",
         "Musk",
-        "Amber"
+        "Amber",
+        "Tonka beans"
       ]
     }
   },
@@ -84667,7 +85291,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       "base": [
         "Oakmoss",
         "Sandalwood",
-        "Cedar"
+        "Cedar",
+        "Tonka Bean"
       ]
     }
   },
@@ -84686,7 +85311,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       "base": [
         "Oakmoss",
         "Sandalwood",
-        "Cedar"
+        "Cedar",
+        "Tonka Bean"
       ]
     }
   },
@@ -84752,7 +85378,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       ],
       "base": [
         "Sandalwood",
-        "Cedar Wood",
+        "Cedarwood",
         "Musk",
         "Ambary"
       ]
@@ -85020,7 +85646,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Suede"
+        "Suede",
+        "Amberwood"
       ]
     }
   },
@@ -85178,7 +85805,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       "base": [
         "Vanilla",
         "Vetiver",
-        "Tonka Bean"
+        "Tonka Bean",
+        "Musk"
       ]
     }
   },
@@ -85197,7 +85825,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Leather"
+        "Leather",
+        "Patchouli"
       ]
     }
   },
@@ -85218,7 +85847,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Cardamom"
       ],
       "base": [
-        "Leather"
+        "Leather",
+        "Patchouli"
       ]
     }
   },
@@ -85233,7 +85863,9 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Apple"
+        "Apple",
+        "Mandarin",
+        "Cardamom-Spiced Lavender"
       ],
       "middle": [],
       "base": []
@@ -85368,7 +86000,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Sandalwood",
-        "Cedar"
+        "Cedar",
+        "Musk"
       ]
     }
   },
@@ -85467,7 +86100,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Peony"
       ],
       "base": [
-        "Patchouli"
+        "Patchouli",
+        "Vanilla"
       ]
     }
   },
@@ -85684,10 +86318,13 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": {
-      "top": [],
+      "top": [
+        "Pepper"
+      ],
       "middle": [],
       "base": [
-        "Virginia Cedar"
+        "Virginia Cedar",
+        "Patchouli"
       ]
     }
   },
@@ -85721,10 +86358,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Bigarane™"
+        "Bigarane",
+        "Mandarin Orange"
       ],
       "middle": [
-        "As it settles",
         "Osmanthus",
         "Mugane"
       ],
@@ -85763,9 +86400,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [],
-      "middle": [
-        "At its core"
-      ],
+      "middle": [],
       "base": [
         "Finally"
       ]
@@ -85830,7 +86465,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Lime"
       ],
       "middle": [
-        "Jasmine Petal"
+        "Jasmine Petal",
+        "Sugar Candy"
       ],
       "base": []
     }
@@ -86968,7 +87604,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Neroli"
       ],
       "base": [
-        "Musk"
+        "Musk",
+        "Sandalwood"
       ]
     }
   },
@@ -87370,7 +88007,9 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Sparkling rose"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Addictive mineral musk"
+      ]
     }
   },
   {
@@ -87596,7 +88235,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Patchouli",
-        "Cashmere Wood"
+        "Cashmere Wood",
+        "Salt"
       ]
     }
   },
@@ -87616,7 +88256,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Patchouli",
-        "Cashmere Wood"
+        "Cashmere Wood",
+        "Salt"
       ]
     }
   },
@@ -88407,7 +89048,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Musk",
         "Sandalwood",
         "Cedar",
-        "Guaiac Wood"
+        "Guaiac Wood",
+        "Amber"
       ]
     }
   },
@@ -88665,7 +89307,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Vanilla"
+        "Vanilla",
+        "White Musk"
       ]
     }
   },
@@ -89350,7 +89993,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       ],
       "base": [
         "Leather Accord",
-        "Cedar Wood",
+        "Cedarwood",
         "Amber Woods",
         "Tonka Bean"
       ]
@@ -89379,7 +90022,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Musk",
         "Tonka Bean",
         "Amberwood",
-        "Cedar  emerge"
+        "Cedar"
       ]
     }
   },
@@ -89640,7 +90283,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Peach",
         "Orange Blossom",
         "Plum",
-        "Violet"
+        "Violet",
+        "Black Currant"
       ],
       "middle": [],
       "base": []
@@ -89932,7 +90576,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Patchouli",
         "Oakmoss",
         "Leather",
-        "Incense"
+        "Incense",
+        "Musk"
       ]
     }
   },
@@ -90182,7 +90827,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Cedar"
+        "Cedar",
+        "Patchouli"
       ]
     }
   },
@@ -90239,13 +90885,14 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Pitosporum",
         "Cyclamen",
         "Water Lily",
-        "Lime"
+        "Lime",
+        "Peony"
       ],
       "base": [
         "Almond Tree",
         "Virginia Cedar",
         "Musk",
-        "Vetyver"
+        "Vetiver"
       ]
     }
   },
@@ -90311,7 +90958,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Lemon"
+        "Lemon",
+        "Pink Pepper"
       ],
       "middle": [],
       "base": []
@@ -90389,7 +91037,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Black Currant"
+        "Black Currant",
+        "Raspberry"
       ],
       "middle": [
         "Patchouli"
@@ -90415,7 +91064,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Cedar"
+        "Cedar",
+        "Musk"
       ]
     }
   },
@@ -90481,7 +91131,9 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       ],
       "base": [
         "Vanilla",
-        "Sandalwood"
+        "Sandalwood",
+        "Cedar",
+        "Rochas Girl"
       ]
     }
   },
@@ -90512,13 +91164,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "A warm"
-      ]
-    }
+    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338276089993-44927147081865",
@@ -90551,7 +91197,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Mandarin Orange",
-        "Pink Pepper**"
+        "Pink Pepper"
       ],
       "middle": [],
       "base": []
@@ -90654,7 +91300,8 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Tuberose"
       ],
       "base": [
-        "Sandalwood"
+        "Sandalwood",
+        "Musk"
       ]
     }
   },
@@ -90849,7 +91496,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Ambergris",
         "Musk",
         "Sandalwood",
-        "Vanilla"
+        "Vanilla",
+        "Patchouli"
       ]
     }
   },
@@ -90981,7 +91629,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       "base": [
         "Vanilla",
         "Amber",
-        "Sandalwood"
+        "Sandalwood",
+        "Musk"
       ]
     }
   },
@@ -91241,7 +91890,9 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Pomegranate"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Vanille"
+      ]
     }
   },
   {
@@ -91360,7 +92011,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Ambroxan",
-        "Benzoin"
+        "Benzoin",
+        "Patchouli"
       ]
     }
   },
@@ -91432,7 +92084,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Musk"
+        "Musk",
+        "Virginia Cedar"
       ]
     }
   },
@@ -91459,7 +92112,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "notes": {
       "top": [],
       "middle": [
-        "Jasmine"
+        "Jasmine",
+        "Red Lily"
       ],
       "base": [
         "White Musk"
@@ -91496,7 +92150,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       "top": [],
       "middle": [
         "Myrrh",
-        "Labdanum  unfold"
+        "Labdanum"
       ],
       "base": [
         "Cedar",
@@ -91542,7 +92196,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Coriander"
       ],
       "middle": [
-        "Juniper Berries |"
+        "Juniper Berries"
       ],
       "base": [
         "Oud",
@@ -91551,7 +92205,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Cedar",
         "Patchouli",
         "Amber",
-        "Frankincense"
+        "Frankincense",
+        "Clove"
       ]
     }
   },
@@ -91901,13 +92556,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "The exotic"
-      ],
-      "base": []
-    }
+    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416765116553-45147150123145",
@@ -92055,7 +92704,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Vetiver"
+        "Vetiver",
+        "Crystal Amber"
       ]
     }
   },
@@ -92398,7 +93048,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Moss"
+        "Moss",
+        "Patchouli"
       ]
     }
   },
@@ -92484,7 +93135,9 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       "middle": [
         "Nutmeg"
       ],
-      "base": []
+      "base": [
+        "Cedarwood"
+      ]
     }
   },
   {
@@ -92521,12 +93174,14 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Grapefruit",
-        "Mandarin"
+        "Mandarin",
+        "Pear"
       ],
       "middle": [],
       "base": [
         "Vanilla",
-        "Musk"
+        "Musk",
+        "Caramel Accord"
       ]
     }
   },
@@ -92855,7 +93510,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Mandarin Orange"
+        "Mandarin Orange",
+        "Cardamom"
       ],
       "middle": [
         "Magnolia"
@@ -93201,7 +93857,9 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       "middle": [
         "Luxurious musk"
       ],
-      "base": []
+      "base": [
+        "Deep woody undertones"
+      ]
     }
   },
   {
@@ -93528,10 +94186,13 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       ],
       "middle": [
         "Iris",
-        "Amber"
+        "Rose",
+        "Amber",
+        "Moss"
       ],
       "base": [
-        "Amber"
+        "Amber",
+        "Moss"
       ]
     }
   },
@@ -93678,7 +94339,9 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Black Currant"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Cedar"
+      ]
     }
   },
   {
@@ -93966,7 +94629,13 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Oud"
+      ]
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416773079177-45147160674441",
@@ -94193,13 +94862,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": {
-      "top": [
-        "A bright"
-      ],
-      "middle": [],
-      "base": []
-    }
+    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416773439625-45147161034889",
@@ -94373,7 +95036,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Bergamot"
       ],
       "middle": [
-        "Juniper"
+        "Juniper",
+        "Rosemary"
       ],
       "base": [
         "Finally",
@@ -94543,7 +95207,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       ],
       "base": [
         "Tonka Bean",
-        "Amber"
+        "Amber",
+        "Benzoin"
       ]
     }
   },
@@ -94563,7 +95228,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "White Musk"
+        "White Musk",
+        "Amber"
       ]
     }
   },
@@ -94649,7 +95315,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       ],
       "base": [
         "Oakmoss",
-        "Musk"
+        "Musk",
+        "Tonka Bean"
       ]
     }
   },
@@ -94739,13 +95406,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "The warm"
-      ],
-      "base": []
-    }
+    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338391367817-44927330615433",
@@ -95046,7 +95707,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Musk  emerge"
+        "Musk"
       ]
     }
   },
@@ -95108,7 +95769,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       "base": [
         "Musk",
         "White Oud",
-        "Amber"
+        "Amber",
+        "Sand"
       ]
     }
   },
@@ -95169,7 +95831,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       "base": [
         "Musk",
         "Sandalwood",
-        "Amber"
+        "Amber",
+        "Cedar"
       ]
     }
   },
@@ -95259,7 +95922,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Camellia"
       ],
       "base": [
-        "Sandalwood"
+        "Sandalwood",
+        "Russian leather"
       ]
     }
   },
@@ -95376,6 +96040,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Cashmeran",
         "Styrax",
         "Labdanum",
+        "Vetiver",
         "Summer",
         "Autumn"
       ]
@@ -95557,7 +96222,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Vetiver",
         "Oak",
         "Olibanum",
-        "Mastic"
+        "Mastic",
+        "Vanilla"
       ]
     }
   },
@@ -95591,7 +96257,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Incense",
         "Vanilla",
         "Oak",
-        "Vetyver"
+        "Vetiver"
       ]
     }
   },
@@ -95693,7 +96359,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Cashmeran",
         "Woods",
         "Tonka bean",
-        "Leather |"
+        "Leather"
       ]
     }
   },
@@ -95763,6 +96429,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
+        "Experience the",
         "Ginger"
       ],
       "middle": [],
@@ -95892,7 +96559,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Leather",
         "Opoponax",
         "Benzoin",
-        "Vetiver"
+        "Vetiver",
+        "Styrax"
       ]
     }
   },
@@ -95932,11 +96600,11 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Cardamom"
       ],
       "middle": [
-        "Orange Flower  emerge"
+        "Orange Flower"
       ],
       "base": [
         "Tonka Bean",
-        "Guiacwoof"
+        "Guaiac Wood"
       ]
     }
   },
@@ -95956,7 +96624,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       "middle": [],
       "base": [
         "Amber",
-        "Tonka Bean"
+        "Tonka Bean",
+        "Guiacwood"
       ]
     }
   },
@@ -96056,7 +96725,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Orris"
       ],
       "base": [
-        "Leather"
+        "Leather",
+        "Tobacco"
       ]
     }
   },
@@ -96075,7 +96745,9 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Orris"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Tobacco"
+      ]
     }
   },
   {
@@ -96165,7 +96837,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Tonka"
+        "Tonka",
+        "Amber"
       ]
     }
   },
@@ -96211,7 +96884,13 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Amber"
+      ]
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338379767945-44927309938825",
@@ -96463,7 +97142,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Tonka Bean"
+        "Tonka Bean",
+        "Akigalawood"
       ]
     }
   },
@@ -96603,14 +97283,16 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Camelia",
-        "Mandarin Orange"
+        "Mandarin Orange",
+        "Black Currant"
       ],
       "middle": [
         "Honeysuckle",
         "Grapefruit",
         "Rose",
         "Lily",
-        "Mint"
+        "Mint",
+        "Violet"
       ],
       "base": [
         "Jasmine",
@@ -96676,7 +97358,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
       ],
       "base": [
         "Cotton Flower",
-        "Cactus"
+        "Cactus",
+        "Amber"
       ]
     }
   },
@@ -96746,10 +97429,11 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Green Apple"
+        "Green Apple",
+        "Lemon for an"
       ],
       "middle": [
-        "Geranium add depth"
+        "Geranium"
       ],
       "base": []
     }
@@ -96774,7 +97458,13 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [
+        "Sage"
+      ],
+      "base": []
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416782516361-45147171225737",
@@ -96838,9 +97528,12 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [],
-      "middle": [],
+      "middle": [
+        "Carrot Seeds"
+      ],
       "base": [
-        "Sandalwood"
+        "Sandalwood",
+        "Musk"
       ]
     }
   },
@@ -96855,7 +97548,8 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Raspberry"
+        "Raspberry",
+        "Bergamot"
       ],
       "middle": [],
       "base": []
@@ -97183,6 +97877,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
+        "Grass",
         "Lavender",
         "Spice",
         "Musk"
@@ -98438,7 +99133,8 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
       ],
       "middle": [],
       "base": [
-        "Mahogany"
+        "Mahogany",
+        "Amber"
       ]
     }
   },
@@ -98867,7 +99563,8 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
       "base": [
         "Virginia Cedar",
         "Atlas Cedar",
-        "Vetiver"
+        "Vetiver",
+        "OakMoss"
       ]
     }
   },
@@ -98897,7 +99594,8 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
       "base": [
         "Virginia Cedar",
         "Atlas Cedar",
-        "Vetiver"
+        "Vetiver",
+        "Oakmoss"
       ]
     }
   },
@@ -98923,7 +99621,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
         "Vanilla"
       ],
       "base": [
-        "Cedar Wood",
+        "Cedarwood",
         "Vetiver",
         "Oakmoss"
       ]
@@ -99258,13 +99956,16 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Summer"
+        "Summer",
+        "Autumn"
       ],
       "middle": [
-        "Summer"
+        "Summer",
+        "Autumn"
       ],
       "base": [
-        "Summer"
+        "Summer",
+        "Autumn"
       ]
     }
   },
@@ -99332,7 +100033,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
       "base": [
         "Musk",
         "Olive Tree",
-        "Sandalwood  lend warmth"
+        "Sandalwood"
       ]
     }
   },
@@ -99780,13 +100481,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "A rich"
-      ],
-      "base": []
-    }
+    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338397790345-44927347982473",
@@ -99797,7 +100492,13 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [
+        "Revel in the"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338304729225-44927212880009",
@@ -99845,7 +100546,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
       "base": [
         "Vanilla",
         "Sandalwood",
-        "Cedar wood",
+        "Cedarwood",
         "Clary sage"
       ]
     }
@@ -99873,7 +100574,8 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "notes": {
       "top": [
         "Cardamom",
-        "Wild Herbs"
+        "Wild Herbs",
+        "Lemon"
       ],
       "middle": [
         "Clary Sage",
@@ -99947,7 +100649,8 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
         "Mandarin"
       ],
       "middle": [
-        "Rose"
+        "Rose",
+        "Hyacinth"
       ],
       "base": [
         "Moss",
@@ -100074,7 +100777,8 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "image": null,
     "notes": {
       "top": [
-        "Peach"
+        "Peach",
+        "Grapefruit"
       ],
       "middle": [],
       "base": []
@@ -100310,7 +101014,15 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [
+        "Madagascar vanilla"
+      ],
+      "middle": [],
+      "base": [
+        "Madagascar vanilla"
+      ]
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416791855241-45147182170249",
@@ -100843,7 +101555,8 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
         "Bergamot"
       ],
       "middle": [
-        "Cedar"
+        "Cedar",
+        "Geranium harmoniously"
       ],
       "base": [
         "Tonka Bean",
@@ -100869,7 +101582,8 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
         "White Flowers"
       ],
       "base": [
-        "Musk"
+        "Musk",
+        "Spices"
       ]
     }
   },
@@ -101128,7 +101842,8 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
       ],
       "base": [
         "Cedar",
-        "Patchouli"
+        "Patchouli",
+        "Sandalwood"
       ]
     }
   },
@@ -101778,7 +102493,9 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
         "Silkwood Blossom"
       ],
       "middle": [],
-      "base": []
+      "base": [
+        "Cashmere Wood"
+      ]
     }
   },
   {
@@ -101845,7 +102562,13 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
-    "notes": null
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Chestnut"
+      ]
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338413617289-44927392252041",
@@ -101946,7 +102669,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
       "top": [],
       "middle": [],
       "base": [
-        "Patchouli  develop"
+        "Patchouli"
       ]
     }
   },
