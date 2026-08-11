@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-11T21:39:53.165Z",
+  "checkedAt": "2026-08-11T22:51:15.664Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -22,7 +22,7 @@
     },
     {
       "houseId": "afnan",
-      "name": "Afnan Perfumes",
+      "name": "Afnan",
       "origin": "https://www.afnanperfumes.com",
       "routeUsed": null,
       "currency": null,
@@ -140,7 +140,7 @@
     },
     {
       "houseId": "lattafa",
-      "name": "Lattafa Perfumes",
+      "name": "Lattafa",
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
@@ -157,7 +157,7 @@
     },
     {
       "houseId": "surrati",
-      "name": "Surrati Perfumes",
+      "name": "Surrati",
       "origin": "https://surrati.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
@@ -173,7 +173,7 @@
     },
     {
       "houseId": "rayhaan",
-      "name": "Rayhaan Perfumes",
+      "name": "Rayhaan",
       "origin": "https://rayhaanperfumes.com",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
@@ -205,7 +205,7 @@
     },
     {
       "houseId": "arabiyat-prestige",
-      "name": "Arabiyat Prestige",
+      "name": "Arabiyat",
       "origin": "https://arabiyatprestige.shop",
       "routeUsed": null,
       "currency": null,
@@ -410,7 +410,7 @@
     },
     {
       "houseId": "reef",
-      "name": "REEF",
+      "name": "Reef Perfumes",
       "origin": "https://www.reef-parfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
