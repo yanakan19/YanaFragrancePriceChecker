@@ -1147,6 +1147,10 @@
     font-size: 11px; font-weight: 700; letter-spacing: .11em;
     text-transform: uppercase; color: var(--faint);
   }
+  /* "Available at" leads .detail-offers with nothing above it in that
+     column — the separator line and the gap it implies both belong between
+     two sections, not floating above the first one. */
+  .detail-offers > .gone-head:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
   /* Why a group of shops is listed at all, where the heading alone would
      otherwise read as a claim about availability. */
   .group-note {
@@ -1159,21 +1163,29 @@
   .history-svg { width: 100%; height: 160px; display: block; overflow: visible; }
   .history-area { fill: var(--accent-sf); opacity: .5; stroke: none; }
   .history-line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+  /* HTML buttons laid over the svg, not shapes inside it — see
+     priceHistoryChart's own comment for why: the svg stretches non-uniformly
+     to fill the card, which warps an SVG circle's fill into an ellipse the
+     moment its aspect ratio departs from the viewBox's. A fixed-pixel-sized
+     div with border-radius: 50% has no such dependency and stays perfectly
+     round at any chart width. */
   .history-dot {
-    fill: var(--bg); stroke: var(--accent); stroke-width: 2; cursor: pointer;
-    outline: none; transition: r .12s ease;
+    position: absolute; transform: translate(-50%, -50%);
+    width: 8px; height: 8px; border-radius: 50%; padding: 0;
+    background: var(--bg); border: 2px solid var(--accent); cursor: pointer;
+    outline: none; transition: width .12s ease, height .12s ease; z-index: 2;
   }
-  .history-dot:hover, .history-dot:focus-visible { r: 6; fill: var(--accent); }
+  .history-dot:hover, .history-dot:focus-visible { width: 13px; height: 13px; background: var(--accent); }
   /* The live/current price point. Pulses to read as "this one is now", the
      rest of the line as settled history — purely additive, never the only
      way the current point is distinguishable (it is also simply the last,
      rightmost, largest dot). Respects the app-wide reduced-motion rule at
      the bottom of this file, which strips all animation outright. */
-  .history-dot-last { fill: var(--accent); }
+  .history-dot-last { width: 11px; height: 11px; background: var(--accent); }
   .history-dot-live { animation: history-pulse 1.8s ease-in-out infinite; }
   @keyframes history-pulse {
-    0%, 100% { r: 5; opacity: 1; }
-    50% { r: 7; opacity: .65; }
+    0%, 100% { width: 11px; height: 11px; opacity: 1; }
+    50% { width: 15px; height: 15px; opacity: .65; }
   }
   .history-tip {
     position: absolute; z-index: 5; pointer-events: none;
@@ -1188,6 +1200,14 @@
   }
   .history-tip b { color: var(--ink); font-size: 13px; }
   .history-tip span { display: block; color: var(--faint); }
+  /* One label per sampled day, positioned the same way the dots above it
+     are — percent left, matched to the same xPct so a label always sits
+     directly under the day it names. */
+  .history-xaxis { position: relative; height: 16px; margin-top: 4px; }
+  .history-xlabel {
+    position: absolute; top: 0; transform: translateX(-50%);
+    font-size: 10.5px; color: var(--faint); white-space: nowrap;
+  }
 
   /* ── settings and documents ────────────────────────────────────────────── */
   .doc { padding: 4px 0 8px; }

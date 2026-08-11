@@ -98,11 +98,19 @@ is_generated() {
 # case below matches scripts/catalogue-harvest.ts, scripts/houses-harvest.ts,
 # scripts/awin-feed-sync.ts, scripts/shipping-discover.ts and
 # scripts/image-link-check.ts's own write targets.
+#
+# demo/deals.generated.ts belongs here too, deliberately not in
+# GENERATED_PATHS, even though scripts/build-deals.ts could technically
+# rebuild it from data already on disk: the whole point of that file is that
+# it changes on its own 6-hourly schedule regardless of what else lands in
+# between, not on every conflict a rebuild would silently trigger.
+# Regenerating it mid-conflict would defeat the one thing it exists to do.
 is_raw_snapshot() {
   case "$1" in
     data/catalogue/*.json|data/houses/*.json) return 0 ;;
     data/house-sourcing-report.json|data/shipping-discovery-report.json) return 0 ;;
     data/image-link-report.json|data/awin-feed-sync-state.json|data/strategy-memory.json) return 0 ;;
+    demo/deals.generated.ts) return 0 ;;
     *) return 1 ;;
   esac
 }
