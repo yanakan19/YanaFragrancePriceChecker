@@ -99,7 +99,9 @@ export const HOUSES: readonly House[] = [
   },
   {
     id: 'afnan',
-    name: 'Afnan Perfumes',
+    // 'Afnan', not this house's own 'Afnan Perfumes' — see the 'reef' entry
+    // below for why, and src/catalogue/brandName.ts for the call.
+    name: 'Afnan',
     origin: 'https://www.afnanperfumes.com',
     confidence: 'unverified',
     routes: ['shopify-products-json', 'sitemap-jsonld'],
@@ -181,7 +183,9 @@ export const HOUSES: readonly House[] = [
   },
   {
     id: 'lattafa',
-    name: 'Lattafa Perfumes',
+    // 'Lattafa', not this house's own 'Lattafa Perfumes' — see the 'reef'
+    // entry below for why, and src/catalogue/brandName.ts for the call.
+    name: 'Lattafa',
     origin: 'https://lattafa.com',
     confidence: 'unverified',
     routes: ['shopify-products-json', 'sitemap-jsonld'],
@@ -194,7 +198,9 @@ export const HOUSES: readonly House[] = [
   },
   {
     id: 'surrati',
-    name: 'Surrati Perfumes',
+    // 'Surrati', not this house's own 'Surrati Perfumes' — see the 'reef'
+    // entry below for why, and src/catalogue/brandName.ts for the call.
+    name: 'Surrati',
     origin: 'https://surrati.ae',
     confidence: 'unverified',
     routes: ['shopify-products-json', 'sitemap-jsonld'],
@@ -206,7 +212,9 @@ export const HOUSES: readonly House[] = [
   },
   {
     id: 'rayhaan',
-    name: 'Rayhaan Perfumes',
+    // 'Rayhaan', not this house's own 'Rayhaan Perfumes' — see the 'reef'
+    // entry below for why, and src/catalogue/brandName.ts for the call.
+    name: 'Rayhaan',
     origin: 'https://rayhaanperfumes.com',
     confidence: 'unverified',
     routes: ['shopify-products-json', 'sitemap-jsonld'],
@@ -230,7 +238,9 @@ export const HOUSES: readonly House[] = [
   },
   {
     id: 'arabiyat-prestige',
-    name: 'Arabiyat Prestige',
+    // 'Arabiyat', not this house's own 'Arabiyat Prestige' — see the 'reef'
+    // entry below for why, and src/catalogue/brandName.ts for the call.
+    name: 'Arabiyat',
     origin: 'https://arabiyatprestige.shop',
     confidence: 'unverified',
     routes: ['shopify-products-json', 'sitemap-jsonld'],
@@ -372,7 +382,14 @@ export const HOUSES: readonly House[] = [
   },
   {
     id: 'reef',
-    name: 'REEF',
+    // Display name 'Reef Perfumes', not the bare 'REEF' this house's own
+    // storefront uses — this house's brand does not flow through
+    // buildBrandCanon (src/catalogue/brandName.ts) the way a retailer
+    // listing's vendor field does, so it stayed literally 'REEF' even after
+    // that table was told 'REEF' and 'Reef Perfumes' are the same house.
+    // Set here at the source instead, to the same spelling that table
+    // chooses, so a reader never sees both.
+    name: 'Reef Perfumes',
     origin: 'https://www.reef-parfum.com',
     confidence: 'unverified',
     routes: ['shopify-products-json', 'sitemap-jsonld'],

@@ -1489,6 +1489,17 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6290171075288",
+    "brand": "Afnan",
+    "name": "9PM Rebel",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290171075288",
+    "shops": 3,
+    "image": "https://www.justmylook.com/cdn/shop/files/AFNN0017.png?v=1732899724&width=1000",
+    "notes": null
+  },
+  {
     "id": "ean-6291100130122",
     "brand": "Al Haramain",
     "name": "Amber Oud Gold",
@@ -3358,6 +3369,33 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-7640111494027",
+    "brand": "Gres",
+    "name": "Cabotine",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "7640111494027",
+    "shops": 3,
+    "image": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-eau-de-toilette-100ml-p23495-87928_image.jpg?v=1721322218&width=1000",
+    "notes": {
+      "top": [
+        "Blackcurrant Buds",
+        "Pear",
+        "Plum",
+        "Coriander"
+      ],
+      "middle": [],
+      "base": [
+        "Cedarwood",
+        "Vanilla",
+        "Tonka Bean",
+        "Cybet",
+        "Musk",
+        "Amber"
+      ]
+    }
+  },
+  {
     "id": "ean-737052925028",
     "brand": "Gucci",
     "name": "Bamboo",
@@ -4172,6 +4210,157 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-6291107454412",
+    "brand": "Lattafa",
+    "name": "Ana Abiyedh Rouge",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 60,
+    "ean": "6291107454412",
+    "shops": 3,
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0001.png?v=1758900965&width=1000",
+    "notes": null
+  },
+  {
+    "id": "ean-6291108735411",
+    "brand": "Lattafa",
+    "name": "Asad",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6291108735411",
+    "shops": 3,
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0002.png?v=1758900965&width=1000",
+    "notes": null
+  },
+  {
+    "id": "ean-6290362340362",
+    "brand": "Lattafa",
+    "name": "Asad Bourbon",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362340362",
+    "shops": 3,
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0012.png?v=1758900972&width=1000",
+    "notes": null
+  },
+  {
+    "id": "ean-6291108733875",
+    "brand": "Lattafa",
+    "name": "Bade'e Al Oud Amethyst",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6291108733875",
+    "shops": 3,
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0004.png?v=1758900965&width=1000",
+    "notes": {
+      "top": [
+        "Bergamot"
+      ],
+      "middle": [],
+      "base": [
+        "Amber",
+        "Vanilla"
+      ]
+    }
+  },
+  {
+    "id": "ean-6290360593135",
+    "brand": "Lattafa",
+    "name": "Bade'e Al Oud Honor & Glory",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360593135",
+    "shops": 3,
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0014_a0e80e21-0cf9-4c3e-8e6a-b485e9309cf4.png?v=1758900972&width=1000",
+    "notes": null
+  },
+  {
+    "id": "ean-6290360593142",
+    "brand": "Lattafa",
+    "name": "Badee Al Oud Sublime",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360593142",
+    "shops": 3,
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0021_b1884840-f9be-4e5e-9ae7-ec48f831d917.png?v=1758900973&width=1000",
+    "notes": {
+      "top": [],
+      "middle": [
+        "Plum",
+        "Jasmine"
+      ],
+      "base": []
+    }
+  },
+  {
+    "id": "ean-6290360599120",
+    "brand": "Lattafa",
+    "name": "Her Confession",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360599120",
+    "shops": 3,
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0013.jpg?v=1737650800&width=1000",
+    "notes": {
+      "top": [
+        "Accord"
+      ],
+      "middle": [
+        "Jasmine"
+      ],
+      "base": [
+        "Tonka bean"
+      ]
+    }
+  },
+  {
+    "id": "ean-6291108737194",
+    "brand": "Lattafa",
+    "name": "Khamrah",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6291108737194",
+    "shops": 3,
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0010.png?v=1758900967&width=1000",
+    "notes": {
+      "top": [
+        "Nutmeg",
+        "Cinnamon"
+      ],
+      "middle": [],
+      "base": []
+    }
+  },
+  {
+    "id": "ean-6291106065114",
+    "brand": "Lattafa",
+    "name": "Oud Mood",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6291106065114",
+    "shops": 3,
+    "image": "https://www.justmylook.com/cdn/shop/files/oud-mood-eau-de-parfum-100ml-p38196-121259_image.jpg?v=1721322268&width=1000",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Amber",
+        "Musk",
+        "Incense"
+      ]
+    }
+  },
+  {
+    "id": "ean-6291107455365",
+    "brand": "Lattafa",
+    "name": "Qaed Al Fursan",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 90,
+    "ean": "6291107455365",
+    "shops": 3,
+    "image": "https://www.justmylook.com/cdn/shop/files/qaed-al-fursan-eau-de-parfum-90ml-p38197-121260_image.jpg?v=1721322263&width=1000",
+    "notes": null
+  },
+  {
     "id": "ean-6291108730515",
     "brand": "Lattafa",
     "name": "Yara",
@@ -4180,6 +4369,47 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "ean": "6291108730515",
     "shops": 3,
     "image": "https://www.justmylook.com/cdn/shop/files/LAT0009.png?v=1758900965&width=1000",
+    "notes": null
+  },
+  {
+    "id": "ean-6290360599168",
+    "brand": "Lattafa",
+    "name": "Yara Candy",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360599168",
+    "shops": 3,
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0016_89a61f8e-6d42-4c7f-ba2c-cf6ff329ddde.png?v=1758900974&width=1000",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Amber",
+        "Sandalwood",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "ean-6290360591421",
+    "brand": "Lattafa",
+    "name": "Yara Moi",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360591421",
+    "shops": 3,
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0019.png?v=1758900972&width=1000",
+    "notes": null
+  },
+  {
+    "id": "ean-6290360594552",
+    "brand": "Lattafa",
+    "name": "Yara Tous",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360594552",
+    "shops": 3,
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0020.png?v=1758900973&width=1000",
     "notes": null
   },
   {
@@ -6864,17 +7094,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6290171075288",
-    "brand": "Afnan",
-    "name": "9PM Rebel",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290171075288",
-    "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/AFNN0017.png?v=1732899724&width=1000",
-    "notes": null
-  },
-  {
     "id": "ean-6290171076704",
     "brand": "Afnan",
     "name": "Rare Reef",
@@ -6883,6 +7102,17 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "ean": "6290171076704",
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1748880073-70531800.jpg?v=1763398043&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290171074786",
+    "brand": "Afnan",
+    "name": "Souvenir Blooming Bliss",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290171074786",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1735815296-73958900.jpg?v=1763396905&width=1920",
     "notes": null
   },
   {
@@ -6928,6 +7158,31 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-silver-pour-homme-eau-de-parfum-100ml-p35653-108057_image.jpg?v=1721322166&width=1000",
     "notes": null
+  },
+  {
+    "id": "ean-6290171070580",
+    "brand": "Afnan",
+    "name": "Turathi Blue",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 90,
+    "ean": "6290171070580",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1718631150-89291900.jpg?v=1763395247&width=1920",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Mandarin"
+      ],
+      "middle": [
+        "Amber",
+        "Woods"
+      ],
+      "base": [
+        "Musk",
+        "Patchouli",
+        "Fresh Spicy"
+      ]
+    }
   },
   {
     "id": "ean-6290171076001",
@@ -7671,7 +7926,10 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://allbeauty.com/cdn/shop/files/619153.jpg?v=1766146578&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
   {
     "id": "ean-3386460057059",
     "brand": "Boucheron",
@@ -7937,10 +8195,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1579608831-28758600.jpg?v=1763388807&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
+  },
   {
     "id": "ean-5045252667309",
     "brand": "Burberry",
@@ -9729,7 +9984,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
   },
   {
     "id": "ean-5425017733508",
-    "brand": "Cuba",
+    "brand": "Cuba Paris",
     "name": "Prestige Gold",
     "concentration": "Eau de Toilette",
     "sizeMl": 90,
@@ -9740,7 +9995,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
   },
   {
     "id": "ean-5425017736363",
-    "brand": "Cuba",
+    "brand": "Cuba Paris",
     "name": "Royal",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
@@ -12007,17 +12262,6 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-7640111494027",
-    "brand": "Gres",
-    "name": "Cabotine",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "7640111494027",
-    "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-eau-de-toilette-100ml-p23495-87928_image.jpg?v=1721322218&width=1000",
-    "notes": null
-  },
-  {
     "id": "ean-7640111494133",
     "brand": "Gres",
     "name": "Cabotine",
@@ -12027,6 +12271,26 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-eau-de-parfum-100ml-p23218-87930_image.jpg?v=1721322228&width=1000",
     "notes": null
+  },
+  {
+    "id": "justmylook-gres0008",
+    "brand": "Gres",
+    "name": "Madame Gres",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://www.justmylook.com/cdn/shop/files/gres-madame-gres-eau-de-parfum-100ml-p23496-87943_image.jpg?v=1721322210&width=1000",
+    "notes": {
+      "top": [
+        "Grapefruit",
+        "Cornflower"
+      ],
+      "middle": [
+        "Peony"
+      ],
+      "base": []
+    }
   },
   {
     "id": "ean-3616302514274",
@@ -13974,6 +14238,51 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "justmylook-kil0001",
+    "brand": "Kilian",
+    "name": "Good Girl Gone Bad",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 2,
+    "image": "https://www.justmylook.com/cdn/shop/files/KIL0001_0d0db23a-b131-40ae-884f-a55b43bdcb61.png?v=1766583602&width=1000",
+    "notes": {
+      "top": [
+        "Jasmine",
+        "May Rose"
+      ],
+      "middle": [],
+      "base": [
+        "Cedar"
+      ]
+    }
+  },
+  {
+    "id": "justmylook-kil0019",
+    "brand": "Kilian",
+    "name": "Love Dont Be Shy",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 2,
+    "image": "https://www.justmylook.com/cdn/shop/files/KIL0019_93c88b75-a66c-44d4-abe6-263c4c9dcf7e.png?v=1766583604&width=1000",
+    "notes": {
+      "top": [
+        "Coriander",
+        "Neroli",
+        "Pink Pepper"
+      ],
+      "middle": [],
+      "base": [
+        "Browncurrant",
+        "Musk",
+        "Labdanum",
+        "Caramel",
+        "Vanilla"
+      ]
+    }
+  },
+  {
     "id": "ean-3386460149303",
     "brand": "Lacoste",
     "name": "Essential",
@@ -14270,15 +14579,53 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6291107454412",
+    "id": "justmylook-lat0015",
     "brand": "Lattafa",
-    "name": "Ana Abiyedh Rouge",
+    "name": "Ameer Al Oudh Intense Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://www.justmylook.com/cdn/shop/files/LAT0015_85c3074f-8960-454b-83c6-7fac19e635a2.png?v=1758900973&width=1000",
+    "notes": null
+  },
+  {
+    "id": "ean-6291106066890",
+    "brand": "Lattafa",
+    "name": "Ana Abiyedh",
     "concentration": "Eau de Parfum",
     "sizeMl": 60,
-    "ean": "6291107454412",
+    "ean": "6291106066890",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/LAT0001.png?v=1758900965&width=1000",
-    "notes": null
+    "image": "https://www.beautybase.com/cdn/shop/files/1561393908-50494900.jpg?v=1763389329&width=1920",
+    "notes": {
+      "top": [
+        "Orange"
+      ],
+      "middle": [],
+      "base": [
+        "White Musk",
+        "Jasmine",
+        "Nagarmotha"
+      ]
+    }
+  },
+  {
+    "id": "ean-6290362349938",
+    "brand": "Lattafa",
+    "name": "Ana Abiyedh Scarlet",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 60,
+    "ean": "6290362349938",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1755852528-22656700.jpg?v=1763398825&width=1920",
+    "notes": {
+      "top": [
+        "Bergamot"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "ean-6290360598338",
@@ -14292,59 +14639,39 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6291108735411",
+    "id": "ean-6290360598666",
     "brand": "Lattafa",
-    "name": "Asad",
+    "name": "Asad Zanzibar",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6291108735411",
+    "ean": "6290360598666",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/LAT0002.png?v=1758900965&width=1000",
-    "notes": null
+    "image": "https://www.beautybase.com/cdn/shop/files/1718616931-94457300.jpg?v=1763395273&width=1920",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Smoky Frankincense"
+      ]
+    }
   },
   {
-    "id": "ean-6290362340362",
+    "id": "ean-6291107458328",
     "brand": "Lattafa",
-    "name": "Asad Bourbon",
+    "name": "Bade'e Al Oud Oud For Glory",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6290362340362",
+    "ean": "6291107458328",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/LAT0012.png?v=1758900972&width=1000",
-    "notes": null
-  },
-  {
-    "id": "ean-6291108733875",
-    "brand": "Lattafa",
-    "name": "Bade'e Al Oud Amethyst",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6291108733875",
-    "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/LAT0004.png?v=1758900965&width=1000",
-    "notes": null
-  },
-  {
-    "id": "ean-6290360593135",
-    "brand": "Lattafa",
-    "name": "Bade'e Al Oud Honor & Glory",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360593135",
-    "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/LAT0014_a0e80e21-0cf9-4c3e-8e6a-b485e9309cf4.png?v=1758900972&width=1000",
-    "notes": null
-  },
-  {
-    "id": "ean-6290360593142",
-    "brand": "Lattafa",
-    "name": "Badee Al Oud Sublime",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360593142",
-    "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/LAT0021_b1884840-f9be-4e5e-9ae7-ec48f831d917.png?v=1758900973&width=1000",
-    "notes": null
+    "image": "https://www.beautybase.com/cdn/shop/files/1651074596-45882100.jpg?v=1763391948&width=1920",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Patchouli",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-6290362340638",
@@ -14358,26 +14685,111 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6290360599120",
+    "id": "ean-6291108738504",
     "brand": "Lattafa",
-    "name": "Her Confession",
+    "name": "Haya",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6290360599120",
+    "ean": "6291108738504",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/LAT0013.jpg?v=1737650800&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1746806093-24969800.jpg?v=1763397893&width=1920",
     "notes": null
   },
   {
-    "id": "ean-6291108737194",
+    "id": "ean-6291107450193",
     "brand": "Lattafa",
-    "name": "Khamrah",
+    "name": "Hayaati",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6291108737194",
+    "ean": "6291107450193",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/LAT0010.png?v=1758900967&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1755679741-48714900.jpg?v=1763395898&width=1920",
     "notes": null
+  },
+  {
+    "id": "ean-6291108734056",
+    "brand": "Lattafa",
+    "name": "Hayaati Al Maleky",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6291108734056",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1747220688-36145600.jpg?v=1763397893&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290360593180",
+    "brand": "Lattafa",
+    "name": "Hayaati Florence",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360593180",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1719917801-92262100.jpg?v=1763395345&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6291107457895",
+    "brand": "Lattafa",
+    "name": "Hayaati Gold Elixir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6291107457895",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1719918125-00905000.jpg?v=1763395347&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290360599113",
+    "brand": "Lattafa",
+    "name": "His Confession",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360599113",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1747219879-84385700.jpg?v=1763397897&width=1920",
+    "notes": {
+      "top": [
+        "Cardamom",
+        "Tobacco",
+        "Tonka",
+        "Patchouli",
+        "Vetiver"
+      ],
+      "middle": [],
+      "base": []
+    }
+  },
+  {
+    "id": "ean-6290362342373",
+    "brand": "Lattafa",
+    "name": "Khamrah Dukhan",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362342373",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1755531246-47172800.jpg?v=1763397560&width=1920",
+    "notes": {
+      "top": [
+        "Cinnamon",
+        "Nutmeg",
+        "Bergamot"
+      ],
+      "middle": [
+        "Dates",
+        "Praline",
+        "Tuberose",
+        "Mahonial"
+      ],
+      "base": [
+        "Vanilla",
+        "Tonka Bean",
+        "Amberwood",
+        "Myrrh",
+        "Benzoin",
+        "Akigalawood"
+      ]
+    }
   },
   {
     "id": "ean-6290360593661",
@@ -14388,6 +14800,17 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "ean": "6290360593661",
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/LAT0011_fd7eccce-02c6-41ca-a611-8bca76eb1ccd.png?v=1758900970&width=1000",
+    "notes": null
+  },
+  {
+    "id": "ean-6291107456744",
+    "brand": "Lattafa",
+    "name": "Maahir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6291107456744",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1738837365-62237200.jpg?v=1763397090&width=1920",
     "notes": null
   },
   {
@@ -14402,25 +14825,142 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6291106065114",
+    "id": "ean-6290360598871",
     "brand": "Lattafa",
-    "name": "Oud Mood",
+    "name": "Nasmaat",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6291106065114",
+    "ean": "6290360598871",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/oud-mood-eau-de-parfum-100ml-p38196-121259_image.jpg?v=1721322268&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1761816961-50503400.jpg?v=1763399360&width=1920",
+    "notes": {
+      "top": [],
+      "middle": [
+        "Plum",
+        "Jasmine",
+        "Black Pepper"
+      ],
+      "base": []
+    }
+  },
+  {
+    "id": "ean-6291108738276",
+    "brand": "Lattafa",
+    "name": "Nebras",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6291108738276",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728472133-84370000.jpg?v=1763394327&width=1920",
     "notes": null
   },
   {
-    "id": "ean-6291107455365",
+    "id": "ean-6290362348054",
     "brand": "Lattafa",
-    "name": "Qaed Al Fursan",
+    "name": "Nebras Elixir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362348054",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1759334105-44292300.jpg?v=1763399124&width=1920",
+    "notes": {
+      "top": [
+        "Whipped Cream",
+        "Heliotrope"
+      ],
+      "middle": [
+        "Heliotrope"
+      ],
+      "base": [
+        "Ambroxan"
+      ]
+    }
+  }
+];
+
+const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
+  {
+    "id": "ean-6291107450445",
+    "brand": "Lattafa",
+    "name": "Opulent Musk",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6291107450445",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1759417723-19099100.jpg?v=1763399234&width=1920",
+    "notes": {
+      "top": [
+        "Lemon",
+        "Saffron",
+        "White Flowers"
+      ],
+      "middle": [
+        "White Flowers"
+      ],
+      "base": [
+        "Amber",
+        "Cedar",
+        "Resin",
+        "Fir Resin"
+      ]
+    }
+  },
+  {
+    "id": "ean-6291107450438",
+    "brand": "Lattafa",
+    "name": "Opulent Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6291107450438",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1697725791-94186900.jpg?v=1763394073&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290360598796",
+    "brand": "Lattafa",
+    "name": "Petra",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360598796",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1750157053-15869000.jpg?v=1763398123&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290362347095",
+    "brand": "Lattafa",
+    "name": "Pure Crystal",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362347095",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1761817600-49917200.jpg?v=1763399362&width=1920",
+    "notes": {
+      "top": [
+        "Red Berries",
+        "Grapefruit",
+        "Juniper",
+        "Bergamot",
+        "Lemon"
+      ],
+      "middle": [
+        "Ginger",
+        "Clary Sage",
+        "Cypress"
+      ],
+      "base": []
+    }
+  },
+  {
+    "id": "ean-6290362340645",
+    "brand": "Lattafa",
+    "name": "Qaed Al Fursan Untamed",
     "concentration": "Eau de Parfum",
     "sizeMl": 90,
-    "ean": "6291107455365",
+    "ean": "6290362340645",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/qaed-al-fursan-eau-de-parfum-90ml-p38197-121260_image.jpg?v=1721322263&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1747219701-66731800.jpg?v=1763397857&width=1920",
     "notes": null
   },
   {
@@ -14451,6 +14991,56 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     }
   },
   {
+    "id": "justmylook-lat0008",
+    "brand": "Lattafa",
+    "name": "Ramz Lattafa Silver",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://www.justmylook.com/cdn/shop/files/ramz-lattafa-silver-eau-de-parfum-100ml-p38198-121261_image.jpg?v=1721322261&width=1000",
+    "notes": {
+      "top": [
+        "Tonka"
+      ],
+      "middle": [],
+      "base": []
+    }
+  },
+  {
+    "id": "ean-6291108738658",
+    "brand": "Lattafa",
+    "name": "Shaheen Silver",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6291108738658",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1754917926-98115500.jpg?v=1763398687&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290362347484",
+    "brand": "Lattafa",
+    "name": "Sherif",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362347484",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1758292436-94213200.jpg?v=1763398979&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290360595764",
+    "brand": "Lattafa",
+    "name": "Teriaq",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360595764",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1717662391-16639000.jpg?v=1763395256&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-6290360595771",
     "brand": "Lattafa",
     "name": "Teriaq Intense",
@@ -14462,37 +15052,62 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6290360599168",
+    "id": "ean-6291108738177",
     "brand": "Lattafa",
-    "name": "Yara Candy",
+    "name": "Tharwah Gold",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6290360599168",
+    "ean": "6291108738177",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/LAT0016_89a61f8e-6d42-4c7f-ba2c-cf6ff329ddde.png?v=1758900974&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1748877918-49602100.jpg?v=1763398022&width=1920",
     "notes": null
   },
   {
-    "id": "ean-6290360591421",
+    "id": "ean-6290360592909",
     "brand": "Lattafa",
-    "name": "Yara Moi",
+    "name": "Vintage Radio",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6290360591421",
+    "ean": "6290360592909",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/LAT0019.png?v=1758900972&width=1000",
+    "image": "https://www.beautybase.com/cdn/shop/files/1728314382-19723800.jpg?v=1763395787&width=1920",
     "notes": null
   },
   {
-    "id": "ean-6290360594552",
+    "id": "ean-6423080728925",
     "brand": "Lattafa",
-    "name": "Yara Tous",
+    "name": "Yara",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "6423080728925",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728648557-39195600.jpg?v=1772625018&width=1920",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Vanilla",
+        "Sandalwood"
+      ]
+    }
+  },
+  {
+    "id": "ean-6290362346531",
+    "brand": "Lattafa",
+    "name": "Yara Elixir",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6290360594552",
+    "ean": "6290362346531",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/LAT0020.png?v=1758900973&width=1000",
-    "notes": null
+    "image": "https://www.beautybase.com/cdn/shop/files/1761816159-56719200.jpg?v=1763399366&width=1920",
+    "notes": {
+      "top": [],
+      "middle": [
+        "Jasmine",
+        "Orange Flower"
+      ],
+      "base": []
+    }
   },
   {
     "id": "ean-3595200501015",
@@ -14742,6 +15357,24 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3760265190485",
+    "brand": "Mancera",
+    "name": "Cedrat Boise",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 120,
+    "ean": "3760265190485",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/979.jpg",
+    "notes": {
+      "top": [
+        "Black Currant",
+        "Bergamot"
+      ],
+      "middle": [],
+      "base": []
+    }
+  },
+  {
     "id": "ean-31655513027",
     "brand": "Marc Jacobs",
     "name": "Daisy",
@@ -14766,10 +15399,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
+  },
   {
     "id": "ean-31655513034",
     "brand": "Marc Jacobs",
@@ -18870,6 +19500,54 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-5017101045330",
+    "brand": "Yardley London",
+    "name": "English Lavender",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": "5017101045330",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1554820425-97577400.jpg?v=1763393421&width=1920",
+    "notes": {
+      "top": [
+        "Rosemary",
+        "Eucalyptus",
+        "Bergamot"
+      ],
+      "middle": [
+        "Cedar",
+        "Geranium harmoniously"
+      ],
+      "base": [
+        "Tonka Bean",
+        "Oakmoss bring warmth"
+      ]
+    }
+  },
+  {
+    "id": "ean-4035773111307",
+    "brand": "Yardley London",
+    "name": "English Rose",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": "4035773111307",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1729675046-10886400.jpg?v=1763391758&width=1920",
+    "notes": {
+      "top": [
+        "Rose",
+        "Geranium"
+      ],
+      "middle": [
+        "White Flowers"
+      ],
+      "base": [
+        "Musk",
+        "Spices"
+      ]
+    }
+  },
+  {
     "id": "justmylook-ysl0094",
     "brand": "Yves Saint Laurent",
     "name": "Black Opium",
@@ -20997,7 +21675,10 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/afnan-9pm-pour-homme-eau-de-parfum-100ml-p35649-108050_image.jpg?v=1721322129&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "emirates-oud-14702250885469-default-title",
     "brand": "Afnan",
@@ -21023,6 +21704,191 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Caramel",
         "Musk",
         "Dry Woods"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416625918089-45146954072201",
+    "brand": "Afnan",
+    "name": "Afnan 9PM Elixir",
+    "concentration": "Extrait De Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416625393801-45146953351305",
+    "brand": "Afnan",
+    "name": "Afnan Highness X",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Black Currant"
+      ],
+      "middle": [],
+      "base": [
+        "Spices",
+        "Guaiac Wood"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416626409609-45146955186313",
+    "brand": "Afnan",
+    "name": "Afnan Miguel Mara Embassy Golden",
+    "concentration": "Extrait De Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416625885321-45146954039433",
+    "brand": "Afnan",
+    "name": "Afnan Miguel Mara Embassy Royal",
+    "concentration": "Extrait De Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416626213001-45146954989705",
+    "brand": "Afnan",
+    "name": "Afnan Modest Deux",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416625754249-45146953908361",
+    "brand": "Afnan",
+    "name": "Afnan Modest Pour Homme Une",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416625950857-45146954104969",
+    "brand": "Afnan",
+    "name": "Afnan Naseej Al Khuzama",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416625655945-45146953810057",
+    "brand": "Afnan",
+    "name": "Afnan Supremacy In Heaven",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338385830025-44927318524041",
+    "brand": "Afnan",
+    "name": "Afnan Supremacy In Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 150,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338385764489-44927318458505",
+    "brand": "Afnan",
+    "name": "Afnan Supremacy Not Only Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Apple",
+        "Black Currant"
+      ],
+      "middle": [
+        "Lavender",
+        "Patchouli",
+        "Oakmoss"
+      ],
+      "base": [
+        "Saffron",
+        "Musk",
+        "Ambergris"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416625524873-45146953482377",
+    "brand": "Afnan",
+    "name": "Afnan Supremacy Tapis Rouge",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 90,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "White Peach",
+        "Jasmine"
+      ],
+      "middle": [
+        "Rose",
+        "Mahonia",
+        "Jasmine"
+      ],
+      "base": [
+        "Vetiver",
+        "Peony"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338433802377-44927433441417",
+    "brand": "Afnan",
+    "name": "Afnan Turathi Electric",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 90,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [
+        "Apple",
+        "Cedarwood",
+        "Orange Blossom"
+      ],
+      "base": [
+        "Vanilla",
+        "Amber Dry",
+        "Musk",
+        "Ambroxan"
       ]
     }
   },
@@ -21058,6 +21924,43 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416626278537-45146955055241",
+    "brand": "Afnan",
+    "name": "Dehn al Oudh Abiyad",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416626016393-45146954203273",
+    "brand": "Afnan",
+    "name": "Dehn al Oudh Abiyad Concentrated Oil",
+    "concentration": "Perfume",
+    "sizeMl": 20,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Cinnamon",
+        "Musk"
+      ],
+      "middle": [
+        "Cedarwood",
+        "Vanilla",
+        "Musk"
+      ],
+      "base": [
+        "Juniper",
+        "Sweet"
+      ]
+    }
+  },
+  {
     "id": "justmylook-afnn0022",
     "brand": "Afnan",
     "name": "Historic Sahara",
@@ -21066,6 +21969,28 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/AFNN0022.png?v=1752245613&width=1000",
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416625787017-45146953941129",
+    "brand": "Afnan",
+    "name": "Inara",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416625819785-45146953973897",
+    "brand": "Afnan",
+    "name": "Kiaana Angel",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -21181,6 +22106,17 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416625623177-45146953711753",
+    "brand": "Afnan",
+    "name": "Mirsaal With Love",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 90,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15434678600029-default-title",
     "brand": "Afnan",
     "name": "Mystique Bouquet Perfume Afnan",
@@ -21250,6 +22186,84 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416626311305-45146955088009",
+    "brand": "Afnan",
+    "name": "Portrait Abstract",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [
+        "Oak",
+        "Sandalwood",
+        "Caramel",
+        "Dark Chocolate"
+      ],
+      "base": []
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416626376841-45146955153545",
+    "brand": "Afnan",
+    "name": "Portrait Revival",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Cinnamon",
+        "Honey",
+        "Saffron",
+        "Incense"
+      ],
+      "middle": [],
+      "base": []
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416625983625-45146954170505",
+    "brand": "Afnan",
+    "name": "Rare Passion",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Orange",
+        "Musk",
+        "Rose"
+      ],
+      "middle": [
+        "Amber",
+        "Woods",
+        "Vanilla"
+      ],
+      "base": [
+        "Rose",
+        "Musk",
+        "Orange Blossom"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416625590409-45146953547913",
+    "brand": "Afnan",
+    "name": "Rare Reef",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15566506918237-default-title",
     "brand": "Afnan",
     "name": "Rare Reef Afnan",
@@ -21280,17 +22294,6 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Dates"
       ]
     }
-  },
-  {
-    "id": "ean-6290171074786",
-    "brand": "Afnan",
-    "name": "Souvenir Blooming Bliss",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290171074786",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1735815296-73958900.jpg?v=1763396905&width=1920",
-    "notes": null
   },
   {
     "id": "emirates-oud-15444046578013-default-title",
@@ -21469,17 +22472,6 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6290171070580",
-    "brand": "Afnan",
-    "name": "Turathi Blue",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 90,
-    "ean": "6290171070580",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1718631150-89291900.jpg?v=1763395247&width=1920",
-    "notes": null
-  },
-  {
     "id": "emirates-oud-9930309599581-default-title",
     "brand": "Afnan",
     "name": "Turathi Blue Perfume Afnan",
@@ -21574,389 +22566,6 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338408472713-44927378620553",
-    "brand": "Afnan Perfumes",
-    "name": "9PM Rebel",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416625918089-45146954072201",
-    "brand": "Afnan Perfumes",
-    "name": "Afnan 9PM Elixir",
-    "concentration": "Extrait De Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416625393801-45146953351305",
-    "brand": "Afnan Perfumes",
-    "name": "Afnan Highness X",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Black Currant"
-      ],
-      "middle": [],
-      "base": [
-        "Spices",
-        "Guaiac Wood"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416626409609-45146955186313",
-    "brand": "Afnan Perfumes",
-    "name": "Afnan Miguel Mara Embassy Golden",
-    "concentration": "Extrait De Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416625885321-45146954039433",
-    "brand": "Afnan Perfumes",
-    "name": "Afnan Miguel Mara Embassy Royal",
-    "concentration": "Extrait De Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416626213001-45146954989705",
-    "brand": "Afnan Perfumes",
-    "name": "Afnan Modest Deux",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416625754249-45146953908361",
-    "brand": "Afnan Perfumes",
-    "name": "Afnan Modest Pour Homme Une",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416625950857-45146954104969",
-    "brand": "Afnan Perfumes",
-    "name": "Afnan Naseej Al Khuzama",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416625655945-45146953810057",
-    "brand": "Afnan Perfumes",
-    "name": "Afnan Supremacy In Heaven",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338385830025-44927318524041",
-    "brand": "Afnan Perfumes",
-    "name": "Afnan Supremacy In Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 150,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338385764489-44927318458505",
-    "brand": "Afnan Perfumes",
-    "name": "Afnan Supremacy Not Only Intense",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Apple",
-        "Black Currant"
-      ],
-      "middle": [
-        "Lavender",
-        "Patchouli",
-        "Oakmoss"
-      ],
-      "base": [
-        "Saffron",
-        "Musk",
-        "Ambergris"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416625524873-45146953482377",
-    "brand": "Afnan Perfumes",
-    "name": "Afnan Supremacy Tapis Rouge",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 90,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "White Peach",
-        "Jasmine"
-      ],
-      "middle": [
-        "Rose",
-        "Mahonia",
-        "Jasmine"
-      ],
-      "base": [
-        "Vetiver",
-        "Peony"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338433802377-44927433441417",
-    "brand": "Afnan Perfumes",
-    "name": "Afnan Turathi Electric",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 90,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "Apple",
-        "Cedarwood",
-        "Orange Blossom"
-      ],
-      "base": [
-        "Vanilla",
-        "Amber Dry",
-        "Musk",
-        "Ambroxan"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416626278537-45146955055241",
-    "brand": "Afnan Perfumes",
-    "name": "Dehn al Oudh Abiyad",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416626016393-45146954203273",
-    "brand": "Afnan Perfumes",
-    "name": "Dehn al Oudh Abiyad Concentrated Oil",
-    "concentration": "Perfume",
-    "sizeMl": 20,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Cinnamon",
-        "Musk"
-      ],
-      "middle": [
-        "Cedarwood",
-        "Vanilla",
-        "Musk"
-      ],
-      "base": [
-        "Juniper",
-        "Sweet"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416625787017-45146953941129",
-    "brand": "Afnan Perfumes",
-    "name": "Inara",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416625819785-45146953973897",
-    "brand": "Afnan Perfumes",
-    "name": "Kiaana Angel",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416625623177-45146953711753",
-    "brand": "Afnan Perfumes",
-    "name": "Mirsaal With Love",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 90,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416626311305-45146955088009",
-    "brand": "Afnan Perfumes",
-    "name": "Portrait Abstract",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "Oak",
-        "Sandalwood",
-        "Caramel",
-        "Dark Chocolate"
-      ],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416626376841-45146955153545",
-    "brand": "Afnan Perfumes",
-    "name": "Portrait Revival",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Cinnamon",
-        "Honey",
-        "Saffron",
-        "Incense"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416625983625-45146954170505",
-    "brand": "Afnan Perfumes",
-    "name": "Rare Passion",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Orange",
-        "Musk",
-        "Rose"
-      ],
-      "middle": [
-        "Amber",
-        "Woods",
-        "Vanilla"
-      ],
-      "base": [
-        "Rose",
-        "Musk",
-        "Orange Blossom"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416625590409-45146953547913",
-    "brand": "Afnan Perfumes",
-    "name": "Rare Reef",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416626245769-45146955022473",
-    "brand": "Afnan Perfumes",
-    "name": "Souvenir Blooming Bliss",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416625557641-45146953515145",
-    "brand": "Afnan Perfumes",
-    "name": "Turathi Blue",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 90,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Mandarin"
-      ],
-      "middle": [
-        "Amber",
-        "Woods"
-      ],
-      "base": [
-        "Musk",
-        "Patchouli",
-        "Fresh Spicy"
-      ]
-    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416626442377-45146955219081",
@@ -23447,6 +24056,52 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338381242505-44927313051785",
+    "brand": "Al Haramain",
+    "name": "Al Haramain Opulent Sapphire",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Mirabelle",
+        "Peach"
+      ],
+      "middle": [
+        "Violet Leaves",
+        "Tuberose",
+        "Jasmine"
+      ],
+      "base": [
+        "Patchouli",
+        "Sandalwood",
+        "Ambrox",
+        "Vanilla"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338381209737-44927313019017",
+    "brand": "Al Haramain",
+    "name": "Al Haramain Portfolio Royale Stallion",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [
+        "Jasmine",
+        "Bitter Almond",
+        "Lavender"
+      ],
+      "base": []
+    }
+  },
+  {
     "id": "mybeauty-boutique-shopify-gb-8338168971401-44926986289289",
     "brand": "Al Haramain",
     "name": "Amber Oud",
@@ -24735,52 +25390,6 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/ALHA0018.png?v=1743090672&width=1000",
     "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338381242505-44927313051785",
-    "brand": "Al Haramain Perfumes",
-    "name": "Al Haramain Opulent Sapphire",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Mirabelle",
-        "Peach"
-      ],
-      "middle": [
-        "Violet Leaves",
-        "Tuberose",
-        "Jasmine"
-      ],
-      "base": [
-        "Patchouli",
-        "Sandalwood",
-        "Ambrox",
-        "Vanilla"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338381209737-44927313019017",
-    "brand": "Al Haramain Perfumes",
-    "name": "Al Haramain Portfolio Royale Stallion",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 75,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "Jasmine",
-        "Bitter Almond",
-        "Lavender"
-      ],
-      "base": []
-    }
   },
   {
     "id": "ean-6291110010995",
@@ -26947,6 +27556,468 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-15573121827165-default-title",
+    "brand": "Arabiyat",
+    "name": "Al Noor Perfume Arabiyat Prestige",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Al-Noor-Perfume-100ml-EDP-Arabiyat-Prestige-175658281.jpg?v=1756220701",
+    "notes": {
+      "top": [
+        "Cardamom",
+        "Saffron",
+        "Nutmeg"
+      ],
+      "middle": [
+        "Fig",
+        "Iris",
+        "Labdanum",
+        "Vetiver"
+      ],
+      "base": [
+        "Leather",
+        "Tonka Bean",
+        "Patchouli",
+        "Vanilla"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-15723979997533-default-title",
+    "brand": "Arabiyat",
+    "name": "Bahiya Ruby Perfume Arabiyat Prestige",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bahiya-Ruby-Perfume-100ml-EDP-Arabiyat-Prestige-179807991.png?v=1762022567",
+    "notes": {
+      "top": [
+        "Blood Orange",
+        "Dark Rum",
+        "Mandarin",
+        "Black Currant"
+      ],
+      "middle": [
+        "Passion Fruit",
+        "Raspberry",
+        "Caramel"
+      ],
+      "base": [
+        "Patchouli",
+        "Vanilla",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-15573128151389-default-title",
+    "brand": "Arabiyat",
+    "name": "Blueberry Musk Perfume Arabiyat Prestige",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Blueberry-Musk-Perfume-100ml-EDP-Arabiyat-Prestige-175659061.jpg?v=1756221023",
+    "notes": {
+      "top": [
+        "Blueberry",
+        "Blackberry"
+      ],
+      "middle": [
+        "Freesia",
+        "Lavender",
+        "Rose"
+      ],
+      "base": [
+        "Raspberry",
+        "Oakmoss",
+        "Vanilla",
+        "Patchouli"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-16303758606685-default-title",
+    "brand": "Arabiyat",
+    "name": "Bois Blanc Perfume Arabiyat Prestige",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bois-Blanc-Perfume-100ml-EDP-Arabiyat-Prestige-194404570.png?v=1783521090",
+    "notes": {
+      "top": [
+        "Grapefruit",
+        "Elemi",
+        "Pink Pepper"
+      ],
+      "middle": [
+        "Amber",
+        "Violet"
+      ],
+      "base": [
+        "Patchouli",
+        "Ambergris"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-15838529847645-default-title",
+    "brand": "Arabiyat",
+    "name": "Fahad Gaze Perfume Arabiyat Prestige",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fahad-Gaze-Perfume-100ml-EDP-Arabiyat-Prestige-182034213.png?v=1766806915",
+    "notes": {
+      "top": [
+        "Elemi"
+      ],
+      "middle": [
+        "Orange Blossom",
+        "Patchouli",
+        "Incense"
+      ],
+      "base": [
+        "Vanilla",
+        "Ambergris",
+        "Moss"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-15838530273629-default-title",
+    "brand": "Arabiyat",
+    "name": "Fahad Regal Perfume Arabiyat Prestige",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fahad-Regal-Perfume-100ml-EDP-Arabiyat-Prestige-182034522.png?v=1766807182",
+    "notes": {
+      "top": [
+        "Cyclamen"
+      ],
+      "middle": [
+        "Labdanum"
+      ],
+      "base": [
+        "Cedarwood",
+        "Vanilla",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-15573125726557-default-title",
+    "brand": "Arabiyat",
+    "name": "La Di Da for Him Perfume Arabiyat Prestige",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Di-Da-Perfume-100ml-EDP-Arabiyat-Prestige-175658694.jpg?v=1756220850",
+    "notes": {
+      "top": [
+        "Grapefruit",
+        "Bergamot",
+        "Geranium"
+      ],
+      "middle": [
+        "Tonka Bean",
+        "Black Pepper"
+      ],
+      "base": [
+        "Vanilla",
+        "Ambergris",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-16303781871965-default-title",
+    "brand": "Arabiyat",
+    "name": "Mahd Al Dhahab Arabiyat Prestige",
+    "concentration": "Extrait De Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mahd-Al-Dhahab-100ml-Extrait-De-Parfum-Arabiyat-Prestige-194405144.png?v=1783522060",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Spices",
+        "Lemon"
+      ],
+      "middle": [
+        "Amber",
+        "Patchouli",
+        "Oud"
+      ],
+      "base": [
+        "Vanilla",
+        "Sandalwood",
+        "White Musk"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-15573119074653-default-title",
+    "brand": "Arabiyat",
+    "name": "Mahd Al Dhahab Perfume Arabiyat Prestige",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mahd-Al-Dhahab-Perfume-100ml-EDP-Arabiyat-Prestige-175657828.jpg?v=1756220550",
+    "notes": {
+      "top": [
+        "Grapefruit",
+        "Bergamot",
+        "Red Fruits",
+        "Berry",
+        "Juniper Berry"
+      ],
+      "middle": [
+        "Clary Sage",
+        "Cypress",
+        "Ginger"
+      ],
+      "base": [
+        "Sandalwood",
+        "Patchouli",
+        "Vanilla",
+        "Amber"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-16303891153245-default-title",
+    "brand": "Arabiyat",
+    "name": "Marwa Arabiyat Prestige",
+    "concentration": "Extrait De Parfum",
+    "sizeMl": 60,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marwa-100ml-Extrait-De-Parfum-Arabiyat-Prestige-194406430.jpg?v=1783525783",
+    "notes": {
+      "top": [
+        "Calabrian Bergamot",
+        "Lemon",
+        "Sicilian Orange"
+      ],
+      "middle": [
+        "Nigerian Ginger",
+        "Ceylon Cinnamon",
+        "Tunisian Neroli"
+      ],
+      "base": [
+        "Ambroxan",
+        "Chinese Black Tea",
+        "Olibanum",
+        "Guaiac Wood"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-15573114880349-100ml",
+    "brand": "Arabiyat",
+    "name": "Marwa Perfume Arabiyat Prestige",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marwa-Perfume-100ml-EDP-Arabiyat-Prestige-175657469.jpg?v=1756220384",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Petit Grain",
+        "Ginger"
+      ],
+      "middle": [
+        "Geranium",
+        "Tea",
+        "Incense"
+      ],
+      "base": [
+        "Guaiacwood",
+        "Ambroxan",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-15573114880349-unused---unboxed---100ml",
+    "brand": "Arabiyat",
+    "name": "Marwa Perfume Arabiyat Prestige UNUSED & UNBOXED",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marwa-Perfume-100ml-EDP-Arabiyat-Prestige-175657469.jpg?v=1756220384",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Petit Grain",
+        "Ginger"
+      ],
+      "middle": [
+        "Geranium",
+        "Tea",
+        "Incense"
+      ],
+      "base": [
+        "Guaiacwood",
+        "Ambroxan",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-16303766208861-default-title",
+    "brand": "Arabiyat",
+    "name": "Noire Perfume Arabiyat Prestige",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Noire-Perfume-100ml-EDP-Arabiyat-Prestige-194404781.png?v=1783521335",
+    "notes": {
+      "top": [
+        "Orris",
+        "Cypress",
+        "Bergamot"
+      ],
+      "middle": [
+        "Lavender",
+        "Geranium",
+        "Amber"
+      ],
+      "base": [
+        "Tonka Bean",
+        "Vanilla",
+        "Patchouli"
+      ]
+    }
+  },
+  {
+    "id": "justmylook-arab0001",
+    "brand": "Arabiyat",
+    "name": "Nyla",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": null,
+    "shops": 1,
+    "image": "https://www.justmylook.com/cdn/shop/files/ARAB0001_a4ef0fdb-e9e7-451d-9542-99a4b7cfafd1.png?v=1760692588&width=1000",
+    "notes": null
+  },
+  {
+    "id": "emirates-oud-15573099446621-default-title",
+    "brand": "Arabiyat",
+    "name": "Nyla Perfume Arabiyat Prestige",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Perfume-80ml-EDP-Arabiyat-Prestige-175656224.jpg?v=1756219613",
+    "notes": {
+      "top": [
+        "Fruity Accord",
+        "Coconut",
+        "Peach Nectar"
+      ],
+      "middle": [
+        "Floral Accord",
+        "Tiare Blossoms"
+      ],
+      "base": [
+        "Sandalwood",
+        "Heliotrope Blossoms"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-15836252832093-default-title",
+    "brand": "Arabiyat",
+    "name": "Nyla Sherbet Perfume Arabiyat Prestige",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Sherbet-Perfume-80ml-EDP-Arabiyat-Prestige-183486647.png?v=1768623283",
+    "notes": {
+      "top": [
+        "Strawberry",
+        "Mandarin"
+      ],
+      "middle": [
+        "Plum"
+      ],
+      "base": [
+        "Musk",
+        "Sandalwood"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-15573108752733-default-title",
+    "brand": "Arabiyat",
+    "name": "Nyla Suede Perfume Arabiyat Prestige",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Suede-Perfume-80ml-EDP-Arabiyat-Prestige-175657015.jpg?v=1756220135",
+    "notes": {
+      "top": [
+        "Coconut",
+        "Caramel",
+        "Praline"
+      ],
+      "middle": [
+        "Vanilla",
+        "Cashmere Wood",
+        "Milk",
+        "Ylang-Ylang"
+      ],
+      "base": [
+        "Leather",
+        "Sandalwood",
+        "Musk",
+        "Ambergris"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-15573104066909-default-title",
+    "brand": "Arabiyat",
+    "name": "Nyla Vani Elle Perfume Arabiyat Prestige",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Vani-Elle-Perfume-80ml-EDP-Arabiyat-Prestige-175656649.jpg?v=1756219854",
+    "notes": {
+      "top": [
+        "Iris",
+        "Citrus"
+      ],
+      "middle": [
+        "Leather"
+      ],
+      "base": [
+        "Sandalwood",
+        "Ambrette",
+        "Cedar",
+        "Oud"
+      ]
+    }
+  },
+  {
     "id": "ean-6290361916957",
     "brand": "Arabiyat",
     "name": "Pecan Butter Cookie",
@@ -27156,6 +28227,66 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "emirates-oud-16195206381917-default-title",
+    "brand": "Arabiyat",
+    "name": "Ramad Earthy Arabiyat Prestige",
+    "concentration": "Extrait De Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ramad-Earthy-Extrait-de-Parfum-100ml-Arabiyat-Prestige-190937318.png?v=1778782721",
+    "notes": {
+      "top": [
+        "Honey",
+        "Apricot",
+        "Pomegranate",
+        "Tangerine",
+        "Cardamom",
+        "Ginger",
+        "Mango"
+      ],
+      "middle": [
+        "Cappuccino",
+        "Tea",
+        "Davana"
+      ],
+      "base": [
+        "Labdanum",
+        "Patchouli",
+        "Vanilla",
+        "Tonka Bean",
+        "Cedarwood",
+        "Vetiver"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-15863482122589-default-title",
+    "brand": "Arabiyat",
+    "name": "Safa Perfume Arabiyat Prestige",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Safa-Perfume-100ml-EDP-Arabiyat-Prestige-183487755.png?v=1768624136",
+    "notes": {
+      "top": [
+        "Red Berries",
+        "Litchi",
+        "Hazelnut"
+      ],
+      "middle": [
+        "Cypriol",
+        "Magnolia",
+        "Rose"
+      ],
+      "base": [
+        "Ambergris",
+        "Vanilla"
+      ]
+    }
+  },
+  {
     "id": "ean-6290361916940",
     "brand": "Arabiyat",
     "name": "Sugar Cookie Dough",
@@ -27200,541 +28331,8 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6290102049128",
-    "brand": "Arabiyat",
-    "name": "Vanilla Musk Concentrated Oil Pipette Bottle",
-    "concentration": "Perfume",
-    "sizeMl": 20,
-    "ean": "6290102049128",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1760366844-09583500.jpg?v=1763399285&width=1920",
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-15573121827165-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Al Noor Perfume Arabiyat Prestige",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Al-Noor-Perfume-100ml-EDP-Arabiyat-Prestige-175658281.jpg?v=1756220701",
-    "notes": {
-      "top": [
-        "Cardamom",
-        "Saffron",
-        "Nutmeg"
-      ],
-      "middle": [
-        "Fig",
-        "Iris",
-        "Labdanum",
-        "Vetiver"
-      ],
-      "base": [
-        "Leather",
-        "Tonka Bean",
-        "Patchouli",
-        "Vanilla"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15723979997533-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Bahiya Ruby Perfume Arabiyat Prestige",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bahiya-Ruby-Perfume-100ml-EDP-Arabiyat-Prestige-179807991.png?v=1762022567",
-    "notes": {
-      "top": [
-        "Blood Orange",
-        "Dark Rum",
-        "Mandarin",
-        "Black Currant"
-      ],
-      "middle": [
-        "Passion Fruit",
-        "Raspberry",
-        "Caramel"
-      ],
-      "base": [
-        "Patchouli",
-        "Vanilla",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15573128151389-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Blueberry Musk Perfume Arabiyat Prestige",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Blueberry-Musk-Perfume-100ml-EDP-Arabiyat-Prestige-175659061.jpg?v=1756221023",
-    "notes": {
-      "top": [
-        "Blueberry",
-        "Blackberry"
-      ],
-      "middle": [
-        "Freesia",
-        "Lavender",
-        "Rose"
-      ],
-      "base": [
-        "Raspberry",
-        "Oakmoss",
-        "Vanilla",
-        "Patchouli"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-16303758606685-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Bois Blanc Perfume Arabiyat Prestige",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bois-Blanc-Perfume-100ml-EDP-Arabiyat-Prestige-194404570.png?v=1783521090",
-    "notes": {
-      "top": [
-        "Grapefruit",
-        "Elemi",
-        "Pink Pepper"
-      ],
-      "middle": [
-        "Amber",
-        "Violet"
-      ],
-      "base": [
-        "Patchouli",
-        "Ambergris"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15838529847645-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Fahad Gaze Perfume Arabiyat Prestige",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fahad-Gaze-Perfume-100ml-EDP-Arabiyat-Prestige-182034213.png?v=1766806915",
-    "notes": {
-      "top": [
-        "Elemi"
-      ],
-      "middle": [
-        "Orange Blossom",
-        "Patchouli",
-        "Incense"
-      ],
-      "base": [
-        "Vanilla",
-        "Ambergris",
-        "Moss"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15838530273629-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Fahad Regal Perfume Arabiyat Prestige",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fahad-Regal-Perfume-100ml-EDP-Arabiyat-Prestige-182034522.png?v=1766807182",
-    "notes": {
-      "top": [
-        "Cyclamen"
-      ],
-      "middle": [
-        "Labdanum"
-      ],
-      "base": [
-        "Cedarwood",
-        "Vanilla",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15573125726557-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "La Di Da for Him Perfume Arabiyat Prestige",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Di-Da-Perfume-100ml-EDP-Arabiyat-Prestige-175658694.jpg?v=1756220850",
-    "notes": {
-      "top": [
-        "Grapefruit",
-        "Bergamot",
-        "Geranium"
-      ],
-      "middle": [
-        "Tonka Bean",
-        "Black Pepper"
-      ],
-      "base": [
-        "Vanilla",
-        "Ambergris",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-16303781871965-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Mahd Al Dhahab Arabiyat Prestige",
-    "concentration": "Extrait De Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mahd-Al-Dhahab-100ml-Extrait-De-Parfum-Arabiyat-Prestige-194405144.png?v=1783522060",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Spices",
-        "Lemon"
-      ],
-      "middle": [
-        "Amber",
-        "Patchouli",
-        "Oud"
-      ],
-      "base": [
-        "Vanilla",
-        "Sandalwood",
-        "White Musk"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15573119074653-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Mahd Al Dhahab Perfume Arabiyat Prestige",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mahd-Al-Dhahab-Perfume-100ml-EDP-Arabiyat-Prestige-175657828.jpg?v=1756220550",
-    "notes": {
-      "top": [
-        "Grapefruit",
-        "Bergamot",
-        "Red Fruits",
-        "Berry",
-        "Juniper Berry"
-      ],
-      "middle": [
-        "Clary Sage",
-        "Cypress",
-        "Ginger"
-      ],
-      "base": [
-        "Sandalwood",
-        "Patchouli",
-        "Vanilla",
-        "Amber"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-16303891153245-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Marwa Arabiyat Prestige",
-    "concentration": "Extrait De Parfum",
-    "sizeMl": 60,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marwa-100ml-Extrait-De-Parfum-Arabiyat-Prestige-194406430.jpg?v=1783525783",
-    "notes": {
-      "top": [
-        "Calabrian Bergamot",
-        "Lemon",
-        "Sicilian Orange"
-      ],
-      "middle": [
-        "Nigerian Ginger",
-        "Ceylon Cinnamon",
-        "Tunisian Neroli"
-      ],
-      "base": [
-        "Ambroxan",
-        "Chinese Black Tea",
-        "Olibanum",
-        "Guaiac Wood"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15573114880349-100ml",
-    "brand": "Arabiyat Prestige",
-    "name": "Marwa Perfume Arabiyat Prestige",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marwa-Perfume-100ml-EDP-Arabiyat-Prestige-175657469.jpg?v=1756220384",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Petit Grain",
-        "Ginger"
-      ],
-      "middle": [
-        "Geranium",
-        "Tea",
-        "Incense"
-      ],
-      "base": [
-        "Guaiacwood",
-        "Ambroxan",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15573114880349-unused---unboxed---100ml",
-    "brand": "Arabiyat Prestige",
-    "name": "Marwa Perfume Arabiyat Prestige UNUSED & UNBOXED",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marwa-Perfume-100ml-EDP-Arabiyat-Prestige-175657469.jpg?v=1756220384",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Petit Grain",
-        "Ginger"
-      ],
-      "middle": [
-        "Geranium",
-        "Tea",
-        "Incense"
-      ],
-      "base": [
-        "Guaiacwood",
-        "Ambroxan",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-16303766208861-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Noire Perfume Arabiyat Prestige",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Noire-Perfume-100ml-EDP-Arabiyat-Prestige-194404781.png?v=1783521335",
-    "notes": {
-      "top": [
-        "Orris",
-        "Cypress",
-        "Bergamot"
-      ],
-      "middle": [
-        "Lavender",
-        "Geranium",
-        "Amber"
-      ],
-      "base": [
-        "Tonka Bean",
-        "Vanilla",
-        "Patchouli"
-      ]
-    }
-  },
-  {
-    "id": "justmylook-arab0001",
-    "brand": "Arabiyat Prestige",
-    "name": "Nyla",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/ARAB0001_a4ef0fdb-e9e7-451d-9542-99a4b7cfafd1.png?v=1760692588&width=1000",
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-15573099446621-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Nyla Perfume Arabiyat Prestige",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Perfume-80ml-EDP-Arabiyat-Prestige-175656224.jpg?v=1756219613",
-    "notes": {
-      "top": [
-        "Fruity Accord",
-        "Coconut",
-        "Peach Nectar"
-      ],
-      "middle": [
-        "Floral Accord",
-        "Tiare Blossoms"
-      ],
-      "base": [
-        "Sandalwood",
-        "Heliotrope Blossoms"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15836252832093-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Nyla Sherbet Perfume Arabiyat Prestige",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Sherbet-Perfume-80ml-EDP-Arabiyat-Prestige-183486647.png?v=1768623283",
-    "notes": {
-      "top": [
-        "Strawberry",
-        "Mandarin"
-      ],
-      "middle": [
-        "Plum"
-      ],
-      "base": [
-        "Musk",
-        "Sandalwood"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15573108752733-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Nyla Suede Perfume Arabiyat Prestige",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Suede-Perfume-80ml-EDP-Arabiyat-Prestige-175657015.jpg?v=1756220135",
-    "notes": {
-      "top": [
-        "Coconut",
-        "Caramel",
-        "Praline"
-      ],
-      "middle": [
-        "Vanilla",
-        "Cashmere Wood",
-        "Milk",
-        "Ylang-Ylang"
-      ],
-      "base": [
-        "Leather",
-        "Sandalwood",
-        "Musk",
-        "Ambergris"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15573104066909-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Nyla Vani Elle Perfume Arabiyat Prestige",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Vani-Elle-Perfume-80ml-EDP-Arabiyat-Prestige-175656649.jpg?v=1756219854",
-    "notes": {
-      "top": [
-        "Iris",
-        "Citrus"
-      ],
-      "middle": [
-        "Leather"
-      ],
-      "base": [
-        "Sandalwood",
-        "Ambrette",
-        "Cedar",
-        "Oud"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-16195206381917-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Ramad Earthy Arabiyat Prestige",
-    "concentration": "Extrait De Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ramad-Earthy-Extrait-de-Parfum-100ml-Arabiyat-Prestige-190937318.png?v=1778782721",
-    "notes": {
-      "top": [
-        "Honey",
-        "Apricot",
-        "Pomegranate",
-        "Tangerine",
-        "Cardamom",
-        "Ginger",
-        "Mango"
-      ],
-      "middle": [
-        "Cappuccino",
-        "Tea",
-        "Davana"
-      ],
-      "base": [
-        "Labdanum",
-        "Patchouli",
-        "Vanilla",
-        "Tonka Bean",
-        "Cedarwood",
-        "Vetiver"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15863482122589-default-title",
-    "brand": "Arabiyat Prestige",
-    "name": "Safa Perfume Arabiyat Prestige",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Safa-Perfume-100ml-EDP-Arabiyat-Prestige-183487755.png?v=1768624136",
-    "notes": {
-      "top": [
-        "Red Berries",
-        "Litchi",
-        "Hazelnut"
-      ],
-      "middle": [
-        "Cypriol",
-        "Magnolia",
-        "Rose"
-      ],
-      "base": [
-        "Ambergris",
-        "Vanilla"
-      ]
-    }
-  },
-  {
     "id": "emirates-oud-15723980030301-default-title",
-    "brand": "Arabiyat Prestige",
+    "brand": "Arabiyat",
     "name": "Uhud Perfume Arabiyat Prestige",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
@@ -27758,6 +28356,17 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
         "Amber"
       ]
     }
+  },
+  {
+    "id": "ean-6290102049128",
+    "brand": "Arabiyat",
+    "name": "Vanilla Musk Concentrated Oil Pipette Bottle",
+    "concentration": "Perfume",
+    "sizeMl": 20,
+    "ean": "6290102049128",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1760366844-09583500.jpg?v=1763399285&width=1920",
+    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338347327625-44927261212809",
@@ -30599,7 +31208,10 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1753698309-80613600.jpg?v=1763398513&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "ean-810101506215",
     "brand": "Ariana Grande",
@@ -31138,10 +31750,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338405949577-44927370592393",
     "brand": "Armaf",
@@ -36795,8 +37404,96 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "bellavita-luxury-8906150340633",
+    "brand": "Bellavita UK",
+    "name": "CEO Man",
+    "concentration": "Perfume",
+    "sizeMl": 20,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-8906150345188",
+    "brand": "Bellavita UK",
+    "name": "CEO Man Intense Luxury - 3.4 fl oz",
+    "concentration": "Perfume",
+    "sizeMl": 101,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-5748022538839",
+    "brand": "Bellavita UK",
+    "name": "CEO Man Luxury - 3.4 fl oz",
+    "concentration": "Perfume",
+    "sizeMl": 101,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-8906150344365",
+    "brand": "Bellavita UK",
+    "name": "Date Woman",
+    "concentration": "Perfume",
+    "sizeMl": 20,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-8906150342804",
+    "brand": "Bellavita UK",
+    "name": "Date Woman - 3.4 fl oz",
+    "concentration": "Perfume",
+    "sizeMl": 101,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-3870003433733",
+    "brand": "Bellavita UK",
+    "name": "Fresh Unisex - 3.4 fl oz",
+    "concentration": "Perfume",
+    "sizeMl": 101,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-8906188062996",
+    "brand": "Bellavita UK",
+    "name": "G.O.A.T Man",
+    "concentration": "Perfume",
+    "sizeMl": 20,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-8906150343351",
+    "brand": "Bellavita UK",
+    "name": "G.O.A.T. Man - 3.4 fl oz",
+    "concentration": "Perfume",
+    "sizeMl": 101,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "bellavita-luxury-8906150340558",
-    "brand": "BellaVita Luxury (UK)",
+    "brand": "Bellavita UK",
     "name": "Glam Woman",
     "concentration": "Perfume",
     "sizeMl": 20,
@@ -36806,11 +37503,143 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "bellavita-luxury-8906150340657",
+    "brand": "Bellavita UK",
+    "name": "Honey Oud Unisex",
+    "concentration": "Perfume",
+    "sizeMl": 20,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-8906150340404",
+    "brand": "Bellavita UK",
+    "name": "Honey Oud Unisex - 3.4 fl oz",
+    "concentration": "Perfume",
+    "sizeMl": 101,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-8906150343290",
+    "brand": "Bellavita UK",
+    "name": "KLUB Man - 3.4 fl oz",
+    "concentration": "Perfume",
+    "sizeMl": 101,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "bellavita-luxury-8906161171264",
-    "brand": "BellaVita Luxury (UK)",
+    "brand": "Bellavita UK",
     "name": "Night Fever Unisex",
     "concentration": "Perfume",
     "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-05-2616-7321-p2",
+    "brand": "Bellavita UK",
+    "name": "Ocean Man - 3.4 fl oz",
+    "concentration": "Perfume",
+    "sizeMl": 101,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-8906150344624",
+    "brand": "Bellavita UK",
+    "name": "Ocean Man - 3.4 fl oz BYOB",
+    "concentration": "Perfume",
+    "sizeMl": 101,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-8906150340411",
+    "brand": "Bellavita UK",
+    "name": "OUD - 3.4 fl oz",
+    "concentration": "Perfume",
+    "sizeMl": 101,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-8906150340541",
+    "brand": "Bellavita UK",
+    "name": "Rose Woman",
+    "concentration": "Perfume",
+    "sizeMl": 20,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-3870003433801",
+    "brand": "Bellavita UK",
+    "name": "Rose Woman - 3.4 fl oz",
+    "concentration": "Perfume",
+    "sizeMl": 101,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-8906150342811",
+    "brand": "Bellavita UK",
+    "name": "Senorita Woman - 3.4 fl oz",
+    "concentration": "Perfume",
+    "sizeMl": 101,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-3870003551925",
+    "brand": "Bellavita UK",
+    "name": "Skai Aquatic Unisex - 3.4 fl oz",
+    "concentration": "Perfume",
+    "sizeMl": 101,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-8906150340640",
+    "brand": "Bellavita UK",
+    "name": "White Oud Unisex",
+    "concentration": "Perfume",
+    "sizeMl": 20,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "bellavita-luxury-3870003433771",
+    "brand": "Bellavita UK",
+    "name": "White Oud Unisex - 3.4 fl oz",
+    "concentration": "Perfume",
+    "sizeMl": 101,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -38551,7 +39380,10 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Amber"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16269587480925-default-title",
     "brand": "Bujairami",
@@ -39841,10 +40673,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Tonka Bean"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-16314341458269-default-title",
     "brand": "Bujairami",
@@ -42247,226 +43076,6 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "bellavita-luxury-8906150340633",
-    "brand": "BV UK",
-    "name": "CEO Man",
-    "concentration": "Perfume",
-    "sizeMl": 20,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-8906150345188",
-    "brand": "BV UK",
-    "name": "CEO Man Intense Luxury - 3.4 fl oz",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-5748022538839",
-    "brand": "BV UK",
-    "name": "CEO Man Luxury - 3.4 fl oz",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-8906150344365",
-    "brand": "BV UK",
-    "name": "Date Woman",
-    "concentration": "Perfume",
-    "sizeMl": 20,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-8906150342804",
-    "brand": "BV UK",
-    "name": "Date Woman - 3.4 fl oz",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-3870003433733",
-    "brand": "BV UK",
-    "name": "Fresh Unisex - 3.4 fl oz",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-8906188062996",
-    "brand": "BV UK",
-    "name": "G.O.A.T Man",
-    "concentration": "Perfume",
-    "sizeMl": 20,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-8906150343351",
-    "brand": "BV UK",
-    "name": "G.O.A.T. Man - 3.4 fl oz",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-8906150340657",
-    "brand": "BV UK",
-    "name": "Honey Oud Unisex",
-    "concentration": "Perfume",
-    "sizeMl": 20,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-8906150340404",
-    "brand": "BV UK",
-    "name": "Honey Oud Unisex - 3.4 fl oz",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-8906150343290",
-    "brand": "BV UK",
-    "name": "KLUB Man - 3.4 fl oz",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-05-2616-7321-p2",
-    "brand": "BV UK",
-    "name": "Ocean Man - 3.4 fl oz",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-8906150344624",
-    "brand": "BV UK",
-    "name": "Ocean Man - 3.4 fl oz BYOB",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-8906150340411",
-    "brand": "BV UK",
-    "name": "OUD - 3.4 fl oz",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-8906150340541",
-    "brand": "BV UK",
-    "name": "Rose Woman",
-    "concentration": "Perfume",
-    "sizeMl": 20,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-3870003433801",
-    "brand": "BV UK",
-    "name": "Rose Woman - 3.4 fl oz",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-8906150342811",
-    "brand": "BV UK",
-    "name": "Senorita Woman - 3.4 fl oz",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-3870003551925",
-    "brand": "BV UK",
-    "name": "Skai Aquatic Unisex - 3.4 fl oz",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-8906150340640",
-    "brand": "BV UK",
-    "name": "White Oud Unisex",
-    "concentration": "Perfume",
-    "sizeMl": 20,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "bellavita-luxury-3870003433771",
-    "brand": "BV UK",
-    "name": "White Oud Unisex - 3.4 fl oz",
-    "concentration": "Perfume",
-    "sizeMl": 101,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8338182209673-44927007293577",
     "brand": "Bvlgari",
     "name": "(L) 4 x Mini Rose Goldea Blossom Delight + EDT Rose Goldea Blossom Delight + EDT Omnia Crystalline + EDT Omnia Amethyste",
@@ -42849,196 +43458,6 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "ean": "608940586327",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/drake.jpg?v=1774350115&width=1920",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416645120137-45146978058377",
-    "brand": "By Kilian",
-    "name": "A Kiss from a Rose",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Jasmine Sambac",
-        "Cypriol Oil",
-        "Nagarmotha"
-      ],
-      "middle": [
-        "May Rose",
-        "Jasmine Sambac"
-      ],
-      "base": [
-        "Cypriol Oil",
-        "Nagarmotha"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416645283977-45146978287753",
-    "brand": "By Kilian",
-    "name": "By Killian Vodka On The Rocks",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416645349513-45146978353289",
-    "brand": "By Kilian",
-    "name": "Dark Lord",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416645316745-45146978320521",
-    "brand": "By Kilian",
-    "name": "Flower of Immortality",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416645251209-45146978189449",
-    "brand": "By Kilian",
-    "name": "Good Girl Gone Bad",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Jasmine",
-        "May Rose"
-      ],
-      "middle": [],
-      "base": [
-        "Cedar"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416645152905-45146978091145",
-    "brand": "By Kilian",
-    "name": "Good Girl Gone Bad Extreme",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416645218441-45146978156681",
-    "brand": "By Kilian",
-    "name": "Love Don't Be Shy",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Coriander",
-        "Neroli",
-        "Pink Pepper"
-      ],
-      "middle": [],
-      "base": [
-        "Browncurrant",
-        "Musk",
-        "Labdanum",
-        "Caramel",
-        "Vanilla"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416646103177-45146980253833",
-    "brand": "By Kilian",
-    "name": "Moonlight In Heaven",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Lemon"
-      ],
-      "middle": [
-        "Rice"
-      ],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416644956297-45146977271945",
-    "brand": "By Kilian",
-    "name": "Moonlight In Heaven Carafe",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 250,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416645087369-45146978025609",
-    "brand": "By Kilian",
-    "name": "Roses On Ice Carafe",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 250,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416645021833-45146977960073",
-    "brand": "By Kilian",
-    "name": "Vodka On The Rocks Carafe",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 250,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Aldehydes",
-        "Lily-of-the-Valley",
-        "Pink Rose"
-      ],
-      "middle": [
-        "Lily-of-the-Valley",
-        "Pink Rose"
-      ],
-      "base": [
-        "Oakmoss"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416645185673-45146978123913",
-    "brand": "By Kilian",
-    "name": "Voulez-Vous Coucher Avec Moi",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
     "notes": null
   },
   {
@@ -46819,7 +47238,10 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338380652681-44927311118473",
     "brand": "CASAMORATI DAL 1888",
@@ -47101,10 +47523,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338364006537-44927284805769",
     "brand": "Cher",
@@ -50212,7 +50631,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416664977545-45147025408137",
-    "brand": "Cuba",
+    "brand": "Cuba Paris",
     "name": "Authentic Happy",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
@@ -50223,7 +50642,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "ean-5425017732150",
-    "brand": "Cuba",
+    "brand": "Cuba Paris",
     "name": "Black",
     "concentration": "Eau de Toilette",
     "sizeMl": 35,
@@ -50234,7 +50653,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416665665673-45147026096265",
-    "brand": "Cuba",
+    "brand": "Cuba Paris",
     "name": "Brazil",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
@@ -50245,7 +50664,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416665108617-45147025539209",
-    "brand": "Cuba",
+    "brand": "Cuba Paris",
     "name": "Brown",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
@@ -50256,123 +50675,13 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "ean-5425017732389",
-    "brand": "Cuba",
+    "brand": "Cuba Paris",
     "name": "Classic Gold",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "5425017732389",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1652099497-56520000.jpg?v=1763390828&width=1920",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416665174153-45147025604745",
-    "brand": "Cuba",
-    "name": "Hot",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416665206921-45147025637513",
-    "brand": "Cuba",
-    "name": "La Vida",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-5425017731962",
-    "brand": "Cuba",
-    "name": "Magnum Gold",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 130,
-    "ean": "5425017731962",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1643373500-28337200.jpg?v=1763390829&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-5425017732112",
-    "brand": "Cuba",
-    "name": "Metallic Gold",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 35,
-    "ean": "5425017732112",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1500301968-39955000.jpg?v=1763398576&width=1920",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416664846473-45147025080457",
-    "brand": "Cuba",
-    "name": "My Love",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416665239689-45147025670281",
-    "brand": "Cuba",
-    "name": "Paris AuthenticTasty",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416664813705-45147025047689",
-    "brand": "Cuba",
-    "name": "Prestige Black",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 90,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-5425017735748",
-    "brand": "Cuba",
-    "name": "Prestige Black For Men",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 90,
-    "ean": "5425017735748",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1555427574-81615800.jpg?v=1763394634&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-5425017735977",
-    "brand": "Cuba",
-    "name": "Prestige Legacy",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 35,
-    "ean": "5425017735977",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1652100070-99408300.jpg?v=1763390829&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-5425017736387",
-    "brand": "Cuba",
-    "name": "Royal",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 35,
-    "ean": "5425017736387",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1652101804-66014800.jpg?v=1763390831&width=1920",
     "notes": null
   },
   {
@@ -50424,6 +50733,116 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       ],
       "base": []
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416665174153-45147025604745",
+    "brand": "Cuba Paris",
+    "name": "Hot",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416665206921-45147025637513",
+    "brand": "Cuba Paris",
+    "name": "La Vida",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-5425017731962",
+    "brand": "Cuba Paris",
+    "name": "Magnum Gold",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 130,
+    "ean": "5425017731962",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1643373500-28337200.jpg?v=1763390829&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-5425017732112",
+    "brand": "Cuba Paris",
+    "name": "Metallic Gold",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 35,
+    "ean": "5425017732112",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1500301968-39955000.jpg?v=1763398576&width=1920",
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416664846473-45147025080457",
+    "brand": "Cuba Paris",
+    "name": "My Love",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416665239689-45147025670281",
+    "brand": "Cuba Paris",
+    "name": "Paris AuthenticTasty",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416664813705-45147025047689",
+    "brand": "Cuba Paris",
+    "name": "Prestige Black",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 90,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-5425017735748",
+    "brand": "Cuba Paris",
+    "name": "Prestige Black For Men",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 90,
+    "ean": "5425017735748",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1555427574-81615800.jpg?v=1763394634&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-5425017735977",
+    "brand": "Cuba Paris",
+    "name": "Prestige Legacy",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 35,
+    "ean": "5425017735977",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1652100070-99408300.jpg?v=1763390829&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-5425017736387",
+    "brand": "Cuba Paris",
+    "name": "Royal",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 35,
+    "ean": "5425017736387",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1652101804-66014800.jpg?v=1763390831&width=1920",
+    "notes": null
   },
   {
     "id": "ean-3442151002279",
@@ -53434,7 +53853,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "ean-22548436783",
     "brand": "DKNY",
@@ -53682,10 +54104,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338201280649-44927038587017",
     "brand": "DKNY",
@@ -59892,7 +60311,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416682639497-45147046576265",
-    "brand": "Floris",
+    "brand": "Floris London",
     "name": "A Rose For...",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
@@ -59911,7 +60330,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416682213513-45147046150281",
-    "brand": "Floris",
+    "brand": "Floris London",
     "name": "A Rose For...",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
@@ -59919,10 +60338,13 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416683458697-45147047395465",
-    "brand": "Floris",
+    "brand": "Floris London",
     "name": "Bergamotto Di Positano",
     "concentration": "Eau de Parfum",
     "sizeMl": 10,
@@ -59939,7 +60361,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416682541193-45147046477961",
-    "brand": "Floris",
+    "brand": "Floris London",
     "name": "Bergamotto Di Positano",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
@@ -59965,7 +60387,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416682377353-45147046314121",
-    "brand": "Floris",
+    "brand": "Floris London",
     "name": "Bergamotto Di Positano",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
@@ -59976,7 +60398,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416683819145-45147047886985",
-    "brand": "Floris",
+    "brand": "Floris London",
     "name": "Bouquet De La Reine",
     "concentration": "Eau de Toilette",
     "sizeMl": 10,
@@ -59996,7 +60418,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416683065481-45147047002249",
-    "brand": "Floris",
+    "brand": "Floris London",
     "name": "Bouquet De La Reine",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
@@ -60007,7 +60429,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416683655305-45147047723145",
-    "brand": "Floris",
+    "brand": "Floris London",
     "name": "Cefiro",
     "concentration": "Eau de Toilette",
     "sizeMl": 10,
@@ -60018,7 +60440,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338383143049-44927315214473",
-    "brand": "Floris",
+    "brand": "Floris London",
     "name": "Cefiro",
     "concentration": "Eau de Toilette",
     "sizeMl": 50,
@@ -60029,7 +60451,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416682606729-45147046543497",
-    "brand": "Floris",
+    "brand": "Floris London",
     "name": "Cherry Blossom",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
@@ -60040,7 +60462,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416682311817-45147046248585",
-    "brand": "Floris",
+    "brand": "Floris London",
     "name": "Cherry Blossom Intense",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
@@ -60051,7 +60473,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416683753609-45147047821449",
-    "brand": "Floris",
+    "brand": "Floris London",
     "name": "Chypress",
     "concentration": "Eau de Toilette",
     "sizeMl": 10,
@@ -60062,7 +60484,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416683229321-45147047166089",
-    "brand": "Floris",
+    "brand": "Floris London",
     "name": "Chypress",
     "concentration": "Eau de Toilette",
     "sizeMl": 50,
@@ -60072,8 +60494,19 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338216648841-44927057002633",
+    "brand": "Floris London",
+    "name": "Chypress",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "mybeauty-boutique-shopify-gb-8416683262089-45147047198857",
-    "brand": "Floris",
+    "brand": "Floris London",
     "name": "Elite",
     "concentration": "Eau de Toilette",
     "sizeMl": 50,
@@ -60084,442 +60517,8 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416683098249-45147047035017",
-    "brand": "Floris",
-    "name": "Elite",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338404540553-44927366267017",
-    "brand": "Floris",
-    "name": "Honey Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682147977-45147046084745",
-    "brand": "Floris",
-    "name": "Honey Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Floris London"
-      ],
-      "middle": [
-        "Floris London"
-      ],
-      "base": [
-        "Floris London"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416683720841-45147047788681",
-    "brand": "Floris",
-    "name": "Jermyn Street",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682442889-45147046379657",
-    "brand": "Floris",
-    "name": "Jermyn Street",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416683851913-45147047919753",
-    "brand": "Floris",
-    "name": "JF",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 10,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416683163785-45147047100553",
-    "brand": "Floris",
-    "name": "JF",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682901641-45147046838409",
-    "brand": "Floris",
-    "name": "JF",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416683786377-45147047854217",
-    "brand": "Floris",
-    "name": "Leather Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338404245641-44927365546121",
-    "brand": "Floris",
-    "name": "Leather Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682934409-45147046871177",
-    "brand": "Floris",
-    "name": "Lily",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Cedar"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338344902793-44927258886281",
-    "brand": "Floris",
-    "name": "Lily",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682803337-45147046740105",
-    "brand": "Floris",
-    "name": "Limes",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682868873-45147046805641",
-    "brand": "Floris",
-    "name": "Limes",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682573961-45147046510729",
-    "brand": "Floris",
-    "name": "Mulberry Fig",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682180745-45147046117513",
-    "brand": "Floris",
-    "name": "Mulberry Fig",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338348408969-44927262621833",
-    "brand": "Floris",
-    "name": "Neroli Voyage",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Lemon Verbena",
-        "Bergamot",
-        "Tea"
-      ],
-      "middle": [
-        "Iris",
-        "Violet Leaf",
-        "Ozonic"
-      ],
-      "base": [
-        "Ambergris",
-        "Powdery",
-        "Sandalwood",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416684212361-45147048280201",
-    "brand": "Floris",
-    "name": "Night Scented Jasmine",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 10,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682999945-45147046936713",
-    "brand": "Floris",
-    "name": "Night Scented Jasmine",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416683688073-45147047755913",
-    "brand": "Floris",
-    "name": "No. 89",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 10,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682705033-45147046641801",
-    "brand": "Floris",
-    "name": "No. 89",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682082441-45147046019209",
-    "brand": "Floris",
-    "name": "Purple MÃ©moire",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416683196553-45147047133321",
-    "brand": "Floris",
-    "name": "Santal",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682836105-45147046772873",
-    "brand": "Floris",
-    "name": "Santal",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682475657-45147046412425",
-    "brand": "Floris",
-    "name": "Sirena",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416684277897-45147048345737",
-    "brand": "Floris",
-    "name": "Soulle Ambar",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 10,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Galbanum",
-        "Mastic",
-        "Pineapple",
-        "Musk",
-        "Vanilla"
-      ],
-      "middle": [],
-      "base": [
-        "Musk",
-        "Vanilla"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416684245129-45147048312969",
-    "brand": "Floris",
-    "name": "Soulle Ambar",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682967177-45147046903945",
-    "brand": "Floris",
-    "name": "Soulle Ambar",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338365874313-44927286575241",
-    "brand": "Floris",
-    "name": "Tuberose In Silk",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338402345097-44927359090825",
-    "brand": "Floris",
-    "name": "Tuberose In Silk",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682246281-45147046183049",
-    "brand": "Floris",
-    "name": "Turnbull & Asser 71/72",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682344585-45147046281353",
-    "brand": "Floris",
-    "name": "Vert Fougere",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682770569-45147046707337",
-    "brand": "Floris",
-    "name": "White Rose",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682508425-45147046445193",
-    "brand": "Floris",
-    "name": "Wilde",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416682049673-45147045953673",
-    "brand": "Floris",
-    "name": "Wilde",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338216648841-44927057002633",
     "brand": "Floris London",
-    "name": "Chypress",
+    "name": "Elite",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": null,
@@ -60571,11 +60570,431 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338404540553-44927366267017",
+    "brand": "Floris London",
+    "name": "Honey Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682147977-45147046084745",
+    "brand": "Floris London",
+    "name": "Honey Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Floris London"
+      ],
+      "middle": [
+        "Floris London"
+      ],
+      "base": [
+        "Floris London"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416683720841-45147047788681",
+    "brand": "Floris London",
+    "name": "Jermyn Street",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 10,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682442889-45147046379657",
+    "brand": "Floris London",
+    "name": "Jermyn Street",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416683851913-45147047919753",
+    "brand": "Floris London",
+    "name": "JF",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 10,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416683163785-45147047100553",
+    "brand": "Floris London",
+    "name": "JF",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682901641-45147046838409",
+    "brand": "Floris London",
+    "name": "JF",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416683786377-45147047854217",
+    "brand": "Floris London",
+    "name": "Leather Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 10,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338404245641-44927365546121",
+    "brand": "Floris London",
+    "name": "Leather Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682934409-45147046871177",
+    "brand": "Floris London",
+    "name": "Lily",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Cedar"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338344902793-44927258886281",
+    "brand": "Floris London",
+    "name": "Lily",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682803337-45147046740105",
+    "brand": "Floris London",
+    "name": "Limes",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682868873-45147046805641",
+    "brand": "Floris London",
+    "name": "Limes",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682573961-45147046510729",
+    "brand": "Floris London",
+    "name": "Mulberry Fig",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682180745-45147046117513",
+    "brand": "Floris London",
+    "name": "Mulberry Fig",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338348408969-44927262621833",
+    "brand": "Floris London",
+    "name": "Neroli Voyage",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Lemon Verbena",
+        "Bergamot",
+        "Tea"
+      ],
+      "middle": [
+        "Iris",
+        "Violet Leaf",
+        "Ozonic"
+      ],
+      "base": [
+        "Ambergris",
+        "Powdery",
+        "Sandalwood",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416684212361-45147048280201",
+    "brand": "Floris London",
+    "name": "Night Scented Jasmine",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 10,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "mybeauty-boutique-shopify-gb-8338216616073-44927056969865",
     "brand": "Floris London",
     "name": "Night Scented Jasmine",
     "concentration": "Eau de Toilette",
     "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682999945-45147046936713",
+    "brand": "Floris London",
+    "name": "Night Scented Jasmine",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416683688073-45147047755913",
+    "brand": "Floris London",
+    "name": "No. 89",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 10,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682705033-45147046641801",
+    "brand": "Floris London",
+    "name": "No. 89",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682082441-45147046019209",
+    "brand": "Floris London",
+    "name": "Purple MÃ©moire",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416683196553-45147047133321",
+    "brand": "Floris London",
+    "name": "Santal",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682836105-45147046772873",
+    "brand": "Floris London",
+    "name": "Santal",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682475657-45147046412425",
+    "brand": "Floris London",
+    "name": "Sirena",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416684277897-45147048345737",
+    "brand": "Floris London",
+    "name": "Soulle Ambar",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 10,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Galbanum",
+        "Mastic",
+        "Pineapple",
+        "Musk",
+        "Vanilla"
+      ],
+      "middle": [],
+      "base": [
+        "Musk",
+        "Vanilla"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416684245129-45147048312969",
+    "brand": "Floris London",
+    "name": "Soulle Ambar",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682967177-45147046903945",
+    "brand": "Floris London",
+    "name": "Soulle Ambar",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338365874313-44927286575241",
+    "brand": "Floris London",
+    "name": "Tuberose In Silk",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338402345097-44927359090825",
+    "brand": "Floris London",
+    "name": "Tuberose In Silk",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682246281-45147046183049",
+    "brand": "Floris London",
+    "name": "Turnbull & Asser 71/72",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682344585-45147046281353",
+    "brand": "Floris London",
+    "name": "Vert Fougere",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682770569-45147046707337",
+    "brand": "Floris London",
+    "name": "White Rose",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682508425-45147046445193",
+    "brand": "Floris London",
+    "name": "Wilde",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416682049673-45147045953673",
+    "brand": "Floris London",
+    "name": "Wilde",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -71009,7 +71428,10 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
         "Cinnamon"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15752247050589-default-title",
     "brand": "French Avenue",
@@ -71461,10 +71883,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
         "Styrax"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15430281658717-default-title",
     "brand": "French Avenue",
@@ -78159,64 +78578,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "justmylook-gres0008",
-    "brand": "Gres",
-    "name": "Madame Gres",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/gres-madame-gres-eau-de-parfum-100ml-p23496-87943_image.jpg?v=1721322210&width=1000",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338221203593-44927063031945",
-    "brand": "Gres Parfums",
-    "name": "Cabotine",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Blackcurrant Buds",
-        "Pear",
-        "Plum",
-        "Coriander"
-      ],
-      "middle": [],
-      "base": [
-        "Cedarwood",
-        "Vanilla",
-        "Tonka Bean",
-        "Cybet",
-        "Musk",
-        "Amber"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416691421321-45147057586313",
-    "brand": "Gres Parfums",
-    "name": "Madame Gres",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Grapefruit",
-        "Cornflower"
-      ],
-      "middle": [
-        "Peony"
-      ],
-      "base": []
-    }
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8338221334665-44927063195785",
     "brand": "Grey Flannel",
     "name": "M",
@@ -78837,7 +79198,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/GUCC0024.png?v=1780055153&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "justmylook-gucc0052",
     "brand": "Gucci",
@@ -79068,10 +79432,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338421416073-44927412437129",
     "brand": "Guerlain",
@@ -85654,7 +86015,10 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338234179721-44927089246345",
     "brand": "Jaguar",
@@ -85855,10 +86219,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338401689737-44927358107785",
     "brand": "Jean Patou",
@@ -92066,6 +92427,28 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416705642633-45147076624521",
+    "brand": "Khadlaj",
+    "name": "Hareem Al Sultan Blue Concentrated Oil",
+    "concentration": "Perfume",
+    "sizeMl": 35,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Nectarine",
+        "Gardenia",
+        "Freesia"
+      ],
+      "middle": [],
+      "base": [
+        "Musk",
+        "Amber"
+      ]
+    }
+  },
+  {
     "id": "emirates-oud-15666710413661-default-title",
     "brand": "Khadlaj",
     "name": "Hareem Al Sultan Blue Oil Khadlaj",
@@ -92091,6 +92474,28 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "Ambery"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416705609865-45147076591753",
+    "brand": "Khadlaj",
+    "name": "Hareem Al Sultan Gold",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416705708169-45147076722825",
+    "brand": "Khadlaj",
+    "name": "Hareem Al Sultan Gold Concentrated Oil",
+    "concentration": "Perfume",
+    "sizeMl": 35,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-15666710348125-default-title",
@@ -92539,7 +92944,10 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15498941956445-default-title",
     "brand": "Khadlaj",
@@ -93061,10 +93469,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "Cedarwood"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15666706907485-default-title",
     "brand": "Khadlaj",
@@ -94404,50 +94809,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416705642633-45147076624521",
-    "brand": "Khadlaj Perfumes",
-    "name": "Hareem Al Sultan Blue Concentrated Oil",
-    "concentration": "Perfume",
-    "sizeMl": 35,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Nectarine",
-        "Gardenia",
-        "Freesia"
-      ],
-      "middle": [],
-      "base": [
-        "Musk",
-        "Amber"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416705609865-45147076591753",
-    "brand": "Khadlaj Perfumes",
-    "name": "Hareem Al Sultan Gold",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 75,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416705708169-45147076722825",
-    "brand": "Khadlaj Perfumes",
-    "name": "Hareem Al Sultan Gold Concentrated Oil",
-    "concentration": "Perfume",
-    "sizeMl": 35,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-810101506123",
     "brand": "Khloe Kardashian",
     "name": "XO",
@@ -94468,6 +94829,31 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1753275249-37151200.jpg?v=1763398477&width=1920",
     "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416645120137-45146978058377",
+    "brand": "Kilian",
+    "name": "A Kiss from a Rose",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Jasmine Sambac",
+        "Cypriol Oil",
+        "Nagarmotha"
+      ],
+      "middle": [
+        "May Rose",
+        "Jasmine Sambac"
+      ],
+      "base": [
+        "Cypriol Oil",
+        "Nagarmotha"
+      ]
+    }
   },
   {
     "id": "justmylook-kil0014",
@@ -94503,14 +94889,47 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "justmylook-kil0001",
+    "id": "mybeauty-boutique-shopify-gb-8416645283977-45146978287753",
     "brand": "Kilian",
-    "name": "Good Girl Gone Bad",
+    "name": "By Killian Vodka On The Rocks",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/KIL0001_0d0db23a-b131-40ae-884f-a55b43bdcb61.png?v=1766583602&width=1000",
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416645349513-45146978353289",
+    "brand": "Kilian",
+    "name": "Dark Lord",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416645316745-45146978320521",
+    "brand": "Kilian",
+    "name": "Flower of Immortality",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416645152905-45146978091145",
+    "brand": "Kilian",
+    "name": "Good Girl Gone Bad Extreme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -94531,17 +94950,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
-    "id": "justmylook-kil0019",
-    "brand": "Kilian",
-    "name": "Love Dont Be Shy",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/KIL0019_93c88b75-a66c-44d4-abe6-263c4c9dcf7e.png?v=1766583604&width=1000",
-    "notes": null
-  },
-  {
     "id": "justmylook-kil0020",
     "brand": "Kilian",
     "name": "Love Dont Be Shy",
@@ -94550,6 +94958,36 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/KIL0020_96425647-f74b-4ebc-9355-21b47a5717dc.png?v=1771241342&width=1000",
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416646103177-45146980253833",
+    "brand": "Kilian",
+    "name": "Moonlight In Heaven",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Lemon"
+      ],
+      "middle": [
+        "Rice"
+      ],
+      "base": []
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416644956297-45146977271945",
+    "brand": "Kilian",
+    "name": "Moonlight In Heaven Carafe",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 250,
+    "ean": null,
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -94597,6 +95035,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416645087369-45146978025609",
+    "brand": "Kilian",
+    "name": "Roses On Ice Carafe",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 250,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "justmylook-kil0007",
     "brand": "Kilian",
     "name": "Straight To Heaven",
@@ -94605,6 +95054,41 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/KIL0007_5da9875a-63f6-4505-aebe-5b9672477852.png?v=1766583603&width=1000",
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416645021833-45146977960073",
+    "brand": "Kilian",
+    "name": "Vodka On The Rocks Carafe",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 250,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Aldehydes",
+        "Lily-of-the-Valley",
+        "Pink Rose"
+      ],
+      "middle": [
+        "Lily-of-the-Valley",
+        "Pink Rose"
+      ],
+      "base": [
+        "Oakmoss"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416645185673-45146978123913",
+    "brand": "Kilian",
+    "name": "Voulez-Vous Coucher Avec Moi",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -97877,6 +98361,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416711442569-45147083669641",
+    "brand": "Lattafa",
+    "name": "Afaq Gold",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-9026373517661-default-title",
     "brand": "Lattafa",
     "name": "Afaq Gold Perfume Lattafa Pride",
@@ -98030,6 +98525,28 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416712294537-45147084554377",
+    "brand": "Lattafa",
+    "name": "Ajwaa",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 90,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338357649545-44927277760649",
+    "brand": "Lattafa",
+    "name": "Ajwad",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 60,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-8890913030493-default-title",
     "brand": "Lattafa",
     "name": "Ajwad Perfume Lattafa",
@@ -98049,6 +98566,26 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "Vanilla",
         "Musk",
         "Cedarwood"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338357223561-44927277301897",
+    "brand": "Lattafa",
+    "name": "Ajwad Pink to Pink",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 60,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Leather",
+        "Vanilla",
+        "Moss",
+        "Ambergris"
       ]
     }
   },
@@ -98108,6 +98645,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416714522761-45147088388233",
+    "brand": "Lattafa",
+    "name": "Al Ameed Silver",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-9026350973277-default-title",
     "brand": "Lattafa",
     "name": "Al Ameed Silver Perfume - Lattafa Pride",
@@ -98128,6 +98676,31 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
       "base": [
         "Leather",
         "Musk"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416714883209-45147089305737",
+    "brand": "Lattafa",
+    "name": "Al Areeq Gold",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Apple"
+      ],
+      "middle": [
+        "Birch",
+        "Patchouli"
+      ],
+      "base": [
+        "Leather",
+        "Oakmoss",
+        "Amber"
       ]
     }
   },
@@ -98156,6 +98729,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "Musk"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416714260617-45147087011977",
+    "brand": "Lattafa",
+    "name": "Al Areeq Silver",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-9047506747741-default-title",
@@ -98312,6 +98896,47 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338356961417-44927276712073",
+    "brand": "Lattafa",
+    "name": "Al Nashama",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Sage"
+      ],
+      "middle": [],
+      "base": []
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338357125257-44927277203593",
+    "brand": "Lattafa",
+    "name": "Al Nashama Caprice",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Ginger",
+        "Lemon",
+        "Bergamot"
+      ],
+      "middle": [],
+      "base": [
+        "Cedarwood",
+        "Patchouli",
+        "Vetiver"
+      ]
+    }
+  },
+  {
     "id": "emirates-oud-9077535211869-default-title",
     "brand": "Lattafa",
     "name": "Al Nashama Caprice Perfume Lattafa",
@@ -98367,6 +98992,51 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "Moss"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416712687753-45147084947593",
+    "brand": "Lattafa",
+    "name": "Al Noble Ameer",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338357846153-44927277957257",
+    "brand": "Lattafa",
+    "name": "Al Noble Safeer Green",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Artemisia"
+      ],
+      "middle": [],
+      "base": [
+        "Juniper",
+        "Cumin",
+        "Patchouli",
+        "Labdanum",
+        "Frankincense"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338372690057-44927298470025",
+    "brand": "Lattafa",
+    "name": "Al Qiam Gold",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-8928156909917-default-title",
@@ -98488,17 +99158,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "ean": "6291107458571",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1713870687-08333200.jpg?v=1763395042&width=1920",
-    "notes": null
-  },
-  {
-    "id": "justmylook-lat0015",
-    "brand": "Lattafa",
-    "name": "Ameer Al Oudh Intense Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/LAT0015_85c3074f-8960-454b-83c6-7fac19e635a2.png?v=1758900973&width=1000",
     "notes": null
   },
   {
@@ -98636,17 +99295,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6291106066890",
-    "brand": "Lattafa",
-    "name": "Ana Abiyedh",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 60,
-    "ean": "6291106066890",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1561393908-50494900.jpg?v=1763389329&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-6290362341826",
     "brand": "Lattafa",
     "name": "Ana Abiyedh Coral",
@@ -98682,6 +99330,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "Musk"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338367578249-44927288574089",
+    "brand": "Lattafa",
+    "name": "Ana Abiyedh Leather",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 60,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-8839491977565-default-title",
@@ -98847,17 +99506,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290362349938",
-    "brand": "Lattafa",
-    "name": "Ana Abiyedh Scarlet",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 60,
-    "ean": "6290362349938",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1755852528-22656700.jpg?v=1763398825&width=1920",
-    "notes": null
-  },
-  {
     "id": "emirates-oud-15560094056797-default-title",
     "brand": "Lattafa",
     "name": "Ana Abiyedh Scarlet Perfume Lattafa",
@@ -98976,6 +99624,23 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338372657289-44927298437257",
+    "brand": "Lattafa",
+    "name": "Ansaam Gold",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Mandarin Orange"
+      ],
+      "middle": [],
+      "base": []
+    }
+  },
+  {
     "id": "emirates-oud-9190634062173-default-title",
     "brand": "Lattafa",
     "name": "Ansaam Gold Perfume Lattafa Pride",
@@ -98999,6 +99664,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "Raspberry"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416711540873-45147083767945",
+    "brand": "Lattafa",
+    "name": "Ansaam Silver",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-9032477475165-default-title",
@@ -99263,6 +99939,26 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416712327305-45147084587145",
+    "brand": "Lattafa",
+    "name": "Artisan Ethnique",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Cinnamon",
+        "Sugar"
+      ],
+      "middle": [],
+      "base": [
+        "Labdanum"
+      ]
+    }
+  },
+  {
     "id": "emirates-oud-15486185144669-default-title",
     "brand": "Lattafa",
     "name": "Artisan Ethnique Perfume Lattafa Pride",
@@ -99376,17 +100072,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290360598666",
-    "brand": "Lattafa",
-    "name": "Asad Zanzibar",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360598666",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1718616931-94457300.jpg?v=1763395273&width=1920",
-    "notes": null
-  },
-  {
     "id": "emirates-oud-15938221244765-default-title",
     "brand": "Lattafa",
     "name": "Asad Zanzibar Limited Edition Perfume Lattafa",
@@ -99490,6 +100175,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416715276425-45147090157705",
+    "brand": "Lattafa",
+    "name": "Atlas",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 55,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15604440727901-default-title",
     "brand": "Lattafa",
     "name": "Atlas Perfume Lattafa",
@@ -99566,6 +100262,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416713703561-45147086422153",
+    "brand": "Lattafa",
+    "name": "Azeezah",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-6291108737675",
     "brand": "Lattafa",
     "name": "Bade'e Al Amethyst Perfumed Body",
@@ -99588,14 +100295,14 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6291107458328",
+    "id": "mybeauty-boutique-shopify-gb-8416714227849-45147086979209",
     "brand": "Lattafa",
-    "name": "Bade'e Al Oud Oud For Glory",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6291107458328",
+    "name": "Bade'e Al Perfumed Body",
+    "concentration": "Oud",
+    "sizeMl": 200,
+    "ean": null,
     "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1651074596-45882100.jpg?v=1763391948&width=1920",
+    "image": null,
     "notes": null
   },
   {
@@ -99604,6 +100311,28 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "name": "Bade'e Al Room",
     "concentration": "Oud",
     "sizeMl": 300,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416714064009-45147086815369",
+    "brand": "Lattafa",
+    "name": "Bade'e Al Sublime All Over Body",
+    "concentration": "Oud",
+    "sizeMl": 150,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416715112585-45147089535113",
+    "brand": "Lattafa",
+    "name": "Bade'e Al Sublime All Over Body",
+    "concentration": "Oud",
+    "sizeMl": 200,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -99969,6 +100698,25 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338356928649-44927276581001",
+    "brand": "Lattafa",
+    "name": "Bayaan",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Litchi"
+      ],
+      "middle": [],
+      "base": [
+        "Oud"
+      ]
+    }
+  },
+  {
     "id": "emirates-oud-8928163004765-default-title",
     "brand": "Lattafa",
     "name": "Bayaan Perfume Lattafa",
@@ -100018,6 +100766,25 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "Vanilla",
         "Musk"
       ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338357387401-44927277465737",
+    "brand": "Lattafa",
+    "name": "Blue Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Black Pepper",
+        "Apple",
+        "Bergamot"
+      ],
+      "middle": [],
+      "base": []
     }
   },
   {
@@ -100464,6 +101231,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416711803017-45147084062857",
+    "brand": "Lattafa",
+    "name": "Emaan",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-8911270412637-default-title",
     "brand": "Lattafa",
     "name": "Emaan Perfume Lattafa",
@@ -100518,6 +101296,30 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
       ]
     }
   },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416711606409-45147083833481",
+    "brand": "Lattafa",
+    "name": "Emeer",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [
+        "Jasmine",
+        "Honeysuckle",
+        "Tuberose",
+        "Peony",
+        "Gardenia"
+      ],
+      "base": []
+    }
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15630202339677-default-title",
     "brand": "Lattafa",
@@ -100574,6 +101376,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416715178121-45147089600649",
+    "brand": "Lattafa",
+    "name": "Eternal Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-8839488307549-default-title",
@@ -100677,6 +101490,28 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1713866039-32975700.jpg?v=1763390528&width=1920",
     "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338357485705-44927277596809",
+    "brand": "Lattafa",
+    "name": "Fakhar Black",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Ginger"
+      ],
+      "middle": [],
+      "base": [
+        "Amberwood",
+        "Cedar",
+        "Vetiver"
+      ]
+    }
   },
   {
     "id": "justmylook-lat0023",
@@ -100845,6 +101680,47 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "Sandalwood",
         "Jasmine",
         "Patchouli"
+      ],
+      "base": []
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416712392841-45147084652681",
+    "brand": "Lattafa",
+    "name": "Fakhar Platin",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [
+        "Lavender",
+        "Ginger",
+        "Incense",
+        "Sandalwood"
+      ],
+      "base": []
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416711671945-45147083931785",
+    "brand": "Lattafa",
+    "name": "Fakhar Rose",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [
+        "Jasmine",
+        "Honeysuckle",
+        "Tuberose",
+        "Peony",
+        "Gardenia"
       ],
       "base": []
     }
@@ -101129,17 +102005,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6291108738504",
-    "brand": "Lattafa",
-    "name": "Haya",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6291108738504",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1746806093-24969800.jpg?v=1763397893&width=1920",
-    "notes": null
-  },
-  {
     "id": "emirates-oud-8911267791197-default-title",
     "brand": "Lattafa",
     "name": "Haya Perfume Lattafa",
@@ -101189,28 +102054,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6291107450193",
-    "brand": "Lattafa",
-    "name": "Hayaati",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6291107450193",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1755679741-48714900.jpg?v=1763395898&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-6291108734056",
-    "brand": "Lattafa",
-    "name": "Hayaati Al Maleky",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6291108734056",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1747220688-36145600.jpg?v=1763397893&width=1920",
-    "notes": null
-  },
-  {
     "id": "emirates-oud-9204162036061-default-title",
     "brand": "Lattafa",
     "name": "Hayaati Al Maleky Perfume Lattafa",
@@ -101238,17 +102081,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290360593180",
-    "brand": "Lattafa",
-    "name": "Hayaati Florence",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360593180",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1719917801-92262100.jpg?v=1763395345&width=1920",
-    "notes": null
-  },
-  {
     "id": "emirates-oud-9204175929693-default-title",
     "brand": "Lattafa",
     "name": "Hayaati Florence Perfume Lattafa",
@@ -101274,17 +102106,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "Amber"
       ]
     }
-  },
-  {
-    "id": "ean-6291107457895",
-    "brand": "Lattafa",
-    "name": "Hayaati Gold Elixir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6291107457895",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1719918125-00905000.jpg?v=1763395347&width=1920",
-    "notes": null
   },
   {
     "id": "emirates-oud-9382084608349-default-title",
@@ -101362,10 +102183,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
       ],
       "base": []
     }
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-9851872903517-default-title",
     "brand": "Lattafa",
@@ -101388,17 +102206,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  },
-  {
-    "id": "ean-6290360599113",
-    "brand": "Lattafa",
-    "name": "His Confession",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360599113",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1747219879-84385700.jpg?v=1763397897&width=1920",
-    "notes": null
   },
   {
     "id": "emirates-oud-9851897676125-default-title",
@@ -101426,6 +102233,28 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Cedarwood"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338414698633-44927397920905",
+    "brand": "Lattafa",
+    "name": "Ishq Al Shuyukh Silver",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416711704713-45147083964553",
+    "brand": "Lattafa",
+    "name": "Jasoor",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-8928159826269-default-title",
@@ -101570,14 +102399,14 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290362342373",
+    "id": "mybeauty-boutique-shopify-gb-8416711999625-45147084259465",
     "brand": "Lattafa",
-    "name": "Khamrah Dukhan",
+    "name": "Khaltaat Al Arabia Royal Delight",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6290362342373",
+    "ean": null,
     "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1755531246-47172800.jpg?v=1763397560&width=1920",
+    "image": null,
     "notes": null
   },
   {
@@ -101769,6 +102598,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416712196233-45147084456073",
+    "brand": "Lattafa",
+    "name": "La Collection d'AntiquitÃ©s 1505",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-9529405571421-default-title",
     "brand": "Lattafa",
     "name": "La Collection D'antiquites 1505 (Watch) Perfume Lattafa Pride",
@@ -101852,6 +102692,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416712917129-45147085176969",
+    "brand": "Lattafa",
+    "name": "Lahdath",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-9034712809821-default-title",
     "brand": "Lattafa",
     "name": "Lahdath Perfume Lattafa Pride",
@@ -101927,6 +102778,164 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338364727433-44927285526665",
+    "brand": "Lattafa",
+    "name": "Lattafa Ana Abiyedh Poudrée",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 60,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416712491145-45147084750985",
+    "brand": "Lattafa",
+    "name": "Lattafa Art Of Nature I",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Sandalwood",
+        "Musk",
+        "Cashmere Wood"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416712556681-45147084816521",
+    "brand": "Lattafa",
+    "name": "Lattafa Bade'e Al Amethyst Body",
+    "concentration": "Oud",
+    "sizeMl": 200,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416713670793-45147086389385",
+    "brand": "Lattafa",
+    "name": "Lattafa Eclaire",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416712425609-45147084685449",
+    "brand": "Lattafa",
+    "name": "Lattafa Eclaire Banoffi",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Praline",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416713212041-45147085471881",
+    "brand": "Lattafa",
+    "name": "Lattafa Eclaire Pistache",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416714719369-45147088584841",
+    "brand": "Lattafa",
+    "name": "Lattafa Khalta Blend Of Lattafa",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338364792969-44927285592201",
+    "brand": "Lattafa",
+    "name": "Lattafa Musamam",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416713638025-45147086356617",
+    "brand": "Lattafa",
+    "name": "Lattafa Niche Emarati Lujain",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416715145353-45147089567881",
+    "brand": "Lattafa",
+    "name": "Lattafa Niche Emarati Mughal Fort",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416714358921-45147087110281",
+    "brand": "Lattafa",
+    "name": "Lattafa Sheikh Al Shuyukh Supreme",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416713343113-45147085602953",
+    "brand": "Lattafa",
+    "name": "Lattafa Taureau De Combat",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416711508105-45147083735177",
+    "brand": "Lattafa",
+    "name": "Lattafa Velvet Musk",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-6290360598895",
     "brand": "Lattafa",
     "name": "Layaan",
@@ -101988,6 +102997,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Incense"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338372591753-44927298371721",
+    "brand": "Lattafa",
+    "name": "Liam Blue Shine",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-8961524334941-default-title",
@@ -102122,14 +103142,14 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6291107456744",
+    "id": "mybeauty-boutique-shopify-gb-8338357616777-44927277727881",
     "brand": "Lattafa",
-    "name": "Maahir",
+    "name": "Maahir Black Edition",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6291107456744",
+    "ean": null,
     "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738837365-62237200.jpg?v=1763397090&width=1920",
+    "image": null,
     "notes": null
   },
   {
@@ -102204,6 +103224,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338356797577-44927276449929",
+    "brand": "Lattafa",
+    "name": "Maahir Legacy",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-8839487553885-default-title",
     "brand": "Lattafa",
     "name": "Maahir Legacy Perfume Lattafa",
@@ -102271,6 +103302,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/maali-perfume-30ml-edp-thameen-collection-by-lattafa-emirates-oud.jpg?v=1713056909",
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416712982665-45147085242505",
+    "brand": "Lattafa",
+    "name": "Maharjan Gold",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -102375,6 +103417,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Musk"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416714031241-45147086782601",
+    "brand": "Lattafa",
+    "name": "Masa",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-8923818885469-default-title",
@@ -102565,6 +103618,32 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Cedarwood",
         "Amber",
         "Olibanum"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416712720521-45147084980361",
+    "brand": "Lattafa",
+    "name": "Mohra",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Saffron",
+        "Lavender"
+      ],
+      "middle": [
+        "Egyptian geranium",
+        "Virginia cedar",
+        "Amberwood"
+      ],
+      "base": [
+        "Somalian frankincense",
+        "Akigalawood",
+        "Cistus concrete"
       ]
     }
   },
@@ -102880,17 +103959,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290360598871",
-    "brand": "Lattafa",
-    "name": "Nasmaat",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360598871",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1761816961-50503400.jpg?v=1763399360&width=1920",
-    "notes": null
-  },
-  {
     "id": "emirates-oud-15668456620381-default-title",
     "brand": "Lattafa",
     "name": "Nasmaat Perfume Lattafa",
@@ -102917,28 +103985,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Patchouli"
       ]
     }
-  },
-  {
-    "id": "ean-6291108738276",
-    "brand": "Lattafa",
-    "name": "Nebras",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6291108738276",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728472133-84370000.jpg?v=1763394327&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-6290362348054",
-    "brand": "Lattafa",
-    "name": "Nebras Elixir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290362348054",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1759334105-44292300.jpg?v=1763399124&width=1920",
-    "notes": null
   },
   {
     "id": "emirates-oud-15568364831069-default-title",
@@ -103019,6 +104065,28 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Oakmoss"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416712622217-45147084882057",
+    "brand": "Lattafa",
+    "name": "Niche Emarati Hayaam",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416714850441-45147089272969",
+    "brand": "Lattafa",
+    "name": "Niche Emarati Khalid",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-16204007309661-default-title",
@@ -103111,17 +104179,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6291107450445",
-    "brand": "Lattafa",
-    "name": "Opulent Musk",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6291107450445",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1759417723-19099100.jpg?v=1763399234&width=1920",
-    "notes": null
-  },
-  {
     "id": "emirates-oud-8839499186525-default-title",
     "brand": "Lattafa",
     "name": "Opulent Musk Perfume By Lattafa",
@@ -103148,17 +104205,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Fir Resin"
       ]
     }
-  },
-  {
-    "id": "ean-6291107450438",
-    "brand": "Lattafa",
-    "name": "Opulent Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6291107450438",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1697725791-94186900.jpg?v=1763394073&width=1920",
-    "notes": null
   },
   {
     "id": "emirates-oud-8839501087069-default-title",
@@ -103415,17 +104461,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290360598796",
-    "brand": "Lattafa",
-    "name": "Petra",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360598796",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1750157053-15869000.jpg?v=1763398123&width=1920",
-    "notes": null
-  },
-  {
     "id": "emirates-oud-15430697288029-default-title",
     "brand": "Lattafa",
     "name": "Petra Perfume By Lattafa",
@@ -103516,17 +104551,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "ean": "6290360592756",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1733753851-40800100.jpg?v=1763396726&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-6290362347095",
-    "brand": "Lattafa",
-    "name": "Pure Crystal",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290362347095",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1761817600-49917200.jpg?v=1763399362&width=1920",
     "notes": null
   },
   {
@@ -103650,6 +104674,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338372722825-44927298502793",
+    "brand": "Lattafa",
+    "name": "Qaed Al Fursan Unlimited",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-8911346827613-default-title",
     "brand": "Lattafa",
     "name": "Qaed Al Fursan Unlimited Perfume Lattafa",
@@ -103675,17 +104710,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Sandalwood"
       ]
     }
-  },
-  {
-    "id": "ean-6290362340645",
-    "brand": "Lattafa",
-    "name": "Qaed Al Fursan Untamed",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 90,
-    "ean": "6290362340645",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1747219701-66731800.jpg?v=1763397857&width=1920",
-    "notes": null
   },
   {
     "id": "emirates-oud-15386402062685-default-title",
@@ -103779,6 +104803,25 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Cacao",
         "Sandalwood"
       ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338367545481-44927288541321",
+    "brand": "Lattafa",
+    "name": "Quaa'ed",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Nutmeg",
+        "Cinnamon Bark",
+        "Cardamom"
+      ],
+      "middle": [],
+      "base": []
     }
   },
   {
@@ -103879,6 +104922,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Chestnut"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416714096777-45147086848137",
+    "brand": "Lattafa",
+    "name": "Ra'ed Luxe Gold Mane",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-16063174082909-default-title",
@@ -104042,6 +105096,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338357256329-44927277334665",
+    "brand": "Lattafa",
+    "name": "Raghba Wood Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-8839509803357-default-title",
     "brand": "Lattafa",
     "name": "Raghba Wood Intense Perfume Lattafa",
@@ -104099,6 +105164,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416712851593-45147085111433",
+    "brand": "Lattafa",
+    "name": "Ramz Lattafa (Gold)",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-8911369240925-default-title",
     "brand": "Lattafa",
     "name": "Ramz Lattafa Gold Perfume Lattafa",
@@ -104127,17 +105203,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Patchouli"
       ]
     }
-  },
-  {
-    "id": "justmylook-lat0008",
-    "brand": "Lattafa",
-    "name": "Ramz Lattafa Silver",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/ramz-lattafa-silver-eau-de-parfum-100ml-p38198-121261_image.jpg?v=1721322261&width=1000",
-    "notes": null
   },
   {
     "id": "emirates-oud-8919133618525-default-title",
@@ -104253,6 +105318,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Musk"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416715079817-45147089502345",
+    "brand": "Lattafa",
+    "name": "Raw Human",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-9029647630685-default-title",
@@ -104518,6 +105594,27 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338372624521-44927298404489",
+    "brand": "Lattafa",
+    "name": "Shaheen Gold",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [
+        "Patchouli"
+      ],
+      "base": [
+        "Musk",
+        "Oakmoss",
+        "Amber"
+      ]
+    }
+  },
+  {
     "id": "emirates-oud-9032506081629-default-title",
     "brand": "Lattafa",
     "name": "Shaheen Gold Perfume Lattafa Pride",
@@ -104541,17 +105638,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Tonka"
       ]
     }
-  },
-  {
-    "id": "ean-6291108738658",
-    "brand": "Lattafa",
-    "name": "Shaheen Silver",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6291108738658",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1754917926-98115500.jpg?v=1763398687&width=1920",
-    "notes": null
   },
   {
     "id": "emirates-oud-9032493695325-default-title",
@@ -104659,17 +105745,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290362347484",
-    "brand": "Lattafa",
-    "name": "Sherif",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290362347484",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1758292436-94213200.jpg?v=1763398979&width=1920",
-    "notes": null
-  },
-  {
     "id": "emirates-oud-15583946244445-default-title",
     "brand": "Lattafa",
     "name": "Sherif Perfume Lattafa",
@@ -104761,6 +105836,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416715702409-45147090747529",
+    "brand": "Lattafa",
+    "name": "Suqraat",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15644472443229-default-title",
     "brand": "Lattafa",
     "name": "Sur Mesure Noir Perfume Lattafa Pride",
@@ -104824,6 +105910,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Patchouli"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338364694665-44927285493897",
+    "brand": "Lattafa",
+    "name": "Ta'weel",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-6298043160025",
@@ -104892,17 +105989,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Vetiver"
       ]
     }
-  },
-  {
-    "id": "ean-6290360595764",
-    "brand": "Lattafa",
-    "name": "Teriaq",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360595764",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1717662391-16639000.jpg?v=1763395256&width=1920",
-    "notes": null
   },
   {
     "id": "emirates-oud-14731428823389-default-title",
@@ -104988,17 +106074,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6291108738177",
-    "brand": "Lattafa",
-    "name": "Tharwah Gold",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6291108738177",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1748877918-49602100.jpg?v=1763398022&width=1920",
-    "notes": null
-  },
-  {
     "id": "emirates-oud-9029628461405-default-title",
     "brand": "Lattafa",
     "name": "Tharwah Gold Perfume Lattafa Pride",
@@ -105047,6 +106122,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Vetiver"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416712949897-45147085209737",
+    "brand": "Lattafa",
+    "name": "The Kingdom",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-6290360598352",
@@ -105201,6 +106287,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416715440265-45147090321545",
+    "brand": "Lattafa",
+    "name": "Velvet Oud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-8839512293725-default-title",
     "brand": "Lattafa",
     "name": "Velvet Oud Perfume Lattafa",
@@ -105221,6 +106318,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Musk"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338364760201-44927285559433",
+    "brand": "Lattafa",
+    "name": "Velvet Rose",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-8839508230493-default-title",
@@ -105248,6 +106356,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Oud"
       ]
     }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416714948745-45147089371273",
+    "brand": "Lattafa",
+    "name": "Victoria",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-15352670486877-default-title",
@@ -105292,17 +106411,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Marshmallow"
       ]
     }
-  },
-  {
-    "id": "ean-6290360592909",
-    "brand": "Lattafa",
-    "name": "Vintage Radio",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360592909",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728314382-19723800.jpg?v=1763395787&width=1920",
-    "notes": null
   },
   {
     "id": "emirates-oud-8888865718621-default-title",
@@ -105405,17 +106513,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6423080728925",
-    "brand": "Lattafa",
-    "name": "Yara",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "6423080728925",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728648557-39195600.jpg?v=1772625018&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-6290362345718",
     "brand": "Lattafa",
     "name": "Yara Candy Concentrated Oil Bottle",
@@ -105516,17 +106613,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290362346531",
-    "brand": "Lattafa",
-    "name": "Yara Elixir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290362346531",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1761816159-56719200.jpg?v=1763399366&width=1920",
-    "notes": null
-  },
-  {
     "id": "emirates-oud-15683998548317-default-title",
     "brand": "Lattafa",
     "name": "Yara Elixir Perfume Lattafa",
@@ -105604,6 +106690,37 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416714391689-45147087143049",
+    "brand": "Lattafa",
+    "name": "Yara Moi Oil",
+    "concentration": "Perfume",
+    "sizeMl": 20,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416712065161-45147084325001",
+    "brand": "Lattafa",
+    "name": "Yara Oil",
+    "concentration": "Perfume",
+    "sizeMl": 20,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Heliotrope",
+        "Gourmand nuances",
+        "Sandalwood",
+        "Musk"
+      ],
+      "middle": [],
+      "base": []
+    }
+  },
+  {
     "id": "emirates-oud-8839508492637-default-title",
     "brand": "Lattafa",
     "name": "Yara Pink Perfume - Women Fragrance",
@@ -105642,6 +106759,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     }
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416712589449-45147084849289",
+    "brand": "Lattafa",
+    "name": "Yara Tous Oil",
+    "concentration": "Perfume",
+    "sizeMl": 20,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-8890942751069-default-title",
     "brand": "Lattafa",
     "name": "Yara Tous Perfume Lattafa",
@@ -105667,1607 +106795,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Cashmeran"
       ]
     }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416711442569-45147083669641",
-    "brand": "Lattafa Perfumes",
-    "name": "Afaq Gold",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712294537-45147084554377",
-    "brand": "Lattafa Perfumes",
-    "name": "Ajwaa",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 90,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357649545-44927277760649",
-    "brand": "Lattafa Perfumes",
-    "name": "Ajwad",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 60,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357223561-44927277301897",
-    "brand": "Lattafa Perfumes",
-    "name": "Ajwad Pink to Pink",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 60,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Leather",
-        "Vanilla",
-        "Moss",
-        "Ambergris"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714522761-45147088388233",
-    "brand": "Lattafa Perfumes",
-    "name": "Al Ameed Silver",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714883209-45147089305737",
-    "brand": "Lattafa Perfumes",
-    "name": "Al Areeq Gold",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Apple"
-      ],
-      "middle": [
-        "Birch",
-        "Patchouli"
-      ],
-      "base": [
-        "Leather",
-        "Oakmoss",
-        "Amber"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714260617-45147087011977",
-    "brand": "Lattafa Perfumes",
-    "name": "Al Areeq Silver",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338356961417-44927276712073",
-    "brand": "Lattafa Perfumes",
-    "name": "Al Nashama",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Sage"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357125257-44927277203593",
-    "brand": "Lattafa Perfumes",
-    "name": "Al Nashama Caprice",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Ginger",
-        "Lemon",
-        "Bergamot"
-      ],
-      "middle": [],
-      "base": [
-        "Cedarwood",
-        "Patchouli",
-        "Vetiver"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712687753-45147084947593",
-    "brand": "Lattafa Perfumes",
-    "name": "Al Noble Ameer",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357846153-44927277957257",
-    "brand": "Lattafa Perfumes",
-    "name": "Al Noble Safeer Green",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Artemisia"
-      ],
-      "middle": [],
-      "base": [
-        "Juniper",
-        "Cumin",
-        "Patchouli",
-        "Labdanum",
-        "Frankincense"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338372690057-44927298470025",
-    "brand": "Lattafa Perfumes",
-    "name": "Al Qiam Gold",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357584009-44927277695113",
-    "brand": "Lattafa Perfumes",
-    "name": "Ameer Al Oudh Intense Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357354633-44927277432969",
-    "brand": "Lattafa Perfumes",
-    "name": "Ana Abiyedh",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 60,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Orange"
-      ],
-      "middle": [],
-      "base": [
-        "White Musk",
-        "Jasmine",
-        "Nagarmotha"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338367578249-44927288574089",
-    "brand": "Lattafa Perfumes",
-    "name": "Ana Abiyedh Leather",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 60,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357452937-44927277564041",
-    "brand": "Lattafa Perfumes",
-    "name": "Ana Abiyedh Rouge",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 60,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416715538569-45147090419849",
-    "brand": "Lattafa Perfumes",
-    "name": "Ana Abiyedh Scarlet",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 60,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Bergamot"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338372657289-44927298437257",
-    "brand": "Lattafa Perfumes",
-    "name": "Ansaam Gold",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Mandarin Orange"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416711540873-45147083767945",
-    "brand": "Lattafa Perfumes",
-    "name": "Ansaam Silver",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712327305-45147084587145",
-    "brand": "Lattafa Perfumes",
-    "name": "Artisan Ethnique",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Cinnamon",
-        "Sugar"
-      ],
-      "middle": [],
-      "base": [
-        "Labdanum"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357747849-44927277858953",
-    "brand": "Lattafa Perfumes",
-    "name": "Asad",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714162313-45147086913673",
-    "brand": "Lattafa Perfumes",
-    "name": "Asad Bourbon",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338396446857-44927344083081",
-    "brand": "Lattafa Perfumes",
-    "name": "Asad Zanzibar",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Smoky Frankincense"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416715276425-45147090157705",
-    "brand": "Lattafa Perfumes",
-    "name": "Atlas",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 55,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416713703561-45147086422153",
-    "brand": "Lattafa Perfumes",
-    "name": "Azeezah",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357682313-44927277793417",
-    "brand": "Lattafa Perfumes",
-    "name": "Bade'e Al Oud Amethyst",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Bergamot"
-      ],
-      "middle": [],
-      "base": [
-        "Amber",
-        "Vanilla"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416711475337-45147083702409",
-    "brand": "Lattafa Perfumes",
-    "name": "Bade'e Al Oud Honor & Glory",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357551241-44927277662345",
-    "brand": "Lattafa Perfumes",
-    "name": "Bade'e Al Oud Oud for Glory",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Patchouli",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357026953-44927277006985",
-    "brand": "Lattafa Perfumes",
-    "name": "Bade'e Al Oud Sublime",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "Plum",
-        "Jasmine"
-      ],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714227849-45147086979209",
-    "brand": "Lattafa Perfumes",
-    "name": "Bade'e Al Perfumed Body",
-    "concentration": "Oud",
-    "sizeMl": 200,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714064009-45147086815369",
-    "brand": "Lattafa Perfumes",
-    "name": "Bade'e Al Sublime All Over Body",
-    "concentration": "Oud",
-    "sizeMl": 150,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416715112585-45147089535113",
-    "brand": "Lattafa Perfumes",
-    "name": "Bade'e Al Sublime All Over Body",
-    "concentration": "Oud",
-    "sizeMl": 200,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338356928649-44927276581001",
-    "brand": "Lattafa Perfumes",
-    "name": "Bayaan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Litchi"
-      ],
-      "middle": [],
-      "base": [
-        "Oud"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357387401-44927277465737",
-    "brand": "Lattafa Perfumes",
-    "name": "Blue Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Black Pepper",
-        "Apple",
-        "Bergamot"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416711803017-45147084062857",
-    "brand": "Lattafa Perfumes",
-    "name": "Emaan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416711606409-45147083833481",
-    "brand": "Lattafa Perfumes",
-    "name": "Emeer",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "Jasmine",
-        "Honeysuckle",
-        "Tuberose",
-        "Peony",
-        "Gardenia"
-      ],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416715178121-45147089600649",
-    "brand": "Lattafa Perfumes",
-    "name": "Eternal Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357485705-44927277596809",
-    "brand": "Lattafa Perfumes",
-    "name": "Fakhar Black",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Ginger"
-      ],
-      "middle": [],
-      "base": [
-        "Amberwood",
-        "Cedar",
-        "Vetiver"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712392841-45147084652681",
-    "brand": "Lattafa Perfumes",
-    "name": "Fakhar Platin",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "Lavender",
-        "Ginger",
-        "Incense",
-        "Sandalwood"
-      ],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416711671945-45147083931785",
-    "brand": "Lattafa Perfumes",
-    "name": "Fakhar Rose",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "Jasmine",
-        "Honeysuckle",
-        "Tuberose",
-        "Peony",
-        "Gardenia"
-      ],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416711770249-45147084030089",
-    "brand": "Lattafa Perfumes",
-    "name": "Haya",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416711737481-45147083997321",
-    "brand": "Lattafa Perfumes",
-    "name": "Hayaati",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416711901321-45147084161161",
-    "brand": "Lattafa Perfumes",
-    "name": "Hayaati Al Maleky",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416711934089-45147084193929",
-    "brand": "Lattafa Perfumes",
-    "name": "Hayaati Florence",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338367611017-44927288606857",
-    "brand": "Lattafa Perfumes",
-    "name": "Hayaati Gold Elixir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416713441417-45147085832329",
-    "brand": "Lattafa Perfumes",
-    "name": "Her Confession",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Accord"
-      ],
-      "middle": [
-        "Jasmine"
-      ],
-      "base": [
-        "Tonka bean"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416715767945-45147090813065",
-    "brand": "Lattafa Perfumes",
-    "name": "His Confession",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Cardamom",
-        "Tobacco",
-        "Tonka",
-        "Patchouli",
-        "Vetiver"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338414698633-44927397920905",
-    "brand": "Lattafa Perfumes",
-    "name": "Ishq Al Shuyukh Silver",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416711704713-45147083964553",
-    "brand": "Lattafa Perfumes",
-    "name": "Jasoor",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416711999625-45147084259465",
-    "brand": "Lattafa Perfumes",
-    "name": "Khaltaat Al Arabia Royal Delight",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357813385-44927277924489",
-    "brand": "Lattafa Perfumes",
-    "name": "Khamrah",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Nutmeg",
-        "Cinnamon"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416715931785-45147091009673",
-    "brand": "Lattafa Perfumes",
-    "name": "Khamrah Dukhan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Cinnamon",
-        "Nutmeg",
-        "Bergamot"
-      ],
-      "middle": [
-        "Dates",
-        "Praline",
-        "Tuberose",
-        "Mahonial"
-      ],
-      "base": [
-        "Vanilla",
-        "Tonka Bean",
-        "Amberwood",
-        "Myrrh",
-        "Benzoin",
-        "Akigalawood"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712196233-45147084456073",
-    "brand": "Lattafa Perfumes",
-    "name": "La Collection d'AntiquitÃ©s 1505",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712917129-45147085176969",
-    "brand": "Lattafa Perfumes",
-    "name": "Lahdath",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338364727433-44927285526665",
-    "brand": "Lattafa Perfumes",
-    "name": "Lattafa Ana Abiyedh Poudrée",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 60,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712491145-45147084750985",
-    "brand": "Lattafa Perfumes",
-    "name": "Lattafa Art Of Nature I",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Sandalwood",
-        "Musk",
-        "Cashmere Wood"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712556681-45147084816521",
-    "brand": "Lattafa Perfumes",
-    "name": "Lattafa Bade'e Al Amethyst Body",
-    "concentration": "Oud",
-    "sizeMl": 200,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416713670793-45147086389385",
-    "brand": "Lattafa Perfumes",
-    "name": "Lattafa Eclaire",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712425609-45147084685449",
-    "brand": "Lattafa Perfumes",
-    "name": "Lattafa Eclaire Banoffi",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Praline",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416713212041-45147085471881",
-    "brand": "Lattafa Perfumes",
-    "name": "Lattafa Eclaire Pistache",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714719369-45147088584841",
-    "brand": "Lattafa Perfumes",
-    "name": "Lattafa Khalta Blend Of Lattafa",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338364792969-44927285592201",
-    "brand": "Lattafa Perfumes",
-    "name": "Lattafa Musamam",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416713638025-45147086356617",
-    "brand": "Lattafa Perfumes",
-    "name": "Lattafa Niche Emarati Lujain",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416715145353-45147089567881",
-    "brand": "Lattafa Perfumes",
-    "name": "Lattafa Niche Emarati Mughal Fort",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714358921-45147087110281",
-    "brand": "Lattafa Perfumes",
-    "name": "Lattafa Sheikh Al Shuyukh Supreme",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416713343113-45147085602953",
-    "brand": "Lattafa Perfumes",
-    "name": "Lattafa Taureau De Combat",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416711508105-45147083735177",
-    "brand": "Lattafa Perfumes",
-    "name": "Lattafa Velvet Musk",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338372591753-44927298371721",
-    "brand": "Lattafa Perfumes",
-    "name": "Liam Blue Shine",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357518473-44927277629577",
-    "brand": "Lattafa Perfumes",
-    "name": "Maahir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357616777-44927277727881",
-    "brand": "Lattafa Perfumes",
-    "name": "Maahir Black Edition",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338356797577-44927276449929",
-    "brand": "Lattafa Perfumes",
-    "name": "Maahir Legacy",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712982665-45147085242505",
-    "brand": "Lattafa Perfumes",
-    "name": "Maharjan Gold",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714031241-45147086782601",
-    "brand": "Lattafa Perfumes",
-    "name": "Masa",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712720521-45147084980361",
-    "brand": "Lattafa Perfumes",
-    "name": "Mohra",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Saffron",
-        "Lavender"
-      ],
-      "middle": [
-        "Egyptian geranium",
-        "Virginia cedar",
-        "Amberwood"
-      ],
-      "base": [
-        "Somalian frankincense",
-        "Akigalawood",
-        "Cistus concrete"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714555529-45147088421001",
-    "brand": "Lattafa Perfumes",
-    "name": "Nasmaat",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "Plum",
-        "Jasmine",
-        "Black Pepper"
-      ],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357878921-44927277990025",
-    "brand": "Lattafa Perfumes",
-    "name": "Nebras",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416715866249-45147090944137",
-    "brand": "Lattafa Perfumes",
-    "name": "Nebras Elixir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Whipped Cream",
-        "Heliotrope"
-      ],
-      "middle": [
-        "Heliotrope"
-      ],
-      "base": [
-        "Ambroxan"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712622217-45147084882057",
-    "brand": "Lattafa Perfumes",
-    "name": "Niche Emarati Hayaam",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714850441-45147089272969",
-    "brand": "Lattafa Perfumes",
-    "name": "Niche Emarati Khalid",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357420169-44927277498505",
-    "brand": "Lattafa Perfumes",
-    "name": "Opulent Musk",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Lemon",
-        "Saffron",
-        "White Flowers"
-      ],
-      "middle": [
-        "White Flowers"
-      ],
-      "base": [
-        "Amber",
-        "Cedar",
-        "Resin",
-        "Fir Resin"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357321865-44927277400201",
-    "brand": "Lattafa Perfumes",
-    "name": "Opulent Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357289097-44927277367433",
-    "brand": "Lattafa Perfumes",
-    "name": "Oud Mood",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Amber",
-        "Musk",
-        "Incense"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416713769097-45147086487689",
-    "brand": "Lattafa Perfumes",
-    "name": "Petra",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416713179273-45147085439113",
-    "brand": "Lattafa Perfumes",
-    "name": "Pure Crystal",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Red Berries",
-        "Grapefruit",
-        "Juniper",
-        "Bergamot",
-        "Lemon"
-      ],
-      "middle": [
-        "Ginger",
-        "Clary Sage",
-        "Cypress"
-      ],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416711868553-45147084128393",
-    "brand": "Lattafa Perfumes",
-    "name": "Qaed Al Fursan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 90,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338372722825-44927298502793",
-    "brand": "Lattafa Perfumes",
-    "name": "Qaed Al Fursan Unlimited",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416713244809-45147085504649",
-    "brand": "Lattafa Perfumes",
-    "name": "Qaed Al Fursan Untamed",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 90,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338367545481-44927288541321",
-    "brand": "Lattafa Perfumes",
-    "name": "Quaa'ed",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Nutmeg",
-        "Cinnamon Bark",
-        "Cardamom"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714096777-45147086848137",
-    "brand": "Lattafa Perfumes",
-    "name": "Ra'ed Luxe Gold Mane",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357256329-44927277334665",
-    "brand": "Lattafa Perfumes",
-    "name": "Raghba Wood Intense",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712851593-45147085111433",
-    "brand": "Lattafa Perfumes",
-    "name": "Ramz Lattafa (Gold)",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712753289-45147085013129",
-    "brand": "Lattafa Perfumes",
-    "name": "Ramz Lattafa Silver",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Tonka"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416715079817-45147089502345",
-    "brand": "Lattafa Perfumes",
-    "name": "Raw Human",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338372624521-44927298404489",
-    "brand": "Lattafa Perfumes",
-    "name": "Shaheen Gold",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "Patchouli"
-      ],
-      "base": [
-        "Musk",
-        "Oakmoss",
-        "Amber"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712032393-45147084292233",
-    "brand": "Lattafa Perfumes",
-    "name": "Shaheen Silver",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712097929-45147084357769",
-    "brand": "Lattafa Perfumes",
-    "name": "Sherif",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416715702409-45147090747529",
-    "brand": "Lattafa Perfumes",
-    "name": "Suqraat",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338364694665-44927285493897",
-    "brand": "Lattafa Perfumes",
-    "name": "Ta'weel",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338357190793-44927277269129",
-    "brand": "Lattafa Perfumes",
-    "name": "Teriaq",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714915977-45147089338505",
-    "brand": "Lattafa Perfumes",
-    "name": "Tharwah Gold",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712949897-45147085209737",
-    "brand": "Lattafa Perfumes",
-    "name": "The Kingdom",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416715440265-45147090321545",
-    "brand": "Lattafa Perfumes",
-    "name": "Velvet Oud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338364760201-44927285559433",
-    "brand": "Lattafa Perfumes",
-    "name": "Velvet Rose",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714948745-45147089371273",
-    "brand": "Lattafa Perfumes",
-    "name": "Victoria",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416713834633-45147086553225",
-    "brand": "Lattafa Perfumes",
-    "name": "Vintage Radio",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416713801865-45147086520457",
-    "brand": "Lattafa Perfumes",
-    "name": "Yara",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Vanilla",
-        "Sandalwood"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338389860489-44927326552201",
-    "brand": "Lattafa Perfumes",
-    "name": "Yara Candy",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Amber",
-        "Sandalwood",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416715833481-45147090878601",
-    "brand": "Lattafa Perfumes",
-    "name": "Yara Elixir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "Jasmine",
-        "Orange Flower"
-      ],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338356895881-44927276548233",
-    "brand": "Lattafa Perfumes",
-    "name": "Yara Moi",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714391689-45147087143049",
-    "brand": "Lattafa Perfumes",
-    "name": "Yara Moi Oil",
-    "concentration": "Perfume",
-    "sizeMl": 20,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712065161-45147084325001",
-    "brand": "Lattafa Perfumes",
-    "name": "Yara Oil",
-    "concentration": "Perfume",
-    "sizeMl": 20,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Heliotrope",
-        "Gourmand nuances",
-        "Sandalwood",
-        "Musk"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416711835785-45147084095625",
-    "brand": "Lattafa Perfumes",
-    "name": "Yara Tous",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416712589449-45147084849289",
-    "brand": "Lattafa Perfumes",
-    "name": "Yara Tous Oil",
-    "concentration": "Perfume",
-    "sizeMl": 20,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "ean-5060967731046",
@@ -107517,17 +107044,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416716652681-45147091763337",
-    "brand": "Laurelle",
-    "name": "Sexxy Shoo Red",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-5060186260396",
     "brand": "Laurelle Parfums",
     "name": "Forever Together",
@@ -107578,6 +107094,17 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 85,
     "ean": "5060630899271",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416716652681-45147091763337",
+    "brand": "Laurelle Parfums",
+    "name": "Sexxy Shoo Red",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -110225,10 +109752,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1739548643-12410900.jpg?v=1763397128&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3610400037253",
     "brand": "Lomani",
@@ -110910,7 +110434,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338381930633-44927313608841",
     "brand": "Louis Cardin",
@@ -118518,17 +118045,6 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-3760265190485",
-    "brand": "Mancera",
-    "name": "Cedrat Boise",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 120,
-    "ean": "3760265190485",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/979.jpg",
-    "notes": null
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8416735232137-45147116372105",
     "brand": "Mancera",
     "name": "Coco Vanille",
@@ -118576,6 +118092,67 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "mybeauty-boutique-shopify-gb-8416735330441-45147116470409",
     "brand": "Mancera",
     "name": "French Riviera",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 120,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338346475657-44927260328073",
+    "brand": "Mancera",
+    "name": "Gold Aoud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 120,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Mandarin Orange",
+        "Saffron",
+        "Black Pepper",
+        "Bergamot",
+        "Lemon"
+      ],
+      "middle": [
+        "Jasmine",
+        "Patchouli"
+      ],
+      "base": [
+        "White Musk",
+        "Sandalwood",
+        "Madagascar Vanilla",
+        "Guaiac Wood",
+        "Leather",
+        "Cedar"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338346508425-44927260360841",
+    "brand": "Mancera",
+    "name": "Gold Incense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 120,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Mandarin Orange",
+        "Coffee",
+        "Pink Pepper"
+      ],
+      "middle": [],
+      "base": []
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338346442889-44927260295305",
+    "brand": "Mancera",
+    "name": "Gold Intensitive Aoud",
     "concentration": "Eau de Parfum",
     "sizeMl": 120,
     "ean": null,
@@ -118749,85 +118326,6 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "id": "mybeauty-boutique-shopify-gb-8416735428745-45147116568713",
     "brand": "Mancera",
     "name": "Wild Candy",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 120,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338378227849-44927307251849",
-    "brand": "Mancera Paris",
-    "name": "Cedrat Boise",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 120,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Black Currant",
-        "Bergamot"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338346475657-44927260328073",
-    "brand": "Mancera Paris",
-    "name": "Gold Aoud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 120,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Mandarin Orange",
-        "Saffron",
-        "Black Pepper",
-        "Bergamot",
-        "Lemon"
-      ],
-      "middle": [
-        "Jasmine",
-        "Patchouli"
-      ],
-      "base": [
-        "White Musk",
-        "Sandalwood",
-        "Madagascar Vanilla",
-        "Guaiac Wood",
-        "Leather",
-        "Cedar"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338346508425-44927260360841",
-    "brand": "Mancera Paris",
-    "name": "Gold Incense",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 120,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Mandarin Orange",
-        "Coffee",
-        "Pink Pepper"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338346442889-44927260295305",
-    "brand": "Mancera Paris",
-    "name": "Gold Intensitive Aoud",
     "concentration": "Eau de Parfum",
     "sizeMl": 120,
     "ean": null,
@@ -119437,10 +118935,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/MATP0006_32480648-c439-43d2-89d4-ac7d562eff89.png?v=1773420940&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-matp0010",
     "brand": "Matiere Premiere",
@@ -120047,7 +119542,10 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338392842377-44927334252681",
     "brand": "MCM",
@@ -126071,10 +125569,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1533909891-16044800.png?v=1763389023&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6291106811247",
     "brand": "ORIENTICA",
@@ -126637,7 +126132,10 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "ean-10464548454742",
     "brand": "Oud Arabian",
@@ -133698,10 +133196,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1731943630-08799800.jpg?v=1763396470&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
+  },
   {
     "id": "ean-5050456007066",
     "brand": "PlayBoy",
@@ -134361,7 +133856,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338273108105-44927142887561",
     "brand": "Police",
@@ -138247,6 +137745,17 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338393202825-44927335202953",
+    "brand": "Ralph Lauren",
+    "name": "Ralph Lauren World of Polo Men's 3 x Set",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 10,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-3605972698780",
     "brand": "Ralph Lauren",
     "name": "Ralph's Club",
@@ -138381,17 +137890,6 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "name": "The Big Pony Collection For Men FgAL005",
     "concentration": "Eau de Toilette",
     "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338393202825-44927335202953",
-    "brand": "RALPH LAUREN FRAGRANCES",
-    "name": "Ralph Lauren World of Polo Men's 3 x Set",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -141445,10 +140943,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
         "Sandalwood"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-big-bottle---reef-summer-pink",
     "brand": "Reef Perfumes",
@@ -142276,7 +141771,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
         "Vetiver"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "ean-6297001574133",
     "brand": "Riiffs",
@@ -149655,10 +149153,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-shag0001",
     "brand": "Swiss Arabian",
@@ -150452,7 +149947,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/floret-mia-eau-de-toilette-100ml-p35062-104832_image.jpg?v=1721322350&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338285068425-44927189090441",
     "brand": "Ted Baker",
@@ -156475,10 +155973,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614272045873",
     "brand": "Viktor & Rolf",
@@ -157135,7 +156630,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "justmylook-xerj0007",
     "brand": "Xerjoff",
@@ -157424,7 +156922,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   },
   {
     "id": "ean-5060322952413",
-    "brand": "Yardley",
+    "brand": "Yardley London",
     "name": "April Violets",
     "concentration": "Eau de Toilette",
     "sizeMl": 125,
@@ -157432,282 +156930,6 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1616064437-00116900.jpg?v=1763395923&width=1920",
     "notes": null
-  },
-  {
-    "id": "ean-5056179309098",
-    "brand": "Yardley",
-    "name": "BRM",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "5056179309098",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1771255896-22011500.jpg?v=1772625198&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-5017101045330",
-    "brand": "Yardley",
-    "name": "English Lavender",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": "5017101045330",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1554820425-97577400.jpg?v=1763393421&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-5017101634282",
-    "brand": "Yardley",
-    "name": "English Lavender",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 125,
-    "ean": "5017101634282",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1479144976-22898800.jpg?v=1763393424&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-5014697050014",
-    "brand": "Yardley",
-    "name": "English Rose",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": "5014697050014",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/111111.jpg?v=1776436953&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-4035773111307",
-    "brand": "Yardley",
-    "name": "English Rose",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 125,
-    "ean": "4035773111307",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1729675046-10886400.jpg?v=1763391758&width=1920",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416791986313-45147182301321",
-    "brand": "Yardley",
-    "name": "Floralscapes Coast",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416791920777-45147182235785",
-    "brand": "Yardley",
-    "name": "Floralscapes Meadow",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416791953545-45147182268553",
-    "brand": "Yardley",
-    "name": "Floralscapes Woodland",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416792084617-45147182399625",
-    "brand": "Yardley",
-    "name": "Flowerful Collection English Daisy",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-7779293200521-42739151536265",
-    "brand": "Yardley",
-    "name": "Fragrance English Rose",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416792117385-45147182432393",
-    "brand": "Yardley",
-    "name": "Frangipani",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 125,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416792477833-45147182792841",
-    "brand": "Yardley",
-    "name": "Gardenia & Cassis",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 125,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-6297000226163",
-    "brand": "Yardley",
-    "name": "Gentleman Classic",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6297000226163",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1729677074-58390300.jpg?v=1763391762&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-6297000226439",
-    "brand": "Yardley",
-    "name": "Gentleman Elite",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6297000226439",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1729677675-93450500.jpg?v=1763391763&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-6297000442839",
-    "brand": "Yardley",
-    "name": "Gentleman Grandiose",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6297000442839",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1761925600-54441500.jpg?v=1763399341&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-6297000442938",
-    "brand": "Yardley",
-    "name": "Gentleman Legacy",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6297000442938",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1729678089-41690300.jpg?v=1763391764&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-6297000669311",
-    "brand": "Yardley",
-    "name": "Gentleman Urbane",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6297000669311",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1729678637-68203200.jpg?v=1763391764&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-5014697050045",
-    "brand": "Yardley",
-    "name": "Lily Of The Valley",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": "5014697050045",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/new.jpg?v=1776437214&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-5017101058156",
-    "brand": "Yardley",
-    "name": "Lily Of The Valley",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 125,
-    "ean": "5017101058156",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/yarleylotv.jpg?v=1776436514&width=1920",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338363220105-44927283986569",
-    "brand": "Yardley",
-    "name": "London Gentleman Urbane",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Vetiver"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338421219465-44927412240521",
-    "brand": "Yardley",
-    "name": "Luxe Gardenia",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416792051849-45147182366857",
-    "brand": "Yardley",
-    "name": "Opulent Rose",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416792150153-45147182465161",
-    "brand": "Yardley",
-    "name": "Orchid & Vanilla",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 125,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338438520969-44927443599497",
-    "brand": "Yardley",
-    "name": "Original English Lavender",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 125,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Earthy patchouli"
-      ]
-    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338326192265-44927235424393",
@@ -157732,6 +156954,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-5056179309098",
+    "brand": "Yardley London",
+    "name": "BRM",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "5056179309098",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771255896-22011500.jpg?v=1772625198&width=1920",
+    "notes": null
+  },
+  {
     "id": "mybeauty-boutique-shopify-gb-8338327634057-44927237095561",
     "brand": "Yardley London",
     "name": "English Honeysuckle",
@@ -157743,52 +156976,26 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8338327666825-44927237128329",
+    "id": "ean-5017101634282",
     "brand": "Yardley London",
     "name": "English Lavender",
     "concentration": "Eau de Toilette",
-    "sizeMl": 50,
-    "ean": null,
+    "sizeMl": 125,
+    "ean": "5017101634282",
     "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Rosemary",
-        "Eucalyptus",
-        "Bergamot"
-      ],
-      "middle": [
-        "Cedar",
-        "Geranium harmoniously"
-      ],
-      "base": [
-        "Tonka Bean",
-        "Oakmoss bring warmth"
-      ]
-    }
+    "image": "https://www.beautybase.com/cdn/shop/files/1479144976-22898800.jpg?v=1763393424&width=1920",
+    "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8338327797897-44927237259401",
+    "id": "ean-5014697050014",
     "brand": "Yardley London",
     "name": "English Rose",
     "concentration": "Eau de Toilette",
-    "sizeMl": 125,
-    "ean": null,
+    "sizeMl": 50,
+    "ean": "5014697050014",
     "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Rose",
-        "Geranium"
-      ],
-      "middle": [
-        "White Flowers"
-      ],
-      "base": [
-        "Musk",
-        "Spices"
-      ]
-    }
+    "image": "https://www.beautybase.com/cdn/shop/files/111111.jpg?v=1776436953&width=1920",
+    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338328092809-44927237357705",
@@ -157802,6 +157009,105 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416791986313-45147182301321",
+    "brand": "Yardley London",
+    "name": "Floralscapes Coast",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416791920777-45147182235785",
+    "brand": "Yardley London",
+    "name": "Floralscapes Meadow",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416791953545-45147182268553",
+    "brand": "Yardley London",
+    "name": "Floralscapes Woodland",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416792084617-45147182399625",
+    "brand": "Yardley London",
+    "name": "Flowerful Collection English Daisy",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-7779293200521-42739151536265",
+    "brand": "Yardley London",
+    "name": "Fragrance English Rose",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416792117385-45147182432393",
+    "brand": "Yardley London",
+    "name": "Frangipani",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416792477833-45147182792841",
+    "brand": "Yardley London",
+    "name": "Gardenia & Cassis",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-6297000226163",
+    "brand": "Yardley London",
+    "name": "Gentleman Classic",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6297000226163",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1729677074-58390300.jpg?v=1763391762&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6297000226439",
+    "brand": "Yardley London",
+    "name": "Gentleman Elite",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6297000226439",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1729677675-93450500.jpg?v=1763391763&width=1920",
+    "notes": null
+  },
+  {
     "id": "mybeauty-boutique-shopify-gb-8338330222729-44927239520393",
     "brand": "Yardley London",
     "name": "Gentleman Elite",
@@ -157810,6 +157116,39 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-6297000442839",
+    "brand": "Yardley London",
+    "name": "Gentleman Grandiose",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6297000442839",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1761925600-54441500.jpg?v=1763399341&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6297000442938",
+    "brand": "Yardley London",
+    "name": "Gentleman Legacy",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6297000442938",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1729678089-41690300.jpg?v=1763391764&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6297000669311",
+    "brand": "Yardley London",
+    "name": "Gentleman Urbane",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6297000669311",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1729678637-68203200.jpg?v=1763391764&width=1920",
     "notes": null
   },
   {
@@ -157833,6 +157172,95 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
+  },
+  {
+    "id": "ean-5014697050045",
+    "brand": "Yardley London",
+    "name": "Lily Of The Valley",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": "5014697050045",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/new.jpg?v=1776437214&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-5017101058156",
+    "brand": "Yardley London",
+    "name": "Lily Of The Valley",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": "5017101058156",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/yarleylotv.jpg?v=1776436514&width=1920",
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338363220105-44927283986569",
+    "brand": "Yardley London",
+    "name": "London Gentleman Urbane",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Vetiver"
+      ]
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338421219465-44927412240521",
+    "brand": "Yardley London",
+    "name": "Luxe Gardenia",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416792051849-45147182366857",
+    "brand": "Yardley London",
+    "name": "Opulent Rose",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416792150153-45147182465161",
+    "brand": "Yardley London",
+    "name": "Orchid & Vanilla",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338438520969-44927443599497",
+    "brand": "Yardley London",
+    "name": "Original English Lavender",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 125,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Earthy patchouli"
+      ]
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338330943625-44927240274057",
@@ -163725,6 +163153,44 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-6290171075288": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/afnan-9pm-rebel-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-08T10:31:17.299Z",
+      "firstSeenAt": "2026-08-08T10:31:17.299Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731677623-97199000.jpg?v=1763396486&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 25.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/afnan-9pm-rebel-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-11T10:01:05.155Z",
+      "firstSeenAt": "2026-08-07T23:32:01.061Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/AFNN0017.png?v=1732899724&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 35.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174943826&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-6291100130122": [
     {
       "retailerId": "beautybase",
@@ -168209,6 +167675,44 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/GIV0002.png?v=1753445102&width=1000"
     }
   ],
+  "ean-7640111494027": [
+    {
+      "retailerId": "beautybase",
+      "price": 11,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/cabotine-eau-de-toilette-100ml-spray",
+      "fetchedAt": "2026-08-08T08:38:35.057Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1371458783-30015000.jpg?v=1763391111&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 9.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/gres-cabotine-eau-de-toilette-100ml",
+      "fetchedAt": "2026-08-11T08:53:35.450Z",
+      "firstSeenAt": "2026-08-04T16:30:04.615Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-eau-de-toilette-100ml-p23495-87928_image.jpg?v=1721322218&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 58.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928852&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-737052925028": [
     {
       "retailerId": "beautybase",
@@ -170223,6 +169727,386 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/miracle-eau-de-parfum-50ml-p27886-69707_image.jpg?v=1721322268&width=1000"
     }
   ],
+  "ean-6291107454412": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-ana-abiyedh-rouge-eau-de-parfum-60ml-spray",
+      "fetchedAt": "2026-08-08T07:47:52.407Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1615537312-07237200.jpg?v=1763389472&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 11.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/lattafa-ana-abiyedh-rouge-eau-de-parfum-60ml",
+      "fetchedAt": "2026-08-09T23:29:35.966Z",
+      "firstSeenAt": "2026-08-05T04:06:55.385Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0001.png?v=1758900965&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 16.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941557&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6291108735411": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-asad-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-08T10:31:17.299Z",
+      "firstSeenAt": "2026-08-08T10:31:17.299Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1730741127-32336500.jpg?v=1763396457&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 17.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/lattafa-asad-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-10T05:25:05.025Z",
+      "firstSeenAt": "2026-08-05T07:37:13.610Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0002.png?v=1758900965&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 21.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941850&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290362340362": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-asad-bourbon-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-08T15:27:51.348Z",
+      "firstSeenAt": "2026-08-08T15:27:51.348Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1739440085-49795200.jpg?v=1763397170&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 18.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/lattafa-asad-bourbon-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-11T11:47:52.623Z",
+      "firstSeenAt": "2026-08-08T04:54:59.541Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0012.png?v=1758900972&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 40.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687911&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6291108733875": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-badee-al-oud-amethyst-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-08T01:25:07.447Z",
+      "firstSeenAt": "2026-08-08T01:25:07.447Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1717585229-76983700.jpg?v=1763395246&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/lattafa-badee-al-oud-amethyst-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-10T05:25:05.025Z",
+      "firstSeenAt": "2026-08-05T07:37:13.610Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0004.png?v=1758900965&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 27.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941847&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290360593135": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-badee-al-oud-honor-glory-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-08T14:30:40.092Z",
+      "firstSeenAt": "2026-08-08T14:30:40.092Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738837567-76603700.jpg?v=1763397087&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/lattafa-badee-al-oud-honor-glory-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-11T16:50:39.271Z",
+      "firstSeenAt": "2026-08-08T07:47:52.407Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0014_a0e80e21-0cf9-4c3e-8e6a-b485e9309cf4.png?v=1758900972&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 42.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687851&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290360593142": [
+    {
+      "retailerId": "beautybase",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-badee-al-oud-sublime-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-07T12:59:21.968Z",
+      "firstSeenAt": "2026-08-07T12:59:21.968Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728475488-86188700.jpg?v=1763394379&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/lattafa-badee-al-oud-sublime-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-08T14:30:40.092Z",
+      "firstSeenAt": "2026-08-08T14:30:40.092Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0021_b1884840-f9be-4e5e-9ae7-ec48f831d917.png?v=1758900973&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941827&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290360599120": [
+    {
+      "retailerId": "beautybase",
+      "price": 32.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-her-confession-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-09T03:40:47.179Z",
+      "firstSeenAt": "2026-08-09T03:40:47.179Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1746090232-40386000.jpg?v=1763397822&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 26.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/lattafa-her-confession-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-11T11:47:52.623Z",
+      "firstSeenAt": "2026-08-08T04:54:59.541Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0013.jpg?v=1737650800&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 58.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687897&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6291108737194": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-khamrah-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-07T12:59:21.968Z",
+      "firstSeenAt": "2026-08-07T12:59:21.968Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728472803-94611900.jpg?v=1763394345&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/lattafa-khamrah-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-11T03:42:37.907Z",
+      "firstSeenAt": "2026-08-07T12:59:21.968Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0010.png?v=1758900967&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 27.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941561&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6291106065114": [
+    {
+      "retailerId": "beautybase",
+      "price": 22,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-oud-mood-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-08T04:54:59.541Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1561394216-70731700.jpg?v=1763389330&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 14.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/lattafa-oud-mood-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-09T23:29:35.966Z",
+      "firstSeenAt": "2026-08-05T04:06:55.385Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/oud-mood-eau-de-parfum-100ml-p38196-121259_image.jpg?v=1721322268&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 17.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941829&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6291107455365": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-qaed-al-fursan-eau-de-parfum-90ml-spray",
+      "fetchedAt": "2026-08-07T12:59:21.968Z",
+      "firstSeenAt": "2026-08-07T12:59:21.968Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728475649-35723800.jpg?v=1763394379&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 11.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/lattafa-qaed-al-fursan-eau-de-parfum-90ml",
+      "fetchedAt": "2026-08-09T12:46:11.571Z",
+      "firstSeenAt": "2026-08-05T04:06:55.385Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/qaed-al-fursan-eau-de-parfum-90ml-p38197-121260_image.jpg?v=1721322263&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687860&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-6291108730515": [
     {
       "retailerId": "beautybase",
@@ -170255,6 +170139,120 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43174942303&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290360599168": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-yara-candy-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-08T07:47:52.407Z",
+      "firstSeenAt": "2026-08-08T07:47:52.407Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727195155-08348900.jpg?v=1763395753&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 17.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/lattafa-yara-candy-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-08T22:27:14.777Z",
+      "firstSeenAt": "2026-08-08T22:27:14.777Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0016_89a61f8e-6d42-4c7f-ba2c-cf6ff329ddde.png?v=1758900974&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 21.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942731&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290360591421": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-yara-moi-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-07T12:59:21.968Z",
+      "firstSeenAt": "2026-08-07T12:59:21.968Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728475162-83834900.jpg?v=1763394374&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 18.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/lattafa-yara-moi-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-08T10:31:17.299Z",
+      "firstSeenAt": "2026-08-08T10:31:17.299Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0019.png?v=1758900972&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 27.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941828&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290360594552": [
+    {
+      "retailerId": "beautybase",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-yara-tous-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-07T22:32:57.561Z",
+      "firstSeenAt": "2026-08-07T22:32:57.561Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1713871434-01555000.jpg?v=1763395049&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 17.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/lattafa-yara-tous-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-08T14:30:40.092Z",
+      "firstSeenAt": "2026-08-08T14:30:40.092Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0020.png?v=1758900973&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687861&a=3026001&m=106925",
       "fetchedAt": "2026-08-11T18:10:12.197Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -176635,32 +176633,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-6290171075288": [
-    {
-      "retailerId": "beautybase",
-      "price": 35,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/afnan-9pm-rebel-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-08T10:31:17.299Z",
-      "firstSeenAt": "2026-08-08T10:31:17.299Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731677623-97199000.jpg?v=1763396486&width=1920"
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 25.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/afnan-9pm-rebel-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-11T10:01:05.155Z",
-      "firstSeenAt": "2026-08-07T23:32:01.061Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/AFNN0017.png?v=1732899724&width=1000"
-    }
-  ],
   "ean-6290171076704": [
     {
       "retailerId": "beautybase",
@@ -176685,6 +176657,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-09T03:40:47.179Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/AFNN0021.png?v=1752245614&width=1000"
+    }
+  ],
+  "ean-6290171074786": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/afnan-souvenir-blooming-bliss-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-08T11:26:50.485Z",
+      "firstSeenAt": "2026-08-08T11:26:50.485Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1735815296-73958900.jpg?v=1763396905&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 62.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686055&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-6290171075073": [
@@ -176789,6 +176787,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-silver-pour-homme-eau-de-parfum-100ml-p35653-108057_image.jpg?v=1721322166&width=1000"
+    }
+  ],
+  "ean-6290171070580": [
+    {
+      "retailerId": "beautybase",
+      "price": 31.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/afnan-turathi-blue-eau-de-parfum-90ml-spray",
+      "fetchedAt": "2026-08-08T01:25:07.447Z",
+      "firstSeenAt": "2026-08-08T01:25:07.447Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1718631150-89291900.jpg?v=1763395247&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 55.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686041&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-6290171076001": [
@@ -186385,32 +186409,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-cabochard-eau-de-parfum-100ml-p23217-87932_image.jpg?v=1721322210&width=1000"
     }
   ],
-  "ean-7640111494027": [
-    {
-      "retailerId": "beautybase",
-      "price": 11,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/cabotine-eau-de-toilette-100ml-spray",
-      "fetchedAt": "2026-08-08T08:38:35.057Z",
-      "firstSeenAt": "2026-08-04T19:00:21.352Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1371458783-30015000.jpg?v=1763391111&width=1920"
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 9.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/gres-cabotine-eau-de-toilette-100ml",
-      "fetchedAt": "2026-08-11T08:53:35.450Z",
-      "firstSeenAt": "2026-08-04T16:30:04.615Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-eau-de-toilette-100ml-p23495-87928_image.jpg?v=1721322218&width=1000"
-    }
-  ],
   "ean-7640111494133": [
     {
       "retailerId": "beautybase",
@@ -186435,6 +186433,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T18:26:23.818Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-eau-de-parfum-100ml-p23218-87930_image.jpg?v=1721322228&width=1000"
+    }
+  ],
+  "justmylook-gres0008": [
+    {
+      "retailerId": "justmylook",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/gres-madame-gres-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-11T05:06:51.739Z",
+      "firstSeenAt": "2026-08-04T16:30:04.615Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-madame-gres-eau-de-parfum-100ml-p23496-87943_image.jpg?v=1721322210&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687427&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3616302514274": [
@@ -190181,6 +190205,58 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "justmylook-kil0001": [
+    {
+      "retailerId": "justmylook",
+      "price": 170.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/kilian-good-girl-gone-bad-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-11T07:04:39.313Z",
+      "firstSeenAt": "2026-08-07T21:37:24.399Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/KIL0001_0d0db23a-b131-40ae-884f-a55b43bdcb61.png?v=1766583602&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 417.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686469&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-kil0019": [
+    {
+      "retailerId": "justmylook",
+      "price": 179.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/kilian-love-dont-be-shy-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-11T10:01:05.155Z",
+      "firstSeenAt": "2026-08-07T23:32:01.061Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/KIL0019_93c88b75-a66c-44d4-abe6-263c4c9dcf7e.png?v=1766583604&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 453.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686468&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-3386460149303": [
     {
       "retailerId": "beautybase",
@@ -190649,30 +190725,82 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-6291107454412": [
+  "justmylook-lat0015": [
+    {
+      "retailerId": "justmylook",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/lattafa-ameer-al-oudh-intense-oud-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-08T14:30:40.092Z",
+      "firstSeenAt": "2026-08-08T14:30:40.092Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0015_85c3074f-8960-454b-83c6-7fac19e635a2.png?v=1758900973&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 84.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941556&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6291106066890": [
     {
       "retailerId": "beautybase",
       "price": 19.95,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-ana-abiyedh-rouge-eau-de-parfum-60ml-spray",
-      "fetchedAt": "2026-08-08T07:47:52.407Z",
+      "url": "https://www.beautybase.com/products/lattafa-ana-abiyedh-eau-de-parfum-60ml-spray",
+      "fetchedAt": "2026-08-08T04:54:59.541Z",
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1615537312-07237200.jpg?v=1763389472&width=1920"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1561393908-50494900.jpg?v=1763389329&width=1920"
     },
     {
-      "retailerId": "justmylook",
-      "price": 11.99,
+      "retailerId": "mybeauty-boutique",
+      "price": 16.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.justmylook.com/products/lattafa-ana-abiyedh-rouge-eau-de-parfum-60ml",
-      "fetchedAt": "2026-08-09T23:29:35.966Z",
-      "firstSeenAt": "2026-08-05T04:06:55.385Z",
+      "url": "https://www.awin1.com/pclick.php?p=43157931190&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290362349938": [
+    {
+      "retailerId": "beautybase",
+      "price": 16.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-ana-abiyedh-scarlet-eau-de-parfum-60ml-spray",
+      "fetchedAt": "2026-08-10T13:03:59.151Z",
+      "firstSeenAt": "2026-08-10T13:03:59.151Z",
       "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0001.png?v=1758900965&width=1000"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1755852528-22656700.jpg?v=1763398825&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 30.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687938&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-6290360598338": [
@@ -190701,134 +190829,56 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0024_cd9f8ba7-4a14-4a14-ace8-d48527f50c7b.png?v=1758900974&width=1000"
     }
   ],
-  "ean-6291108735411": [
+  "ean-6290360598666": [
     {
       "retailerId": "beautybase",
-      "price": 25,
+      "price": 19.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-asad-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-08T10:31:17.299Z",
-      "firstSeenAt": "2026-08-08T10:31:17.299Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1730741127-32336500.jpg?v=1763396457&width=1920"
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 17.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/lattafa-asad-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-10T05:25:05.025Z",
-      "firstSeenAt": "2026-08-05T07:37:13.610Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0002.png?v=1758900965&width=1000"
-    }
-  ],
-  "ean-6290362340362": [
-    {
-      "retailerId": "beautybase",
-      "price": 25,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-asad-bourbon-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-08T15:27:51.348Z",
-      "firstSeenAt": "2026-08-08T15:27:51.348Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1739440085-49795200.jpg?v=1763397170&width=1920"
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 18.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/lattafa-asad-bourbon-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-11T11:47:52.623Z",
-      "firstSeenAt": "2026-08-08T04:54:59.541Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0012.png?v=1758900972&width=1000"
-    }
-  ],
-  "ean-6291108733875": [
-    {
-      "retailerId": "beautybase",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-badee-al-oud-amethyst-eau-de-parfum-100ml-spray",
+      "url": "https://www.beautybase.com/products/lattafa-asad-zanzibar-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-08T01:25:07.447Z",
       "firstSeenAt": "2026-08-08T01:25:07.447Z",
       "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1717585229-76983700.jpg?v=1763395246&width=1920"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1718616931-94457300.jpg?v=1763395273&width=1920"
     },
     {
-      "retailerId": "justmylook",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/lattafa-badee-al-oud-amethyst-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-10T05:25:05.025Z",
-      "firstSeenAt": "2026-08-05T07:37:13.610Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0004.png?v=1758900965&width=1000"
-    }
-  ],
-  "ean-6290360593135": [
-    {
-      "retailerId": "beautybase",
-      "price": 25,
+      "retailerId": "mybeauty-boutique",
+      "price": 21.49,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-badee-al-oud-honor-glory-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-08T14:30:40.092Z",
-      "firstSeenAt": "2026-08-08T14:30:40.092Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738837567-76603700.jpg?v=1763397087&width=1920"
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/lattafa-badee-al-oud-honor-glory-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-11T16:50:39.271Z",
-      "firstSeenAt": "2026-08-08T07:47:52.407Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0014_a0e80e21-0cf9-4c3e-8e6a-b485e9309cf4.png?v=1758900972&width=1000"
+      "url": "https://www.awin1.com/pclick.php?p=43174942767&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
-  "ean-6290360593142": [
+  "ean-6291107458328": [
     {
       "retailerId": "beautybase",
       "price": 22.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-badee-al-oud-sublime-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-07T12:59:21.968Z",
-      "firstSeenAt": "2026-08-07T12:59:21.968Z",
+      "url": "https://www.beautybase.com/products/lattafa-badee-al-oud-oud-for-glory-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T14:21:50.324Z",
+      "firstSeenAt": "2026-08-05T08:37:06.512Z",
       "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728475488-86188700.jpg?v=1763394379&width=1920"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1651074596-45882100.jpg?v=1763391948&width=1920"
     },
     {
-      "retailerId": "justmylook",
-      "price": 19.99,
+      "retailerId": "mybeauty-boutique",
+      "price": 41.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/lattafa-badee-al-oud-sublime-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-08T14:30:40.092Z",
-      "firstSeenAt": "2026-08-08T14:30:40.092Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0021_b1884840-f9be-4e5e-9ae7-ec48f831d917.png?v=1758900973&width=1000"
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941562&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-6290362340638": [
@@ -190857,56 +190907,186 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0017.png?v=1758900973&width=1000"
     }
   ],
-  "ean-6290360599120": [
-    {
-      "retailerId": "beautybase",
-      "price": 32.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-her-confession-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-09T03:40:47.179Z",
-      "firstSeenAt": "2026-08-09T03:40:47.179Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1746090232-40386000.jpg?v=1763397822&width=1920"
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 26.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/lattafa-her-confession-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-11T11:47:52.623Z",
-      "firstSeenAt": "2026-08-08T04:54:59.541Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0013.jpg?v=1737650800&width=1000"
-    }
-  ],
-  "ean-6291108737194": [
+  "ean-6291108738504": [
     {
       "retailerId": "beautybase",
       "price": 29.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-khamrah-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-07T12:59:21.968Z",
-      "firstSeenAt": "2026-08-07T12:59:21.968Z",
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-haya-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-09T09:37:20.723Z",
+      "firstSeenAt": "2026-08-09T09:37:20.723Z",
       "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728472803-94611900.jpg?v=1763394345&width=1920"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1746806093-24969800.jpg?v=1763397893&width=1920"
     },
     {
-      "retailerId": "justmylook",
-      "price": 23.99,
+      "retailerId": "mybeauty-boutique",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687858&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6291107450193": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-hayaati-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-08T07:47:52.407Z",
+      "firstSeenAt": "2026-08-08T07:47:52.407Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1755679741-48714900.jpg?v=1763395898&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687857&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6291108734056": [
+    {
+      "retailerId": "beautybase",
+      "price": 14.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-hayaati-al-maleky-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-09T09:37:20.723Z",
+      "firstSeenAt": "2026-08-09T09:37:20.723Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1747220688-36145600.jpg?v=1763397893&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687862&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290360593180": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/lattafa-khamrah-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-11T03:42:37.907Z",
-      "firstSeenAt": "2026-08-07T12:59:21.968Z",
+      "url": "https://www.beautybase.com/products/lattafa-hayaati-florence-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-08T01:25:07.447Z",
+      "firstSeenAt": "2026-08-08T01:25:07.447Z",
       "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0010.png?v=1758900967&width=1000"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1719917801-92262100.jpg?v=1763395345&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687863&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6291107457895": [
+    {
+      "retailerId": "beautybase",
+      "price": 16.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-hayaati-gold-elixir-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-08T01:25:07.447Z",
+      "firstSeenAt": "2026-08-08T01:25:07.447Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1719918125-00905000.jpg?v=1763395347&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 17.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942356&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290360599113": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-his-confession-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-09T09:37:20.723Z",
+      "firstSeenAt": "2026-08-09T09:37:20.723Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1747219879-84385700.jpg?v=1763397897&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 66.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687940&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290362342373": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-khamrah-dukhan-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-08T22:27:14.777Z",
+      "firstSeenAt": "2026-08-08T22:27:14.777Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1755531246-47172800.jpg?v=1763397560&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 55.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687945&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-6290360593661": [
@@ -190935,6 +191115,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0011_fd7eccce-02c6-41ca-a611-8bca76eb1ccd.png?v=1758900970&width=1000"
     }
   ],
+  "ean-6291107456744": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-maahir-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-08T14:30:40.092Z",
+      "firstSeenAt": "2026-08-08T14:30:40.092Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738837365-62237200.jpg?v=1763397090&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941833&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-6291108732496": [
     {
       "retailerId": "beautybase",
@@ -190961,56 +191167,212 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-6291106065114": [
+  "ean-6290360598871": [
     {
       "retailerId": "beautybase",
-      "price": 22,
+      "price": 25,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-oud-mood-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-08T04:54:59.541Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1561394216-70731700.jpg?v=1763389330&width=1920"
+      "url": "https://www.beautybase.com/products/lattafa-nasmaat-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T19:59:39.471Z",
+      "firstSeenAt": "2026-08-10T19:59:39.471Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761816961-50503400.jpg?v=1763399360&width=1920"
     },
     {
-      "retailerId": "justmylook",
-      "price": 14.5,
+      "retailerId": "mybeauty-boutique",
+      "price": 57.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.justmylook.com/products/lattafa-oud-mood-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-09T23:29:35.966Z",
-      "firstSeenAt": "2026-08-05T04:06:55.385Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/oud-mood-eau-de-parfum-100ml-p38196-121259_image.jpg?v=1721322268&width=1000"
+      "url": "https://www.awin1.com/pclick.php?p=43661687920&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
-  "ean-6291107455365": [
+  "ean-6291108738276": [
     {
       "retailerId": "beautybase",
-      "price": 19.95,
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-qaed-al-fursan-eau-de-parfum-90ml-spray",
+      "url": "https://www.beautybase.com/products/lattafa-nebras-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-07T12:59:21.968Z",
       "firstSeenAt": "2026-08-07T12:59:21.968Z",
       "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728475649-35723800.jpg?v=1763394379&width=1920"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728472133-84370000.jpg?v=1763394327&width=1920"
     },
     {
-      "retailerId": "justmylook",
-      "price": 11.5,
+      "retailerId": "mybeauty-boutique",
+      "price": 35.49,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.justmylook.com/products/lattafa-qaed-al-fursan-eau-de-parfum-90ml",
-      "fetchedAt": "2026-08-09T12:46:11.571Z",
-      "firstSeenAt": "2026-08-05T04:06:55.385Z",
+      "url": "https://www.awin1.com/pclick.php?p=43174941585&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290362348054": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-nebras-elixir-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T14:56:38.817Z",
+      "firstSeenAt": "2026-08-10T14:56:38.817Z",
       "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/qaed-al-fursan-eau-de-parfum-90ml-p38197-121260_image.jpg?v=1721322263&width=1000"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759334105-44292300.jpg?v=1763399124&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 57.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687943&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6291107450445": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-opulent-musk-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "firstSeenAt": "2026-08-10T18:42:39.295Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759417723-19099100.jpg?v=1763399234&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 14.19,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941560&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6291107450438": [
+    {
+      "retailerId": "beautybase",
+      "price": 16.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-opulent-oud-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-06T23:57:00.047Z",
+      "firstSeenAt": "2026-08-06T23:57:00.047Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1697725791-94186900.jpg?v=1763394073&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 16.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941830&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290360598796": [
+    {
+      "retailerId": "beautybase",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-petra-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-09T12:46:11.571Z",
+      "firstSeenAt": "2026-08-09T12:46:11.571Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1750157053-15869000.jpg?v=1763398123&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 58.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687903&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290362347095": [
+    {
+      "retailerId": "beautybase",
+      "price": 40,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-pure-crystal-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T19:59:39.471Z",
+      "firstSeenAt": "2026-08-10T19:59:39.471Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761817600-49917200.jpg?v=1763399362&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 75.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687892&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290362340645": [
+    {
+      "retailerId": "beautybase",
+      "price": 14.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-qaed-al-fursan-untamed-eau-de-parfum-90ml-spray",
+      "fetchedAt": "2026-08-09T03:40:47.179Z",
+      "firstSeenAt": "2026-08-09T03:40:47.179Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1747219701-66731800.jpg?v=1763397857&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687894&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-15784774730077-default-title": [
@@ -191039,6 +191401,110 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/ra-ed-oud-perfume-edp-100ml-lattafa-emirates-oud-103902019.jpg?v=1713058344"
     }
   ],
+  "justmylook-lat0008": [
+    {
+      "retailerId": "justmylook",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/lattafa-ramz-lattafa-silver-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-09T12:46:11.571Z",
+      "firstSeenAt": "2026-08-05T04:06:55.385Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ramz-lattafa-silver-eau-de-parfum-100ml-p38198-121261_image.jpg?v=1721322261&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 31.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687884&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6291108738658": [
+    {
+      "retailerId": "beautybase",
+      "price": 16.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-shaheen-silver-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T09:18:28.839Z",
+      "firstSeenAt": "2026-08-10T09:18:28.839Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1754917926-98115500.jpg?v=1763398687&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687866&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290362347484": [
+    {
+      "retailerId": "beautybase",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-sherif-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T14:21:50.324Z",
+      "firstSeenAt": "2026-08-10T14:21:50.324Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1758292436-94213200.jpg?v=1763398979&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687868&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290360595764": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-teriaq-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-08T01:25:07.447Z",
+      "firstSeenAt": "2026-08-08T01:25:07.447Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1717662391-16639000.jpg?v=1763395256&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157931188&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-6290360595771": [
     {
       "retailerId": "beautybase",
@@ -191065,82 +191531,108 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0018_d4e55da8-338d-4903-9c8b-3cd5526ba0da.png?v=1761577741&width=1000"
     }
   ],
-  "ean-6290360599168": [
+  "ean-6291108738177": [
     {
       "retailerId": "beautybase",
-      "price": 25,
+      "price": 35,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-yara-candy-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-08T07:47:52.407Z",
-      "firstSeenAt": "2026-08-08T07:47:52.407Z",
+      "url": "https://www.beautybase.com/products/lattafa-tharwah-gold-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-09T12:46:11.571Z",
+      "firstSeenAt": "2026-08-09T12:46:11.571Z",
       "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727195155-08348900.jpg?v=1763395753&width=1920"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1748877918-49602100.jpg?v=1763398022&width=1920"
     },
     {
-      "retailerId": "justmylook",
-      "price": 17.5,
+      "retailerId": "mybeauty-boutique",
+      "price": 53.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.justmylook.com/products/lattafa-yara-candy-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-08T22:27:14.777Z",
-      "firstSeenAt": "2026-08-08T22:27:14.777Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0016_89a61f8e-6d42-4c7f-ba2c-cf6ff329ddde.png?v=1758900974&width=1000"
+      "url": "https://www.awin1.com/pclick.php?p=43661687927&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
-  "ean-6290360591421": [
+  "ean-6290360592909": [
     {
       "retailerId": "beautybase",
-      "price": 25,
+      "price": 29.95,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-yara-moi-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-07T12:59:21.968Z",
-      "firstSeenAt": "2026-08-07T12:59:21.968Z",
+      "url": "https://www.beautybase.com/products/lattafa-vintage-radio-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-08T07:47:52.407Z",
+      "firstSeenAt": "2026-08-08T07:47:52.407Z",
       "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728475162-83834900.jpg?v=1763394374&width=1920"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728314382-19723800.jpg?v=1763395787&width=1920"
     },
     {
-      "retailerId": "justmylook",
-      "price": 18.95,
+      "retailerId": "mybeauty-boutique",
+      "price": 53.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.justmylook.com/products/lattafa-yara-moi-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-08T10:31:17.299Z",
-      "firstSeenAt": "2026-08-08T10:31:17.299Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0019.png?v=1758900972&width=1000"
+      "url": "https://www.awin1.com/pclick.php?p=43661687904&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
-  "ean-6290360594552": [
+  "ean-6423080728925": [
     {
       "retailerId": "beautybase",
-      "price": 22.99,
+      "price": 9.95,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-yara-tous-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-07T22:32:57.561Z",
-      "firstSeenAt": "2026-08-07T22:32:57.561Z",
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lattafa-yara-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-11T01:38:04.253Z",
+      "firstSeenAt": "2026-08-11T01:38:04.253Z",
       "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1713871434-01555000.jpg?v=1763395049&width=1920"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728648557-39195600.jpg?v=1772625018&width=1920"
     },
     {
-      "retailerId": "justmylook",
-      "price": 17.99,
+      "retailerId": "mybeauty-boutique",
+      "price": 13.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.justmylook.com/products/lattafa-yara-tous-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-08T14:30:40.092Z",
-      "firstSeenAt": "2026-08-08T14:30:40.092Z",
+      "url": "https://www.awin1.com/pclick.php?p=43661687905&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290362346531": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-yara-elixir-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "firstSeenAt": "2026-08-10T21:39:43.387Z",
       "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0020.png?v=1758900973&width=1000"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761816159-56719200.jpg?v=1763399366&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 53.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687942&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3595200501015": [
@@ -191605,6 +192097,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43157929670&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-3760265190485": [
+    {
+      "retailerId": "fragrance-click",
+      "price": 63.75,
+      "wasPrice": 120,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089042135&a=3026001&m=124166",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/979.jpg"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 123.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942662&a=3026001&m=106925",
       "fetchedAt": "2026-08-11T18:10:12.197Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -199645,6 +200163,58 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-5017101045330": [
+    {
+      "retailerId": "beautybase",
+      "price": 8.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/english-lavender-eau-de-toilette-50ml-spray",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T19:27:20.091Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1554820425-97577400.jpg?v=1763393421&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 9.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941616&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-4035773111307": [
+    {
+      "retailerId": "beautybase",
+      "price": 12.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/yardley-english-rose-eau-de-toilette-125ml-spray",
+      "fetchedAt": "2026-08-10T09:18:28.839Z",
+      "firstSeenAt": "2026-08-05T07:37:13.610Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1729675046-10886400.jpg?v=1763391758&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 14.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941623&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "justmylook-ysl0094": [
     {
       "retailerId": "justmylook",
@@ -202393,454 +202963,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/9pm-Rebel-Perfume-by-Afnan-Latest-Winter-Scent-164620839.jpg?v=1741399933"
     }
   ],
-  "emirates-oud-15497509601629-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": 50,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/cherry-bouquet-afnan",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Cherry-Bouquet-Perfume-80ml-EDP-Afnan-173957232.jpg?v=1752629557"
-    }
-  ],
-  "justmylook-afnn0022": [
-    {
-      "retailerId": "justmylook",
-      "price": 30.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/afnan-historic-sahara-extrait-de-parfum-100ml",
-      "fetchedAt": "2026-08-09T03:40:47.179Z",
-      "firstSeenAt": "2026-08-09T03:40:47.179Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/AFNN0022.png?v=1752245613&width=1000"
-    }
-  ],
-  "ean-6290171075158": [
-    {
-      "retailerId": "beautybase",
-      "price": 19,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/afnan-kiaana-crush-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-11T11:47:52.623Z",
-      "firstSeenAt": "2026-08-11T11:47:52.623Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1730814725-80273800.jpg?v=1763396489&width=1920"
-    }
-  ],
-  "emirates-oud-16155793162589-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": 35,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/kianna-vibes-perfume-afnan",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Kianna-Vibes-Perfume-100ml-EDP-Afnan-188787810.png?v=1777287856"
-    }
-  ],
-  "emirates-oud-15804452241757-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 44.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/lynked-forever-afnan",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Lynked-Forever-100ml-EDP-Afnan-181373384.png?v=1765251935"
-    }
-  ],
-  "ean-6290171077435": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/afnan-lynked-forever-pour-femme-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
-      "firstSeenAt": "2026-08-10T21:39:43.387Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1764932152-92092600.jpg?v=1772624790&width=1920"
-    }
-  ],
-  "emirates-oud-15804451750237-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 44.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/lynked-freedom-afnan",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Lynked-Freedom-100ml-EDP-Afnan-181372952.png?v=1765251695"
-    }
-  ],
-  "ean-6290171077428": [
-    {
-      "retailerId": "beautybase",
-      "price": 45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/afnan-lynked-freedom-pour-homme-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
-      "firstSeenAt": "2026-08-10T21:39:43.387Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1764933363-11606700.jpg?v=1772624790&width=1920"
-    }
-  ],
-  "emirates-oud-15434678600029-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": 50,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/mystique-bouquet-afnan",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mystique-Bouquet-Perfume-80ml-EDP-Afnan-169348490.jpg?v=1749177476"
-    }
-  ],
-  "emirates-oud-9758037967197-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/ornament-purple-allure-perfume-100ml-edp-afnan",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ornament-Purple-Allure-Perfume-100ml-EDP-Afnan-148683428.jpg?v=1724929868"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338385797257-44927318491273": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942689&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "emirates-oud-15566506918237-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 34.99,
-      "wasPrice": 45,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/rare-reef-afnan",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rare-Reef-100ml-EDP-Afnan-175455481.jpg?v=1755778122"
-    }
-  ],
-  "ean-6290171074786": [
-    {
-      "retailerId": "beautybase",
-      "price": 35,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/afnan-souvenir-blooming-bliss-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-08T11:26:50.485Z",
-      "firstSeenAt": "2026-08-08T11:26:50.485Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1735815296-73958900.jpg?v=1763396905&width=1920"
-    }
-  ],
-  "emirates-oud-15444046578013-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 55,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/afnan-supremacy-collectors-edition",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Supremacy-Collector_s-Edition-100ml-EDP-Afnan-169454657.jpg?v=1771338847"
-    }
-  ],
-  "justmylook-afnn0019": [
-    {
-      "retailerId": "justmylook",
-      "price": 31.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/afnan-supremacy-in-heaven-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-08T10:31:17.299Z",
-      "firstSeenAt": "2026-08-08T10:31:17.299Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/AFNN0019_47dd9bcb-d3be-428d-b813-b646413960b2.png?v=1743610750&width=1000"
-    }
-  ],
-  "emirates-oud-8916642726237-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 44.99,
-      "wasPrice": 55,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/supremacy-in-oud-perfume-100ml-edp-afnan",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/supremacy-in-oud-perfume-100ml-edp-afnan-emirates-oud-103847330.jpg?v=1713056796"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338347065481-44927260950665": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 47.59,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157931032&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-6290171070214": [
-    {
-      "retailerId": "beautybase",
-      "price": 50,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/supremacy-not-only-intense-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-11T05:06:51.739Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731672339-12274700.jpg?v=1763390198&width=1920"
-    }
-  ],
-  "ean-6290171072775": [
-    {
-      "retailerId": "beautybase",
-      "price": 49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/supremacy-not-only-intense-extrait-de-parfum-150ml-spray",
-      "fetchedAt": "2026-08-06T04:10:32.674Z",
-      "firstSeenAt": "2026-08-06T04:10:32.674Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731671765-56087300.jpg?v=1763394035&width=1920"
-    }
-  ],
-  "emirates-oud-8911618736477-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 44.99,
-      "wasPrice": 55,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/supremacy-not-only-intense-perfume-100ml-afnan",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/supremacy-not-only-intense-perfume-100ml-afnan-emirates-oud-103844319.jpg?v=1713056704"
-    }
-  ],
-  "justmylook-afnn0006": [
-    {
-      "retailerId": "justmylook",
-      "price": 35.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-10T19:59:39.471Z",
-      "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-100ml-p35652-108055_image.jpg?v=1721322127&width=1000"
-    }
-  ],
-  "justmylook-afnn0008": [
-    {
-      "retailerId": "justmylook",
-      "price": 41.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-150ml",
-      "fetchedAt": "2026-08-10T19:59:39.471Z",
-      "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-150ml-p35654-108059_image.jpg?v=1721322130&width=1000"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338162516105-44926979539081": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 43.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928135&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-6290171010104": [
-    {
-      "retailerId": "beautybase",
-      "price": 15,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/tasneem-concentrated-perfume-oil-20ml",
-      "fetchedAt": "2026-08-11T10:01:05.155Z",
-      "firstSeenAt": "2026-08-05T17:27:59.465Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1665650468-50680700.png?v=1763392860&width=1920"
-    }
-  ],
-  "ean-6290171070580": [
-    {
-      "retailerId": "beautybase",
-      "price": 31.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/afnan-turathi-blue-eau-de-parfum-90ml-spray",
-      "fetchedAt": "2026-08-08T01:25:07.447Z",
-      "firstSeenAt": "2026-08-08T01:25:07.447Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1718631150-89291900.jpg?v=1763395247&width=1920"
-    }
-  ],
-  "emirates-oud-9930309599581-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": 44.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/turathi-blue-perfume-90ml-edp-afnan",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Turathi-Blue-Perfume-90ml-EDP-Afnan-183927376.webp?v=1769990037"
-    }
-  ],
-  "justmylook-afnn0015": [
-    {
-      "retailerId": "justmylook",
-      "price": 28.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/afnan-turathi-blue-pour-homme-eau-de-parfum-90ml",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-turathi-blue-pour-homme-eau-de-parfum-90ml-p35660-108070_image.jpg?v=1721322132&width=1000"
-    }
-  ],
-  "ean-6290171070603": [
-    {
-      "retailerId": "beautybase",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/afnan-turathi-brown-eau-de-parfum-90ml-spray",
-      "fetchedAt": "2026-08-09T09:37:20.723Z",
-      "firstSeenAt": "2026-08-09T09:37:20.723Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1747385866-79757200.jpg?v=1763397931&width=1920"
-    }
-  ],
-  "emirates-oud-15468863291741-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": 45,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/turathi-electric-afnan",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Turathi-Electric-Perfume-90ml-EDP-Afnan-169994071.jpg?v=1750966701"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338162581641-44926979637385": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 34.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928140&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338314854537-44927223398537": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 34.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157930780&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338408472713-44927378620553": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 35.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174943826&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8416625918089-45146954072201": [
     {
       "retailerId": "mybeauty-boutique",
@@ -203009,6 +203131,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "emirates-oud-15497509601629-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": 50,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/cherry-bouquet-afnan",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Cherry-Bouquet-Perfume-80ml-EDP-Afnan-173957232.jpg?v=1752629557"
+    }
+  ],
   "mybeauty-boutique-shopify-gb-8416626278537-45146955055241": [
     {
       "retailerId": "mybeauty-boutique",
@@ -203035,6 +203171,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": null
+    }
+  ],
+  "justmylook-afnn0022": [
+    {
+      "retailerId": "justmylook",
+      "price": 30.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/afnan-historic-sahara-extrait-de-parfum-100ml",
+      "fetchedAt": "2026-08-09T03:40:47.179Z",
+      "firstSeenAt": "2026-08-09T03:40:47.179Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/AFNN0022.png?v=1752245613&width=1000"
     }
   ],
   "mybeauty-boutique-shopify-gb-8416625787017-45146953941129": [
@@ -203065,6 +203215,90 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-6290171075158": [
+    {
+      "retailerId": "beautybase",
+      "price": 19,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/afnan-kiaana-crush-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-11T11:47:52.623Z",
+      "firstSeenAt": "2026-08-11T11:47:52.623Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1730814725-80273800.jpg?v=1763396489&width=1920"
+    }
+  ],
+  "emirates-oud-16155793162589-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": 35,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/kianna-vibes-perfume-afnan",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Kianna-Vibes-Perfume-100ml-EDP-Afnan-188787810.png?v=1777287856"
+    }
+  ],
+  "emirates-oud-15804452241757-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 44.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/lynked-forever-afnan",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Lynked-Forever-100ml-EDP-Afnan-181373384.png?v=1765251935"
+    }
+  ],
+  "ean-6290171077435": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/afnan-lynked-forever-pour-femme-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "firstSeenAt": "2026-08-10T21:39:43.387Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1764932152-92092600.jpg?v=1772624790&width=1920"
+    }
+  ],
+  "emirates-oud-15804451750237-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 44.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/lynked-freedom-afnan",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Lynked-Freedom-100ml-EDP-Afnan-181372952.png?v=1765251695"
+    }
+  ],
+  "ean-6290171077428": [
+    {
+      "retailerId": "beautybase",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/afnan-lynked-freedom-pour-homme-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "firstSeenAt": "2026-08-10T21:39:43.387Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1764933363-11606700.jpg?v=1772624790&width=1920"
+    }
+  ],
   "mybeauty-boutique-shopify-gb-8416625623177-45146953711753": [
     {
       "retailerId": "mybeauty-boutique",
@@ -203073,6 +203307,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686044&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "emirates-oud-15434678600029-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": 50,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/mystique-bouquet-afnan",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mystique-Bouquet-Perfume-80ml-EDP-Afnan-169348490.jpg?v=1749177476"
+    }
+  ],
+  "emirates-oud-9758037967197-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/ornament-purple-allure-perfume-100ml-edp-afnan",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ornament-Purple-Allure-Perfume-100ml-EDP-Afnan-148683428.jpg?v=1724929868"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338385797257-44927318491273": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942689&a=3026001&m=106925",
       "fetchedAt": "2026-08-11T18:10:12.197Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -203135,28 +203411,252 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416626245769-45146955022473": [
+  "emirates-oud-15566506918237-default-title": [
     {
-      "retailerId": "mybeauty-boutique",
-      "price": 62.99,
+      "retailerId": "emirates-oud",
+      "price": 34.99,
+      "wasPrice": 45,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/rare-reef-afnan",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rare-Reef-100ml-EDP-Afnan-175455481.jpg?v=1755778122"
+    }
+  ],
+  "emirates-oud-15444046578013-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 55,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686055&a=3026001&m=106925",
+      "url": "https://emiratesoud.co.uk/products/afnan-supremacy-collectors-edition",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Supremacy-Collector_s-Edition-100ml-EDP-Afnan-169454657.jpg?v=1771338847"
+    }
+  ],
+  "justmylook-afnn0019": [
+    {
+      "retailerId": "justmylook",
+      "price": 31.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/afnan-supremacy-in-heaven-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-08T10:31:17.299Z",
+      "firstSeenAt": "2026-08-08T10:31:17.299Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/AFNN0019_47dd9bcb-d3be-428d-b813-b646413960b2.png?v=1743610750&width=1000"
+    }
+  ],
+  "emirates-oud-8916642726237-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 44.99,
+      "wasPrice": 55,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/supremacy-in-oud-perfume-100ml-edp-afnan",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/supremacy-in-oud-perfume-100ml-edp-afnan-emirates-oud-103847330.jpg?v=1713056796"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338347065481-44927260950665": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 47.59,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157931032&a=3026001&m=106925",
       "fetchedAt": "2026-08-11T18:10:12.197Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416625557641-45146953515145": [
+  "ean-6290171070214": [
     {
-      "retailerId": "mybeauty-boutique",
-      "price": 55.99,
+      "retailerId": "beautybase",
+      "price": 50,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686041&a=3026001&m=106925",
+      "url": "https://www.beautybase.com/products/supremacy-not-only-intense-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-11T05:06:51.739Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731672339-12274700.jpg?v=1763390198&width=1920"
+    }
+  ],
+  "ean-6290171072775": [
+    {
+      "retailerId": "beautybase",
+      "price": 49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/supremacy-not-only-intense-extrait-de-parfum-150ml-spray",
+      "fetchedAt": "2026-08-06T04:10:32.674Z",
+      "firstSeenAt": "2026-08-06T04:10:32.674Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731671765-56087300.jpg?v=1763394035&width=1920"
+    }
+  ],
+  "emirates-oud-8911618736477-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 44.99,
+      "wasPrice": 55,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/supremacy-not-only-intense-perfume-100ml-afnan",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/supremacy-not-only-intense-perfume-100ml-afnan-emirates-oud-103844319.jpg?v=1713056704"
+    }
+  ],
+  "justmylook-afnn0006": [
+    {
+      "retailerId": "justmylook",
+      "price": 35.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-10T19:59:39.471Z",
+      "firstSeenAt": "2026-08-01T21:32:03.579Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-100ml-p35652-108055_image.jpg?v=1721322127&width=1000"
+    }
+  ],
+  "justmylook-afnn0008": [
+    {
+      "retailerId": "justmylook",
+      "price": 41.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-150ml",
+      "fetchedAt": "2026-08-10T19:59:39.471Z",
+      "firstSeenAt": "2026-08-01T21:32:03.579Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-supremacy-not-only-intense-pour-homme-eau-de-parfum-150ml-p35654-108059_image.jpg?v=1721322130&width=1000"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338162516105-44926979539081": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 43.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928135&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290171010104": [
+    {
+      "retailerId": "beautybase",
+      "price": 15,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/tasneem-concentrated-perfume-oil-20ml",
+      "fetchedAt": "2026-08-11T10:01:05.155Z",
+      "firstSeenAt": "2026-08-05T17:27:59.465Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1665650468-50680700.png?v=1763392860&width=1920"
+    }
+  ],
+  "emirates-oud-9930309599581-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": 44.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/turathi-blue-perfume-90ml-edp-afnan",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Turathi-Blue-Perfume-90ml-EDP-Afnan-183927376.webp?v=1769990037"
+    }
+  ],
+  "justmylook-afnn0015": [
+    {
+      "retailerId": "justmylook",
+      "price": 28.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/afnan-turathi-blue-pour-homme-eau-de-parfum-90ml",
+      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/afnan-turathi-blue-pour-homme-eau-de-parfum-90ml-p35660-108070_image.jpg?v=1721322132&width=1000"
+    }
+  ],
+  "ean-6290171070603": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/afnan-turathi-brown-eau-de-parfum-90ml-spray",
+      "fetchedAt": "2026-08-09T09:37:20.723Z",
+      "firstSeenAt": "2026-08-09T09:37:20.723Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1747385866-79757200.jpg?v=1763397931&width=1920"
+    }
+  ],
+  "emirates-oud-15468863291741-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": 45,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/turathi-electric-afnan",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Turathi-Electric-Perfume-90ml-EDP-Afnan-169994071.jpg?v=1750966701"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338162581641-44926979637385": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 34.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928140&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338314854537-44927223398537": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 34.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157930780&a=3026001&m=106925",
       "fetchedAt": "2026-08-11T18:10:12.197Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -204325,6 +204825,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338381242505-44927313051785": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 36.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942186&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338381209737-44927313019017": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 58.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942203&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "mybeauty-boutique-shopify-gb-8338168971401-44926986289289": [
     {
       "retailerId": "mybeauty-boutique",
@@ -205317,34 +205845,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-08T10:31:17.299Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ALHA0018.png?v=1743090672&width=1000"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338381242505-44927313051785": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 36.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942186&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338381209737-44927313019017": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 58.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942203&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "ean-6291110010995": [
@@ -207069,6 +207569,258 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Woody-Perfume-100ml-EDP-Arabian-Oud-181336793.png?v=1764995269"
     }
   ],
+  "emirates-oud-15573121827165-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": 50,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/al-noor-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Al-Noor-Perfume-100ml-EDP-Arabiyat-Prestige-175658281.jpg?v=1756220701"
+    }
+  ],
+  "emirates-oud-15723979997533-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 34.99,
+      "wasPrice": 60,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/bahiya-ruby-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bahiya-Ruby-Perfume-100ml-EDP-Arabiyat-Prestige-179807991.png?v=1762022567"
+    }
+  ],
+  "emirates-oud-15573128151389-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/blueberry-musk-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Blueberry-Musk-Perfume-100ml-EDP-Arabiyat-Prestige-175659061.jpg?v=1756221023"
+    }
+  ],
+  "emirates-oud-16303758606685-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/bois-blanc-perfume-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bois-Blanc-Perfume-100ml-EDP-Arabiyat-Prestige-194404570.png?v=1783521090"
+    }
+  ],
+  "emirates-oud-15838529847645-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/fahad-gaze-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fahad-Gaze-Perfume-100ml-EDP-Arabiyat-Prestige-182034213.png?v=1766806915"
+    }
+  ],
+  "emirates-oud-15838530273629-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/fahad-regal-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fahad-Regal-Perfume-100ml-EDP-Arabiyat-Prestige-182034522.png?v=1766807182"
+    }
+  ],
+  "emirates-oud-15573125726557-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 44.99,
+      "wasPrice": 60,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/la-di-da-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Di-Da-Perfume-100ml-EDP-Arabiyat-Prestige-175658694.jpg?v=1756220850"
+    }
+  ],
+  "emirates-oud-16303781871965-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/mahd-al-dhahab-100ml-extrait-de-parfum-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mahd-Al-Dhahab-100ml-Extrait-De-Parfum-Arabiyat-Prestige-194405144.png?v=1783522060"
+    }
+  ],
+  "emirates-oud-15573119074653-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": 50,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/mahd-al-dhahab-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mahd-Al-Dhahab-Perfume-100ml-EDP-Arabiyat-Prestige-175657828.jpg?v=1756220550"
+    }
+  ],
+  "emirates-oud-16303891153245-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/marwa-extrait-de-parfum-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marwa-100ml-Extrait-De-Parfum-Arabiyat-Prestige-194406430.jpg?v=1783525783"
+    }
+  ],
+  "emirates-oud-15573114880349-100ml": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 31.99,
+      "wasPrice": 50,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/marwa-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marwa-Perfume-100ml-EDP-Arabiyat-Prestige-175657469.jpg?v=1756220384"
+    }
+  ],
+  "emirates-oud-15573114880349-unused---unboxed---100ml": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": 50,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/marwa-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marwa-Perfume-100ml-EDP-Arabiyat-Prestige-175657469.jpg?v=1756220384"
+    }
+  ],
+  "emirates-oud-16303766208861-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/noire-perfume-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Noire-Perfume-100ml-EDP-Arabiyat-Prestige-194404781.png?v=1783521335"
+    }
+  ],
+  "justmylook-arab0001": [
+    {
+      "retailerId": "justmylook",
+      "price": 23.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/arabiyat-prestige-nyla-eau-de-parfum-80ml",
+      "fetchedAt": "2026-08-09T03:40:47.179Z",
+      "firstSeenAt": "2026-08-09T03:40:47.179Z",
+      "isNew": true,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARAB0001_a4ef0fdb-e9e7-451d-9542-99a4b7cfafd1.png?v=1760692588&width=1000"
+    }
+  ],
+  "emirates-oud-15573099446621-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/nyla-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Perfume-80ml-EDP-Arabiyat-Prestige-175656224.jpg?v=1756219613"
+    }
+  ],
+  "emirates-oud-15836252832093-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/nyla-sherbet-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Sherbet-Perfume-80ml-EDP-Arabiyat-Prestige-183486647.png?v=1768623283"
+    }
+  ],
+  "emirates-oud-15573108752733-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/nyla-suede-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Suede-Perfume-80ml-EDP-Arabiyat-Prestige-175657015.jpg?v=1756220135"
+    }
+  ],
+  "emirates-oud-15573104066909-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/nyla-vani-elle-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Vani-Elle-Perfume-80ml-EDP-Arabiyat-Prestige-175656649.jpg?v=1756219854"
+    }
+  ],
   "ean-6290361916957": [
     {
       "retailerId": "beautybase",
@@ -207335,6 +208087,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759412069-99756300.jpg?v=1772624803&width=1920"
     }
   ],
+  "emirates-oud-16195206381917-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/ramad-earthy-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ramad-Earthy-Extrait-de-Parfum-100ml-Arabiyat-Prestige-190937318.png?v=1778782721"
+    }
+  ],
+  "emirates-oud-15863482122589-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 34.99,
+      "wasPrice": 50,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/safa-arabiyat-prestige",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Safa-Perfume-100ml-EDP-Arabiyat-Prestige-183487755.png?v=1768624136"
+    }
+  ],
   "ean-6290361916940": [
     {
       "retailerId": "beautybase",
@@ -207391,300 +208171,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1764929784-60361000.jpg?v=1772624813&width=1920"
     }
   ],
-  "ean-6290102049128": [
-    {
-      "retailerId": "beautybase",
-      "price": 10,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/arabiyat-vanilla-musk-concentrated-perfume-oil-20ml-pipette-bottle",
-      "fetchedAt": "2026-08-10T19:59:39.471Z",
-      "firstSeenAt": "2026-08-10T19:59:39.471Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1760366844-09583500.jpg?v=1763399285&width=1920"
-    }
-  ],
-  "emirates-oud-15573121827165-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": 50,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/al-noor-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Al-Noor-Perfume-100ml-EDP-Arabiyat-Prestige-175658281.jpg?v=1756220701"
-    }
-  ],
-  "emirates-oud-15723979997533-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 34.99,
-      "wasPrice": 60,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/bahiya-ruby-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bahiya-Ruby-Perfume-100ml-EDP-Arabiyat-Prestige-179807991.png?v=1762022567"
-    }
-  ],
-  "emirates-oud-15573128151389-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/blueberry-musk-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Blueberry-Musk-Perfume-100ml-EDP-Arabiyat-Prestige-175659061.jpg?v=1756221023"
-    }
-  ],
-  "emirates-oud-16303758606685-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/bois-blanc-perfume-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bois-Blanc-Perfume-100ml-EDP-Arabiyat-Prestige-194404570.png?v=1783521090"
-    }
-  ],
-  "emirates-oud-15838529847645-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/fahad-gaze-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fahad-Gaze-Perfume-100ml-EDP-Arabiyat-Prestige-182034213.png?v=1766806915"
-    }
-  ],
-  "emirates-oud-15838530273629-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/fahad-regal-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fahad-Regal-Perfume-100ml-EDP-Arabiyat-Prestige-182034522.png?v=1766807182"
-    }
-  ],
-  "emirates-oud-15573125726557-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 44.99,
-      "wasPrice": 60,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/la-di-da-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Di-Da-Perfume-100ml-EDP-Arabiyat-Prestige-175658694.jpg?v=1756220850"
-    }
-  ],
-  "emirates-oud-16303781871965-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/mahd-al-dhahab-100ml-extrait-de-parfum-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mahd-Al-Dhahab-100ml-Extrait-De-Parfum-Arabiyat-Prestige-194405144.png?v=1783522060"
-    }
-  ],
-  "emirates-oud-15573119074653-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": 50,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/mahd-al-dhahab-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mahd-Al-Dhahab-Perfume-100ml-EDP-Arabiyat-Prestige-175657828.jpg?v=1756220550"
-    }
-  ],
-  "emirates-oud-16303891153245-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/marwa-extrait-de-parfum-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marwa-100ml-Extrait-De-Parfum-Arabiyat-Prestige-194406430.jpg?v=1783525783"
-    }
-  ],
-  "emirates-oud-15573114880349-100ml": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 31.99,
-      "wasPrice": 50,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/marwa-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marwa-Perfume-100ml-EDP-Arabiyat-Prestige-175657469.jpg?v=1756220384"
-    }
-  ],
-  "emirates-oud-15573114880349-unused---unboxed---100ml": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": 50,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/marwa-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Marwa-Perfume-100ml-EDP-Arabiyat-Prestige-175657469.jpg?v=1756220384"
-    }
-  ],
-  "emirates-oud-16303766208861-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/noire-perfume-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Noire-Perfume-100ml-EDP-Arabiyat-Prestige-194404781.png?v=1783521335"
-    }
-  ],
-  "justmylook-arab0001": [
-    {
-      "retailerId": "justmylook",
-      "price": 23.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/arabiyat-prestige-nyla-eau-de-parfum-80ml",
-      "fetchedAt": "2026-08-09T03:40:47.179Z",
-      "firstSeenAt": "2026-08-09T03:40:47.179Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ARAB0001_a4ef0fdb-e9e7-451d-9542-99a4b7cfafd1.png?v=1760692588&width=1000"
-    }
-  ],
-  "emirates-oud-15573099446621-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/nyla-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Perfume-80ml-EDP-Arabiyat-Prestige-175656224.jpg?v=1756219613"
-    }
-  ],
-  "emirates-oud-15836252832093-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/nyla-sherbet-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Sherbet-Perfume-80ml-EDP-Arabiyat-Prestige-183486647.png?v=1768623283"
-    }
-  ],
-  "emirates-oud-15573108752733-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/nyla-suede-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Suede-Perfume-80ml-EDP-Arabiyat-Prestige-175657015.jpg?v=1756220135"
-    }
-  ],
-  "emirates-oud-15573104066909-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/nyla-vani-elle-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nyla-Vani-Elle-Perfume-80ml-EDP-Arabiyat-Prestige-175656649.jpg?v=1756219854"
-    }
-  ],
-  "emirates-oud-16195206381917-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/ramad-earthy-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ramad-Earthy-Extrait-de-Parfum-100ml-Arabiyat-Prestige-190937318.png?v=1778782721"
-    }
-  ],
-  "emirates-oud-15863482122589-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 34.99,
-      "wasPrice": 50,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/safa-arabiyat-prestige",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Safa-Perfume-100ml-EDP-Arabiyat-Prestige-183487755.png?v=1768624136"
-    }
-  ],
   "emirates-oud-15723980030301-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -207697,6 +208183,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Uhud-Perfume-100ml-EDP-Arabiyat-Prestige-179808524.png?v=1762022591"
+    }
+  ],
+  "ean-6290102049128": [
+    {
+      "retailerId": "beautybase",
+      "price": 10,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/arabiyat-vanilla-musk-concentrated-perfume-oil-20ml-pipette-bottle",
+      "fetchedAt": "2026-08-10T19:59:39.471Z",
+      "firstSeenAt": "2026-08-10T19:59:39.471Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1760366844-09583500.jpg?v=1763399285&width=1920"
     }
   ],
   "mybeauty-boutique-shopify-gb-8338347327625-44927261212809": [
@@ -214279,6 +214779,118 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/BDK0007_13b91670-a293-49b6-b03f-6f1818e4fc7a.png?v=1776858614&width=1000"
     }
   ],
+  "bellavita-luxury-8906150340633": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 9.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://bellavitaluxury.uk/products/ceo-man-luxury-perfume",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-8906150345188": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 21.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://bellavitaluxury.uk/products/ceo-man-intense-luxury-perfume-3-4-fl-oz-deal",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T11:47:52.623Z",
+      "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-5748022538839": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://bellavitaluxury.uk/products/ceo-man-luxury-perfume-3-4-fl-oz",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-8906150344365": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 9.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://bellavitaluxury.uk/products/date-woman-perfume",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-8906150342804": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://bellavitaluxury.uk/products/date-woman-perfume-3-4-fl-oz",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-3870003433733": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://bellavitaluxury.uk/products/fresh-unisex-perfume-3-4-fl-oz",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-8906188062996": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 9.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://bellavitaluxury.uk/products/g-o-a-t-man-perfume",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-8906150343351": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://bellavitaluxury.uk/products/g-o-a-t-man-perfume-3-4-fl-oz",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "bellavita-luxury-8906150340558": [
     {
       "retailerId": "bellavita-luxury",
@@ -214287,6 +214899,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://bellavitaluxury.uk/products/glam-woman-perfume",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-8906150340657": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 9.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://bellavitaluxury.uk/products/honey-oud-unisex-perfume-1",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-8906150340404": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://bellavitaluxury.uk/products/honey-oud-unisex-perfume-3-4-fl-oz",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-8906150343290": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 21.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://bellavitaluxury.uk/products/klub-man-perfume-3-4-fl-oz",
       "fetchedAt": "2026-08-11T19:21:15.950Z",
       "firstSeenAt": "2026-08-05T10:33:01.806Z",
       "isNew": false,
@@ -214304,6 +214958,132 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-11T19:21:15.950Z",
       "firstSeenAt": "2026-08-11T11:47:52.623Z",
       "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-05-2616-7321-p2": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 30.98,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://bellavitaluxury.uk/products/ocean-man-perfume-3-4-fl-oz",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-8906150344624": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://bellavitaluxury.uk/products/ocean-man-perfume-3-4-fl-oz-copy",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-8906150340411": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://bellavitaluxury.uk/products/oud-perfume-3-4-fl-oz",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-8906150340541": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 9.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://bellavitaluxury.uk/products/rose-woman-perfume",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-3870003433801": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://bellavitaluxury.uk/products/rose-woman-perfume-3-4-fl-oz",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-8906150342811": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://bellavitaluxury.uk/products/senorita-woman-perfume-3-4-fl-oz",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-3870003551925": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://bellavitaluxury.uk/products/skai-aquatic-unisex-perfume-3-4-fl-oz",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-8906150340640": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 9.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://bellavitaluxury.uk/products/white-oud-unisex-perfume",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "bellavita-luxury-3870003433771": [
+    {
+      "retailerId": "bellavita-luxury",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://bellavitaluxury.uk/products/white-oud-unisex-perfume-3-4-fl-oz",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-05T10:33:01.806Z",
+      "isNew": false,
       "imageUrl": null
     }
   ],
@@ -218801,286 +219581,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0035.png?v=1765452780&width=1000"
     }
   ],
-  "bellavita-luxury-8906150340633": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 9.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/ceo-man-luxury-perfume",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-8906150345188": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 21.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://bellavitaluxury.uk/products/ceo-man-intense-luxury-perfume-3-4-fl-oz-deal",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T11:47:52.623Z",
-      "isNew": true,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-5748022538839": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/ceo-man-luxury-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-8906150344365": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 9.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://bellavitaluxury.uk/products/date-woman-perfume",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-8906150342804": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/date-woman-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-3870003433733": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://bellavitaluxury.uk/products/fresh-unisex-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-8906188062996": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 9.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/g-o-a-t-man-perfume",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-8906150343351": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/g-o-a-t-man-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-8906150340657": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 9.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/honey-oud-unisex-perfume-1",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-8906150340404": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/honey-oud-unisex-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-8906150343290": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 21.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/klub-man-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-05-2616-7321-p2": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 30.98,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://bellavitaluxury.uk/products/ocean-man-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-8906150344624": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://bellavitaluxury.uk/products/ocean-man-perfume-3-4-fl-oz-copy",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-8906150340411": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://bellavitaluxury.uk/products/oud-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-8906150340541": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 9.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/rose-woman-perfume",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-3870003433801": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/rose-woman-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-8906150342811": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/senorita-woman-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-3870003551925": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://bellavitaluxury.uk/products/skai-aquatic-unisex-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-8906150340640": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 9.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/white-oud-unisex-perfume",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "bellavita-luxury-3870003433771": [
-    {
-      "retailerId": "bellavita-luxury",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://bellavitaluxury.uk/products/white-oud-unisex-perfume-3-4-fl-oz",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T10:33:01.806Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8338182209673-44927007293577": [
     {
       "retailerId": "mybeauty-boutique",
@@ -219485,174 +219985,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T05:06:51.739Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/drake.jpg?v=1774350115&width=1920"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416645120137-45146978058377": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 478.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686465&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416645283977-45146978287753": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 373.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686470&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416645349513-45146978353289": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 393.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686472&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416645316745-45146978320521": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 429.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686471&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416645251209-45146978189449": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 417.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686469&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416645152905-45146978091145": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 480.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686466&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416645218441-45146978156681": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 453.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686468&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416646103177-45146980253833": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 420.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686488&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416644956297-45146977271945": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 1430.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686462&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416645087369-45146978025609": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 1110.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686464&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416645021833-45146977960073": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 1140.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686463&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416645185673-45146978123913": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 350.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686467&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "mybeauty-boutique-shopify-gb-8338380030089-44927310200969": [
@@ -227341,6 +227673,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1652099497-56520000.jpg?v=1763390828&width=1920"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416666058889-45147026555017": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 17.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686838&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416665993353-45147026489481": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 17.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686836&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416666026121-45147026522249": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 17.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686837&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "mybeauty-boutique-shopify-gb-8416665174153-45147025604745": [
     {
       "retailerId": "mybeauty-boutique",
@@ -227479,48 +227853,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1652101804-66014800.jpg?v=1763390831&width=1920"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416666058889-45147026555017": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 17.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686838&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416665993353-45147026489481": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 17.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686836&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416666026121-45147026522249": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 17.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686837&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "ean-3442151002279": [
@@ -237771,6 +238103,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338216648841-44927057002633": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 79.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928801&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "mybeauty-boutique-shopify-gb-8416683262089-45147047198857": [
     {
       "retailerId": "mybeauty-boutique",
@@ -237793,6 +238139,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687231&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338216583305-44927056937097": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 179.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928808&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338216681609-44927057068169": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 199.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928791&a=3026001&m=106925",
       "fetchedAt": "2026-08-11T18:10:12.197Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -238037,6 +238411,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338216616073-44927056969865": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 59.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928806&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "mybeauty-boutique-shopify-gb-8416682999945-45147046936713": [
     {
       "retailerId": "mybeauty-boutique",
@@ -238269,62 +238657,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687203&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338216648841-44927057002633": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 79.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928801&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338216583305-44927056937097": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 179.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928808&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338216681609-44927057068169": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 199.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928791&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338216616073-44927056969865": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 59.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928806&a=3026001&m=106925",
       "fetchedAt": "2026-08-11T18:10:12.197Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -250957,48 +251289,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-cabotine-rose-eau-de-toilette-100ml-p23497-87919_image.jpg?v=1721322214&width=1000"
-    }
-  ],
-  "justmylook-gres0008": [
-    {
-      "retailerId": "justmylook",
-      "price": 13.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/gres-madame-gres-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-11T05:06:51.739Z",
-      "firstSeenAt": "2026-08-04T16:30:04.615Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/gres-madame-gres-eau-de-parfum-100ml-p23496-87943_image.jpg?v=1721322210&width=1000"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338221203593-44927063031945": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 58.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928852&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416691421321-45147057586313": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 26.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687427&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "mybeauty-boutique-shopify-gb-8338221334665-44927063195785": [
@@ -265337,6 +265627,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1744370058-67578600.jpg?v=1763397610&width=1920"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416705642633-45147076624521": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 35.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687720&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-15666710413661-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -265349,6 +265653,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hareem-Al-Sultan-Blue-35ml-Perfume-Oil-35ml-Khadlaj-178668910.png?v=1759538990"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416705609865-45147076591753": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 31.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687719&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416705708169-45147076722825": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 31.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687721&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-15666710348125-default-title": [
@@ -266737,48 +267069,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Zayaan-Silver-Perfume-100ml-EDP-Khadlaj-190936253.jpg?v=1778781738"
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416705642633-45147076624521": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 35.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687720&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416705609865-45147076591753": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 31.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687719&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416705708169-45147076722825": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 31.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687721&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-810101506123": [
     {
       "retailerId": "beautybase",
@@ -266805,6 +267095,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T07:37:56.832Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1753275249-37151200.jpg?v=1763398477&width=1920"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416645120137-45146978058377": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 478.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686465&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-kil0014": [
@@ -266849,18 +267153,60 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/KIL0009_df406868-4dbf-49a8-8e63-1ff661d57355.png?v=1766583602&width=1000"
     }
   ],
-  "justmylook-kil0001": [
+  "mybeauty-boutique-shopify-gb-8416645283977-45146978287753": [
     {
-      "retailerId": "justmylook",
-      "price": 170.99,
+      "retailerId": "mybeauty-boutique",
+      "price": 373.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.justmylook.com/products/kilian-good-girl-gone-bad-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-11T07:04:39.313Z",
-      "firstSeenAt": "2026-08-07T21:37:24.399Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/KIL0001_0d0db23a-b131-40ae-884f-a55b43bdcb61.png?v=1766583602&width=1000"
+      "url": "https://www.awin1.com/pclick.php?p=43661686470&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416645349513-45146978353289": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 393.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686472&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416645316745-45146978320521": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 429.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686471&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416645152905-45146978091145": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 480.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686466&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "mybeauty-boutique-shopify-gb-8338244042889-44927105302665": [
@@ -266877,20 +267223,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "justmylook-kil0019": [
-    {
-      "retailerId": "justmylook",
-      "price": 179.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/kilian-love-dont-be-shy-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-11T10:01:05.155Z",
-      "firstSeenAt": "2026-08-07T23:32:01.061Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/KIL0019_93c88b75-a66c-44d4-abe6-263c4c9dcf7e.png?v=1766583604&width=1000"
-    }
-  ],
   "justmylook-kil0020": [
     {
       "retailerId": "justmylook",
@@ -266903,6 +267235,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-07T23:32:01.061Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/KIL0020_96425647-f74b-4ebc-9355-21b47a5717dc.png?v=1771241342&width=1000"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416646103177-45146980253833": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 420.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686488&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416644956297-45146977271945": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 1430.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686462&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "mybeauty-boutique-shopify-gb-8338244075657-44927105335433": [
@@ -266961,6 +267321,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/KIL0018_ad05854f-e464-41d5-80e7-1097bba0b1e8.png?v=1768295491&width=1000"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416645087369-45146978025609": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 1110.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686464&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "justmylook-kil0007": [
     {
       "retailerId": "justmylook",
@@ -266973,6 +267347,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-07T21:37:24.399Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/KIL0007_5da9875a-63f6-4505-aebe-5b9672477852.png?v=1766583603&width=1000"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416645021833-45146977960073": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 1140.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686463&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416645185673-45146978123913": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 350.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686467&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "mybeauty-boutique-shopify-gb-8338346311817-44927260164233": [
@@ -270643,6 +271045,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Abraaj-Concentrated-Perfume-Oil-20ml-Lattafa-178679950.png?v=1759547393"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416711442569-45147083669641": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687850&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-9026373517661-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -270741,6 +271157,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/ajayeb-dubai-portrait-perfume-100ml-edp-lattafa-emirates-oud.jpg?v=1713056857"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416712294537-45147084554377": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 66.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687873&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338357649545-44927277760649": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941559&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-8890913030493-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -270753,6 +271197,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ajwad-Perfume-60ml-EDP-Lattafa-153343178.jpg?v=1732558523"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338357223561-44927277301897": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 16.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942279&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-16407830364509-default-title": [
@@ -270783,6 +271241,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ajwad-Pink-to-Pink-Perfume-60ml-EDP-Lattafa-174163652.jpg?v=1753409758"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416714522761-45147088388233": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 53.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687919&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-9026350973277-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -270797,6 +271269,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/al-ameed-silver-perfume-100ml-edp-lattafa-pride-emirates-oud.jpg?v=1713057486"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416714883209-45147089305737": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 44.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687926&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-9026389606749-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -270809,6 +271295,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Al-Areeq-Gold-Perfume-100ml-EDP-By-Lattafa-Pride-174162141.jpg?v=1753408755"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416714260617-45147087011977": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 44.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687914&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-9047506747741-default-title": [
@@ -270895,6 +271395,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Al-Dur-Al-Maknoon-Silver-Perfume-100ml-EDP-Lattafa-153345274.jpg?v=1732559060"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338356961417-44927276712073": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 31.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942276&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338357125257-44927277203593": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 29.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157931191&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-9077535211869-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -270921,6 +271449,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Al-Nashama-Perfume-100ml-EDP-Lattafa-138612696.jpg?v=1720734974"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416712687753-45147084947593": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687883&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338357846153-44927277957257": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 21.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941844&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338372690057-44927298470025": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 22.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942181&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-8928156909917-default-title": [
@@ -271021,20 +271591,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1713870687-08333200.jpg?v=1763395042&width=1920"
     }
   ],
-  "justmylook-lat0015": [
-    {
-      "retailerId": "justmylook",
-      "price": 13.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/lattafa-ameer-al-oudh-intense-oud-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-08T14:30:40.092Z",
-      "firstSeenAt": "2026-08-08T14:30:40.092Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/LAT0015_85c3074f-8960-454b-83c6-7fac19e635a2.png?v=1758900973&width=1000"
-    }
-  ],
   "emirates-oud-9251288121693-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -271105,20 +271661,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amoura-Concentrated-Perfume-Oil-20ml-Lattafa-178681781.png?v=1759547843"
     }
   ],
-  "ean-6291106066890": [
-    {
-      "retailerId": "beautybase",
-      "price": 19.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-ana-abiyedh-eau-de-parfum-60ml-spray",
-      "fetchedAt": "2026-08-08T04:54:59.541Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1561393908-50494900.jpg?v=1763389329&width=1920"
-    }
-  ],
   "ean-6290362341826": [
     {
       "retailerId": "beautybase",
@@ -271145,6 +271687,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ana-Abiyedh-Coral-Perfume-60ml-EDP-Lattafa-169882936.jpg?v=1750809334"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338367578249-44927288574089": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 15.29,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942061&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-8839491977565-default-title": [
@@ -271245,20 +271801,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ana-Abiyedh-Rouge-Perfume-60ml-EDP-Lattafa-153344047.jpg?v=1732558806"
     }
   ],
-  "ean-6290362349938": [
-    {
-      "retailerId": "beautybase",
-      "price": 16.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-ana-abiyedh-scarlet-eau-de-parfum-60ml-spray",
-      "fetchedAt": "2026-08-10T13:03:59.151Z",
-      "firstSeenAt": "2026-08-10T13:03:59.151Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1755852528-22656700.jpg?v=1763398825&width=1920"
-    }
-  ],
   "emirates-oud-15560094056797-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -271329,6 +271871,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Angham-Second-Song-Perfume-100ml-EDP-Lattafa-183914577.png?v=1769880581"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338372657289-44927298437257": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 28.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942225&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-9190634062173-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -271341,6 +271897,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ansaam-Gold-Perfume-100ml-EDP-Lattafa-Pride-122825992.jpg?v=1714345945"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416711540873-45147083767945": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687853&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-9032477475165-default-title": [
@@ -271483,6 +272053,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Art-Of-Wood-Perfume-100ml-EDP-Lattafa-Pride-177273021.jpg?v=1758673771"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416712327305-45147084587145": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687874&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-15486185144669-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -271553,20 +272137,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Asad-Perfume-100ml-EDP-Lattafa-177441450.png?v=1759029996"
     }
   ],
-  "ean-6290360598666": [
-    {
-      "retailerId": "beautybase",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-asad-zanzibar-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-08T01:25:07.447Z",
-      "firstSeenAt": "2026-08-08T01:25:07.447Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1718616931-94457300.jpg?v=1763395273&width=1920"
-    }
-  ],
   "emirates-oud-15938221244765-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -271623,6 +272193,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Atheeri-Perfume-100ml-EDP-Lattafa-167177839.png?v=1744369371"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416715276425-45147090157705": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687934&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-15604440727901-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -271665,6 +272249,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/awaan-gold-perfume-100ml-edp-lattafa-pride-emirates-oud.jpg?v=1713057492"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416713703561-45147086422153": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 40.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687901&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-6291108737675": [
     {
       "retailerId": "beautybase",
@@ -271693,18 +272291,18 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1732296591-66388400.jpg?v=1763396723&width=1920"
     }
   ],
-  "ean-6291107458328": [
+  "mybeauty-boutique-shopify-gb-8416714227849-45147086979209": [
     {
-      "retailerId": "beautybase",
-      "price": 22.99,
+      "retailerId": "mybeauty-boutique",
+      "price": 10.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-badee-al-oud-oud-for-glory-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-10T14:21:50.324Z",
-      "firstSeenAt": "2026-08-05T08:37:06.512Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1651074596-45882100.jpg?v=1763391948&width=1920"
+      "url": "https://www.awin1.com/pclick.php?p=43661687913&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "mybeauty-boutique-shopify-gb-7633051615369-42357961392265": [
@@ -271715,6 +272313,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=40549567236&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416714064009-45147086815369": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687909&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416715112585-45147089535113": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 8.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687931&a=3026001&m=106925",
       "fetchedAt": "2026-08-11T18:10:12.197Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -271945,6 +272571,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Sublime-All-Over-Spray-150ml-Lattafa-174058523.jpg?v=1752981329"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338356928649-44927276581001": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942299&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-8928163004765-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -271971,6 +272611,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Berry-On-Top-Perfume-75-EDP-Lattafa-176314882.jpg?v=1756997393"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338357387401-44927277465737": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 17.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941834&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-8839499874653-default-title": [
@@ -272239,6 +272893,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Eclaire-Pistache-Perfume-100ml-EDP-Lattafa-175550657.jpg?v=1755995538"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416711803017-45147084062857": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687859&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-8911270412637-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -272267,6 +272935,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Embrace-Perfume-100ml-EDP-Lattafa-Pride-174162423.jpg?v=1753409053"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416711606409-45147083833481": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 71.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687854&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-15630202339677-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -272293,6 +272975,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Esraa-Concentrated-Perfume-Oil-20ml-Lattafa-178680271.png?v=1759547553"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416715178121-45147089600649": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 57.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687932&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-8839488307549-default-title": [
@@ -272363,6 +273059,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T16:30:04.615Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1713866039-32975700.jpg?v=1763390528&width=1920"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338357485705-44927277596809": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 27.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941832&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-lat0023": [
@@ -272475,6 +273185,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/fakhar-perfume-30ml-edp-thameen-collection-by-lattafa-emirates-oud.jpg?v=1713056911"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416712392841-45147084652681": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687876&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416711671945-45147083931785": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 37.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687855&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-lat0022": [
@@ -272729,20 +273467,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Happy-Time-Kids-Perfume-100ml-EDP-Lattafa-153192758.jpg?v=1731630358"
     }
   ],
-  "ean-6291108738504": [
-    {
-      "retailerId": "beautybase",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-haya-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-09T09:37:20.723Z",
-      "firstSeenAt": "2026-08-09T09:37:20.723Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1746806093-24969800.jpg?v=1763397893&width=1920"
-    }
-  ],
   "emirates-oud-8911267791197-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -272771,34 +273495,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hayaam-Perfume-100ml-EDP-Niche-Emarati-By-Lattafa-119928216.jpg?v=1714093899"
     }
   ],
-  "ean-6291107450193": [
-    {
-      "retailerId": "beautybase",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-hayaati-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-08T07:47:52.407Z",
-      "firstSeenAt": "2026-08-08T07:47:52.407Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1755679741-48714900.jpg?v=1763395898&width=1920"
-    }
-  ],
-  "ean-6291108734056": [
-    {
-      "retailerId": "beautybase",
-      "price": 14.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-hayaati-al-maleky-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-09T09:37:20.723Z",
-      "firstSeenAt": "2026-08-09T09:37:20.723Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1747220688-36145600.jpg?v=1763397893&width=1920"
-    }
-  ],
   "emirates-oud-9204162036061-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -272813,20 +273509,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hayaati-Al-Maleky-Perfume-100ml-EDP-Lattafa-153345511.jpg?v=1732559244"
     }
   ],
-  "ean-6290360593180": [
-    {
-      "retailerId": "beautybase",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-hayaati-florence-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-08T01:25:07.447Z",
-      "firstSeenAt": "2026-08-08T01:25:07.447Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1719917801-92262100.jpg?v=1763395345&width=1920"
-    }
-  ],
   "emirates-oud-9204175929693-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -272839,20 +273521,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hayaati-Florence-Perfume-100ml-EDP-Lattafa-153346486.jpg?v=1732559342"
-    }
-  ],
-  "ean-6291107457895": [
-    {
-      "retailerId": "beautybase",
-      "price": 16.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-hayaati-gold-elixir-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-08T01:25:07.447Z",
-      "firstSeenAt": "2026-08-08T01:25:07.447Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1719918125-00905000.jpg?v=1763395347&width=1920"
     }
   ],
   "emirates-oud-9382084608349-default-title": [
@@ -272911,20 +273579,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Her-Confession-Perfume-100ml-EDP-Lattafa-153135637.jpg?v=1731343825"
     }
   ],
-  "ean-6290360599113": [
-    {
-      "retailerId": "beautybase",
-      "price": 35,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-his-confession-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-09T09:37:20.723Z",
-      "firstSeenAt": "2026-08-09T09:37:20.723Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1747219879-84385700.jpg?v=1763397897&width=1920"
-    }
-  ],
   "emirates-oud-9851897676125-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -272937,6 +273591,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/His-Confession-Perfume-100ml-EDP-Lattafa-153135555.jpg?v=1731343811"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338414698633-44927397920905": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 29.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174943303&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416711704713-45147083964553": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 44.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687856&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-8928159826269-default-title": [
@@ -273023,18 +273705,18 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Khalid-Perfume-100ml-EDP-Niche-Emarati-By-Lattafa-131220487.jpg?v=1717455956"
     }
   ],
-  "ean-6290362342373": [
+  "mybeauty-boutique-shopify-gb-8416711999625-45147084259465": [
     {
-      "retailerId": "beautybase",
-      "price": 35,
+      "retailerId": "mybeauty-boutique",
+      "price": 39.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-khamrah-dukhan-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-08T22:27:14.777Z",
-      "firstSeenAt": "2026-08-08T22:27:14.777Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1755531246-47172800.jpg?v=1763397560&width=1920"
+      "url": "https://www.awin1.com/pclick.php?p=43661687865&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-dukhan": [
@@ -273149,6 +273831,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-African-Drummer-100ml-EDP-Lattafa-Pride-169276014.jpg?v=1749124715"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416712196233-45147084456073": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 67.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687870&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-9529405571421-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -273189,6 +273885,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Collection-D_antiquites-1910-_Bike_-Perfume-100ml-EDP-Lattafa-Pride-138615053.jpg?v=1720735872"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416712917129-45147085176969": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 57.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687887&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-9034712809821-default-title": [
@@ -273233,6 +273943,188 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/lail-maleki-perfume-100ml-edp-lattafa-emirates-oud-103851635.jpg?v=1713056928"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338364727433-44927285526665": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942336&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416712491145-45147084750985": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 62.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687878&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416712556681-45147084816521": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 8.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687879&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416713670793-45147086389385": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 48.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687902&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416712425609-45147084685449": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 48.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687877&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416713212041-45147085471881": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 48.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687893&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416714719369-45147088584841": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 40.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687923&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338364792969-44927285592201": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 37.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941980&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416713638025-45147086356617": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 76.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687899&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416715145353-45147089567881": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 76.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687929&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416714358921-45147087110281": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687916&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416713343113-45147085602953": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 71.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687895&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416711508105-45147083735177": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 35.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687852&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-6290360598895": [
     {
       "retailerId": "beautybase",
@@ -273273,6 +274165,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Leen-Perfume-100ml-EDP-Lattafa-Pride-154246436.jpg?v=1733776858"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338372591753-44927298371721": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 17.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942171&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-8961524334941-default-title": [
@@ -273345,18 +274251,18 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Lujain-Perfume-100ml-EDP-Niche-Emarati-By-Lattafa-119910649.jpg?v=1714092842"
     }
   ],
-  "ean-6291107456744": [
+  "mybeauty-boutique-shopify-gb-8338357616777-44927277727881": [
     {
-      "retailerId": "beautybase",
-      "price": 29.99,
+      "retailerId": "mybeauty-boutique",
+      "price": 21.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-maahir-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-08T14:30:40.092Z",
-      "firstSeenAt": "2026-08-08T14:30:40.092Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738837365-62237200.jpg?v=1763397090&width=1920"
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157931189&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-8839491027293-default-title": [
@@ -273401,6 +274307,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Maahir-Honor-Perfume-100ml-EDP-Lattafa-188153793.png?v=1775920654"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338356797577-44927276449929": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 31.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942275&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-8839487553885-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -273441,6 +274361,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/maali-perfume-30ml-edp-thameen-collection-by-lattafa-emirates-oud.jpg?v=1713056909"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416712982665-45147085242505": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 44.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687888&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-9034488545629-default-title": [
@@ -273511,6 +274445,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mallow-Madness-Perfume-75-EDP-Lattafa-176315146.jpg?v=1756997481"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416714031241-45147086782601": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 66.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687908&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-8923818885469-default-title": [
@@ -273637,6 +274585,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mishlah-Perfume-100ml-EDP-Lattafa-184348236.png?v=1770857379"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416712720521-45147084980361": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 31.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687885&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-8911339061597-default-title": [
@@ -273835,20 +274797,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/najdia-perfume-100ml-edp-lattafa-emirates-oud-2-103804738.jpg?v=1713055495"
     }
   ],
-  "ean-6290360598871": [
-    {
-      "retailerId": "beautybase",
-      "price": 25,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-nasmaat-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-10T19:59:39.471Z",
-      "firstSeenAt": "2026-08-10T19:59:39.471Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761816961-50503400.jpg?v=1763399360&width=1920"
-    }
-  ],
   "emirates-oud-15668456620381-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -273861,34 +274809,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nasmaat-Perfume-100ml-EDP-Lattafa-178953216.jpg?v=1760198028"
-    }
-  ],
-  "ean-6291108738276": [
-    {
-      "retailerId": "beautybase",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-nebras-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-07T12:59:21.968Z",
-      "firstSeenAt": "2026-08-07T12:59:21.968Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728472133-84370000.jpg?v=1763394327&width=1920"
-    }
-  ],
-  "ean-6290362348054": [
-    {
-      "retailerId": "beautybase",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-nebras-elixir-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
-      "firstSeenAt": "2026-08-10T14:56:38.817Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759334105-44292300.jpg?v=1763399124&width=1920"
     }
   ],
   "emirates-oud-15568364831069-default-title": [
@@ -273931,6 +274851,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/New-York-the-City-of-Dreams-Perfume-100ml-EDP-Lattafa-Pride-185221274.png?v=1772936358"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416712622217-45147084882057": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 76.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687881&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416714850441-45147089272969": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 57.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687925&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-16204007309661-default-title": [
@@ -273989,20 +274937,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opulent-Dubai-Perfume-100ml-EDP-Lattafa-169108781.jpg?v=1748915905"
     }
   ],
-  "ean-6291107450445": [
-    {
-      "retailerId": "beautybase",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-opulent-musk-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
-      "firstSeenAt": "2026-08-10T18:42:39.295Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759417723-19099100.jpg?v=1763399234&width=1920"
-    }
-  ],
   "emirates-oud-8839499186525-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -274015,20 +274949,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opulent-Musk-Perfume-100ml-EDP-By-Lattafa-153344653.jpg?v=1732559015"
-    }
-  ],
-  "ean-6291107450438": [
-    {
-      "retailerId": "beautybase",
-      "price": 16.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-opulent-oud-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-06T23:57:00.047Z",
-      "firstSeenAt": "2026-08-06T23:57:00.047Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1697725791-94186900.jpg?v=1763394073&width=1920"
     }
   ],
   "emirates-oud-8839501087069-default-title": [
@@ -274185,20 +275105,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Peace-_-Love-Perfume-100ml-EDP-Lattafa-Pride-169387048.jpg?v=1749519668"
     }
   ],
-  "ean-6290360598796": [
-    {
-      "retailerId": "beautybase",
-      "price": 26.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-petra-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-09T12:46:11.571Z",
-      "firstSeenAt": "2026-08-09T12:46:11.571Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1750157053-15869000.jpg?v=1763398123&width=1920"
-    }
-  ],
   "emirates-oud-15430697288029-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -274283,20 +275189,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1733753851-40800100.jpg?v=1763396726&width=1920"
     }
   ],
-  "ean-6290362347095": [
-    {
-      "retailerId": "beautybase",
-      "price": 40,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-pure-crystal-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-10T19:59:39.471Z",
-      "firstSeenAt": "2026-08-10T19:59:39.471Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761817600-49917200.jpg?v=1763399362&width=1920"
-    }
-  ],
   "emirates-oud-15748190372189-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -274367,6 +275259,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728475844-22638400.jpg?v=1763394381&width=1920"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338372722825-44927298502793": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 16.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942209&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-8911346827613-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -274379,20 +275285,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Qaed-Al-Fursan-Unlimited-Perfume-90ml-EDP-Lattafa-145125933.jpg?v=1721786437"
-    }
-  ],
-  "ean-6290362340645": [
-    {
-      "retailerId": "beautybase",
-      "price": 14.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-qaed-al-fursan-untamed-eau-de-parfum-90ml-spray",
-      "fetchedAt": "2026-08-09T03:40:47.179Z",
-      "firstSeenAt": "2026-08-09T03:40:47.179Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1747219701-66731800.jpg?v=1763397857&width=1920"
     }
   ],
   "emirates-oud-15386402062685-default-title": [
@@ -274451,6 +275343,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Qimmah-For-Women-Perfume-100ml-EDP-Lattafa-153341941.jpg?v=1732558220"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338367545481-44927288541321": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 15.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942085&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-6290362346111": [
     {
       "retailerId": "beautybase",
@@ -274505,6 +275411,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/ra-ed-gold-luxe-perfume-100ml-edp-lattafa-emirates-oud-2.jpg?v=1713055595"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416714096777-45147086848137": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 37.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687910&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-16063174082909-default-title": [
@@ -274591,6 +275511,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/raghba-perfume-100ml-edp-lattafa-emirates-oud-2.jpg?v=1713055626"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338357256329-44927277334665": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 18.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941835&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-8839509803357-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -274619,6 +275553,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/ramaad-al-oud-perfume-100ml-edp-lattafa-emirates-oud-103901525.jpg?v=1713058327"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416712851593-45147085111433": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687886&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-8911369240925-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -274631,20 +275579,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/ramz-lattafa-perfume-100ml-edp-lattafa-emirates-oud-103842791.jpg?v=1713056655"
-    }
-  ],
-  "justmylook-lat0008": [
-    {
-      "retailerId": "justmylook",
-      "price": 13.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/lattafa-ramz-lattafa-silver-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-09T12:46:11.571Z",
-      "firstSeenAt": "2026-08-05T04:06:55.385Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ramz-lattafa-silver-eau-de-parfum-100ml-p38198-121261_image.jpg?v=1721322261&width=1000"
     }
   ],
   "emirates-oud-8919133618525-default-title": [
@@ -274715,6 +275649,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rave-Now-Women-Perfume-100ml-EDP-Lattafa-174161595.jpg?v=1753408407"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416715079817-45147089502345": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 46.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687930&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-9029647630685-default-title": [
@@ -274871,6 +275819,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Shahd-Perfume-100ml-EDP-Lattafa-131908858.jpg?v=1718063158"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338372624521-44927298404489": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942190&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-9032506081629-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -274883,20 +275845,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/shaheen-gold-perfume-100ml-edp-lattafa-pride-emirates-oud-103883755.jpg?v=1713057782"
-    }
-  ],
-  "ean-6291108738658": [
-    {
-      "retailerId": "beautybase",
-      "price": 16.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-shaheen-silver-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-10T09:18:28.839Z",
-      "firstSeenAt": "2026-08-10T09:18:28.839Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1754917926-98115500.jpg?v=1763398687&width=1920"
     }
   ],
   "emirates-oud-9032493695325-default-title": [
@@ -274955,20 +275903,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sheikh-Al-Shuyukh-Supreme-Perfume-100ml-EDP-Lattafa-176239658.jpg?v=1756930245"
     }
   ],
-  "ean-6290362347484": [
-    {
-      "retailerId": "beautybase",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-sherif-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-10T14:21:50.324Z",
-      "firstSeenAt": "2026-08-10T14:21:50.324Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1758292436-94213200.jpg?v=1763398979&width=1920"
-    }
-  ],
   "emirates-oud-15583946244445-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -275025,6 +275959,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/somou-platinium-perfume-100ml-edp-lattafa.jpg?v=1755585387"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416715702409-45147090747529": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 40.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687939&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-15644472443229-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -275051,6 +275999,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/sutoor-perfume-100ml-edp-lattafa-emirates-oud-103908542.jpg?v=1713058541"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338364694665-44927285493897": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 21.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942822&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-6298043160025": [
@@ -275095,20 +276057,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/ta-weel-perfume-100ml-edp-lattafa-emirates-oud-103901313.jpg?v=1713058322"
     }
   ],
-  "ean-6290360595764": [
-    {
-      "retailerId": "beautybase",
-      "price": 25,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-teriaq-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-08T01:25:07.447Z",
-      "firstSeenAt": "2026-08-08T01:25:07.447Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1717662391-16639000.jpg?v=1763395256&width=1920"
-    }
-  ],
   "emirates-oud-14731428823389-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -275151,20 +276099,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/thara-perfume-30ml-edp-thameen-collection-by-lattafa-emirates-oud.jpg?v=1713056915"
     }
   ],
-  "ean-6291108738177": [
-    {
-      "retailerId": "beautybase",
-      "price": 35,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-tharwah-gold-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-09T12:46:11.571Z",
-      "firstSeenAt": "2026-08-09T12:46:11.571Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1748877918-49602100.jpg?v=1763398022&width=1920"
-    }
-  ],
   "emirates-oud-9029628461405-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -275191,6 +276125,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tharwah-Silver-Perfume-100ml-EDP-Lattafa-Pride-174164235.jpg?v=1753410313"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416712949897-45147085209737": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 48.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687889&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-6290360598352": [
@@ -275291,6 +276239,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Velvet-Musk-Perfume-100ml-EDP-Lattafa-169392774.png?v=1749524191"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416715440265-45147090321545": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 31.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687937&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-8839512293725-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -275305,6 +276267,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/velvet-oud-perfume-100ml-edp-lattafa-emirates-oud-3.jpg?v=1713055662"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338364760201-44927285559433": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 14.69,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942359&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-8839508230493-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -275317,6 +276293,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/velvet-rose-perfume-100ml-edp-lattafa-emirates-oud-2.jpg?v=1713055576"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416714948745-45147089371273": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 58.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687928&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-15352670486877-default-title": [
@@ -275345,20 +276335,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Vintage-Castle-Perfume-100ml-EDP-Niche-Emarati-By-Lattafa-119920422.jpg?v=1714093423"
-    }
-  ],
-  "ean-6290360592909": [
-    {
-      "retailerId": "beautybase",
-      "price": 29.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-vintage-radio-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-08T07:47:52.407Z",
-      "firstSeenAt": "2026-08-08T07:47:52.407Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728314382-19723800.jpg?v=1763395787&width=1920"
     }
   ],
   "emirates-oud-8888865718621-default-title": [
@@ -275415,20 +276391,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/winners-trophy-silver-perfume-100ml-edp-lattafa-pride-emirates-oud-4.jpg?v=1713055552"
-    }
-  ],
-  "ean-6423080728925": [
-    {
-      "retailerId": "beautybase",
-      "price": 9.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-yara-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-11T01:38:04.253Z",
-      "firstSeenAt": "2026-08-11T01:38:04.253Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728648557-39195600.jpg?v=1772625018&width=1920"
     }
   ],
   "ean-6290362345718": [
@@ -275501,20 +276463,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Yara-Concentrated-Perfume-Oil-20ml-Lattafa-175284435.jpg?v=1755541704"
     }
   ],
-  "ean-6290362346531": [
-    {
-      "retailerId": "beautybase",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-yara-elixir-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
-      "firstSeenAt": "2026-08-10T21:39:43.387Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761816159-56719200.jpg?v=1763399366&width=1920"
-    }
-  ],
   "emirates-oud-15683998548317-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -275557,1574 +276505,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Yara-Moi-Concentrated-Perfume-Oil-20ml-Lattafa-175284978.jpg?v=1755544647"
     }
   ],
-  "emirates-oud-8839508492637-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 18.99,
-      "wasPrice": 29.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/yara-lattafa-perfume-100ml-perfume-spray-unisex-women-men-scent-floral-musky",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Lattafa-Yara-Pink-Perfume-100ml-EDP-Women-Fragrance-177440592.jpg?v=1759029349"
-    }
-  ],
-  "emirates-oud-20ml-tous": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 14.99,
-      "wasPrice": 24.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/yara-tous-concentrated-perfume-oil-lattafa",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Yara-Tous-Concentrated-Perfume-Oil-20ml-Lattafa-175284892.jpg?v=1755544061"
-    }
-  ],
-  "emirates-oud-8890942751069-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 18.99,
-      "wasPrice": 29.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/yara-tous-perfume-100ml-edp-lattafa",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Yara-Tous-Perfume-100ml-EDP-Lattafa-177441182.jpg?v=1759029441"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416711442569-45147083669641": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687850&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712294537-45147084554377": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 66.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687873&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357649545-44927277760649": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 23.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941559&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357223561-44927277301897": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 16.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942279&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714522761-45147088388233": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 53.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687919&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714883209-45147089305737": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 44.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687926&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714260617-45147087011977": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 44.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687914&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338356961417-44927276712073": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 31.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942276&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357125257-44927277203593": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 29.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157931191&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712687753-45147084947593": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687883&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357846153-44927277957257": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 21.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941844&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338372690057-44927298470025": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 22.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942181&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357584009-44927277695113": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 84.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941556&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357354633-44927277432969": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 16.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157931190&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338367578249-44927288574089": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 15.29,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942061&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357452937-44927277564041": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 16.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941557&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416715538569-45147090419849": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 30.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687938&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338372657289-44927298437257": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 28.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942225&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416711540873-45147083767945": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687853&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712327305-45147084587145": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687874&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357747849-44927277858953": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 21.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941850&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714162313-45147086913673": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 40.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687911&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338396446857-44927344083081": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 21.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942767&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416715276425-45147090157705": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687934&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416713703561-45147086422153": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 40.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687901&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357682313-44927277793417": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 27.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941847&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416711475337-45147083702409": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 42.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687851&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357551241-44927277662345": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 41.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941562&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357026953-44927277006985": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941827&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714227849-45147086979209": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 10.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687913&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714064009-45147086815369": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 26.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687909&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416715112585-45147089535113": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 8.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687931&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338356928649-44927276581001": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 23.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942299&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357387401-44927277465737": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 17.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941834&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416711803017-45147084062857": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687859&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416711606409-45147083833481": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 71.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687854&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416715178121-45147089600649": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 57.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687932&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357485705-44927277596809": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 27.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941832&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712392841-45147084652681": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687876&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416711671945-45147083931785": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 37.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687855&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416711770249-45147084030089": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687858&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416711737481-45147083997321": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 26.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687857&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416711901321-45147084161161": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 28.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687862&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416711934089-45147084193929": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 28.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687863&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338367611017-44927288606857": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 17.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942356&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416713441417-45147085832329": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 58.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687897&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416715767945-45147090813065": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 66.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687940&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338414698633-44927397920905": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 29.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174943303&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416711704713-45147083964553": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 44.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687856&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416711999625-45147084259465": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687865&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357813385-44927277924489": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 27.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941561&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416715931785-45147091009673": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 55.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687945&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712196233-45147084456073": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 67.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687870&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712917129-45147085176969": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 57.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687887&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338364727433-44927285526665": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 18.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942336&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712491145-45147084750985": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 62.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687878&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712556681-45147084816521": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 8.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687879&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416713670793-45147086389385": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 48.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687902&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712425609-45147084685449": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 48.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687877&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416713212041-45147085471881": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 48.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687893&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714719369-45147088584841": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 40.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687923&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338364792969-44927285592201": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 37.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941980&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416713638025-45147086356617": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 76.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687899&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416715145353-45147089567881": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 76.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687929&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714358921-45147087110281": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 26.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687916&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416713343113-45147085602953": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 71.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687895&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416711508105-45147083735177": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 35.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687852&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338372591753-44927298371721": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 17.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942171&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357518473-44927277629577": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 23.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941833&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357616777-44927277727881": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 21.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157931189&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338356797577-44927276449929": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 31.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942275&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712982665-45147085242505": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 44.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687888&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714031241-45147086782601": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 66.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687908&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712720521-45147084980361": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 31.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687885&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714555529-45147088421001": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 57.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687920&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357878921-44927277990025": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 35.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941585&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416715866249-45147090944137": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 57.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687943&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712622217-45147084882057": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 76.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687881&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714850441-45147089272969": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 57.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687925&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357420169-44927277498505": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 14.19,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941560&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357321865-44927277400201": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 16.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941830&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357289097-44927277367433": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 17.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941829&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416713769097-45147086487689": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 58.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687903&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416713179273-45147085439113": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 75.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687892&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416711868553-45147084128393": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 26.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687860&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338372722825-44927298502793": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 16.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942209&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416713244809-45147085504649": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 28.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687894&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338367545481-44927288541321": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 15.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942085&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714096777-45147086848137": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 37.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687910&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357256329-44927277334665": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 18.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941835&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712851593-45147085111433": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 28.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687886&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712753289-45147085013129": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 31.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687884&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416715079817-45147089502345": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 46.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687930&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338372624521-44927298404489": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942190&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712032393-45147084292233": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687866&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712097929-45147084357769": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687868&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416715702409-45147090747529": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 40.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687939&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338364694665-44927285493897": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 21.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942822&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338357190793-44927277269129": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 26.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157931188&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714915977-45147089338505": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 53.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687927&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416712949897-45147085209737": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 48.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687889&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416715440265-45147090321545": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 31.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687937&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338364760201-44927285559433": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 14.69,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942359&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714948745-45147089371273": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 58.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687928&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416713834633-45147086553225": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 53.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687904&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416713801865-45147086520457": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 13.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687905&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338389860489-44927326552201": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 21.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942731&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416715833481-45147090878601": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 53.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687942&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338356895881-44927276548233": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 27.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941828&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8416714391689-45147087143049": [
     {
       "retailerId": "mybeauty-boutique",
@@ -277153,18 +276533,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416711835785-45147084095625": [
+  "emirates-oud-8839508492637-default-title": [
     {
-      "retailerId": "mybeauty-boutique",
-      "price": 39.99,
-      "wasPrice": null,
+      "retailerId": "emirates-oud",
+      "price": 18.99,
+      "wasPrice": 29.99,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687861&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "url": "https://emiratesoud.co.uk/products/yara-lattafa-perfume-100ml-perfume-spray-unisex-women-men-scent-floral-musky",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Lattafa-Yara-Pink-Perfume-100ml-EDP-Women-Fragrance-177440592.jpg?v=1759029349"
+    }
+  ],
+  "emirates-oud-20ml-tous": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 14.99,
+      "wasPrice": 24.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/yara-tous-concentrated-perfume-oil-lattafa",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Yara-Tous-Concentrated-Perfume-Oil-20ml-Lattafa-175284892.jpg?v=1755544061"
     }
   ],
   "mybeauty-boutique-shopify-gb-8416712589449-45147084849289": [
@@ -277179,6 +276573,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": null
+    }
+  ],
+  "emirates-oud-8890942751069-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 18.99,
+      "wasPrice": 29.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/yara-tous-perfume-100ml-edp-lattafa",
+      "fetchedAt": "2026-08-11T19:21:15.950Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Yara-Tous-Perfume-100ml-EDP-Lattafa-177441182.jpg?v=1759029441"
     }
   ],
   "ean-5060967731046": [
@@ -277419,20 +276827,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416716652681-45147091763337": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 17.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687959&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-5060186260396": [
     {
       "retailerId": "beautybase",
@@ -277500,6 +276894,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-11T01:38:04.253Z",
       "firstSeenAt": "2026-08-11T01:38:04.253Z",
       "isNew": true,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416716652681-45147091763337": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 17.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687959&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
       "imageUrl": null
     }
   ],
@@ -285875,20 +285283,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3760265190485": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 63.75,
-      "wasPrice": 120,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089042135&a=3026001&m=124166",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/979.jpg"
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8416735232137-45147116372105": [
     {
       "retailerId": "mybeauty-boutique",
@@ -285953,6 +285347,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688304&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338346475657-44927260328073": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 94.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157930989&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338346508425-44927260360841": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 73.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157931005&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338346442889-44927260295305": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 123.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157931017&a=3026001&m=106925",
       "fetchedAt": "2026-08-11T18:10:12.197Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -286163,62 +285599,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661688306&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338378227849-44927307251849": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 123.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942662&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338346475657-44927260328073": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 94.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157930989&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338346508425-44927260360841": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 73.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157931005&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338346442889-44927260295305": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 123.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157931017&a=3026001&m=106925",
       "fetchedAt": "2026-08-11T18:10:12.197Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -305545,6 +304925,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/ralph-eau-de-toilette-100ml-p21103-44878_image.jpg?v=1721322328&width=1000"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338393202825-44927335202953": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 46.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942746&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-3605972698780": [
     {
       "retailerId": "beautybase",
@@ -305707,20 +305101,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43157930050&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338393202825-44927335202953": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 46.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942746&a=3026001&m=106925",
       "fetchedAt": "2026-08-11T18:10:12.197Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -322905,6 +322285,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1616064437-00116900.jpg?v=1763395923&width=1920"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338326192265-44927235424393": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 14.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157930816&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338327240841-44927236505737": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 15.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941615&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5056179309098": [
     {
       "retailerId": "beautybase",
@@ -322919,18 +322327,18 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771255896-22011500.jpg?v=1772625198&width=1920"
     }
   ],
-  "ean-5017101045330": [
+  "mybeauty-boutique-shopify-gb-8338327634057-44927237095561": [
     {
-      "retailerId": "beautybase",
-      "price": 8.99,
+      "retailerId": "mybeauty-boutique",
+      "price": 14.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/english-lavender-eau-de-toilette-50ml-spray",
-      "fetchedAt": "2026-08-11T19:21:15.950Z",
-      "firstSeenAt": "2026-08-05T19:27:20.091Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1554820425-97577400.jpg?v=1763393421&width=1920"
+      "url": "https://www.awin1.com/pclick.php?p=43174941626&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-5017101634282": [
@@ -322961,18 +322369,18 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/111111.jpg?v=1776436953&width=1920"
     }
   ],
-  "ean-4035773111307": [
+  "mybeauty-boutique-shopify-gb-8338328092809-44927237357705": [
     {
-      "retailerId": "beautybase",
-      "price": 12.95,
+      "retailerId": "mybeauty-boutique",
+      "price": 24.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/yardley-english-rose-eau-de-toilette-125ml-spray",
-      "fetchedAt": "2026-08-10T09:18:28.839Z",
-      "firstSeenAt": "2026-08-05T07:37:13.610Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1729675046-10886400.jpg?v=1763391758&width=1920"
+      "url": "https://www.awin1.com/pclick.php?p=43174941628&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "mybeauty-boutique-shopify-gb-8416791986313-45147182301321": [
@@ -323101,6 +322509,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1729677675-93450500.jpg?v=1763391763&width=1920"
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338330222729-44927239520393": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941635&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-6297000442839": [
     {
       "retailerId": "beautybase",
@@ -323141,6 +322563,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-05T07:37:13.610Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1729678637-68203200.jpg?v=1763391764&width=1920"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338329174153-44927238439049": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941627&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338330812553-44927240142985": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 10.29,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174941640&a=3026001&m=106925",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-5014697050045": [
@@ -323235,132 +322685,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43174943586&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338326192265-44927235424393": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 14.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157930816&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338327240841-44927236505737": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 15.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941615&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338327634057-44927237095561": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 14.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941626&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338327666825-44927237128329": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 9.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941616&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338327797897-44927237259401": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 14.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941623&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338328092809-44927237357705": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941628&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338330222729-44927239520393": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941635&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338329174153-44927238439049": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 19.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941627&a=3026001&m=106925",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338330812553-44927240142985": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 10.29,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941640&a=3026001&m=106925",
       "fetchedAt": "2026-08-11T18:10:12.197Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -338183,7 +337507,7 @@ const HOUSE_PRODUCTS_CHUNK_1: HouseProduct[] = [
   {
     "id": "gulf-orchid-15229476929696-default-title",
     "house": "Gulf Orchid",
-    "brand": "Gulf Orchid Fragrances",
+    "brand": "Gulf Orchid",
     "name": "BEST SELLING GOURMAND",
     "sizeMl": null,
     "url": "https://shop-gulforchid.com/products/best-selling-gourmand-vanilla-voyage-cookie-bite-pink-marshmallow",
@@ -339376,7 +338700,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   {
     "id": "gulf-orchid-15229476995232-default-title",
     "house": "Gulf Orchid",
-    "brand": "Gulf Orchid Fragrances",
+    "brand": "Gulf Orchid",
     "name": "MASCULINE WINTER",
     "sizeMl": null,
     "url": "https://shop-gulforchid.com/products/masculine-winter-faris-al-arab-exotic-oud-throne-eclipse",
@@ -340244,7 +339568,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   {
     "id": "gulf-orchid-15691150360736-default-title",
     "house": "Gulf Orchid",
-    "brand": "Gulf Orchid Fragrances",
+    "brand": "Gulf Orchid",
     "name": "Shipping Protection",
     "sizeMl": null,
     "url": "https://shop-gulforchid.com/products/shipping-protection",
@@ -340678,7 +340002,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   {
     "id": "gulf-orchid-15690277683360-default-title",
     "house": "Gulf Orchid",
-    "brand": "Gulf Orchid Fragrances",
+    "brand": "Gulf Orchid",
     "name": "THE SWEET EDIT",
     "sizeMl": null,
     "url": "https://shop-gulforchid.com/products/the-sweet-edit",
@@ -340692,7 +340016,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   {
     "id": "gulf-orchid-15690278666400-default-title",
     "house": "Gulf Orchid",
-    "brand": "Gulf Orchid Fragrances",
+    "brand": "Gulf Orchid",
     "name": "THE VANILLASS",
     "sizeMl": null,
     "url": "https://shop-gulforchid.com/products/the-vanilla-collection",
@@ -340888,7 +340212,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   {
     "id": "gulf-orchid-15229476831392-default-title",
     "house": "Gulf Orchid",
-    "brand": "Gulf Orchid Fragrances",
+    "brand": "Gulf Orchid",
     "name": "VANILLA DREAM",
     "sizeMl": null,
     "url": "https://shop-gulforchid.com/products/vanilla-dream-vanilla-voyage-tahara-vanilla-vanilla-addiction-best-selling-bundle",
@@ -342026,8 +341350,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31la0001",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "24 Carat Pure Gold",
     "sizeMl": null,
     "url": "https://lattafa.com/product/24-carat-pure-gold/",
@@ -342037,8 +341361,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31la0003",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "24 Carat White Gold",
     "sizeMl": null,
     "url": "https://lattafa.com/product/24-carat-white-gold/",
@@ -342048,8 +341372,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31pl0050",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Affection",
     "sizeMl": null,
     "url": "https://lattafa.com/product/affection/",
@@ -342059,8 +341383,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31la2166",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Ajayeb Dubai",
     "sizeMl": null,
     "url": "https://lattafa.com/product/ajayeb-dubai/",
@@ -342070,8 +341394,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31pl0019",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Al Ameed Silver",
     "sizeMl": null,
     "url": "https://lattafa.com/product/al-ameed-silver/",
@@ -342081,8 +341405,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31ne0004",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Al Dana",
     "sizeMl": null,
     "url": "https://lattafa.com/product/al-dana/",
@@ -342092,8 +341416,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31la0015",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Al Dur Al Maknoon Silver",
     "sizeMl": null,
     "url": "https://lattafa.com/product/al-dur-al-maknoon-silver/",
@@ -342103,8 +341427,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31pl0017",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Al Khas Winners Trophy Silver",
     "sizeMl": null,
     "url": "https://lattafa.com/product/al-khas-winners-trophy-silver/",
@@ -342114,8 +341438,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31la3085",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Ameer Al Arab",
     "sizeMl": null,
     "url": "https://lattafa.com/product/ameer-al-arab/",
@@ -342125,8 +341449,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31la0587",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Ameer Al Oudh - Intense",
     "sizeMl": null,
     "url": "https://lattafa.com/product/ameer-al-oudh-intense/",
@@ -342136,8 +341460,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31lf0032",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Andaleeb",
     "sizeMl": null,
     "url": "https://lattafa.com/product/andaleeb/",
@@ -342147,8 +341471,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31lf0227",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Andaleeb Flora",
     "sizeMl": null,
     "url": "https://lattafa.com/product/andaleeb-flora/",
@@ -342158,8 +341482,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31pl0022",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Ansaam Silver",
     "sizeMl": null,
     "url": "https://lattafa.com/product/ansaam-silver/",
@@ -342169,8 +341493,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31ne0017",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Antique 20 ML",
     "sizeMl": 20,
     "url": "https://lattafa.com/product/antique-20-ml/",
@@ -342180,8 +341504,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31ne0032",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Classic Stone",
     "sizeMl": null,
     "url": "https://lattafa.com/product/classic-stone/",
@@ -342191,8 +341515,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31ne0033",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Durrah",
     "sizeMl": null,
     "url": "https://lattafa.com/product/durrah/",
@@ -342202,8 +341526,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31la2162",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Fakhar Lattafa Extrait",
     "sizeMl": null,
     "url": "https://lattafa.com/product/fakhar-lattafa-extrait/",
@@ -342213,8 +341537,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31pl0046",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Gharam",
     "sizeMl": null,
     "url": "https://lattafa.com/product/gharam/",
@@ -342224,8 +341548,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31la2081",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Hayaati",
     "sizeMl": null,
     "url": "https://lattafa.com/product/hayaati/",
@@ -342235,8 +341559,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31la0606",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Hayaati Gold Elixir",
     "sizeMl": null,
     "url": "https://lattafa.com/product/hayaati-gold-elixir/",
@@ -342246,8 +341570,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31lf0232",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Kasoof- Black",
     "sizeMl": null,
     "url": "https://lattafa.com/product/kasoof-black/",
@@ -342257,8 +341581,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31lf0038",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Majd Al Sultan",
     "sizeMl": null,
     "url": "https://lattafa.com/product/majd-al-sultan/",
@@ -342268,8 +341592,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31ne0010",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Mughal Fort",
     "sizeMl": null,
     "url": "https://lattafa.com/product/mughal-fort/",
@@ -342279,8 +341603,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31lf0233",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Oud Thameen",
     "sizeMl": null,
     "url": "https://lattafa.com/product/oud-thameen/",
@@ -342290,8 +341614,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31lf0033",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Pure White",
     "sizeMl": null,
     "url": "https://lattafa.com/product/pure-white/",
@@ -342301,8 +341625,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31pl0034",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Raghad",
     "sizeMl": null,
     "url": "https://lattafa.com/product/raghad/",
@@ -342312,8 +341636,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31lf0250",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Reem",
     "sizeMl": null,
     "url": "https://lattafa.com/product/reem/",
@@ -342323,8 +341647,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31ne0001",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Toleen",
     "sizeMl": null,
     "url": "https://lattafa.com/product/toleen/",
@@ -342334,8 +341658,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31ne0014",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "Vintage castle",
     "sizeMl": null,
     "url": "https://lattafa.com/product/vintage-castle/",
@@ -342345,8 +341669,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31la3079",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "أميرة العرب",
     "sizeMl": null,
     "url": "https://lattafa.com/ar/product/%d8%a3%d9%85%d9%8a%d8%b1%d8%a9-%d8%a7%d9%84%d8%b9%d8%b1%d8%a8/",
@@ -342356,8 +341680,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31la0522",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "أنا أبيض روج",
     "sizeMl": null,
     "url": "https://lattafa.com/ar/product/%d8%a3%d9%86%d8%a7-%d8%a3%d8%a8%d9%8a%d8%b6-%d8%b1%d9%88%d8%ac/",
@@ -342367,8 +341691,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31la0360",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "اختياري",
     "sizeMl": null,
     "url": "https://lattafa.com/ar/product/%d8%a7%d8%ae%d8%aa%d9%8a%d8%a7%d8%b1%d9%8a/",
@@ -342378,8 +341702,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31ne0023",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "الجوهرة ٢٠ مل",
     "sizeMl": null,
     "url": "https://lattafa.com/ar/product/%d8%a7%d9%84%d8%ac%d9%88%d9%87%d8%b1%d8%a9-%d9%a2%d9%a0-%d9%85%d9%84/",
@@ -342389,8 +341713,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31ne0018",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "الدانة ٢٠ مل",
     "sizeMl": null,
     "url": "https://lattafa.com/ar/product/%d8%a7%d9%84%d8%af%d8%a7%d9%86%d8%a9-%d9%a2%d9%a0-%d9%85%d9%84/",
@@ -342400,8 +341724,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31la0434",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "العود الأزرق",
     "sizeMl": null,
     "url": "https://lattafa.com/ar/product/%d8%a7%d9%84%d8%b9%d9%88%d8%af-%d8%a7%d9%84%d8%a3%d8%b2%d8%b1%d9%82/",
@@ -342411,8 +341735,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31ne0002",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "خالد",
     "sizeMl": null,
     "url": "https://lattafa.com/ar/product/%d8%ae%d8%a7%d9%84%d8%af/",
@@ -342422,8 +341746,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31ne0016",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "خالد ٢٠ مل",
     "sizeMl": null,
     "url": "https://lattafa.com/ar/product/%d8%ae%d8%a7%d9%84%d8%af-%d9%a2%d9%a0-%d9%85%d9%84/",
@@ -342433,8 +341757,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31ne0011",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "رمس",
     "sizeMl": null,
     "url": "https://lattafa.com/ar/product/%d8%b1%d9%85%d8%b3/",
@@ -342444,8 +341768,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31ne0009",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "غنوى",
     "sizeMl": null,
     "url": "https://lattafa.com/ar/product/%d8%ba%d9%86%d9%88%d9%89/",
@@ -342455,8 +341779,8 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   },
   {
     "id": "lattafa-31ne0013",
-    "house": "Lattafa Perfumes",
-    "brand": "Lattafa Perfumes",
+    "house": "Lattafa",
+    "brand": "Lattafa",
     "name": "هيام",
     "sizeMl": null,
     "url": "https://lattafa.com/ar/product/%d9%87%d9%8a%d8%a7%d9%85/",
@@ -345855,7 +345179,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   {
     "id": "pairfum-london-5050515907023",
     "house": "Pairfum London",
-    "brand": "Pairfum",
+    "brand": "Pairfum London",
     "name": "B2 Poster Bedroom",
     "sizeMl": null,
     "url": "https://www.pairfum.com/product/b2-poster-bedroom/",
@@ -345866,7 +345190,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   {
     "id": "pairfum-london-5050515907016",
     "house": "Pairfum London",
-    "brand": "Pairfum",
+    "brand": "Pairfum London",
     "name": "B2 Poster Livingroom",
     "sizeMl": null,
     "url": "https://www.pairfum.com/product/b2-poster-livingroom/",
@@ -345880,7 +345204,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   {
     "id": "pairfum-london-5050515907030",
     "house": "Pairfum London",
-    "brand": "Pairfum",
+    "brand": "Pairfum London",
     "name": "Black Acrylic Display Plinth",
     "sizeMl": null,
     "url": "https://www.pairfum.com/product/black-acrylic-display-plinth/",
@@ -345891,7 +345215,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   {
     "id": "pairfum-london-5050515901069",
     "house": "Pairfum London",
-    "brand": "Pairfum",
+    "brand": "Pairfum London",
     "name": "Canopy Infusion - Driftwood Stand",
     "sizeMl": null,
     "url": "https://www.pairfum.com/product/canopy-infusion-driftwood-stand/",
@@ -345902,7 +345226,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   {
     "id": "pairfum-london-5050515166",
     "house": "Pairfum London",
-    "brand": "Pairfum",
+    "brand": "Pairfum London",
     "name": "Flower &amp; Soy Wax Candles",
     "sizeMl": null,
     "url": "https://www.pairfum.com/product/flower-soy-wax-candles/",
@@ -345913,7 +345237,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   {
     "id": "pairfum-london-5050515312",
     "house": "Pairfum London",
-    "brand": "Pairfum",
+    "brand": "Pairfum London",
     "name": "Hand Sanitising Spray",
     "sizeMl": null,
     "url": "https://www.pairfum.com/product/hand-sanitising-spray-antibacterial-antiviral/",
@@ -345924,7 +345248,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   {
     "id": "pairfum-london-5050515161",
     "house": "Pairfum London",
-    "brand": "Pairfum",
+    "brand": "Pairfum London",
     "name": "Large - Snow Crystal - Perfumed Candles",
     "sizeMl": null,
     "url": "https://www.pairfum.com/product/large-snow-crystal-perfumed-candles/",
@@ -345935,7 +345259,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   {
     "id": "pairfum-london-5050515906019",
     "house": "Pairfum London",
-    "brand": "Pairfum",
+    "brand": "Pairfum London",
     "name": "Large Luxury Gift Bag",
     "sizeMl": null,
     "url": "https://www.pairfum.com/product/large-luxury-gift-bag/",
@@ -345946,7 +345270,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   {
     "id": "pairfum-london-5050515306",
     "house": "Pairfum London",
-    "brand": "Pairfum",
+    "brand": "Pairfum London",
     "name": "Linen Spray - Fragrance for Towels, Sheets &amp; Other Fabrics",
     "sizeMl": null,
     "url": "https://www.pairfum.com/product/linen-spray-fragrance-towels-sheets-other-fabrics/",
@@ -345957,7 +345281,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   {
     "id": "pairfum-london-50505155013",
     "house": "Pairfum London",
-    "brand": "Pairfum",
+    "brand": "Pairfum London",
     "name": "Luxury Natural Scented Sachets - Fragranced Honeycomb",
     "sizeMl": null,
     "url": "https://www.pairfum.com/product/natural-scented-sachets-fragranced-honeycomb/",
@@ -345968,7 +345292,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   {
     "id": "pairfum-london-5050515707",
     "house": "Pairfum London",
-    "brand": "Pairfum",
+    "brand": "Pairfum London",
     "name": "Organic Bathing Gel &amp; Bath Oil - Anti-bacterial | Anti-viral",
     "sizeMl": null,
     "url": "https://www.pairfum.com/product/organic-bathing-gel-bath-oil/",
@@ -345979,7 +345303,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   {
     "id": "pairfum-london-5050515164",
     "house": "Pairfum London",
-    "brand": "Pairfum",
+    "brand": "Pairfum London",
     "name": "Snow Crystal - Fragranced Candles - Classic",
     "sizeMl": null,
     "url": "https://www.pairfum.com/product/snow-crystal-fragranced-candles-classic/",
@@ -346693,8 +346017,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138672-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "AYKA",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/ayka",
@@ -346707,8 +346031,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571415",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Azul",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/azul",
@@ -346721,8 +346045,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138689-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Back to Black",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/back-to-black",
@@ -346735,8 +346059,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138702",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Bluetiful",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/bluetiful",
@@ -346749,8 +346073,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571408",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Cedrus Blanc",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/cedrus-blanc",
@@ -346763,8 +346087,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138610-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Cordova",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/cordova",
@@ -346777,8 +346101,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138603-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Corium",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/corium",
@@ -346791,8 +346115,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571057",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Crimson",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/crimson",
@@ -346805,8 +346129,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138641-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "DAHLIYA",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/dahliya",
@@ -346819,8 +346143,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138627-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Dark Leather",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/dark-leather",
@@ -346833,8 +346157,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571149",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Divine",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/divine",
@@ -346847,8 +346171,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044158250",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Ellwood",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/ellwood-100-ml",
@@ -346861,8 +346185,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138634-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "FLORIANA",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/floriana",
@@ -346875,8 +346199,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138559-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Fresh Wave",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/fresh-wave-100-ml",
@@ -346889,8 +346213,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138719-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Imperia",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/imperia",
@@ -346903,8 +346227,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138726-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Imperia Intense",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/imperia-intense",
@@ -346917,8 +346241,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138566-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Imperia Legacy",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/imperia-legacy-100-ml",
@@ -346931,8 +346255,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571439",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Nava Sol",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/nava-sol",
@@ -346945,8 +346269,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571125-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Nocturno",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/nocturno",
@@ -346959,8 +346283,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571026",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Nocturno Elixir",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/nocturno-elixir",
@@ -346973,8 +346297,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138733-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Ocean Rush",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/ocean-rush",
@@ -346987,8 +346311,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138740-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Pacific",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/pacific",
@@ -347001,8 +346325,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571392",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Pacific Aloha",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/pacific-aloha",
@@ -347015,8 +346339,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571170-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Pacific Aura",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/pacific-aura",
@@ -347029,8 +346353,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571354",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Pharaoh",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/wolf-copy",
@@ -347043,8 +346367,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138696-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Pretty in Pink",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/pretty-in-pink",
@@ -347057,8 +346381,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571330",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Rayhaan Aquatica",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/rayhaan-aquatica",
@@ -347071,8 +346395,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571002",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Rayhaan Elixir",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/elixir",
@@ -347085,8 +346409,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571279",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Rayhaan Italia",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/rayhaan-italia",
@@ -347099,8 +346423,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571286",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Rayhaan Jungle Vibe",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/rayhaan-jungle-vibe",
@@ -347113,8 +346437,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571347",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Rayhaan Kiss",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/rayhaan-kiss",
@@ -347127,8 +346451,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571033",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Rayhaan Lion",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/rayhaan-lion",
@@ -347141,8 +346465,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571323",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Rayhaan Obsidian",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/rayhaan-obsidian",
@@ -347155,8 +346479,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571262",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Rayhaan Terra",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/rayhaan-terra",
@@ -347169,8 +346493,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571040",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Rayhaan Tiger",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/rayhaan-tiger",
@@ -347183,8 +346507,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571200",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Rayhaan Valhalla",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/rayhaan-valhalla",
@@ -347197,8 +346521,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138597-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Royal Wood",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/royal-wood",
@@ -347211,8 +346535,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571361",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Tonquin Giza",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/tonquin-giza",
@@ -347225,8 +346549,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571255",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Tropical Vibe",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/tropical-vibe",
@@ -347239,8 +346563,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6297001571378",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Wolf",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/wolf",
@@ -347253,8 +346577,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "rayhaan-6298044138573-1",
-    "house": "Rayhaan Perfumes",
-    "brand": "Rayhaan Perfumes",
+    "house": "Rayhaan",
+    "brand": "Rayhaan",
     "name": "Wood Noir",
     "sizeMl": null,
     "url": "https://rayhaanperfumes.com/products/wood-noir",
@@ -347267,8 +346591,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-p1421671",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "33 White Reef Perfume | Unisex oriental, woody, and oud fragrance",
     "sizeMl": null,
     "url": "https://www.reef-parfum.com/en/product/reef-33-white-perfume/",
@@ -347278,8 +346602,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-6287036282639",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "Bluest Reef | Men's Fragrance: Cardamom, Iris &amp; Amber | 200 ml",
     "sizeMl": 200,
     "url": "https://www.reef-parfum.com/en/product/bluest-reef-perfume/",
@@ -347289,8 +346613,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-6287036285746",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "Force Reef Perfume | A unisex fragrance with floral, fruity, and gourmand notes",
     "sizeMl": null,
     "url": "https://www.reef-parfum.com/en/product/force-reef-perfume/",
@@ -347300,8 +346624,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-p1421894",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "Lady Reef | Women's Fragrance: Blackcurrant, Jasmine, and Musk | 150 ml",
     "sizeMl": 150,
     "url": "https://www.reef-parfum.com/en/product/lady-reef-womens-perfume/",
@@ -347311,8 +346635,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-p1431553",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "Pearl Musk Reef Perfume | A Refined Amber Musk Fragrance",
     "sizeMl": null,
     "url": "https://www.reef-parfum.com/en/product/pearl-musk-reef-perfume/",
@@ -347322,8 +346646,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-6287036282479",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "Pesca Reef Perfume | Unisex Fruity and Powdery Fragrance | 200 ml",
     "sizeMl": 200,
     "url": "https://www.reef-parfum.com/en/product/pesca-reef-perfume/",
@@ -347333,8 +346657,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-6287036288136",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "Princess Reef 100ml | Niche Women's Fragrance | Reef Parfum",
     "sizeMl": 100,
     "url": "https://www.reef-parfum.com/en/product/reef-princess/",
@@ -347344,8 +346668,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-6287036280840",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "Reef 11 | Rose Pepper and Sandalwood Eau de Parfum | 100 ml",
     "sizeMl": 100,
     "url": "https://www.reef-parfum.com/en/product/reef-11-niche-fragrance/",
@@ -347355,8 +346679,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-6287036280857",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "Reef 15 | Men's Eau de Parfum | Bergamot and Oud",
     "sizeMl": null,
     "url": "https://www.reef-parfum.com/en/product/reef-15-perfume/",
@@ -347366,8 +346690,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-p1432318",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "Reef 2 | Unisex Niche Eau de Parfum, 100 ml | Reef Parfum",
     "sizeMl": 100,
     "url": "https://www.reef-parfum.com/en/product/reef-2-fragrance/",
@@ -347377,8 +346701,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-6287036280901",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "Reef 33 | Unisex Eau de Parfum with saffron, rosemary, and oud",
     "sizeMl": null,
     "url": "https://www.reef-parfum.com/en/product/reef-33-perfume/",
@@ -347388,8 +346712,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-6287036280918",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "Reef 36 | Floral Amber Women's Fragrance | Reef Fragrance",
     "sizeMl": null,
     "url": "https://www.reef-parfum.com/en/product/reef-36-womens-perfume/",
@@ -347399,8 +346723,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-p1421784",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "Reef 42 | Long-lasting unisex fragrance | 100 ml",
     "sizeMl": 100,
     "url": "https://www.reef-parfum.com/en/product/reef-42-niche-fragrance/",
@@ -347410,8 +346734,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-6287036280833",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "Summer Tiffany Reef Perfumes | Unisex Floral-Fruity Fragrance",
     "sizeMl": null,
     "url": "https://www.reef-parfum.com/en/product/summer-tiffany-reef-perfume/",
@@ -347421,8 +346745,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-6287036280826",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "Summer Yellow | Floral, Fruity, and Gourmand Fragrance | Reef Parfum",
     "sizeMl": null,
     "url": "https://www.reef-parfum.com/en/product/summer-yellow-reef-fragrance/",
@@ -347432,8 +346756,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "reef-6287036285753",
-    "house": "REEF",
-    "brand": "REEF",
+    "house": "Reef Perfumes",
+    "brand": "Reef Perfumes",
     "name": "Volcano Reef Perfume | Woody-spicy unisex fragrance | 200 ml",
     "sizeMl": 200,
     "url": "https://www.reef-parfum.com/en/product/volcano-reef-perfume/",
@@ -352469,8 +351793,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "surrati-101044369",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Adham",
     "sizeMl": null,
     "url": "https://surrati.ae/products/adham",
@@ -352483,8 +351807,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "surrati-101025192",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Amber Oud 30 Ml - Timeless Opulent Unisex Attar",
     "sizeMl": 30,
     "url": "https://surrati.ae/products/amber-oud-30-ml",
@@ -352497,7 +351821,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "surrati-101044315",
-    "house": "Surrati Perfumes",
+    "house": "Surrati",
     "brand": "My Store",
     "name": "Arabian Horse",
     "sizeMl": null,
@@ -352511,8 +351835,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "surrati-101044379",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Arabic Coffee",
     "sizeMl": null,
     "url": "https://surrati.ae/products/arabic-coffee",
@@ -352525,8 +351849,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "surrati-101044357",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Atlantis",
     "sizeMl": null,
     "url": "https://surrati.ae/products/atlantis",
@@ -352539,8 +351863,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "surrati-101024001",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Ayan",
     "sizeMl": null,
     "url": "https://surrati.ae/products/niche-fragrance-ayan-500-ml",
@@ -352553,8 +351877,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "surrati-101015050sh",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bakhoor Al Oud Al Aswad",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bakhoor-al-oud-al-aswad",
@@ -352567,8 +351891,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "surrati-101015070",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bakhoor Anfas Al Oud 70 Gms (R)",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bakhoor-anfas-al-oud-70-gms-r",
@@ -352581,8 +351905,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "surrati-101015067",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bakhoor Black Oud 70 Gms (R)",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bakhoor-black-oud-70-gms-r",
@@ -352595,8 +351919,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   },
   {
     "id": "surrati-101015083",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bakhoor Jazeerat Al Oud",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bakhoor-jazeerat-al-oud",
@@ -352612,8 +351936,8 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
 const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   {
     "id": "surrati-101015090",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bakhoor Kisr Al Oud Mudhab",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bakhoor-kisr-al-oud-mudhab-50-gms",
@@ -352626,8 +351950,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101015075",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bakhoor Luban Al Oud 70 Gms",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bakhoor-luban-al-oud-70-gms",
@@ -352640,8 +351964,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101015011",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bakhoor Mabsoos Zain",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bakhoor-mabsoos-zain",
@@ -352654,8 +351978,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101015060",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bakhoor Mamool Fakhir Rose",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bakhoor-mamool-fakhir-rose",
@@ -352668,8 +351992,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101015038",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bakhoor Manahel",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bakhoor-manahel",
@@ -352682,8 +352006,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101015071",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bakhoor Oud Al Ameer 70 Gms (R)",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bakhoor-oud-al-ameer-70-gms-r",
@@ -352696,8 +352020,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101015073",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bakhoor Oud Al Sharqi 70 Gms (R)",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bakhoor-oud-al-sharqi-70-gms-r",
@@ -352710,8 +352034,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101015072",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bakhoor Oud Al Sultan 70 Gms (R)",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bakhoor-oud-al-sultan-70-gms-r",
@@ -352724,8 +352048,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101015069",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bakhoor Oud Ambre 70 Gms (R)",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bakhoor-oud-ambre-70-gms-r",
@@ -352738,8 +352062,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101015001",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bakhoor Salwa Murabba",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bakhoor-salwa-murabba-1",
@@ -352752,8 +352076,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101015034",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bakhoor Turas Al Arabi",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bakhoor-turas-al-arabi",
@@ -352766,8 +352090,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101024003",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Black Oud",
     "sizeMl": null,
     "url": "https://surrati.ae/products/niche-fragrance-black-oud-500-ml",
@@ -352780,8 +352104,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101045001",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Body Mist Anfasak Oud 250 Ml",
     "sizeMl": 250,
     "url": "https://surrati.ae/products/body-mist-anfasak-oud-250-ml",
@@ -352794,8 +352118,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101045011",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Body Mist Blue 250 Ml",
     "sizeMl": 250,
     "url": "https://surrati.ae/products/body-mist-blue-250-ml",
@@ -352808,8 +352132,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101045002",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Body Mist Fedaytuk 250 Ml",
     "sizeMl": 250,
     "url": "https://surrati.ae/products/body-mist-fedaytuk-250-ml",
@@ -352822,8 +352146,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101045017",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Body Mist Fresh Berries 250 Ml",
     "sizeMl": 250,
     "url": "https://surrati.ae/products/body-mist-fresh-berries-250-ml",
@@ -352836,8 +352160,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101045014",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Body Mist Oud Al Sharqiah 250 Ml",
     "sizeMl": 250,
     "url": "https://surrati.ae/products/body-mist-oud-al-sharqiah-250-ml",
@@ -352850,8 +352174,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101045018",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Body Mist Peach 250 Ml",
     "sizeMl": 250,
     "url": "https://surrati.ae/products/body-mist-peach-250-ml",
@@ -352864,8 +352188,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101045016",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Body Mist Raspberry 250 Ml",
     "sizeMl": 250,
     "url": "https://surrati.ae/products/body-mist-raspberry-250-ml",
@@ -352878,8 +352202,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101045012",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Body Mist Royal Musk 250 Ml",
     "sizeMl": 250,
     "url": "https://surrati.ae/products/body-mist-royal-musk-250-ml",
@@ -352892,8 +352216,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101045004",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Body Mist Shagaf Femme 250 Ml",
     "sizeMl": 250,
     "url": "https://surrati.ae/products/body-mist-shagaf-femme-250-ml",
@@ -352906,8 +352230,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101045003",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Body Mist Shagaf Homme 250 Ml",
     "sizeMl": 250,
     "url": "https://surrati.ae/products/body-mist-shagaf-homme-250-ml",
@@ -352920,8 +352244,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101045015",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Body Mist Strawberry 250 Ml",
     "sizeMl": 250,
     "url": "https://surrati.ae/products/body-mist-strawberry-250-ml",
@@ -352934,8 +352258,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044370",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Bora  Bora",
     "sizeMl": null,
     "url": "https://surrati.ae/products/bora-bora",
@@ -352948,8 +352272,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044373",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Candy Kiss",
     "sizeMl": null,
     "url": "https://surrati.ae/products/candy-kiss",
@@ -352962,8 +352286,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044311",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Collector",
     "sizeMl": null,
     "url": "https://surrati.ae/products/spray-collector-210-ml",
@@ -352976,8 +352300,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044362",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Cuban Latte",
     "sizeMl": null,
     "url": "https://surrati.ae/products/cuban-latte",
@@ -352990,8 +352314,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044330",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Cuban Tobacco",
     "sizeMl": null,
     "url": "https://surrati.ae/products/cuban-tobacco",
@@ -353004,8 +352328,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101025024",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Dehan Al Oud Al Malki 6 ML",
     "sizeMl": 6,
     "url": "https://surrati.ae/products/dehan-al-oud-al-malki-6-ml-1",
@@ -353018,8 +352342,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101025189",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Dehan Oud Saden Luxe 3 ML",
     "sizeMl": 3,
     "url": "https://surrati.ae/products/dehan-oud-saden-luxe-3-ml-1",
@@ -353032,8 +352356,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-201003035",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Dehan Oudh Combodi Qadeem 6 Ml",
     "sizeMl": 6,
     "url": "https://surrati.ae/products/dehan-oudh-combodi-qadeem-6-ml",
@@ -353046,8 +352370,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101025190",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Diala",
     "sizeMl": null,
     "url": "https://surrati.ae/products/diala",
@@ -353060,8 +352384,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044336",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Dolce Marina",
     "sizeMl": null,
     "url": "https://surrati.ae/products/dolce-marina-140-ml-heritage-collection-sophisticated-spray",
@@ -353074,8 +352398,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044332",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Dream Valley",
     "sizeMl": null,
     "url": "https://surrati.ae/products/dream-valley-140-ml-timeless-spray-heritage-collection",
@@ -353088,8 +352412,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044380",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Dubai Ocean",
     "sizeMl": null,
     "url": "https://surrati.ae/products/dubai-oud",
@@ -353102,8 +352426,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044366",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Fabrica 1929",
     "sizeMl": null,
     "url": "https://surrati.ae/products/fabrica-1929",
@@ -353116,8 +352440,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044329",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Ghazala",
     "sizeMl": null,
     "url": "https://surrati.ae/products/spray-ghazala-100-ml",
@@ -353130,8 +352454,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044368",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Gold Musk",
     "sizeMl": null,
     "url": "https://surrati.ae/products/gold-musk",
@@ -353144,8 +352468,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101025172",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Gold Royal Oud Essence 12 ML",
     "sizeMl": 12,
     "url": "https://surrati.ae/products/ausaaf-12-ml",
@@ -353158,8 +352482,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044363",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Gray Oud",
     "sizeMl": null,
     "url": "https://surrati.ae/products/gray-oud",
@@ -353172,8 +352496,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101024006",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Habaytak",
     "sizeMl": null,
     "url": "https://surrati.ae/products/niche-fragrance-habaytak-500-ml",
@@ -353186,8 +352510,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044335",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Honey Oud",
     "sizeMl": null,
     "url": "https://surrati.ae/products/honey-oud-140-ml-marina-spray-heritage-collection",
@@ -353200,8 +352524,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044313",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Imperial",
     "sizeMl": null,
     "url": "https://surrati.ae/products/spray-imperial-210-ml",
@@ -353214,8 +352538,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044359",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Italian Tobacco",
     "sizeMl": null,
     "url": "https://surrati.ae/products/italian",
@@ -353228,8 +352552,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101025164",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Kariman",
     "sizeMl": null,
     "url": "https://surrati.ae/products/kariman",
@@ -353242,8 +352566,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101024004",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Khaltah Al Malik",
     "sizeMl": null,
     "url": "https://surrati.ae/products/niche-fragrance-khaltah-al-malik-500-ml",
@@ -353256,8 +352580,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101025175",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Khamayel 12 Ml",
     "sizeMl": 12,
     "url": "https://surrati.ae/products/khamayel-12-ml",
@@ -353270,8 +352594,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044355",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Luxury Oud",
     "sizeMl": null,
     "url": "https://surrati.ae/products/luxury-oud",
@@ -353284,8 +352608,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044227",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Luxury Spray Over Dose 100 Ml - Premium Citrus Scent",
     "sizeMl": 100,
     "url": "https://surrati.ae/products/spray-over-dose-100-ml",
@@ -353298,8 +352622,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101015111",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Mamool Oud Hindi Qadeem 80 Gms",
     "sizeMl": null,
     "url": "https://surrati.ae/products/mamool-oud-hindi-qadeem-80-gms",
@@ -353312,8 +352636,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101025163",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Mehyar",
     "sizeMl": null,
     "url": "https://surrati.ae/products/mehyar-30-ml",
@@ -353326,8 +352650,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044361",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Miss World",
     "sizeMl": null,
     "url": "https://surrati.ae/products/miss-world",
@@ -353340,8 +352664,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044360",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Miss World Charisma",
     "sizeMl": null,
     "url": "https://surrati.ae/products/miss-world-charisma-1",
@@ -353354,8 +352678,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101024005",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Musk Al Aroos",
     "sizeMl": null,
     "url": "https://surrati.ae/products/niche-fragrance-musk-al-aroos-500-ml",
@@ -353368,8 +352692,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101025211",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Musk al Bait 25 Ml",
     "sizeMl": 25,
     "url": "https://surrati.ae/products/musk-al-bait-25-ml",
@@ -353382,8 +352706,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101025174",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Musk Rose 12 Ml",
     "sizeMl": 12,
     "url": "https://surrati.ae/products/musk-rose-12-ml",
@@ -353396,8 +352720,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101025179",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Nagham 12 Ml",
     "sizeMl": 12,
     "url": "https://surrati.ae/products/nagham-12-ml",
@@ -353410,8 +352734,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044358",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Omniyat",
     "sizeMl": null,
     "url": "https://surrati.ae/products/omniyat",
@@ -353424,8 +352748,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101026006",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Opulent Moattar Fawah Fajar Air Freshner - Sophisticated Oriental Aroma",
     "sizeMl": null,
     "url": "https://surrati.ae/products/moattar-fawah-fajr",
@@ -353438,8 +352762,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044310",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Oud Cuban",
     "sizeMl": null,
     "url": "https://surrati.ae/products/cuban",
@@ -353452,8 +352776,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044372",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Oud De Dubai",
     "sizeMl": null,
     "url": "https://surrati.ae/products/oud-de-dubai",
@@ -353466,8 +352790,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044378",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Oud Dubai",
     "sizeMl": null,
     "url": "https://surrati.ae/products/oud-dubai",
@@ -353480,8 +352804,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044221",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Oud Malino 100 ML",
     "sizeMl": 100,
     "url": "https://surrati.ae/products/oud-kalimantano-100-ml-copy",
@@ -353494,8 +352818,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044334",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Pink Miss",
     "sizeMl": null,
     "url": "https://surrati.ae/products/pink-miss-140-ml-elegant-spray-heritage-collection",
@@ -353508,8 +352832,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044367",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Pur Musk",
     "sizeMl": null,
     "url": "https://surrati.ae/products/pur-musk",
@@ -353522,8 +352846,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044364",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Purple Candy",
     "sizeMl": null,
     "url": "https://surrati.ae/products/purple-candy",
@@ -353536,8 +352860,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044312",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Rose Vanilla",
     "sizeMl": null,
     "url": "https://surrati.ae/products/rose-vanilla-210-ml",
@@ -353550,8 +352874,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044365",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Rosso Omber",
     "sizeMl": null,
     "url": "https://surrati.ae/products/rosso-omber",
@@ -353564,8 +352888,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101025177",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Sahar 12 ML",
     "sizeMl": 12,
     "url": "https://surrati.ae/products/sahar-regal-saffron-12-ml",
@@ -353578,8 +352902,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044371",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Sara",
     "sizeMl": null,
     "url": "https://surrati.ae/products/sara",
@@ -353592,8 +352916,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044264",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Shaikha Rouge 90 Ml",
     "sizeMl": 90,
     "url": "https://surrati.ae/products/shaikha-rouge-90-ml",
@@ -353606,8 +352930,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101024010",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Sheikha Rouge",
     "sizeMl": null,
     "url": "https://surrati.ae/products/niche-fragrance-sheikha-rouge-500-ml",
@@ -353620,8 +352944,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044220",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Al Sultan 100 Ml",
     "sizeMl": 100,
     "url": "https://surrati.ae/products/spray-al-sultan-100-ml",
@@ -353634,8 +352958,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044298",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Amber Noir 100 Ml",
     "sizeMl": 100,
     "url": "https://surrati.ae/products/spray-amber-noir-100-ml",
@@ -353648,8 +352972,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044216",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Ameer Al Oud 100 Ml",
     "sizeMl": 100,
     "url": "https://surrati.ae/products/spray-ameer-al-oud-100-ml",
@@ -353662,8 +352986,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044229",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Anfas Al Oud 120 ML",
     "sizeMl": 120,
     "url": "https://surrati.ae/products/spray-anfas-al-oud-120-ml",
@@ -353676,7 +353000,7 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044316",
-    "house": "Surrati Perfumes",
+    "house": "Surrati",
     "brand": "My Store",
     "name": "Spray Arabian Eagle",
     "sizeMl": null,
@@ -353690,8 +353014,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044160",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Ayan 100 Ml",
     "sizeMl": 100,
     "url": "https://surrati.ae/products/spray-ayan-100-ml",
@@ -353704,8 +353028,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044159",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Ayat 100 Ml",
     "sizeMl": 100,
     "url": "https://surrati.ae/products/spray-ayat-100-ml",
@@ -353718,8 +353042,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044317",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Black Horse 100 Ml",
     "sizeMl": 100,
     "url": "https://surrati.ae/products/spray-black-horse-100-ml",
@@ -353732,8 +353056,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044269",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Mashaekh 100 Ml",
     "sizeMl": 100,
     "url": "https://surrati.ae/products/spray-mashaekh-100-ml",
@@ -353746,8 +353070,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044243",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Musk Al Sheikha 80 Ml",
     "sizeMl": 80,
     "url": "https://surrati.ae/products/spray-musk-al-sheikha-80-ml",
@@ -353760,8 +353084,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044302",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Niche Leather 100 Ml",
     "sizeMl": 100,
     "url": "https://surrati.ae/products/spray-niche-leather-100-ml",
@@ -353774,8 +353098,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044199",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Oud Al Malik 60 Ml",
     "sizeMl": 60,
     "url": "https://surrati.ae/products/spray-oud-al-malik-60-ml",
@@ -353788,8 +353112,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044231",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Oud Al Sharqi 120 ML",
     "sizeMl": 120,
     "url": "https://surrati.ae/products/spray-oud-al-sharqi-120-ml",
@@ -353802,8 +353126,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-104044273",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Rose Gold 100 Ml",
     "sizeMl": 100,
     "url": "https://surrati.ae/products/rose-gold",
@@ -353816,8 +353140,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044284",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Santal Amber 120 Ml",
     "sizeMl": 120,
     "url": "https://surrati.ae/products/spray-santal-amber-120-ml",
@@ -353830,8 +353154,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044285",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Santal oud 120 Ml",
     "sizeMl": 120,
     "url": "https://surrati.ae/products/spray-santal-oud-120-ml",
@@ -353844,8 +353168,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044274",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Turquoise 100 Ml",
     "sizeMl": 100,
     "url": "https://surrati.ae/products/turquoise",
@@ -353858,8 +353182,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044268",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Turquoise Stone 100 Ml",
     "sizeMl": 100,
     "url": "https://surrati.ae/products/spray-turquoise-stone-100-ml",
@@ -353872,8 +353196,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044198",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Ward Al Malik 60 Ml",
     "sizeMl": 60,
     "url": "https://surrati.ae/products/spray-ward-al-malik-60-ml",
@@ -353886,8 +353210,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044147",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray Ward Taifi 75 Ml",
     "sizeMl": 75,
     "url": "https://surrati.ae/products/spray-ward-taifi-75-ml",
@@ -353900,8 +353224,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-9850132005173-default-title",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Spray White Gold 100 Ml",
     "sizeMl": 100,
     "url": "https://surrati.ae/products/white-gold",
@@ -353914,8 +353238,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101024002",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Sultan 500 ml",
     "sizeMl": 500,
     "url": "https://surrati.ae/products/niche-fragrance-sultan-500-ml",
@@ -353928,8 +353252,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101025161",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Surrati Blend 12 Ml",
     "sizeMl": 12,
     "url": "https://surrati.ae/products/surrati-blend-12-ml",
@@ -353942,8 +353266,8 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   },
   {
     "id": "surrati-101044314",
-    "house": "Surrati Perfumes",
-    "brand": "Surrati Perfumes",
+    "house": "Surrati",
+    "brand": "Surrati",
     "name": "Valley 33",
     "sizeMl": null,
     "url": "https://surrati.ae/products/valley-33",
