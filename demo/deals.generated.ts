@@ -15,7 +15,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-08-11T08:26:01.957Z";
+export const DEALS_GENERATED_AT = "2026-08-11T18:11:08.002Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -257,6 +257,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-8005610521220",
+    "price": 31.95,
+    "wasPrice": 50,
+    "percentOff": 36,
+    "retailerId": "fragrance-click"
+  },
+  {
     "fragranceId": "ean-737052949215",
     "price": 36.95,
     "wasPrice": 50,
@@ -288,6 +295,13 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3614225452079",
     "price": 39.95,
     "wasPrice": 75,
+    "percentOff": 46,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3386460118675",
+    "price": 66.95,
+    "wasPrice": 126,
     "percentOff": 46,
     "retailerId": "fragrance-click"
   },
@@ -544,13 +558,6 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-5045252667484",
-    "price": 30.75,
-    "wasPrice": 58,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
-  },
-  {
     "fragranceId": "ean-783320461002",
     "price": 73.95,
     "wasPrice": 101,
@@ -625,6 +632,13 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 31.5,
     "wasPrice": 59,
     "percentOff": 46,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3607347565321",
+    "price": 41.95,
+    "wasPrice": 69,
+    "percentOff": 39,
     "retailerId": "fragrance-click"
   },
   {
@@ -852,9 +866,30 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3346131402007",
+    "price": 81.95,
+    "wasPrice": 150,
+    "percentOff": 45,
+    "retailerId": "fragrance-click"
+  },
+  {
     "fragranceId": "ean-3616302968237",
     "price": 42.95,
     "wasPrice": 81,
+    "percentOff": 46,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-737052189765",
+    "price": 65.25,
+    "wasPrice": 123,
+    "percentOff": 46,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3614228220897",
+    "price": 46.75,
+    "wasPrice": 88,
     "percentOff": 46,
     "retailerId": "fragrance-click"
   },
@@ -985,13 +1020,6 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-8005610521220",
-    "price": 31.95,
-    "wasPrice": 50,
-    "percentOff": 36,
-    "retailerId": "fragrance-click"
-  },
-  {
     "fragranceId": "ean-3614273069175",
     "price": 89.95,
     "wasPrice": 120,
@@ -1072,13 +1100,6 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3616302779994",
     "price": 71.75,
     "wasPrice": 135,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
-  },
-  {
-    "fragranceId": "ean-3386460118675",
-    "price": 66.95,
-    "wasPrice": 126,
     "percentOff": 46,
     "retailerId": "fragrance-click"
   },
@@ -1167,6 +1188,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3423222080952",
+    "price": 48.95,
+    "wasPrice": 92,
+    "percentOff": 46,
+    "retailerId": "fragrance-click"
+  },
+  {
     "fragranceId": "ean-3423222012687",
     "price": 48.95,
     "wasPrice": 92,
@@ -1191,6 +1219,13 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3423478807655",
     "price": 70.5,
     "wasPrice": 133,
+    "percentOff": 46,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3137370302131",
+    "price": 56.25,
+    "wasPrice": 106,
     "percentOff": 46,
     "retailerId": "fragrance-click"
   },
@@ -1419,10 +1454,31 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-688575001778",
+    "price": 43.5,
+    "wasPrice": 82,
+    "percentOff": 46,
+    "retailerId": "fragrance-click"
+  },
+  {
     "fragranceId": "ean-3360374000004",
     "price": 38.95,
     "wasPrice": 72,
     "percentOff": 45,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3614274158151",
+    "price": 47.95,
+    "wasPrice": 75,
+    "percentOff": 36,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3614273987936",
+    "price": 79.75,
+    "wasPrice": 150,
+    "percentOff": 46,
     "retailerId": "fragrance-click"
   },
   {
@@ -1508,6 +1564,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 327,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "emirates-oud-15857972019549-100ml",
+    "price": 16.99,
+    "wasPrice": 30,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
   },
   {
     "fragranceId": "ean-3614274347562",
@@ -1776,6 +1839,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3508440505057",
+    "price": 121.95,
+    "wasPrice": 220,
+    "percentOff": 44,
+    "retailerId": "fragrance-click"
+  },
+  {
     "fragranceId": "ean-3414202000572",
     "price": 21.95,
     "wasPrice": 39,
@@ -1787,13 +1857,6 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 47.25,
     "wasPrice": 89,
     "percentOff": 46,
-    "retailerId": "fragrance-click"
-  },
-  {
-    "fragranceId": "ean-3607347565321",
-    "price": 41.95,
-    "wasPrice": 69,
-    "percentOff": 39,
     "retailerId": "fragrance-click"
   },
   {
@@ -2224,13 +2287,6 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-737052189765",
-    "price": 65.25,
-    "wasPrice": 123,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
-  },
-  {
     "fragranceId": "ean-3616303173098",
     "price": 52.95,
     "wasPrice": 86,
@@ -2242,13 +2298,6 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 51.95,
     "wasPrice": 75,
     "percentOff": 30,
-    "retailerId": "fragrance-click"
-  },
-  {
-    "fragranceId": "ean-3614228220897",
-    "price": 46.75,
-    "wasPrice": 88,
-    "percentOff": 46,
     "retailerId": "fragrance-click"
   },
   {
@@ -2539,6 +2588,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "emirates-oud-15784774730077-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
     "fragranceId": "ean-31655513027",
     "price": 36.95,
     "wasPrice": 65,
@@ -2591,6 +2647,20 @@ export const DEALS_RAW: RawDeal[] = [
     "fragranceId": "ean-3614227372344",
     "price": 39.95,
     "wasPrice": 75,
+    "percentOff": 46,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3616305033031",
+    "price": 39.95,
+    "wasPrice": 67,
+    "percentOff": 40,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3616305033055",
+    "price": 64.25,
+    "wasPrice": 121,
     "percentOff": 46,
     "retailerId": "fragrance-click"
   },
@@ -2686,13 +2756,6 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-3423222080952",
-    "price": 48.95,
-    "wasPrice": 92,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
-  },
-  {
     "fragranceId": "ean-3423222080969",
     "price": 63.75,
     "wasPrice": 120,
@@ -2777,13 +2840,6 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-3137370302131",
-    "price": 56.25,
-    "wasPrice": 106,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
-  },
-  {
     "fragranceId": "ean-3137370359494",
     "price": 60.5,
     "wasPrice": 114,
@@ -2823,6 +2879,13 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 84.95,
     "wasPrice": 97,
     "percentOff": 12,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-8435137764433",
+    "price": 85.95,
+    "wasPrice": 155,
+    "percentOff": 44,
     "retailerId": "fragrance-click"
   },
   {
@@ -3029,13 +3092,6 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-688575001778",
-    "price": 43.5,
-    "wasPrice": 82,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
-  },
-  {
     "fragranceId": "ean-3605520983979",
     "price": 32.95,
     "wasPrice": 62,
@@ -3043,16 +3099,9 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-3614274158151",
-    "price": 47.95,
-    "wasPrice": 75,
-    "percentOff": 36,
-    "retailerId": "fragrance-click"
-  },
-  {
-    "fragranceId": "ean-3614273987936",
-    "price": 79.75,
-    "wasPrice": 150,
+    "fragranceId": "ean-3614273622639",
+    "price": 68.95,
+    "wasPrice": 130,
     "percentOff": 46,
     "retailerId": "fragrance-click"
   },
@@ -3155,6 +3204,335 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "emirates-oud-8882584453469-default-title",
+    "price": 29.99,
+    "wasPrice": 39.99,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8882586386781-default-title",
+    "price": 29.99,
+    "wasPrice": 39.99,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8882579145053-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15515223228765-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15879448133981-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14702250885469-default-title",
+    "price": 29.99,
+    "wasPrice": 39.99,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497509601629-default-title",
+    "price": 39.99,
+    "wasPrice": 50,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16155793162589-default-title",
+    "price": 29.99,
+    "wasPrice": 35,
+    "percentOff": 14,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15434678600029-default-title",
+    "price": 39.99,
+    "wasPrice": 50,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15566506918237-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8916642726237-default-title",
+    "price": 44.99,
+    "wasPrice": 55,
+    "percentOff": 18,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8911618736477-default-title",
+    "price": 44.99,
+    "wasPrice": 55,
+    "percentOff": 18,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9930309599581-default-title",
+    "price": 29.99,
+    "wasPrice": 44.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15468863291741-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15675057307997-default-title",
+    "price": 37.99,
+    "wasPrice": 45,
+    "percentOff": 15,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15856744825181-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15675056882013-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15932153037149-default-title",
+    "price": 49.99,
+    "wasPrice": 60,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15993076580701-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15675056947549-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16000189530461-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15784772600157-default-title",
+    "price": 16.99,
+    "wasPrice": 30,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15993087623517-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15863481499997-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15993084281181-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15763180388701-default-title",
+    "price": 34.99,
+    "wasPrice": 50,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16000259064157-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15675057144157-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15993097912669-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15784771846493-default-title",
+    "price": 49.99,
+    "wasPrice": 65,
+    "percentOff": 23,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15675057242461-default-title",
+    "price": 31.99,
+    "wasPrice": 50,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15675056750941-default-title",
+    "price": 49.99,
+    "wasPrice": 60,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15993091457373-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16000171999581-default-title",
+    "price": 39.99,
+    "wasPrice": 55,
+    "percentOff": 27,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16000279544157-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15863481598301-default-title",
+    "price": 31.99,
+    "wasPrice": 50,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15675057045853-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16000292421981-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497395175773-default-title",
+    "price": 54.99,
+    "wasPrice": 75,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8882604900701-default-title",
+    "price": 44.99,
+    "wasPrice": 65,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9439021334877-default-title",
+    "price": 44.99,
+    "wasPrice": 65,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497392259421-default-title",
+    "price": 49.99,
+    "wasPrice": 75,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9470561517917-default-title",
+    "price": 54.99,
+    "wasPrice": 75,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15879496040797-default-title",
+    "price": 54.99,
+    "wasPrice": 75,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8882602410333-60ml",
+    "price": 44.99,
+    "wasPrice": 65,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8882602410333-100ml",
+    "price": 54.99,
+    "wasPrice": 75,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15879498301789-default-title",
+    "price": 54.99,
+    "wasPrice": 75,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
     "fragranceId": "ean-6291100132171",
     "price": 36.95,
     "wasPrice": 65,
@@ -3162,11 +3540,1250 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "emirates-oud-9470554538333-default-title",
+    "price": 39.99,
+    "wasPrice": 65,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14851326509405-default-title",
+    "price": 54.99,
+    "wasPrice": 75,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8882605916509-default-title",
+    "price": 54.99,
+    "wasPrice": 75,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8882603393373-default-title",
+    "price": 44.99,
+    "wasPrice": 65,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9470576296285-default-title",
+    "price": 44.99,
+    "wasPrice": 65,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15370212245853-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9470544413021-default-title",
+    "price": 34.99,
+    "wasPrice": 49.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-10009363218781-default-title",
+    "price": 39.99,
+    "wasPrice": 49.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8928202129757-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
     "fragranceId": "ean-6291100130450",
     "price": 42.5,
     "wasPrice": 80,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "emirates-oud-8928219890013-default-title",
+    "price": 34.99,
+    "wasPrice": 49.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-10009384681821-default-title",
+    "price": 39.99,
+    "wasPrice": 49.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9470549066077-default-title",
+    "price": 44.99,
+    "wasPrice": 54.99,
+    "percentOff": 18,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9470523769181-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8928217923933-default-title",
+    "price": 29.99,
+    "wasPrice": 49.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15466824499549-default-title",
+    "price": 5.99,
+    "wasPrice": 10,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15727406416221-default-title",
+    "price": 4.99,
+    "wasPrice": 8.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8911436874077-default-title",
+    "price": 4.99,
+    "wasPrice": 10,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15470688633181-default-title",
+    "price": 12.99,
+    "wasPrice": 25,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15468870205789-default-title",
+    "price": 4.99,
+    "wasPrice": 10,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15468868960605-default-title",
+    "price": 4.99,
+    "wasPrice": 10,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15632258597213-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9592004772189-default-title",
+    "price": 4.99,
+    "wasPrice": 8.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15466890953053-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15466863165789-default-title",
+    "price": 3.99,
+    "wasPrice": 8,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15466874077533-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9211575468381-default-title",
+    "price": 3.99,
+    "wasPrice": 8,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497642738013-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15466832429405-default-title",
+    "price": 3.99,
+    "wasPrice": 7.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16175637201245-default-title",
+    "price": 59.99,
+    "wasPrice": 70,
+    "percentOff": 14,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16175617540445-default-title",
+    "price": 59.99,
+    "wasPrice": 70,
+    "percentOff": 14,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16362966909277-default-title",
+    "price": 59.99,
+    "wasPrice": 70,
+    "percentOff": 14,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16362981261661-default-title",
+    "price": 59.99,
+    "wasPrice": 70,
+    "percentOff": 14,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16175688548701-default-title",
+    "price": 59.99,
+    "wasPrice": 70,
+    "percentOff": 14,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16172923781469-default-title",
+    "price": 59.99,
+    "wasPrice": 70,
+    "percentOff": 14,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16175697822045-default-title",
+    "price": 59.99,
+    "wasPrice": 70,
+    "percentOff": 14,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16314321764701-default-title",
+    "price": 59.99,
+    "wasPrice": 70,
+    "percentOff": 14,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15763193594205-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573121827165-default-title",
+    "price": 39.99,
+    "wasPrice": 50,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723979997533-default-title",
+    "price": 34.99,
+    "wasPrice": 60,
+    "percentOff": 41,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573128151389-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573125726557-default-title",
+    "price": 44.99,
+    "wasPrice": 60,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573119074653-default-title",
+    "price": 39.99,
+    "wasPrice": 50,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573114880349-100ml",
+    "price": 31.99,
+    "wasPrice": 50,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573114880349-unused---unboxed---100ml",
+    "price": 24.99,
+    "wasPrice": 50,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573099446621-default-title",
+    "price": 19.99,
+    "wasPrice": 40,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15836252832093-default-title",
+    "price": 19.99,
+    "wasPrice": 40,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573108752733-default-title",
+    "price": 19.99,
+    "wasPrice": 40,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573104066909-default-title",
+    "price": 19.99,
+    "wasPrice": 40,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16195206381917-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15863482122589-default-title",
+    "price": 34.99,
+    "wasPrice": 50,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723980030301-default-title",
+    "price": 34.99,
+    "wasPrice": 50,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839515636061-default-title",
+    "price": 9.99,
+    "wasPrice": 19.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839517176157-default-title",
+    "price": 13.99,
+    "wasPrice": 19.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16260954784093-default-title",
+    "price": 16.99,
+    "wasPrice": 30,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839515144541-default-title",
+    "price": 13.99,
+    "wasPrice": 19.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9051697611101-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467168530781-default-title",
+    "price": 18.99,
+    "wasPrice": 34.99,
+    "percentOff": 45,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047701848413-default-title",
+    "price": 9.99,
+    "wasPrice": 19.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047737598301-default-title",
+    "price": 13.99,
+    "wasPrice": 19.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047739433309-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467162272093-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8888915001693-default-title",
+    "price": 11.99,
+    "wasPrice": 19.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723980063069-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047734813021-default-title",
+    "price": 9.99,
+    "wasPrice": 24.99,
+    "percentOff": 60,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9591983571293-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9051693646173-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15856748298589-default-title",
+    "price": 16.99,
+    "wasPrice": 35,
+    "percentOff": 51,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723980128605-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15856749052253-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467074158941-default-title",
+    "price": 12.99,
+    "wasPrice": 29.99,
+    "percentOff": 56,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9801505636701-default-title",
+    "price": 11.99,
+    "wasPrice": 17.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-gold-box",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-pink-box",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14971023393117-default-title",
+    "price": 9.99,
+    "wasPrice": 24.99,
+    "percentOff": 60,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9801525952861-default-title",
+    "price": 11.99,
+    "wasPrice": 17.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8882621088093-default-title",
+    "price": 11.99,
+    "wasPrice": 19.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8882622628189-default-title",
+    "price": 11.99,
+    "wasPrice": 19.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8898663678301-default-title",
+    "price": 11.99,
+    "wasPrice": 19.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839514292573-default-title",
+    "price": 9.99,
+    "wasPrice": 19.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839516291421-default-title",
+    "price": 9.99,
+    "wasPrice": 19.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839518257501-default-title",
+    "price": 13.99,
+    "wasPrice": 19.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9204119732573-default-title",
+    "price": 11.99,
+    "wasPrice": 19.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839519732061-default-title",
+    "price": 8.99,
+    "wasPrice": 16.99,
+    "percentOff": 47,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839519502685-default-title",
+    "price": 8.99,
+    "wasPrice": 16.99,
+    "percentOff": 47,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839519076701-default-title",
+    "price": 8.99,
+    "wasPrice": 16.99,
+    "percentOff": 47,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839517503837-default-title",
+    "price": 8.99,
+    "wasPrice": 16.99,
+    "percentOff": 47,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9060152639837-default-title",
+    "price": 13.99,
+    "wasPrice": 19.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9056552026461-default-title",
+    "price": 13.99,
+    "wasPrice": 19.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467093360989-default-title",
+    "price": 16.99,
+    "wasPrice": 34.99,
+    "percentOff": 51,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467084513629-default-title",
+    "price": 16.99,
+    "wasPrice": 34.99,
+    "percentOff": 51,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9056514867549-default-title",
+    "price": 13.99,
+    "wasPrice": 19.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15914394190173-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839517798749-default-title",
+    "price": 9.99,
+    "wasPrice": 19.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467135140189-default-title",
+    "price": 9.99,
+    "wasPrice": 25,
+    "percentOff": 60,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15914380689757-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839520256349-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8869114151261-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9801563767133-default-title",
+    "price": 11.99,
+    "wasPrice": 17.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9843105464669-default-title",
+    "price": 11.99,
+    "wasPrice": 19.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9060688167261-default-title",
+    "price": 9.99,
+    "wasPrice": 24.99,
+    "percentOff": 60,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15856750657885-default-title",
+    "price": 16.99,
+    "wasPrice": 30,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467103846749-default-title",
+    "price": 14.99,
+    "wasPrice": 30,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467111350621-default-title",
+    "price": 14.99,
+    "wasPrice": 30,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467131175261-default-title",
+    "price": 14.99,
+    "wasPrice": 34.99,
+    "percentOff": 57,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467133600093-default-title",
+    "price": 14.99,
+    "wasPrice": 34.99,
+    "percentOff": 57,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16189413622109-default-title",
+    "price": 9.99,
+    "wasPrice": 24.99,
+    "percentOff": 60,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839518749021-default-title",
+    "price": 13.99,
+    "wasPrice": 19.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15856750592349-default-title",
+    "price": 16.99,
+    "wasPrice": 35,
+    "percentOff": 51,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467058889053-default-title",
+    "price": 13.99,
+    "wasPrice": 19.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467053089117-default-title",
+    "price": 9.99,
+    "wasPrice": 19.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467066589533-default-title",
+    "price": 9.99,
+    "wasPrice": 19.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467044766045-default-title",
+    "price": 13.99,
+    "wasPrice": 19.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467142512989-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9661632741725-default-title",
+    "price": 11.99,
+    "wasPrice": 19.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8998484836701-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467193762141-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16260955865437-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9060641767773-default-title",
+    "price": 13.99,
+    "wasPrice": 19.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8928185221469-default-title",
+    "price": 24.99,
+    "wasPrice": 39.99,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839515996509-default-title",
+    "price": 13.99,
+    "wasPrice": 19.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8928172736861-default-title",
+    "price": 13.99,
+    "wasPrice": 19.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467154407773-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839515373917-default-title",
+    "price": 14.99,
+    "wasPrice": 30,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16260952326493-default-title",
+    "price": 14.99,
+    "wasPrice": 30,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15082176381277-default-title",
+    "price": 14.99,
+    "wasPrice": 30,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467150442845-default-title",
+    "price": 14.99,
+    "wasPrice": 30,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467175379293-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16260959076701-default-title",
+    "price": 16.99,
+    "wasPrice": 25,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839516586333-default-title",
+    "price": 13.99,
+    "wasPrice": 19.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839516782941-default-title",
+    "price": 8.99,
+    "wasPrice": 19.99,
+    "percentOff": 55,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839515865437-default-title",
+    "price": 13.99,
+    "wasPrice": 19.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16303748088157-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467183309149-default-title",
+    "price": 14.99,
+    "wasPrice": 29.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15467183997277-default-title",
+    "price": 14.99,
+    "wasPrice": 29.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9529411797341-default-title",
+    "price": 9.99,
+    "wasPrice": 19.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9377299202397-default-title",
+    "price": 5.99,
+    "wasPrice": 9.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15748179296605-default-title",
+    "price": 41.99,
+    "wasPrice": 50,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9369923191133-default-title",
+    "price": 32.99,
+    "wasPrice": 45,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15857941578077-default-title",
+    "price": 34.99,
+    "wasPrice": 50,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9369918832989-default-title",
+    "price": 26.99,
+    "wasPrice": 40,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16230881755485-default-title",
+    "price": 79.99,
+    "wasPrice": 100,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14971111932253-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15566498398557-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9759862620509-default-title",
+    "price": 24.99,
+    "wasPrice": 45,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15857961042269-default-title",
+    "price": 44.99,
+    "wasPrice": 80,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15703709286749-default-title",
+    "price": 44.99,
+    "wasPrice": 52,
+    "percentOff": 13,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15918625259869-default-title",
+    "price": 44.99,
+    "wasPrice": 60,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9759848628573-default-title",
+    "price": 27.99,
+    "wasPrice": 45,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15473220551005-default-title",
+    "price": 34.99,
+    "wasPrice": 50,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9759868551517-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16155938062685-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15520100745565-default-title",
+    "price": 39.99,
+    "wasPrice": 60,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15652902764893-default-title",
+    "price": 39.99,
+    "wasPrice": 60,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644474245469-default-title",
+    "price": 22.5,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644474409309-default-title",
+    "price": 22.5,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15426870542685-default-title",
+    "price": 22.5,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15426867298653-default-title",
+    "price": 22.5,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15857969267037-default-title",
+    "price": 22.5,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644474048861-default-title",
+    "price": 22.5,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15857981161821-default-title",
+    "price": 22.5,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15442713182557-default-title",
+    "price": 22.5,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15566494531933-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9439110168925-default-title",
+    "price": 22.5,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15918780055901-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644473688413-default-title",
+    "price": 22.5,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15857968021853-default-title",
+    "price": 22.5,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644473753949-default-title",
+    "price": 22.5,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644473852253-default-title",
+    "price": 22.5,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15614073897309-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15914423157085-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15914448421213-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15914463691101-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15914412245341-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15914436985181-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16263116882269-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15914475290973-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15914486432093-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
   },
   {
     "fragranceId": "ean-3614274412789",
@@ -3491,13 +5108,6 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-88300049493",
-    "price": 23.95,
-    "wasPrice": 55,
-    "percentOff": 56,
-    "retailerId": "fragrance-click"
-  },
-  {
     "fragranceId": "ean-8411061023655",
     "price": 49.95,
     "wasPrice": 90,
@@ -3708,6 +5318,111 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "emirates-oud-9365420507485-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8888935055709-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9365314666845-default-title",
+    "price": 7.99,
+    "wasPrice": 9.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9088235372893-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9020565586269-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9365389705565-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9365407760733-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9020550021469-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9176454234461-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8888942395741-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9365375123805-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8888928731485-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8888941904221-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9365310964061-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9161266856285-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
     "fragranceId": "ean-3508440505064",
     "price": 121.95,
     "wasPrice": 195,
@@ -3754,13 +5469,6 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 77.95,
     "wasPrice": 125,
     "percentOff": 37,
-    "retailerId": "fragrance-click"
-  },
-  {
-    "fragranceId": "ean-3348900838185",
-    "price": 95.95,
-    "wasPrice": 122,
-    "percentOff": 21,
     "retailerId": "fragrance-click"
   },
   {
@@ -3932,6 +5640,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "emirates-oud-16204052070749-default-title",
+    "price": 16.99,
+    "wasPrice": 30,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
     "fragranceId": "ean-5060103310012",
     "price": 106.95,
     "wasPrice": 120,
@@ -3951,6 +5666,3205 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 88,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "emirates-oud-15410316247389-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9029693243741-default-title",
+    "price": 29.99,
+    "wasPrice": 39.99,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612333130077-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9206440919389-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612332900701-default-title",
+    "price": 19.99,
+    "wasPrice": 40,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15560332771677-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15948869828957-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612332769629-default-title",
+    "price": 19.99,
+    "wasPrice": 40,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416610251101-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612332966237-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8961454866781-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8906901389661-default-title",
+    "price": 29.99,
+    "wasPrice": 49.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9029686198621-default-title",
+    "price": 9.99,
+    "wasPrice": 24.99,
+    "percentOff": 60,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9529426510173-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416706294109-default-title",
+    "price": 17.99,
+    "wasPrice": 29.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416713208157-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15590535135581-default-title",
+    "price": 12.99,
+    "wasPrice": 29.99,
+    "percentOff": 56,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9063592034653-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9029678072157-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868914725213-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868912955741-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868964041053-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15655550353757-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867683631453-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9852186689885-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-10001327358301-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9852226437469-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9365318140253-default-title",
+    "price": 7.99,
+    "wasPrice": 9.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867662823773-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868897292637-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9974002221405-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868911808861-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9077506834781-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16029819175261-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867667968349-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867643359581-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9026340684125-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867675079005-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612333392221-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9029684068701-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15082289693021-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15161203982685-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867638772061-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9809914560861-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9791586664797-default-title",
+    "price": 17.99,
+    "wasPrice": 34.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15082038919517-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612333326685-default-title",
+    "price": 17.99,
+    "wasPrice": 34.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15520189219165-default-title",
+    "price": 19.99,
+    "wasPrice": 40,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15161219875165-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9206507766109-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9026347467101-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9809728405853-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9336425283933-default-title",
+    "price": 19.99,
+    "wasPrice": 39.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612333457757-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9063609336157-default-title",
+    "price": 14.99,
+    "wasPrice": 29.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9063599538525-default-title",
+    "price": 14.99,
+    "wasPrice": 29.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9063623983453-default-title",
+    "price": 14.99,
+    "wasPrice": 29.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9242418020701-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15417159024989-default-title",
+    "price": 14.99,
+    "wasPrice": 40,
+    "percentOff": 62,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15417146343773-default-title",
+    "price": 14.99,
+    "wasPrice": 40,
+    "percentOff": 62,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15417150701917-default-title",
+    "price": 14.99,
+    "wasPrice": 40,
+    "percentOff": 62,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612333588829-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9176458723677-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9529583796573-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9151163072861-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15532826526045-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9206476439901-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9843129483613-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9159203946845-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9206393438557-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867650666845-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15417140085085-default-title",
+    "price": 19.99,
+    "wasPrice": 40,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612333556061-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867669573981-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14756352721245-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15441410130269-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9063595966813-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612333883741-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15838525063517-default-title",
+    "price": 14.99,
+    "wasPrice": 30,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9029708317021-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15838525292893-default-title",
+    "price": 14.99,
+    "wasPrice": 30,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15410335121757-default-title",
+    "price": 19.99,
+    "wasPrice": 39.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868946182493-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480714854749-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480715280733-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15502670692701-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867606823261-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9077475934557-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15386373521757-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15711434867037-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15386367000925-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15560329757021-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15386354418013-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15352694407517-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15655438713181-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15352690508125-default-title",
+    "price": 12.5,
+    "wasPrice": 25,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15386361594205-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9206572286301-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612333785437-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9832893415773-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867672392029-80ml",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867672392029-150ml",
+    "price": 19.99,
+    "wasPrice": 39.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416605139293-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9206527787357-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612333687133-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8923646099805-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612333949277-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9063633682781-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9077509292381-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8906884448605-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8906893099357-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15401276670301-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612334080349-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9063653572957-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15502669906269-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9242408124765-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9595363295581-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14731341857117-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9791495438685-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9674900373853-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15500233671005-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9839990538589-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15234687009117-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9063627948381-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9159190315357-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15566517567837-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15502660927837-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612334014813-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480752210269-default-title",
+    "price": 13.99,
+    "wasPrice": 29.99,
+    "percentOff": 53,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8998581207389-default-title",
+    "price": 13.99,
+    "wasPrice": 29.99,
+    "percentOff": 53,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480752374109-default-title",
+    "price": 13.99,
+    "wasPrice": 29.99,
+    "percentOff": 53,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15082058023261-default-title",
+    "price": 15.99,
+    "wasPrice": 29.99,
+    "percentOff": 46,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612334211421-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867640607069-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15560393195869-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15560342765917-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9206466249053-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867659972957-80ml",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867659972957-150ml",
+    "price": 19.99,
+    "wasPrice": 39.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15501788807517-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15748185260381-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9947207696733-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9592306893149-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9003884413277-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868965777757-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723980357981-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9159344095581-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723980292445-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723936874845-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9003885265245-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9529551454557-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723980259677-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612334342493-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480770134365-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480764760413-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15422872093021-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9072574071133-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9096330838365-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9077484257629-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9256117731677-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867698278749-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15401269395805-default-title",
+    "price": 13.99,
+    "wasPrice": 34.99,
+    "percentOff": 60,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8882575868253-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9151166120285-default-title",
+    "price": 9.99,
+    "wasPrice": 29.99,
+    "percentOff": 66,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15435569889629-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9151176376669-default-title",
+    "price": 9.99,
+    "wasPrice": 29.99,
+    "percentOff": 66,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15435581227357-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9151167889757-default-title",
+    "price": 9.99,
+    "wasPrice": 29.99,
+    "percentOff": 66,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15297367703901-default-title",
+    "price": 9.99,
+    "wasPrice": 29.99,
+    "percentOff": 66,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9868581798237-default-title",
+    "price": 9.99,
+    "wasPrice": 29.99,
+    "percentOff": 66,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15435579687261-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9154626912605-default-title",
+    "price": 9.99,
+    "wasPrice": 29.99,
+    "percentOff": 66,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9063665336669-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15583976751453-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612334801245-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9060662378845-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15838526931293-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9431334781277-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867626221917-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723980423517-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9911142351197-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867629007197-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723980489053-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723979899229-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9206464643421-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8998632489309-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612334735709-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9595397144925-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9063667401053-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15209497559389-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8923833925981-80ml",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8923833925981-150ml",
+    "price": 19.99,
+    "wasPrice": 39.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8911427207517-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15082150134109-default-title",
+    "price": 18.99,
+    "wasPrice": 30,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612334604637-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612334506333-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14731369251165-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612334965085-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9456096969053-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15655545045341-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9595474477405-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8923600781661-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9060761403741-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9016977195357-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16045829095773-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9029652971869-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612335030621-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9791532826973-default-title",
+    "price": 16.99,
+    "wasPrice": 34.99,
+    "percentOff": 51,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867631956317-80ml",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867631956317-150ml",
+    "price": 19.99,
+    "wasPrice": 39.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480667832669-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480658264413-default-title",
+    "price": 17.99,
+    "wasPrice": 29.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480663998813-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480685461853-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480657379677-default-title",
+    "price": 17.99,
+    "wasPrice": 29.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612334899549-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15532832457053-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15470184628573-default-title",
+    "price": 22.5,
+    "wasPrice": 34.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15422858068317-default-title",
+    "price": 18.99,
+    "wasPrice": 30,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-10000983195997-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-10000967991645-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-10001003315549-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15470166442333-default-title",
+    "price": 18.99,
+    "wasPrice": 34.99,
+    "percentOff": 45,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15470762197341-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9674890838365-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-10001421992285-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9529528975709-default-title",
+    "price": 14.99,
+    "wasPrice": 29.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9529483198813-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15438201684317-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9947169554781-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8906864820573-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9839956623709-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15161139822941-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15464895414621-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15765660205405-default-title",
+    "price": 12.99,
+    "wasPrice": 29.99,
+    "percentOff": 56,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9206750904669-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15441413964125-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9026399535453-80ml",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9026399535453-150ml",
+    "price": 19.99,
+    "wasPrice": 39.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612335096157-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8906867900765-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15500342427997-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8906886807901-default-title",
+    "price": 14.99,
+    "wasPrice": 29.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9529608307037-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9246919000413-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612335227229-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15863481925981-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9060767007069-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15655557988701-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9206539682141-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9151135711581-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15440120217949-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723980226909-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15889055940957-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868970463581-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15583956369757-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9860159766877-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15889056072029-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9242284884317-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9034587472221-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612335128925-default-title",
+    "price": 19.99,
+    "wasPrice": 29.9,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9029706252637-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15571896566109-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723979931997-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9242268664157-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9791427936605-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15655537770845-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15655525777757-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867634610525-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9077430419805-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9029656215901-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867694412125-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9206539387229-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480766955869-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612335325533-80ml",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612335325533-150ml",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15442699944285-default-title",
+    "price": 16.99,
+    "wasPrice": 34.99,
+    "percentOff": 51,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15417242911069-default-title",
+    "price": 16.99,
+    "wasPrice": 34.99,
+    "percentOff": 51,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15655547437405-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612335456605-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9674790469981-default-title",
+    "price": 17.99,
+    "wasPrice": 34.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9059081355613-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612335391069-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9026342977885-default-title",
+    "price": 4.99,
+    "wasPrice": 9.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868895687005-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868940775773-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15532829933917-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9159217152349-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15161172590941-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9077485044061-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15092366967133-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15520187351389-default-title",
+    "price": 19.99,
+    "wasPrice": 40,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15441433723229-default-title",
+    "price": 27.99,
+    "wasPrice": 45,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15441433985373-default-title",
+    "price": 27.99,
+    "wasPrice": 45,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8923613167965-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9492783825245-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9242459603293-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9077486551389-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15756197658973-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9016957862237-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867671048541-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723979964765-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9033908027741-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867673702749-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480727830877-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15082114154845-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480731894109-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480733139293-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15560337391965-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15417237930333-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723980554589-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14956708168029-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15583965708637-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867665314141-80ml",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867665314141-150ml",
+    "price": 19.99,
+    "wasPrice": 39.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9852140159325-default-title",
+    "price": 17.99,
+    "wasPrice": 34.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9852097200477-default-title",
+    "price": 17.99,
+    "wasPrice": 34.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480758567261-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8888911692125-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868955652445-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9242476151133-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9242249331037-default-title",
+    "price": 18.99,
+    "wasPrice": 29.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8998620627293-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9077429666141-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15532823085405-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15441389322589-default-title",
+    "price": 22.49,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15441384898909-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15441389683037-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15441386242397-default-title",
+    "price": 22.49,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15441386963293-default-title",
+    "price": 22.49,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15441385226589-default-title",
+    "price": 22.49,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416621654365-default-title",
+    "price": 32.99,
+    "wasPrice": 40,
+    "percentOff": 17,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15441394565469-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8906903060829-default-title",
+    "price": 22.5,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15618612134237-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9852056011101-default-title",
+    "price": 49.99,
+    "wasPrice": 60,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-carnal-desire",
+    "price": 36.99,
+    "wasPrice": 45,
+    "percentOff": 17,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15680067797341-default-title",
+    "price": 37.99,
+    "wasPrice": 45,
+    "percentOff": 15,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15877130551645-default-title",
+    "price": 39.99,
+    "wasPrice": 45,
+    "percentOff": 11,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15686560383325-default-title",
+    "price": 37.99,
+    "wasPrice": 45,
+    "percentOff": 15,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15812513923421-default-title",
+    "price": 37.99,
+    "wasPrice": 45,
+    "percentOff": 15,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-platine-blanc",
+    "price": 39.99,
+    "wasPrice": 45,
+    "percentOff": 11,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-royal-taboo",
+    "price": 39.99,
+    "wasPrice": 45,
+    "percentOff": 11,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15686561857885-default-title",
+    "price": 39.99,
+    "wasPrice": 45,
+    "percentOff": 11,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15686579224925-default-title",
+    "price": 39.99,
+    "wasPrice": 45,
+    "percentOff": 11,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-x-xandal",
+    "price": 39.99,
+    "wasPrice": 45,
+    "percentOff": 11,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15437549797725-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15560331362653-default-title",
+    "price": 32.99,
+    "wasPrice": 40,
+    "percentOff": 17,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15470712193373-default-title",
+    "price": 35,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14731403919709-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15464860746077-default-title",
+    "price": 32.99,
+    "wasPrice": 40,
+    "percentOff": 17,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15501921190237-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14917051416925-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15451838677341-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15234958000477-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9032467775837-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15752247050589-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15082127917405-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9852033925469-default-title",
+    "price": 39.99,
+    "wasPrice": 50,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15632227893597-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9032445264221-default-title",
+    "price": 22.5,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9032441790813-default-title",
+    "price": 22.5,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9032457748829-default-title",
+    "price": 22.5,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15501873807709-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9029709955421-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9029710905693-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9851996635485-default-title",
+    "price": 42.99,
+    "wasPrice": 60,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15438206042461-default-title",
+    "price": 42.99,
+    "wasPrice": 60,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15568356475229-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430281331037-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430281658717-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430282543453-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430280970589-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430275596637-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430670385501-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430276874589-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430669893981-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430669336925-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430668812637-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15417250120029-default-title",
+    "price": 239.99,
+    "wasPrice": 600,
+    "percentOff": 60,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430668288349-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430667764061-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15441395450205-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15441397023069-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15432706982237-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15566526218589-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15915650777437-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15441398759773-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15234820079965-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14702398996829-default-title",
+    "price": 39.99,
+    "wasPrice": 50,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9674866753885-default-title",
+    "price": 44.99,
+    "wasPrice": 60,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16219843723613-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416615166301-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16155772879197-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416532033885-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15719283327325-default-title",
+    "price": 39.99,
+    "wasPrice": 50,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416597340509-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416588132701-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9674817044829-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15765625045341-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9674840179037-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480637948253-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15480638898525-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14702346469725-default-title",
+    "price": 44.99,
+    "wasPrice": 70,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15765621768541-default-title",
+    "price": 37.99,
+    "wasPrice": 40,
+    "percentOff": 5,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15785000534365-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15765627535709-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15765631467869-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15234742157661-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15451850244445-default-title",
+    "price": 39.99,
+    "wasPrice": 50,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15161315459421-default-title",
+    "price": 39.99,
+    "wasPrice": 50,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15655513686365-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15234905506141-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416648884573-default-title",
+    "price": 24.99,
+    "wasPrice": 45,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416644460893-default-title",
+    "price": 24.99,
+    "wasPrice": 45,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15082087186781-default-title",
+    "price": 24.99,
+    "wasPrice": 45,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15850876240221-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15850876305757-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15937771143517-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15441402757469-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9032470135133-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15417020055901-default-title",
+    "price": 19.99,
+    "wasPrice": 40,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416546025821-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416654520669-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15464871133533-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15422850105693-default-title",
+    "price": 19.99,
+    "wasPrice": 40,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15765619999069-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15431553188189-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15793780785501-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8888896061789-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9256039514461-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9451374608733-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9184430621021-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9176439095645-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416628437341-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14702323925341-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9354821435741-default-title",
+    "price": 24.99,
+    "wasPrice": 45,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9354838770013-default-title",
+    "price": 24.99,
+    "wasPrice": 45,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9032438645085-default-title",
+    "price": 24.99,
+    "wasPrice": 45,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9354851811677-default-title",
+    "price": 24.99,
+    "wasPrice": 45,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15568351691101-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9032472789341-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416638595421-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15235425993053-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15235489923421-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15464858779997-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15417167839581-default-title",
+    "price": 34.99,
+    "wasPrice": 50,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15446944743773-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15719288504669-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15235298197853-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430741852509-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497317974365-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15831431840093-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15703695982941-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15831431610717-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15568456679773-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15464251195741-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
   },
   {
     "fragranceId": "ean-3360372058878",
@@ -4273,6 +9187,167 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 105,
     "percentOff": 37,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "emirates-oud-15575842685277-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15676150677853-default-title",
+    "price": 22.5,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15575844094301-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15676119318877-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15676144157021-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15695834415453-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15575851303261-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15676101689693-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15915620434269-default-title",
+    "price": 29.99,
+    "wasPrice": 35,
+    "percentOff": 14,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15676123283805-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15676150972765-default-title",
+    "price": 22.5,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15575860445533-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15676152185181-default-title",
+    "price": 22.5,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15695834513757-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15676107227485-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15676112437597-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15575868801373-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15575872864605-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15575878074717-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15676127707485-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15575884497245-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15575897047389-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15677768401245-default-title",
+    "price": 16.99,
+    "wasPrice": 25,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
   },
   {
     "fragranceId": "ean-3616305265180",
@@ -4758,6 +9833,601 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "emirates-oud-15666709856605-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498664542557-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498949689693-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498951819613-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15566469464413-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15209477865821-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15431468220765-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15431469629789-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666710053213-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666709430621-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666707267933-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498607722845-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498610770269-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498610114909-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666706809181-default-title",
+    "price": 12.99,
+    "wasPrice": 25,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666710151517-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15431462027613-default-title",
+    "price": 27.99,
+    "wasPrice": 35,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15566459273565-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498674569565-default-title",
+    "price": 27.99,
+    "wasPrice": 35,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498916561245-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498697277789-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498909090141-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498913415517-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498933895517-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498932650333-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498941956445-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666709659997-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666709496157-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498969612637-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498966237533-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498972103005-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498975150429-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498922492253-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666710118749-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666710184285-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666706940253-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666707431773-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666710217053-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666707169629-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498956603741-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498959847773-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498923737437-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666709463389-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666707071325-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666706907485-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666707235165-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666710020445-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666707464541-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498612474205-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666707333469-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666709954909-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666707497309-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15536986915165-default-title",
+    "price": 29.99,
+    "wasPrice": 35,
+    "percentOff": 14,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15777879130461-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497572024669-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497574449501-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497570091357-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666709922141-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15732244611421-default-title",
+    "price": 27.99,
+    "wasPrice": 29.99,
+    "percentOff": 6,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15777881817437-default-title",
+    "price": 27.99,
+    "wasPrice": 29.99,
+    "percentOff": 6,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666707399005-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666707759453-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666707300701-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666709987677-default-title",
+    "price": 29.99,
+    "wasPrice": 35,
+    "percentOff": 14,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666706776413-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16155892253021-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666709397853-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723812389213-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666706874717-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666710282589-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15838528635229-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666707104093-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498680795485-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498683023709-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498689184093-default-title",
+    "price": 14.99,
+    "wasPrice": 30,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15498693771613-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15777872773469-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666707366237-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666706973021-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15668412383581-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666707005789-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666707038557-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15666710085981-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612461678941-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15777875984733-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
     "fragranceId": "ean-737052191331",
     "price": 26.75,
     "wasPrice": 50,
@@ -4835,6 +10505,3037 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "emirates-oud-15668467892573-default-title",
+    "price": 16.99,
+    "wasPrice": 25,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9026373517661-default-title",
+    "price": 38.99,
+    "wasPrice": 40,
+    "percentOff": 2,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15403099128157-default-title",
+    "price": 24.99,
+    "wasPrice": 45,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8898571305309-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9022172332381-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8923657240925-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8890913030493-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15512288985437-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9026350973277-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9026389606749-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047506747741-default-title",
+    "price": 14.99,
+    "wasPrice": 19.99,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047515988317-default-title",
+    "price": 14.99,
+    "wasPrice": 19.99,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047519199581-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9184344506717-default-title",
+    "price": 39.99,
+    "wasPrice": 80,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839506362717-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839507247453-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9077535211869-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9529371853149-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8928156909917-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9026398683485-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9911119184221-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9251288121693-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8898627305821-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8911540584797-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15832163713373-default-title",
+    "price": 16.99,
+    "wasPrice": 25,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15668471726429-default-title",
+    "price": 16.99,
+    "wasPrice": 25,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15464823357789-default-title",
+    "price": 14.99,
+    "wasPrice": 29.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839494140253-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839491977565-default-title",
+    "price": 14.99,
+    "wasPrice": 29.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16172810207581-default-title",
+    "price": 17.99,
+    "wasPrice": 25,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839488930141-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839493452125-default-title",
+    "price": 14.99,
+    "wasPrice": 29.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15560094056797-default-title",
+    "price": 14.99,
+    "wasPrice": 29.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839498301789-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14869742059869-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15877156864349-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9190634062173-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9032477475165-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9351005634909-default-title",
+    "price": 39.99,
+    "wasPrice": 80,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9031012024669-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9026403762525-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9026411692381-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15053356368221-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15053357744477-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15450996867421-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644472279389-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486185144669-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14917046206813-default-title",
+    "price": 18.99,
+    "wasPrice": 29.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839487652189-default-title",
+    "price": 18.99,
+    "wasPrice": 29.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15683994616157-default-title",
+    "price": 22.5,
+    "wasPrice": 29.99,
+    "percentOff": 24,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9150828183901-default-title",
+    "price": 18.99,
+    "wasPrice": 29.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15938221244765-default-title",
+    "price": 18.99,
+    "wasPrice": 30,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15856752197981-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15352679432541-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15604440727901-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047689396573-default-title",
+    "price": 29.99,
+    "wasPrice": 39.99,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9026370109789-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8890920501597-default-title",
+    "price": 22.5,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9031125631325-default-title",
+    "price": 22.49,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14750580474205-default-title",
+    "price": 22.5,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839496139101-default-title",
+    "price": 22.49,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9377222754653-default-title",
+    "price": 9.99,
+    "wasPrice": 14.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15502685471069-default-title",
+    "price": 9.99,
+    "wasPrice": 24.99,
+    "percentOff": 60,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8882553061725-default-title",
+    "price": 22.49,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8928163004765-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15593252815197-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839499874653-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9026402353501-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8888875975005-default-title",
+    "price": 35,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486189896029-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15593273327965-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839487848797-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839488012637-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15593281814877-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16027093500253-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15765600993629-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644472344925-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15560406565213-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15569775722845-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9342207525213-default-title",
+    "price": 21.99,
+    "wasPrice": 35,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15569819500893-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8911270412637-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9029625053533-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15630202339677-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15668469629277-default-title",
+    "price": 16.99,
+    "wasPrice": 25,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839488307549-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15684000678237-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8928127320413-default-title",
+    "price": 11.99,
+    "wasPrice": 17.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839504593245-default-title",
+    "price": 18.99,
+    "wasPrice": 29.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839505871197-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9016938365277-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430695190877-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15500142969181-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9184318030173-default-title",
+    "price": 39.99,
+    "wasPrice": 80,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047529161053-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15668470448477-default-title",
+    "price": 16.99,
+    "wasPrice": 25,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15532719866205-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15532721144157-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14737939759453-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14737926783325-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8911267791197-default-title",
+    "price": 24.99,
+    "wasPrice": 39.99,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9184354959709-default-title",
+    "price": 39.99,
+    "wasPrice": 80,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9204162036061-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-6291107450193",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9204175929693-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9382084608349-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047557538141-default-title",
+    "price": 19.99,
+    "wasPrice": 24.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9851872903517-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9851897676125-default-title",
+    "price": 29.99,
+    "wasPrice": 50,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8928159826269-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16172815384925-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047549837661-default-title",
+    "price": 17.99,
+    "wasPrice": 29.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486182949213-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9350955893085-default-title",
+    "price": 39.99,
+    "wasPrice": 80,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-dukhan",
+    "price": 22.5,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-normal",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-qahwa",
+    "price": 25.99,
+    "wasPrice": 40,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15532817023325-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9026426306909-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9529405571421-default-title",
+    "price": 32.99,
+    "wasPrice": 40,
+    "percentOff": 17,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9029622792541-default-title",
+    "price": 32.99,
+    "wasPrice": 40,
+    "percentOff": 17,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9026428043613-default-title",
+    "price": 32.99,
+    "wasPrice": 40,
+    "percentOff": 17,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9034712809821-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8928142852445-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15401473737053-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8888881611101-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8961524334941-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8911233417565-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9184341524829-default-title",
+    "price": 39.99,
+    "wasPrice": 80,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839491027293-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839497384285-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16077377372509-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839487553885-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8928126337373-default-title",
+    "price": 11.99,
+    "wasPrice": 17.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9034488545629-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9034503520605-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15933483483485-default-title",
+    "price": 19.99,
+    "wasPrice": 24.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15593255338333-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8923818885469-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15338792124765-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14805803991389-default-title",
+    "price": 19.99,
+    "wasPrice": 40,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839488569693-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9661565895005-default-title",
+    "price": 19.99,
+    "wasPrice": 40,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15915653333341-default-title",
+    "price": 18.99,
+    "wasPrice": 30,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8911339061597-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8911344206173-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839512129885-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839510819165-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839511343453-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9184345391453-default-title",
+    "price": 39.99,
+    "wasPrice": 80,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9351042924893-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9382069764445-default-title",
+    "price": 32.99,
+    "wasPrice": 40,
+    "percentOff": 17,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839503053149-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644472541533-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839501873501-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16204028019037-default-title",
+    "price": 14.99,
+    "wasPrice": 25,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8928135283037-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15668456620381-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8888860213597-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15568364831069-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16204007309661-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430696436061-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839499186525-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839501087069-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8890933543261-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15440060744029-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644472181085-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430697288029-default-title",
+    "price": 29.99,
+    "wasPrice": 49.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644472115549-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15748190372189-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839509377373-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839510032733-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8923803779421-default-title",
+    "price": 12.99,
+    "wasPrice": 20,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8911346827613-default-title",
+    "price": 12.99,
+    "wasPrice": 20,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15386402062685-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839512457565-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839512818013-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15532817252701-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15845991350621-default-title",
+    "price": 36.99,
+    "wasPrice": 40,
+    "percentOff": 7,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839508885853-default-title",
+    "price": 24.99,
+    "wasPrice": 29.99,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16063174082909-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16063170117981-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839509115229-default-title",
+    "price": 12.99,
+    "wasPrice": 29.99,
+    "percentOff": 56,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16362930504029-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839510262109-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839510425949-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839509803357-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047620419933-default-title",
+    "price": 19.99,
+    "wasPrice": 24.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8911369240925-default-title",
+    "price": 12.99,
+    "wasPrice": 20,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8919133618525-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15099562688861-default-title",
+    "price": 17.99,
+    "wasPrice": 29.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15512273289565-default-title",
+    "price": 14.99,
+    "wasPrice": 29.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15512276009309-default-title",
+    "price": 15.99,
+    "wasPrice": 29.99,
+    "percentOff": 46,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9029647630685-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8923818099037-default-title",
+    "price": 39.99,
+    "wasPrice": 80,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14737960534365-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047623500125-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9034642686301-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047587946845-default-title",
+    "price": 24.99,
+    "wasPrice": 29.99,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047626154333-default-title",
+    "price": 12.99,
+    "wasPrice": 29.99,
+    "percentOff": 56,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8911243346269-default-title",
+    "price": 16.99,
+    "wasPrice": 40,
+    "percentOff": 57,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9342220632413-default-title",
+    "price": 36.99,
+    "wasPrice": 59.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047565500765-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9382114099549-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9032506081629-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9032493695325-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8928130990429-default-title",
+    "price": 11.99,
+    "wasPrice": 17.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15386451902813-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15583946244445-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14737955553629-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14737963909469-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9063569129821-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644472443229-default-title",
+    "price": 32.99,
+    "wasPrice": 40,
+    "percentOff": 17,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9063564542301-default-title",
+    "price": 12.99,
+    "wasPrice": 29.99,
+    "percentOff": 56,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15560405614941-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9047592010077-default-title",
+    "price": 18.99,
+    "wasPrice": 34.99,
+    "percentOff": 45,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9188391059805-default-title",
+    "price": 22.5,
+    "wasPrice": 40,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14731428823389-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8928129057117-default-title",
+    "price": 11.99,
+    "wasPrice": 17.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9029628461405-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9029629935965-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15137788428637-default-title",
+    "price": 22.49,
+    "wasPrice": 34.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15338742546781-default-title",
+    "price": 20.99,
+    "wasPrice": 34.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9034734010717-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15593292497245-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15440113107293-default-title",
+    "price": 17.99,
+    "wasPrice": 29.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839512293725-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839508230493-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15352670486877-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9184346440029-default-title",
+    "price": 39.99,
+    "wasPrice": 80,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8888865718621-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15593264021853-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839508033885-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839507706205-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-20ml-candy",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9554676973917-default-title",
+    "price": 18.99,
+    "wasPrice": 29.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-20ml-yarapink",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15683998548317-default-title",
+    "price": 22.5,
+    "wasPrice": 29.99,
+    "percentOff": 24,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839507542365-default-title",
+    "price": 18.99,
+    "wasPrice": 29.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-20ml-moi",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8839508492637-default-title",
+    "price": 18.99,
+    "wasPrice": 29.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-20ml-tous",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8890942751069-default-title",
+    "price": 18.99,
+    "wasPrice": 29.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8867621470557-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15590241894749-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9911096574301-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644472901981-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612330901853-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612331000157-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612331065693-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644473557341-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644473459037-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9251242606941-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9911087694173-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14729364603229-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15808395772253-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15338761257309-default-title",
+    "price": 17.99,
+    "wasPrice": 35,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15401316385117-default-title",
+    "price": 17.99,
+    "wasPrice": 35,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15560403911005-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9382152339805-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16309219721565-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15443291963741-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612331196765-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612331229533-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644473393501-default-title",
+    "price": 18.99,
+    "wasPrice": 24.99,
+    "percentOff": 24,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612331295069-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612331393373-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612331458909-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15832167121245-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612331524445-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612331589981-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14729324462429-default-title",
+    "price": 15.99,
+    "wasPrice": 34.99,
+    "percentOff": 54,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612331655517-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644473229661-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868864524637-default-title",
+    "price": 13.99,
+    "wasPrice": 29.99,
+    "percentOff": 53,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16260950032733-default-title",
+    "price": 16.99,
+    "wasPrice": 25,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16362945053021-default-title",
+    "price": 16.99,
+    "wasPrice": 25,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14729360834909-default-title",
+    "price": 13.99,
+    "wasPrice": 29.99,
+    "percentOff": 53,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644473033053-default-title",
+    "price": 22.5,
+    "wasPrice": 34.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9021450518877-default-title",
+    "price": 29.99,
+    "wasPrice": 39.99,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15468650692957-default-title",
+    "price": 24.99,
+    "wasPrice": 39.99,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9336441438557-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644471034205-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9947609825629-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9529302876509-default-title",
+    "price": 19.99,
+    "wasPrice": 39.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644471591261-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612331688285-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9839932768605-default-title",
+    "price": 19.99,
+    "wasPrice": 39.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9034614636893-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14869731049821-default-title",
+    "price": 18.99,
+    "wasPrice": 39.99,
+    "percentOff": 52,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16045779091805-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9077454602589-default-title",
+    "price": 16.99,
+    "wasPrice": 35,
+    "percentOff": 51,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9529332891997-default-title",
+    "price": 24.99,
+    "wasPrice": 39.99,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868881301853-default-title",
+    "price": 24.99,
+    "wasPrice": 39.99,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9529342689629-default-title",
+    "price": 24.99,
+    "wasPrice": 39.99,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8923803189597-default-title",
+    "price": 24.99,
+    "wasPrice": 39.99,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15082022076765-default-title",
+    "price": 18.99,
+    "wasPrice": 39.99,
+    "percentOff": 52,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612331753821-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416873083229-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416874885469-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644471722333-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9077432680797-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612331852125-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644472082781-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644471263581-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868876779869-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-kismet-lunar-magic---maison-alhambra",
+    "price": 18.99,
+    "wasPrice": 30,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9188363370845-default-title",
+    "price": 16.99,
+    "wasPrice": 30,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612331884893-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9021433545053-default-title",
+    "price": 29.99,
+    "wasPrice": 39.99,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15403067933021-default-title",
+    "price": 19.99,
+    "wasPrice": 39.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15403072487773-default-title",
+    "price": 19.99,
+    "wasPrice": 39.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9382149685597-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9382146048349-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14729346154845-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8898661155165-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612331950429-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15401426354525-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9017003639133-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15664617980253-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15401414656349-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612332081501-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612332114269-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9251245162845-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15403089789277-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644470509917-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15832180818269-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644470903133-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644470968669-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416878489949-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612332179805-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9839937585501-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612332245341-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16297084059997-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9034544447837-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9382158139741-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15338709647709-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15695835136349-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15695835169117-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15808405995869-default-title",
+    "price": 17.99,
+    "wasPrice": 29.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9242451771741-default-title",
+    "price": 11.99,
+    "wasPrice": 24.99,
+    "percentOff": 52,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868867408221-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9911086743901-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9416877080925-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16203987157341-default-title",
+    "price": 16.99,
+    "wasPrice": 25,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612332310877-default-title",
+    "price": 11.99,
+    "wasPrice": 24.99,
+    "percentOff": 52,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9911076225373-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15520090784093-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644471820637-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9911064658269-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644473655645-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644470640989-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15705636503901-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9947615297885-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644472738141-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644473065821-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9021443637597-default-title",
+    "price": 19.99,
+    "wasPrice": 39.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644471361885-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9911040639325-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15832169185629-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8998607290717-default-title",
+    "price": 22.49,
+    "wasPrice": 34.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9880762417501-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15477198291293-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9880783651165-default-title",
+    "price": 13.99,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9535308661085-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15532820332893-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9535363187037-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9535327732061-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14729317712221-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612332409181-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612332507485-default-title",
+    "price": 22.5,
+    "wasPrice": 35,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9242389610845-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612332605789-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15787602018653-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15787596480861-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15787596972381-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15787601461597-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15787598119261-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15787602444637-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644473295197-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9242456719709-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644471132509-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9242456457565-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9242454950237-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644470804829-default-title",
+    "price": 13.99,
+    "wasPrice": 35,
+    "percentOff": 60,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644470706525-default-title",
+    "price": 13.99,
+    "wasPrice": 35,
+    "percentOff": 60,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15443296911709-default-title",
+    "price": 16.99,
+    "wasPrice": 34.99,
+    "percentOff": 51,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8868882022749-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8998461964637-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8916566737245-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644471951709-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15938324955485-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8916571521373-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9251246276957-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9251258925405-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644472574301-default-title",
+    "price": 16.99,
+    "wasPrice": 30,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644472639837-default-title",
+    "price": 16.99,
+    "wasPrice": 30,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644472803677-default-title",
+    "price": 16.99,
+    "wasPrice": 30,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9839899509085-default-title",
+    "price": 16.99,
+    "wasPrice": 39.99,
+    "percentOff": 57,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9529277284701-default-title",
+    "price": 15.99,
+    "wasPrice": 24.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15401443557725-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9242418839901-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15612332638557-default-title",
+    "price": 12.99,
+    "wasPrice": 24.99,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15695834775901-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644473131357-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15644471427421-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15611855176029-default-title",
+    "price": 14.99,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15784770896221-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16188181348701-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-mini-bottle---coffee-blend",
+    "price": 14.99,
+    "wasPrice": 20,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-big-bottle---coffee-blend",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15493416386909-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15676718711133-default-title",
+    "price": 37.5,
+    "wasPrice": 45,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15838532370781-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16188188393821-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15784768897373-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15784769552733-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15838532043101-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15678206017885-default-title",
+    "price": 37.5,
+    "wasPrice": 45,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15784768143709-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15676137144669-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15810556133725-default-title",
+    "price": 44.99,
+    "wasPrice": 55,
+    "percentOff": 18,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15493418123613-default-title",
+    "price": 18.99,
+    "wasPrice": 30,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15832221122909-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15838532501853-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15784770109789-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15706878542173-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15706877526365-default-title",
+    "price": 34.5,
+    "wasPrice": 40,
+    "percentOff": 13,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-mini-bottle---vanilla-voyage",
+    "price": 14.99,
+    "wasPrice": 20,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-big-bottle---vanilla-voyage",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723677090141-default-title",
+    "price": 54.99,
+    "wasPrice": 60,
+    "percentOff": 8,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15838302503261-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15877188125021-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
     "fragranceId": "ean-3760265190485",
     "price": 63.75,
     "wasPrice": 120,
@@ -4863,20 +13564,6 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-3616305033031",
-    "price": 39.95,
-    "wasPrice": 67,
-    "percentOff": 40,
-    "retailerId": "fragrance-click"
-  },
-  {
-    "fragranceId": "ean-3616305033055",
-    "price": 64.25,
-    "wasPrice": 121,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
-  },
-  {
     "fragranceId": "ean-3616306098343",
     "price": 15.95,
     "wasPrice": 25,
@@ -4889,6 +13576,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 125,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "emirates-oud-9301842002269-default-title",
+    "price": 6.99,
+    "wasPrice": 9.99,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
   },
   {
     "fragranceId": "ean-3386460139366",
@@ -5073,6 +13767,839 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "emirates-oud-15569821761885-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15464841838941-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15832243470685-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486766678365-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15560112570717-default-title",
+    "price": 34.99,
+    "wasPrice": 50,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486768841053-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15468590170461-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497507209565-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15464838922589-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15918708425053-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15727416639837-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15440084631901-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15678281810269-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15493611684189-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497551446365-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15440098853213-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15493609488733-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15440106848605-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15493610701149-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15493608603997-default-title",
+    "price": 24.99,
+    "wasPrice": 45,
+    "percentOff": 44,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15890659639645-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15493548769629-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15440076177757-default-title",
+    "price": 17.99,
+    "wasPrice": 30,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15440077193565-default-title",
+    "price": 17.99,
+    "wasPrice": 30,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15763183796573-default-title",
+    "price": 17.99,
+    "wasPrice": 30,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497563472221-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15680072253789-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15468632506717-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15614065869149-default-title",
+    "price": 34.99,
+    "wasPrice": 50,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15434664575325-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15614067933533-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15081930293597-default-title",
+    "price": 18.99,
+    "wasPrice": 35,
+    "percentOff": 45,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15832231838045-default-title",
+    "price": 18.99,
+    "wasPrice": 35,
+    "percentOff": 45,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15239112065373-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9860225925469-default-title",
+    "price": 18.99,
+    "wasPrice": 35,
+    "percentOff": 45,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15569620566365-default-title",
+    "price": 16.99,
+    "wasPrice": 35,
+    "percentOff": 51,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9860231594333-default-title",
+    "price": 18.99,
+    "wasPrice": 35,
+    "percentOff": 45,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15614061904221-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15560110047581-default-title",
+    "price": 34.99,
+    "wasPrice": 50,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9860220322141-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15234606596445-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497514713437-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497514123613-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15695834939741-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15763185926493-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497492857181-default-title",
+    "price": 34.99,
+    "wasPrice": 50,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497500557661-default-title",
+    "price": 34.99,
+    "wasPrice": 50,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497503998301-default-title",
+    "price": 34.99,
+    "wasPrice": 50,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497497379165-default-title",
+    "price": 34.99,
+    "wasPrice": 50,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497505341789-default-title",
+    "price": 34.99,
+    "wasPrice": 50,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497554592093-default-title",
+    "price": 17.99,
+    "wasPrice": 35,
+    "percentOff": 48,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15434672046429-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15239115866461-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15434674471261-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9860357488989-default-title",
+    "price": 39.99,
+    "wasPrice": 50,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486717329757-default-title",
+    "price": 39.99,
+    "wasPrice": 45,
+    "percentOff": 11,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15493599986013-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15280734568797-default-title",
+    "price": 22.5,
+    "wasPrice": 45,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15918682276189-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15614069440861-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15569824153949-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15763188908381-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15434675847517-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14763740463453-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15678281711965-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15434676306269-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486728765789-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486722834781-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486723555677-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15440069067101-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15440067952989-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497560392029-default-title",
+    "price": 34.99,
+    "wasPrice": 50,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15493606965597-default-title",
+    "price": 29.99,
+    "wasPrice": 45,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9860401135965-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15464845738333-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15468571230557-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15798956392797-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15497568026973-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15464848130397-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15957387968861-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9860318855517-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9860293689693-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9860256006493-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15241948758365-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9860349591901-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15239028113757-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15239056556381-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15239079395677-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486733255005-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15614071374173-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15695834546525-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15513328484701-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15442726289757-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486673551709-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486686003549-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486668144989-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15081941270877-default-title",
+    "price": 14.99,
+    "wasPrice": 29.99,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15002603553117-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15002576781661-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15463252033885-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15442726879581-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15442725077341-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15442723144029-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15442722783581-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15464853569885-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15002616824157-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486700912989-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15434680107357-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15081953657181-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15464850587997-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15442725208413-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15081980756317-default-title",
+    "price": 18.99,
+    "wasPrice": 29.99,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15442714886493-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15463246791005-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15442725798237-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15161276367197-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486667915613-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15513331073373-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15486714642781-default-title",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
     "fragranceId": "ean-8435137704231",
     "price": 66.95,
     "wasPrice": 87,
@@ -5084,13 +14611,6 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 67.95,
     "wasPrice": 107,
     "percentOff": 36,
-    "retailerId": "fragrance-click"
-  },
-  {
-    "fragranceId": "ean-8435137764433",
-    "price": 85.95,
-    "wasPrice": 155,
-    "percentOff": 44,
     "retailerId": "fragrance-click"
   },
   {
@@ -5113,6 +14633,160 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 97,
     "percentOff": 38,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "emirates-oud-9176147165533-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9020965716317-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9020963881309-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8889011405149-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9206737043805-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9206746415453-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9021400645981-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9456041099613-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15073487716701-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9176170856797-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9020967158109-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9020972990813-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8888987156829-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15082212426077-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9456031433053-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15082203578717-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9020994126173-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9021417587037-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8888990859613-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8888943673693-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9456057778525-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9021418897757-default-title",
+    "price": 7.99,
+    "wasPrice": 12.99,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
   },
   {
     "fragranceId": "ean-3349666007891",
@@ -5311,6 +14985,1182 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "emirates-oud-15520069321053-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9881231032669-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16013901791581-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15568378167645-default-title",
+    "price": 36.99,
+    "wasPrice": 40,
+    "percentOff": 7,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15464797995357-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15124058898781-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14847770362205-default-title",
+    "price": 34.99,
+    "wasPrice": 45,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9439081496925-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9439075434845-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15568370565469-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15873597571421-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15568368959837-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15784483684701-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16268862947677-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15468599935325-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15741973430621-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15568379642205-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15632222388573-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15728837624157-default-title",
+    "price": 28.99,
+    "wasPrice": 40,
+    "percentOff": 27,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16254927569245-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15785946513757-default-title",
+    "price": 14.99,
+    "wasPrice": 35,
+    "percentOff": 57,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15863510696285-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15468559401309-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15728834740573-default-title",
+    "price": 27.99,
+    "wasPrice": 35,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15728841818461-default-title",
+    "price": 18.99,
+    "wasPrice": 35,
+    "percentOff": 45,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15785952411997-default-title",
+    "price": 14.99,
+    "wasPrice": 35,
+    "percentOff": 57,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15468531122525-default-title",
+    "price": 16.99,
+    "wasPrice": 30,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15741963370845-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15744522060125-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15831633101149-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15728841163101-default-title",
+    "price": 27.99,
+    "wasPrice": 35,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15748182442333-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15728836346205-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16254920098141-default-title",
+    "price": 34.99,
+    "wasPrice": 40,
+    "percentOff": 12,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15728840474973-default-title",
+    "price": 27.99,
+    "wasPrice": 35,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15858027594077-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15785955230045-default-title",
+    "price": 14.99,
+    "wasPrice": 35,
+    "percentOff": 57,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15728835264861-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15728844013917-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15863184294237-default-title",
+    "price": 14.99,
+    "wasPrice": 35,
+    "percentOff": 57,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15728838508893-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15728839819613-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15695835332957-default-title",
+    "price": 44.99,
+    "wasPrice": 70,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15695835431261-default-title",
+    "price": 44.99,
+    "wasPrice": 70,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15695835464029-default-title",
+    "price": 44.99,
+    "wasPrice": 70,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15962727088477-default-title",
+    "price": 49.99,
+    "wasPrice": 75,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15962727285085-default-title",
+    "price": 49.99,
+    "wasPrice": 75,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15963122663773-default-title",
+    "price": 59.99,
+    "wasPrice": 80,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15963121254749-default-title",
+    "price": 34.99,
+    "wasPrice": 70,
+    "percentOff": 50,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15962704707933-default-title",
+    "price": 42.99,
+    "wasPrice": 70,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-mini-bottle---reef-11",
+    "price": 21.99,
+    "wasPrice": 30,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-big-bottle---reef-11",
+    "price": 42.99,
+    "wasPrice": 70,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-mini-bottle---reef-19",
+    "price": 21.99,
+    "wasPrice": 30,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-big-bottle---reef-19",
+    "price": 42.99,
+    "wasPrice": 70,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15962703167837-default-title",
+    "price": 42.99,
+    "wasPrice": 70,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-mini-bottle---reef-31",
+    "price": 21.99,
+    "wasPrice": 30,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-big-bottle---reef-31",
+    "price": 44.99,
+    "wasPrice": 70,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-mini-bottle---reef-33",
+    "price": 21.99,
+    "wasPrice": 30,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-big-bottle---reef-33",
+    "price": 44.99,
+    "wasPrice": 70,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-mini-bottle---reef-white-33",
+    "price": 21.99,
+    "wasPrice": 30,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-big-bottle---reef-white-33",
+    "price": 42.99,
+    "wasPrice": 70,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15962704052573-default-title",
+    "price": 42.99,
+    "wasPrice": 70,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15962703626589-default-title",
+    "price": 42.99,
+    "wasPrice": 70,
+    "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-mini-bottle---reef-pesca",
+    "price": 21.99,
+    "wasPrice": 30,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-big-bottle---reef-pesca",
+    "price": 44.99,
+    "wasPrice": 75,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15695835791709-default-title",
+    "price": 44.99,
+    "wasPrice": 75,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15706621182301-default-title",
+    "price": 44.99,
+    "wasPrice": 75,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-mini-bottle---reef-summer-pink",
+    "price": 21.99,
+    "wasPrice": 30,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-medium-bottle---reef-summer-pink",
+    "price": 44.99,
+    "wasPrice": 70,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-big-bottle---reef-summer-pink",
+    "price": 59.99,
+    "wasPrice": 80,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15836280455517-default-title",
+    "price": 44.99,
+    "wasPrice": 70,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-mini-bottle---reef-summer-yellow",
+    "price": 21.99,
+    "wasPrice": 30,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-medium-bottle---reef-summer-yellow",
+    "price": 44.99,
+    "wasPrice": 70,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15808425099613-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16244612890973-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15938192572765-default-title",
+    "price": 27.99,
+    "wasPrice": 35,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16316203729245-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15888974283101-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15837112533341-default-title",
+    "price": 16.99,
+    "wasPrice": 30,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16244608008541-default-title",
+    "price": 29.99,
+    "wasPrice": 35,
+    "percentOff": 14,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15808481722717-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16032671138141-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15808445776221-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16244609515869-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15808491454813-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15918408204637-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15918376059229-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16316211003741-default-title",
+    "price": 29.99,
+    "wasPrice": 40,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16316217295197-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15915616174429-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15808485687645-default-title",
+    "price": 24.99,
+    "wasPrice": 40,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15808461341021-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15808467534173-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15888984375645-default-title",
+    "price": 17.99,
+    "wasPrice": 30,
+    "percentOff": 40,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15808436240733-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15889006166365-default-title",
+    "price": 16.99,
+    "wasPrice": 30,
+    "percentOff": 43,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15938180383069-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15808473661789-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15808452723037-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15808453968221-default-title",
+    "price": 29.99,
+    "wasPrice": 35,
+    "percentOff": 14,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573377384797-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573373288797-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573375025501-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573376336221-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15470199243101-default-title",
+    "price": 19.99,
+    "wasPrice": 29.99,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573371519325-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573370175837-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573367325021-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573365195101-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573386232157-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573359231325-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573364048221-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573297332573-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573301133661-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573309948253-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573388722525-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573308899677-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573384757597-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573390983517-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573382136157-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573392392541-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573307326813-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573306212701-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15470209958237-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573380464989-default-title",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15573301952861-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430632079709-default-title",
+    "price": 26.99,
+    "wasPrice": 34.99,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430632178013-default-title",
+    "price": 26.99,
+    "wasPrice": 34.99,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430632702301-default-title",
+    "price": 21.99,
+    "wasPrice": 29.99,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430633062749-default-title",
+    "price": 21.99,
+    "wasPrice": 29.99,
+    "percentOff": 26,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430633357661-default-title",
+    "price": 26.99,
+    "wasPrice": 34.99,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430633521501-default-title",
+    "price": 26.99,
+    "wasPrice": 34.99,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430633718109-default-title",
+    "price": 29.99,
+    "wasPrice": 39.99,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430634144093-default-title",
+    "price": 29.99,
+    "wasPrice": 39.99,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430634832221-default-title",
+    "price": 29.99,
+    "wasPrice": 39.99,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430634897757-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430635585885-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430636634461-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430637125981-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430638666077-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430639583581-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430639714653-default-title",
+    "price": 26.99,
+    "wasPrice": 34.99,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430639976797-default-title",
+    "price": 29.99,
+    "wasPrice": 39.99,
+    "percentOff": 25,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430640107869-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430640271709-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430640370013-default-title",
+    "price": 34.99,
+    "wasPrice": 44.99,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430640435549-default-title",
+    "price": 34.99,
+    "wasPrice": 44.99,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430640795997-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430641189213-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430641418589-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430642106717-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430643188061-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430643810653-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430644498781-default-title",
+    "price": 23.99,
+    "wasPrice": 34.99,
+    "percentOff": 31,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430645285213-default-title",
+    "price": 23.99,
+    "wasPrice": 34.99,
+    "percentOff": 31,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430645743965-default-title",
+    "price": 26.99,
+    "wasPrice": 34.99,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430646006109-default-title",
+    "price": 26.99,
+    "wasPrice": 34.99,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430646104413-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430646301021-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430647480669-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430648267101-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430648562013-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430649151837-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430649938269-default-title",
+    "price": 34.99,
+    "wasPrice": 44.99,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430650397021-default-title",
+    "price": 34.99,
+    "wasPrice": 44.99,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430651216221-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430651871581-default-title",
+    "price": 27.99,
+    "wasPrice": 34.99,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15430652330333-default-title",
+    "price": 26.99,
+    "wasPrice": 34.99,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
     "fragranceId": "ean-8034097959721",
     "price": 42.95,
     "wasPrice": 81,
@@ -5344,6 +16194,167 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 39,
     "percentOff": 18,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "emirates-oud-15721315533149-default-title",
+    "price": 59.99,
+    "wasPrice": 90,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15493621252445-default-title",
+    "price": 69.99,
+    "wasPrice": 90,
+    "percentOff": 22,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15938210300253-default-title",
+    "price": 44.99,
+    "wasPrice": 55,
+    "percentOff": 18,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15856748003677-default-title",
+    "price": 54.99,
+    "wasPrice": 80,
+    "percentOff": 31,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15856747675997-default-title",
+    "price": 54.99,
+    "wasPrice": 80,
+    "percentOff": 31,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15915696226653-default-title",
+    "price": 46.99,
+    "wasPrice": 55,
+    "percentOff": 14,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15721303507293-default-title",
+    "price": 44.99,
+    "wasPrice": 55,
+    "percentOff": 18,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8916611072349-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15493618762077-default-title",
+    "price": 39.99,
+    "wasPrice": 55,
+    "percentOff": 27,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15721311076701-default-title",
+    "price": 39.99,
+    "wasPrice": 55,
+    "percentOff": 27,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8916617625949-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15493616795997-default-title",
+    "price": 39.99,
+    "wasPrice": 55,
+    "percentOff": 27,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15493617090909-default-title",
+    "price": 39.99,
+    "wasPrice": 55,
+    "percentOff": 27,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15915665031517-default-title",
+    "price": 44.99,
+    "wasPrice": 55,
+    "percentOff": 18,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8916599177565-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9466087309661-default-title",
+    "price": 39.99,
+    "wasPrice": 55,
+    "percentOff": 27,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9439032934749-default-title",
+    "price": 39.99,
+    "wasPrice": 55,
+    "percentOff": 27,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-14763793056093-default-title",
+    "price": 34.99,
+    "wasPrice": 55,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15493622235485-default-title",
+    "price": 49.99,
+    "wasPrice": 80,
+    "percentOff": 37,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15856747807069-default-title",
+    "price": 54.99,
+    "wasPrice": 80,
+    "percentOff": 31,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15721301934429-default-title",
+    "price": 44.99,
+    "wasPrice": 55,
+    "percentOff": 18,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9242498695517-default-title",
+    "price": 27.99,
+    "wasPrice": 40,
+    "percentOff": 30,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15721299640669-default-title",
+    "price": 44.99,
+    "wasPrice": 55,
+    "percentOff": 18,
+    "retailerId": "emirates-oud"
   },
   {
     "fragranceId": "ean-3614222402077",
@@ -5381,13 +16392,6 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-888066080729",
-    "price": 108.95,
-    "wasPrice": 152,
-    "percentOff": 28,
-    "retailerId": "fragrance-click"
-  },
-  {
     "fragranceId": "ean-888066075084",
     "price": 79.95,
     "wasPrice": 95,
@@ -5416,6 +16420,104 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "emirates-oud-15511764631901-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15511765188957-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15511768596829-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15511771087197-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15511772594525-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15511773544797-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15511774855517-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15837117350237-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15511776035165-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15511777345885-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15837118398813-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15511778427229-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15511779836253-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15511781048669-default-title",
+    "price": 12.99,
+    "wasPrice": 19.99,
+    "percentOff": 35,
+    "retailerId": "emirates-oud"
+  },
+  {
     "fragranceId": "ean-3614272732308",
     "price": 74.95,
     "wasPrice": 140,
@@ -5437,10 +16539,171 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-3614273622639",
-    "price": 68.95,
-    "wasPrice": 130,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "fragranceId": "emirates-oud-9066311057757-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16155861188957-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9066227269981-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9066240409949-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9066354016605-default-title",
+    "price": 24.99,
+    "wasPrice": 34.99,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9066318397789-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9066312204637-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15728884547933-default-title",
+    "price": 19.99,
+    "wasPrice": 30,
+    "percentOff": 33,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15723845812573-default-title",
+    "price": 24.99,
+    "wasPrice": 30,
+    "percentOff": 16,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15676075180381-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9066315219293-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9066287792477-default-title",
+    "price": 18.99,
+    "wasPrice": 30,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9066260693341-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9066276127069-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15468624576861-default-title",
+    "price": 19.99,
+    "wasPrice": 35,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9066348839261-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9066321903965-default-title",
+    "price": 16.99,
+    "wasPrice": 24.99,
+    "percentOff": 32,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-8961560379741-default-title",
+    "price": 22.99,
+    "wasPrice": 35,
+    "percentOff": 34,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15706636026205-default-title",
+    "price": 27.99,
+    "wasPrice": 35,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-9080401232221-default-title",
+    "price": 22.99,
+    "wasPrice": 35,
+    "percentOff": 34,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15437553566045-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15438186709341-default-title",
+    "price": 24.99,
+    "wasPrice": 35,
+    "percentOff": 28,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15804449653085-default-title",
+    "price": 27.99,
+    "wasPrice": 35,
+    "percentOff": 20,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-15468638175581-default-title",
+    "price": 19.99,
+    "wasPrice": 34.99,
+    "percentOff": 42,
+    "retailerId": "emirates-oud"
   }
 ];
