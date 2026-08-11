@@ -1218,20 +1218,33 @@ export const RETAILERS: readonly Retailer[] = [
     currency: 'GBP',
     shipping: {
       standardGbp: null,
-      freeOverGbp: null,
+      // Sourced, not estimated. The 2026-08-11 shipping:discover run reached
+      // https://emiratesoud.co.uk/policies/shipping-policy (HTTP 200) and read
+      // this sentence verbatim: "Free Shipping : Orders over £50 within the UK
+      // qualify for free shipping." That is the whole of what their delivery
+      // page states as a number.
+      freeOverGbp: 50,
       // Placeholder pending confirmation, same status as standardGbp above —
       // not sourced, not used in any delivered-price math (unlike
       // standardGbp, which is why this field tolerates an estimate while
       // that one does not), only ever shown as indicative text once enabled.
       estimatedDays: [2, 5],
-      verifiedAt: '2026-08-10',
+      verifiedAt: '2026-08-11',
       confidence: 'unverified',
       notes:
-        'Approved affiliate as of 10 Aug 2026. Delivery cost and free-delivery ' +
-        'threshold not yet confirmed — this environment cannot reach ' +
-        'emiratesoud.co.uk to read their delivery page. Needs a human (or a CI ' +
-        'run, which does have live access) to read the real figures from ' +
-        'emiratesoud.co.uk directly, then set standardGbp and enabled: true.',
+        'Approved affiliate as of 10 Aug 2026. Free delivery over £50 is ' +
+        'confirmed from their own shipping policy page, read by CI on ' +
+        '2026-08-11 and quoted in the comment above. What they charge BELOW ' +
+        '£50 is the one figure still missing, and it is genuinely unobtainable ' +
+        'by this project rather than merely unchecked: their policy page never ' +
+        'names a flat rate, and the Shopify checkout estimator that answers ' +
+        'exactly this question for other shops (src/catalogue/shippingQuote.ts) ' +
+        'is disallowed for /cart/shipping_rates.json by emiratesoud.co.uk\'s ' +
+        'own robots.txt, which this project does not override. So it needs a ' +
+        'person: add anything under £50 to their basket and read the delivery ' +
+        'line, or ask them directly as an approved partner. Set standardGbp to ' +
+        'that number and flip enabled: true and the next harvest picks the ' +
+        'shop up through its /products.json route.',
     },
     // No section URLs to guess: the sitemap harvester (crawlViaSitemap)
     // discovers products from /sitemap.xml and robots.txt on its own, the
