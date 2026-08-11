@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-11T17:57:55.911Z",
+  "checkedAt": "2026-08-11T19:16:23.140Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -193,12 +193,10 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 50,
-      "pricedInGbp": 50,
-      "withPhoto": 50,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "listings": 60,
+      "pricedInGbp": 60,
+      "withPhoto": 60,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
