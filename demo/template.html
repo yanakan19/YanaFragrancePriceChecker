@@ -885,6 +885,17 @@
   .trustpilot-widget a { font-size: 12.5px; color: var(--accent); text-decoration: none; }
   .trustpilot-widget a:hover { text-decoration: underline; }
 
+  /* This retailer's own stock status only — not the sitewide "In Stock Only"
+     facet above the list, which reads purchasability at *any* shop. A plain
+     checkbox rather than a facet pill: there is exactly one of it, scoped to
+     this one page, so the toggle-button machinery built for a whole panel of
+     facet groups would be more apparatus than the job needs. */
+  .stock-only {
+    display: flex; align-items: center; gap: 7px; margin: 10px 0 0;
+    font-size: 13px; color: var(--ink-2); cursor: pointer; width: fit-content;
+  }
+  .stock-only input { accent-color: var(--accent); width: 15px; height: 15px; margin: 0; }
+
   /* ── notes ─────────────────────────────────────────────────────────────── */
   /* Same row as .brand-row (block, one column, alphabetical dividers) — this
      just adds the count on the right, so it needs flex instead of block. */

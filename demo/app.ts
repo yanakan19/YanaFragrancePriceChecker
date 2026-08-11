@@ -95,6 +95,10 @@ const state = {
   brandDetailSort: 'az' as ListSort,
   retailerDetailSort: 'az' as ListSort,
   retailerDetailFilter: 'all' as BrandFilter,
+  // Scoped to *this* retailer's own offer, not the sitewide inStock facet
+  // above — a fragrance can be purchasable elsewhere while sold out here, and
+  // a shop's own page should only ever claim what is true of that shop.
+  retailerInStockOnly: false,
 
   // ── facets ────────────────────────────────────────────────────────────────
   // One shared set of selections rather than one per page: every list page
@@ -1477,13 +1481,22 @@ function trustpilotWidget(r: Retailer): string {
   </div>`;
 }
 
+/** Whether this retailer's own offer for `f` — not any other shop's — is
+ *  currently purchasable. Reads the same `isPurchasable` flag the detail
+ *  page's "Available at" / "No longer stocked" split uses, just scoped down
+ *  to one retailer's row instead of every row. */
+function inStockAt(f: DemoFragrance, retailerId: string): boolean {
+  return rowsFor(f).some((row) => row.retailer.id === retailerId && row.isPurchasable);
+}
+
 function retailerView(): string {
   const r = getRetailer(state.retailerId);
   if (!r) return exploreView();
   const filtered = fragrancesAt(r.id).filter(
     (f) => state.retailerDetailFilter === 'all' || f.tier === state.retailerDetailFilter,
   );
-  const list = sortFragrances(applyFacets(filtered), state.retailerDetailSort);
+  const list = sortFragrances(applyFacets(filtered), state.retailerDetailSort)
+    .filter((f) => !state.retailerInStockOnly || inStockAt(f, r.id));
 
   const controls = `<div class="controls">
     ${listSortControl('retailer-detail-sort', state.retailerDetailSort)}
@@ -1503,6 +1516,10 @@ function retailerView(): string {
           ${deliveryLines(r).map((l) => `<li>${esc(l)}</li>`).join('')}
         </ul>
         ${trustpilotWidget(r)}
+        <label class="stock-only">
+          <input type="checkbox" id="retailer-in-stock" ${state.retailerInStockOnly ? 'checked' : ''} />
+          <span>In stock only</span>
+        </label>
       </div>
     </div>
 
@@ -1640,9 +1657,11 @@ function notesPanel(): string {
   // genuinely carries — top, middle, base — rather than a scent-family
   // taxonomy (floral, woody, gourmand...) this dataset has no real source
   // for. Tapping one filters the alphabetical list below exactly like the
-  // dropdown above does; tapping the active one again clears it.
-  const groupCard = (id: NoteLayer, label: string) => {
-    const count = NOTE_INDEX.filter((n) => n.layers.has(id)).length;
+  // dropdown above does; tapping the active one again clears it. "All"
+  // is the same clear, offered as its own card rather than only reachable
+  // by deselecting — the combined view every note actually starts on.
+  const groupCard = (id: NoteLayerFilter, label: string) => {
+    const count = id === 'any' ? NOTE_INDEX.length : NOTE_INDEX.filter((n) => n.layers.has(id)).length;
     return `<button class="note-group-card${state.noteLayer === id ? ' on' : ''}" data-note-layer="${id}">
       <span class="note-group-count">${count}</span>
       <span class="note-group-label">${label} Notes</span>
@@ -1651,6 +1670,7 @@ function notesPanel(): string {
   const groups = `<div class="notes-groups">
     <p class="section-label">Note Groups</p>
     <div class="notes-groups-row">
+      ${groupCard('any', 'All')}
       ${groupCard('top', 'Top')}
       ${groupCard('middle', 'Middle')}
       ${groupCard('base', 'Base')}
@@ -3060,6 +3080,7 @@ function init(): void {
     else if (id === 'brand-detail-sort') state.brandDetailSort = value as ListSort;
     else if (id === 'retailer-detail-sort') state.retailerDetailSort = value as ListSort;
     else if (id === 'retailer-detail-filter') state.retailerDetailFilter = value as BrandFilter;
+    else if (id === 'retailer-in-stock') state.retailerInStockOnly = (t as HTMLInputElement).checked;
     else if (id === 'per-row') {
       // The grid reads a CSS variable, so the columns reflow without a
       // re-render. Returning early also keeps the search box from losing
