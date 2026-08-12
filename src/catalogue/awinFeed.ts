@@ -43,6 +43,20 @@ import { parsePrice } from './jsonld.js';
  * what is and isn't a fragrance is scripts/build-demo-catalogue.ts's job,
  * uniformly across every retailer, not this parser's.
  *
+ * `merchant_deep_link` is also unmapped, and that one is a known gap rather
+ * than a decision. It is the merchant's own product URL, and `RawListing` has
+ * nowhere to put a second URL, so a feed listing reaches the catalogue with an
+ * `awin1.com/pclick` tracking link as the only address it has. That is the
+ * exact reason Fragrance Click's 907 listings — 784 live offers — cannot be
+ * price-verified at all: scripts/price-verify.ts will not fetch a deeplink
+ * (an unearned click reported to the merchant), the shop serves no
+ * `/products.json`, and no other address exists. Carrying
+ * `merchant_deep_link` alongside the tracking link would make every
+ * affiliate-feed retailer verifiable by the ordinary product-page route, and
+ * would give the app a fallback destination if a deeplink ever breaks. It
+ * needs a field on `RawListing` and a pass through reconcile, so it is
+ * recorded here rather than done in passing.
+ *
  * `rrp_price` becomes `wasPriceGbp`, but only where it is genuinely above the
  * selling price. It is the merchant's stated recommended retail price, which
  * is real supplied data rather than anything inferred here, though it is not
