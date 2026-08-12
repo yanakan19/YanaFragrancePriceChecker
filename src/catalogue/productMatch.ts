@@ -29,6 +29,22 @@
  */
 import { brandKey } from './brandName.js';
 
+/**
+ * A GTIN/EAN with its leading zeros removed, so a 13-digit code and the
+ * 12-digit UPC-A it pads (GS1's own rule: EAN-13 is "0" + UPC-A) compare
+ * equal, along with a barcode that lost a leading zero somewhere upstream —
+ * checked against the live catalogue: "088300602513" (Calvin Klein
+ * Contradiction 100ml, one feed) and "88300602513" (the identical bottle,
+ * another feed) are nineteen such pairs, all confirmed the same by matching
+ * brand, name, size and concentration as well as the barcode. Comparing raw
+ * strings read them as two disagreeing barcodes and `findDuplicateGroups`
+ * refused to merge on exactly the rule described below, splitting one real
+ * bottle into two products with two prices.
+ */
+function normalizedEan(ean: string): string {
+  return ean.replace(/^0+(?=\d)/, '');
+}
+
 export interface MatchableProduct {
   id: string;
   brand: string;
@@ -90,7 +106,10 @@ export function findDuplicateGroups<T extends MatchableProduct>(products: readon
     // A disagreement between two published barcodes is the manufacturer
     // telling us these are different articles. Leave the whole group alone
     // rather than guessing which of them the EAN-less listings belong to.
-    const eans = new Set(bucket.filter((p) => p.ean).map((p) => p.ean!));
+    // Compared with leading zeros stripped (see normalizedEan) so the same
+    // barcode padded to a different width by two different feeds is not
+    // mistaken for two different barcodes.
+    const eans = new Set(bucket.filter((p) => p.ean).map((p) => normalizedEan(p.ean!)));
     if (eans.size > 1) continue;
 
     // Prefer the record that carries the barcode; it is the better-identified
