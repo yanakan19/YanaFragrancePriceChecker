@@ -174,6 +174,32 @@ const KNOWN_ALIASES: Record<string, string> = {
   // that name, not a prefix to strip, and the two houses are unrelated.
   [brandKey('By Kilian')]: 'Kilian',
   [brandKey('Kilian')]: 'Kilian',
+
+  // Found 2026-08-12 by the same "generic descriptor word appended" sweep
+  // that produced the 2026-08-11 batch above, and confirmed the same way:
+  // checked for products appearing under both spellings with the identical
+  // fragrance name, not merged on the name pattern alone. "Ambre des
+  // Abysses" and "Bois Mystique" each appear once as "Houbigant" and once as
+  // "Houbigant Paris" in the live catalogue; "Blue Lili" appears once as
+  // "Orlov" and once as "Orlov Paris" — the same bottle, split by which
+  // retailer's feed added the city. Shorter form kept, the same direction as
+  // Rabanne, Gres and Mancera above.
+  //
+  // 'Essential Parfums' / 'Essential Perfumes' and 'New Brand Parfums' /
+  // 'New Brand Perfumes' fit the same surface shape and were checked against
+  // the same standard, but held out: 'Essential Parfums' carries niche
+  // French names (Divine Vanille, Patchouli Mania) and 'Essential Perfumes'
+  // carries a completely different, Middle-Eastern-style range (Azlaan,
+  // Essence Of Arabia) — no shared fragrance name anywhere, which reads as
+  // two unrelated houses that happen to share a common English word, not one
+  // house split by translation. 'New Brand Parfums' and 'New Brand Perfumes'
+  // have no shared fragrance name either ('Golf Blue'/'Golf Red' against
+  // 'Gold Women Prestige'/'Prestige Gold'), so there is no in-catalogue
+  // evidence either way and this is left unmerged rather than guessed at.
+  [brandKey('Houbigant Paris')]: 'Houbigant',
+  [brandKey('Houbigant')]: 'Houbigant',
+  [brandKey('Orlov Paris')]: 'Orlov',
+  [brandKey('Orlov')]: 'Orlov',
 };
 
 /** True when a string uses ordinary mixed case rather than shouting or whispering. */

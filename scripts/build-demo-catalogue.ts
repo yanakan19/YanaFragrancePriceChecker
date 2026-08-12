@@ -236,7 +236,15 @@ function displayName(title: string, brand: string | null): string {
     .replace(/\b\d{1,4}(?:\.\d)?\s*ml\b/gi, '')
     .replace(/\b(spray|splash|refillable|vapo|natural)\b/gi, '')
     .replace(/\s{2,}/g, ' ')
-    .replace(/^[\s,\-|]+|[\s,\-|]+$/g, '');
+    // Leading "&" only, not trailing: Tiffany & Co's own titles read "Tiffany
+    // & Co & Love for Her ...", where the second "&" belongs to the "Tiffany
+    // & Love" line's own name, not the brand being stripped above. Stripping
+    // the brand leaves a stray leading ampersand ("& Love for Her") on all
+    // four of that line's listings — checked, no other product's name starts
+    // with "&" for a legitimate reason. A trailing "&" is left alone: nothing
+    // in the catalogue has one, so there is no case to fix and no reason to
+    // guess at what stripping one would do.
+    .replace(/^[\s,\-&|]+|[\s,\-|]+$/g, '');
   return s || title;
 }
 
