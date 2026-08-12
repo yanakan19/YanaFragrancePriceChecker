@@ -49,6 +49,28 @@ import { parsePrice } from './jsonld.js';
  * the same claim as "this shop charged this last week" — the UI labels it RRP.
  * `promoEndsAt` stays null: no such column exists and a countdown must never
  * be invented.
+ *
+ * ── Not every merchant's feed carries a sale price, and that is not this
+ *    parser's bug ──────────────────────────────────────────────────────────
+ * Confirmed 2026-08-12 for MyBeauty.Boutique, off a live sync read from CI
+ * (this sandbox cannot reach the Awin feed at all): its feed's full column set
+ * is data_feed_id, merchant_id, merchant_name, aw_product_id, aw_deep_link,
+ * aw_image_url, aw_thumb_url, category_id, category_name, brand_id,
+ * brand_name, merchant_product_id, merchant_category, mpn, product_name,
+ * description, merchant_deep_link, merchant_image_url, search_price,
+ * in_stock, condition, custom_1, custom_2, custom_3, product_model. No
+ * rrp_price, store_price, display_price, base_price, saving or
+ * savings_percent exists anywhere in it — read directly off the wire, not
+ * assumed. A SKU on that feed can carry a search_price that disagrees with
+ * what the merchant's own storefront currently charges (seen: search_price
+ * 77.99 vs a live £20.49 sale, on a same-day-regenerated feed — five daily
+ * snapshots since this SKU was first listed all show the same 77.99), with
+ * nothing in the row to distinguish it from a correctly priced listing. That
+ * is a gap in what the merchant hands over, not a column this file forgot to
+ * read. Before assuming otherwise for any retailer, reproduce the full column
+ * list with `npm run awin:feed-diag -- --shop=<id> --sku=<retailerSku>` (run
+ * from CI, see that script's own header) rather than guessing from this
+ * comment.
  */
 
 const REQUIRED_PRICE_POSITIVE = (n: number | null): n is number => n !== null && n > 0;
