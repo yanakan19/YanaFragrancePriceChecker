@@ -52,6 +52,10 @@ on:
         description: 'Commit data/price-verification-report.json. Turn off for a throwaway probe.'
         type: boolean
         default: true
+      reprice_dry_run:
+        description: 'Instead of verifying, dry-run the storefront re-price and report what it would change. Writes no price and commits nothing.'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -86,7 +90,19 @@ jobs:
       # continue-on-error so a shop that hangs or a route that throws still
       # leaves the report and the log behind. A partial measurement is useful;
       # a red run with no output is not.
+      # Rehearsal for the correction the scheduled crawl will apply for real.
+      # storefront-reprice.ts writes the largest retailer on the site, so it
+      # gets to be watched doing nothing first: --dry-run reads the storefront,
+      # keys every listing and reports exactly what it would change, without
+      # touching a snapshot or committing anything.
+      - name: Dry-run the storefront re-price
+        if: ${{ inputs.reprice_dry_run }}
+        run: |
+          npm run storefront:reprice -- --dry-run \
+            ${{ inputs.shop && format('--shop={0}', inputs.shop) || '' }}
+
       - name: Verify prices against live storefronts
+        if: ${{ !inputs.reprice_dry_run }}
         continue-on-error: true
         run: |
           npm run price:verify -- \
@@ -96,7 +112,7 @@ jobs:
             --budget-ms=${{ inputs.budget_ms || '240000' }}
 
       - name: Commit the drift report
-        if: ${{ inputs.commit_report }}
+        if: ${{ inputs.commit_report && !inputs.reprice_dry_run }}
         run: |
           ./scripts/commit-and-push.sh \
             "Price verification: measured drift $(date -u +%Y-%m-%dT%H:%MZ)" \

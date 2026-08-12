@@ -36,6 +36,7 @@ import { createHttp } from '../src/catalogue/httpFetch.js';
 import { BROWSER_HEADERS } from '../src/catalogue/attempt.js';
 import { parseRobots, isAllowed, NO_RESTRICTIONS, UNREACHABLE_ROBOTS } from '../src/catalogue/robots.js';
 import { emptyPriceIndex, indexShopifyPage, type ShopifyPriceIndex } from '../src/catalogue/shopifyPriceIndex.js';
+import { parseShopCurrency } from '../src/catalogue/shopifyJson.js';
 import { repairFeedPrices } from '../src/catalogue/feedPriceRepair.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -71,6 +72,8 @@ interface Outcome {
   ok: boolean;
   reason: string;
   products: number;
+  /** What the storefront says it prices in. Must be GBP before anything is written. */
+  storefrontCurrency: string | null;
   active: number;
   keyed: number;
   agreed: number;
@@ -81,7 +84,9 @@ interface Outcome {
   cleared: number;
 }
 
-async function buildIndex(origin: string): Promise<{ index: ShopifyPriceIndex; products: number; error: string | null }> {
+async function buildIndex(
+  origin: string,
+): Promise<{ index: ShopifyPriceIndex; products: number; currency: string | null; error: string | null }> {
   const robotsRes = await http(`${origin}/robots.txt`, BROWSER_HEADERS);
   const robots = robotsRes.ok && robotsRes.body
     ? parseRobots(robotsRes.body, 'pricesniffsbot')
@@ -90,8 +95,37 @@ async function buildIndex(origin: string): Promise<{ index: ShopifyPriceIndex; p
       : UNREACHABLE_ROBOTS;
 
   if (robots.unavailable) {
-    return { index: emptyPriceIndex(), products: 0, error: 'robots.txt unreachable — held off' };
+    return { index: emptyPriceIndex(), products: 0, currency: null, error: 'robots.txt unreachable — held off' };
   }
+
+  // Currency first, and required to be explicitly GBP — not merely "not
+  // obviously something else".
+  //
+  // Everything below writes numbers straight into `priceGbp`. If this
+  // storefront is answering a CI runner with a different market's price list,
+  // that write turns euros into pounds silently, on 8,908 listings, with no
+  // step downstream able to notice. Nicchia Luxury's verification run showed
+  // exactly this shape against a *different* merchant — 6,844 listings, not
+  // one agreeing, every difference the same way, a stored £5 against a live 6.
+  //
+  // So the writer is stricter than the verifier here on purpose: the verifier
+  // may compare a shop whose currency is unpublished and say so, because being
+  // wrong there costs a misleading report. Being wrong here costs a wrong
+  // price in front of a customer.
+  const meta = await http(`${origin}/meta.json`, BROWSER_HEADERS);
+  const home = await http(`${origin}/`, BROWSER_HEADERS);
+  const currency = parseShopCurrency(meta.ok ? meta.body : null, home.ok ? home.body : null);
+  if (currency !== null && currency !== 'GBP') {
+    return {
+      index: emptyPriceIndex(),
+      products: 0,
+      currency,
+      error: `storefront publishes prices in ${currency}, not GBP — refusing to write them as pounds`,
+    };
+  }
+  // A storefront that publishes no currency at all is not settled here — see
+  // the agreement corroboration in repriceShop, which needs the keyed counts
+  // this function has not produced yet.
 
   const gap = Math.max(gapMs, (robots.crawlDelaySeconds ?? 0) * 1000);
   const index = emptyPriceIndex();
@@ -100,17 +134,17 @@ async function buildIndex(origin: string): Promise<{ index: ShopifyPriceIndex; p
   for (let page = 1; page <= 200; page++) {
     const url = `${origin}/products.json?limit=250&page=${page}`;
     if (!isAllowed(robots, url)) {
-      return { index, products, error: `robots.txt disallows ${url}` };
+      return { index, products, currency, error: `robots.txt disallows ${url}` };
     }
 
     const res = await http(url, BROWSER_HEADERS);
     if (!res.ok) {
-      return { index, products, error: `page ${page}: HTTP ${res.status}${res.error ? ` ${res.error}` : ''}` };
+      return { index, products, currency, error: `page ${page}: HTTP ${res.status}${res.error ? ` ${res.error}` : ''}` };
     }
 
     const page_ = indexShopifyPage(res.body, origin, index);
     if (!page_.isShopify) {
-      return { index, products, error: `page ${page} was not a Shopify products payload` };
+      return { index, products, currency, error: `page ${page} was not a Shopify products payload` };
     }
     products += page_.products;
     if (page_.products === 0) break;
@@ -119,7 +153,7 @@ async function buildIndex(origin: string): Promise<{ index: ShopifyPriceIndex; p
     await sleep(gap);
   }
 
-  return { index, products, error: null };
+  return { index, products, currency, error: null };
 }
 
 async function repriceShop(retailer: Retailer): Promise<Outcome> {
@@ -128,6 +162,7 @@ async function repriceShop(retailer: Retailer): Promise<Outcome> {
     ok: false,
     reason: '',
     products: 0,
+    storefrontCurrency: null,
     active: 0,
     keyed: 0,
     agreed: 0,
@@ -149,8 +184,9 @@ async function repriceShop(retailer: Retailer): Promise<Outcome> {
   }
 
   const origin = `https://${retailer.domain.replace(/^www\./, '')}`;
-  const { index, products, error } = await buildIndex(origin);
+  const { index, products, currency, error } = await buildIndex(origin);
   outcome.products = products;
+  outcome.storefrontCurrency = currency;
 
   if (error !== null) {
     outcome.reason = `storefront read failed: ${error} — snapshot left untouched`;
@@ -162,6 +198,32 @@ async function repriceShop(retailer: Retailer): Promise<Outcome> {
   // having thrown the old prices away.
   const probe = repairFeedPrices(active, index, { clearUnkeyed: false });
   outcome.keyed = active.length - probe.unkeyed;
+
+  // Where the storefront publishes no currency, exact agreement is the
+  // evidence instead.
+  //
+  // Two different currencies do not agree to the penny in bulk. MyBeauty's
+  // feed and storefront agree exactly on 2,613 listings, which settles that
+  // both are sterling far more firmly than a `meta.json` field would; Nicchia
+  // Luxury, the case that prompted this whole guard, agreed on zero of 6,844.
+  // So an unpublished currency is acceptable only against a floor of genuine
+  // penny-level agreements, and refused otherwise.
+  if (outcome.storefrontCurrency === null) {
+    const floor = Math.max(100, Math.round(outcome.keyed * 0.05));
+    if (probe.agreed < floor) {
+      outcome.reason =
+        `storefront publishes no currency, and only ${probe.agreed} of ${outcome.keyed} keyed ` +
+        `listings agree with it to the penny (need ${floor}). Two price lists in the same ` +
+        'currency agree in bulk; these do not, so this is not established as sterling. ' +
+        'Snapshot left untouched.';
+      return outcome;
+    }
+    console.log(
+      `      currency unpublished, corroborated by ${probe.agreed} penny-exact agreements ` +
+        `(floor ${floor})`,
+    );
+  }
+
   const share = outcome.keyed / active.length;
   if (share < MIN_KEYED_SHARE) {
     outcome.reason =
