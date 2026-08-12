@@ -1,0 +1,63 @@
+# Build context rules for YanaFreeAPIMerger/Dockerfile.
+#
+# This file lives at the repo root, rather than next to that Dockerfile,
+# because Docker only ever reads .dockerignore from the root of the build
+# context — and that context has to be the repo root, since the backend
+# imports the site's own `demo/*.ts` and `src/` modules at runtime (the
+# Dockerfile's header explains why). Nothing else in this repo reads this
+# file; it affects container builds only.
+#
+# Without these rules the context sent to Fly's remote builder is roughly
+# 24 MB of generated HTML and ~200 MB of node_modules that the image
+# rebuilds from the lockfile anyway.
+
+# Installed per-stage from the committed lockfile inside the image.
+node_modules
+**/node_modules
+
+# Build output, never an input.
+dist
+dist-demo
+coverage
+
+# The generated static site: index.html and 404.html are ~12 MB each of
+# inlined bundle, and template.html is their source. The backend reads the
+# site's TypeScript data modules directly and has no use for any rendered
+# page.
+demo/index.html
+demo/404.html
+demo/template.html
+demo/og-preview.png
+demo/icons
+demo/sw.js
+demo/manifest.webmanifest
+demo/robots.txt
+demo/favicon.svg
+demo/CNAME
+
+# Harvest inputs, fixtures, DB migrations and one-off scripts: all belong to
+# the crawl and build pipelines, none are read by the running server.
+data
+fixtures
+supabase
+tests
+scripts
+deploy
+docs
+.github
+.claude
+.scratch
+
+# Never build a secret into an image layer. .env is gitignored and so should
+# never be here at all — this is a second lock on the same door, because a
+# key baked into a layer survives in the image even if a later step deletes
+# it. The real key reaches the container only as a Fly secret at runtime.
+.env
+.env.*
+!.env.example
+
+.git
+.gitignore
+*.log
+.DS_Store
+README.md

@@ -1,0 +1,91 @@
+# Fly.io config for the Virtual Yanny backend.
+#
+# Deployed only by hand or by .github/workflows/deploy-yanny.yml, always
+# from the REPO ROOT (the image needs `demo/` and `src/`, which sit above
+# this folder — see Dockerfile's header):
+#
+#   flyctl deploy . --config YanaFreeAPIMerger/fly.toml \
+#                   --dockerfile YanaFreeAPIMerger/Dockerfile --remote-only
+#
+# ── Changing the app name ────────────────────────────────────────────────
+# Fly app names are globally unique across all of Fly, so this one may
+# already be taken by someone else. If `flyctl apps create` reports it as
+# unavailable, change `app` below to anything free and change nothing else:
+# the deploy workflow reads the name from this file, and the public
+# hostname is always <app>.fly.dev. This is deliberately a different app
+# from `yanny-freellmapi`, the model router — that one is already live and
+# is not touched by any of this.
+app = "virtual-yanny-backend"
+
+# London: the site, its prices and its readers are all UK-facing.
+primary_region = "lhr"
+
+# ── Non-secret configuration ─────────────────────────────────────────────
+# These three are public facts and belong in the repo. The fourth env var
+# the server reads, FREELLMAPI_API_KEY, is a credential and is NEVER set
+# here — it reaches the container only as a Fly secret (`flyctl secrets
+# set`), which is stored encrypted by Fly and injected at runtime. Putting
+# it in this file would publish it: this repo is public.
+[env]
+  PORT = "8080"
+  FREELLMAPI_BASE_URL = "https://yanny-freellmapi.fly.dev"
+  AGENT_TIMEOUT_SECONDS = "25"
+
+[http_service]
+  # Must match PORT above and ENV PORT in the Dockerfile.
+  internal_port = 8080
+  # The widget calls this API from an HTTPS page (pricesniffs.space), so a
+  # plain-HTTP origin would be blocked by the browser as mixed content.
+  # Fly terminates TLS on *.fly.dev automatically; this makes it mandatory.
+  force_https = true
+  auto_start_machines = true
+  # "suspend" rather than "stop": the machine's memory is snapshotted and
+  # restored in well under a second, so an idle backend costs nothing but
+  # the first reader after a quiet spell does not sit through a cold boot.
+  # It also has a useful side effect given the memory note below — a
+  # suspend/resume cycle clears the accumulated module cache.
+  auto_stop_machines = "suspend"
+  # 0 lets the machine idle down when nobody is chatting. Set this to 1 if
+  # the widget's 6-second health-check timeout (demo/virtualYanny.ts) ever
+  # proves too tight on the first request after an idle period — that is
+  # the only symptom this would fix, and it costs a machine running 24/7.
+  min_machines_running = 0
+
+  # Liveness only, and deliberately so. /api/health always answers HTTP 200
+  # — including when it is reporting `ok:false` because the shared upstream
+  # router is rate-limited or unreachable (see server/index.js: every
+  # failure there is a fact in the body, never a 5xx). So this check tells
+  # Fly "the process is up", which is the right thing for Fly to restart
+  # machines over. It deliberately does NOT tell Fly "the chatbot works" —
+  # that would hand a third party's rate limit the power to take this app
+  # down. The semantic check, which reads the JSON body, runs once after
+  # each deploy in .github/workflows/deploy-yanny.yml instead.
+  [[http_service.checks]]
+    interval = "30s"
+    timeout = "5s"
+    grace_period = "20s"
+    method = "GET"
+    path = "/api/health"
+
+[[vm]]
+  size = "shared-cpu-1x"
+  # ── Why 1 GB and not the 256 MB default ────────────────────────────────
+  # Measured, not guessed. server/siteData.js re-imports the site's data
+  # modules from disk on every single question, cache-busting the specifier
+  # so Node actually re-reads them (that file's header explains why it
+  # wants fresh data). demo/catalogue.generated.ts alone is ~15 MB of
+  # TypeScript, and each re-import is a distinct module Node's loader keeps
+  # forever. Observed on this repo's current catalogue: RSS goes from
+  # ~85 MB at boot to ~500 MB after the first load and oscillates up to
+  # ~750 MB as GC works against it. A 256 MB machine dies on question one;
+  # 512 MB dies shortly after. If chat requests ever start failing with
+  # out-of-memory once real traffic arrives, this number is the first thing
+  # to raise (2gb), and the memory note in docs/VIRTUAL-YANNY-DEPLOY.md is
+  # the fuller explanation.
+  memory = "1gb"
+  cpus = 1
+  cpu_kind = "shared"
+
+# Cushions the GC spikes described above so a transient peak pages out
+# instead of getting the process OOM-killed mid-answer.
+swap_size_mb = 512
