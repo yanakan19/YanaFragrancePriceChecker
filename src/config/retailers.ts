@@ -1524,6 +1524,15 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.escentric.com',
     tiers: ['niche'],
     singleBrandOnly: 'Escentric Molecules',
+    // Their whole range is fine fragrance — Molecule 01-05, Escentric 01-05,
+    // the M+ series and the Portable 30ml bottles — and none of it names a
+    // concentration in its title, so the concentration test rejected 64 of
+    // their 118 harvested listings and the shop reached the app with two
+    // offers. Checked their catalogue title by title before setting this:
+    // what it newly admits is 44 single bottles priced £60-£220, and the 20
+    // multi-item ATOM.iser sets stay out on the multi-item guard in
+    // isFragrance rather than on the concentration test.
+    fragranceOnlyCatalogue: true,
     // Promoted out of src/config/houses.ts 2026-08-12, on the same basis as
     // French Avenue and Armaf before it: their houses.ts entry was blocked on
     // "storefront currency and UK delivery terms not yet established" because

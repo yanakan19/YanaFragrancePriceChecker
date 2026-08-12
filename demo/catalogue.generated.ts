@@ -99221,6 +99221,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "escentric-molecules-e01-30r-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 01",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-5060103310081",
     "brand": "Escentric Molecules",
     "name": "Escentric 01",
@@ -99232,11 +99243,55 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "escentric-molecules-e01-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 01",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-e01-200ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 01",
+    "concentration": "Fragrance",
+    "sizeMl": 200,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "nicchia-luxury-uk-57872716956032",
     "brand": "Escentric Molecules",
     "name": "Escentric 01",
     "concentration": "Eau de Toilette",
     "sizeMl": 200,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-e01-30c-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 01 Portable",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-e02-30r-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 02",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -99265,12 +99320,45 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "escentric-molecules-e02-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 02",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-5060103310036",
     "brand": "Escentric Molecules",
     "name": "Escentric 02",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "5060103310036",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-e02-30c-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 02 Portable",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-e03-30r-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 03",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -99287,12 +99375,45 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "escentric-molecules-e03-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 03",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-5060103310104",
     "brand": "Escentric Molecules",
     "name": "Escentric 03",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "5060103310104",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-e03-30c-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 03 Portable",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-e04-30r-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 04",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -99309,12 +99430,45 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "escentric-molecules-e04-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 04",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-5060103310388",
     "brand": "Escentric Molecules",
     "name": "Escentric 04",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "5060103310388",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-e04-30c-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 04 Portable",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-e05-30r-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 05",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -99331,12 +99485,45 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "escentric-molecules-e05-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 05",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-5060103310593",
     "brand": "Escentric Molecules",
     "name": "Escentric 05",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "5060103310593",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-e05-30c-unit",
+    "brand": "Escentric Molecules",
+    "name": "Escentric 05 Portable",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-m01-30r-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -99353,12 +99540,34 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "escentric-molecules-m01-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-5060103310029",
     "brand": "Escentric Molecules",
     "name": "Molecule 01",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "5060103310029",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-m01-200ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01",
+    "concentration": "Fragrance",
+    "sizeMl": 200,
+    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -99375,12 +99584,34 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "escentric-molecules-mpbtea-100ml-edt",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01 + Black Tea",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-5060103310821",
     "brand": "Escentric Molecules",
     "name": "Molecule 01 + Black Tea",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "5060103310821",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-mpchamp-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01 + Champaca",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -99397,12 +99628,45 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "escentric-molecules-mpcist-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01 + Cistus",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-5060103311804",
     "brand": "Escentric Molecules",
     "name": "Molecule 01 + Cistus",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "5060103311804",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-mpclarys-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01 + Clary Sage",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-mpgin-100ml-edt",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01 + Ginger",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -99419,12 +99683,45 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "escentric-molecules-mpgwo-100ml-edt",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01 + Guaiac Wood",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-5060103310814",
     "brand": "Escentric Molecules",
     "name": "Molecule 01 + Guaiac Wood",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "5060103310814",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-mpiris-30ml-refil-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01 + Iris",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-mpiris-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01 + Iris",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -99441,12 +99738,56 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "escentric-molecules-mpman-30ml-refil-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01 + Mandarin",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-mpman-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01 + Mandarin",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-5060103310692",
     "brand": "Escentric Molecules",
     "name": "Molecule 01 + Mandarin",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "5060103310692",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-mppat-30ml-refil-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01 + Patchouli",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-mppat-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01 + Patchouli",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -99463,12 +99804,45 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "escentric-molecules-m01-30c-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 01 Portable",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-m02-30r-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 02",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-5060103310227",
     "brand": "Escentric Molecules",
     "name": "Molecule 02",
     "concentration": "Eau de Toilette",
     "sizeMl": 30,
     "ean": "5060103310227",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-m02-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 02",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -99485,12 +99859,45 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "escentric-molecules-m02-30c-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 02 Portable",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-m03-30r-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 03",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-5060103310265",
     "brand": "Escentric Molecules",
     "name": "Molecule 03",
     "concentration": "Eau de Toilette",
     "sizeMl": 30,
     "ean": "5060103310265",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-m03-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 03",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -99507,12 +99914,45 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "escentric-molecules-m03-30c-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 03 Portable",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-m04-30r-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 04",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-5060103310357",
     "brand": "Escentric Molecules",
     "name": "Molecule 04",
     "concentration": "Eau de Toilette",
     "sizeMl": 30,
     "ean": "5060103310357",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-m04-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 04",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -99529,12 +99969,56 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "escentric-molecules-m04-30c-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 04 Portable",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-m05-30r-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 05",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-5060103310623",
     "brand": "Escentric Molecules",
     "name": "Molecule 05",
     "concentration": "Eau de Toilette",
     "sizeMl": 30,
     "ean": "5060103310623",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-m05-100ml-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 05",
+    "concentration": "Fragrance",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "escentric-molecules-m05-30c-unit",
+    "brand": "Escentric Molecules",
+    "name": "Molecule 05 Portable",
+    "concentration": "Fragrance",
+    "sizeMl": 30,
+    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -101015,7 +101499,10 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416680509577-45147043987593",
     "brand": "Etienne Aigner",
@@ -101521,10 +102008,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8032779258636",
     "brand": "Farmacia SS. Annunziata",
@@ -110622,7 +111106,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Labdanum"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15422858068317-default-title",
     "brand": "Fragrance World",
@@ -111719,10 +112206,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Tonka Bean"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15442699944285-default-title",
     "brand": "Fragrance World",
@@ -119732,7 +120216,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "ean-5038607120192",
     "brand": "Geo F. Trumper Perfumer",
@@ -120317,10 +120804,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Crystal Heliotrope"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416686801033-45147050999945",
     "brand": "Giardino Benessere",
@@ -127103,7 +127587,10 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
         "Benzoin"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "escentual-aquaallegoria129",
     "brand": "Guerlain",
@@ -127769,10 +128256,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
         "Smoked Tea"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
+  },
   {
     "id": "escentual-linstantdeguerlain203",
     "brand": "Guerlain",
@@ -134481,7 +134965,10 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-7941379686537-43197017620617",
     "brand": "Ice",
@@ -135044,10 +135531,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3701415904613",
     "brand": "Initio Parfums Privés",
@@ -140850,7 +141334,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/jimmy-choo-eau-de-parfum-60ml-p22638-65763_image.jpg?v=1721322250&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "justmylook-jimc0009",
     "brand": "Jimmy Choo",
@@ -141458,10 +141945,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "ean-690251121663",
     "brand": "Jo Malone",
@@ -148485,7 +148969,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "ean-3700550234678",
     "brand": "Kilian",
@@ -149076,10 +149563,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416710852745-45147083243657",
     "brand": "L'Artisan Parfumeur",
@@ -155717,7 +156201,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
         "Oakmoss"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9047689396573-default-title",
     "brand": "Lattafa",
@@ -156648,10 +157135,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
         "Cashmeran"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6290362349112",
     "brand": "Lattafa",
@@ -165126,7 +165610,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "ean-3760040116815",
     "brand": "Les Néréides",
@@ -165624,10 +166111,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3760303363208",
     "brand": "Liquides Imaginaires",
@@ -173758,7 +174242,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15644472803677-default-title",
     "brand": "Maison Alhambra",
@@ -174722,10 +175209,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1759418530-99274200.jpg?v=1763399139&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "ean-9831703675222",
     "brand": "Maison Asrar",
@@ -180600,7 +181084,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "ean-8055118031158",
     "brand": "Milano Fragranze",
@@ -181417,10 +181904,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
         "Siam Benzoin Resin"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "escentual-millerharris305",
     "brand": "Miller Harris",
@@ -188100,7 +188584,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "ean-8717774841112",
     "brand": "Nasomatto",
@@ -188592,10 +189079,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "ean-11491712",
     "brand": "New Notes",
@@ -193830,7 +194314,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/PDM0019_21d3043b-ebdc-49c1-9ecf-86e34b289543.png?v=1772099201&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "ean-3700578507648",
     "brand": "Parfums de Marly",
@@ -194342,10 +194829,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1739358538-74183700.jpg?v=1763393301&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3442151002583",
     "brand": "Paris Bleu",
@@ -201563,7 +202047,10 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
       "middle": [],
       "base": []
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338273173641-44927142953097",
     "brand": "Police",
@@ -202263,10 +202750,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
       ],
       "base": []
     }
-  }
-];
-
-const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
+  },
   {
     "id": "escentual-pradairiscedre002",
     "brand": "Prada",
@@ -209613,7 +210097,10 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "ean-8684906408010",
     "brand": "Régalien Istanbul",
@@ -210097,10 +210584,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3596930001042",
     "brand": "Reminiscence",
@@ -217480,7 +217964,10 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/nashwa-eau-de-parfum-10ml-p38581-123186_image.jpg?v=1723462491&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
   {
     "id": "justmylook-shay0026",
     "brand": "Shay & Blue",
@@ -217970,10 +218457,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8055681293434",
     "brand": "Simone Andreoli",
@@ -224349,7 +224833,10 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
   {
     "id": "ean-8016741562570",
     "brand": "Tiziana Terenzi",
@@ -224889,10 +225376,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8016741002595",
     "brand": "Tiziana Terenzi",
@@ -230743,7 +231227,10 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
   {
     "id": "ean-3760298542442",
     "brand": "Vilhelm Parfumerie",
@@ -231227,10 +231714,7 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3760298542480",
     "brand": "Vilhelm Parfumerie",
@@ -366927,6 +367411,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "escentric-molecules-e01-30r-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 65,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-01-30ml-refill",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5060103310081": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -366941,6 +367439,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "escentric-molecules-e01-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 130,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-01-100ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-e01-200ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 220,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-01-200ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "nicchia-luxury-uk-57872716956032": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -366951,6 +367477,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=44468002141&a=3026001&m=123544",
       "fetchedAt": "2026-08-12T12:53:28.433Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-e01-30c-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 90,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-01-30ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-e02-30r-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 65,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-02-30ml-refill",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -366983,6 +367537,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "escentric-molecules-e02-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 130,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-02-100ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5060103310036": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -366993,6 +367561,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43972603402&a=3026001&m=123544",
       "fetchedAt": "2026-08-12T12:53:28.433Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-e02-30c-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 90,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-02-30ml-cased",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-e03-30r-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 65,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-03-30ml-refill",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -367011,6 +367607,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "escentric-molecules-e03-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 130,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-03-100ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5060103310104": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -367021,6 +367631,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43972603405&a=3026001&m=123544",
       "fetchedAt": "2026-08-12T12:53:28.433Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-e03-30c-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 90,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-03-30ml-cased",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-e04-30r-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 65,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-04-30ml-refill",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -367039,6 +367677,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "escentric-molecules-e04-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 130,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-04-100ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5060103310388": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -367049,6 +367701,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43972603408&a=3026001&m=123544",
       "fetchedAt": "2026-08-12T12:53:28.433Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-e04-30c-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 90,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-04-30ml-cased",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-e05-30r-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 65,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-05-refill-30ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -367067,6 +367747,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "escentric-molecules-e05-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 130,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-05-100ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5060103310593": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -367077,6 +367771,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43924977878&a=3026001&m=123544",
       "fetchedAt": "2026-08-12T12:53:28.433Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-e05-30c-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 90,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/escentric-05-portable-30ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-m01-30r-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 60,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-30ml-refill",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -367095,6 +367817,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "escentric-molecules-m01-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 125,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-100ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5060103310029": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -367105,6 +367841,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43972603413&a=3026001&m=123544",
       "fetchedAt": "2026-08-12T12:53:28.433Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-m01-200ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 215,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-200ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -367123,6 +367873,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "escentric-molecules-mpbtea-100ml-edt": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 135,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-black-tea",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5060103310821": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -367133,6 +367897,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43972603417&a=3026001&m=123544",
       "fetchedAt": "2026-08-12T12:53:28.433Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-mpchamp-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 135,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-champaca",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -367151,6 +367929,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "escentric-molecules-mpcist-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 135,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-cistus",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5060103311804": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -367161,6 +367953,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=44487966037&a=3026001&m=123544",
       "fetchedAt": "2026-08-12T12:53:28.433Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-mpclarys-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 135,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-clary-sage",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-mpgin-100ml-edt": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 135,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-ginger",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -367179,6 +367999,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "escentric-molecules-mpgwo-100ml-edt": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 135,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-guaiac-wood",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5060103310814": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -367189,6 +368023,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43972603419&a=3026001&m=123544",
       "fetchedAt": "2026-08-12T12:53:28.433Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-mpiris-30ml-refil-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 70,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-iris",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-mpiris-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 135,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-plus-iris-100ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -367207,6 +368069,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "escentric-molecules-mpman-30ml-refil-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 70,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-mandarin",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-mpman-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 135,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-plus-mandarin-100ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5060103310692": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -367217,6 +368107,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43972603415&a=3026001&m=123544",
       "fetchedAt": "2026-08-12T12:53:28.433Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-mppat-30ml-refil-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 70,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-patchouli",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-mppat-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 135,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-plus-patchouli-100ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -367235,6 +368153,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "escentric-molecules-m01-30c-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 85,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-01-30ml-cased",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-m02-30r-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 60,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-02-30ml-refill",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5060103310227": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -367245,6 +368191,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43924977879&a=3026001&m=123544",
       "fetchedAt": "2026-08-12T12:53:28.433Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-m02-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 125,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-02-100ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -367263,6 +368223,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "escentric-molecules-m02-30c-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 85,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-02-30ml-cased",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-m03-30r-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 60,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-03-30ml-refill",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5060103310265": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -367273,6 +368261,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43972603423&a=3026001&m=123544",
       "fetchedAt": "2026-08-12T12:53:28.433Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-m03-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 125,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-03-100ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -367291,6 +368293,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "escentric-molecules-m03-30c-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 85,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-03-30ml-cased",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-m04-30r-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 60,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-04-30ml-refill",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5060103310357": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -367301,6 +368331,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43972603426&a=3026001&m=123544",
       "fetchedAt": "2026-08-12T12:53:28.433Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-m04-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 125,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-04-100ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -367319,6 +368363,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "escentric-molecules-m04-30c-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 85,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-04-30ml-cased",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-m05-30r-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 60,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-05-refill-30ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5060103310623": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -367329,6 +368401,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43972603429&a=3026001&m=123544",
       "fetchedAt": "2026-08-12T12:53:28.433Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-m05-100ml-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 125,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-05-100ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "escentric-molecules-m05-30c-unit": [
+    {
+      "retailerId": "escentric-molecules",
+      "price": 85,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://escentric.com/products/molecule-05-portable-30ml",
+      "fetchedAt": "2026-08-12T16:51:21.193Z",
+      "firstSeenAt": "2026-08-12T12:55:07.912Z",
       "isNew": false,
       "imageUrl": null
     }

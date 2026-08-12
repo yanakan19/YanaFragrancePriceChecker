@@ -1,4 +1,5 @@
 import type { StoredListing } from './types.js';
+import { getRetailer } from '../config/retailers.js';
 
 /**
  * What decides whether a listing is a fragrance, and the identity a
@@ -51,12 +52,44 @@ export function sizeMl(title: string): number | null {
   return null;
 }
 
+/**
+ * A title selling several bottles at once rather than one.
+ *
+ * Only consulted for a `fragranceOnlyCatalogue` shop, and it has to be,
+ * because `sizeMl` reads the first size it finds: "Molecule 01 ATOM.iser. Set
+ * 3 x 8.5ml" is an £80 set of three, and taking it at face value would list
+ * it as a single 8.5ml bottle at £80 — the most overpriced thing on the site,
+ * and wrong. The concentration test happened to keep these out before; once
+ * that is relaxed something has to.
+ *
+ * The `>= 2 sizes` half of this is why this is not applied site-wide. Emirates
+ * Oud repeats the size in its own titles ("Odyssey Aqua Perfume 100ml EDP
+ * Armaf 100ml" is one bottle, listed twice over), so as a global rule it would
+ * drop genuine single bottles. Measured before scoping it: 118 currently-kept
+ * listings across all shops would have gone, most of them real.
+ */
+const MULTI_ITEM = /\bset\b|\b\d+\s*x\b|\bx\s*\d+\b/i;
+
+function sellsOnlyFragrance(retailerId: string): boolean {
+  return getRetailer(retailerId)?.fragranceOnlyCatalogue === true;
+}
+
 export function isFragrance(l: StoredListing): boolean {
   const t = l.rawTitle;
   if (NOT_A_FRAGRANCE.test(t)) return false;
-  if (!CONCENTRATION.test(t)) return false;
   if (sizeMl(t) === null) return false;
-  return l.priceGbp !== null && l.priceGbp > 0;
+  if (l.priceGbp === null || l.priceGbp <= 0) return false;
+
+  // A shop whose whole catalogue is fragrance does not have to say so in every
+  // title — see Retailer.fragranceOnlyCatalogue for why this is an explicit
+  // per-shop statement rather than anything inferred. Everywhere else the
+  // concentration word stays required, because it is what keeps a broad
+  // beauty retailer's skincare out of a fragrance comparison.
+  if (sellsOnlyFragrance(l.retailerId)) {
+    return !MULTI_ITEM.test(t) && (t.match(/\d{1,4}(?:\.\d)?\s*ml\b/gi) ?? []).length < 2;
+  }
+
+  return CONCENTRATION.test(t);
 }
 
 /**

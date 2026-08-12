@@ -320,6 +320,33 @@ export interface Retailer {
    * `undefined` for every ordinary multi-brand retailer.
    */
   singleBrandOnly?: string;
+  /**
+   * True only when everything this shop sells is a fragrance, so a listing of
+   * its can be trusted as one even when its title carries no concentration
+   * word.
+   *
+   * `isFragrance` normally requires a title to name a concentration — "eau de
+   * parfum", "EDP", "cologne" and so on. That test is load-bearing and must
+   * stay: a broad beauty retailer's catalogue is mostly not fragrance, and
+   * without it Escentual alone would contribute 4,173 serums, brushes and
+   * shampoos (Dermalogica, Schwarzkopf, Elemis) to a fragrance comparison.
+   *
+   * But a single fragrance house names its own products after itself, not
+   * after a concentration: "Escentric 01 200ml" and "Molecule 01 100ml" are
+   * unmistakably fine fragrances and unmistakably fail that test. Escentric
+   * Molecules lost 64 of its 118 listings that way and reached the app with
+   * two.
+   *
+   * Deliberately NOT inferred from `singleBrandOnly`, and deliberately not
+   * inferred from `tiers`: LUSH and Bath & Body Works are also single-brand
+   * and are also `tiers: ['niche']` / `['designer']`, but they sell bath and
+   * body products where the concentration test is exactly what is keeping
+   * soap out. Nothing about the shape of a registry entry distinguishes those
+   * two cases, so this is a separate statement a human makes about a specific
+   * shop after looking at what it actually sells. Default off; adding it to
+   * the wrong shop admits that shop's whole non-fragrance catalogue.
+   */
+  fragranceOnlyCatalogue?: boolean;
   /** Whether the pipeline currently fetches from this retailer at all. */
   enabled: boolean;
   adapter: AdapterStrategy;
