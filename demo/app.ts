@@ -1152,10 +1152,14 @@ function notesBlock(f: DemoFragrance): string {
       <p class="notes-none">Notes unavailable for this fragrance.</p>
     </div>`;
   }
-  const layer = (label: string, list: string[]) =>
+  // The tier is a class, not a graphic: the pyramid is drawn by each layer's
+  // own indent and rule weight (see .note-layer--* in the stylesheet), so it
+  // holds up at 360px, in either theme, and in a screen reader's document
+  // order — none of which a triangle behind the chips would do.
+  const layer = (label: string, tier: 'top' | 'middle' | 'base', list: string[]) =>
     list.length === 0
       ? ''
-      : `<div class="note-layer">
+      : `<div class="note-layer note-layer--${tier}">
            <p class="note-layer-name t-eyebrow">${label}</p>
            <p class="note-chips">${list
              .map((n) => `<button class="note-chip" data-note="${esc(n)}">${esc(titleCase(n))}</button>`)
@@ -1163,9 +1167,9 @@ function notesBlock(f: DemoFragrance): string {
          </div>`;
   return `<div class="notes-block">
     <p class="gone-head t-eyebrow">Notes</p>
-    ${layer('Top', f.notes.top)}
-    ${layer('Middle', f.notes.middle)}
-    ${layer('Base', f.notes.base)}
+    ${layer('Top', 'top', f.notes.top)}
+    ${layer('Middle', 'middle', f.notes.middle)}
+    ${layer('Base', 'base', f.notes.base)}
     <p class="notes-source t-caption">As published by the retailer listing it.</p>
   </div>`;
 }
