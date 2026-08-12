@@ -15,7 +15,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-08-12T11:31:02.563Z";
+export const DEALS_GENERATED_AT = "2026-08-12T12:54:49.806Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -590,6 +590,13 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 89.95,
     "wasPrice": 145,
     "percentOff": 37,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-8411061077153",
+    "price": 67.95,
+    "wasPrice": 98,
+    "percentOff": 30,
     "retailerId": "fragrance-click"
   },
   {
