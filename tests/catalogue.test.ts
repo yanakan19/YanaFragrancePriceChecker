@@ -100,6 +100,38 @@ describe('parseListings', () => {
     expect(parseListings(html, OPTS).map((l) => l.retailerSku)).toEqual(['a', 'b']);
   });
 
+  // A site-relative URL taken verbatim is not a cosmetic defect: it lands in
+  // the catalogue as `/products/x`, and an href like that on our own pages
+  // resolves against pricesniffs.space, so the Buy button points at a 404 on
+  // our domain rather than at the shop. Glorious Beauty's theme emits exactly
+  // this, and all 49 of its stored listings carried it.
+  it('resolves a site-relative product url against the page it was read from', () => {
+    const html = page({
+      '@type': 'Product',
+      name: 'X',
+      sku: 'x',
+      url: '/products/glorious-x',
+      offers: { price: 10 },
+    });
+    expect(parseListings(html, OPTS)[0]?.url).toBe('https://shop.example/products/glorious-x');
+  });
+
+  it('leaves an absolute product url exactly as published', () => {
+    const html = page({
+      '@type': 'Product',
+      name: 'X',
+      sku: 'x',
+      url: 'https://other.example/p/x',
+      offers: { price: 10 },
+    });
+    expect(parseListings(html, OPTS)[0]?.url).toBe('https://other.example/p/x');
+  });
+
+  it('falls back to the page url when the markup publishes none', () => {
+    const html = page({ '@type': 'Product', name: 'X', sku: 'x', offers: { price: 10 } });
+    expect(parseListings(html, OPTS)[0]?.url).toBe(OPTS.pageUrl);
+  });
+
   it('walks an ItemList of products', () => {
     const html = page({
       '@type': 'ItemList',
