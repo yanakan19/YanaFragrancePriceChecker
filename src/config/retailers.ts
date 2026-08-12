@@ -798,20 +798,19 @@ export const RETAILERS: readonly Retailer[] = [
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
+      standardGbp: 3.95,
+      freeOverGbp: 100,
       estimatedDays: [2, 4],
-      verifiedAt: '2026-08-05',
-      confidence: 'unverified',
+      verifiedAt: '2026-08-12',
+      confidence: 'confirmed',
       notes:
-        'THE FLAT STANDARD RATE IS UNCONFIRMED, so this shop is shown with delivery not ' +
-        'stated: no delivered price is computed for it and it can never rank as cheapest. ' +
-        'Search-cached copies of their delivery page say standard delivery is by Royal Mail ' +
-        'Tracked 48 and describe it as free, but none of them state a minimum spend or confirm ' +
-        'it applies to every order. Read thefragrancecounter.co.uk delivery terms directly and ' +
-        'fill in standardGbp/freeOverGbp to bring it into the delivered-price comparison. A ' +
-        '.com storefront also exists (thefragrancecounter.com) — confirm its relationship to ' +
-        'the .co.uk site before treating them as the same retailer.',
+        'Read directly off their own delivery page, ' +
+        'https://www.thefragrancecounter.co.uk/delivery.html, on 2026-08-12: "Royal Mail 48hr ' +
+        'Tracked - £3.95 (FREE over £100)". That page also lists Royal Mail 24hr Tracked UK ' +
+        'Delivery at £4.95 and Royal Mail Special Delivery at £9.95 as paid upgrade tiers, out ' +
+        'of scope for the standard-only model. A .com storefront also exists ' +
+        '(thefragrancecounter.com) — confirm its relationship to the .co.uk site before ' +
+        'treating them as the same retailer.',
     },
     // Confirmed live in a browser 6 Aug 2026.
     catalogue: {
@@ -887,15 +886,18 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: 50,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-05',
+      verifiedAt: '2026-08-12',
       confidence: 'unverified',
       notes:
         'THE FLAT STANDARD RATE IS UNCONFIRMED, so this shop is shown with delivery not ' +
         'stated: no delivered price is computed for it and it can never rank as cheapest. ' +
-        'Free UK delivery over £50, next-day option at £3.99. The under-threshold standard ' +
-        'cost is only aggregator-sourced (not read off perfumeshopping.com/delivery-and-' +
-        'returns directly) — confirm it there, then fill in standardGbp to bring this shop ' +
-        'into the delivered-price comparison.',
+        'Free UK delivery over £50, next-day option at £3.99 (aggregator-sourced, not read ' +
+        'off the retailer\'s own page). Re-attempted directly 2026-08-12: every request to ' +
+        'perfumeshopping.com (homepage, robots.txt, /policies/shipping-policy) returned ' +
+        'HTTP 403 — the whole site refuses this tooling, not just the shipping page, so ' +
+        'robots.txt itself could not even be read to check what a compliant crawl route ' +
+        'would look like. Needs a different network path or a human browser session to move ' +
+        'past aggregator-sourced numbers.',
     },
     // Confirmed live in a browser 6 Aug 2026. A third
     // /brands page was also given but is a brand index rather than a
@@ -939,22 +941,24 @@ export const RETAILERS: readonly Retailer[] = [
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      // Not established. See the field's doc comment.
-      standardGbp: null,
-      // This one IS confirmed: "Free shipping on orders over £28", stated in
-      // their own programme terms on Awin.
+      // Confirmed 2026-08-12: their own shipping-policy page states a direct
+      // flat rate, not just the free-delivery threshold this entry used to
+      // carry alone. See notes for the exact quote and URL.
+      standardGbp: 3.99,
+      // Confirmed: "Free for all orders over £28" on the same page, matching
+      // the figure already held from their Awin programme terms.
       freeOverGbp: 28,
       // Indicative only, and not a delivery-speed claim.
       estimatedDays: [2, 4],
-      verifiedAt: '2026-08-04',
-      confidence: 'unverified',
+      verifiedAt: '2026-08-12',
+      confidence: 'confirmed',
       notes:
-        'THE FLAT STANDARD RATE IS UNCONFIRMED, so this shop is shown with delivery not ' +
-        'stated: no delivered price is computed for it and it can never rank as cheapest. ' +
-        'freeOverGbp 28 is confirmed from the advertiser\'s own Awin programme terms. The ' +
-        'standard cost below that threshold, and the delivery window, are not established: ' +
-        'read https://gloriousbeauty.co.uk delivery page to bring this shop into the ' +
-        'delivered-price comparison.',
+        'Read directly off their own shipping policy page, ' +
+        'https://gloriousbeauty.co.uk/policies/shipping-policy, on 2026-08-12: "UK Standard ' +
+        'Tracked Delivery — Free for all orders over £28" and "£3.99 for all orders up to ' +
+        '£27.99". The same page separately prices a faster "UK Tracked 24" upgrade tier at ' +
+        '£5.95 (free over £60) and Ireland tracked delivery at £7.99 — both out of scope for ' +
+        'the standard-only model.',
     },
     catalogue: {
       searchUrlTemplate: 'https://gloriousbeauty.co.uk/search?q={q}',
@@ -1183,14 +1187,20 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: 50,
       estimatedDays: [2, 4],
-      verifiedAt: '2026-08-05',
+      verifiedAt: '2026-08-12',
       confidence: 'unverified',
       notes:
         'THE FLAT STANDARD RATE IS UNCONFIRMED, so this shop is shown with delivery not ' +
         'stated: no delivered price is computed for it and it can never rank as cheapest. ' +
-        'freeOverGbp 50 is their own stated figure ("free UK shipping on orders over £50"). ' +
-        'The standard cost below that was not found — read manchesterouds.com directly to ' +
-        'bring this shop into the delivered-price comparison.',
+        'freeOverGbp 50 is their own stated figure — shipping-policy page, 2026-08-12: ' +
+        '"Standard shipping is free on orders over £50, while a nominal fee applies to orders ' +
+        'below £50." That "nominal fee" is never given a number anywhere checked: ' +
+        '/policies/shipping-policy, /policies/refund-policy (only repeats the £50 free ' +
+        'threshold), /pages/shipping-returns, /pages/help, /pages/delivery-information and ' +
+        '/pages/faq (all 404). Confirmed Shopify (products.json resolves) so the checkout ' +
+        'shipping-rates route (src/catalogue/shippingQuote.ts) is the next thing to try — not ' +
+        'attempted this pass, no read-only tool available here that can add to cart and query ' +
+        'it.',
     },
     // Crawl target confirmed live in a browser 6 Aug 2026.
     catalogue: {
