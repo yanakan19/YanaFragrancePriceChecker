@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-11T22:51:15.664Z",
+  "checkedAt": "2026-08-12T00:01:25.800Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -58,18 +58,20 @@
       "houseId": "pairfum-london",
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
-      "routeUsed": "sitemap-jsonld",
+      "routeUsed": null,
       "currency": null,
-      "listings": 60,
+      "listings": 0,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "storefront currency could not be established — no sterling price recorded",
+        "https://www.pairfum.com/sitemap_index.xml: HTTP 0 AbortError: This operation was aborted"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {
