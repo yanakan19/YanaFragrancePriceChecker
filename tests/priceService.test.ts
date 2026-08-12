@@ -105,14 +105,14 @@ describe('buildComparison ordering', () => {
     // failure this rule exists to prevent: treating "we don't know" as £0
     // would make it the cheapest row in the table.
     const rows = buildComparison(
-      [offer('the-fragrance-counter', 1), offer('boots', 90), offer('lookfantastic', 85)],
+      [offer('manchester-ouds', 1), offer('boots', 90), offer('lookfantastic', 85)],
       { now: NOW },
     );
 
     expect(rows.map((r) => [r.retailer.id, r.deliveredPriceGbp])).toEqual([
       ['lookfantastic', 85],
       ['boots', 90],
-      ['the-fragrance-counter', null],
+      ['manchester-ouds', null],
     ]);
   });
 
@@ -121,10 +121,10 @@ describe('buildComparison ordering', () => {
     // there is to go on, and it is a fair comparison — neither is being
     // credited with delivery it has not quoted.
     const rows = buildComparison(
-      [offer('perfume-shopping', 60), offer('the-fragrance-counter', 40)],
+      [offer('perfume-shopping', 60), offer('manchester-ouds', 40)],
       { now: NOW },
     );
-    expect(rows.map((r) => r.retailer.id)).toEqual(['the-fragrance-counter', 'perfume-shopping']);
+    expect(rows.map((r) => r.retailer.id)).toEqual(['manchester-ouds', 'perfume-shopping']);
     expect(rows.every((r) => r.deliveredPriceGbp === null)).toBe(true);
   });
 
@@ -133,10 +133,10 @@ describe('buildComparison ordering', () => {
     // unknown-delivery shop with the cheapest bottle genuinely does have the
     // cheapest bottle.
     const rows = buildComparison(
-      [offer('boots', 90), offer('the-fragrance-counter', 40)],
+      [offer('boots', 90), offer('manchester-ouds', 40)],
       { sortBy: 'item', now: NOW },
     );
-    expect(rows.map((r) => r.retailer.id)).toEqual(['the-fragrance-counter', 'boots']);
+    expect(rows.map((r) => r.retailer.id)).toEqual(['manchester-ouds', 'boots']);
   });
 
   it('breaks ties deterministically by retailer name', () => {
@@ -197,8 +197,8 @@ describe('presentOffer', () => {
   });
 
   it('never turns an unstated delivery cost into a delivered price', () => {
-    const tfc = getRetailer('the-fragrance-counter')!;
-    const row = presentOffer(offer('the-fragrance-counter', 55), tfc, NOW);
+    const tfc = getRetailer('manchester-ouds')!;
+    const row = presentOffer(offer('manchester-ouds', 55), tfc, NOW);
     expect(row.itemPriceGbp).toBe(55);
     expect(row.deliveredPriceGbp).toBeNull();
     expect(row.delivery.costGbp).toBeNull();
@@ -237,19 +237,19 @@ describe('result grouping', () => {
     // Enforced in bestOffer itself, not left to the sort, so it holds even
     // when the caller ordered the rows some other way.
     const mixed = buildComparison(
-      [offer('the-fragrance-counter', 10), offer('boots', 90)],
+      [offer('manchester-ouds', 10), offer('boots', 90)],
       { sortBy: 'item', now: NOW },
     );
-    expect(mixed[0]!.retailer.id).toBe('the-fragrance-counter');
+    expect(mixed[0]!.retailer.id).toBe('manchester-ouds');
     expect(bestOffer(mixed)!.retailer.id).toBe('boots');
   });
 
   it('falls back to an unknown-delivery offer only when it is the only one', () => {
     // Naming the one shop that has it beats showing nothing, and the UI
     // labels it as delivery not stated rather than as a winning price.
-    const only = buildComparison([offer('the-fragrance-counter', 55)], { now: NOW });
+    const only = buildComparison([offer('manchester-ouds', 55)], { now: NOW });
     const best = bestOffer(only)!;
-    expect(best.retailer.id).toBe('the-fragrance-counter');
+    expect(best.retailer.id).toBe('manchester-ouds');
     expect(best.deliveredPriceGbp).toBeNull();
   });
 

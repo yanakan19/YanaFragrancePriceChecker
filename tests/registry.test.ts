@@ -74,12 +74,16 @@ describe('retailer registry', () => {
       // shops — and mostly a pending affiliate application, so listing them
       // as live partners would describe a relationship that does not exist
       // yet.
+      // Glorious Beauty and The Fragrance Counter graduated out of this list
+      // 2026-08-12: both now have a directly-quoted flat rate read off their
+      // own shipping policy pages (see src/config/retailers.ts), so they
+      // carry a real standardGbp and are no longer shown as "delivery not
+      // stated". Manchester Ouds, Nicchia Luxury UK and Perfume Shopping
+      // remain here — see each entry's shipping.notes for what was tried.
       expect(unstated.map((r) => r.id).sort()).toEqual([
-        'glorious-beauty',
         'manchester-ouds',
         'nicchia-luxury-uk',
         'perfume-shopping',
-        'the-fragrance-counter',
       ]);
       for (const r of unstated) {
         expect(
