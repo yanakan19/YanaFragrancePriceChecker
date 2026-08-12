@@ -70,6 +70,13 @@ scoring/ranking.
    Mistral, OpenRouter, Cloudflare, Cohere, etc. — all free tiers). Grab the
    unified `freellmapi-…` API key.
 
+   For pricesniffs.space specifically, skip this step: Yana's own instance
+   is already live at `https://yanny-freellmapi.fly.dev`, shared across her
+   apps (Google, Groq, Mistral, Cohere free tiers pooled — heavy use on one
+   app can rate-limit the others, see `docs/VIRTUAL-YANNY-DEPLOY.md`). Ask
+   for the real unified key rather than generating a new instance; it goes
+   in `.env`, never in this repo.
+
 2. Configure this app:
    ```bash
    cd YanaFreeAPIMerger
