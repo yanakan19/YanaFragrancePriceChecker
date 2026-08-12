@@ -26,7 +26,7 @@ import type { Retailer } from '../src/types/retailer.js';
 import { HOUSES } from '../src/config/houses.js';
 import { buildBrandCanon } from '../src/catalogue/brandName.js';
 import { findDuplicateGroups } from '../src/catalogue/productMatch.js';
-import { isFragrance, sizeMl, fragranceId } from '../src/catalogue/fragranceId.js';
+import { isFragrance, sizeMl, fragranceId, repairMojibake } from '../src/catalogue/fragranceId.js';
 
 /**
  * Retailers whose product photos may be displayed, and on what grounds.
@@ -657,7 +657,19 @@ if (existsSync(dir)) {
     const active = snapshot.listings.filter((l) => l.status === 'active');
     if (active.length > 0) liveShops++;
 
-    for (const l of active) {
+    for (const stored of active) {
+      // Repaired once, here, so the same text drives the fragrance decision,
+      // the brand match and the label a reader sees. MyBeauty.Boutique's feed
+      // arrives as UTF-8 decoded as Latin-1 — "Rosé" as "RosÃ©" — and 114 of
+      // those were already rendering that way on the live site. Doing this
+      // only at display time would leave the classifier reading different
+      // text from the one shown, which is how "ParfumÃ©e" came to pass the
+      // concentration test for the wrong reason. See repairMojibake.
+      const l = {
+        ...stored,
+        rawTitle: repairMojibake(stored.rawTitle),
+        rawBrand: stored.rawBrand === null ? null : repairMojibake(stored.rawBrand),
+      };
       considered++;
       if (!isFragrance(l)) {
         rejected++;

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { isFragrance } from '../src/catalogue/fragranceId.js';
+import { isFragrance, repairMojibake } from '../src/catalogue/fragranceId.js';
 import { RETAILERS, getRetailer } from '../src/config/retailers.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 
@@ -120,5 +120,61 @@ describe('fragranceOnlyCatalogue is opt-in and deliberately narrow', () => {
     // Both 'niche'. If anyone ever tries to derive the flag from tiers, this
     // is the pair that makes it impossible.
     expect(getRetailer('lush')?.tiers).toEqual(getRetailer('escentric-molecules')?.tiers);
+  });
+});
+
+describe('accented spellings still name a concentration', () => {
+  // Seven real bottles were dropped by this, all at Nicchia Luxury UK,
+  // including Kilian Good Girl Gone Bad at £205: "eau fraiche" was in the
+  // pattern from the start, but the shop spells it properly.
+  it.each([
+    'Kilian Good Girl Gone Bad Eau Fraîche 50 ml',
+    'Nicolai L’Eau Mixte Eau Fraîche 100 ml',
+    'Robert Piguet Fracas Eau Fraîche 25 ml',
+  ])('accepts an accented concentration: %s', (title) => {
+    expect(isFragrance(listing('nicchia-luxury-uk', title))).toBe(true);
+  });
+
+  // The regression the fold itself introduced, and why "parfumee" is now
+  // named in its own right. Before folding, "é" is not a word character, so
+  // "Parfumée" matched \bparfum\b by accident; folding removes that accidental
+  // boundary, and without its own entry this real bottle would have vanished.
+  it('accepts Eau Parfumée, which folding would otherwise have broken', () => {
+    expect(isFragrance(listing('allbeauty', 'Elizabeth Arden Green Tea Eau Parfumée Scent Spray 100ml'))).toBe(true);
+    expect(isFragrance(listing('allbeauty', 'Elizabeth Arden Green Tea Eau Parfumee Scent Spray 100ml'))).toBe(true);
+  });
+
+  it('does not let folding smuggle a non-fragrance past the reject list', () => {
+    expect(isFragrance(listing('escentual', 'Nuxe Crème Prodigieuse Body Cream 200ml'))).toBe(false);
+  });
+});
+
+describe('repairMojibake', () => {
+  // MyBeauty.Boutique's feed arrives UTF-8-decoded-as-Latin-1. 156 of its
+  // listings carry it and 114 were rendering that way on the live site.
+  it.each([
+    ['212 VIP RosÃ©', '212 VIP Rosé'],
+    ['Good Girl LÃ©gÃ¨re', 'Good Girl Légère'],
+    ['Roger & Gallet VÃ©tyver Eau ParfumÃ©e 100ml Splash', 'Roger & Gallet Vétyver Eau Parfumée 100ml Splash'],
+  ])('repairs %s', (broken, fixed) => {
+    expect(repairMojibake(broken)).toBe(fixed);
+  });
+
+  it('leaves correctly-encoded text alone', () => {
+    for (const t of ['Lancôme La Vie Est Belle', 'Eau Fraîche 50 ml', 'Molecule 01 100ml']) {
+      expect(repairMojibake(t)).toBe(t);
+    }
+  });
+
+  // The conservative guard. A title carrying BOTH correct UTF-8 and mojibake
+  // cannot be round-tripped without corrupting the correct half, so it is left
+  // exactly as it is rather than made worse. 29 such titles remain.
+  it('declines a mixed-encoding title rather than corrupting the good half', () => {
+    const mixed = 'Lancôme Ã”ff Now';
+    expect(repairMojibake(mixed)).toBe(mixed);
+  });
+
+  it('recovers a fragrance whose title was only mojibake-encoded', () => {
+    expect(isFragrance(listing('mybeauty-boutique', 'Roger & Gallet VÃ©tyver Eau ParfumÃ©e 100ml Splash'))).toBe(true);
   });
 });

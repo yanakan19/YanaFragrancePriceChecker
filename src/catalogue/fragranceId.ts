@@ -17,6 +17,16 @@ import { getRetailer } from '../config/retailers.js';
 /**
  * Concentrations, which are the strongest signal a listing is a scent.
  *
+ * "parfumee" earns its own entry rather than riding on "parfum". Titles are
+ * accent-folded before this runs (see `fold`), and before that folding the
+ * accented "Eau Parfumée" matched `\bparfum\b` only by accident: "é" is not a
+ * word character, so it acted as the word boundary "parfum" needs. Fold the
+ * accent away and "Parfumee" no longer has that boundary, which would have
+ * quietly dropped Elizabeth Arden Green Tea Eau Parfumée — a fix for one
+ * accent bug creating another. It is a real concentration in its own right
+ * (Elizabeth Arden, Roger & Gallet, Diptyque all use it), so naming it is
+ * both the fix and the more honest description.
+ *
  * "perfume" was a real gap here: a title reading "Chanel No 5 Perfume 100ml"
  * matched none of the French-derived terms and was silently rejected as not
  * a fragrance, despite being an obvious one — plain English listings (feeds
@@ -25,7 +35,7 @@ import { getRetailer } from '../config/retailers.js';
  * registry already models a 'mideast' tier for three retailers.
  */
 const CONCENTRATION =
-  /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche|parfum|perfume|edp|edt|edc|aftershave|cologne|extrait|attar|oud)\b/i;
+  /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche|eau parfumee|parfumee|parfum|perfume|edp|edt|edc|aftershave|cologne|extrait|attar|oud)\b/i;
 
 /**
  * Things that live near perfume in a sitemap but are not perfume.
@@ -74,8 +84,59 @@ function sellsOnlyFragrance(retailerId: string): boolean {
   return getRetailer(retailerId)?.fragranceOnlyCatalogue === true;
 }
 
+/**
+ * Drop diacritics so an accented spelling matches the plain one.
+ *
+ * "eau fraiche" has been in CONCENTRATION from the start, but a shop writing
+ * the word properly — "Eau Fraîche" — did not match it, and the listing was
+ * rejected as not a fragrance. That silently dropped seven real bottles from
+ * Nicchia Luxury UK, including Kilian Good Girl Gone Bad at £205 and Robert
+ * Piguet Fracas: the exact opposite of what a fragrance comparison is for,
+ * decided by a circumflex.
+ *
+ * Applied to the whole title before matching rather than by adding accented
+ * alternatives to the pattern, because the next European shop will spell
+ * "extrait de parfum" or "Crème" its own way too, and a list of accepted
+ * spellings only ever covers the ones already seen. NFD splits a letter into
+ * base + combining mark; the range stripped here is exactly the combining
+ * diacritics block, so nothing but accents is removed.
+ */
+function fold(title: string): string {
+  return repairMojibake(title).normalize('NFD').replace(/[̀-ͯ]/g, '');
+}
+
+/**
+ * Undo UTF-8 that was decoded as Latin-1 somewhere upstream.
+ *
+ * MyBeauty.Boutique's feed arrives this way: "Rosé" reaches us as "RosÃ©",
+ * "Légère" as "LÃ©gÃ¨re". 156 of its listings carry it, and 114 of those were
+ * already live on the site — a reader browsing today sees "212 VIP RosÃ©".
+ *
+ * It also broke classification in a way that only showed up once titles were
+ * accent-folded. "ParfumÃ©e" happens to match `\bparfum\b`, because "Ã" is
+ * not a word character and so supplies the boundary; repair or fold it and
+ * that accidental boundary goes, taking a real Roger & Gallet bottle with it.
+ * So the repair belongs here, ahead of folding, rather than only at display
+ * time: the same text has to drive both the decision and the label.
+ *
+ * Deliberately conservative. The round trip only replaces the title when the
+ * result is strictly better — no U+FFFD replacement characters, and the
+ * tell-tale sequences actually present — so a title containing a legitimate
+ * "Ã" is left exactly as it is.
+ */
+export function repairMojibake(title: string): string {
+  if (!/Ã.|â€|Â./.test(title)) return title;
+  try {
+    const repaired = Buffer.from(title, 'latin1').toString('utf8');
+    if (repaired.includes('�')) return title;
+    return repaired;
+  } catch {
+    return title;
+  }
+}
+
 export function isFragrance(l: StoredListing): boolean {
-  const t = l.rawTitle;
+  const t = fold(l.rawTitle);
   if (NOT_A_FRAGRANCE.test(t)) return false;
   if (sizeMl(t) === null) return false;
   if (l.priceGbp === null || l.priceGbp <= 0) return false;
