@@ -79,6 +79,18 @@ on:
         description: 'Sync every affiliate-feed retailer against the Awin Feed List Download URL. Requires the AWIN_FEED_LIST_URL secret.'
         type: boolean
         default: false
+      awin_feed_diag_shop:
+        description: 'Debug: print the column headers and price-ish column values for one product in one Awin retailer feed (e.g. mybeauty-boutique). Never writes anything, never prints the feed URL or a full row. Empty runs no diagnostic.'
+        type: string
+        default: ''
+      awin_feed_diag_match:
+        description: 'Debug: substring of product_name to match for awin_feed_diag_shop.'
+        type: string
+        default: ''
+      awin_feed_diag_sku:
+        description: 'Debug: exact merchant_product_id to match for awin_feed_diag_shop, as an alternative or addition to awin_feed_diag_match.'
+        type: string
+        default: ''
       deals_refresh:
         description: 'Force a Top Deals Today snapshot outside its normal 00/06/12/18 UTC schedule.'
         type: boolean
@@ -250,6 +262,22 @@ jobs:
             "Awin feed sync: $(date -u +%Y-%m-%d)" \
             data/catalogue data/awin-feed-sync-state.json demo/catalogue.generated.ts \
             demo/priceHistory.generated.ts demo/index.html demo/404.html
+
+      # Manual-only debug aid: prints the column headers and the values of
+      # price-ish columns for one matched product row in one named Awin
+      # retailer's feed. Writes nothing, commits nothing. Only ever prints
+      # column names and one product's price-ish values — see
+      # scripts/awin-feed-diag.ts's own header comment for what it withholds
+      # and why (never the feed URL, never a full row).
+      - name: Awin feed diagnostic
+        if: ${{ inputs.awin_feed_diag_shop != '' }}
+        env:
+          AWIN_FEED_LIST_URL: ${{ secrets.AWIN_FEED_LIST_URL }}
+        run: |
+          npm run awin:feed-diag -- \
+            --shop=${{ inputs.awin_feed_diag_shop }} \
+            ${{ inputs.awin_feed_diag_match && format('--match={0}', inputs.awin_feed_diag_match) || '' }} \
+            ${{ inputs.awin_feed_diag_sku && format('--sku={0}', inputs.awin_feed_diag_sku) || '' }}
 
       # "Top Deals Today" moves on its own fixed 6-hourly cadence rather than
       # every hourly tick like everything else — see scripts/build-deals.ts's
