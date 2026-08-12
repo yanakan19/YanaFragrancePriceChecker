@@ -735,6 +735,12 @@ function fragranceTile(
   // a sold-out tile is never shorter than an in-stock neighbour; it just
   // never claims a specific shop.
   const badgeRetailer = best?.retailer.name ?? null;
+  // "from" when the figure above is a delivered price the shop won on against
+  // others, "at" when it is that one shop's own item price with delivery not
+  // stated — the same distinction priceLine already draws in its wording, so
+  // the balloon and the number above it never disagree about what is being
+  // shown.
+  const badgePrefix = best && best.deliveredPriceGbp !== null ? 'from' : 'at';
   const medal = opts?.rank !== undefined && opts.rank < 3 ? MEDALS[opts.rank] : null;
   // Two sibling buttons, not one wrapping the other: the brand's own control
   // and the rest of the tile (name, art, price, shop) each need their own
@@ -749,7 +755,7 @@ function fragranceTile(
           ${productArt(f.photoUrl, 'md', `${f.brand} ${f.name}`)}
         </span>
         <span class="tile-price">${opts?.trailing ?? priceLine(f)}</span>
-        ${badgeRetailer ? `<span class="sold-by">${esc(badgeRetailer)}</span>` : `<span class="sold-by" aria-hidden="true" style="visibility:hidden">&nbsp;</span>`}
+        ${badgeRetailer ? `<span class="sold-by"><span>${badgePrefix} ${esc(badgeRetailer)}</span></span>` : `<span class="sold-by" aria-hidden="true" style="visibility:hidden"><span>&nbsp;</span></span>`}
       </button>
     </div>
   </li>`;
