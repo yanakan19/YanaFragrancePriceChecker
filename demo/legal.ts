@@ -12,7 +12,41 @@
  * House style for every string in this file: no hyphens, no en dashes and no em
  * dashes anywhere in reader facing text. Where a compound would normally take a
  * hyphen, reword it.
+ *
+ * ── Why the numbers below are computed, not typed ────────────────────────────
+ * Every count on the About page is derived from the registry and the built
+ * catalogue at load time. They were hardcoded until 2026-08-12, and by then
+ * every one of them had drifted: the page told readers the site covered "35 UK
+ * shops" and "1,912 fragrances" when it was 29 enabled shops and 15,448
+ * fragrances, and claimed prices were checked "every hour, so 24 times a day"
+ * after the harvest schedule had moved to every two hours. A page whose whole
+ * argument is that this site does not misstate things cannot itself carry
+ * seven stale figures, and a number typed by hand will always drift again.
+ * The one figure still written by hand is the test count, because nothing in
+ * the browser bundle can count the test suite; it is checked against
+ * `npm test` when this file is touched.
  */
+import { RETAILERS } from '../src/config/retailers.js';
+import { DEMO_FRAGRANCES } from './data.js';
+
+const n = (v: number) => v.toLocaleString('en-GB');
+
+/** Shops we actually fetch from today, as opposed to entries in the registry. */
+const ENABLED = RETAILERS.filter((r) => r.enabled);
+/** Researched but not switched on, usually pending a delivery cost or a route. */
+const SWITCHED_OFF = RETAILERS.filter((r) => !r.enabled);
+/** Programmes actually approved, so a link genuinely earns commission. */
+const COMMISSIONED = RETAILERS.filter((r) => r.affiliate.status === 'active');
+/**
+ * Enabled shops whose standard delivery cost is not established. These are
+ * shown with delivery not stated and can never rank as cheapest — see
+ * buildComparison. Naming them here keeps the About page's example honest
+ * even as the list changes.
+ */
+const DELIVERY_UNSTATED = ENABLED.filter((r) => r.shipping.standardGbp === null);
+
+/** Hand checked against `npm test` whenever this file is edited. */
+const TEST_COUNT = 339;
 
 export const COMPANY = {
   name: 'PriceSniffs',
@@ -37,17 +71,17 @@ export const LEGAL_PAGES: LegalPage[] = [
     title: 'About PriceSniffs',
     short: 'About',
     body: `
-      <p>PriceSniffs tells you what a bottle of fragrance actually costs across 35 UK shops, delivery included. Right now that covers 1,912 fragrances.</p>
+      <p>PriceSniffs tells you what a bottle of fragrance actually costs across ${ENABLED.length} UK shops, delivery included. Right now that covers ${n(DEMO_FRAGRANCES.length)} fragrances.</p>
       <p>Hi, I am Yanny.</p>
       <p>This started because I kept getting caught out. I bought a 100ml bottle of Club de Nuit, felt pleased with myself, and spotted it twelve pounds cheaper four days later. Comparing by hand meant nine tabs open across Boots, Notino and Beauty Base, and half of them hid the postage until I reached checkout.</p>
-      <p>So I spent five days building the thing I wanted to use. Go and look at what the shops charge right now, add the delivery they will actually bill you, put the answer on one screen. Roughly 250 tests keep it honest.</p>
+      <p>So I spent five days building the thing I wanted to use. Go and look at what the shops charge right now, add the delivery they will actually bill you, put the answer on one screen. ${TEST_COUNT} tests keep it honest.</p>
       <h3 class="t-section">What it does</h3>
-      <p>Prices are checked every hour, so 24 times a day. Boots, Selfridges, Superdrug, LOOKFANTASTIC, Escentual and the rest all get looked at on the same clock. Not one of those 1,912 prices is typed in by hand. A fragrance shows up here because a shop was genuinely selling it when we looked, and the number beside it came off that page.</p>
-      <p>Delivery terms get their own check twice a day, at 6am and 6pm. Boots posts free once you spend £25 and charges £3.95 under that. Harvey Nichols wants £300, which one bottle will never reach, so its listings always carry £5.95 on top. Shops rewrite those rules maybe twice a year, so checking them hourly would be 24 times the effort for the same answer.</p>
+      <p>Prices are checked every two hours, so 12 times a day. Boots, Selfridges, Superdrug, LOOKFANTASTIC, Escentual and the rest all get looked at on the same clock. Not one of those ${n(DEMO_FRAGRANCES.length)} prices is typed in by hand. A fragrance shows up here because a shop was genuinely selling it when we looked, and the number beside it came off that page.</p>
+      <p>Delivery terms get their own check twice a day, at 6am and 6pm. Boots posts free once you spend £25 and charges £3.95 under that. Harvey Nichols wants £300, which one bottle will never reach, so its listings always carry £5.95 on top. Shops rewrite those rules maybe twice a year, so checking them on the price clock would be six times the effort for the same answer.</p>
       <p>That gap between Boots and Harvey Nichols is the whole point. A bottle at £24.99 from Superdrug can cost you more than the same bottle at £26 from Beauty Base, once postage lands.</p>
       <h3 class="t-section">Being straight with you</h3>
-      <p>If we do not know something, we say so instead of filling the gap with a guess. Thirteen of the 35 shops sit switched off for exactly that reason. Take Manchester Ouds. Their site advertises free postage over £50 but never prints what it charges below that, so they stay switched off entirely until someone reads it. Sounds harsh over one missing number. But a blank postage figure quietly counted as zero would shove that shop to the top of every result as the cheapest, and it would be a lie.</p>
-      <p>Nothing here is a paid placement. No shop buys its way up. We earn commission on four of the 35, and on those the link still lands exactly where it would have anyway.</p>
+      <p>If we do not know something, we say so instead of filling the gap with a guess. ${SWITCHED_OFF.length} of the ${RETAILERS.length} shops researched so far sit switched off, most of them waiting on a delivery cost or on a way to read their listings at all. Take Manchester Ouds. Their site advertises free postage over £50 but never prints what it charges below that. They are switched on, and their listings carry the words delivery not stated instead of a made up number, which also means they can never come out cheapest however low the bottle price is. ${DELIVERY_UNSTATED.length} shops sit in that state today: ${DELIVERY_UNSTATED.map((r) => r.name).join(', ')}. Sounds fussy over one missing figure. But a blank postage cost quietly counted as zero would shove a shop to the top of every result as the cheapest, and it would be a lie.</p>
+      <p>Nothing here is a paid placement. No shop buys its way up. We earn commission on ${COMMISSIONED.length} of them, and on those the link still lands exactly where it would have anyway.</p>
       <h3 class="t-section">About the photos</h3>
       <p>Every product photo loads straight from the shop's own website. PriceSniffs does not copy them, save them, or put them on its own server. Your browser fetches that picture from Justmylook or Allbeauty exactly as it would if you were stood on their page, and it sits beside a link sending you to buy from them. Fragrance Click told us in writing we may use theirs, so we note that. For the rest we say plainly that we have no such permission. Any shop that wants us to stop, whether that is Notino or Harvey Nichols or anyone else, we stop, the day they ask.</p>
       <h3 class="t-section">Finding what you want</h3>
