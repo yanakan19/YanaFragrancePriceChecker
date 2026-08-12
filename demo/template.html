@@ -533,23 +533,12 @@
      on its own. */
 
   /* ── hero entrance ─────────────────────────────────────────────────────────
-     Each piece of the hero rises into place a beat after the one above it.
-     The stagger is what makes it read as composed rather than as everything
-     arriving at once.
-
-     `backwards` matters: it holds the from-state through the delay, so a
-     later item is invisible while it waits instead of flashing at full
-     opacity and then starting. The base rules deliberately never set
-     opacity: 0 — under prefers-reduced-motion the global rule below strips
-     the animation entirely, and anything hidden in a base rule would then
-     stay hidden forever. */
-  @keyframes rise {
-    from { opacity: 0; transform: translateY(14px); }
-    to   { opacity: 1; transform: none; }
-  }
-  .hero-wordmark, .hero-by, .hero-mission, .intro-points span, .db-count {
-    animation: rise .75s cubic-bezier(.22, 1, .36, 1) backwards;
-  }
+     There isn't one any more, and that is the point. Each piece of the
+     greeting used to rise separately on a .75s curve of its own with hand
+     written .08s/.16s/.26s/.34s/.42s delays -- a second rise keyframe, a
+     third easing curve, and five nested animations inside a view that was
+     already rising as one block. Behaviour 1 in the motion section is one
+     rise per block, never nested, and the block here is the view. */
 
   .hero-wordmark {
     margin: 0; font-size: 38px; font-weight: 800; letter-spacing: -.035em; line-height: 1;
@@ -557,12 +546,10 @@
   .hero-by {
     margin: 9px 0 0; font-size: 11.5px; font-weight: 700; letter-spacing: .16em;
     text-transform: uppercase; color: var(--faint);
-    animation-delay: .08s;
   }
   .hero-mission {
     margin: 18px auto 0; width: 90%; font-size: 17px; font-weight: 600;
     color: var(--ink); text-align: center; letter-spacing: -.01em;
-    animation-delay: .16s;
   }
   /* Three quiet italic phrases rather than a bulleted list — no marker, no
      dot, nothing claiming these are steps or options. A plain <p> with
@@ -582,15 +569,11 @@
     font-style: italic; font-weight: 500; font-size: 14px;
     letter-spacing: .01em; color: var(--ink-2);
   }
-  .intro-points span:nth-child(1) { animation-delay: .26s; }
-  .intro-points span:nth-child(2) { animation-delay: .34s; }
-  .intro-points span:nth-child(3) { animation-delay: .42s; }
   /* The count is a fact, not a claim, so it sits apart from the phrases
      above rather than reading like a fourth one: smaller, quieter, upright. */
   .db-count {
     margin: 18px 0 0; font-size: 12.5px; font-weight: 600;
     letter-spacing: .02em; color: var(--faint); text-align: center;
-    animation-delay: .48s;
   }
 
   /* Sized off the count's own font-size (1em), so it can never read larger
@@ -1647,16 +1630,14 @@
 
   .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-  /* ── view transition ───────────────────────────────────────────────────── */
-  /* #view's content is replaced wholesale on every navigation, so wrapping
-     each fresh render in this class is enough: it is a new element every
-     time, and a CSS animation on a newly inserted element just plays. No
-     retriggering logic needed. */
-  .view-fade { animation: viewIn .32s cubic-bezier(.16,.8,.4,1) both; }
-  @keyframes viewIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: none; }
-  }
+  /* ── view transition ─────────────────────────────────────────────────────
+     #view's content is replaced wholesale on every navigation, so the wrapper
+     render() puts round each fresh view is a new element every time and a CSS
+     animation on it just plays -- no retriggering logic needed. That wrapper
+     now carries .ps-rise itself (see behaviour 1 in the motion section);
+     there is nothing left to declare here. It was a third rise keyframe with
+     its own .32s and its own cubic-bezier, doing what the primitive already
+     does at --dur-3 on --ease-standard. */
 
   /* ── desktop layout ───────────────────────────────────────────────────────
      Same markup, a different arrangement: a genuinely wider page, a browse
@@ -1714,7 +1695,7 @@
     }
     /* The float is taller than the results only when a filter has narrowed
        them to almost nothing, and it must not then escape the view. */
-    :root[data-layout="desktop"] .view-fade:has(.facets) { display: flow-root; }
+    :root[data-layout="desktop"] .ps-rise:has(.facets) { display: flow-root; }
   }
 
   /* Desktop takes the reader's chosen column count literally: equal tracks

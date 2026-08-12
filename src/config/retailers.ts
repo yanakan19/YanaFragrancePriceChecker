@@ -747,6 +747,26 @@ export const RETAILERS: readonly Retailer[] = [
     // check — the gendered /collections/fragrances-for-women(-men) paths
     // this config guessed earlier do not appear to be the real ones.
     adapter: 'unknown',
+    // The note above already said this storefront is Shopify, but nothing
+    // acted on it: without this flag the harvest only ever ran the generic
+    // sitemap walk. Run #161 (2026-08-12) is what makes it worth setting.
+    // With the hostname bug fixed, Escentual finally fetched 70 genuine
+    // product pages rather than CMS pages — and still priced nothing. The
+    // three URLs the run sampled are all /products/<handle>:
+    //   escentual.com/products/acqua-di-parma-peonia-nobile-eau-de-parfum-spray
+    //   escentual.com/products/4160-tuesdays-london-1969-eau-de-parfum-spray
+    //   escentual.com/products/acqua-di-parma-osmanthus-eau-de-parfum-spray
+    // That is Shopify's own product path convention, and /products.json is
+    // the same endpoint that answered for Escentric Molecules in a single
+    // request where 70 page fetches had answered with nothing.
+    //
+    // Safe to set on a convention rather than a confirmed spike, because
+    // scripts/catalogue-harvest.ts keeps the Shopify result only when the
+    // endpoint really is Shopify AND returned listings; anything else falls
+    // straight through to crawlViaSitemap, which is exactly today's
+    // behaviour. The downside case is the walk this shop already does — 70
+    // fetches for zero listings, 5m38s of run #158 and 5m36s of #161.
+    shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
       standardGbp: 2.45,

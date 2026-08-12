@@ -2622,9 +2622,12 @@ function render(): void {
                         ? accountView()
                         : legalView();
 
-  // The wrapper is a fresh element on every render, so the fade it carries just
-  // plays on insertion. No JS animation retriggering needed.
-  $('#view').innerHTML = `<div class="view-fade">${body}</div>`;
+  // The wrapper is a fresh element on every render, so the rise it carries
+  // just plays on insertion. No JS animation retriggering needed. It is the
+  // design system's own .ps-rise (behaviour 1: content entering a view), not
+  // a class of its own — this is the one block on the page that rises, and
+  // one rise per block is the whole rule.
+  $('#view').innerHTML = `<div class="ps-rise">${body}</div>`;
 
   // Any list that emitted a sentinel now gets its observer. Done here rather
   // than inside each view so no view has to remember to do it.
