@@ -15,7 +15,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-08-12T00:10:32.989Z";
+export const DEALS_GENERATED_AT = "2026-08-12T06:19:33.143Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -1573,6 +1573,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "emirates-oud-15573114880349-default-title",
+    "price": 31.99,
+    "wasPrice": 50,
+    "percentOff": 36,
+    "retailerId": "emirates-oud"
+  },
+  {
     "fragranceId": "emirates-oud-15857972019549-100ml",
     "price": 16.99,
     "wasPrice": 30,
@@ -2931,6 +2938,20 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3349668630332",
+    "price": 54.95,
+    "wasPrice": 76,
+    "percentOff": 27,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3349668630349",
+    "price": 71.95,
+    "wasPrice": 113,
+    "percentOff": 36,
+    "retailerId": "fragrance-click"
+  },
+  {
     "fragranceId": "ean-3349668636648",
     "price": 79.95,
     "wasPrice": 149,
@@ -3880,13 +3901,6 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 39.99,
     "wasPrice": 50,
     "percentOff": 20,
-    "retailerId": "emirates-oud"
-  },
-  {
-    "fragranceId": "emirates-oud-15573114880349-100ml",
-    "price": 31.99,
-    "wasPrice": 50,
-    "percentOff": 36,
     "retailerId": "emirates-oud"
   },
   {
@@ -14901,20 +14915,6 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-3349668630332",
-    "price": 54.95,
-    "wasPrice": 76,
-    "percentOff": 27,
-    "retailerId": "fragrance-click"
-  },
-  {
-    "fragranceId": "ean-3349668630349",
-    "price": 71.95,
-    "wasPrice": 113,
-    "percentOff": 36,
-    "retailerId": "fragrance-click"
-  },
-  {
     "fragranceId": "ean-3349668630356",
     "price": 96.95,
     "wasPrice": 140,
@@ -15416,6 +15416,13 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 42.99,
     "wasPrice": 70,
     "percentOff": 38,
+    "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "emirates-oud-16407133716829-default-title",
+    "price": 49.99,
+    "wasPrice": 80,
+    "percentOff": 37,
     "retailerId": "emirates-oud"
   },
   {
