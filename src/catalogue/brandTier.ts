@@ -11,6 +11,22 @@ const MIDEAST_HOUSES = new Set([
   'armaf', 'afnan', 'al rehab', 'nusuk', 'khalis', 'surrati',
   'arabian oud', 'junaid jamshed', 'my perfumes', 'lattafa pride',
   'french avenue', 'street origins', 'maison asrar', 'mykonos',
+
+  // Added 2026-08-12: this list predated Emirates Oud's ~2,500-listing
+  // catalogue going live, and most of what it actually carries was missing
+  // from it — every offer from a brand not in this set falls through to the
+  // price-derived designer/niche split, which does not match Emirates Oud's
+  // own tiers: ['mideast'], so buildComparison's `tier` filter (see
+  // priceService.ts) silently dropped the offer from every tier-filtered
+  // view. For a fragrance Emirates Oud is the only seller of, that meant it
+  // read as sold out everywhere despite being genuinely in stock — reported
+  // directly for 'Fragrance World'; checked the rest of Emirates Oud's own
+  // top brands against this set and found eighteen more of the same gap.
+  'fragrance world', 'maison alhambra', 'ard al zaafaran', 'paris corner',
+  'khadlaj', 'bujairami', 'rayhaan', 'reef perfumes', 'riiffs',
+  'pendora scents', 'dkhoon emirates', 'ahmed al maghribi', 'zimaya',
+  'gulf orchid', 'arabiyat', 'ibraheem al qurashi', 'risala', 'risala elite',
+  'assaf', 'privee couture collection',
 ]);
 
 /**
