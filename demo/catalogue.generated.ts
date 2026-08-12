@@ -268,17 +268,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-8411061026342",
-    "brand": "Carolina Herrera",
-    "name": "Good Girl",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": "8411061026342",
-    "shops": 4,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/7/171_1.jpg",
-    "notes": null
-  },
-  {
     "id": "ean-8411061995754",
     "brand": "Carolina Herrera",
     "name": "Very Good Girl",
@@ -1868,17 +1857,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-719346065405",
-    "brand": "Britney Spears",
-    "name": "Fantasy",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "719346065405",
-    "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1473437351-55810800.jpg?v=1763388805&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-719346107297",
     "brand": "Britney Spears",
     "name": "Midnight Fantasy",
@@ -2348,6 +2326,23 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-8411061777183",
+    "brand": "Carolina Herrera",
+    "name": "212 VIP Rosé",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "8411061777183",
+    "shops": 3,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728391010-28806500.jpg?v=1763389286&width=1920",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Musk"
+      ]
+    }
+  },
+  {
     "id": "ean-8411061099735",
     "brand": "Carolina Herrera",
     "name": "Bad Boy",
@@ -2368,36 +2363,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://www.justmylook.com/cdn/shop/files/CHER0014.png?v=1769523257&width=1000",
     "notes": null
-  },
-  {
-    "id": "ean-8411061041673",
-    "brand": "Carolina Herrera",
-    "name": "Good Girl",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 30,
-    "ean": "8411061041673",
-    "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728304101-48864900.jpg?v=1763399448&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-8411061026250",
-    "brand": "Carolina Herrera",
-    "name": "Good Girl",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "8411061026250",
-    "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728299362-00231600.jpg?v=1763399450&width=1920",
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Cacao",
-        "Vanilla",
-        "Musk"
-      ]
-    }
   },
   {
     "id": "ean-8411061056776",
@@ -7925,10 +7890,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Sandalwood"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-arm0013",
     "brand": "Armaf",
@@ -7975,7 +7937,10 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       ],
       "base": []
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
   {
     "id": "justmylook-arm0052",
     "brand": "Armaf",
@@ -8674,6 +8639,17 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-00719346065399",
+    "brand": "Britney Spears",
+    "name": "Fantasy",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "00719346065399",
+    "shops": 2,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "justmylook-brit0019",
     "brand": "Britney Spears",
     "name": "Fantasy Sheer",
@@ -8733,6 +8709,17 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "ean": null,
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/BRIT0021.png?v=1736413694&width=1000",
+    "notes": null
+  },
+  {
+    "id": "ean-00719346107297",
+    "brand": "Britney Spears",
+    "name": "Midnight Fantasy",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "00719346107297",
+    "shops": 2,
+    "image": null,
     "notes": null
   },
   {
@@ -9663,6 +9650,17 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-0088300601301",
+    "brand": "Calvin Klein",
+    "name": "Eternity For Women",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "0088300601301",
+    "shops": 2,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-3616303476809",
     "brand": "Calvin Klein",
     "name": "Eternity For Women Aromatic Essence Intense",
@@ -9943,23 +9941,6 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-8411061777183",
-    "brand": "Carolina Herrera",
-    "name": "212 VIP Rosé",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "8411061777183",
-    "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728391010-28806500.jpg?v=1763389286&width=1920",
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Musk"
-      ]
-    }
-  },
-  {
     "id": "justmylook-cherr0015",
     "brand": "Carolina Herrera",
     "name": "Bad Boy",
@@ -10110,6 +10091,17 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "ean": "8411061083772",
     "shops": 2,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-8411061026342",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": "8411061026342",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/7/171_1.jpg",
     "notes": null
   },
   {
@@ -10426,6 +10418,50 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "Coach"
       ]
     }
+  },
+  {
+    "id": "ean-3386460126571",
+    "brand": "Coach",
+    "name": "Wild Rose",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 90,
+    "ean": "3386460126571",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1761824737-24429100.jpg?v=1763399335&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3386460157315",
+    "brand": "Coach",
+    "name": "Woman Gold",
+    "concentration": "Parfum",
+    "sizeMl": 30,
+    "ean": "3386460157315",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1759412367-40661200.jpg?v=1763399195&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3386460157308",
+    "brand": "Coach",
+    "name": "Woman Gold",
+    "concentration": "Parfum",
+    "sizeMl": 50,
+    "ean": "3386460157308",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1759411702-54874200.jpg?v=1763399196&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3386460156707",
+    "brand": "Coach",
+    "name": "Woman Gold",
+    "concentration": "Parfum",
+    "sizeMl": 90,
+    "ean": "3386460156707",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1759411832-89630700.jpg?v=1763399198&width=1920",
+    "notes": null
   },
   {
     "id": "ean-8425402313411",
@@ -11733,6 +11769,25 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 2,
     "image": null,
     "notes": null
+  },
+  {
+    "id": "ean-3423473095651",
+    "brand": "Elie Saab",
+    "name": "Girl of Now Shine",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3423473095651",
+    "shops": 2,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [
+        "Orange Blossom",
+        "Jasmine",
+        "Ylang-Ylang"
+      ],
+      "base": []
+    }
   },
   {
     "id": "ean-7640233342565",
@@ -14638,7 +14693,10 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "ean-8435415059060",
     "brand": "Jean Paul Gaultier",
@@ -14699,10 +14757,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/JPG0043.png?v=1753445106&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8435415055963",
     "brand": "Jean Paul Gaultier",
@@ -21378,7 +21433,10 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/VAL0079.jpg?v=1737651015&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-3614272761452",
     "brand": "Valentino",
@@ -21433,10 +21491,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/valentino-uomo-intense-eau-de-parfum-50ml-p27979-69787_image.jpg?v=1721322363&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614272732278",
     "brand": "Valentino",
@@ -29085,7 +29140,10 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Saat-Safa-Perfume-Oil-6ml-Al-Rehab-169952386.jpg?v=1750893467",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "ean-6291110090942",
     "brand": "Al Rehab",
@@ -29165,10 +29223,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Secret-Lady-Perfume-Oil-6ml-Al-Rehab-169952720.jpg?v=1750893758",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-9211575468381-default-title",
     "brand": "Al Rehab",
@@ -30328,6 +30383,39 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-0652685682035",
+    "brand": "Alyssa Ashley",
+    "name": "Essence de Patchouli",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "0652685682035",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-0652685672036",
+    "brand": "Alyssa Ashley",
+    "name": "Oud Pour Elle",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "0652685672036",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-0652685672050",
+    "brand": "Alyssa Ashley",
+    "name": "Oud Pour Elle",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "0652685672050",
     "shops": 1,
     "image": null,
     "notes": null
@@ -37267,7 +37355,10 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Tobacco"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416633684105-45146963574921",
     "brand": "Armaf",
@@ -37378,10 +37469,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-9759862620509-default-title",
     "brand": "Armaf",
@@ -40239,6 +40327,39 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-0737129098105",
+    "brand": "Arran Sense of Scotland",
+    "name": "Arran After the Rain",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "0737129098105",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-737129104066",
+    "brand": "Arran Sense of Scotland",
+    "name": "Arran After The Rain",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 15,
+    "ean": "737129104066",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-0737129105599",
+    "brand": "Arran Sense of Scotland",
+    "name": "Arran Kildonan",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "0737129105599",
     "shops": 1,
     "image": null,
     "notes": null
@@ -45015,7 +45136,10 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338175819913-44926994907273",
     "brand": "Blood Concept",
@@ -45174,10 +45298,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
+  },
   {
     "id": "ean-5060215062342",
     "brand": "Boadicea The Victorious",
@@ -49413,12 +49534,45 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8338177491081-44926999429257",
+    "id": "ean-719346065405",
     "brand": "Britney Spears",
     "name": "Fantasy",
     "concentration": "Eau de Parfum",
-    "sizeMl": 50,
+    "sizeMl": 100,
+    "ean": "719346065405",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1473437351-55810800.jpg?v=1763388805&width=1920",
+    "notes": null
+  },
+  {
+    "id": "justmylook-brit0001",
+    "brand": "Britney Spears",
+    "name": "Fantasy",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
     "ean": null,
+    "shops": 1,
+    "image": "https://www.justmylook.com/cdn/shop/files/britney-spears-fantasy-eau-de-parfum-100ml-p22273-49037_image.jpg?v=1721322131&width=1000",
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338177425545-44926999363721",
+    "brand": "Britney Spears",
+    "name": "Fantasy",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-0719346065405",
+    "brand": "Britney Spears",
+    "name": "Fantasy",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "0719346065405",
     "shops": 1,
     "image": null,
     "notes": null
@@ -49488,17 +49642,6 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "name": "Hidden Fantasy",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338177687689-44926999658633",
-    "brand": "Britney Spears",
-    "name": "Midnight Fantasy",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -51397,7 +51540,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/LegacyExtrait.jpg?v=1783348329&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16269530825053-default-title",
     "brand": "Bujairami",
@@ -51626,10 +51772,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-16297072001373-default-title",
     "brand": "Bujairami",
@@ -56673,12 +56816,12 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8338185945225-44927012208777",
+    "id": "ean-0088300601387",
     "brand": "Calvin Klein",
     "name": "Eternity For Women",
     "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
+    "sizeMl": 30,
+    "ean": "0088300601387",
     "shops": 1,
     "image": null,
     "notes": null
@@ -58102,6 +58245,17 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-8411061781197",
+    "brand": "Carolina Herrera",
+    "name": "212 VIP Rose",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "8411061781197",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-8411061083482",
     "brand": "Carolina Herrera",
     "name": "212 VIP Rose Elixir",
@@ -58213,7 +58367,10 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154_1.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
   {
     "id": "ean-8411061065112",
     "brand": "Carolina Herrera",
@@ -58399,10 +58556,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Guaiac Wood"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8411061934234",
     "brand": "Carolina Herrera",
@@ -58580,6 +58734,135 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 80,
     "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-8411061041673",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "8411061041673",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728304101-48864900.jpg?v=1763399448&width=1920",
+    "notes": null
+  },
+  {
+    "id": "justmylook-cherr0001",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0001_7143f1b1-b91f-45d3-89ed-825a1a74f4d7.png?v=1765452783&width=1000",
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338379997321-44927310168201",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-8411061823514",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "8411061823514",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-8411061026250",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "8411061026250",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1728299362-00231600.jpg?v=1763399450&width=1920",
+    "notes": null
+  },
+  {
+    "id": "justmylook-cherr0002",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0002.png?v=1765452783&width=1000",
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338191089801-44927025512585",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Cacao",
+        "Vanilla",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "ean-8411061819838",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "8411061819838",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-cherr0003",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": null,
+    "shops": 1,
+    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0003_5cdec4df-4b27-4d6e-8f90-8d72641f1343.png?v=1765452782&width=1000",
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338191220873-44927025643657",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-8411061818961",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": "8411061818961",
     "shops": 1,
     "image": null,
     "notes": null
@@ -64249,17 +64532,6 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3386460126571",
-    "brand": "Coach",
-    "name": "Wild Rose",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 90,
-    "ean": "3386460126571",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1761824737-24429100.jpg?v=1763399335&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-3386460171526",
     "brand": "Coach",
     "name": "Woman Cherry",
@@ -64290,39 +64562,6 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "ean": "3386460171496",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/CoachCherry1_ddbdd976-eff4-4563-b5f7-24c793855dfa.jpg?v=1778148073&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3386460157315",
-    "brand": "Coach",
-    "name": "Woman Gold",
-    "concentration": "Parfum",
-    "sizeMl": 30,
-    "ean": "3386460157315",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1759412367-40661200.jpg?v=1763399195&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3386460157308",
-    "brand": "Coach",
-    "name": "Woman Gold",
-    "concentration": "Parfum",
-    "sizeMl": 50,
-    "ean": "3386460157308",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1759411702-54874200.jpg?v=1763399196&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3386460156707",
-    "brand": "Coach",
-    "name": "Woman Gold",
-    "concentration": "Parfum",
-    "sizeMl": 90,
-    "ean": "3386460156707",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1759411832-89630700.jpg?v=1763399198&width=1920",
     "notes": null
   },
   {
@@ -64368,7 +64607,10 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "ean-8435747001911",
     "brand": "Contes de Parfums",
@@ -64630,10 +64872,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416661635209-45147020689545",
     "brand": "CourrÃ¨ges",
@@ -70671,7 +70910,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "White Woods"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "ean-3423473020783",
     "brand": "Dolce & Gabbana",
@@ -70975,10 +71217,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/Violet.jpg?v=1781784783&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338202493065-44927040028809",
     "brand": "Dolce & Gabbana",
@@ -72191,6 +72430,17 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-8011530909956",
+    "brand": "Dsquared2",
+    "name": "Potion Woman Oil",
+    "concentration": "Perfume",
+    "sizeMl": 15,
+    "ean": "8011530909956",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "mybeauty-boutique-shopify-gb-8338208063625-44927047237769",
     "brand": "Dsquared2",
     "name": "Red For Women Wood",
@@ -73022,6 +73272,17 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3423478481350",
+    "brand": "Elie Saab",
+    "name": "Girl of Now Forever",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 90,
+    "ean": "3423478481350",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "mybeauty-boutique-shopify-gb-8338209636489-44927049105545",
     "brand": "Elie Saab",
     "name": "Girl Of Now Forever",
@@ -73110,25 +73371,6 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8338209865865-44927049465993",
-    "brand": "Elie Saab",
-    "name": "Girl Of Now Shine",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [
-        "Orange Blossom",
-        "Jasmine",
-        "Ylang-Ylang"
-      ],
-      "base": []
-    }
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8338209996937-44927049629833",
     "brand": "Elie Saab",
     "name": "Girl Of Now Shine",
@@ -73163,6 +73405,28 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "ean": "7640233342558",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1744363068-52729400.jpg?v=1763397531&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-7640233340462",
+    "brand": "Elie Saab",
+    "name": "Le Parfum Absolu",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "7640233340462",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-7640233340479",
+    "brand": "Elie Saab",
+    "name": "Le Parfum Absolu",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "7640233340479",
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -76998,7 +77262,10 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "ean-3760168594267",
     "brand": "Etat Libre d'Orange",
@@ -77262,10 +77529,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3760168591914",
     "brand": "Etat Libre d'Orange",
@@ -86250,7 +86514,10 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "Labdanum"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15422858068317-default-title",
     "brand": "Fragrance World",
@@ -86869,10 +87136,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "Tonka Bean"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15889056072029-default-title",
     "brand": "Fragrance World",
@@ -95360,7 +95624,10 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "ean-5038607129119",
     "brand": "Geo F. Trumper Perfumer",
@@ -95624,10 +95891,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1752232626-54054300.jpg?v=1763398247&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-ghost0010",
     "brand": "Ghost",
@@ -101685,7 +101949,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1738243888-84304800.jpg?v=1763397034&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338363023497-44927283757193",
     "brand": "Guess",
@@ -102004,10 +102271,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15676150677853-default-title",
     "brand": "Gulf Orchid",
@@ -108205,7 +108469,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "ean-4560228462982",
     "brand": "J-Scent",
@@ -108469,10 +108736,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3355991000223",
     "brand": "Jacques Bogart",
@@ -114490,7 +114754,10 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338241880201-44927102386313",
     "brand": "Juliette Has a Gun",
@@ -114810,10 +115077,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
         "Incense"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338242076809-44927102648457",
     "brand": "Just Jack",
@@ -121800,7 +122064,10 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "ean-8050043464217",
     "brand": "Laboratorio Olfattivo",
@@ -122085,10 +122352,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/LAC0056.png?v=1766583605&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-lac0057",
     "brand": "Lacoste",
@@ -130381,7 +130645,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
         "Cedarwood"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "emirates-oud-8890933543261-default-title",
     "brand": "Lattafa",
@@ -130895,10 +131162,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
         "Amber"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-lat0027",
     "brand": "Lattafa",
@@ -138018,7 +138282,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
         "Vetiver"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338381897865-44927313576073",
     "brand": "Louis Cardin",
@@ -138415,10 +138682,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338252103817-44927114576009",
     "brand": "Louis Cardin",
@@ -147065,7 +147329,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "ean-3665543011110",
     "brand": "Majouri",
@@ -147341,10 +147608,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
         "Sandalwood"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416735232137-45147116372105",
     "brand": "Mancera",
@@ -152884,7 +153148,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/MONT0015.png?v=1756720378&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338356174985-44927275794569",
     "brand": "Montale",
@@ -153186,10 +153453,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338383536265-44927315705993",
     "brand": "Montblanc",
@@ -159349,7 +159613,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338436554889-44927441535113",
     "brand": "Orchid",
@@ -159613,10 +159880,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1533908338-98325300.png?v=1763389019&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6291106810332",
     "brand": "ORIENTICA",
@@ -166593,7 +166857,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
         "Madagascar Vanilla"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15486668144989-default-title",
     "brand": "Pendora Scents",
@@ -167147,10 +167414,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
         "Bourbon vanilla"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15486714642781-default-title",
     "brand": "Pendora Scents",
@@ -173283,7 +173547,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/PAC0003.png?v=1766583600&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338267144329-44927133876361",
     "brand": "Rabanne",
@@ -173547,10 +173814,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3605973048270",
     "brand": "Ralph Lauren",
@@ -181957,7 +182221,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1742473648-00647100.jpg?v=1763397451&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416759578761-45147143438473",
     "brand": "Roberto Cavalli",
@@ -182359,10 +182626,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
       "middle": [],
       "base": []
     }
-  }
-];
-
-const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338276155529-44927147147401",
     "brand": "Rochas",
@@ -188349,7 +188613,10 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/SHAG0014.png?v=1752246524&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15721303507293-default-title",
     "brand": "Swiss Arabian",
@@ -188856,10 +189123,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15721301934429-default-title",
     "brand": "Swiss Arabian",
@@ -195078,7 +195342,10 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "ean-8058772098741",
     "brand": "Tuttotondo",
@@ -195351,10 +195618,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://main.thgimages.com/?url=https://static.thcdn.com/productimg/original/15016795-2155321257161153.jpg&format=webp&width=1500&height=1500&fit=cover",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
+  },
   {
     "id": "ean-10321889263958",
     "brand": "Unbranded",
@@ -200935,7 +201199,10 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
   {
     "id": "ean-8054320901037",
     "brand": "Xerjoff",
@@ -201213,10 +201480,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416791527561-45147181809801",
     "brand": "Xerjoff",
@@ -204658,56 +204922,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-07T19:51:59.683Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CK0124.jpg?v=1728898138&width=1000"
-    }
-  ],
-  "ean-8411061026342": [
-    {
-      "retailerId": "beautybase",
-      "price": 115,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/carolina-herrera-good-girl-eau-de-parfum-80ml-spray",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
-      "firstSeenAt": "2026-08-10T21:39:43.387Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728303785-64942500.jpg?v=1763399451&width=1920"
-    },
-    {
-      "retailerId": "fragrance-click",
-      "price": 79.95,
-      "wasPrice": 126,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44327960557&a=3026001&m=124166",
-      "fetchedAt": "2026-08-11T18:10:12.197Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/7/171_1.jpg"
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 83.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/carolina-herrera-good-girl-eau-de-parfum-80ml",
-      "fetchedAt": "2026-08-10T07:37:56.832Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0003_5cdec4df-4b27-4d6e-8f90-8d72641f1343.png?v=1765452782&width=1000"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 100.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157929039&a=3026001&m=106925",
-      "fetchedAt": "2026-08-12T00:08:35.765Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "ean-8411061995754": [
@@ -208812,44 +209026,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-719346065405": [
-    {
-      "retailerId": "beautybase",
-      "price": 18.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/fantasy-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-11T16:50:39.271Z",
-      "firstSeenAt": "2026-08-01T21:32:03.579Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1473437351-55810800.jpg?v=1763388805&width=1920"
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 16.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/britney-spears-fantasy-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/britney-spears-fantasy-eau-de-parfum-100ml-p22273-49037_image.jpg?v=1721322131&width=1000"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 48.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928137&a=3026001&m=106925",
-      "fetchedAt": "2026-08-12T00:08:35.765Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-719346107297": [
     {
       "retailerId": "beautybase",
@@ -209952,6 +210128,44 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-8411061777183": [
+    {
+      "retailerId": "beautybase",
+      "price": 69.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/carolina-herrera-212-vip-rose-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-07T23:32:01.061Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728391010-28806500.jpg?v=1763389286&width=1920"
+    },
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 54,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/carolina-herrera-212-vip-rose-eau-de-parfum-50ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 66.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157929011&a=3026001&m=106925",
+      "fetchedAt": "2026-08-12T00:08:35.765Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-8411061099735": [
     {
       "retailerId": "beautybase",
@@ -210022,82 +210236,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43157929018&a=3026001&m=106925",
-      "fetchedAt": "2026-08-12T00:08:35.765Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-8411061041673": [
-    {
-      "retailerId": "beautybase",
-      "price": 59.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/carolina-herrera-good-girl-eau-de-parfum-30ml-spray",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
-      "firstSeenAt": "2026-08-10T21:39:43.387Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728304101-48864900.jpg?v=1763399448&width=1920"
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 47.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/carolina-herrera-good-girl-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-10T07:37:56.832Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0001_7143f1b1-b91f-45d3-89ed-825a1a74f4d7.png?v=1765452783&width=1000"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 64.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942678&a=3026001&m=106925",
-      "fetchedAt": "2026-08-12T00:08:35.765Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-8411061026250": [
-    {
-      "retailerId": "beautybase",
-      "price": 85,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/carolina-herrera-good-girl-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-10T21:39:43.387Z",
-      "firstSeenAt": "2026-08-10T21:39:43.387Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728299362-00231600.jpg?v=1763399450&width=1920"
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 71.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/carolina-herrera-good-girl-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-10T07:37:56.832Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0002.png?v=1765452783&width=1000"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 94.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157929040&a=3026001&m=106925",
       "fetchedAt": "2026-08-12T00:08:35.765Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -224624,6 +224762,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-00719346065399": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 18,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/britney-spears-fantasy-eau-de-parfum-50ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 35.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928138&a=3026001&m=106925",
+      "fetchedAt": "2026-08-12T00:08:35.765Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "justmylook-brit0019": [
     {
       "retailerId": "justmylook",
@@ -224722,6 +224886,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43174941961&a=3026001&m=106925",
+      "fetchedAt": "2026-08-12T00:08:35.765Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-00719346107297": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 13.95,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/britney-spears-midnight-fantasy-eau-de-parfum-50ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 35.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928147&a=3026001&m=106925",
       "fetchedAt": "2026-08-12T00:08:35.765Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -226522,6 +226712,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/calvin-klein-eternity-for-men-eau-de-toilette-100ml-p20021-44330_image_x100.jpg?v=1721322156"
     }
   ],
+  "ean-0088300601301": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 43.2,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/calvin-klein-eternity-for-women-eau-de-parfum-50ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 58.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928303&a=3026001&m=106925",
+      "fetchedAt": "2026-08-12T00:08:35.765Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-3616303476809": [
     {
       "retailerId": "beautybase",
@@ -227068,32 +227284,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-8411061777183": [
-    {
-      "retailerId": "beautybase",
-      "price": 69.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/carolina-herrera-212-vip-rose-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-07T23:32:01.061Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728391010-28806500.jpg?v=1763389286&width=1920"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 66.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157929011&a=3026001&m=106925",
-      "fetchedAt": "2026-08-12T00:08:35.765Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "justmylook-cherr0015": [
     {
       "retailerId": "justmylook",
@@ -227404,6 +227594,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154.jpg"
+    }
+  ],
+  "ean-8411061026342": [
+    {
+      "retailerId": "beautybase",
+      "price": 115,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/carolina-herrera-good-girl-eau-de-parfum-80ml-spray",
+      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "firstSeenAt": "2026-08-10T21:39:43.387Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728303785-64942500.jpg?v=1763399451&width=1920"
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 79.95,
+      "wasPrice": 126,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44327960557&a=3026001&m=124166",
+      "fetchedAt": "2026-08-11T18:10:12.197Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/7/171_1.jpg"
     }
   ],
   "ean-8411061113851": [
@@ -228052,6 +228268,110 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43661686737&a=3026001&m=106925",
       "fetchedAt": "2026-08-12T00:08:35.765Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460126571": [
+    {
+      "retailerId": "beautybase",
+      "price": 40,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/coach-wild-rose-eau-de-parfum-90ml-spray",
+      "fetchedAt": "2026-08-10T19:59:39.471Z",
+      "firstSeenAt": "2026-08-10T19:59:39.471Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761824737-24429100.jpg?v=1763399335&width=1920"
+    },
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 37.95,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/coach-wild-rose-eau-de-parfum-90ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460157315": [
+    {
+      "retailerId": "beautybase",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/coach-woman-gold-parfum-30ml-spray",
+      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "firstSeenAt": "2026-08-10T18:42:39.295Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759412367-40661200.jpg?v=1763399195&width=1920"
+    },
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 37.4,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/coach-woman-gold-parfum-30ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460157308": [
+    {
+      "retailerId": "beautybase",
+      "price": 64,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/coach-woman-gold-parfum-50ml-spray",
+      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "firstSeenAt": "2026-08-10T18:42:39.295Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759411702-54874200.jpg?v=1763399196&width=1920"
+    },
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 54.4,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/coach-woman-gold-parfum-50ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-3386460156707": [
+    {
+      "retailerId": "beautybase",
+      "price": 90,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/coach-woman-gold-parfum-90ml-spray",
+      "fetchedAt": "2026-08-10T18:42:39.295Z",
+      "firstSeenAt": "2026-08-10T18:42:39.295Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759411832-89630700.jpg?v=1763399198&width=1920"
+    },
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 75.65,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/coach-woman-gold-parfum-90ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -230494,6 +230814,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43174942367&a=3026001&m=106925",
+      "fetchedAt": "2026-08-12T00:08:35.765Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-3423473095651": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 51,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/elie-saab-girl-of-now-shine-eau-de-parfum-50ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 67.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928664&a=3026001&m=106925",
       "fetchedAt": "2026-08-12T00:08:35.765Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -258500,6 +258846,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-0652685682035": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 28.75,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/alyssa-ashley-essence-de-patchouli-eau-de-parfum-30ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-0652685672036": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 20,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/alyssa-ashley-oud-pour-elle-eau-de-parfum-30ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-0652685672050": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 30.5,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/alyssa-ashley-oud-pour-elle-eau-de-parfum-50ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "mybeauty-boutique-shopify-gb-8416630079625-45146960035977": [
     {
       "retailerId": "mybeauty-boutique",
@@ -266518,6 +266906,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43174942684&a=3026001&m=106925",
       "fetchedAt": "2026-08-12T00:08:35.765Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-0737129098105": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 42.75,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/arran-after-the-rain-eau-de-toilette-100ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-737129104066": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 18.9,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/arran-after-the-rain-eau-de-parfum-15ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-0737129105599": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 40.5,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/arran-kildonan-eau-de-toilette-100ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -276728,16 +277158,58 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338177491081-44926999429257": [
+  "ean-719346065405": [
     {
-      "retailerId": "mybeauty-boutique",
-      "price": 35.99,
+      "retailerId": "beautybase",
+      "price": 18.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928138&a=3026001&m=106925",
+      "url": "https://www.beautybase.com/products/fantasy-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-11T16:50:39.271Z",
+      "firstSeenAt": "2026-08-01T21:32:03.579Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1473437351-55810800.jpg?v=1763388805&width=1920"
+    }
+  ],
+  "justmylook-brit0001": [
+    {
+      "retailerId": "justmylook",
+      "price": 16.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/britney-spears-fantasy-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/britney-spears-fantasy-eau-de-parfum-100ml-p22273-49037_image.jpg?v=1721322131&width=1000"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338177425545-44926999363721": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 48.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928137&a=3026001&m=106925",
       "fetchedAt": "2026-08-12T00:08:35.765Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-0719346065405": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 23.95,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/britney-spears-fantasy-eau-de-parfum-100ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -276806,20 +277278,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928145&a=3026001&m=106925",
-      "fetchedAt": "2026-08-12T00:08:35.765Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338177687689-44926999658633": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 35.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928147&a=3026001&m=106925",
       "fetchedAt": "2026-08-12T00:08:35.765Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -283574,16 +284032,16 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1640085053-22352900.jpg?v=1763390759&width=1920"
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338185945225-44927012208777": [
+  "ean-0088300601387": [
     {
-      "retailerId": "mybeauty-boutique",
-      "price": 58.99,
+      "retailerId": "the-fragrance-counter",
+      "price": 29.55,
       "wasPrice": null,
-      "promoEndsAt": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
       "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928303&a=3026001&m=106925",
-      "fetchedAt": "2026-08-12T00:08:35.765Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "url": "https://www.thefragrancecounter.co.uk/calvin-klein-eternity-for-women-eau-de-parfum-30ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -285198,6 +285656,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-8411061781197": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 48.45,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/carolina-herrera-212-vip-rose-eau-de-parfum-30ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-8411061083482": [
     {
       "retailerId": "fragrance-click",
@@ -285684,6 +286156,160 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43157929034&a=3026001&m=106925",
       "fetchedAt": "2026-08-12T00:08:35.765Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-8411061041673": [
+    {
+      "retailerId": "beautybase",
+      "price": 59.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/carolina-herrera-good-girl-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "firstSeenAt": "2026-08-10T21:39:43.387Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728304101-48864900.jpg?v=1763399448&width=1920"
+    }
+  ],
+  "justmylook-cherr0001": [
+    {
+      "retailerId": "justmylook",
+      "price": 47.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/carolina-herrera-good-girl-eau-de-parfum-30ml",
+      "fetchedAt": "2026-08-10T07:37:56.832Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0001_7143f1b1-b91f-45d3-89ed-825a1a74f4d7.png?v=1765452783&width=1000"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338379997321-44927310168201": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 64.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942678&a=3026001&m=106925",
+      "fetchedAt": "2026-08-12T00:08:35.765Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-8411061823514": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 56.95,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/carolina-herrera-good-girl-eau-de-parfum-30ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-8411061026250": [
+    {
+      "retailerId": "beautybase",
+      "price": 85,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/carolina-herrera-good-girl-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-10T21:39:43.387Z",
+      "firstSeenAt": "2026-08-10T21:39:43.387Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728299362-00231600.jpg?v=1763399450&width=1920"
+    }
+  ],
+  "justmylook-cherr0002": [
+    {
+      "retailerId": "justmylook",
+      "price": 71.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/carolina-herrera-good-girl-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-10T07:37:56.832Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0002.png?v=1765452783&width=1000"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338191089801-44927025512585": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 94.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157929040&a=3026001&m=106925",
+      "fetchedAt": "2026-08-12T00:08:35.765Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-8411061819838": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 83.3,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/carolina-herrera-good-girl-eau-de-parfum-50ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "justmylook-cherr0003": [
+    {
+      "retailerId": "justmylook",
+      "price": 83.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/carolina-herrera-good-girl-eau-de-parfum-80ml",
+      "fetchedAt": "2026-08-10T07:37:56.832Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0003_5cdec4df-4b27-4d6e-8f90-8d72641f1343.png?v=1765452782&width=1000"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338191220873-44927025643657": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 100.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157929039&a=3026001&m=106925",
+      "fetchedAt": "2026-08-12T00:08:35.765Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-8411061818961": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 107.1,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/carolina-herrera-good-girl-eau-de-parfum-80ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -292058,20 +292684,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1655715810-91154500.jpg?v=1763392540&width=1920"
     }
   ],
-  "ean-3386460126571": [
-    {
-      "retailerId": "beautybase",
-      "price": 40,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/coach-wild-rose-eau-de-parfum-90ml-spray",
-      "fetchedAt": "2026-08-10T19:59:39.471Z",
-      "firstSeenAt": "2026-08-10T19:59:39.471Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761824737-24429100.jpg?v=1763399335&width=1920"
-    }
-  ],
   "ean-3386460171526": [
     {
       "retailerId": "beautybase",
@@ -292112,48 +292724,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/CoachCherry1_ddbdd976-eff4-4563-b5f7-24c793855dfa.jpg?v=1778148073&width=1920"
-    }
-  ],
-  "ean-3386460157315": [
-    {
-      "retailerId": "beautybase",
-      "price": 45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/coach-woman-gold-parfum-30ml-spray",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
-      "firstSeenAt": "2026-08-10T18:42:39.295Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759412367-40661200.jpg?v=1763399195&width=1920"
-    }
-  ],
-  "ean-3386460157308": [
-    {
-      "retailerId": "beautybase",
-      "price": 64,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/coach-woman-gold-parfum-50ml-spray",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
-      "firstSeenAt": "2026-08-10T18:42:39.295Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759411702-54874200.jpg?v=1763399196&width=1920"
-    }
-  ],
-  "ean-3386460156707": [
-    {
-      "retailerId": "beautybase",
-      "price": 90,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/coach-woman-gold-parfum-90ml-spray",
-      "fetchedAt": "2026-08-10T18:42:39.295Z",
-      "firstSeenAt": "2026-08-10T18:42:39.295Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759411832-89630700.jpg?v=1763399198&width=1920"
     }
   ],
   "mybeauty-boutique-shopify-gb-8338438750345-44927443828873": [
@@ -300752,6 +301322,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1730386800-48900000.jpg?v=1763396454&width=1920"
     }
   ],
+  "ean-8011530909956": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 54.95,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/dsquared2-potion-woman-perfume-oil-15ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "mybeauty-boutique-shopify-gb-8338208063625-44927047237769": [
     {
       "retailerId": "mybeauty-boutique",
@@ -301564,6 +302148,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-3423478481350": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 68.25,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/elie-saab-girl-of-now-forever-eau-de-parfum-90ml.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "mybeauty-boutique-shopify-gb-8338209636489-44927049105545": [
     {
       "retailerId": "mybeauty-boutique",
@@ -301676,20 +302274,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731945383-33883400.jpg?v=1763396665&width=1920"
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338209865865-44927049465993": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 67.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928664&a=3026001&m=106925",
-      "fetchedAt": "2026-08-12T00:08:35.765Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8338209996937-44927049629833": [
     {
       "retailerId": "mybeauty-boutique",
@@ -301716,6 +302300,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-08T22:27:14.777Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1744363068-52729400.jpg?v=1763397531&width=1920"
+    }
+  ],
+  "ean-7640233340462": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 42,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/elie-saab-le-parfum-absolu-30ml-edp.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-7640233340479": [
+    {
+      "retailerId": "the-fragrance-counter",
+      "price": 60,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-12T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://www.thefragrancecounter.co.uk/elie-saab-le-parfum-absolu-50ml-edp.html",
+      "fetchedAt": "2026-08-12T11:18:52.713Z",
+      "firstSeenAt": "2026-08-12T11:18:52.713Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "mybeauty-boutique-shopify-gb-8338247123081-44927108481161": [
@@ -447541,7 +448153,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
       "amount": 229000,
       "currency": "IDR"
     },
-    "inStock": false
+    "inStock": true
   },
   {
     "id": "mykonos-crimson-100ml",
@@ -448311,7 +448923,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
       "amount": 199000,
       "currency": "IDR"
     },
-    "inStock": true
+    "inStock": false
   },
   {
     "id": "mykonos-sparkling-15ml",
@@ -448325,7 +448937,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
       "amount": 199000,
       "currency": "IDR"
     },
-    "inStock": true
+    "inStock": false
   },
   {
     "id": "mykonos-tea-15ml",
@@ -462325,10 +462937,10 @@ const HOUSE_PRODUCTS_CHUNK_5: HouseProduct[] = [
 export const HOUSE_PRODUCTS: HouseProduct[] = [...HOUSE_PRODUCTS_CHUNK_0, ...HOUSE_PRODUCTS_CHUNK_1, ...HOUSE_PRODUCTS_CHUNK_2, ...HOUSE_PRODUCTS_CHUNK_3, ...HOUSE_PRODUCTS_CHUNK_4, ...HOUSE_PRODUCTS_CHUNK_5];
 
 /** When the harvest that produced this data ran. */
-export const CRAWLED_AT = "2026-08-12T10:02:06.576Z";
+export const CRAWLED_AT = "2026-08-12T11:18:52.713Z";
 
 /** How many shops the data came from. */
-export const SHOP_COUNT = 12;
+export const SHOP_COUNT = 13;
 
 export function offersFor(productId: string): RawOffer[] {
   return (CRAWLED[productId] ?? []).map((o) => ({
