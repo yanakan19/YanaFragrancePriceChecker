@@ -121,10 +121,19 @@ if (!found) {
   process.exit(0);
 }
 
-// Only price-ish columns for the one matched row, plus enough identity to
-// confirm it is the right product. Never the full row (aw_deep_link and
-// other columns are deliberately withheld — see the file header comment).
+// Price-ish columns for the one matched row, plus enough identity to confirm
+// it is the right product. URL-shaped columns (aw_deep_link,
+// merchant_deep_link, image URLs) are always withheld regardless of their
+// column name, since a URL can carry a tracking query string even when nobody
+// expected it to — see the file header comment. `description` is withheld as
+// noise, not risk. Every other column is shown: the whole point of this
+// script is to catch a sale price hiding under a column name the "price-ish"
+// regex would not guess (e.g. a merchant's own custom_1/custom_2/custom_3),
+// so a name-based allowlist would defeat the purpose.
+const URL_ISH = /link|url/i;
+const NOISE = new Set(['description']);
 const PRICE_ISH = /price|rrp|sale|discount|saving|cost|msrp/i;
+
 console.log('\nMatched row — identity:');
 if (nameIdx !== -1) console.log(`  product_name: ${found[nameIdx]}`);
 if (skuIdx !== -1) console.log(`  merchant_product_id: ${found[skuIdx]}`);
@@ -134,6 +143,12 @@ header.forEach((h, i) => {
   if (PRICE_ISH.test(h)) {
     console.log(`  ${h} = ${JSON.stringify(found[i] ?? '')}`);
   }
+});
+
+console.log('\nMatched row — every other column (URLs and description withheld):');
+header.forEach((h, i) => {
+  if (PRICE_ISH.test(h) || URL_ISH.test(h) || NOISE.has(h)) return;
+  console.log(`  ${h} = ${JSON.stringify(found[i] ?? '')}`);
 });
 
 console.log('');
