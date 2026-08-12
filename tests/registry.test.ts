@@ -24,7 +24,10 @@ describe('retailer registry', () => {
     // Beauty Global. Cosmetify added the same day after turning up in a
     // Microsoft Shopping listing — a confirmed Awin merchant (id 29993, read
     // off their own merchant profile) not yet applied to on this account.
-    expect(RETAILERS).toHaveLength(54);
+    // Escentric Molecules added 2026-08-12, promoted out of houses.ts once
+    // its UK/GBP storefront and standard delivery rate were confirmed —
+    // same basis as French Avenue and Armaf before it.
+    expect(RETAILERS).toHaveLength(55);
   });
 
   // The whole point of allowing `standardGbp: null` is that "we have not
