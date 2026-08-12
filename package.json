@@ -27,6 +27,7 @@
     "repair:delist": "tsx scripts/repair-mass-delist.ts",
     "catalogue:feed": "tsx scripts/catalogue-feed.ts",
     "awin:feed-sync": "tsx scripts/awin-feed-sync.ts",
+    "awin:feed-diag": "tsx scripts/awin-feed-diag.ts",
     "images:check": "tsx scripts/image-link-check.ts",
     "icons": "tsx scripts/generate-icons.ts",
     "og:preview": "tsx scripts/generate-og-preview.ts"
