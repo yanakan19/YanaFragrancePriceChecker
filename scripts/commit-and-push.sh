@@ -110,6 +110,7 @@ is_raw_snapshot() {
     data/catalogue/*.json|data/houses/*.json) return 0 ;;
     data/house-sourcing-report.json|data/shipping-discovery-report.json) return 0 ;;
     data/image-link-report.json|data/awin-feed-sync-state.json|data/strategy-memory.json) return 0 ;;
+    data/price-verification-report.json) return 0 ;;
     demo/deals.generated.ts) return 0 ;;
     *) return 1 ;;
   esac
