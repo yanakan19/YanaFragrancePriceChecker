@@ -275,9 +275,9 @@ jobs:
           AWIN_FEED_LIST_URL: ${{ secrets.AWIN_FEED_LIST_URL }}
         run: |
           npm run awin:feed-diag -- \
-            --shop=${{ inputs.awin_feed_diag_shop }} \
-            ${{ inputs.awin_feed_diag_match && format('--match={0}', inputs.awin_feed_diag_match) || '' }} \
-            ${{ inputs.awin_feed_diag_sku && format('--sku={0}', inputs.awin_feed_diag_sku) || '' }}
+            "--shop=${{ inputs.awin_feed_diag_shop }}" \
+            ${{ inputs.awin_feed_diag_match && format('"--match={0}"', inputs.awin_feed_diag_match) || '' }} \
+            ${{ inputs.awin_feed_diag_sku && format('"--sku={0}"', inputs.awin_feed_diag_sku) || '' }}
 
       # "Top Deals Today" moves on its own fixed 6-hourly cadence rather than
       # every hourly tick like everything else — see scripts/build-deals.ts's
