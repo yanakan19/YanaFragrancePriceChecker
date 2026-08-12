@@ -207,7 +207,13 @@ async function shopifyIndex(
   };
 
   let products = 0;
-  for (let page = 1; page <= 400; page++) {
+  // The end-of-catalogue signal is an *empty* page, not a short one. Breaking
+  // on `< 250` looked right and was wrong in a way that silently halved this
+  // pass's reach: it stopped Escentual at 248 products, so 7,846 of its 8,103
+  // listings were reported unkeyed when the shop had simply returned a page
+  // the theme had padded differently. src/catalogue/shopifyProductsCrawl.ts
+  // already had this right; this now matches it.
+  for (let page = 1; page <= 200; page++) {
     if (Date.now() >= deadlineAt) {
       notes.push(`stopped at products.json page ${page}: out of time budget`);
       break;
@@ -285,7 +291,7 @@ async function shopifyIndex(
       products++;
     }
 
-    if (batch.length < 250) break;
+    if (batch.length === 0) break;
     await sleep(gap);
   }
 
@@ -386,9 +392,12 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
   const deadlineAt = Date.now() + perShopBudgetMs;
   const store = new CatalogueStore(resolve(root, 'data/catalogue'));
   const snapshot = store.read(retailer.id);
-  const active = snapshot.listings.filter(
-    (l) => l.status === 'active' && typeof l.priceGbp === 'number' && l.priceGbp > 0,
-  );
+  const active =
+    snapshot.source === 'live'
+      ? snapshot.listings.filter(
+          (l) => l.status === 'active' && typeof l.priceGbp === 'number' && l.priceGbp > 0,
+        )
+      : [];
 
   const outcome: ShopOutcome = {
     retailerId: retailer.id,
@@ -412,11 +421,23 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
   };
 
   if (active.length === 0) {
-    outcome.notes.push('no active priced listings — nothing on the site to verify');
+    outcome.notes.push(
+      snapshot.source === 'live'
+        ? 'no active priced listings — nothing on the site to verify'
+        : 'snapshot is fixture data, which scripts/build-demo-catalogue.ts refuses to publish — ' +
+          'nothing of this retailer is on the site, so there is no live price to check',
+    );
     return outcome;
   }
 
-  const origin = retailer.homepage.replace(/\/+$/, '');
+  // `domain`, not `homepage`. They disagree on the www prefix for several
+  // retailers, and Shopify does not treat the two as the same storefront:
+  // https://www.escentual.com/products.json answered with 248 products while
+  // https://escentual.com/products.json (what the harvest itself uses, via
+  // shopifyProductsCrawl.ts) carries the whole catalogue. Reading a different
+  // origin from the one that produced the data is how a verifier reports
+  // 7,846 phantom mismatches.
+  const origin = `https://${retailer.domain.replace(/^www\./, '')}`;
   const robots = await robotsFor(origin);
   if (robots.unavailable) {
     outcome.notes.push(
@@ -432,7 +453,6 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
   // ── Route 1: the shop's whole live catalogue ──────────────────────────────
   const index = await shopifyIndex(origin, robots, gap, deadlineAt, outcome.notes);
   if (index) {
-    outcome.route = 'products.json';
     for (const listing of active) {
       outcome.attempted++;
       const live = lookupShopify(listing, index);
@@ -442,11 +462,38 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
       }
       record(outcome, listing, live, drifts);
     }
-    outcome.fullPopulation = outcome.attempted === active.length;
-    outcome.medianAbsDriftGbp = Number(median(drifts).toFixed(2));
-    outcome.worst.sort((a, b) => b.overstatementGbp - a.overstatementGbp);
-    outcome.worst = outcome.worst.slice(0, 8);
-    return outcome;
+
+    // A storefront can be on Shopify and still be unkeyable: AllBeauty serves
+    // /products.json but its stored SKUs are its own merchant codes, so 115 of
+    // its 116 listings found nothing there. Reporting that as "verified, 1 of
+    // 116" would be a route failure dressed up as a result, so anything under
+    // half keyed falls through to reading the product pages instead — which
+    // works, because those retailers store their own real product URLs.
+    const keyed = outcome.compared / active.length;
+    if (keyed >= 0.5) {
+      outcome.route = 'products.json';
+      outcome.fullPopulation = outcome.compared === active.length;
+      outcome.medianAbsDriftGbp = Number(median(drifts).toFixed(2));
+      outcome.worst.sort((a, b) => b.overstatementGbp - a.overstatementGbp);
+      outcome.worst = outcome.worst.slice(0, 8);
+      return outcome;
+    }
+
+    outcome.notes.push(
+      `products.json keyed only ${outcome.compared}/${active.length} listings — ` +
+        'falling back to reading product pages',
+    );
+    outcome.attempted = 0;
+    outcome.compared = 0;
+    outcome.agree = 0;
+    outcome.drifted = 0;
+    outcome.overstated = 0;
+    outcome.understated = 0;
+    outcome.unkeyed = 0;
+    outcome.outOfStockLive = 0;
+    outcome.overstatementGbpTotal = 0;
+    outcome.worst = [];
+    drifts.length = 0;
   }
 
   // ── Route 2: re-read a sample of product pages ────────────────────────────
@@ -553,6 +600,22 @@ for (const retailer of shops) {
       `${Math.round((Date.now() - started) / 1000)}s`,
   );
   for (const n of outcome.notes.slice(0, 4)) console.log(`      ${n}`);
+  // Printed here, per shop, rather than only in the summary at the end: a run
+  // that is cancelled or hits the job cap loses everything after the last line
+  // it printed, and the first full-fleet pass was cut off exactly that way.
+  // The evidence for each shop should survive its own line.
+  if (outcome.overstated > 0) {
+    console.log(
+      `      overstated on ${outcome.overstated} of ${outcome.compared} compared, ` +
+        `£${outcome.overstatementGbpTotal.toFixed(2)} total, median abs drift £${outcome.medianAbsDriftGbp}`,
+    );
+    for (const w of outcome.worst.slice(0, 3)) {
+      console.log(
+        `      we show £${w.storedPrice.toFixed(2)}, shop charges £${w.livePrice.toFixed(2)} ` +
+          `(+£${w.overstatementGbp.toFixed(2)}, ${w.overstatementPct}%) ${w.title}`,
+      );
+    }
+  }
 }
 
 if (writeReport) {
