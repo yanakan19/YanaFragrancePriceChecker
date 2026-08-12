@@ -362,7 +362,7 @@ function facetGroups(list: DemoFragrance[]) {
  *  pattern rather than needing a second kind of listener just for this. */
 function facetPill(group: FacetGroup, value: string, label: string, count: number, active: boolean): string {
   return `<button type="button" class="facet-pill${active ? ' is-active' : ''}" data-facet-group="${group}" data-facet-value="${esc(value)}" aria-pressed="${active}">
-    ${esc(label)} <span class="facet-count">${count}</span>
+    ${esc(label)} <span class="facet-count t-count">${count}</span>
   </button>`;
 }
 
@@ -670,13 +670,19 @@ function tierFilterControl(id: string, current: BrandFilter): string {
  * centred against the name rather than hanging off the top. Used everywhere
  * a product appears so the same product reads identically in a rail, a list
  * row and a page heading.
+ *
+ * `nameRole` is the type role the name itself takes. In a tile or a row the
+ * product is one object among many and reads as `.t-title`; on its own detail
+ * page it *is* the page heading, so that one caller passes `.t-page`. Same
+ * markup, same component, one role each — rather than a `.hero .phead-name`
+ * override quietly inventing a fourth heading size.
  */
-function productHead(f: DemoFragrance, tag = 'span'): string {
+function productHead(f: DemoFragrance, tag = 'span', nameRole = 't-title'): string {
   return `<${tag} class="phead">
     <span class="phead-text">
-      <span class="phead-name-wrap"><span class="phead-name">${esc(f.name)}</span></span>
+      <span class="phead-name-wrap"><span class="phead-name ${nameRole}">${esc(f.name)}</span></span>
     </span>
-    <span class="phead-meta">
+    <span class="phead-meta t-caption">
       <span>${f.sizeMl}ml</span>
       <span>${esc(shortConcentration(f.concentration))}</span>
     </span>
@@ -690,7 +696,7 @@ function productHead(f: DemoFragrance, tag = 'span'): string {
  * every other control in the app — see the delegated `data-brand` handler.
  */
 function brandButton(brand: string): string {
-  return `<button type="button" class="phead-brand" data-brand="${esc(brand)}">${esc(brand)}</button>`;
+  return `<button type="button" class="phead-brand t-eyebrow" data-brand="${esc(brand)}">${esc(brand)}</button>`;
 }
 
 function priceLine(f: DemoFragrance): string {
@@ -777,7 +783,7 @@ function perRowControl(): string {
 }
 
 function fragranceList(list: DemoFragrance[], empty: string): string {
-  if (list.length === 0) return `<p class="empty-note">${esc(empty)}</p>`;
+  if (list.length === 0) return `<p class="empty-note t-body">${esc(empty)}</p>`;
   const control = perRowControl();
   return `${control ? `<div class="controls">${control}</div>` : ''}
     <ul class="tile-grid">${chunked(list, fragranceTile)}</ul>`;
@@ -806,7 +812,7 @@ function homeView(): string {
 
     <section class="pop-section">
       <div class="section-head">
-        <h3>Most stocked</h3>
+        <h3 class="t-section">Most stocked</h3>
         <button class="link-btn see-top" data-browse>See Top ${TOP_N} <span aria-hidden="true">→</span></button>
       </div>
       <ul class="pop-rail">
@@ -816,8 +822,8 @@ function homeView(): string {
 
     <div class="bottom-split">
       <section class="suggest-section">
-        <h3>Got an idea?</h3>
-        <p class="panel-note">Tell us what you would like to see. There is no server behind this
+        <h3 class="t-section">Got an idea?</h3>
+        <p class="panel-note t-body">Tell us what you would like to see. There is no server behind this
           page, so sending opens your own email app with this addressed and ready to go.</p>
         <form id="home-suggest-form" class="contact-form">
           <label class="field">
@@ -838,7 +844,7 @@ function homeView(): string {
       </section>
 
       <section class="updates-section">
-        <h3>Update History</h3>
+        <h3 class="t-section">Update History</h3>
         <ul class="updates-list">
           ${CHANGELOG.map(
             (entry) => {
@@ -882,10 +888,10 @@ function browseView(): string {
 
   return `
     <button class="back" data-back-home>Back</button>
-    <div class="page-head"><h2>${esc(title)}</h2><span class="count">${list.length}</span></div>
+    <div class="page-head"><h2 class="t-page">${esc(title)}</h2><span class="count t-count">${list.length}</span></div>
     ${
       isTop
-        ? `<p class="panel-note">Ranked by how many of our ${SHOP_COUNT} shops carry each one, cheapest first
+        ? `<p class="panel-note t-body">Ranked by how many of our ${SHOP_COUNT} shops carry each one, cheapest first
              where that ties. This is stock breadth, not a measure of what sells: nothing here counts
              views or purchases, so it is never presented as if it did.</p>`
         : ''
@@ -929,18 +935,18 @@ function offerRow(row: PresentedOffer, isBest: boolean): string {
   return `<li class="offer ${isBest ? 'best' : ''} ${row.isPurchasable ? '' : 'unavail'}">
     <a class="offer-link" href="${esc(row.outboundUrl)}" rel="nofollow noopener" target="_blank">
       <span class="offer-top">
-        <span class="shop">${esc(row.retailer.name)}${
+        <span class="shop t-title">${esc(row.retailer.name)}${
           isNewAt(row.variantId, row.retailer.id) ? '<span class="tag new">New</span>' : ''
         }${isBest ? '<span class="tag">Cheapest</span>' : ''}</span>
         <span class="price">
           ${d ? `<span class="was">RRP ${formatGbp(d.wasPrice)}</span>` : ''}
-          <span class="now ${d ? 'sale' : ''}">${formatGbp(
+          <span class="now t-price ${d ? 'sale' : ''}">${formatGbp(
             row.deliveredPriceGbp ?? row.itemPriceGbp,
           )}${deliveryUnknown ? '<span class="excl-del">+ delivery</span>' : ''}</span>
         </span>
       </span>
       <span class="offer-bot">
-        <span class="facts">
+        <span class="facts t-caption">
           <span class="dot ${STOCK_CLASS[row.stock]}"></span>${STOCK_LABEL[row.stock]}${stockQtyMark(row.stock)}
           <span class="sep">·</span>${esc(sub.join(' · '))}
         </span>
@@ -960,7 +966,7 @@ function unavailableRow(name: string): string {
   return `<li class="offer unavail-elsewhere">
     <span class="offer-link">
       <span class="offer-top">
-        <span class="shop">${esc(name)}</span>
+        <span class="shop t-title">${esc(name)}</span>
         <span class="price"><span class="now none">&minus;</span></span>
       </span>
     </span>
@@ -1125,7 +1131,7 @@ function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): s
     .join('');
 
   return `<div class="history-block">
-    <p class="gone-head">Price history</p>
+    <p class="gone-head t-eyebrow">Price history</p>
     <div class="history-chart" data-history-chart>
       <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" class="history-svg" aria-hidden="true" focusable="false">
         <path d="${areaPath}" class="history-area" />
@@ -1135,14 +1141,14 @@ function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): s
       <div class="history-tip" data-history-tip hidden></div>
     </div>
     <div class="history-xaxis">${xAxis}</div>
-    <p class="notes-source">One point per day — the cheapest live price recorded that day, or carried flat from the last day it changed. Tap or hover a point for the exact price, retailer and date.</p>
+    <p class="notes-source t-caption">One point per day — the cheapest live price recorded that day, or carried flat from the last day it changed. Tap or hover a point for the exact price, retailer and date.</p>
   </div>`;
 }
 
 function notesBlock(f: DemoFragrance): string {
   if (!f.notes) {
     return `<div class="notes-block">
-      <p class="gone-head">Notes</p>
+      <p class="gone-head t-eyebrow">Notes</p>
       <p class="notes-none">Notes unavailable for this fragrance.</p>
     </div>`;
   }
@@ -1150,17 +1156,17 @@ function notesBlock(f: DemoFragrance): string {
     list.length === 0
       ? ''
       : `<div class="note-layer">
-           <p class="note-layer-name">${label}</p>
+           <p class="note-layer-name t-eyebrow">${label}</p>
            <p class="note-chips">${list
              .map((n) => `<button class="note-chip" data-note="${esc(n)}">${esc(titleCase(n))}</button>`)
              .join('')}</p>
          </div>`;
   return `<div class="notes-block">
-    <p class="gone-head">Notes</p>
+    <p class="gone-head t-eyebrow">Notes</p>
     ${layer('Top', f.notes.top)}
     ${layer('Middle', f.notes.middle)}
     ${layer('Base', f.notes.base)}
-    <p class="notes-source">As published by the retailer listing it.</p>
+    <p class="notes-source t-caption">As published by the retailer listing it.</p>
   </div>`;
 }
 
@@ -1169,18 +1175,18 @@ function notesBlock(f: DemoFragrance): string {
  *  than rendered as a broken link; the row in the database is untouched, so
  *  it would reappear if the fragrance ever comes back into stock somewhere. */
 function wishlistSectionHtml(): string {
-  if (!state.wishlistLoaded) return `<h3>Wishlist</h3><p class="settings-note">Loading.</p>`;
+  if (!state.wishlistLoaded) return `<h3 class="t-section">Wishlist</h3><p class="settings-note t-caption">Loading.</p>`;
 
   const rows = state.wishlistEntries
     .map((e) => ({ entry: e, frag: fragranceById(e.fragranceId) }))
     .filter((x): x is { entry: WishlistEntry; frag: DemoFragrance } => x.frag != null);
 
   if (rows.length === 0) {
-    return `<h3>Wishlist</h3><p class="settings-note">Nothing saved yet. Tap Save on a fragrance to add it here.</p>`;
+    return `<h3 class="t-section">Wishlist</h3><p class="settings-note t-caption">Nothing saved yet. Tap Save on a fragrance to add it here.</p>`;
   }
 
   return `
-    <h3>Wishlist</h3>
+    <h3 class="t-section">Wishlist</h3>
     <ul class="shop-list">
       ${rows
         .map(
@@ -1188,8 +1194,8 @@ function wishlistSectionHtml(): string {
             <button class="shop-row" data-frag="${esc(frag.id)}">
               ${monogram(frag.brand)}
               <span class="shop-row-text">
-                <span class="shop-row-name">${esc(frag.brand)} ${esc(frag.name)}</span>
-                <span class="shop-row-meta">${esc(frag.concentration)}, ${frag.sizeMl}ml</span>
+                <span class="shop-row-name t-title">${esc(frag.brand)} ${esc(frag.name)}</span>
+                <span class="shop-row-meta t-caption">${esc(frag.concentration)}, ${frag.sizeMl}ml</span>
               </span>
               <span class="shop-row-go" aria-hidden="true">→</span>
             </button>
@@ -1260,24 +1266,24 @@ function detailView(): string {
       <div class="hero">
         <div class="hero-art">${productArt(frag.photoUrl, 'lg', `${frag.brand} ${frag.name}`)}</div>
         ${brandButton(frag.brand)}
-        ${productHead(frag, 'div')}
+        ${productHead(frag, 'div', 't-page')}
         ${wishlistButton(frag.id)}
         ${
           best
             ? best.deliveredPriceGbp !== null
               ? `<div class="price-box">
-                 <p class="price-box-label">Cheapest price</p>
-                 <p class="price-box-amount">${formatGbp(best.deliveredPriceGbp)}</p>
-                 <p class="price-box-from">from ${esc(best.retailer.name)}, incl. delivery</p>
+                 <p class="price-box-label t-eyebrow">Cheapest price</p>
+                 <p class="price-box-amount t-price t-price--hero">${formatGbp(best.deliveredPriceGbp)}</p>
+                 <p class="price-box-from t-caption">from ${esc(best.retailer.name)}, incl. delivery</p>
                </div>`
               : // No shop that states its delivery cost has this one, so there is
                 // no cheapest delivered price to name. The box says what it is
                 // actually showing — an item price with delivery unknown —
                 // rather than calling it the cheapest anything.
                 `<div class="price-box">
-                 <p class="price-box-label">Lowest item price</p>
-                 <p class="price-box-amount">${formatGbp(best.itemPriceGbp)}</p>
-                 <p class="price-box-from">from ${esc(best.retailer.name)} &mdash; delivery not stated, so this is not a delivered price</p>
+                 <p class="price-box-label t-eyebrow">Lowest item price</p>
+                 <p class="price-box-amount t-price t-price--hero">${formatGbp(best.itemPriceGbp)}</p>
+                 <p class="price-box-from t-caption">from ${esc(best.retailer.name)} &mdash; delivery not stated, so this is not a delivered price</p>
                </div>`
             : `<p class="hero-price none">Sold out everywhere<span class="hero-at">no shop has it in stock right now</span></p>`
         }
@@ -1285,8 +1291,8 @@ function detailView(): string {
       </div>
 
       <div class="detail-offers">
-        ${live.length ? '<p class="gone-head">Available at</p>' : ''}
-        <div class="results-head">
+        ${live.length ? '<p class="gone-head t-eyebrow">Available at</p>' : ''}
+        <div class="results-head t-caption">
           <span>${live.length} ${live.length === 1 ? 'shop' : 'shops'}</span>
           <span class="dim">${
             // "delivery included" is a claim about every row underneath, so it
@@ -1301,7 +1307,7 @@ function detailView(): string {
 
         ${
           gone.length
-            ? `<p class="gone-head">Sold out</p>
+            ? `<p class="gone-head t-eyebrow">Sold out</p>
                <ul class="offers">${gone.map((r) => offerRow(r, false)).join('')}</ul>`
             : ''
         }
@@ -1310,7 +1316,7 @@ function detailView(): string {
 
         ${
           unavailable.length
-            ? `<p class="gone-head">Not available</p>
+            ? `<p class="gone-head t-eyebrow">Not available</p>
                <ul class="offers">${unavailable.map((r) => unavailableRow(r.name)).join('')}</ul>`
             : ''
         }
@@ -1340,7 +1346,7 @@ function brandsPanel(): string {
   </div>`;
 
   if (list.length === 0) {
-    return `${controls}<p class="empty-note">No brands match that filter yet.</p>`;
+    return `${controls}<p class="empty-note t-body">No brands match that filter yet.</p>`;
   }
 
   // Group under the initial so a long alphabetical list stays scannable. The
@@ -1354,7 +1360,7 @@ function brandsPanel(): string {
       current = initial;
       out += `<li class="alpha-break" aria-hidden="true"><span>${esc(initial)}</span><i></i></li>`;
     }
-    out += `<li><button class="brand-row" data-brand="${esc(b)}">${esc(b)}</button></li>`;
+    out += `<li><button class="brand-row t-title" data-brand="${esc(b)}">${esc(b)}</button></li>`;
   }
   return `${controls}<ul class="brand-list">${out}</ul>`;
 }
@@ -1383,10 +1389,10 @@ function dealsPanel(): string {
   </div>`;
 
   if (sorted.length === 0) {
-    return `${controls}<p class="empty-note">No shop is publishing a reference price right now.</p>`;
+    return `${controls}<p class="empty-note t-body">No shop is publishing a reference price right now.</p>`;
   }
   if (filtered.length === 0) {
-    return `${controls}<p class="empty-note">No deal matches that filter.</p>`;
+    return `${controls}<p class="empty-note t-body">No deal matches that filter.</p>`;
   }
 
   const dealTile = (d: (typeof sorted)[number]) =>
@@ -1397,7 +1403,7 @@ function dealsPanel(): string {
     });
 
   return `${controls}
-    <p class="panel-note">Savings are against the shop's own published recommended retail price.</p>
+    <p class="panel-note t-body">Savings are against the shop's own published recommended retail price.</p>
     <ul class="tile-grid">${chunked(filtered, dealTile)}</ul>`;
 }
 
@@ -1492,8 +1498,8 @@ function retailersPanel(): string {
           <button class="shop-row" data-retailer="${esc(r.id)}">
             ${monogram(r.name)}
             <span class="shop-row-text">
-              <span class="shop-row-name">${esc(r.name)}</span>
-              <span class="shop-row-meta">${retailerCountMark(r.id)}</span>
+              <span class="shop-row-name t-title">${esc(r.name)}</span>
+              <span class="shop-row-meta t-caption">${retailerCountMark(r.id)}</span>
             </span>
             <span class="shop-row-go" aria-hidden="true">→</span>
           </button>
@@ -1562,9 +1568,9 @@ function retailerView(): string {
     <div class="org-hero">
       ${monogram(r.name)}
       <div class="org-hero-text">
-        <h2 class="org-hero-name">${esc(r.name)} <span class="org-hero-count">${retailerCountMark(r.id)}</span></h2>
-        <p class="org-hero-domain">${esc(r.domain)}</p>
-        ${r.blurb ? `<p class="org-hero-blurb">${esc(r.blurb)}</p>` : ''}
+        <h2 class="org-hero-name t-page">${esc(r.name)} <span class="org-hero-count t-count">${retailerCountMark(r.id)}</span></h2>
+        <p class="org-hero-domain t-caption">${esc(r.domain)}</p>
+        ${r.blurb ? `<p class="org-hero-blurb t-body">${esc(r.blurb)}</p>` : ''}
         <ul class="fact-list">
           ${deliveryLines(r).map((l) => `<li>${esc(l)}</li>`).join('')}
         </ul>
@@ -1576,7 +1582,7 @@ function retailerView(): string {
       </div>
     </div>
 
-    <p class="gone-head">${list.length} ${list.length === 1 ? 'fragrance' : 'fragrances'} here</p>
+    <p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'fragrance' : 'fragrances'} here</p>
     ${controls}
     ${fragranceList(list, 'Nothing from this shop matches that filter.')}`;
 }
@@ -1619,18 +1625,18 @@ function brandView(): string {
     <div class="org-hero">
       ${monogram(b)}
       <div class="org-hero-text">
-        <h2 class="org-hero-name">${esc(b)}</h2>
+        <h2 class="org-hero-name t-page">${esc(b)}</h2>
         ${
           site
             ? `<a class="brand-site-link" href="${esc(site)}" target="_blank" rel="noopener nofollow">
                  <span class="control-ico">${ICON_EXTERNAL}</span>
                  <span>Open Brand Website</span>
                </a>`
-            : `<p class="org-hero-domain dimmer">Official site not yet confirmed</p>`
+            : `<p class="org-hero-domain dimmer t-caption">Official site not yet confirmed</p>`
         }
         ${
           ownShop
-            ? `<p class="org-hero-blurb">Sells direct in the UK${
+            ? `<p class="org-hero-blurb t-body">Sells direct in the UK${
                 ownShop.enabled
                   ? ', and its own price is compared below like any other shop’s.'
                   : ', but its delivery terms are not confirmed yet, so its price is not compared.'
@@ -1642,7 +1648,7 @@ function brandView(): string {
 
     ${
       list.length > 0
-        ? `<p class="gone-head">${list.length} ${list.length === 1 ? 'fragrance' : 'fragrances'}</p>
+        ? `<p class="gone-head t-eyebrow">${list.length} ${list.length === 1 ? 'fragrance' : 'fragrances'}</p>
            ${controls}
            ${fragranceList(list, 'Nothing from this brand has been harvested yet.')}`
         : houseItems.length === 0
@@ -1651,7 +1657,7 @@ function brandView(): string {
     }
     ${
       houseItems.length > 0
-        ? `<p class="gone-head">${houseItems.length} direct from ${esc(b)}
+        ? `<p class="gone-head t-eyebrow">${houseItems.length} direct from ${esc(b)}
              <span class="dimmer">not part of the UK comparison</span></p>
            <ul class="house-grid">${chunked(houseItems, houseCard)}</ul>`
         : ''
@@ -1721,7 +1727,7 @@ function notesPanel(): string {
     </button>`;
   };
   const groups = `<div class="notes-groups">
-    <p class="section-label">Note Groups</p>
+    <p class="section-label t-eyebrow">Note Groups</p>
     <div class="notes-groups-row">
       ${groupCard('any', 'All')}
       ${groupCard('top', 'Top')}
@@ -1731,7 +1737,7 @@ function notesPanel(): string {
   </div>`;
 
   if (list.length === 0) {
-    return `${groups}${controls}<p class="empty-note">No notes recorded for that layer yet.</p>`;
+    return `${groups}${controls}<p class="empty-note t-body">No notes recorded for that layer yet.</p>`;
   }
 
   // The same row-list shape as Brands, including the alphabetical dividers —
@@ -1752,16 +1758,16 @@ function notesPanel(): string {
         out += `<li class="alpha-break" data-alpha="${esc(initial)}" aria-hidden="true"><span>${esc(initial)}</span><i></i></li>`;
       }
     }
-    out += `<li><button class="brand-row note-row" data-note="${esc(n.name)}">
-      <span>${esc(titleCase(n.name))}</span><span class="note-row-count">(${n.count})</span>
+    out += `<li><button class="brand-row note-row t-title" data-note="${esc(n.name)}">
+      <span>${esc(titleCase(n.name))}</span><span class="note-row-count t-count">(${n.count})</span>
     </button></li>`;
   }
 
   return `${groups}
     ${controls}
-    <p class="panel-note">Only notes a shop has explicitly published. ${DEMO_FRAGRANCES.filter((f) => f.notes).length} of ${DEMO_FRAGRANCES.length} fragrances list them.</p>
+    <p class="panel-note t-body">Only notes a shop has explicitly published. ${DEMO_FRAGRANCES.filter((f) => f.notes).length} of ${DEMO_FRAGRANCES.length} fragrances list them.</p>
     <div class="notes-browse">
-      <p class="section-label">Browse Alphabetically</p>
+      <p class="section-label t-eyebrow">Browse Alphabetically</p>
       <div class="notes-browse-scroll" data-notes-scroll>
         <ul class="brand-list">${out}</ul>
       </div>
@@ -1805,9 +1811,9 @@ function noteView(): string {
 
   return `
     <button class="back" data-back-explore>Back</button>
-    <div class="page-head"><h2>${esc(titleCase(state.noteName))}</h2><span class="count">${list.length}</span></div>
+    <div class="page-head"><h2 class="t-page">${esc(titleCase(state.noteName))}</h2><span class="count t-count">${list.length}</span></div>
     ${layerChips ? `<p class="note-chips note-chips-profile">${layerChips}</p>` : ''}
-    <p class="panel-note">Fragrances listing ${esc(titleCase(state.noteName))}${state.noteLayer === 'any' ? '' : ` as a ${state.noteLayer} note`}.</p>
+    <p class="panel-note t-body">Fragrances listing ${esc(titleCase(state.noteName))}${state.noteLayer === 'any' ? '' : ` as a ${state.noteLayer} note`}.</p>
     ${controls}
     ${fragranceList(list, 'Nothing matches that filter.')}`;
 }
@@ -1820,10 +1826,10 @@ function noteView(): string {
  * than re-rendering the whole page, and needs the exact same markup.
  */
 function searchResultsHtml(q: string): string {
-  if (!q) return `<p class="empty-note">Type to search all ${DEMO_FRAGRANCES.length} fragrances.</p>`;
+  if (!q) return `<p class="empty-note t-body">Type to search all ${DEMO_FRAGRANCES.length} fragrances.</p>`;
   const filtered = visibleFragrances();
   const list = applyFacets(filtered);
-  return `<div class="page-head"><h2>Results</h2><span class="count">${list.length}</span></div>
+  return `<div class="page-head"><h2 class="t-page">Results</h2><span class="count t-count">${list.length}</span></div>
     <div class="controls">${facetsBlock(filtered)}</div>
     ${fragranceList(list, 'Nothing matches that search.')}`;
 }
@@ -1838,7 +1844,7 @@ function searchPanel(): string {
     </label>
     ${
       state.brand
-        ? `<p class="panel-note">Filtered to ${esc(state.brand)}. <button class="link-btn" data-clear-brand>Clear</button></p>`
+        ? `<p class="panel-note t-body">Filtered to ${esc(state.brand)}. <button class="link-btn" data-clear-brand>Clear</button></p>`
         : ''
     }
     <div class="search-results">${searchResultsHtml(q)}</div>`;
@@ -1922,14 +1928,14 @@ function settingsView(): string {
   return `
     <button class="back" data-back>Back</button>
     <article class="doc settings-doc">
-      <h2>Settings</h2>
+      <h2 class="t-page">Settings</h2>
 
       ${SUPABASE_CONFIGURED ? `<button class="account-entry" data-go-account>
         <span>${accountEntryLabel()}</span>${ICON_CHEVRON}
       </button>` : ''}
 
       <div class="seg-group">
-        <p class="seg-label">Theme</p>
+        <p class="seg-label t-eyebrow">Theme</p>
         <div class="seg" role="group" aria-label="Display theme">
           ${MODE_OPTIONS.map(
             (m) =>
@@ -1939,16 +1945,16 @@ function settingsView(): string {
       </div>
 
       <div class="seg-group">
-        <p class="seg-label">Layout</p>
+        <p class="seg-label t-eyebrow">Layout</p>
         <div class="seg" role="group" aria-label="Page layout">
           <button class="seg-btn seg-icon ${state.layout === 'mobile' ? 'on' : ''}" data-set-layout="mobile" aria-label="Mobile layout">${ICON_MOBILE}<span>Mobile</span></button>
           <button class="seg-btn seg-icon ${state.layout === 'desktop' ? 'on' : ''}" data-set-layout="desktop" aria-label="Desktop layout">${ICON_DESKTOP}<span>Desktop</span></button>
         </div>
       </div>
 
-      <p class="settings-note">Your preference will be remembered on this device.</p>
+      <p class="settings-note t-caption">Your preference will be remembered on this device.</p>
 
-      <h3>Contact us</h3>
+      <h3 class="t-section">Contact us</h3>
       <form id="contact-form" class="contact-form">
         <label class="field">
           <span>What is this about</span>
@@ -1964,7 +1970,7 @@ function settingsView(): string {
       </form>
       <p id="contact-confirm" class="contact-confirm" hidden></p>
 
-      <h3>Follow</h3>
+      <h3 class="t-section">Follow</h3>
       <a class="social" href="https://www.tiktok.com/@yannysniffs">
         ${ICON_TIKTOK}<span>TikTok</span><span class="social-handle">@yannysniffs</span>
       </a>
@@ -1972,7 +1978,7 @@ function settingsView(): string {
         ${ICON_INSTAGRAM}<span>Instagram</span><span class="social-handle">@yannysniffs</span>
       </a>
 
-      <h3>Legal</h3>
+      <h3 class="t-section">Legal</h3>
       <nav class="foot-links">
         ${LEGAL_PAGES
           // About has its own place in the top bar now, so it is not repeated
@@ -2009,13 +2015,13 @@ function accountView(): string {
     return `
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
-        <h2>Account</h2>
+        <h2 class="t-page">Account</h2>
         <p>Accounts are not switched on for this deployment yet. Check back soon.</p>
       </article>`;
   }
 
   if (!state.authChecked) {
-    return `<button class="back" data-back>Back</button><article class="doc settings-doc"><h2>Account</h2><p>Loading.</p></article>`;
+    return `<button class="back" data-back>Back</button><article class="doc settings-doc"><h2 class="t-page">Account</h2><p>Loading.</p></article>`;
   }
 
   const user = state.authUser;
@@ -2024,7 +2030,7 @@ function accountView(): string {
     return `
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
-        <h2>Account</h2>
+        <h2 class="t-page">Account</h2>
         <p class="account-note">Signed in as ${esc(user.email ?? '')}.</p>
         <button class="contact-send" id="auth-sign-out">Sign out</button>
         ${wishlistSectionHtml()}
@@ -2035,7 +2041,7 @@ function accountView(): string {
     return `
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
-        <h2>Verify your email</h2>
+        <h2 class="t-page">Verify your email</h2>
         <p class="account-note">
           We sent a link to ${esc(user.email ?? 'your email address')}. Follow it to finish setting up your
           account, then come back here.
@@ -2050,7 +2056,7 @@ function accountView(): string {
   return `
     <button class="back" data-back>Back</button>
     <article class="doc settings-doc">
-      <h2>Account</h2>
+      <h2 class="t-page">Account</h2>
 
       <div class="seg" role="group" aria-label="Sign in or sign up">
         <button class="seg-btn ${!signUpTab ? 'on' : ''}" data-auth-tab="signIn">Sign in</button>
@@ -2092,7 +2098,7 @@ function aboutView(): string {
   if (!page) return homeView();
   return `
     <article class="doc">
-      <h2>${esc(page.title)}</h2>
+      <h2 class="t-page">${esc(page.title)}</h2>
       ${page.body}
     </article>`;
 }
@@ -2103,7 +2109,7 @@ function legalView(): string {
   return `
     <button class="back" data-back>Back</button>
     <article class="doc">
-      <h2>${esc(page.title)}</h2>
+      <h2 class="t-page">${esc(page.title)}</h2>
       ${page.body}
     </article>`;
 }
