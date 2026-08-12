@@ -1,60 +1,6 @@
 {
-  "checkedAt": "2026-08-12T06:18:29.679Z",
+  "checkedAt": "2026-08-12T18:57:05.328Z",
   "outcomes": [
-    {
-      "retailerId": "the-fragrance-counter",
-      "name": "The Fragrance Counter",
-      "homepage": "https://www.thefragrancecounter.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "enabled": true,
-      "pagesTried": 16,
-      "findings": [
-        {
-          "url": "https://www.thefragrancecounter.co.uk/delivery",
-          "status": 200,
-          "standardGbp": null,
-          "freeOverGbp": null,
-          "caveats": [
-            "only named express/upgraded services carried a price — standard rate not stated",
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "evidence": [
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Delivery Information Free Gifts With Purchase: Shop Now",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 4.95,
-              "sentence": "Royal Mail 24hr Tracked UK Delivery - £4.95*",
-              "isUpgradeTier": true
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 9.95,
-              "sentence": "Royal Mail Special Delivery - £9.95",
-              "isUpgradeTier": true
-            }
-          ]
-        }
-      ],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
-        "steps": [
-          "https://www.thefragrancecounter.co.uk/products.json?limit=250"
-        ]
-      },
-      "errors": [],
-      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
-    },
     {
       "retailerId": "perfume-shopping",
       "name": "Perfume Shopping",
@@ -94,114 +40,6 @@
         "https://www.perfumeshopping.com/pages/terms-of-service: HTTP 403"
       ],
       "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
-    },
-    {
-      "retailerId": "glorious-beauty",
-      "name": "Glorious Beauty",
-      "homepage": "https://gloriousbeauty.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": 28,
-      "enabled": true,
-      "pagesTried": 16,
-      "findings": [
-        {
-          "url": "https://gloriousbeauty.co.uk/policies/shipping-policy",
-          "status": 200,
-          "standardGbp": null,
-          "freeOverGbp": 28,
-          "caveats": [
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "evidence": [
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Spend $28 more and get free shipping!",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 28,
-              "sentence": "Free UK Shipping on Orders over £28",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://gloriousbeauty.co.uk/pages/faq",
-          "status": 200,
-          "standardGbp": null,
-          "freeOverGbp": 28,
-          "caveats": [
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "evidence": [
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Spend $28 more and get free shipping!",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 28,
-              "sentence": "Free UK Shipping on Orders over £28",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://gloriousbeauty.co.uk/policies/refund-policy",
-          "status": 200,
-          "standardGbp": null,
-          "freeOverGbp": 28,
-          "caveats": [
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "evidence": [
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Spend $28 more and get free shipping!",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 28,
-              "sentence": "Free UK Shipping on Orders over £28",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://gloriousbeauty.co.uk/pages/terms-of-service",
-          "status": 200,
-          "standardGbp": null,
-          "freeOverGbp": 28,
-          "caveats": [
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "evidence": [
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Spend $28 more and get free shipping!",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 28,
-              "sentence": "Free UK Shipping on Orders over £28",
-              "isUpgradeTier": false
-            }
-          ]
-        }
-      ],
-      "quote": null,
-      "errors": [
-        "https://gloriousbeauty.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
-      ],
-      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
     },
     {
       "retailerId": "french-avenue",
@@ -730,7 +568,7 @@
       "homepage": "https://www.nicchialuxury.com",
       "currentStandardGbp": null,
       "currentFreeOverGbp": null,
-      "enabled": false,
+      "enabled": true,
       "pagesTried": 16,
       "findings": [
         {
