@@ -8,23 +8,40 @@
      Sold out listings use muted grey instead, and only positive states carry
      colour. Otherwise every red pixel would compete for the same meaning. */
   :root, :root[data-mode="dark"] {
-    --bg:        #3A353C;
-    --surface:   #47414A;
-    --surface-2: #524B55;
-    --ink:       #F5F1F4;
-    --ink-2:     #CFC8CF;
-    --faint:     #A79DA8;
-    --line:      #5A535D;
-    --line-firm: #6B6370;
-    --accent:    #E8434C;
-    --accent-on: #FFFFFF;
-    --accent-sf: #3A1519;
+    --bg:        #0A0A0B;
+    --surface:   #121214;
+    --surface-2: #1A1A1D;
+    --ink:       #F7F7F8;
+    --ink-2:     #C2C2C7;
+    --faint:     #8A8A92;
+    --line:      #26262A;
+    --line-firm: #3A3A40;
+    --accent:    #FF3B41;
+    /* Near-black, not white, and deliberately so: white on #FF3B41 is 3.5:1
+       and fails AA. Near-black on that same red is 5.5:1. */
+    --accent-on: #0B0405;
+    --accent-sf: #1E0709;
+    /* The accent as *text* on --bg/--surface, lightened so it clears AA
+       without the fill's brightness; --accent-press is the pressed/hover
+       state of an accent fill; --focus is named separately from --accent so
+       a future accent re-tint can never quietly move the focus ring. */
+    --accent-ink:   #FF6A6E;
+    --accent-press: #D42B31;
+    --focus:        #FF3B41;
+    /* Price-history chart: gridlines sit below --line so data reads above
+       them, and the band is the fill under the live price line. */
+    --chart-grid: #1F1F23;
+    --chart-band: rgba(255,59,65,.10);
     --ok:        #4FB47B;
     --warn:      #D8A24C;
     --shadow:    0 1px 3px rgba(0,0,0,.4);
+    /* Card elevation. A drop shadow does not read on a near-black ground, so
+       the dark theme lifts with a hairline instead and the light theme uses
+       a real shadow. Same token, same job, different mechanism. */
+    --shadow-lift: 0 1px 0 #26262A;
     /* Translucent bar ground, so the drifting background reads through the
        chrome instead of stopping dead at it. */
-    --bg-glass:  rgba(58,53,60,.86);
+    --bg-glass:  rgba(10,10,11,.72);
     /* The three drifting orbs. Crimson is the brand; violet and teal sit
        either side of it on the wheel, which is what keeps the blend looking
        like depth rather than one colour smeared about. Alphas stay low
@@ -41,21 +58,27 @@
   }
 
   :root[data-mode="light"] {
-    --bg:        #F3F1F2;
-    --surface:   #F8F6F7;
-    --surface-2: #F0EDEF;
-    --ink:       #17141A;
-    --ink-2:     #55505A;
-    --faint:     #8A838F;
-    --line:      #E7E3E7;
-    --line-firm: #D3CDD3;
-    --accent:    #C62630;
+    --bg:        #FCFCFD;
+    --surface:   #FFFFFF;
+    --surface-2: #F2F2F4;
+    --ink:       #0D0D0F;
+    --ink-2:     #4A4A52;
+    --faint:     #6B6B74;
+    --line:      #E6E6EA;
+    --line-firm: #CFCFD6;
+    --accent:    #C8102E;
     --accent-on: #FFFFFF;
-    --accent-sf: #FCEDEE;
+    --accent-sf: #FDECEE;
+    --accent-ink:   #A80C25;
+    --accent-press: #9E0C22;
+    --focus:        #C8102E;
+    --chart-grid: #EDEDF1;
+    --chart-band: rgba(200,16,46,.08);
     --ok:        #17724B;
     --warn:      #8A5A00;
     --shadow:    0 1px 3px rgba(0,0,0,.18);
-    --bg-glass:  rgba(243,241,242,.86);
+    --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
+    --bg-glass:  rgba(252,252,253,.72);
     /* Roughly half the dark theme's alpha: the same wash that reads as
        subtle on a dark ground turns muddy on a light one. */
     --orb-a:     rgba(198,38,48,.10);
@@ -70,34 +93,43 @@
      stamps on the root, so an external toggle keeps working. */
   @media (prefers-color-scheme: light) {
     :root[data-mode="system"] {
-      --bg: #F3F1F2; --surface: #F8F6F7; --surface-2: #F0EDEF;
-      --ink: #17141A; --ink-2: #55505A; --faint: #8A838F;
-      --line: #E7E3E7; --line-firm: #D3CDD3;
-      --accent: #C62630; --accent-on: #FFFFFF; --accent-sf: #FCEDEE;
+      --bg: #FCFCFD; --surface: #FFFFFF; --surface-2: #F2F2F4;
+      --ink: #0D0D0F; --ink-2: #4A4A52; --faint: #6B6B74;
+      --line: #E6E6EA; --line-firm: #CFCFD6;
+      --accent: #C8102E; --accent-on: #FFFFFF; --accent-sf: #FDECEE;
+      --accent-ink: #A80C25; --accent-press: #9E0C22; --focus: #C8102E;
+      --chart-grid: #EDEDF1; --chart-band: rgba(200,16,46,.08);
       --ok: #17724B; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
-      --bg-glass: rgba(243,241,242,.86);
-      --orb-a: rgba(198,38,48,.10); --orb-b: rgba(126,87,194,.09); --orb-c: rgba(38,132,132,.07);
+      --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
+      --bg-glass: rgba(252,252,253,.72);
+      --orb-a: rgba(200,16,46,.10); --orb-b: rgba(126,87,194,.09); --orb-c: rgba(38,132,132,.07);
       --mono-bg-l: 93%; --mono-fg-l: 33%; --mono-border-l: 55%;
     }
   }
   :root[data-mode="system"][data-theme="light"] {
-    --bg: #F3F1F2; --surface: #F8F6F7; --surface-2: #F0EDEF;
-    --ink: #17141A; --ink-2: #55505A; --faint: #8A838F;
-    --line: #E7E3E7; --line-firm: #D3CDD3;
-    --accent: #C62630; --accent-on: #FFFFFF; --accent-sf: #FCEDEE;
+    --bg: #FCFCFD; --surface: #FFFFFF; --surface-2: #F2F2F4;
+    --ink: #0D0D0F; --ink-2: #4A4A52; --faint: #6B6B74;
+    --line: #E6E6EA; --line-firm: #CFCFD6;
+    --accent: #C8102E; --accent-on: #FFFFFF; --accent-sf: #FDECEE;
+    --accent-ink: #A80C25; --accent-press: #9E0C22; --focus: #C8102E;
+    --chart-grid: #EDEDF1; --chart-band: rgba(200,16,46,.08);
     --ok: #17724B; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
-    --bg-glass: rgba(243,241,242,.86);
-    --orb-a: rgba(198,38,48,.10); --orb-b: rgba(126,87,194,.09); --orb-c: rgba(38,132,132,.07);
+    --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
+    --bg-glass: rgba(252,252,253,.72);
+    --orb-a: rgba(200,16,46,.10); --orb-b: rgba(126,87,194,.09); --orb-c: rgba(38,132,132,.07);
     --mono-bg-l: 93%; --mono-fg-l: 33%; --mono-border-l: 55%;
   }
   :root[data-mode="system"][data-theme="dark"] {
-    --bg: #3A353C; --surface: #47414A; --surface-2: #524B55;
-    --ink: #F5F1F4; --ink-2: #CFC8CF; --faint: #A79DA8;
-    --line: #5A535D; --line-firm: #6B6370;
-    --accent: #E8434C; --accent-on: #FFFFFF; --accent-sf: #3A1519;
+    --bg: #0A0A0B; --surface: #121214; --surface-2: #1A1A1D;
+    --ink: #F7F7F8; --ink-2: #C2C2C7; --faint: #8A8A92;
+    --line: #26262A; --line-firm: #3A3A40;
+    --accent: #FF3B41; --accent-on: #0B0405; --accent-sf: #1E0709;
+    --accent-ink: #FF6A6E; --accent-press: #D42B31; --focus: #FF3B41;
+    --chart-grid: #1F1F23; --chart-band: rgba(255,59,65,.10);
     --ok: #4FB47B; --warn: #D8A24C; --shadow: 0 1px 3px rgba(0,0,0,.4);
-    --bg-glass: rgba(58,53,60,.86);
-    --orb-a: rgba(232,67,76,.20); --orb-b: rgba(126,87,194,.17); --orb-c: rgba(56,142,142,.13);
+    --shadow-lift: 0 1px 0 #26262A;
+    --bg-glass: rgba(10,10,11,.72);
+    --orb-a: rgba(255,59,65,.20); --orb-b: rgba(126,87,194,.17); --orb-c: rgba(56,142,142,.13);
     --mono-bg-l: 20%; --mono-fg-l: 78%; --mono-border-l: 42%;
   }
 
@@ -116,6 +148,23 @@
        themes and hues — only the hue itself (--mh, set per tile) and the
        theme-dependent lightness tokens above vary. */
     --mono-sat: 42%;
+
+    /* --font-sans is an alias for --sans rather than a second stack of its
+       own: the design system names the role, the existing token holds the
+       value, and one source of truth means the two can never drift apart. */
+    --font-sans: var(--sans);
+    /* Numerals that must align down a column — prices, counts, axis labels.
+       Every use pairs it with font-variant-numeric: tabular-nums. */
+    --font-num: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+    /* Four durations, three curves. Nothing on the site animates for longer
+       than --dur-4, and nothing animates a price. */
+    --dur-1: 90ms;   /* press and release, colour-only swaps */
+    --dur-2: 160ms;  /* hover, chip select, toggle, tab underline */
+    --dur-3: 240ms;  /* content entering, sheets, list settle */
+    --dur-4: 320ms;  /* theme cross-fade — the longest thing on the site */
+    --ease-standard: cubic-bezier(.2,0,0,1);
+    --ease-exit:     cubic-bezier(.4,0,1,1);
   }
 
   /* Desktop is a genuinely different layout, not just a wider mobile column:
@@ -128,6 +177,83 @@
      in a centred column, so --col only still matters to elements that opt
      back into a narrower measure themselves (.doc, .hero-mission below). */
   :root[data-layout="desktop"] { --col: none; }
+
+  /* ── type roles ────────────────────────────────────────────────────────────
+     Eight roles, one canonical size/weight/tracking each. These collapse three
+     drifts the old stylesheet had accumulated: section headings had three
+     competing treatments (uppercase-tracked, 17px bold, accent-underlined) and
+     are now one 15px/600 sentence-case rule with space — not decoration —
+     separating blocks; card and row titles had four weights at one size and
+     are now 600 everywhere, because a fragrance, a brand and a shop are the
+     same kind of object and should look it; eyebrows ranged over 9.5–11.5px
+     and eight letter-spacings and are now a single 11px/600/.08em, 11px being
+     the floor at which uppercase tracking stays readable at 360px. */
+  .t-page    { font: 700 26px/1.15 var(--font-sans); letter-spacing: -.022em; color: var(--ink); }
+  .t-section { font: 600 15px/1.25 var(--font-sans); letter-spacing: -.005em; color: var(--ink); }
+  .t-title   { font: 600 15px/1.3  var(--font-sans); letter-spacing: -.01em;  color: var(--ink); }
+  .t-body    { font: 400 14px/1.55 var(--font-sans); color: var(--ink-2); }
+  .t-eyebrow { font: 600 11px/1    var(--font-sans); letter-spacing: .08em;
+               text-transform: uppercase; color: var(--faint); }
+  .t-caption { font: 400 13px/1.4  var(--font-sans); color: var(--faint); }
+  .t-count   { font: 600 12px/1    var(--font-num);  letter-spacing: .01em;
+               font-variant-numeric: tabular-nums; color: var(--ink-2); }
+  .t-price   { font: 700 20px/1.1  var(--font-num);  letter-spacing: -.02em;
+               font-variant-numeric: tabular-nums; color: var(--ink); }
+
+  @media (min-width: 900px) { .t-page { font-size: 32px; } }
+  .t-price--hero { font-size: 34px; line-height: 1.05; letter-spacing: -.022em; }
+
+  /* ── motion ────────────────────────────────────────────────────────────────
+     Seven named behaviours, and nothing animates that is not one of them.
+     Motion explains a change of state, never arrival: idle pages are still.
+     Transform and opacity only — never width, height, top or left.
+
+     The rule below is the theme cross-fade (behaviour 5): switching mode
+     fades ground, ink and border on every element over --dur-4 without
+     anything moving or re-laying out. It is deliberately limited to those
+     three properties — a blanket `transition: all` would catch transform and
+     make every press and hover lag. */
+  html, body, * {
+    transition: background-color var(--dur-4) var(--ease-standard),
+                color var(--dur-4) var(--ease-standard),
+                border-color var(--dur-4) var(--ease-standard);
+  }
+
+  /* Behaviour 7: focus. Zero duration, deliberately — a focus ring that
+     animates is a focus ring that is not there yet when the reader looks. */
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  /* Behaviour 1: rise — content entering a view. One per block, never nested. */
+  @keyframes ps-rise {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .ps-rise        { animation: ps-rise var(--dur-3) var(--ease-standard) both; }
+  /* Behaviour 2: settle — a list re-ordering after a filter change. Staggered
+     30ms per item and capped at 8, so the last thing a reader sees lands
+     within --dur-3 of the first rather than trickling in indefinitely. */
+  .ps-stagger > * { animation: ps-rise var(--dur-3) var(--ease-standard) both; }
+  .ps-stagger > *:nth-child(1) { animation-delay: 0ms; }
+  .ps-stagger > *:nth-child(2) { animation-delay: 30ms; }
+  .ps-stagger > *:nth-child(3) { animation-delay: 60ms; }
+  .ps-stagger > *:nth-child(4) { animation-delay: 90ms; }
+  .ps-stagger > *:nth-child(5) { animation-delay: 120ms; }
+  .ps-stagger > *:nth-child(6) { animation-delay: 150ms; }
+  .ps-stagger > *:nth-child(7) { animation-delay: 180ms; }
+  .ps-stagger > *:nth-child(8) { animation-delay: 210ms; }
+  .ps-stagger > *:nth-child(n+9) { animation-delay: 240ms; }
+
+  /* Every behaviour above has a reduced-motion end state, and this is it:
+     the end state still arrives, it just arrives immediately. */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 1ms !important;
+      animation-delay: 0ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 1ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 
   * { box-sizing: border-box; }
 
