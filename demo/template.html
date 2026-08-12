@@ -42,14 +42,14 @@
     /* Translucent bar ground, so the drifting background reads through the
        chrome instead of stopping dead at it. */
     --bg-glass:  rgba(10,10,11,.72);
-    /* The three drifting orbs. Crimson is the brand; violet and teal sit
-       either side of it on the wheel, which is what keeps the blend looking
-       like depth rather than one colour smeared about. Alphas stay low
-       enough that text contrast never depends on where an orb happens to
-       be at the time. */
-    --orb-a:     rgba(232,67,76,.20);
-    --orb-b:     rgba(126,87,194,.17);
-    --orb-c:     rgba(56,142,142,.13);
+    /* The two ambient glows behind the page. Both are the brand red and
+       nothing else: the violet and teal that used to sit either side of it
+       made the greeting read as three brands' worth of colour, and on a
+       site whose whole job is one red accent that is a claim it should not
+       be making. Alphas stay low enough that text contrast never depends on
+       where a glow happens to be at the time. */
+    --glow-1:    rgba(255,59,65,.22);
+    --glow-2:    rgba(255,59,65,.13);
     /* Per-brand monogram tint, see .monogram below: fixed lightness for this
        theme, hue supplied per tile. */
     --mono-bg-l: 20%;
@@ -79,11 +79,10 @@
     --shadow:    0 1px 3px rgba(0,0,0,.18);
     --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
     --bg-glass:  rgba(252,252,253,.72);
-    /* Roughly half the dark theme's alpha: the same wash that reads as
-       subtle on a dark ground turns muddy on a light one. */
-    --orb-a:     rgba(198,38,48,.10);
-    --orb-b:     rgba(126,87,194,.09);
-    --orb-c:     rgba(38,132,132,.07);
+    /* Lower alpha than the dark theme: the same wash that reads as subtle
+       on a dark ground turns muddy on a light one. */
+    --glow-1:    rgba(200,16,46,.13);
+    --glow-2:    rgba(200,16,46,.08);
     --mono-bg-l: 93%;
     --mono-fg-l: 33%;
     --mono-border-l: 55%;
@@ -102,7 +101,7 @@
       --ok: #17724B; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
       --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
       --bg-glass: rgba(252,252,253,.72);
-      --orb-a: rgba(200,16,46,.10); --orb-b: rgba(126,87,194,.09); --orb-c: rgba(38,132,132,.07);
+      --glow-1: rgba(200,16,46,.13); --glow-2: rgba(200,16,46,.08);
       --mono-bg-l: 93%; --mono-fg-l: 33%; --mono-border-l: 55%;
     }
   }
@@ -116,7 +115,7 @@
     --ok: #17724B; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
     --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
     --bg-glass: rgba(252,252,253,.72);
-    --orb-a: rgba(200,16,46,.10); --orb-b: rgba(126,87,194,.09); --orb-c: rgba(38,132,132,.07);
+    --glow-1: rgba(200,16,46,.13); --glow-2: rgba(200,16,46,.08);
     --mono-bg-l: 93%; --mono-fg-l: 33%; --mono-border-l: 55%;
   }
   :root[data-mode="system"][data-theme="dark"] {
@@ -129,7 +128,7 @@
     --ok: #4FB47B; --warn: #D8A24C; --shadow: 0 1px 3px rgba(0,0,0,.4);
     --shadow-lift: 0 1px 0 #26262A;
     --bg-glass: rgba(10,10,11,.72);
-    --orb-a: rgba(255,59,65,.20); --orb-b: rgba(126,87,194,.17); --orb-c: rgba(56,142,142,.13);
+    --glow-1: rgba(255,59,65,.22); --glow-2: rgba(255,59,65,.13);
     --mono-bg-l: 20%; --mono-fg-l: 78%; --mono-border-l: 42%;
   }
 
@@ -328,62 +327,67 @@
   }
 
   /* ── ambient background ────────────────────────────────────────────────────
-     Three large, very soft colour fields drifting behind every page. The
-     point is peripheral movement: something the eye registers as alive
-     without ever being asked to look at it.
+     Two very soft red fields drifting behind the page. This is the one place
+     on the site where anything moves without a reader having done something,
+     and it earns that by being the only thing that does: peripheral movement
+     the eye registers as alive without ever being asked to look at it.
 
-     Built from radial-gradients rather than blurred solid shapes. A
-     gradient with a transparent falloff is already soft, so it needs no
+     Was three orbs -- crimson, violet, teal -- on 41s, 59s and 47s. Two
+     reasons it is now two, both red. One is colour: a site whose entire
+     visual argument is a single red accent should not open on a wash of
+     three hues, and the violet in particular read as a second brand. The
+     other is that a glow you can name the colour of is a glow that is
+     asking to be looked at; both of these are the accent, so there is
+     nothing new on screen to identify.
+
+     Built from radial-gradients rather than blurred solid shapes. A gradient
+     with a transparent falloff is already soft, so it needs no
      filter: blur(), which on a viewport-sized element is one of the most
      expensive things you can ask a compositor to redo every frame. Only
-     transform is animated, so each orb is a single composited layer and
-     the main thread does nothing once the animation starts.
+     transform is animated, so each glow is a single composited layer and the
+     main thread does nothing once the animation starts.
 
-     The three durations are deliberately coprime-ish (41s / 59s / 47s) and
-     none of them divides another. Equal or harmonic durations would let
-     the orbs resynchronise into a visible repeating pattern; staggered
-     ones drift in and out of phase for minutes at a time, which is what
-     makes it read as ambient rather than as a loop. */
+     Both centres sit outside the viewport, so only falloff is ever on
+     screen and no text is ever over the bright core.
+
+     26s, alternating, on ease-in-out. The two curves the motion section
+     names are for state changes measured in tenths of a second and would
+     read as a lurch at this length; this is the documented exception, the
+     same one the three orbs it replaces were. */
   .ambient {
     position: fixed; inset: 0; z-index: 0;
     overflow: hidden; pointer-events: none;
   }
-  .orb {
-    position: absolute; display: block;
-    width: 62vmax; height: 62vmax; border-radius: 50%;
+  .glow {
+    position: absolute; display: block; border-radius: 50%;
     will-change: transform;
   }
-  .orb-a {
-    top: -20vmax; left: -16vmax;
-    background: radial-gradient(circle closest-side, var(--orb-a), transparent 72%);
-    animation: drift-a 41s ease-in-out infinite;
+  .glow-1 {
+    top: -40vmax; left: -30vmax; width: 70vmax; height: 70vmax;
+    background: radial-gradient(circle closest-side, var(--glow-1), transparent 70%);
+    animation: glow-drift-1 26s ease-in-out infinite alternate;
   }
-  .orb-b {
-    top: 10vmax; right: -24vmax;
-    background: radial-gradient(circle closest-side, var(--orb-b), transparent 72%);
-    animation: drift-b 59s ease-in-out infinite;
+  .glow-2 {
+    bottom: -46vmax; right: -34vmax; width: 74vmax; height: 74vmax;
+    background: radial-gradient(circle closest-side, var(--glow-2), transparent 70%);
+    animation: glow-drift-2 26s ease-in-out infinite alternate;
   }
-  .orb-c {
-    bottom: -26vmax; left: 18vmax;
-    background: radial-gradient(circle closest-side, var(--orb-c), transparent 72%);
-    animation: drift-c 47s ease-in-out infinite;
+  /* alternate rather than a loop back to the start: with one pass out and one
+     pass back there is no seam to hide, and the two glows travel opposite
+     ways so the pair never reads as one shape sliding. translate3d keeps both
+     on the GPU. */
+  @keyframes glow-drift-1 {
+    from { transform: translate3d(0, 0, 0) scale(1); }
+    to   { transform: translate3d(8vw, 6vh, 0) scale(1.12); }
   }
-  /* Each keyframe set returns to its own start, so the loop closes without
-     a jump. translate3d keeps it on the GPU. */
-  @keyframes drift-a {
-    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-    33%      { transform: translate3d(11vw, 7vh, 0) scale(1.13); }
-    66%      { transform: translate3d(-5vw, 13vh, 0) scale(.94); }
+  @keyframes glow-drift-2 {
+    from { transform: translate3d(0, 0, 0) scale(1.08); }
+    to   { transform: translate3d(-7vw, -5vh, 0) scale(.94); }
   }
-  @keyframes drift-b {
-    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-    40%      { transform: translate3d(-13vw, 10vh, 0) scale(.9); }
-    70%      { transform: translate3d(-4vw, -8vh, 0) scale(1.16); }
-  }
-  @keyframes drift-c {
-    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-    35%      { transform: translate3d(9vw, -11vh, 0) scale(1.1); }
-    72%      { transform: translate3d(16vw, 4vh, 0) scale(.92); }
+  /* Ambient motion is the first thing to go: the glows still sit where they
+     sit, they just stop moving. */
+  @media (prefers-reduced-motion: reduce) {
+    .glow { animation: none; }
   }
 
   /* Sits above .ambient. An explicit z-index rather than relying on source
@@ -411,20 +415,12 @@
     .bar { background: var(--bg); }
   }
   .bar-row { display: flex; align-items: center; gap: 20px; position: relative; }
-  /* A thin animated sweep along the top edge of the bar: a "scanning" accent
-     that never demands attention, just gives the chrome a pulse of life.
-     Reduced motion turns it into a plain static line via the global rule
-     below, since it is a standard CSS animation, not a JS-driven one. */
-  .bar::after {
-    content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--accent) 45%, transparent 90%);
-    background-size: 240% 100%; opacity: .55;
-    animation: scan 7s linear infinite;
-  }
-  @keyframes scan {
-    0%   { background-position: 120% 0; }
-    100% { background-position: -120% 0; }
-  }
+  /* The 7s accent sweep that used to run along the bar's bottom edge is
+     gone. The motion section above names seven behaviours and says nothing
+     animates that is not one of them; a sweep that repeats forever and
+     reports nothing was an eighth, and the ambient layer behind the page is
+     the one place idle movement is allowed to live. The bar keeps its
+     --line border. */
   .brandmark {
     font-size: 21px; font-weight: 800; letter-spacing: -.03em;
     margin: 0; flex: 1; min-width: 0; white-space: nowrap;
@@ -521,22 +517,12 @@
   /* ── intro / hero ──────────────────────────────────────────────────────── */
   .intro { padding: 34px 0 8px; }
   .hero-logo { text-align: center; position: relative; }
-  /* A soft, still glow behind the wordmark. Purely a background wash, so it
-     stays legible and never competes with the text sitting on top of it. */
-  /* The glow breathes rather than sitting still: a long, shallow cycle that
-     is well under the threshold of anything you would call "blinking", but
-     enough that the hero never looks like a screenshot. */
-  .hero-logo::before {
-    content: ""; position: absolute; left: 50%; top: 50%;
-    width: 260px; height: 165px; transform: translate(-50%, -50%);
-    background: radial-gradient(closest-side, var(--accent-sf), transparent 72%);
-    opacity: .8; z-index: -1;
-    animation: breathe 9s ease-in-out infinite;
-  }
-  @keyframes breathe {
-    0%, 100% { opacity: .62; transform: translate(-50%, -50%) scale(1); }
-    50%      { opacity: .95; transform: translate(-50%, -50%) scale(1.14); }
-  }
+  /* The wordmark used to sit on a wash of its own that breathed in and out
+     on a 9s cycle. Two things were wrong with it: it was a second piece of
+     ambient motion competing with the layer behind the page, and the
+     wordmark sat exactly on the brightest part of it, which is the one place
+     text must never go on a glow. The ambient layer now carries the greeting
+     on its own. */
 
   /* ── hero entrance ─────────────────────────────────────────────────────────
      Each piece of the hero rises into place a beat after the one above it.
@@ -1982,9 +1968,8 @@
 </style>
 
 <div class="ambient" aria-hidden="true">
-  <span class="orb orb-a"></span>
-  <span class="orb orb-b"></span>
-  <span class="orb orb-c"></span>
+  <span class="glow glow-1"></span>
+  <span class="glow glow-2"></span>
 </div>
 
 <div class="app">
