@@ -1,0 +1,103 @@
+name: Price verification
+
+# Checks the prices the site publishes against what each shop's own storefront
+# charges right now, and commits the resulting drift report.
+#
+# ── Why this is its own workflow rather than a step in "Catalogue crawl" ─────
+# Two reasons, both practical rather than tidiness.
+#
+# The crawl's job takes 70-80 minutes and sits in `concurrency: catalogue` with
+# `cancel-in-progress: false`, so a dispatch aimed at it during a scheduled run
+# waits for that run to finish, and a second dispatch behind it silently
+# cancels the first. Verification is a five-minute read-only pass; making it
+# queue behind an hour-long harvest would mean one measurement per hour on a
+# task whose whole value is verify → fix → re-verify.
+#
+# And a bare dispatch of that workflow falls through to its "Crawl" step, which
+# has a 0% live success rate by design (see the comment on it) and fails the
+# run — runs #166 and #167 both died exactly that way while the diagnostic
+# they were dispatched for had already succeeded. A separate workflow has no
+# such fall-through: the only thing it can do is the thing it was asked for.
+#
+# ── What it may and may not do ───────────────────────────────────────────────
+# It writes no price anywhere. It commits exactly one file,
+# data/price-verification-report.json, which nothing else in the build reads.
+# That file is deliberately outside demo/, so committing it does not trigger
+# "Deploy site" — a measurement must never be able to republish the site as a
+# side effect.
+#
+# It does not run against the affiliate feeds and needs no secret: every
+# request it makes is to a public storefront, so AWIN_FEED_LIST_URL is neither
+# passed nor available here.
+on:
+  workflow_dispatch:
+    inputs:
+      shop:
+        description: 'Limit to one retailer id (e.g. mybeauty-boutique). Empty checks every enabled retailer.'
+        type: string
+        default: ''
+      sample:
+        description: 'Product pages to fetch per shop on the page-fetch route. The products.json route ignores this and checks every listing.'
+        type: string
+        default: '30'
+      seed:
+        description: 'Sampling seed. Keep it fixed to re-measure the same listings after a fix.'
+        type: string
+        default: '20260812'
+      budget_ms:
+        description: 'Per-shop time budget in ms.'
+        type: string
+        default: '240000'
+      commit_report:
+        description: 'Commit data/price-verification-report.json. Turn off for a throwaway probe.'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+# Its own group, so it never queues behind or cancels the harvest. Two
+# verification runs at once would double the request rate at every shop, which
+# is the one thing this pass must not do.
+concurrency:
+  group: price-verify
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    # Measured budget: 29 enabled retailers x a 240s per-shop cap is a 116
+    # minute worst case in theory, but only shops that answer spend anything
+    # near their cap. 45 minutes covers the realistic pass with room, and a
+    # verification run that overruns it has gone wrong in a way that wants
+    # looking at rather than more time.
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # continue-on-error so a shop that hangs or a route that throws still
+      # leaves the report and the log behind. A partial measurement is useful;
+      # a red run with no output is not.
+      - name: Verify prices against live storefronts
+        continue-on-error: true
+        run: |
+          npm run price:verify -- \
+            ${{ inputs.shop && format('--shop={0}', inputs.shop) || '' }} \
+            --sample=${{ inputs.sample || '30' }} \
+            --seed=${{ inputs.seed || '20260812' }} \
+            --budget-ms=${{ inputs.budget_ms || '240000' }}
+
+      - name: Commit the drift report
+        if: ${{ inputs.commit_report }}
+        run: |
+          ./scripts/commit-and-push.sh \
+            "Price verification: measured drift $(date -u +%Y-%m-%dT%H:%MZ)" \
+            data/price-verification-report.json
