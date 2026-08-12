@@ -217,7 +217,19 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
     // offers overwhelmingly share one canonical product url regardless of
     // size, so picking among them for a url carries none of the
     // mismatched-variant risk picking among them for price or stock does.
-    const url = str(node['url']) ?? str(flatten(node['offers'])[0]?.['url']) ?? options.pageUrl;
+    //
+    // Resolved against the page it was read from, because schema.org permits a
+    // relative URL and some themes emit one. Taking it verbatim put 49 of
+    // Glorious Beauty's listings into the catalogue with `url:
+    // "/products/..."`, and a site-relative href on *our* pages resolves
+    // against pricesniffs.space — so every one of that shop's live offers had
+    // a Buy button pointing at a 404 on our own domain instead of at the shop.
+    // Resolution is not a guess: `pageUrl` is the address the markup was
+    // served from, which is exactly what a browser would resolve it against.
+    const url = absolute(
+      str(node['url']) ?? str(flatten(node['offers'])[0]?.['url']),
+      options.pageUrl,
+    );
     const sku = str(node['sku']) ?? str(node['mpn']) ?? gtin(node) ?? skuFromUrl(url);
     if (!sku) continue;
 
@@ -278,6 +290,24 @@ function isoDate(value: unknown): string | null {
   if (!s) return null;
   const t = Date.parse(s);
   return Number.isFinite(t) ? new Date(t).toISOString() : null;
+}
+
+/**
+ * A product URL we can put behind a Buy button.
+ *
+ * `raw` is whatever the markup said, which may be absolute, protocol-relative
+ * or site-relative; `pageUrl` is where that markup was served from. Anything
+ * that will not resolve — including a `pageUrl` that is not itself absolute —
+ * falls back to `pageUrl` unchanged, which is the same behaviour this had
+ * before and never worse than it.
+ */
+function absolute(raw: string | null, pageUrl: string): string {
+  if (!raw) return pageUrl;
+  try {
+    return new URL(raw, pageUrl).toString();
+  } catch {
+    return pageUrl;
+  }
 }
 
 /** Last meaningful path segment, as a fallback identifier. */
