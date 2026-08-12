@@ -454,19 +454,12 @@ export const HOUSES: readonly House[] = [
   // comment on why — so there is nothing to record about the application
   // itself here beyond the blocker; the affiliate side lives entirely in
   // retailers.ts for the shops that actually stock these brands.
-  {
-    id: 'escentric-molecules',
-    name: 'Escentric Molecules',
-    origin: 'https://www.escentric.com',
-    confidence: 'unverified',
-    routes: ['shopify-products-json', 'sitemap-jsonld'],
-    enabled: true,
-    blockers: [
-      'storefront currency and UK delivery terms not yet established',
-      'applied to their UK Awin programme 2026-08-11; only a US-labelled (escentric.com/en-us) storefront was found, no separate UK domain confirmed',
-      'already stocked by several UK retailers (Liberty, Selfridges, Cult Beauty, Space NK) for anyone wanting a UK price sooner than confirming this',
-    ],
-  },
+  // Escentric Molecules moved to retailers.ts (id 'escentric-molecules')
+  // 2026-08-12: the plain escentric.com storefront (not just the /en-us path
+  // seen before) resolves in sterling with a stated flat UK rate — £7.50,
+  // free over £80, read directly off their delivery-and-returns page. Same
+  // promotion basis as French Avenue and Armaf above: a domain that pins UK
+  // and sterling belongs in the retailer registry's comparison, not here.
   {
     id: 'mugler',
     name: 'Mugler',
@@ -476,7 +469,10 @@ export const HOUSES: readonly House[] = [
     enabled: true,
     blockers: [
       'storefront currency and UK delivery terms not yet established',
-      'applied to their UK Awin programme 2026-08-11; a dedicated mugler.co.uk exists but has not been opened from this environment',
+      'applied to their UK Awin programme 2026-08-11; a dedicated mugler.co.uk exists. ' +
+        'Re-attempted directly 2026-08-12: homepage and /delivery both returned HTTP 404 to ' +
+        'this tooling — the delivery page path is not where guessed, or the domain blocks ' +
+        'non-browser requests. Not established from here either pass.',
     ],
   },
   {
@@ -490,6 +486,9 @@ export const HOUSES: readonly House[] = [
       'storefront currency and UK delivery terms not yet established',
       'applied to their UK Awin programme 2026-08-11; no separate UK-specific domain confirmed, thebodyshop.com may resolve UK pricing by geolocation or may not — not established from here',
       'fragrance is a small part of a much larger bath/body/cosmetics catalogue; expect most harvested listings to be rejected by the isFragrance filter',
+      'Re-attempted directly 2026-08-12: both /en-gb/delivery-returns and /en-gb/delivery-' +
+        'information returned HTTP 404 to this tooling — the real path was not found, so ' +
+        'currency is still unconfirmed too.',
     ],
   },
   {
@@ -500,8 +499,14 @@ export const HOUSES: readonly House[] = [
     routes: ['shopify-products-json', 'sitemap-jsonld'],
     enabled: true,
     blockers: [
-      'storefront currency and UK delivery terms not yet established',
+      'UK delivery terms not yet established (currency now is: confirmed 2026-08-12, ' +
+        'joloves.com carts in GBP)',
       'applied to their UK Awin programme (registered as "Jo Loves Limited") 2026-08-11 — joloves.com is the company\'s own registered domain per Companies House, not merely the most likely of several found',
+      'Read directly 2026-08-12: the storefront advertises "Free Standard Delivery on UK ' +
+        'orders over £70" (homepage) but the flat rate below that was not found — /policies/' +
+        'shipping-policy and /pages/delivery-information exist but do not state a number in ' +
+        'the extracted text, /policies/refund-policy does not mention delivery cost, and /' +
+        'pages/faq 404s. Needs a raw-text read of delivery-information or a different path.',
     ],
   },
   {

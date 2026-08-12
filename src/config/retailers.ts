@@ -1498,6 +1498,41 @@ export const RETAILERS: readonly Retailer[] = [
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
+    id: 'escentric-molecules',
+    name: 'Escentric Molecules',
+    domain: 'escentric.com',
+    homepage: 'https://www.escentric.com',
+    tiers: ['niche'],
+    singleBrandOnly: 'Escentric Molecules',
+    // Promoted out of src/config/houses.ts 2026-08-12, on the same basis as
+    // French Avenue and Armaf before it: their houses.ts entry was blocked on
+    // "storefront currency and UK delivery terms not yet established" because
+    // only a US-labelled URL (escentric.com/en-us) had been seen. Read
+    // directly this pass, the plain escentric.com storefront resolves in
+    // sterling with a stated flat UK rate — clears the bar for a UK retailer
+    // entry rather than a currency-unknown house catalogue.
+    enabled: true,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: 7.5,
+      freeOverGbp: 80,
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-08-12',
+      confidence: 'confirmed',
+      notes:
+        'Read directly off their own delivery-and-returns page, ' +
+        'https://www.escentric.com/pages/delivery-and-returns, on 2026-08-12: "£7.50 on ' +
+        'orders under £80" and "Enjoy complimentary delivery on orders of £80 or more". A ' +
+        'separate £125 promotional spend threshold (free 10ml Escentric 01) seen on the ' +
+        'homepage is a gift-with-purchase offer, not a second delivery tier, and is out of ' +
+        'scope here. Already stocked by several UK retailers (Liberty, Selfridges, Cult ' +
+        'Beauty, Space NK) — expect catalogue overlap once this harvest runs.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
     id: 'lush',
     name: 'LUSH',
     domain: 'lush.com',
