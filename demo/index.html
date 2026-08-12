@@ -635,10 +635,18 @@
      mobile — .suggest-section's own base rule (align-items: center;
      text-align: center) already does this once the desktop override that
      was left-aligning it is removed, so there is nothing to add here. */
-  .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  /* One section-heading treatment, replacing three that had drifted apart
+     (uppercase-tracked, 17px bold, accent-underlined). Sentence case at
+     15px/600, no rule and no accent: separation between blocks is space --
+     32px above, 16px below -- never decoration. The markup already reads
+     "Most stocked"; it was CSS doing the shouting. */
+  .section-head {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
+    margin: 32px 0 16px;
+  }
   .section-head h3 {
-    margin: 0; font-size: 11.5px; font-weight: 700;
-    letter-spacing: .11em; text-transform: uppercase; color: var(--faint);
+    margin: 0; font: 600 15px/1.25 var(--font-sans);
+    letter-spacing: -.005em; text-transform: none; color: var(--ink);
   }
   .link-btn {
     background: none; border: 0; padding: 0; cursor: pointer;
@@ -1098,8 +1106,11 @@
     color: var(--faint); margin: 0 0 6px;
   }
 
+  /* The eyebrow role: one 11px/600/.08em everywhere, collapsing eight
+     letter-spacings that had accumulated across the browse filters. 11px is
+     the floor at which uppercase tracking stays readable at 360px. */
   .section-label {
-    font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    font: 600 11px/1 var(--font-sans); letter-spacing: .08em; text-transform: uppercase;
     color: var(--faint); margin: 0 0 10px;
   }
 
@@ -1222,8 +1233,13 @@
   @media (hover: hover) and (pointer: fine) {
     .facet-pill:hover { border-color: var(--accent); }
   }
+  /* Selected chips invert to the ink ramp, deliberately not the accent: a
+     browse screen can carry six selections at once, and six red pills would
+     stop red meaning "best price" anywhere on the page. Accent is reserved
+     for the primary action, the best-price marker, the live chart line and
+     focus rings. */
   .facet-pill.is-active {
-    background: var(--accent-sf); border-color: var(--accent); color: var(--accent);
+    background: var(--ink); border-color: var(--ink); color: var(--bg);
   }
   .facet-pill.is-active .facet-count { color: inherit; }
   .facets-clear { align-self: flex-start; }
@@ -1374,7 +1390,10 @@
   .history-block { margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--line); }
   .history-chart { position: relative; margin-top: 10px; }
   .history-svg { width: 100%; height: 160px; display: block; overflow: visible; }
-  .history-area { fill: var(--accent-sf); opacity: .5; stroke: none; }
+  /* --chart-band carries its own alpha, so no opacity multiplier: the fill
+     under the live line is a named chart token rather than the accent
+     surface dimmed by half, which drifted whenever accent-sf moved. */
+  .history-area { fill: var(--chart-band); opacity: 1; stroke: none; }
   .history-line { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
   /* HTML buttons laid over the svg, not shapes inside it — see
      priceHistoryChart's own comment for why: the svg stretches non-uniformly
@@ -1419,7 +1438,8 @@
   .history-xaxis { position: relative; height: 16px; margin-top: 4px; }
   .history-xlabel {
     position: absolute; top: 0; transform: translateX(-50%);
-    font-size: 10.5px; color: var(--faint); white-space: nowrap;
+    font: 400 11px/1.4 var(--font-num); font-variant-numeric: tabular-nums;
+    color: var(--faint); white-space: nowrap;
   }
 
   /* ── settings and documents ────────────────────────────────────────────── */
