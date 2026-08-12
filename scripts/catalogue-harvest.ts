@@ -173,6 +173,7 @@ for (const retailer of shops) {
         pagesFetched: shopifyResult.pagesFetched,
         urlsDiscovered: shopifyResult.listings.length,
         errors: shopifyResult.errors,
+        sampledUrls: [],
       };
     } else {
       result = await crawlViaSitemap({
@@ -219,6 +220,18 @@ for (const retailer of shops) {
       (result.errors.length ? `  (${result.errors.length} errors)` : ''),
   );
   for (const e of result.errors.slice(0, 1)) console.log(`      ${e}`);
+
+  // A shop that fetched its full budget and priced nothing, with no errors to
+  // read, is the one failure this log used to be unable to describe. Show what
+  // was actually asked for: "70 fetched, 0 priced" against /about-us and
+  // /delivery-information is a completely different problem from the same line
+  // against real product pages, and the URLs are the only thing that tells them
+  // apart. Three shops sat in the first state for weeks without it being
+  // visible here — see the pathOf comment in src/catalogue/sitemapCrawl.ts.
+  if (withPrice.length === 0 && result.pagesFetched > 0 && result.sampledUrls.length > 0) {
+    console.log(`      fetched but nothing priced, e.g.:`);
+    for (const u of result.sampledUrls.slice(0, 3)) console.log(`        ${u}`);
+  }
 
   if (withPrice.length === 0) {
     zeroThisRun.push(retailer.id);

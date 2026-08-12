@@ -1,19 +1,33 @@
 name: Catalogue crawl
 
-# Runs at the top of every hour and commits the resulting snapshots. The
-# commit is the audit trail: the diff shows exactly which products a shop
-# added, dropped or repriced since the last run.
+# Runs every two hours and commits the resulting snapshots. The commit is the
+# audit trail: the diff shows exactly which products a shop added, dropped or
+# repriced since the last run.
 #
-# Hourly is genuinely free right now: the sitemap harvest against the four
-# working shops costs nothing, and --allow-metered below is a no op unless
-# the APIFY_PROXY_PASSWORD secret is set, which it currently is not. If that
-# secret is ever added, every hourly tick would retry the blocked shops
-# through the paid residential proxy, multiplying that cost by roughly 24
-# compared to the old once a day schedule — worth revisiting the cadence at
-# that point rather than assuming this comment still holds.
+# Two-hourly rather than hourly, because hourly was never real. A full run now
+# takes 71-79 minutes end to end (measured: run #153 finished in 70m48s, run
+# #158 reached its harvest commit at 68m04s and was still working), so an
+# hourly cron asks for a run to start while the previous one is still going.
+# The concurrency group below then holds the new one pending, and a *third*
+# tick arriving cancels the one waiting. The delivered cadence between
+# 2026-08-11 22:39Z and 2026-08-12 10:01Z was already 1h46m-2h18m between runs
+# (#153 through #159) rather than the hourly this cron claimed — so this is the
+# schedule matching what the pipeline actually does, not a reduction in
+# service. It also leaves ~40 minutes of slack between the end of one run and
+# the start of the next, which is what stops a slow run stacking at all.
+#
+# Every hour this workflow keys behaviour off (00, 06, 12 and 18 UTC for the
+# Awin sync and Top Deals, 06 and 18 for shipping discovery) is even, so all
+# of them still land on a tick.
+#
+# --allow-metered below is a no op unless the APIFY_PROXY_PASSWORD secret is
+# set, which it currently is not. If that secret is ever added, every tick
+# would retry the blocked shops through the paid residential proxy — worth
+# revisiting the cadence at that point rather than assuming this comment still
+# holds.
 on:
   schedule:
-    - cron: '0 * * * *'
+    - cron: '0 */2 * * *'
   workflow_dispatch:
     inputs:
       source:
@@ -81,25 +95,40 @@ concurrency:
 jobs:
   crawl:
     runs-on: ubuntu-latest
-    # Measured, not guessed: the "Harvest via sitemap" step alone took 38m55s
-    # on run #122 (2026-08-10) and 25m29s on run #123 the same day — politeness
-    # delays across a dozen shops make this inherently slow and genuinely
-    # variable, not stuck. At the old 45-minute cap that variance meant a
-    # scheduled run was cancelled mid-pipeline more often than it finished (6
-    # of the 8 runs immediately before this change), almost always partway
-    # through "Harvest houses direct" or the rebuild — after the slow part had
-    # already happened, but before "Commit harvested prices" could run. The
-    # harvest was real and complete; it was just never saved, so the site
-    # quietly went a full hour without the fresher data that hour's run had
-    # already gathered. 75 minutes gives the slowest observed run (~49
-    # minutes end to end, reconstructed from its own step timings) real
-    # headroom, including room for the catalogue's steady growth to make the
-    # rebuild and image-check steps a little slower over time, without
-    # papering over an actual hang: every cancelled run inspected while
-    # diagnosing this showed steady progress right up to the cutoff, never a
-    # step stuck doing nothing, so there was no runaway process here to guard
-    # against — only too little time for real, finite work.
-    timeout-minutes: 75
+    # Measured from the runs themselves, not guessed. Every number below is a
+    # step duration read off the GitHub jobs API.
+    #
+    # Run #153 (2026-08-12 00:08Z) is the last run that finished cleanly, and
+    # it only just did: 70m48s of a 75-minute cap, of which harvest 56m43s,
+    # houses 7m09s, rebuild 50s, commit 61s, image check 4m47s. Four minutes of
+    # slack.
+    #
+    # Runs #154-#158 then took the same pipeline past the cap. #158 is the
+    # clearest: harvest 59m14s, houses 6m48s, rebuild 56s, commit 66s — it did
+    # reach "Commit harvested prices" and pushed e17cff6 at 09:24:23Z, 68m04s
+    # in — and was then killed at 09:31:10Z, exactly 75 minutes after the job
+    # started, six minutes into the image check. #155, #156 and #157 each ran
+    # 75.3-75.5 minutes wall clock and stopped at the same cap. So the thing
+    # that cancelled them was this timeout, not the concurrency group: none of
+    # them was ever cancelled while pending, each got a runner immediately and
+    # used all 75 minutes of it.
+    #
+    # #157 is the expensive case and the reason for the size of the number
+    # below. It was an 06:00 tick, so it also paid for "Discover shipping
+    # terms" (5m34s), the Awin sync (56s) and Top Deals (13s) before the
+    # harvest even started. Harvest then took 59m12s and the job died inside
+    # "Harvest houses direct" — before the commit. That run harvested for an
+    # hour and saved none of it, and it needed roughly 86 minutes to have
+    # saved any.
+    #
+    # 100 minutes covers that worst measured case with ~14 minutes of headroom
+    # for the catalogue's steady growth, and still fits inside the two-hour
+    # cron above with ~20 minutes to spare, so a long run cannot stack into the
+    # next tick. It is not papering over a hang: every cancelled run inspected
+    # here showed steady progress right up to the cutoff, never a step stuck
+    # doing nothing. The two steps that can genuinely run long are separately
+    # capped below, so this ceiling should never be what stops a run again.
+    timeout-minutes: 100
 
     steps:
       # fetch-depth: 0 is load-bearing, not a nicety. actions/checkout@v4
@@ -317,9 +346,20 @@ jobs:
       #
       # Never fails the job: a house refusing us is a fact to record, not a
       # reason to lose the retailer harvest that already succeeded above.
+      #
+      # continue-on-error alone was not enough, because a *job* timeout ignores
+      # it — it cancels the step and every step after it. That is precisely how
+      # run #157 lost an entire hour of harvesting: the sitemap harvest had
+      # finished successfully at 07:18:58Z, this step was still going at
+      # 07:27:47Z when the job's own cap landed, and "Commit harvested prices"
+      # was never reached. The step timeout is what makes the promise in the
+      # paragraph above actually hold: houses have taken 6m48s (#158) and 7m09s
+      # (#153), so 15 minutes is roughly double the observed cost, and a house
+      # that hangs past it now costs this run its house data and nothing else.
       - name: Harvest houses direct
         if: ${{ inputs.harvest || github.event_name == 'schedule' }}
         continue-on-error: true
+        timeout-minutes: 15
         run: npm run houses
 
       - name: Rebuild the app from harvested prices
@@ -343,8 +383,21 @@ jobs:
       # retailer reshuffling their CDN silently breaks a tile with nothing
       # else here noticing. This is a report only: it does not change what a
       # fragrance's photoUrl is, only records which ones stopped resolving.
+      #
+      # Bounded and best-effort for the same reason as the houses step above,
+      # and with more cause: this is the last step in the run, it is a report
+      # nothing else reads yet, and its cost grows with the catalogue rather
+      # than staying put. It took 4m47s on run #153 and was still going 6m47s
+      # in on #158 — by then 24,276 distinct URLs, up with every listing added.
+      # #158 had already committed its harvest when this step was cancelled, so
+      # the only thing the job timeout actually destroyed there was this
+      # report, and it marked the whole run "cancelled" to do it. 15 minutes,
+      # and a run that overruns it loses one image report rather than its
+      # status.
       - name: Check image links
         if: ${{ inputs.harvest || github.event_name == 'schedule' }}
+        continue-on-error: true
+        timeout-minutes: 15
         run: npm run images:check
 
       - name: Commit image link report

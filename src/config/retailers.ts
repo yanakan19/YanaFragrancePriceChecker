@@ -1513,6 +1513,15 @@ export const RETAILERS: readonly Retailer[] = [
     // entry rather than a currency-unknown house catalogue.
     enabled: true,
     adapter: 'unknown',
+    // Not a convention guess like Emirates Oud above: escentric.com's
+    // /products.json was read successfully by `npm run houses` on run #158
+    // (2026-08-12 09:22:17Z), back when this was still a houses.ts entry, and
+    // returned "118 listings 118 in GBP 118 with photo shopify-products-json
+    // [GBP]" from a single request. Promoting the entry to retailers.ts
+    // without carrying that route across would have sent it down the generic
+    // sitemap walk instead — 70 page fetches and roughly three minutes to
+    // rediscover what one request already answers.
+    shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
       standardGbp: 7.5,
