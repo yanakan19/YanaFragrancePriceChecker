@@ -60,6 +60,12 @@ import {
   type RobotsRules,
 } from '../src/catalogue/robots.js';
 import { BROWSER_HEADERS, type Http } from '../src/catalogue/attempt.js';
+import {
+  emptyPriceIndex,
+  indexShopifyPage,
+  lookupLivePrice,
+  type ShopifyPriceIndex,
+} from '../src/catalogue/shopifyPriceIndex.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 
@@ -115,14 +121,6 @@ function sample<T>(items: readonly T[], n: number, random: () => number): T[] {
 
 // ── Live price lookup ───────────────────────────────────────────────────────
 
-interface LivePrice {
-  price: number;
-  compareAt: number | null;
-  available: boolean | null;
-  /** Where on the shop this figure was read, for the report's evidence trail. */
-  liveUrl: string;
-}
-
 interface Comparison {
   retailerSku: string;
   title: string;
@@ -173,24 +171,13 @@ function gapFor(retailer: Retailer, robots: RobotsRules): number {
   return Math.max(GAP_FLOOR_MS, registry, stated);
 }
 
-function money(value: unknown): number | null {
-  if (typeof value === 'number') return Number.isFinite(value) && value > 0 ? value : null;
-  if (typeof value !== 'string') return null;
-  const n = Number.parseFloat(value.replace(/[^\d.]/g, ''));
-  return Number.isFinite(n) && n > 0 ? n : null;
-}
-
 /**
  * Walk a Shopify storefront's public catalogue into a lookup table.
  *
- * The table is keyed several ways on purpose. A stored `retailerSku` was
- * written by whichever ingestion route produced it, and those disagree: the
- * Awin feed writes `shopify_GB_<productId>_<variantId>`, `shopifyJson.ts`
- * writes the variant's own sku (or `<productId>-<variantTitle>` when the shop
- * left sku blank), and a JSON-LD harvest writes whatever the page's markup
- * called it. Registering every one of those spellings as an alias is what lets
- * one route verify listings that another route created — which is the entire
- * point of this script.
+ * The table itself lives in src/catalogue/shopifyPriceIndex.ts, shared with
+ * scripts/storefront-reprice.ts on purpose: the repair must key listings by
+ * exactly the same rules this pass used to measure them, or a re-verification
+ * would be checking a different question from the one the fix answered.
  */
 async function shopifyIndex(
   origin: string,
@@ -198,21 +185,15 @@ async function shopifyIndex(
   gap: number,
   deadlineAt: number,
   notes: string[],
-): Promise<Map<string, LivePrice> | null> {
-  const index = new Map<string, LivePrice>();
-  const add = (key: string | null | undefined, value: LivePrice) => {
-    if (!key) return;
-    const k = key.trim();
-    if (k && !index.has(k)) index.set(k, value);
-  };
-
+): Promise<ShopifyPriceIndex | null> {
+  const index = emptyPriceIndex();
   let products = 0;
+
   // The end-of-catalogue signal is an *empty* page, not a short one. Breaking
   // on `< 250` looked right and was wrong in a way that silently halved this
   // pass's reach: it stopped Escentual at 248 products, so 7,846 of its 8,103
   // listings were reported unkeyed when the shop had simply returned a page
-  // the theme had padded differently. src/catalogue/shopifyProductsCrawl.ts
-  // already had this right; this now matches it.
+  // the theme had padded differently.
   for (let page = 1; page <= 200; page++) {
     if (Date.now() >= deadlineAt) {
       notes.push(`stopped at products.json page ${page}: out of time budget`);
@@ -235,63 +216,16 @@ async function shopifyIndex(
       break;
     }
 
-    let batch: Record<string, unknown>[];
-    try {
-      const parsed = JSON.parse(res.body) as { products?: unknown };
-      if (!Array.isArray(parsed.products)) {
-        if (page === 1) {
-          notes.push('products.json did not return a Shopify products payload');
-          return null;
-        }
-        break;
-      }
-      batch = parsed.products as Record<string, unknown>[];
-    } catch {
+    const parsed = indexShopifyPage(res.body, origin, index);
+    if (!parsed.isShopify) {
       if (page === 1) {
-        notes.push('products.json was not JSON — not a Shopify storefront');
+        notes.push('products.json did not return a Shopify products payload');
         return null;
       }
       break;
     }
-
-    for (const product of batch) {
-      const productId = product['id'] === undefined ? null : String(product['id']);
-      const handle = typeof product['handle'] === 'string' ? product['handle'] : null;
-      const productUrl = handle ? `${origin}/products/${handle}` : origin;
-      const variants = Array.isArray(product['variants']) ? product['variants'] : [];
-
-      for (const raw of variants) {
-        if (!raw || typeof raw !== 'object') continue;
-        const v = raw as Record<string, unknown>;
-        const price = money(v['price']);
-        if (price === null) continue;
-
-        const live: LivePrice = {
-          price,
-          compareAt: money(v['compare_at_price']),
-          available: typeof v['available'] === 'boolean' ? v['available'] : null,
-          liveUrl: productUrl,
-        };
-
-        const variantId = v['id'] === undefined ? null : String(v['id']);
-        const vSku = typeof v['sku'] === 'string' ? v['sku'] : null;
-        const vTitle = typeof v['title'] === 'string' ? v['title'] : null;
-
-        add(variantId, live);
-        add(vSku, live);
-        if (productId && variantId) {
-          // The Awin feed's spelling, and the currency-prefixed variants of it.
-          add(`${productId}_${variantId}`, live);
-          add(`shopify_GB_${productId}_${variantId}`, live);
-        }
-        // shopifyJson.ts's fallback when the shop leaves variant sku blank.
-        if (productId) add(`${productId}-${vTitle ?? 'default'}`, live);
-        if (handle) add(`${handle}-${vTitle ?? 'default'}`, live);
-      }
-      products++;
-    }
-
-    if (batch.length === 0) break;
+    products += parsed.products;
+    if (parsed.products === 0) break;
     await sleep(gap);
   }
 
@@ -301,45 +235,6 @@ async function shopifyIndex(
   }
   notes.push(`products.json: ${products} products, ${index.size} lookup keys`);
   return index;
-}
-
-/**
- * Key one stored listing against the live Shopify table.
- *
- * Tried in order of how specific the key is. The trailing-numbers fallback
- * exists for the Awin feed's `shopify_GB_<productId>_<variantId>` spelling
- * even when the prefix differs by market.
- */
-function lookupShopify(listing: StoredListing, index: Map<string, LivePrice>): LivePrice | null {
-  const sku = listing.retailerSku;
-  const direct = index.get(sku);
-  if (direct) return direct;
-
-  const parts = sku.split('_');
-  if (parts.length >= 2) {
-    const last = parts[parts.length - 1]!;
-    const pair = `${parts[parts.length - 2]!}_${last}`;
-    const byPair = index.get(pair);
-    if (byPair) return byPair;
-    const byVariant = index.get(last);
-    if (byVariant) return byVariant;
-  }
-
-  // A stored URL that is the shop's own product page pins the handle even when
-  // no id lines up. Only usable when the shop has exactly one priced variant
-  // under that handle, which is why it is keyed on the handle-default alias.
-  try {
-    const path = new URL(listing.url, 'https://x.invalid').pathname;
-    const m = /\/products\/([^/?#]+)/.exec(path);
-    if (m) {
-      const byHandle = index.get(`${m[1]!}-Default Title`);
-      if (byHandle) return byHandle;
-    }
-  } catch {
-    // A malformed stored URL is a separate defect; it is not this lookup's job.
-  }
-
-  return null;
 }
 
 // ── The pass itself ─────────────────────────────────────────────────────────
@@ -354,7 +249,7 @@ function median(values: number[]): number {
 function record(
   outcome: ShopOutcome,
   listing: StoredListing,
-  live: LivePrice,
+  live: { price: number; available: boolean | null; productUrl: string },
   drifts: number[],
 ): void {
   const stored = listing.priceGbp!;
@@ -384,7 +279,7 @@ function record(
     livePrice: live.price,
     overstatementGbp: Number(delta.toFixed(2)),
     overstatementPct: Number(((delta / live.price) * 100).toFixed(1)),
-    liveUrl: live.liveUrl,
+    liveUrl: live.productUrl,
   });
 }
 
@@ -455,7 +350,7 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
   if (index) {
     for (const listing of active) {
       outcome.attempted++;
-      const live = lookupShopify(listing, index);
+      const live = lookupLivePrice(listing.retailerSku, listing.url, index);
       if (!live) {
         outcome.unkeyed++;
         continue;
@@ -559,7 +454,7 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
     record(
       outcome,
       listing,
-      { price: hit.priceGbp, compareAt: hit.wasPriceGbp, available: hit.inStock, liveUrl: url },
+      { price: hit.priceGbp, available: hit.inStock, productUrl: url },
       drifts,
     );
     await sleep(gap);

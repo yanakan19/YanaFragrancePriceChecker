@@ -363,6 +363,24 @@ export interface Retailer {
    * every harvest for a retailer that turns out not to be Shopify at all.
    */
   shopifyStorefront?: boolean;
+  /**
+   * This retailer's affiliate feed has been *measured* to publish prices the
+   * shop does not charge, so its own Shopify storefront is the price of
+   * record instead — see src/catalogue/feedPriceRepair.ts for the mechanism
+   * and the measurement behind it.
+   *
+   * Set only from a "Price verification" run that keyed a large majority of
+   * the retailer's listings and found a one-sided disagreement. One-sided is
+   * the load-bearing word: a stale snapshot disagrees in both directions
+   * roughly evenly, so a lopsided split is what distinguishes "this feed is
+   * wrong" from "we last looked a while ago". Never set on a hunch, and never
+   * on a feed that has not been measured at all — the repair clears the price
+   * of any listing the storefront does not carry, which is right for a feed
+   * known to be wrong and reckless for one that is merely unexamined.
+   *
+   * Requires `shopifyStorefront: true`; there is no other route implemented.
+   */
+  storefrontIsPriceAuthority?: boolean;
   shipping: ShippingRule;
   affiliate: AffiliateConfig;
   /**

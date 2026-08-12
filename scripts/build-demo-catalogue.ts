@@ -630,6 +630,8 @@ let liveShops = 0;
 let considered = 0;
 const skippedShops: string[] = [];
 let rejected = 0;
+/** Active listings carrying no usable price. Never published; see the guard below. */
+let unpriced = 0;
 
 if (existsSync(dir)) {
   for (const file of readdirSync(dir).filter((f) => f.endsWith('.json'))) {
@@ -679,6 +681,18 @@ if (existsSync(dir)) {
         rawBrand: stored.rawBrand === null ? null : repairMojibake(stored.rawBrand),
       };
       considered++;
+
+      // An offer with no price is not an offer. This was an unguarded `l.priceGbp!`
+      // three lines down, and the only thing keeping a bad number off the site was
+      // luck: two Oud Arabian listings currently carry priceGbp 0, and a £0 offer
+      // wins the cheapest-price sort everywhere it appears. It is also what makes
+      // "we could not corroborate this price" expressible at all — see
+      // src/catalogue/feedPriceRepair.ts, which clears rather than guesses.
+      if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) {
+        unpriced++;
+        continue;
+      }
+
       if (!isFragrance(l)) {
         rejected++;
         continue;
@@ -975,7 +989,7 @@ writeFileSync(resolve(root, 'demo/catalogue.generated.ts'), body);
 const multi = ordered.filter((p) => p.offers.length > 1).length;
 console.log(
   `demo/catalogue.generated.ts written from LIVE data only:\n` +
-    `  ${liveShops} shops, ${considered} listings considered, ${rejected} were not fragrance\n` +
+    `  ${liveShops} shops, ${considered} listings considered, ${rejected} were not fragrance, ${unpriced} carried no price\n` +
     `  ${ordered.length} products, ${multi} of them stocked by more than one shop\n` +
     `  ${mergedProducts} duplicate listings folded into an existing product\n` +
     `  ${houseProducts.length} house products, catalogue-only (no sterling price yet)` +

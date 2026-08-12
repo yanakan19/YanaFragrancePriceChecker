@@ -246,6 +246,14 @@ jobs:
           HOUR=$(date -u +%H)
           if [ "${{ inputs.awin_feed_sync }}" = "true" ] || [ "$HOUR" = "00" ] || [ "$HOUR" = "06" ] || [ "$HOUR" = "12" ] || [ "$HOUR" = "18" ]; then
             npm run awin:feed-sync
+            # Inside this block, immediately after the sync and before the
+            # rebuild, because ordering here is load-bearing in both
+            # directions. The sync overwrites each feed retailer's snapshot
+            # with whatever the feed currently says, so a correction applied
+            # before it would be silently discarded — both steps would still
+            # report success. And the rebuild below has to see the corrected
+            # prices, not the feed's. See scripts/storefront-reprice.ts.
+            npm run storefront:reprice
             if ! git diff --quiet -- data/catalogue data/awin-feed-sync-state.json; then
               npm run catalogue:demo
               npm run catalogue:history
@@ -260,7 +268,8 @@ jobs:
         run: |
           ./scripts/commit-and-push.sh \
             "Awin feed sync: $(date -u +%Y-%m-%d)" \
-            data/catalogue data/awin-feed-sync-state.json demo/catalogue.generated.ts \
+            data/catalogue data/awin-feed-sync-state.json data/storefront-reprice-report.json \
+            demo/catalogue.generated.ts \
             demo/priceHistory.generated.ts demo/index.html demo/404.html
 
       # Manual-only debug aid: prints the column headers and the values of
