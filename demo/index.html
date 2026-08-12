@@ -1767,21 +1767,14 @@
   /* Houses read direct from their own storefronts. Visually distinct from the
      comparison tiles on purpose: these carry no UK price and must not be
      mistaken for an offer you can act on. */
-  .house-note {
-    margin: 0 0 16px; padding: 12px 14px; font-size: 14px; line-height: 1.45;
-    border: 1px solid var(--line); border-radius: 12px;
-    background: color-mix(in srgb, var(--surface) 70%, transparent);
-    color: var(--ink-2);
-  }
-  .house-group { margin-bottom: 32px; }
-  .house-group h3 {
-    display: flex; align-items: center; gap: 8px;
-    margin: 0 0 12px; font-size: 17px;
-  }
-  .house-count {
-    font-size: 12px; font-weight: 600; color: var(--faint);
-    border: 1px solid var(--line); border-radius: 999px; padding: 2px 8px;
-  }
+  /* .house-note, .house-group, .house-group h3 and .house-count used to
+     style a houses page that no longer exists -- nothing in any view has
+     emitted those class names for some time. Removed rather than left to be
+     re-adopted: the h3 among them was a 17px section heading, which is a
+     fourth size for a role the type scale settled at 15px, and dead CSS is
+     exactly how a collapsed scale quietly comes apart again. The house card
+     itself (.house-card, .house-name, .house-price, .house-caveat) is live
+     and untouched. */
   .house-grid {
     list-style: none; margin: 0; padding: 0;
     display: grid; gap: 12px;
