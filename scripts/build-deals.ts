@@ -19,9 +19,13 @@
  * first version of this file did exactly that and doubled the shipped
  * bundle from ~4mb to ~6.4mb for zero benefit; this is the fix.
  *
- * The deal logic itself is unchanged from what demo/data.ts always did:
- * every fragrance whose best offer carries a genuine reduction against the
- * merchant's own stated reference price, deepest saving first. Imports
+ * The deal logic: every fragrance whose cheapest *buyable* offer carries a
+ * genuine reduction against the merchant's own stated reference price,
+ * deepest saving first. The buyable test is the one thing here that does not
+ * date back to demo/data.ts's original version — without it 509 of 2,385
+ * deals in the previous snapshot were offers the shop had marked out of
+ * stock, i.e. a fifth of the page was advertising savings on bottles nobody
+ * could buy. See BUYABLE below. Imports
  * DEMO_FRAGRANCES from demo/data.ts rather than reimplementing the
  * CATALOGUE -> DemoFragrance mapping a second time here — the same
  * don't-duplicate-the-matching-logic rule scripts/build-price-history.ts
@@ -32,6 +36,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEMO_FRAGRANCES } from '../demo/data.js';
 import { CRAWLED } from '../demo/catalogue.generated.js';
+import type { StockState } from '../src/types/offer.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -43,9 +48,26 @@ interface RawDeal {
   retailerId: string;
 }
 
+/**
+ * Stock states a deal may be built from.
+ *
+ * A deal is an active recommendation to go and buy something, so it has to be
+ * something a reader can actually buy right now. This is an allowlist rather
+ * than a "not outOfStock" test on purpose: preOrder is not buyable yet, and
+ * unknown means the harvest could not establish stock at all — advertising a
+ * saving on either would be claiming something that has not been established,
+ * the same reason a retailer with no stated delivery cost never ranks as
+ * cheapest. Only inStock and lowStock survive; lowStock is still in stock.
+ *
+ * Today the harvest only ever emits inStock and outOfStock, so preOrder and
+ * unknown cost nothing to exclude — but they are the states that would
+ * silently leak through a negated test if an adapter started emitting them.
+ */
+const BUYABLE: ReadonlySet<StockState> = new Set<StockState>(['inStock', 'lowStock']);
+
 const deals: RawDeal[] = DEMO_FRAGRANCES.flatMap((fragrance) => {
   const reduced = (CRAWLED[fragrance.id] ?? [])
-    .filter((o) => o.wasPrice !== null && o.wasPrice > o.price)
+    .filter((o) => BUYABLE.has(o.stock) && o.wasPrice !== null && o.wasPrice > o.price)
     .sort((a, b) => a.price - b.price);
   const best = reduced[0];
   if (!best || best.wasPrice === null) return [];
