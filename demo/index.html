@@ -208,6 +208,14 @@
      back into a narrower measure themselves (.doc, .hero-mission below). */
   :root[data-layout="desktop"] { --col: none; }
 
+  /* ── layout constants ──────────────────────────────────────────────────────
+     The page gutter is one value, used by anything that has to line up with
+     it -- including the rails that bleed past it and pull it back as their
+     own padding. Two of those existed with the 16px written into them by
+     hand, which is how a gutter change silently stops being a gutter change. */
+  :root { --gutter: 16px; --bar-h: 96px; }
+  @media (min-width: 900px) { :root { --gutter: 28px; } }
+
   /* ── type roles ────────────────────────────────────────────────────────────
      Eight roles, one canonical size/weight/tracking each. These collapse three
      drifts the old stylesheet had accumulated: section headings had three
@@ -536,7 +544,7 @@
   }
   .chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  main { padding: 4px 16px 56px; }
+  main { padding: 4px var(--gutter) 56px; }
 
   ul.listing, ul.offers { list-style: none; margin: 0; padding: 0; }
 
@@ -719,12 +727,13 @@
   /* Negative margin lets cards bleed to the screen edge while the page keeps its
      gutter, so the row reads as scrollable. */
   .pop-rail {
-    list-style: none; margin: 14px -16px 0; padding: 2px 16px 16px;
-    display: flex; gap: 10px;
+    list-style: none; margin: 16px calc(-1 * var(--gutter)) 0;
+    padding: 2px var(--gutter) 16px;
+    display: flex; gap: 12px;
     overflow-x: auto; scroll-snap-type: x proximity; scroll-behavior: smooth;
     /* Snapping aligns items to the scrollport, not the padding box, so without
        this the first card snaps flush to the edge and clips its medal. */
-    scroll-padding-inline: 16px;
+    scroll-padding-inline: var(--gutter);
     -webkit-overflow-scrolling: touch;
     /* A visible scrollbar matters more here than almost anywhere else in the
        app: on desktop, with a mouse and no touch swipe, a hidden scrollbar
@@ -839,10 +848,16 @@
      a one-line name and a two-line name end up identical. Nothing inside the
      tile needs a hand-tuned height for that to hold — see .tile-art below,
      which takes up whatever slack is left over. */
+  /* Two columns, stated rather than derived. auto-fill/minmax(148px) landed
+     on two at every width the narrow layout actually reaches, but it landed
+     there by arithmetic: a gutter change or a --col change could have moved
+     it to three without anything in the stylesheet saying so. The desktop
+     layout takes the reader's own column count instead -- see the
+     [data-layout="desktop"] rule further down. */
   .tile-grid {
     list-style: none; margin: 0; padding: 0;
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
-    grid-auto-rows: 1fr; gap: 12px;
+    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr; gap: 16px;
   }
   /* The tile itself follows the theme; only the image well inside it stays
      white. This narrows an earlier decision that made the whole card white
@@ -977,7 +992,7 @@
 
   /* ── page headings and shared panel furniture ──────────────────────────── */
   .page-head {
-    display: flex; align-items: baseline; gap: 10px; margin: 4px 0 12px;
+    display: flex; align-items: baseline; gap: 10px; margin: 4px 0 16px;
   }
   .page-head h2 { margin: 0; }
   .count { color: var(--faint); }
@@ -1157,7 +1172,7 @@
      graphic: each tier is indented 18px past the one above it and hangs off a
      lighter rule, so the shape is carried by the layout itself and survives
      at any width, in any theme, and read aloud in document order. */
-  .notes-block { margin-top: 26px; }
+  .notes-block { margin-top: 32px; }
   .note-layer { margin-bottom: 14px; padding-left: 12px; }
   .note-layer--top    { margin-left: 0;    border-left: 2px solid var(--line-firm); }
   .note-layer--middle { margin-left: 18px; border-left: 2px solid var(--line); }
@@ -1173,7 +1188,7 @@
      scroll into view rather than force every card narrower to fit. */
   .notes-groups { margin: 4px 0 20px; }
   .notes-groups-row {
-    display: flex; gap: 10px; overflow-x: auto; padding-bottom: 2px;
+    display: flex; gap: 12px; overflow-x: auto; padding-bottom: 2px;
     scrollbar-width: none;
   }
   .notes-groups-row::-webkit-scrollbar { display: none; }
@@ -1444,7 +1459,7 @@
   .offer.unavail-elsewhere .offer-link { cursor: default; padding-block: 10px; }
 
   .gone-head {
-    margin: 26px 0 12px; padding-top: 16px; border-top: 1px solid var(--line);
+    margin: 32px 0 16px; padding-top: 16px; border-top: 1px solid var(--line);
   }
   /* "Available at" leads .detail-offers with nothing above it in that
      column — the separator line and the gap it implies both belong between
@@ -1457,7 +1472,7 @@
   }
 
   /* ── price history chart ───────────────────────────────────────────────── */
-  .history-block { margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--line); }
+  .history-block { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); }
   .history-chart { position: relative; margin-top: 10px; }
   .history-svg { width: 100%; height: 160px; display: block; overflow: visible; }
   /* --chart-band carries its own alpha, so no opacity multiplier: the fill
@@ -1684,7 +1699,6 @@
      grid instead of a single column, and a two column detail view. Everything
      here hangs off [data-layout="desktop"], set on <html> by demo/app.ts, a
      name distinct from data-mode (the colour theme) on purpose. */
-  :root[data-layout="desktop"] main { padding-inline: 32px; }
   :root[data-layout="desktop"] .intro { padding-top: 56px; }
   :root[data-layout="desktop"] .hero-wordmark { font-size: 46px; }
   /* The page itself now runs edge to edge, but a line of prose stretched
@@ -1704,6 +1718,41 @@
 
   :root[data-layout="desktop"] .pop-item { width: 168px; }
 
+  /* Browse on a wide screen puts the filters in a column of their own beside
+     the results rather than in a panel that pushes the grid down every time
+     it opens. 248px is wide enough for two pill columns in the Volume and
+     Concentration groups, which is what the panel was already wrapping to.
+
+     Done as a float, not a grid: the filter block and the results grid are
+     siblings in a flat view with no wrapper between them, and a float is the
+     one way to sit a fixed column beside following content without adding
+     one. The results grid establishes its own formatting context, so it is
+     laid out beside the float rather than under it. :has() scopes this to
+     the one .controls block that holds the facets -- the sort and per-row
+     controls elsewhere keep their row. A browser without :has() gets the
+     stacked layout it has now, which is a fair fallback rather than a
+     broken one.
+
+     1100px is not a round number, it is the sum: 248 for the column, 28 for
+     the gap, 5 x 148 for a default row of tiles at the width .tile-grid has
+     always treated as a tile's minimum, 16px between each, and the page
+     gutter either side. Below it the column would be taking its width out of
+     the tiles, and a filter panel that clips the product names it is there to
+     filter is worse than one that sits above them. */
+  @media (min-width: 1100px) {
+    :root[data-layout="desktop"] .controls:has(.facets) {
+      float: left; width: 248px; margin: 6px 28px 16px 0;
+      flex-direction: column; align-items: stretch;
+    }
+    :root[data-layout="desktop"] .controls:has(.facets) .facets-toggle { width: 100%; }
+    :root[data-layout="desktop"] .controls:has(.facets) .facets-panel {
+      margin-top: 12px; width: 100%;
+    }
+    /* The float is taller than the results only when a filter has narrowed
+       them to almost nothing, and it must not then escape the view. */
+    :root[data-layout="desktop"] .view-fade:has(.facets) { display: flow-root; }
+  }
+
   /* Desktop takes the reader's chosen column count literally: equal tracks
      filling the page width, rather than the narrow layout's "fit as many as
      will go". minmax(0, 1fr) rather than plain 1fr so a long unbroken word
@@ -1716,24 +1765,27 @@
      keep a comfortable line length instead of stretching the full page width. */
   :root[data-layout="desktop"] .doc { max-width: 640px; margin-inline: auto; }
 
-  /* Both columns get their own scrollbar and their own height budget, capped
-     to what's left below the sticky bar, rather than one column pinned in
-     place while the page scrolls past it. That matters now that .hero can
-     run long — art, heading, price, and the notes block that used to live
-     at the bottom of .detail-offers all stack in the same left column. */
+  /* The offers scroll with the page; the price rail beside them is pinned.
+     380px flat rather than minmax(280px, 380px): the rail holds a picture, a
+     name and a price box whose widths were tuned once, and letting the column
+     breathe between two figures only meant they were tuned for one of them.
+
+     top clears the sticky bar (--bar-h) and then the 20px the handoff asks
+     for. The rail can run long -- art, heading, price and the notes block all
+     stack in it -- so it is capped to the window and scrolls inside itself
+     past that, rather than being pinned at a height it cannot honour. */
   :root[data-layout="desktop"] .detail-grid {
-    display: grid; grid-template-columns: minmax(280px, 380px) 1fr;
-    gap: 8px 48px; align-items: start;
-    height: calc(100vh - 96px);
+    display: grid; grid-template-columns: 380px minmax(0, 1fr);
+    gap: 8px 28px; align-items: start;
   }
   :root[data-layout="desktop"] .hero {
     text-align: center; border-bottom: 0; padding: 6px 24px 24px 0;
-    height: 100%; overflow-y: auto;
+    position: sticky; top: calc(var(--bar-h) + 20px);
+    max-height: calc(100vh - var(--bar-h) - 40px); overflow-y: auto;
   }
   :root[data-layout="desktop"] .hero-blurb { margin-inline: auto; }
   :root[data-layout="desktop"] .detail-offers {
-    border-left: 1px solid var(--line); padding: 0 0 24px 48px;
-    height: 100%; overflow-y: auto;
+    border-left: 1px solid var(--line); padding: 0 0 24px 28px;
   }
 
 
@@ -1746,7 +1798,7 @@
     background: color-mix(in srgb, var(--surface) 70%, transparent);
     color: var(--ink-2);
   }
-  .house-group { margin-bottom: 26px; }
+  .house-group { margin-bottom: 32px; }
   .house-group h3 {
     display: flex; align-items: center; gap: 8px;
     margin: 0 0 12px; font-size: 17px;
