@@ -22,6 +22,7 @@ import { CatalogueStore } from '../src/catalogue/store.js';
 import { isNewListing } from '../src/catalogue/newBadge.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 import { RETAILERS } from '../src/config/retailers.js';
+import type { Retailer } from '../src/types/retailer.js';
 import { HOUSES } from '../src/config/houses.js';
 import { buildBrandCanon } from '../src/catalogue/brandName.js';
 import { findDuplicateGroups } from '../src/catalogue/productMatch.js';
@@ -443,6 +444,124 @@ function pickNotes(offers: Offer[]): Notes | null {
 }
 
 /**
+ * True when a listing's own vendor field cannot be trusted as its brand.
+ *
+ * A multi-brand retailer's Shopify `vendor` field is supposed to name the
+ * fragrance house, and for the overwhelming majority of listings it does.
+ * Occasionally a shop tags its own vendor field with its own shop name
+ * instead — checked against the live catalogue, this happens for 10 of
+ * Emirates Oud's 2468 listings and for all 173 of Oud Arabian's (both
+ * already documented in src/config/retailers.ts as multi-brand listings,
+ * not a house's own storefront). "Emirates Oud" and "Oud Arabian" are shops,
+ * not fragrance houses, so keeping either as a brand states something false.
+ *
+ * `retailer.singleBrandOnly` is the reason this is never applied to a
+ * house's own UK storefront: there, the vendor field naming the retailer's
+ * own name is not a mistake, it is the one legitimately correct answer.
+ */
+function isSelfVendored(rawBrand: string | null | undefined, retailer: Retailer): boolean {
+  if (!rawBrand || retailer.singleBrandOnly) return false;
+  return rawBrand.trim().toLowerCase() === retailer.name.trim().toLowerCase();
+}
+
+/**
+ * Brand names this build has confirmed independently of any one retailer's
+ * vendor field — every `rawBrand` actually published by a genuine fragrance
+ * listing (isFragrance), except a self-vendored multi-brand retailer's own
+ * name tagging itself (see isSelfVendored) — that cannot also be evidence
+ * for its own mistake. Kept only once a name is confirmed by at least two
+ * such listings, because a single stray bad vendor tag elsewhere in the
+ * catalogue is real (checked: mybeauty-boutique has exactly one DKNY
+ * listing tagged rawBrand "Women") and one match is not enough to call it a
+ * genuine house rather than someone else's dirty data leaking in.
+ */
+const knownFragranceBrands: ReadonlySet<string> = (() => {
+  const counts = new Map<string, number>();
+  if (existsSync(dir)) {
+    for (const file of readdirSync(dir).filter((f) => f.endsWith('.json'))) {
+      const snap = store.read(file.replace(/\.json$/, ''));
+      if (snap.source !== 'live') continue;
+      const retailer = RETAILERS.find((r) => r.id === snap.retailerId);
+      if (!retailer) continue;
+      for (const l of snap.listings) {
+        if (l.status !== 'active' || !l.rawBrand || !isFragrance(l)) continue;
+        if (isSelfVendored(l.rawBrand, retailer)) continue;
+        const key = l.rawBrand.trim().toLowerCase();
+        if (!key) continue;
+        counts.set(key, (counts.get(key) ?? 0) + 1);
+      }
+    }
+  }
+  const confirmed = new Set<string>();
+  for (const [key, count] of counts) if (count >= 2) confirmed.add(key);
+  return confirmed;
+})();
+
+/**
+ * Recover a real brand from a title's own text when the vendor field is
+ * unusable (see isSelfVendored).
+ *
+ * The shop still usually writes the true house name inside the title even
+ * when its vendor field names itself instead — "Costa de Amalfi Perfume
+ * 100ml EDP Riiffs" is a genuine Riiffs fragrance despite Emirates Oud's own
+ * vendor tag reading "Emirates Oud". This looks for it at either end of the
+ * title: the longest leading run of words, then the longest trailing run,
+ * that exactly matches (case-insensitively) a brand independently confirmed
+ * elsewhere (knownFragranceBrands above). Leading is tried first because
+ * that is the far more common shape across the retailers checked (Oud
+ * Arabian's own titles overwhelmingly open with the house name).
+ *
+ * Deliberately not a fuzzy or partial match, and never a guess at a word
+ * that merely looks brand-shaped — mid-title text is never considered, so
+ * "Yara Perfume 100ml EDP Lattafa Set Of 4" cannot produce "Lattafa" (it
+ * sits in the middle, not at either end) or "4" (not a real, confirmed
+ * brand). A title with no confirmed brand at either end returns null, which
+ * canonBrand/'Unbranded' downstream turns into an honest gap rather than an
+ * invented fact.
+ */
+function recoverBrandFromTitle(rawTitle: string, retailerName: string): string | null {
+  const words = rawTitle.trim().split(/\s+/).filter(Boolean);
+  const shopName = retailerName.trim().toLowerCase();
+
+  let leading: string | null = null;
+  let leadingLen = 0;
+  for (let end = words.length; end > 0; end--) {
+    const candidate = words.slice(0, end).join(' ');
+    const key = candidate.toLowerCase();
+    if (key !== shopName && knownFragranceBrands.has(key) && end > leadingLen) {
+      leading = candidate;
+      leadingLen = end;
+    }
+  }
+  if (leading) return leading;
+
+  let trailing: string | null = null;
+  let trailingLen = 0;
+  for (let start = 0; start < words.length; start++) {
+    const candidate = words.slice(start).join(' ');
+    const key = candidate.toLowerCase();
+    const len = words.length - start;
+    if (key !== shopName && knownFragranceBrands.has(key) && len > trailingLen) {
+      trailing = candidate;
+      trailingLen = len;
+    }
+  }
+  return trailing;
+}
+
+/**
+ * The brand to actually use for a listing: its own vendor field, unless that
+ * field is self-vendored (see isSelfVendored), in which case the real brand
+ * is recovered from the title text or, failing that, left null so
+ * canonBrand turns it into the honest 'Unbranded' rather than the shop's own
+ * name masquerading as a fragrance house.
+ */
+function resolveRawBrand(l: StoredListing, retailer: Retailer): string | null {
+  if (!isSelfVendored(l.rawBrand, retailer)) return l.rawBrand ?? null;
+  return recoverBrandFromTitle(l.rawTitle, retailer.name);
+}
+
+/**
  * One display spelling per brand, decided before anything is built.
  *
  * Retailer feeds disagree about casing for the same house, and every variant
@@ -450,13 +569,38 @@ function pickNotes(offers: Offer[]): Notes | null {
  * brands, "Dolce & Gabbana" was three. Ten such groups across 166 strings.
  * See src/catalogue/brandName.ts for how the winner is chosen and why it is
  * not simply the most common one.
+ *
+ * Built from each listing's *effective* brand (resolveRawBrand), not the raw
+ * vendor field directly — a title-recovered brand like "MAISON ASRAR" needs
+ * to fall into the same casing group as every "Maison Asrar" read straight
+ * off a vendor field, or the two would sit as separate rows in the Brands
+ * list purely because of which path found the name, the exact bug this
+ * function exists to prevent for ordinary vendor-field casing differences.
  */
 const brandCanon = (() => {
   const seen: string[] = [];
-  for (const d of [dir, resolve(root, 'data/houses')]) {
-    if (!existsSync(d)) continue;
-    const s = new CatalogueStore(d);
-    for (const file of readdirSync(d).filter((f) => f.endsWith('.json'))) {
+  if (existsSync(dir)) {
+    for (const file of readdirSync(dir).filter((f) => f.endsWith('.json'))) {
+      const snap = store.read(file.replace(/\.json$/, ''));
+      if (snap.source !== 'live') continue;
+      // A snapshot file can outlive its registry entry (a retired retailer's
+      // last-crawled data, still sitting on disk). resolveRawBrand needs a
+      // retailer to ask "is this self-vendored?", so without one the raw
+      // vendor field is used as-is — exactly what this loop did before the
+      // self-vendoring check existed, so a file with no registry match keeps
+      // contributing to the brand list precisely as it always has.
+      const retailer = RETAILERS.find((r) => r.id === snap.retailerId);
+      for (const l of snap.listings) {
+        if (l.status !== 'active') continue;
+        const effective = retailer ? resolveRawBrand(l, retailer) : l.rawBrand;
+        if (effective) seen.push(effective);
+      }
+    }
+  }
+  const housesDir = resolve(root, 'data/houses');
+  if (existsSync(housesDir)) {
+    const s = new CatalogueStore(housesDir);
+    for (const file of readdirSync(housesDir).filter((f) => f.endsWith('.json'))) {
       const snap = s.read(file.replace(/\.json$/, ''));
       if (snap.source !== 'live') continue;
       for (const l of snap.listings) {
@@ -522,6 +666,7 @@ if (existsSync(dir)) {
 
       const size = sizeMl(l.rawTitle)!;
       const id = fragranceId(l);
+      const effectiveRawBrand = resolveRawBrand(l, retailer);
 
       const existing = products.get(id);
       const offer: Offer = {
@@ -543,8 +688,8 @@ if (existsSync(dir)) {
       } else {
         products.set(id, {
           id,
-          brand: canonBrand(l.rawBrand) ?? 'Unbranded',
-          name: displayName(l.rawTitle, l.rawBrand),
+          brand: canonBrand(effectiveRawBrand) ?? 'Unbranded',
+          name: displayName(l.rawTitle, effectiveRawBrand),
           concentration: concentration(l.rawTitle),
           sizeMl: size,
           ean: l.ean,
