@@ -1,0 +1,1157 @@
+{
+  "checkedAt": "2026-08-12T23:06:12.934Z",
+  "seed": 20260812,
+  "sampleSize": 30,
+  "outcomes": [
+    {
+      "retailerId": "allbeauty",
+      "name": "Allbeauty",
+      "route": "products.json",
+      "activeListings": 116,
+      "attempted": 116,
+      "compared": 103,
+      "agree": 97,
+      "drifted": 6,
+      "overstated": 1,
+      "understated": 5,
+      "unkeyed": 13,
+      "outOfStockLive": 17,
+      "overstatementGbpTotal": 2.4000000000000057,
+      "medianAbsDriftGbp": 0,
+      "worst": [
+        {
+          "retailerSku": "11141254",
+          "title": "Estée Lauder Knowing Eau de Parfum Spray 75ml",
+          "storedPrice": 44.2,
+          "livePrice": 41.8,
+          "overstatementGbp": 2.4,
+          "overstatementPct": 5.7,
+          "liveUrl": "https://allbeauty.com/products/p-estee-lauder-knowing-eau-de-parfum-spray-75ml-11141254"
+        },
+        {
+          "retailerSku": "14271247",
+          "title": "Montblanc Presence For Men Eau de Toilette Spray 75ml",
+          "storedPrice": 23.4,
+          "livePrice": 25.7,
+          "overstatementGbp": -2.3,
+          "overstatementPct": -8.9,
+          "liveUrl": "https://allbeauty.com/products/p-montblanc-presence-for-men-eau-de-toilette-spray-75ml-14271247"
+        },
+        {
+          "retailerSku": "17882706",
+          "title": "Clarins Eau des Jardins Treatment Fragrance 100ml / 3.3 fl.oz.",
+          "storedPrice": 32.25,
+          "livePrice": 35.45,
+          "overstatementGbp": -3.2,
+          "overstatementPct": -9,
+          "liveUrl": "https://allbeauty.com/products/p-clarins-eau-des-jardins-treatment-fragrance-100ml-3-3-fl-oz-17882706"
+        },
+        {
+          "retailerSku": "14604967",
+          "title": "Montblanc Individuel For Men Eau de Toilette Spray 75ml",
+          "storedPrice": 23.75,
+          "livePrice": 37.95,
+          "overstatementGbp": -14.2,
+          "overstatementPct": -37.4,
+          "liveUrl": "https://allbeauty.com/products/p-montblanc-individuel-for-men-eau-de-toilette-spray-75ml-14604967"
+        },
+        {
+          "retailerSku": "14600843",
+          "title": "Calvin Klein Obsession for Men Eau de Toilette 200ml",
+          "storedPrice": 28.5,
+          "livePrice": 47.5,
+          "overstatementGbp": -19,
+          "overstatementPct": -40,
+          "liveUrl": "https://allbeauty.com/products/p-calvin-klein-obsession-for-men-eau-de-toilette-200ml-14600843"
+        },
+        {
+          "retailerSku": "14576981",
+          "title": "Boucheron Pour Femme Eau de Parfum Spray 100ml",
+          "storedPrice": 28.95,
+          "livePrice": 63,
+          "overstatementGbp": -34.05,
+          "overstatementPct": -54,
+          "liveUrl": "https://allbeauty.com/products/p-boucheron-pour-femme-eau-de-parfum-spray-100ml-14576981"
+        }
+      ],
+      "notes": [
+        "gap 1200ms (registry 1200, robots 0s)",
+        "products.json: 5644 products, 37393 lookup keys"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-12T20:36:32.152Z"
+    },
+    {
+      "retailerId": "justmylook",
+      "name": "Justmylook",
+      "route": "products.json",
+      "activeListings": 1941,
+      "attempted": 1941,
+      "compared": 1934,
+      "agree": 1875,
+      "drifted": 59,
+      "overstated": 11,
+      "understated": 48,
+      "unkeyed": 7,
+      "outOfStockLive": 465,
+      "overstatementGbpTotal": 70.82,
+      "medianAbsDriftGbp": 0,
+      "worst": [
+        {
+          "retailerSku": "RAL0031",
+          "title": "Ralph Lauren Ralph's Club Eau De Parfum 100ml",
+          "storedPrice": 83.5,
+          "livePrice": 40.99,
+          "overstatementGbp": 42.51,
+          "overstatementPct": 103.7,
+          "liveUrl": "https://justmylook.com/products/ralph-lauren-ralphs-club-eau-de-parfum-100ml"
+        },
+        {
+          "retailerSku": "FORD0023",
+          "title": "Tom Ford Noir Eau De Parfum 100ml",
+          "storedPrice": 121.99,
+          "livePrice": 107.99,
+          "overstatementGbp": 14,
+          "overstatementPct": 13,
+          "liveUrl": "https://justmylook.com/products/tom-ford-noir-eau-de-parfum-100ml"
+        },
+        {
+          "retailerSku": "FORD0006",
+          "title": "Tom Ford Black Orchid Eau De Parfum 30ml",
+          "storedPrice": 59.99,
+          "livePrice": 56.99,
+          "overstatementGbp": 3,
+          "overstatementPct": 5.3,
+          "liveUrl": "https://justmylook.com/products/tom-ford-black-orchid-eau-de-parfum-30ml"
+        },
+        {
+          "retailerSku": "BURB0033",
+          "title": "Burberry Original For Men Eau De Toilette 100ml",
+          "storedPrice": 29.99,
+          "livePrice": 27.95,
+          "overstatementGbp": 2.04,
+          "overstatementPct": 7.3,
+          "liveUrl": "https://justmylook.com/products/burberry-original-for-men-eau-de-toilette-100ml"
+        },
+        {
+          "retailerSku": "SAAB0009",
+          "title": "Elie Saab Le Parfum Royal Eau De Parfum 90ml",
+          "storedPrice": 56.99,
+          "livePrice": 54.95,
+          "overstatementGbp": 2.04,
+          "overstatementPct": 3.7,
+          "liveUrl": "https://justmylook.com/products/elie-saab-le-parfum-royal-eau-de-parfum-90ml"
+        },
+        {
+          "retailerSku": "DKNY0003",
+          "title": "DKNY Women Eau De Toilette 100ml",
+          "storedPrice": 29.99,
+          "livePrice": 27.95,
+          "overstatementGbp": 2.04,
+          "overstatementPct": 7.3,
+          "liveUrl": "https://justmylook.com/products/dkny-women-eau-de-toilette-100ml"
+        },
+        {
+          "retailerSku": "ELEM0035",
+          "title": "Elemis Pro-Collagen Naked Fragrance-Free Hydrating Cleansing Balm 100g",
+          "storedPrice": 41.5,
+          "livePrice": 39.9,
+          "overstatementGbp": 1.6,
+          "overstatementPct": 4,
+          "liveUrl": "https://justmylook.com/products/elemis-pro-collagen-naked-fragrance-free-hydrating-cleansing-balm-100g"
+        },
+        {
+          "retailerSku": "ELIZ0006",
+          "title": "Elizabeth Arden Red Door Eau De Toilette 100ml",
+          "storedPrice": 28.99,
+          "livePrice": 27.95,
+          "overstatementGbp": 1.04,
+          "overstatementPct": 3.7,
+          "liveUrl": "https://justmylook.com/products/elizabeth-arden-red-door-eau-de-toilette-100ml"
+        }
+      ],
+      "notes": [
+        "gap 1200ms (registry 1200, robots 0s)",
+        "products.json: 17169 products, 117462 lookup keys"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-12T20:36:32.152Z"
+    },
+    {
+      "retailerId": "notino-uk",
+      "name": "Notino UK",
+      "route": null,
+      "activeListings": 0,
+      "attempted": 0,
+      "compared": 0,
+      "agree": 0,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "snapshot is fixture data, which scripts/build-demo-catalogue.ts refuses to publish — nothing of this retailer is on the site, so there is no live price to check"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-01T21:11:35.621Z"
+    },
+    {
+      "retailerId": "boots",
+      "name": "Boots",
+      "route": null,
+      "activeListings": 0,
+      "attempted": 0,
+      "compared": 0,
+      "agree": 0,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "snapshot is fixture data, which scripts/build-demo-catalogue.ts refuses to publish — nothing of this retailer is on the site, so there is no live price to check"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-01T21:11:38.123Z"
+    },
+    {
+      "retailerId": "the-fragrance-shop",
+      "name": "The Fragrance Shop",
+      "route": null,
+      "activeListings": 0,
+      "attempted": 0,
+      "compared": 0,
+      "agree": 0,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "snapshot is fixture data, which scripts/build-demo-catalogue.ts refuses to publish — nothing of this retailer is on the site, so there is no live price to check"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-01T21:11:39.626Z"
+    },
+    {
+      "retailerId": "the-perfume-shop",
+      "name": "The Perfume Shop",
+      "route": null,
+      "activeListings": 0,
+      "attempted": 0,
+      "compared": 0,
+      "agree": 0,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "snapshot is fixture data, which scripts/build-demo-catalogue.ts refuses to publish — nothing of this retailer is on the site, so there is no live price to check"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-01T21:11:41.129Z"
+    },
+    {
+      "retailerId": "john-lewis",
+      "name": "John Lewis",
+      "route": null,
+      "activeListings": 0,
+      "attempted": 0,
+      "compared": 0,
+      "agree": 0,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "snapshot is fixture data, which scripts/build-demo-catalogue.ts refuses to publish — nothing of this retailer is on the site, so there is no live price to check"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-01T21:11:43.633Z"
+    },
+    {
+      "retailerId": "beautybase",
+      "name": "Beauty Base",
+      "route": "products.json",
+      "activeListings": 3058,
+      "attempted": 3058,
+      "compared": 3056,
+      "agree": 3042,
+      "drifted": 14,
+      "overstated": 9,
+      "understated": 5,
+      "unkeyed": 2,
+      "outOfStockLive": 1424,
+      "overstatementGbpTotal": 121.03,
+      "medianAbsDriftGbp": 0,
+      "worst": [
+        {
+          "retailerSku": "BBS00114",
+          "title": "Carolina Herrera 212 Sexy Eau De Parfum 100ml Spray",
+          "storedPrice": 95,
+          "livePrice": 59.99,
+          "overstatementGbp": 35.01,
+          "overstatementPct": 58.4,
+          "liveUrl": "https://beautybase.com/products/carolina-herrera-212-sexy-eau-de-parfum-100ml-spray"
+        },
+        {
+          "retailerSku": "P0000777582",
+          "title": "Michael Kors Pour Femme Absolu Eau De Parfum 50ml Spray",
+          "storedPrice": 86,
+          "livePrice": 66,
+          "overstatementGbp": 20,
+          "overstatementPct": 30.3,
+          "liveUrl": "https://beautybase.com/products/michael-kors-pour-femme-absolu-eau-de-parfum-50ml-spray"
+        },
+        {
+          "retailerSku": "P0000777068",
+          "title": "Jean Paul Gaultier Le Male Elixir Absolu Parfum Intense 125ml Spray",
+          "storedPrice": 119,
+          "livePrice": 99,
+          "overstatementGbp": 20,
+          "overstatementPct": 20.2,
+          "liveUrl": "https://beautybase.com/products/jean-paul-gaultier-le-male-elixir-absolu-parfum-intense-125ml-spray"
+        },
+        {
+          "retailerSku": "P0000778335",
+          "title": "Rayhaan Pharoah Eau De Parfum 100ml Spray",
+          "storedPrice": 35,
+          "livePrice": 25,
+          "overstatementGbp": 10,
+          "overstatementPct": 40,
+          "liveUrl": "https://beautybase.com/products/rayhaan-pharoah-eau-de-parfum-100ml-spray"
+        },
+        {
+          "retailerSku": "P0000757313",
+          "title": "Michael Kors Wonderlust Eau De Parfum 100ml Spray",
+          "storedPrice": 69.99,
+          "livePrice": 59.99,
+          "overstatementGbp": 10,
+          "overstatementPct": 16.7,
+          "liveUrl": "https://beautybase.com/products/michael-kors-wonderlust-eau-de-parfum-100ml-spray"
+        },
+        {
+          "retailerSku": "P0000777067",
+          "title": "Jean Paul Gaultier Le Male Elixir Absolu Parfum Intense 75ml Spray",
+          "storedPrice": 89,
+          "livePrice": 79.99,
+          "overstatementGbp": 9.01,
+          "overstatementPct": 11.3,
+          "liveUrl": "https://beautybase.com/products/jean-paul-gaultier-le-male-elixir-absolu-parfum-intense-75ml-spray"
+        },
+        {
+          "retailerSku": "P0000777566",
+          "title": "Givenchy L'INTERDIT Parfum 35ml Spray",
+          "storedPrice": 76,
+          "livePrice": 70,
+          "overstatementGbp": 6,
+          "overstatementPct": 8.6,
+          "liveUrl": "https://beautybase.com/products/givenchy-linterdit-parfum-35ml-spray"
+        },
+        {
+          "retailerSku": "P0000775905",
+          "title": "YSL Libre Flowers and Flames Eau De Parfum 90ml Spray",
+          "storedPrice": 115,
+          "livePrice": 109,
+          "overstatementGbp": 6,
+          "overstatementPct": 5.5,
+          "liveUrl": "https://beautybase.com/products/ysl-libre-flowers-and-flames-eau-de-parfum-90ml-spray"
+        }
+      ],
+      "notes": [
+        "gap 1500ms (registry 1500, robots 0s)",
+        "products.json: 3695 products, 22137 lookup keys"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-12T20:36:32.152Z"
+    },
+    {
+      "retailerId": "lookfantastic",
+      "name": "LOOKFANTASTIC",
+      "route": "product-page",
+      "activeListings": 55,
+      "attempted": 30,
+      "compared": 30,
+      "agree": 30,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 6,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "gap 1500ms (registry 1500, robots 0s)",
+        "products.json: HTTP 404"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-12T20:36:32.152Z"
+    },
+    {
+      "retailerId": "superdrug",
+      "name": "Superdrug",
+      "route": null,
+      "activeListings": 0,
+      "attempted": 0,
+      "compared": 0,
+      "agree": 0,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "snapshot is fixture data, which scripts/build-demo-catalogue.ts refuses to publish — nothing of this retailer is on the site, so there is no live price to check"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-01T21:11:48.641Z"
+    },
+    {
+      "retailerId": "selfridges",
+      "name": "Selfridges",
+      "route": null,
+      "activeListings": 0,
+      "attempted": 0,
+      "compared": 0,
+      "agree": 0,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "snapshot is fixture data, which scripts/build-demo-catalogue.ts refuses to publish — nothing of this retailer is on the site, so there is no live price to check"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-01T21:11:51.145Z"
+    },
+    {
+      "retailerId": "harvey-nichols",
+      "name": "Harvey Nichols",
+      "route": null,
+      "activeListings": 0,
+      "attempted": 0,
+      "compared": 0,
+      "agree": 0,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "snapshot is fixture data, which scripts/build-demo-catalogue.ts refuses to publish — nothing of this retailer is on the site, so there is no live price to check"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-01T21:11:53.649Z"
+    },
+    {
+      "retailerId": "fragrance-click",
+      "name": "Fragrance Click",
+      "route": null,
+      "activeListings": 907,
+      "attempted": 0,
+      "compared": 0,
+      "agree": 0,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "gap 1200ms (registry 0, robots 0s)",
+        "products.json: HTTP 404",
+        "no listing carries a URL on this retailer's own domain — the only stored URL is an affiliate tracking link, which this pass will not fetch. Unverifiable by this route."
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-12T18:57:07.303Z"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "name": "MyBeauty.Boutique",
+      "route": "products.json",
+      "activeListings": 8908,
+      "attempted": 8908,
+      "compared": 8902,
+      "agree": 2613,
+      "drifted": 6289,
+      "overstated": 6245,
+      "understated": 44,
+      "unkeyed": 6,
+      "outOfStockLive": 3370,
+      "overstatementGbpTotal": 205624.11999999493,
+      "medianAbsDriftGbp": 11,
+      "worst": [
+        {
+          "retailerSku": "shopify_GB_8416662093961_45147021148297",
+          "title": "Creed White Amber Eau de Parfum 250ml Spray",
+          "storedPrice": 1797.99,
+          "livePrice": 962.99,
+          "overstatementGbp": 835,
+          "overstatementPct": 86.7,
+          "liveUrl": "https://mybeauty.boutique/products/creed-white-amber-eau-de-parfum-250ml-spray"
+        },
+        {
+          "retailerSku": "shopify_GB_8416662126729_45147021213833",
+          "title": "Creed Viking Eau de Parfum 500ml Splash",
+          "storedPrice": 1615.99,
+          "livePrice": 864.99,
+          "overstatementGbp": 751,
+          "overstatementPct": 86.8,
+          "liveUrl": "https://mybeauty.boutique/products/creed-viking-eau-de-parfum-500ml-splash"
+        },
+        {
+          "retailerSku": "shopify_GB_8416662356105_45147021574281",
+          "title": "Creed Love in White Eau de Parfum 500ml Splash",
+          "storedPrice": 1590.99,
+          "livePrice": 851.99,
+          "overstatementGbp": 739,
+          "overstatementPct": 86.7,
+          "liveUrl": "https://mybeauty.boutique/products/creed-love-in-white-eau-de-parfum-500ml-splash"
+        },
+        {
+          "retailerSku": "shopify_GB_8416664060041_45147024228489",
+          "title": "Creed Acqua Fiorentina Eau de Parfum 500ml Spray",
+          "storedPrice": 1590.99,
+          "livePrice": 851.99,
+          "overstatementGbp": 739,
+          "overstatementPct": 86.7,
+          "liveUrl": "https://mybeauty.boutique/products/creed-acqua-fiorentina-eau-de-parfum-500ml-spray"
+        },
+        {
+          "retailerSku": "shopify_GB_8416762036361_45147146059913",
+          "title": "Roja Parfums A Goodnight Kiss Eau de Parfum 100ml Spray",
+          "storedPrice": 1506.99,
+          "livePrice": 806.49,
+          "overstatementGbp": 700.5,
+          "overstatementPct": 86.9,
+          "liveUrl": "https://mybeauty.boutique/products/roja-parfums-a-goodnight-kiss-eau-de-parfum-100ml-spray"
+        },
+        {
+          "retailerSku": "shopify_GB_8416662159497_45147021246601",
+          "title": "Creed Original Vetiver Eau de Parfum 500ml Splash",
+          "storedPrice": 1459.99,
+          "livePrice": 781.99,
+          "overstatementGbp": 678,
+          "overstatementPct": 86.7,
+          "liveUrl": "https://mybeauty.boutique/products/creed-original-vetiver-eau-de-parfum-500ml-splash"
+        },
+        {
+          "retailerSku": "shopify_GB_8416662323337_45147021541513",
+          "title": "Creed Virgin Island Water Eau de Parfum 500ml Splash",
+          "storedPrice": 1459.99,
+          "livePrice": 781.99,
+          "overstatementGbp": 678,
+          "overstatementPct": 86.7,
+          "liveUrl": "https://mybeauty.boutique/products/creed-virgin-island-water-eau-de-parfum-500ml-splash"
+        },
+        {
+          "retailerSku": "shopify_GB_8416662388873_45147021607049",
+          "title": "Creed Tabarome MillÃ©sime Eau de Parfum 500ml Splash",
+          "storedPrice": 1459.99,
+          "livePrice": 781.99,
+          "overstatementGbp": 678,
+          "overstatementPct": 86.7,
+          "liveUrl": "https://mybeauty.boutique/products/creed-tabarome-milla-c-sime-eau-de-parfum-500ml-splash"
+        }
+      ],
+      "notes": [
+        "gap 1200ms (registry 0, robots 0s)",
+        "products.json: 9354 products, 56148 lookup keys"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-12T18:57:07.303Z"
+    },
+    {
+      "retailerId": "escentual",
+      "name": "Escentual",
+      "route": "products.json",
+      "activeListings": 8103,
+      "attempted": 8103,
+      "compared": 8102,
+      "agree": 8098,
+      "drifted": 4,
+      "overstated": 0,
+      "understated": 4,
+      "unkeyed": 1,
+      "outOfStockLive": 423,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [
+        {
+          "retailerSku": "200267-1041",
+          "title": "Clarins Joli Rouge Shine Lipstick Refill 3.5g / 759 - Woodberry",
+          "storedPrice": 24,
+          "livePrice": 32,
+          "overstatementGbp": -8,
+          "overstatementPct": -25,
+          "liveUrl": "https://escentual.com/products/clarins-joli-rouge-shine-lipstick-refill-3-5g"
+        },
+        {
+          "retailerSku": "svr050",
+          "title": "SVR Sensifine AR Cream SPF50+ 40ml",
+          "storedPrice": 26,
+          "livePrice": 35,
+          "overstatementGbp": -9,
+          "overstatementPct": -25.7,
+          "liveUrl": "https://escentual.com/products/svr-sensifine-ar-cream-spf50"
+        },
+        {
+          "retailerSku": "gacode007",
+          "title": "Giorgio Armani Code Parfum Refill 150ml",
+          "storedPrice": 150,
+          "livePrice": 195,
+          "overstatementGbp": -45,
+          "overstatementPct": -23.1,
+          "liveUrl": "https://escentual.com/products/giorgio-armani-code-parfum-refill-150ml"
+        },
+        {
+          "retailerSku": "angeoudemon001",
+          "title": "GIVENCHY Ange ou Démon Eau de Parfum Spray 30ml",
+          "storedPrice": 44,
+          "livePrice": 97,
+          "overstatementGbp": -53,
+          "overstatementPct": -54.6,
+          "liveUrl": "https://escentual.com/products/givenchy-ange-ou-demon-eau-de-parfum-spray"
+        }
+      ],
+      "notes": [
+        "gap 1500ms (registry 1500, robots 0s)",
+        "products.json: 4786 products, 48612 lookup keys"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-12T20:36:32.152Z"
+    },
+    {
+      "retailerId": "the-fragrance-counter",
+      "name": "The Fragrance Counter",
+      "route": "product-page",
+      "activeListings": 27,
+      "attempted": 27,
+      "compared": 27,
+      "agree": 27,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "gap 1500ms (registry 1500, robots 1s)",
+        "products.json: HTTP 404"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-12T20:36:32.152Z"
+    },
+    {
+      "retailerId": "scentstore",
+      "name": "ScentStore",
+      "route": "product-page",
+      "activeListings": 15,
+      "attempted": 15,
+      "compared": 15,
+      "agree": 15,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 4,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "gap 1500ms (registry 1500, robots 0s)",
+        "products.json: HTTP 404"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-12T20:36:32.152Z"
+    },
+    {
+      "retailerId": "perfume-shopping",
+      "name": "Perfume Shopping",
+      "route": null,
+      "activeListings": 0,
+      "attempted": 0,
+      "compared": 0,
+      "agree": 0,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "snapshot is fixture data, which scripts/build-demo-catalogue.ts refuses to publish — nothing of this retailer is on the site, so there is no live price to check"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "1970-01-01T00:00:00.000Z"
+    },
+    {
+      "retailerId": "glorious-beauty",
+      "name": "Glorious Beauty",
+      "route": "products.json",
+      "activeListings": 49,
+      "attempted": 49,
+      "compared": 49,
+      "agree": 46,
+      "drifted": 3,
+      "overstated": 0,
+      "understated": 3,
+      "unkeyed": 0,
+      "outOfStockLive": 1,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [
+        {
+          "retailerSku": "AUEDP50ML",
+          "title": "To The Fairest Aubine Eau de Parfum",
+          "storedPrice": 117,
+          "livePrice": 118,
+          "overstatementGbp": -1,
+          "overstatementPct": -0.8,
+          "liveUrl": "https://gloriousbeauty.co.uk/products/barnes-fragrance-fair-to-the-fairest-aubine-edp"
+        },
+        {
+          "retailerSku": "CEDP50ML",
+          "title": "To The Fairest Cécile Eau de Parfum",
+          "storedPrice": 117,
+          "livePrice": 118,
+          "overstatementGbp": -1,
+          "overstatementPct": -0.8,
+          "liveUrl": "https://gloriousbeauty.co.uk/products/to-the-fairest-cecile-eau-de-parfum"
+        },
+        {
+          "retailerSku": "EVEDP50ML",
+          "title": "To The Fairest Élan Vital Eau de Parfum",
+          "storedPrice": 117,
+          "livePrice": 118,
+          "overstatementGbp": -1,
+          "overstatementPct": -0.8,
+          "liveUrl": "https://gloriousbeauty.co.uk/products/to-the-fairest-elan-vital-eau-de-parfum"
+        }
+      ],
+      "notes": [
+        "gap 1500ms (registry 1500, robots 0s)",
+        "products.json: 505 products, 6072 lookup keys"
+      ],
+      "fullPopulation": true,
+      "snapshotUpdatedAt": "2026-08-12T20:36:32.152Z"
+    },
+    {
+      "retailerId": "bellavita-luxury",
+      "name": "BellaVita Luxury",
+      "route": "products.json",
+      "activeListings": 27,
+      "attempted": 27,
+      "compared": 27,
+      "agree": 18,
+      "drifted": 9,
+      "overstated": 1,
+      "understated": 8,
+      "unkeyed": 0,
+      "outOfStockLive": 8,
+      "overstatementGbpTotal": 1,
+      "medianAbsDriftGbp": 0,
+      "worst": [
+        {
+          "retailerSku": "8906150343290",
+          "title": "KLUB Man Perfume - 3.4 fl oz",
+          "storedPrice": 21.99,
+          "livePrice": 20.99,
+          "overstatementGbp": 1,
+          "overstatementPct": 4.8,
+          "liveUrl": "https://bellavitaluxury.uk/products/klub-man-perfume-3-4-fl-oz-bogo"
+        },
+        {
+          "retailerSku": "8906150342804",
+          "title": "Date Woman Perfume - 3.4 fl oz",
+          "storedPrice": 19.99,
+          "livePrice": 20.99,
+          "overstatementGbp": -1,
+          "overstatementPct": -4.8,
+          "liveUrl": "https://bellavitaluxury.uk/products/date-woman-perfume-3-4-fl-oz-bogo"
+        },
+        {
+          "retailerSku": "8906150340404",
+          "title": "Honey Oud Unisex Perfume - 3.4 fl oz",
+          "storedPrice": 19.99,
+          "livePrice": 24.99,
+          "overstatementGbp": -5,
+          "overstatementPct": -20,
+          "liveUrl": "https://bellavitaluxury.uk/products/honey-oud-unisex-perfume-3-4-fl-oz-deal"
+        },
+        {
+          "retailerSku": "5748022538839",
+          "title": "CEO Man Luxury Perfume - 3.4 fl oz",
+          "storedPrice": 19.99,
+          "livePrice": 24.99,
+          "overstatementGbp": -5,
+          "overstatementPct": -20,
+          "liveUrl": "https://bellavitaluxury.uk/products/ceo-man-luxury-perfume-3-4-fl-oz-deal"
+        },
+        {
+          "retailerSku": "3870003433771",
+          "title": "White Oud Unisex Perfume - 3.4 fl oz",
+          "storedPrice": 19.99,
+          "livePrice": 24.99,
+          "overstatementGbp": -5,
+          "overstatementPct": -20,
+          "liveUrl": "https://bellavitaluxury.uk/products/white-oud-unisex-perfume-3-4-fl-oz-deal"
+        },
+        {
+          "retailerSku": "8906150342811",
+          "title": "Senorita Woman Perfume - 3.4 fl oz",
+          "storedPrice": 19.99,
+          "livePrice": 24.99,
+          "overstatementGbp": -5,
+          "overstatementPct": -20,
+          "liveUrl": "https://bellavitaluxury.uk/products/senorita-woman-perfume-3-4-fl-oz-deal"
+        },
+        {
+          "retailerSku": "3870003433801",
+          "title": "Rose Woman Perfume - 3.4 fl oz",
+          "storedPrice": 19.99,
+          "livePrice": 24.99,
+          "overstatementGbp": -5,
+          "overstatementPct": -20,
+          "liveUrl": "https://bellavitaluxury.uk/products/rose-woman-perfume-3-4-fl-oz-deal"
+        },
+        {
+          "retailerSku": "8906150343351",
+          "title": "G.O.A.T. Man Perfume - 3.4 fl oz",
+          "storedPrice": 19.99,
+          "livePrice": 24.99,
+          "overstatementGbp": -5,
+          "overstatementPct": -20,
+          "liveUrl": "https://bellavitaluxury.uk/products/g-o-a-t-man-perfume-3-4-fl-oz-deal"
+        }
+      ],
+      "notes": [
+        "gap 1200ms (registry 0, robots 0s)",
+        "products.json: 180 products, 992 lookup keys"
+      ],
+      "fullPopulation": true,
+      "snapshotUpdatedAt": "2026-08-12T20:36:32.152Z"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "name": "Oud Arabian",
+      "route": "products.json",
+      "activeListings": 171,
+      "attempted": 171,
+      "compared": 171,
+      "agree": 171,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 29,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "gap 1200ms (registry 0, robots 0s)",
+        "products.json: 420 products, 2090 lookup keys"
+      ],
+      "fullPopulation": true,
+      "snapshotUpdatedAt": "2026-08-12T20:36:32.152Z"
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "name": "Manchester Ouds",
+      "route": "products.json",
+      "activeListings": 102,
+      "attempted": 102,
+      "compared": 102,
+      "agree": 102,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 47,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "gap 1500ms (registry 1500, robots 0s)",
+        "products.json: 103 products, 616 lookup keys"
+      ],
+      "fullPopulation": true,
+      "snapshotUpdatedAt": "2026-08-12T20:36:32.152Z"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "name": "Emirates Oud",
+      "route": "products.json",
+      "activeListings": 2471,
+      "attempted": 2471,
+      "compared": 2471,
+      "agree": 2470,
+      "drifted": 1,
+      "overstated": 0,
+      "understated": 1,
+      "unkeyed": 0,
+      "outOfStockLive": 846,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [
+        {
+          "retailerSku": "15573114880349-UNUSED & UNBOXED - 100ml",
+          "title": "Marwa Perfume 100ml EDP Arabiyat Prestige UNUSED & UNBOXED - 100ml",
+          "storedPrice": 24.99,
+          "livePrice": 31.99,
+          "overstatementGbp": -7,
+          "overstatementPct": -21.9,
+          "liveUrl": "https://emiratesoud.co.uk/products/marwa-arabiyat-prestige"
+        }
+      ],
+      "notes": [
+        "gap 1200ms (registry 0, robots 0s)",
+        "products.json: 2435 products, 12392 lookup keys"
+      ],
+      "fullPopulation": true,
+      "snapshotUpdatedAt": "2026-08-12T20:36:32.152Z"
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "name": "The Beauty Store UK",
+      "route": null,
+      "activeListings": 0,
+      "attempted": 0,
+      "compared": 0,
+      "agree": 0,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "snapshot is fixture data, which scripts/build-demo-catalogue.ts refuses to publish — nothing of this retailer is on the site, so there is no live price to check"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "1970-01-01T00:00:00.000Z"
+    },
+    {
+      "retailerId": "kayali",
+      "name": "KAYALI",
+      "route": null,
+      "activeListings": 0,
+      "attempted": 0,
+      "compared": 0,
+      "agree": 0,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "snapshot is fixture data, which scripts/build-demo-catalogue.ts refuses to publish — nothing of this retailer is on the site, so there is no live price to check"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "1970-01-01T00:00:00.000Z"
+    },
+    {
+      "retailerId": "zara",
+      "name": "Zara",
+      "route": null,
+      "activeListings": 0,
+      "attempted": 0,
+      "compared": 0,
+      "agree": 0,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "snapshot is fixture data, which scripts/build-demo-catalogue.ts refuses to publish — nothing of this retailer is on the site, so there is no live price to check"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "1970-01-01T00:00:00.000Z"
+    },
+    {
+      "retailerId": "escentric-molecules",
+      "name": "Escentric Molecules",
+      "route": "products.json",
+      "activeListings": 118,
+      "attempted": 118,
+      "compared": 118,
+      "agree": 118,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "gap 1200ms (registry 0, robots 0s)",
+        "products.json: 166 products, 685 lookup keys"
+      ],
+      "fullPopulation": true,
+      "snapshotUpdatedAt": "2026-08-12T20:36:32.152Z"
+    },
+    {
+      "retailerId": "lush",
+      "name": "LUSH",
+      "route": null,
+      "activeListings": 0,
+      "attempted": 0,
+      "compared": 0,
+      "agree": 0,
+      "drifted": 0,
+      "overstated": 0,
+      "understated": 0,
+      "unkeyed": 0,
+      "outOfStockLive": 0,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 0,
+      "worst": [],
+      "notes": [
+        "snapshot is fixture data, which scripts/build-demo-catalogue.ts refuses to publish — nothing of this retailer is on the site, so there is no live price to check"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "1970-01-01T00:00:00.000Z"
+    },
+    {
+      "retailerId": "nicchia-luxury-uk",
+      "name": "Nicchia Luxury UK",
+      "route": "products.json",
+      "activeListings": 6845,
+      "attempted": 6845,
+      "compared": 6844,
+      "agree": 0,
+      "drifted": 6844,
+      "overstated": 0,
+      "understated": 6844,
+      "unkeyed": 1,
+      "outOfStockLive": 1,
+      "overstatementGbpTotal": 0,
+      "medianAbsDriftGbp": 30,
+      "worst": [
+        {
+          "retailerSku": "56540125233536",
+          "title": "Aedes de Venustas 16a Orchard Eau de Parfum 1.5 ml",
+          "storedPrice": 5,
+          "livePrice": 6,
+          "overstatementGbp": -1,
+          "overstatementPct": -16.7,
+          "liveUrl": "https://nicchialuxury.com/products/aedes-de-venustas-16a-orchard-eau-de-parfum-unisex"
+        },
+        {
+          "retailerSku": "56540125561216",
+          "title": "Aedes de Venustas Amnesia Rose Eau de Parfum 1.5 ml",
+          "storedPrice": 5,
+          "livePrice": 6,
+          "overstatementGbp": -1,
+          "overstatementPct": -16.7,
+          "liveUrl": "https://nicchialuxury.com/products/aedes-de-venustas-amnesia-rose-eau-de-parfum-unisex"
+        },
+        {
+          "retailerSku": "56540126183808",
+          "title": "Aedes de Venustas Café Tabac Eau de Parfum 1.5 ml",
+          "storedPrice": 5,
+          "livePrice": 6,
+          "overstatementGbp": -1,
+          "overstatementPct": -16.7,
+          "liveUrl": "https://nicchialuxury.com/products/aedes-de-venustas-cafe-tabac-eau-de-parfum-unisex"
+        },
+        {
+          "retailerSku": "56540126445952",
+          "title": "Aedes de Venustas Cierge de Lune Eau de Parfum 1.5 ml",
+          "storedPrice": 5,
+          "livePrice": 6,
+          "overstatementGbp": -1,
+          "overstatementPct": -16.7,
+          "liveUrl": "https://nicchialuxury.com/products/aedes-de-venustas-cierge-de-lune-eau-de-parfum-unisex"
+        },
+        {
+          "retailerSku": "56540126773632",
+          "title": "Aedes de Venustas Copal Azur Eau de Parfum 1.5 ml",
+          "storedPrice": 5,
+          "livePrice": 6,
+          "overstatementGbp": -1,
+          "overstatementPct": -16.7,
+          "liveUrl": "https://nicchialuxury.com/products/aedes-de-venustas-copal-azur-eau-de-parfum-unisex"
+        },
+        {
+          "retailerSku": "56540127691136",
+          "title": "Aedes de Venustas Corfu Kumquat Eau de Parfum 1.5 ml",
+          "storedPrice": 5,
+          "livePrice": 6,
+          "overstatementGbp": -1,
+          "overstatementPct": -16.7,
+          "liveUrl": "https://nicchialuxury.com/products/aedes-de-venustas-corfu-kumquat-eau-de-parfum-unisex"
+        },
+        {
+          "retailerSku": "56540127920512",
+          "title": "Aedes de Venustas Encens Japonais Eau de Parfum 1.5 ml",
+          "storedPrice": 5,
+          "livePrice": 6,
+          "overstatementGbp": -1,
+          "overstatementPct": -16.7,
+          "liveUrl": "https://nicchialuxury.com/products/aedes-de-venustas-encens-japonais-eau-de-parfum-unisex"
+        },
+        {
+          "retailerSku": "56540128182656",
+          "title": "Aedes de Venustas Grenadille d'Afrique Eau de Parfum 1.5 ml",
+          "storedPrice": 5,
+          "livePrice": 6,
+          "overstatementGbp": -1,
+          "overstatementPct": -16.7,
+          "liveUrl": "https://nicchialuxury.com/products/aedes-de-venustas-grenadille-dafrique-eau-de-parfum-unisex"
+        }
+      ],
+      "notes": [
+        "gap 1200ms (registry 0, robots 0s)",
+        "products.json: 4915 products, 45705 lookup keys"
+      ],
+      "fullPopulation": false,
+      "snapshotUpdatedAt": "2026-08-12T12:53:28.433Z"
+    }
+  ]
+}
