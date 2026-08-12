@@ -591,12 +591,10 @@
   .suggest-section {
     display: flex; flex-direction: column; align-items: center; text-align: center;
   }
-  /* Both headings share one explicit size now rather than "Got an idea?"
-     falling through to the browser's own unstyled h3 default and Update
-     History being pinned to a smaller one — the same heading role in two
-     halves of one row read as two different fonts by accident, not design.
-     Margins stay separate: each still needs its own gap to what follows it. */
-  .suggest-section h3, .updates-section h3 { font-size: 18px; font-weight: 700; }
+  /* Both headings take .t-section in the markup — the same role the rest of
+     the site's section headings take — rather than an 18px size that existed
+     only here. Margins stay separate: each still needs its own gap to what
+     follows it. */
   .suggest-section h3 { margin: 0 0 6px; }
   .suggest-section .panel-note { margin-top: 0; }
 
@@ -644,10 +642,7 @@
     display: flex; align-items: baseline; justify-content: space-between; gap: 10px;
     margin: 32px 0 16px;
   }
-  .section-head h3 {
-    margin: 0; font: 600 15px/1.25 var(--font-sans);
-    letter-spacing: -.005em; text-transform: none; color: var(--ink);
-  }
+  .section-head h3 { margin: 0; }
   .link-btn {
     background: none; border: 0; padding: 0; cursor: pointer;
     font: inherit; font-size: 13px; color: var(--accent);
@@ -701,8 +696,7 @@
   .phead-brand {
     display: inline-block; align-self: flex-start; max-width: 100%;
     background: var(--surface-2); border: 1px solid var(--line); color: var(--faint);
-    font: inherit; font-size: 10px; font-weight: 700; letter-spacing: .05em;
-    text-transform: uppercase; text-align: left; cursor: pointer;
+    text-align: left; cursor: pointer;
     padding: 3px 10px; margin: 0; border-radius: 999px;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
     transition: border-color .12s ease, color .12s ease;
@@ -713,11 +707,11 @@
   }
   .phead-name {
     display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
-    font-size: 14px; font-weight: 600; line-height: 1.25; letter-spacing: -.012em; margin-top: 1px;
+    margin-top: 1px;
   }
   .phead-meta {
     flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 1px;
-    font-size: 10px; font-weight: 600; color: var(--faint); white-space: nowrap;
+    white-space: nowrap;
   }
 
   /* ── product image ───────────────────────────────────────────────────────
@@ -824,7 +818,6 @@
      counterpart, not a differently styled control. */
   .tile .phead-brand {
     background: var(--surface-2); border-color: var(--line); color: var(--ink-2);
-    font-size: 11px; font-weight: 600; letter-spacing: .08em;
   }
   @media (hover: hover) and (pointer: fine) {
     .tile .phead-brand:hover { border-color: var(--accent); color: var(--accent); }
@@ -914,18 +907,15 @@
   /* The sold-out placeholder keeps the row height but must not draw a tail
      pointing at a shop that is not named. */
   .sold-by[aria-hidden="true"]::before { display: none; }
-  .empty-note { color: var(--ink-2); font-size: 14.5px; padding: 30px 2px; text-align: center; }
+  .empty-note { padding: 30px 2px; text-align: center; }
 
   /* ── page headings and shared panel furniture ──────────────────────────── */
   .page-head {
     display: flex; align-items: baseline; gap: 10px; margin: 4px 0 12px;
   }
-  .page-head h2 { margin: 0; font-size: 22px; font-weight: 700; letter-spacing: -.025em; }
-  .count {
-    font-size: 12px; font-weight: 700; color: var(--faint);
-    font-variant-numeric: tabular-nums;
-  }
-  .panel-note { font-size: 12.5px; color: var(--faint); margin: 0 0 14px; line-height: 1.55; }
+  .page-head h2 { margin: 0; }
+  .count { color: var(--faint); }
+  .panel-note { margin: 0 0 14px; }
 
   /* Sort and filter controls: an icon, then the choice itself. */
   .controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 16px; }
@@ -961,7 +951,7 @@
   .brand-row {
     display: block; width: 100%; text-align: left; cursor: pointer;
     background: none; border: 0; border-bottom: 1px solid var(--line);
-    padding: 12px 2px; font: inherit; font-size: 15.5px; font-weight: 500; color: var(--ink);
+    padding: 12px 2px; color: var(--ink);
     transition: color .12s ease;
   }
   .brand-row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
@@ -1010,8 +1000,8 @@
   .shop-row:active { background: var(--surface); }
   .shop-row:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
   .shop-row-text { flex: 1; min-width: 0; }
-  .shop-row-name { display: block; font-size: 15.5px; font-weight: 600; letter-spacing: -.012em; }
-  .shop-row-meta { display: block; font-size: 12.5px; color: var(--faint); }
+  .shop-row-name { display: block; }
+  .shop-row-meta { display: block; }
   .shop-row-go { flex: none; color: var(--accent); font-weight: 700; }
 
   /* Module 7: the account page's own wishlist list. A remove control sits
@@ -1037,11 +1027,11 @@
   .org-hero { display: flex; align-items: flex-start; gap: 14px; padding: 6px 0 18px; text-align: left; }
   .org-hero .monogram { flex: none; width: 56px; height: 56px; border-radius: 15px; font-size: 18px; }
   .org-hero-text { flex: 1; min-width: 0; }
-  .org-hero-name { font-size: 21px; font-weight: 700; letter-spacing: -.02em; margin: 0; }
-  .org-hero-count { font-size: 14px; font-weight: 500; color: var(--faint); }
-  .org-hero-domain { font-size: 12.5px; color: var(--faint); margin: 2px 0 0; }
+  .org-hero-name { margin: 0; }
+  .org-hero-count { color: var(--faint); }
+  .org-hero-domain { margin: 2px 0 0; }
   .org-hero-domain a { color: inherit; }
-  .org-hero-blurb { font-size: 13.5px; color: var(--ink-2); margin: 8px 0 0; line-height: 1.5; }
+  .org-hero-blurb { margin: 8px 0 0; }
 
   /* The brand's own site: same icon-then-label shape and shading as the
      sort/filter controls (.control) above, so it reads as one more control
@@ -1094,25 +1084,15 @@
   /* Same row as .brand-row (block, one column, alphabetical dividers) — this
      just adds the count on the right, so it needs flex instead of block. */
   .note-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-  .note-row-count {
-    flex: none; font-size: 13px; font-weight: 700; color: var(--faint);
-    font-variant-numeric: tabular-nums;
-  }
+  .note-row-count { flex: none; color: var(--faint); }
 
   .notes-block { margin-top: 26px; }
   .note-layer { margin-bottom: 12px; }
-  .note-layer-name {
-    font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
-    color: var(--faint); margin: 0 0 6px;
-  }
+  .note-layer-name { margin: 0 0 6px; }
 
-  /* The eyebrow role: one 11px/600/.08em everywhere, collapsing eight
-     letter-spacings that had accumulated across the browse filters. 11px is
-     the floor at which uppercase tracking stays readable at 360px. */
-  .section-label {
-    font: 600 11px/1 var(--font-sans); letter-spacing: .08em; text-transform: uppercase;
-    color: var(--faint); margin: 0 0 10px;
-  }
+  /* The eyebrow role now lives in .t-eyebrow, which this carries in the
+     markup; all that is left here is the gap to what follows. */
+  .section-label { margin: 0 0 10px; }
 
   /* Compact horizontally scrolling row rather than a fixed grid: three
      groups today reads fine as a row, and a fourth would only ever need to
@@ -1228,7 +1208,7 @@
     padding: 5px 11px; font: inherit; font-size: 12.5px; font-weight: 600; color: var(--ink);
     cursor: pointer; transition: border-color .12s ease, color .12s ease, background .12s ease;
   }
-  .facet-count { color: var(--faint); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .facet-count { color: var(--faint); }
   .facet-pill:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   @media (hover: hover) and (pointer: fine) {
     .facet-pill:hover { border-color: var(--accent); }
@@ -1243,7 +1223,7 @@
   }
   .facet-pill.is-active .facet-count { color: inherit; }
   .facets-clear { align-self: flex-start; }
-  .notes-source { font-size: 11.5px; color: var(--faint); margin: 10px 0 0; }
+  .notes-source { margin: 10px 0 0; }
 
   /* ── full search ───────────────────────────────────────────────────────── */
   .search-big {
@@ -1271,9 +1251,9 @@
   /* The art sits centred in its own band; the heading below it keeps the same
      left/right split as everywhere else so the product reads consistently. */
   .hero-art { display: flex; justify-content: center; margin-bottom: 16px; }
-  .hero .phead-name { font-size: 22px; -webkit-line-clamp: 3; letter-spacing: -.022em; }
-  .hero .phead-brand { font-size: 11px; letter-spacing: .12em; }
-  .hero .phead-meta { font-size: 11.5px; }
+  /* Only the clamp is the hero's own: the name carries .t-page there and the
+     brand and meta carry .t-eyebrow and .t-caption, same as everywhere else. */
+  .hero .phead-name { -webkit-line-clamp: 3; }
   .hero-blurb { font-size: 13.5px; color: var(--faint); margin: 9px auto 0; max-width: 32ch; }
 
   /* Module 7: save a fragrance. Outline heart, unfilled, until .on — never
@@ -1303,22 +1283,16 @@
     background: var(--accent-sf);
     box-shadow: 0 0 30px 2px color-mix(in srgb, var(--accent) 32%, transparent);
   }
-  .price-box-label {
-    margin: 0; font-size: 10.5px; font-weight: 700; letter-spacing: .1em;
-    text-transform: uppercase; color: var(--accent);
-  }
-  .price-box-amount {
-    margin: 6px 0 0; font-size: 34px; font-weight: 800; font-variant-numeric: tabular-nums;
-    letter-spacing: -.03em; line-height: 1.1; color: var(--accent);
-  }
-  .price-box-from { margin: 5px 0 0; font-size: 12.5px; font-weight: 500; color: var(--ink-2); }
+  .price-box-label { margin: 0; color: var(--accent-ink); }
+  .price-box-amount { margin: 6px 0 0; color: var(--accent-ink); }
+  .price-box-from { margin: 5px 0 0; color: var(--ink-2); }
 
   .hero-price.none { font-size: 19px; font-weight: 600; color: var(--ink-2); letter-spacing: -.01em; margin: 18px 0 0; }
   .hero-at { display: block; font-size: 12.5px; font-weight: 500; color: var(--ink-2); margin-top: 4px; letter-spacing: 0; }
 
   .results-head {
     display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
-    padding: 18px 2px 8px; font-size: 12px; color: var(--ink-2);
+    padding: 18px 2px 8px;
   }
   .results-head .dim { color: var(--faint); }
 
@@ -1330,7 +1304,6 @@
   }
   .offer-link:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
   .offer-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-  .shop { font-size: 15.5px; font-weight: 600; letter-spacing: -.012em; }
   .tag {
     margin-left: 8px; vertical-align: 1px;
     font-size: 9.5px; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
@@ -1342,7 +1315,6 @@
   :root[data-mode="dark"] .tag.new, :root[data-mode="system"] .tag.new { color: #06170F; }
   .price { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
   .was { font-size: 12.5px; color: var(--faint); text-decoration: line-through; font-variant-numeric: tabular-nums; }
-  .now { font-size: 17px; font-weight: 700; font-variant-numeric: tabular-nums; }
   .now.sale { color: var(--ok); }
   .now.none { color: var(--faint); font-weight: 500; }
   /* Marks the one case where .now is an item price rather than a delivered
@@ -1355,7 +1327,6 @@
   }
 
   .offer-bot { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-  .facts { font-size: 12.5px; color: var(--ink-2); }
   .sep { margin: 0 5px; color: var(--faint); }
   .dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; margin-right: 7px; vertical-align: 1px; background: var(--faint); }
   .dot.ok { background: var(--ok); }
@@ -1373,8 +1344,6 @@
 
   .gone-head {
     margin: 26px 0 0; padding-top: 16px; border-top: 1px solid var(--line);
-    font-size: 11px; font-weight: 700; letter-spacing: .11em;
-    text-transform: uppercase; color: var(--faint);
   }
   /* "Available at" leads .detail-offers with nothing above it in that
      column — the separator line and the gap it implies both belong between
@@ -1444,8 +1413,8 @@
 
   /* ── settings and documents ────────────────────────────────────────────── */
   .doc { padding: 4px 0 8px; }
-  .doc h2 { font-size: 25px; font-weight: 700; letter-spacing: -.025em; margin: 8px 0 16px; }
-  .doc h3 { font-size: 14px; font-weight: 650; margin: 24px 0 7px; letter-spacing: -.01em; }
+  .doc h2 { margin: 8px 0 16px; }
+  .doc h3 { margin: 24px 0 7px; }
   .doc p, .doc li { font-size: 14px; color: var(--ink-2); line-height: 1.62; }
   .doc p { margin: 0 0 11px; }
   .doc ul { margin: 0 0 11px; padding-left: 20px; }
@@ -1471,10 +1440,7 @@
   .settings-doc h3, .settings-doc .foot-links, .settings-doc .foot-legal { align-self: stretch; }
 
   .seg-group { width: 100%; max-width: 360px; margin-top: 14px; }
-  .seg-label {
-    margin: 0 0 6px; font-size: 11px; font-weight: 700; letter-spacing: .1em;
-    text-transform: uppercase; color: var(--faint); text-align: left;
-  }
+  .seg-label { margin: 0 0 6px; text-align: left; }
   .seg {
     display: flex; background: var(--surface); border: 1px solid var(--line);
     border-radius: 11px; padding: 3px; gap: 3px;
@@ -1490,7 +1456,7 @@
   .seg-btn:active { transform: scale(.97); }
   .seg-icon svg { display: block; }
 
-  .settings-note { font-size: 12px; color: var(--faint); margin: 12px 0 0; text-align: center; }
+  .settings-note { margin: 12px 0 0; text-align: center; }
 
   .contact-form {
     width: 100%; max-width: 360px; margin-top: 12px;
@@ -1947,23 +1913,23 @@
       <p>Hi, I am Yanny.</p>
       <p>This started because I kept getting caught out. I bought a 100ml bottle of Club de Nuit, felt pleased with myself, and spotted it twelve pounds cheaper four days later. Comparing by hand meant nine tabs open across Boots, Notino and Beauty Base, and half of them hid the postage until I reached checkout.</p>
       <p>So I spent five days building the thing I wanted to use. Go and look at what the shops charge right now, add the delivery they will actually bill you, put the answer on one screen. Roughly 250 tests keep it honest.</p>
-      <h3>What it does</h3>
+      <h3 class="t-section">What it does</h3>
       <p>Prices are checked every hour, so 24 times a day. Boots, Selfridges, Superdrug, LOOKFANTASTIC, Escentual and the rest all get looked at on the same clock. Not one of those 1,912 prices is typed in by hand. A fragrance shows up here because a shop was genuinely selling it when we looked, and the number beside it came off that page.</p>
       <p>Delivery terms get their own check twice a day, at 6am and 6pm. Boots posts free once you spend \xA325 and charges \xA33.95 under that. Harvey Nichols wants \xA3300, which one bottle will never reach, so its listings always carry \xA35.95 on top. Shops rewrite those rules maybe twice a year, so checking them hourly would be 24 times the effort for the same answer.</p>
       <p>That gap between Boots and Harvey Nichols is the whole point. A bottle at \xA324.99 from Superdrug can cost you more than the same bottle at \xA326 from Beauty Base, once postage lands.</p>
-      <h3>Being straight with you</h3>
+      <h3 class="t-section">Being straight with you</h3>
       <p>If we do not know something, we say so instead of filling the gap with a guess. Thirteen of the 35 shops sit switched off for exactly that reason. Take Manchester Ouds. Their site advertises free postage over \xA350 but never prints what it charges below that, so they stay switched off entirely until someone reads it. Sounds harsh over one missing number. But a blank postage figure quietly counted as zero would shove that shop to the top of every result as the cheapest, and it would be a lie.</p>
       <p>Nothing here is a paid placement. No shop buys its way up. We earn commission on four of the 35, and on those the link still lands exactly where it would have anyway.</p>
-      <h3>About the photos</h3>
+      <h3 class="t-section">About the photos</h3>
       <p>Every product photo loads straight from the shop's own website. PriceSniffs does not copy them, save them, or put them on its own server. Your browser fetches that picture from Justmylook or Allbeauty exactly as it would if you were stood on their page, and it sits beside a link sending you to buy from them. Fragrance Click told us in writing we may use theirs, so we note that. For the rest we say plainly that we have no such permission. Any shop that wants us to stop, whether that is Notino or Harvey Nichols or anyone else, we stop, the day they ask.</p>
-      <h3>Finding what you want</h3>
+      <h3 class="t-section">Finding what you want</h3>
       <p>Filter by bottle size, by strength, by price bracket from under \xA320 up past \xA3300, by what is on offer, by what is in stock. Pick 50ml and the strength list narrows to what actually comes in 50ml, so Eau de Parfum and Eau de Toilette only stay on screen if a 50ml bottle exists. You can never tap something and land on an empty page. Sort by price, low to high or high to low, or run through it A to Z.</p>
-      <h3>Say hello</h3>
+      <h3 class="t-section">Say hello</h3>
       <p>I post about fragrance on <a href="https://www.tiktok.com/@yannysniffs" target="_blank" rel="noopener">TikTok</a> and <a href="https://www.instagram.com/yannysniffs" target="_blank" rel="noopener">Instagram</a> as yannysniffs. Come and tell me what I have got wrong, or which shop should be the 31st. Zimaya was added because someone asked.</p>`},{id:"how-it-works",title:"How PriceSniffs works",short:"How It Works",body:`
       <p>PriceSniffs compares fragrance prices across UK shops so you can see what a
       bottle really costs before you buy it.</p>
 
-      <h3>Delivery is counted</h3>
+      <h3 class="t-section">Delivery is counted</h3>
       <p>Every price includes standard delivery to a UK mainland address, and we
       work out whether your order is large enough to qualify for free postage.
       Boots posts free once you spend \xA325 and charges \xA33.95 below that. Harvey
@@ -1971,27 +1937,27 @@
       always carry \xA35.95 on top. That is why a bottle priced at \xA324.99 can cost
       you more than one priced at \xA326.</p>
 
-      <h3>Reductions come from the shop</h3>
+      <h3 class="t-section">Reductions come from the shop</h3>
       <p>When you see a previous price and a percentage saving, that figure is the
       shop's own. We never calculate one ourselves. Percentages round down, so a
       saving of 19.6 per cent shows as 19 per cent and never as 20. A countdown
       appears only when the shop has published a closing time for the offer. We
       never invent one.</p>
 
-      <h3>Membership rates are not the headline</h3>
+      <h3 class="t-section">Membership rates are not the headline</h3>
       <p>Superdrug posts free at \xA320 for Health and Beautycard holders and at \xA325
       for everyone else, so we quote \xA325. The Perfume Shop, The Fragrance Shop,
       Selfridges and LOOKFANTASTIC all run schemes of their own. We mention them,
       but we never build a members only rate into the headline price, because it
       is not a price you can pay unless you have already joined.</p>
 
-      <h3>Sold out stays at the bottom</h3>
+      <h3 class="t-section">Sold out stays at the bottom</h3>
       <p>Listings a shop has marked unavailable sit at the end of the results and
       can never be shown as the cheapest option, however low the price. Where we
       could not read the stock figure at all we say so rather than guess, and that
       listing drops below the ones we could confirm.</p>
 
-      <h3>Position is not for sale</h3>
+      <h3 class="t-section">Position is not for sale</h3>
       <p>Results are ordered by availability and then by price. Nothing else. No
       shop can pay to appear higher, and commission never moves a listing. Read
       our <a href="#" data-page="affiliate">affiliate disclosure</a>.</p>`},{id:"affiliate",title:"Affiliate disclosure",short:"Affiliate Disclosure",body:`
@@ -1999,21 +1965,21 @@
       links on this site. It costs you nothing and does not change the price you
       pay.</p>
 
-      <h3>Where things stand today</h3>
+      <h3 class="t-section">Where things stand today</h3>
       <p>No affiliate programme is running yet. All twelve shops we list pay us
       nothing, and every link goes straight to the shop. Boots, LOOKFANTASTIC and
       Superdrug run their programmes through Awin and we have applied to none of
       them so far. We will update this page when that changes, and links carrying
       tracking will be identifiable.</p>
 
-      <h3>What commission does not touch</h3>
+      <h3 class="t-section">What commission does not touch</h3>
       <p>Commission has no bearing on the order of results, on which shops we
       include, or on the prices we show. Position is decided by stock and by
       delivered price. We will not take payment for placement inside the results.
       If we ever run a paid placement it will sit outside the results and be
       labelled as advertising.</p>
 
-      <h3>Why we tell you this</h3>
+      <h3 class="t-section">Why we tell you this</h3>
       <p>UK advertising rules require affiliate relationships to be obvious before
       you click, not buried in a policy page. That is why the note also appears at
       the bottom of every screen.</p>`},{id:"privacy",title:"Privacy notice",short:"Privacy",body:`
@@ -2021,13 +1987,13 @@
       collect it, and what you can ask us to do about it. It is written to meet UK
       GDPR and the Data Protection Act 2018.</p>
 
-      <h3>Who we are</h3>
+      <h3 class="t-section">Who we are</h3>
       <p>PriceSniffs is run by ${L.legalName}, a single person, not a
       registered company. You can reach us at
       <a href="mailto:${L.privacyEmail}">${L.privacyEmail}</a> for
       anything to do with your data.</p>
 
-      <h3>What we collect</h3>
+      <h3 class="t-section">What we collect</h3>
       <p>Very little, because the site itself has no server or database of its
       own. It runs entirely in your browser and reads a fixed catalogue of
       prices, so there is no account to create and nothing you do inside the
@@ -2045,19 +2011,19 @@
       details. Buying happens on the shop's own site, under their privacy policy
       rather than ours.</p>
 
-      <h3>Hosting</h3>
+      <h3 class="t-section">Hosting</h3>
       <p>The site is hosted by GitHub Pages. Serving any website involves the
       host handling standard connection information, such as IP addresses, to
       deliver the page, and that is governed by GitHub's own privacy statement
       rather than ours, since we do not receive or store it.</p>
 
-      <h3>Our lawful basis</h3>
+      <h3 class="t-section">Our lawful basis</h3>
       <p>For replying to messages you send us we rely on legitimate interests,
       namely being able to answer you. Where we use cookies that are not strictly
       necessary we rely on your consent, and you can withdraw it whenever you
       like.</p>
 
-      <h3>Cookies</h3>
+      <h3 class="t-section">Cookies</h3>
       <p>We do not set any cookies ourselves. Your display preference is saved
       using local storage, not a cookie, and never leaves your device. If we
       ever add analytics or affiliate tracking that sets cookies, we will say so
@@ -2065,16 +2031,16 @@
       follow a link to a shop, and those fall under that network's policy, not
       ours.</p>
 
-      <h3>Who else sees it</h3>
+      <h3 class="t-section">Who else sees it</h3>
       <p>We do not sell personal data, and we do not share it with anyone except
       where the law requires it.</p>
 
-      <h3>How long we keep it</h3>
+      <h3 class="t-section">How long we keep it</h3>
       <p>Emails are kept only as long as we need them to deal with what you have
       asked, then deleted. We do not keep search history, browsing history or
       any other record of your visit, because we never receive one.</p>
 
-      <h3>Your rights</h3>
+      <h3 class="t-section">Your rights</h3>
       <p>You can ask for a copy of your data, ask us to correct or delete it,
       object to what we are doing with it, ask us to restrict it, or ask for it in
       a portable format. Write to
@@ -2088,12 +2054,12 @@
       <p class="meta">Last updated ${L.updated}.</p>`},{id:"terms",title:"Terms of use",short:"Terms",body:`
       <p>Using PriceSniffs means accepting these terms.</p>
 
-      <h3>What PriceSniffs is</h3>
+      <h3 class="t-section">What PriceSniffs is</h3>
       <p>PriceSniffs is an information service. We do not sell fragrance, hold stock,
       take payments or send parcels. Any purchase is a contract between you and
       the shop, on their terms.</p>
 
-      <h3>How accurate the prices are</h3>
+      <h3 class="t-section">How accurate the prices are</h3>
       <p>We work hard to show accurate prices, but we collect them periodically
       and they can change at any moment. Postage costs and the order values needed
       for free delivery are modelled from the published terms of all twelve shops,
@@ -2104,22 +2070,22 @@
       figure being wrong or out of date, except where the law does not let us
       exclude liability.</p>
 
-      <h3>The shops we list</h3>
+      <h3 class="t-section">The shops we list</h3>
       <p>Appearing here is not an endorsement, and being absent is not a
       criticism. We list established UK shops. We do not inspect individual
       parcels and we cannot guarantee the authenticity of goods sold by anyone
       else.</p>
 
-      <h3>Fair use</h3>
+      <h3 class="t-section">Fair use</h3>
       <p>Please do not scrape the site, overload it, try to disrupt it, or copy
       substantial parts of it without asking us first.</p>
 
-      <h3>Our content</h3>
+      <h3 class="t-section">Our content</h3>
       <p>The design, wording and data compilations belong to ${L.legalName}.
       Brand names, product names and trade marks belong to their owners and appear
       here only to identify products.</p>
 
-      <h3>Product images</h3>
+      <h3 class="t-section">Product images</h3>
       <p>Every product image here is the retailer's or the brand's own
       photograph, loaded by your browser directly from their own servers. We do
       not copy, host, crop, recolour or otherwise alter any of them, and each
@@ -2134,7 +2100,7 @@
       photography, tell us and we will stop for your shop.
       <a href="mailto:${L.email}">${L.email}</a></p>
 
-      <h3>Changes and governing law</h3>
+      <h3 class="t-section">Changes and governing law</h3>
       <p>We may revise these terms, and the current version always sits here.
       These terms are governed by the law of England and Wales.</p>
 
@@ -2143,11 +2109,11 @@
       us the fragrance, the bottle size, the shop and the figure you saw on their
       site, and we will go and check it the same day.</p>
 
-      <h3>Get in touch</h3>
+      <h3 class="t-section">Get in touch</h3>
       <p>One inbox for everything, wrong prices, feedback, privacy and data
       requests, and general questions: <a href="mailto:${L.email}">${L.email}</a></p>
 
-      <h3>If you run a shop</h3>
+      <h3 class="t-section">If you run a shop</h3>
       <p>Write to the address above if you want to be listed, corrected or
       removed, and we will come back to you.</p>
 
@@ -2182,7 +2148,7 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
 `);let S=await M.signMessage(new TextEncoder().encode(h),"utf8");if(!S||!(S instanceof Uint8Array))throw new Error("@supabase/auth-js: Wallet signMessage() API returned an recognized value");w=S}}try{let{data:y,error:k}=await P(this.fetch,"POST",`${this.url}/token?grant_type=web3`,{headers:this.headers,body:Object.assign({chain:"solana",message:h,signature:he(w)},!((f=e.options)===null||f===void 0)&&f.captchaToken?{gotrue_meta_security:{captcha_token:(p=e.options)===null||p===void 0?void 0:p.captchaToken}}:null),xform:K});if(k)throw k;if(!y||!y.session||!y.user){let T=new fe;return this._returnResult({data:{user:null,session:null},error:T})}return y.session&&(await this._saveSession(y.session),await this._notifyAllSubscribers("SIGNED_IN",y.session)),this._returnResult({data:Object.assign({},y),error:k})}catch(y){if(g(y))return this._returnResult({data:{user:null,session:null},error:y});throw y}}async _exchangeCodeForSession(e,t){let i=t?.flowId!=null,n=i?Ca(t?.flowId):x()?Ca(ui(window.location.href)[pe]):null;i&&!n&&this._debug("#_exchangeCodeForSession()","provided flowId is not a valid flow id",t?.flowId);let{verifier:l,flowId:s}=i&&!n?{verifier:null,flowId:null}:await un(this.storage,this.storageKey,n),[r,o]=(l??"").split("/");try{if(!r&&this.flowType==="pkce")throw new mt;let{data:u,error:m}=await P(this.fetch,"POST",`${this.url}/token?grant_type=pkce`,{headers:this.headers,body:{auth_code:e,code_verifier:r},xform:K});if(await Q(this.storage,this.storageKey,s),m)throw m;if(!u||!u.session||!u.user){let d=new fe;return this._returnResult({data:{user:null,session:null,redirectType:null},error:d})}return u.session&&(await this._saveSession(u.session),await this._notifyAllSubscribers(o==="recovery"?"PASSWORD_RECOVERY":"SIGNED_IN",u.session)),this._returnResult({data:Object.assign(Object.assign({},u),{redirectType:o??null}),error:m})}catch(u){if(await Q(this.storage,this.storageKey,s),g(u))return this._returnResult({data:{user:null,session:null,redirectType:null},error:u});throw u}}async signInWithIdToken(e){try{let{options:t,provider:i,token:n,access_token:l,nonce:s}=e,r=await P(this.fetch,"POST",`${this.url}/token?grant_type=id_token`,{headers:this.headers,body:{provider:i,id_token:n,access_token:l,nonce:s,gotrue_meta_security:{captcha_token:t?.captchaToken}},xform:K}),{data:o,error:u}=r;if(u)return this._returnResult({data:{user:null,session:null},error:u});if(!o||!o.session||!o.user){let m=new fe;return this._returnResult({data:{user:null,session:null},error:m})}return o.session&&(await this._saveSession(o.session),await this._notifyAllSubscribers("SIGNED_IN",o.session)),this._returnResult({data:o,error:u})}catch(t){if(g(t))return this._returnResult({data:{user:null,session:null},error:t});throw t}}async signInWithOtp(e){var t,i,n,l,s;let r=null;try{if("email"in e){let{email:o,options:u}=e,m=null,d=null;this.flowType==="pkce"&&([m,d,r]=await this._getCodeChallengeAndMethod());let{error:f}=await P(this.fetch,"POST",`${this.url}/otp`,{headers:this.headers,body:{email:o,data:(t=u?.data)!==null&&t!==void 0?t:{},create_user:(i=u?.shouldCreateUser)!==null&&i!==void 0?i:!0,gotrue_meta_security:{captcha_token:u?.captchaToken},code_challenge:m,code_challenge_method:d},redirectTo:this._maybeAppendFlowIdToRedirect(u?.emailRedirectTo,r)});return this._returnResult({data:{user:null,session:null},error:f})}if("phone"in e){let{phone:o,options:u}=e,{data:m,error:d}=await P(this.fetch,"POST",`${this.url}/otp`,{headers:this.headers,body:{phone:o,data:(n=u?.data)!==null&&n!==void 0?n:{},create_user:(l=u?.shouldCreateUser)!==null&&l!==void 0?l:!0,gotrue_meta_security:{captcha_token:u?.captchaToken},channel:(s=u?.channel)!==null&&s!==void 0?s:"sms"}});return this._returnResult({data:{user:null,session:null,messageId:m?.message_id},error:d})}throw new Ie("You must provide either an email or phone number.")}catch(o){if(await Q(this.storage,this.storageKey,r),g(o))return this._returnResult({data:{user:null,session:null},error:o});throw o}}async verifyOtp(e){var t,i;try{let n,l;"options"in e&&(n=(t=e.options)===null||t===void 0?void 0:t.redirectTo,l=(i=e.options)===null||i===void 0?void 0:i.captchaToken);let{data:s,error:r}=await P(this.fetch,"POST",`${this.url}/verify`,{headers:this.headers,body:Object.assign(Object.assign({},e),{gotrue_meta_security:{captcha_token:l}}),redirectTo:n,xform:K});if(r)throw r;if(!s)throw new Error("An error occurred on token verification.");let o=s.session,u=s.user;return o?.access_token&&(await this._saveSession(o),await this._notifyAllSubscribers(e.type=="recovery"?"PASSWORD_RECOVERY":"SIGNED_IN",o)),this._returnResult({data:{user:u,session:o},error:null})}catch(n){if(g(n))return this._returnResult({data:{user:null,session:null},error:n});throw n}}async signInWithSSO(e){var t,i,n,l;let s=null;try{let r=null,o=null;this.flowType==="pkce"&&([r,o,s]=await this._getCodeChallengeAndMethod());let u=await P(this.fetch,"POST",`${this.url}/sso`,{body:Object.assign(Object.assign(Object.assign(Object.assign(Object.assign({},"providerId"in e?{provider_id:e.providerId}:null),"domain"in e?{domain:e.domain}:null),{redirect_to:this._maybeAppendFlowIdToRedirect((t=e.options)===null||t===void 0?void 0:t.redirectTo,s)}),!((i=e?.options)===null||i===void 0)&&i.captchaToken?{gotrue_meta_security:{captcha_token:e.options.captchaToken}}:null),{skip_http_redirect:!0,code_challenge:r,code_challenge_method:o}),headers:this.headers,xform:gn});return!((n=u.data)===null||n===void 0)&&n.url&&x()&&!(!((l=e.options)===null||l===void 0)&&l.skipBrowserRedirect)&&window.location.assign(u.data.url),this._returnResult(u)}catch(r){if(await Q(this.storage,this.storageKey,s),g(r))return this._returnResult({data:null,error:r});throw r}}async reauthenticate(){return await this.initializePromise,this.lock!=null?await this._acquireLock(this.lockAcquireTimeout,async()=>await this._reauthenticate()):await this._reauthenticate()}async _reauthenticate(){try{return await this._useSession(async e=>{let{data:{session:t},error:i}=e;if(i)throw i;if(!t)throw new C;let{error:n}=await P(this.fetch,"GET",`${this.url}/reauthenticate`,{headers:this.headers,jwt:t.access_token});return this._returnResult({data:{user:null,session:null},error:n})})}catch(e){if(g(e))return this._returnResult({data:{user:null,session:null},error:e});throw e}}async resend(e){let t=null;try{let i=`${this.url}/resend`;if("email"in e){let{email:n,type:l,options:s}=e,r=null,o=null;this.flowType==="pkce"&&([r,o,t]=await this._getCodeChallengeAndMethod());let{error:u}=await P(this.fetch,"POST",i,{headers:this.headers,body:{email:n,type:l,gotrue_meta_security:{captcha_token:s?.captchaToken},code_challenge:r,code_challenge_method:o},redirectTo:this._maybeAppendFlowIdToRedirect(s?.emailRedirectTo,t)});return u&&await Q(this.storage,this.storageKey,t),this._returnResult({data:{user:null,session:null},error:u})}else if("phone"in e){let{phone:n,type:l,options:s}=e,{data:r,error:o}=await P(this.fetch,"POST",i,{headers:this.headers,body:{phone:n,type:l,gotrue_meta_security:{captcha_token:s?.captchaToken}}});return this._returnResult({data:{user:null,session:null,messageId:r?.message_id},error:o})}throw new Ie("You must provide either an email or phone number and a type")}catch(i){if(await Q(this.storage,this.storageKey,t),g(i))return this._returnResult({data:{user:null,session:null},error:i});throw i}}async getSession(){return await this.initializePromise,this.lock!=null?await this._acquireLock(this.lockAcquireTimeout,async()=>this._useSession(async e=>e)):await this._useSession(async e=>e)}async _acquireLock(e,t){this._debug("#_acquireLock","begin",e);try{if(this.lockAcquired){let i=this.pendingInLock.length?this.pendingInLock[this.pendingInLock.length-1]:Promise.resolve(),n=(async()=>(await i,await t()))();return this.pendingInLock.push((async()=>{try{await n}catch{}})()),n}return await this.lock(`lock:${this.storageKey}`,e,async()=>{this._debug("#_acquireLock","lock acquired for storage key",this.storageKey);try{this.lockAcquired=!0;let i=t();for(this.pendingInLock.push((async()=>{try{await i}catch{}})()),await i;this.pendingInLock.length;){let n=[...this.pendingInLock];await Promise.all(n),this.pendingInLock.splice(0,n.length)}return await i}finally{this._debug("#_acquireLock","lock released for storage key",this.storageKey),this.lockAcquired=!1}})}finally{this._debug("#_acquireLock","end")}}async _useSession(e){this._debug("#_useSession","begin");try{let t=await this.__loadSession();return await e(t)}finally{this._debug("#_useSession","end")}}async __loadSession(){this._debug("#__loadSession()","begin"),this.lock!=null&&!this.lockAcquired&&this._debug("#__loadSession()","used outside of an acquired lock!",new Error().stack);try{let e=null,t=await R(this.storage,this.storageKey);if(this._debug("#getSession()","session from storage",t),t!==null&&(this._isValidSession(t)?e=t:(this._debug("#getSession()","session from storage is not valid"),await this._removeSession())),!e)return{data:{session:null},error:null};let i=e.expires_at?e.expires_at*1e3-Date.now()<ut:!1;if(this._debug("#__loadSession()",`session has${i?"":" not"} expired`,"expires_at",e.expires_at),!i){if(this.userStorage){let s=await R(this.userStorage,this.storageKey+"-user");s?.user?e.user=s.user:e.user=ht()}if(this.storage.isServer&&e.user&&!e.user.__isUserNotAvailableProxy){let s={value:this.suppressGetSessionWarning};e.user=wn(e.user,s),s.value&&(this.suppressGetSessionWarning=!0)}return{data:{session:e},error:null}}let{data:n,error:l}=await this._callRefreshToken(e.refresh_token);if(l){if(!!(e.expires_at&&e.expires_at*1e3>Date.now())){let r=await R(this.storage,this.storageKey);if(r&&r.refresh_token===e.refresh_token)return this._returnResult({data:{session:e},error:null})}return this._returnResult({data:{session:null},error:l})}return this._returnResult({data:{session:n},error:null})}finally{this._debug("#__loadSession()","end")}}async getUser(e){if(e)return await this._getUser(e);await this.initializePromise;let t;return this.lock!=null?t=await this._acquireLock(this.lockAcquireTimeout,async()=>await this._getUser()):t=await this._getUser(),t.data.user&&(this.suppressGetSessionWarning=!0),t}async _getUser(e){try{return e?await P(this.fetch,"GET",`${this.url}/user`,{headers:this.headers,jwt:e,xform:me}):await this._useSession(async t=>{var i,n,l;let{data:s,error:r}=t;if(r)throw r;return!(!((i=s.session)===null||i===void 0)&&i.access_token)&&!this.hasCustomAuthorizationHeader?{data:{user:null},error:new C}:await P(this.fetch,"GET",`${this.url}/user`,{headers:this.headers,jwt:(l=(n=s.session)===null||n===void 0?void 0:n.access_token)!==null&&l!==void 0?l:void 0,xform:me})})}catch(t){if(g(t))return Na(t)&&await this._removeSession(),this._returnResult({data:{user:null},error:t});throw t}}async updateUser(e,t={}){return await this.initializePromise,this.lock!=null?await this._acquireLock(this.lockAcquireTimeout,async()=>await this._updateUser(e,t)):await this._updateUser(e,t)}async _updateUser(e,t={}){let i=null;try{return await this._useSession(async n=>{let{data:l,error:s}=n;if(s)throw s;if(!l.session)throw new C;let r=l.session,o=null,u=null;this.flowType==="pkce"&&e.email!=null&&([o,u,i]=await this._getCodeChallengeAndMethod());let{data:m,error:d}=await P(this.fetch,"PUT",`${this.url}/user`,{headers:this.headers,redirectTo:this._maybeAppendFlowIdToRedirect(t?.emailRedirectTo,i),body:Object.assign(Object.assign({},e),{code_challenge:o,code_challenge_method:u}),jwt:r.access_token,xform:me});if(d)throw d;return r.user=m.user,await this._saveSession(r),await this._notifyAllSubscribers("USER_UPDATED",r),this._returnResult({data:{user:r.user},error:null})})}catch(n){if(await Q(this.storage,this.storageKey,i),g(n))return this._returnResult({data:{user:null},error:n});throw n}}async setSession(e){return await this.initializePromise,this.lock!=null?await this._acquireLock(this.lockAcquireTimeout,async()=>await this._setSession(e)):await this._setSession(e)}async _setSession(e){try{if(!e.access_token||!e.refresh_token)throw new C;let t=Date.now()/1e3,i=t,n=!0,l=null,{payload:s}=_a(e.access_token);if(s.exp&&(i=s.exp,n=i<=t),n){let{data:r,error:o}=await this._callRefreshToken(e.refresh_token);if(o)return this._returnResult({data:{user:null,session:null},error:o});if(!r)return{data:{user:null,session:null},error:null};l=r}else{let{data:r,error:o}=await this._getUser(e.access_token);if(o)return this._returnResult({data:{user:null,session:null},error:o});l={access_token:e.access_token,refresh_token:e.refresh_token,user:r.user,token_type:"bearer",expires_in:i-t,expires_at:i},await this._saveSession(l),await this._notifyAllSubscribers("SIGNED_IN",l)}return this._returnResult({data:{user:l.user,session:l},error:null})}catch(t){if(g(t))return this._returnResult({data:{session:null,user:null},error:t});throw t}}async refreshSession(e){return await this.initializePromise,this.lock!=null?await this._acquireLock(this.lockAcquireTimeout,async()=>await this._refreshSession(e)):await this._refreshSession(e)}async _refreshSession(e){try{return await this._useSession(async t=>{var i;if(!e){let{data:s,error:r}=t;if(r)throw r;e=(i=s.session)!==null&&i!==void 0?i:void 0}if(!e?.refresh_token)throw new C;let{data:n,error:l}=await this._callRefreshToken(e.refresh_token);return l?this._returnResult({data:{user:null,session:null},error:l}):n?this._returnResult({data:{user:n.user,session:n},error:null}):this._returnResult({data:{user:null,session:null},error:null})})}catch(t){if(g(t))return this._returnResult({data:{user:null,session:null},error:t});throw t}}async _getSessionFromURL(e,t){var i;try{if(!x())throw new je("No browser detected.");if(e.error||e.error_description||e.error_code)throw new je(e.error_description||"Error in URL with unspecified error_description",{error:e.error||"unspecified_error",code:e.error_code||"unspecified_code"});switch(t){case"implicit":if(this.flowType==="pkce")throw new Ma("Not a valid PKCE flow url.");break;case"pkce":if(this.flowType==="implicit")throw new je("Not a valid implicit grant flow url.");break;default:}if(t==="pkce"){if(this._debug("#_initialize()","begin","is PKCE flow",!0),!e.code)throw new Ma("No code detected.");let{data:A,error:M}=await this._exchangeCodeForSession(e.code,{flowId:e[pe]});if(M)throw M;let O=new URL(window.location.href);return O.searchParams.delete("code"),O.searchParams.delete(pe),window.history.replaceState(window.history.state,"",O.toString()),{data:{session:A.session,redirectType:(i=A.redirectType)!==null&&i!==void 0?i:null},error:null}}let{provider_token:n,provider_refresh_token:l,access_token:s,refresh_token:r,expires_in:o,expires_at:u,token_type:m}=e;if(!s||!o||!r||!m)throw new je("No session defined in URL");let d=Math.round(Date.now()/1e3),f=parseInt(o),p=d+f;u&&(p=parseInt(u));let h=p-d;h*1e3<=oe&&console.warn(`@supabase/gotrue-js: Session as retrieved from URL expires in ${h}s, should have been closer to ${f}s`);let w=p-f;d-w>=120?console.warn("@supabase/gotrue-js: Session as retrieved from URL was issued over 120s ago, URL could be stale",w,p,d):d-w<0&&console.warn("@supabase/gotrue-js: Session as retrieved from URL was issued in the future? Check the device clock for skew",w,p,d);let{data:y,error:k}=await this._getUser(s);if(k)throw k;let T={provider_token:n,provider_refresh_token:l,access_token:s,expires_in:f,expires_at:p,refresh_token:r,token_type:m,user:y.user};return window.location.hash="",this._debug("#_getSessionFromURL()","clearing window.location.hash"),this._returnResult({data:{session:T,redirectType:e.type},error:null})}catch(n){if(g(n))return this._returnResult({data:{session:null,redirectType:null},error:n});throw n}}_isImplicitGrantCallback(e){return typeof this.detectSessionInUrl=="function"?this.detectSessionInUrl(new URL(window.location.href),e):!!(e.access_token||e.error||e.error_description||e.error_code)}async _isPKCECallback(e){if(!e.code)return!1;let t=Ca(e[pe]);return t&&await R(this.storage,Ue(this.storageKey,t))?!0:!!await R(this.storage,`${this.storageKey}-code-verifier`)}async signOut(e={scope:"global"}){return await this.initializePromise,this.lock!=null?await this._acquireLock(this.lockAcquireTimeout,async()=>await this._signOut(e)):await this._signOut(e)}async _signOut({scope:e}={scope:"global"}){return await this._useSession(async t=>{var i;let n=async()=>{await this._removeSession()},{data:l,error:s}=t;if(s&&!Na(s))return this._returnResult({error:s});let r=(i=l.session)===null||i===void 0?void 0:i.access_token;if(r){let{error:o}=await this.admin.signOut(r,e);if(o&&!(ri(o)&&(o.status===404||o.status===401||o.status===403)||Na(o)))return e!=="others"&&await n(),this._returnResult({error:o})}return e!=="others"&&await n(),this._returnResult({error:null})})}onAuthStateChange(e){let t=nn(),i={id:t,callback:e,unsubscribe:()=>{this._debug("#unsubscribe()","state change callback with id removed",t),this.stateChangeEmitters.delete(t)}};return this._debug("#onAuthStateChange()","registered callback with id",t),this.stateChangeEmitters.set(t,i),(async()=>(await this.initializePromise,this.lock!=null?await this._acquireLock(this.lockAcquireTimeout,async()=>{this._emitInitialSession(t)}):await this._emitInitialSession(t)))(),{data:{subscription:i}}}async _emitInitialSession(e){return await this._useSession(async t=>{var i,n;try{let{data:{session:l},error:s}=t;if(s)throw s;await((i=this.stateChangeEmitters.get(e))===null||i===void 0?void 0:i.callback("INITIAL_SESSION",l)),this._debug("INITIAL_SESSION","callback id",e,"session",l)}catch(l){await((n=this.stateChangeEmitters.get(e))===null||n===void 0?void 0:n.callback("INITIAL_SESSION",null)),this._debug("INITIAL_SESSION","callback id",e,"error",l),Na(l)||za(l)||ri(l)&&(l.code==="refresh_token_not_found"||l.code==="refresh_token_already_used"||l.code==="session_expired")?console.warn(l):console.error(l)}})}async resetPasswordForEmail(e,t={}){let i=null,n=null,l=null;this.flowType==="pkce"&&([i,n,l]=await this._getCodeChallengeAndMethod(!0));try{return await P(this.fetch,"POST",`${this.url}/recover`,{body:{email:e,code_challenge:i,code_challenge_method:n,gotrue_meta_security:{captcha_token:t.captchaToken}},headers:this.headers,redirectTo:this._maybeAppendFlowIdToRedirect(t.redirectTo,l)})}catch(s){if(await Q(this.storage,this.storageKey,l),g(s))return this._returnResult({data:null,error:s});throw s}}async getUserIdentities(){var e;try{let{data:t,error:i}=await this.getUser();if(i)throw i;return this._returnResult({data:{identities:(e=t.user.identities)!==null&&e!==void 0?e:[]},error:null})}catch(t){if(g(t))return this._returnResult({data:null,error:t});throw t}}async linkIdentity(e){return"token"in e?this.linkIdentityIdToken(e):this.linkIdentityOAuth(e)}async linkIdentityOAuth(e){var t;let i=null;try{let{data:n,error:l}=await this._useSession(async s=>{var r,o,u,m,d;let{data:f,error:p}=s;if(p)throw p;let{url:h,flowId:w}=await this._getUrlForProvider(`${this.url}/user/identities/authorize`,e.provider,{redirectTo:(r=e.options)===null||r===void 0?void 0:r.redirectTo,scopes:(o=e.options)===null||o===void 0?void 0:o.scopes,queryParams:(u=e.options)===null||u===void 0?void 0:u.queryParams,skipBrowserRedirect:!0});return i=w,await P(this.fetch,"GET",h,{headers:this.headers,jwt:(d=(m=f.session)===null||m===void 0?void 0:m.access_token)!==null&&d!==void 0?d:void 0})});if(l)throw l;return x()&&!(!((t=e.options)===null||t===void 0)&&t.skipBrowserRedirect)&&window.location.assign(n?.url),this._returnResult({data:{provider:e.provider,url:n?.url,flowId:i},error:null})}catch(n){if(g(n))return this._returnResult({data:{provider:e.provider,url:null,flowId:i},error:n});throw n}}async linkIdentityIdToken(e){return await this._useSession(async t=>{var i;try{let{error:n,data:{session:l}}=t;if(n)throw n;let{options:s,provider:r,token:o,access_token:u,nonce:m}=e,d=await P(this.fetch,"POST",`${this.url}/token?grant_type=id_token`,{headers:this.headers,jwt:(i=l?.access_token)!==null&&i!==void 0?i:void 0,body:{provider:r,id_token:o,access_token:u,nonce:m,link_identity:!0,gotrue_meta_security:{captcha_token:s?.captchaToken}},xform:K}),{data:f,error:p}=d;return p?this._returnResult({data:{user:null,session:null},error:p}):!f||!f.session||!f.user?this._returnResult({data:{user:null,session:null},error:new fe}):(f.session&&(await this._saveSession(f.session),await this._notifyAllSubscribers("USER_UPDATED",f.session)),this._returnResult({data:f,error:p}))}catch(n){if(await Q(this.storage,this.storageKey,null),g(n))return this._returnResult({data:{user:null,session:null},error:n});throw n}})}async unlinkIdentity(e){try{return await this._useSession(async t=>{var i,n;let{data:l,error:s}=t;if(s)throw s;return await P(this.fetch,"DELETE",`${this.url}/user/identities/${e.identity_id}`,{headers:this.headers,jwt:(n=(i=l.session)===null||i===void 0?void 0:i.access_token)!==null&&n!==void 0?n:void 0})})}catch(t){if(g(t))return this._returnResult({data:null,error:t});throw t}}async _refreshAccessToken(e){let t="#_refreshAccessToken()";this._debug(t,"begin");try{let i=Date.now();return await rn(async n=>(n>0&&await sn(200*Math.pow(2,n-1)),this._debug(t,"refreshing attempt",n),await P(this.fetch,"POST",`${this.url}/token?grant_type=refresh_token`,{body:{refresh_token:e},headers:this.headers,xform:K})),(n,l)=>{let s=200*Math.pow(2,n);return l&&za(l)&&Date.now()+s-i<oe})}catch(i){if(this._debug(t,"error",i),g(i))return this._returnResult({data:{session:null,user:null},error:i});throw i}finally{this._debug(t,"end")}}_isValidSession(e){return typeof e=="object"&&e!==null&&"access_token"in e&&"refresh_token"in e&&"expires_at"in e}async _handleProviderSignIn(e,t){let{url:i,flowId:n}=await this._getUrlForProvider(`${this.url}/authorize`,e,{redirectTo:t.redirectTo,scopes:t.scopes,queryParams:t.queryParams});return this._debug("#_handleProviderSignIn()","provider",e,"options",t,"url",i),x()&&!t.skipBrowserRedirect&&window.location.assign(i),{data:{provider:e,url:i,flowId:n},error:null}}async _recoverAndRefresh(){var e,t;let i="#_recoverAndRefresh()";this._debug(i,"begin");try{let n=await R(this.storage,this.storageKey);if(n&&this.userStorage){let s=await R(this.userStorage,this.storageKey+"-user");!this.storage.isServer&&Object.is(this.storage,this.userStorage)&&!s&&(s={user:n.user},await ue(this.userStorage,this.storageKey+"-user",s)),n.user=(e=s?.user)!==null&&e!==void 0?e:ht()}else if(n&&!n.user&&!n.user){let s=await R(this.storage,this.storageKey+"-user");s&&s?.user?(n.user=s.user,await V(this.storage,this.storageKey+"-user"),await ue(this.storage,this.storageKey,n)):n.user=ht()}if(this._debug(i,"session from storage",n),!this._isValidSession(n)){this._debug(i,"session is not valid"),n!==null&&await this._removeSession();return}let l=((t=n.expires_at)!==null&&t!==void 0?t:1/0)*1e3-Date.now()<ut;if(this._debug(i,`session has${l?"":" not"} expired with margin of ${ut}s`),l){if(this.autoRefreshToken&&n.refresh_token){let{error:s}=await this._callRefreshToken(n.refresh_token);s&&($0(s)?this._debug(i,"refresh discarded by commit guard",s):this._debug(i,"refresh failed",s))}}else if(n.user&&n.user.__isUserNotAvailableProxy===!0)try{let{data:s,error:r}=await this._getUser(n.access_token);!r&&s?.user?(n.user=s.user,await this._saveSession(n),await this._notifyAllSubscribers("SIGNED_IN",n)):this._debug(i,"could not get user data, skipping SIGNED_IN notification")}catch(s){console.error("Error getting user data:",s),this._debug(i,"error getting user data, skipping SIGNED_IN notification",s)}else await this._notifyAllSubscribers("SIGNED_IN",n)}catch(n){this._debug(i,"error",n),za(n)?console.warn(n):console.error(n);return}finally{this._debug(i,"end")}}async _callRefreshToken(e){var t,i;if(!e)throw new C;if(this.refreshingDeferred)return this.refreshingDeferred.promise;if(this.lastRefreshFailure&&this.lastRefreshFailure.refreshToken===e&&Date.now()<this.lastRefreshFailure.expiresAt)return this._debug("#_callRefreshToken()","returning cached failure (cooldown active)"),this.lastRefreshFailure.result;let n="#_callRefreshToken()";this._debug(n,"begin");try{this.refreshingDeferred=new Ua;let l=await R(this.storage,this.storageKey),{data:s,error:r}=await this._refreshAccessToken(e);if(r)throw r;if(!s.session)throw new C;let o=await R(this.storage,this.storageKey);if(l!==null&&(o===null||o.refresh_token!==l.refresh_token)){this._debug(n,"commit guard: storage changed since refresh started, discarding rotated tokens",{startedWith:"present",nowHolds:o?"replaced":"cleared"});let f={data:null,error:new Ia};return this.refreshingDeferred.resolve(f),f}let m=this._sessionRemovalEpoch;if(await this._saveSession(s.session),this._sessionRemovalEpoch!==m){this._debug(n,"commit guard (post-save): _removeSession ran during _saveSession, undoing write"),await V(this.storage,this.storageKey),this.userStorage&&await V(this.userStorage,this.storageKey+"-user");let f={data:null,error:new Ia};return this.refreshingDeferred.resolve(f),f}await this._notifyAllSubscribers("TOKEN_REFRESHED",s.session);let d={data:s.session,error:null};return this.lastRefreshFailure=null,this.refreshingDeferred.resolve(d),d}catch(l){if(this._debug(n,"error",l),g(l)){let s={data:null,error:l};if(!za(l)){let r=await R(this.storage,this.storageKey);!!(r?.expires_at&&r.expires_at*1e3>Date.now())?this._debug(n,"proactive refresh failed, access token still valid \u2014 preserving session"):await this._removeSession()}return this.lastRefreshFailure={refreshToken:e,result:s,expiresAt:Date.now()+F0},(t=this.refreshingDeferred)===null||t===void 0||t.resolve(s),s}throw(i=this.refreshingDeferred)===null||i===void 0||i.reject(l),l}finally{this.refreshingDeferred=null,this._debug(n,"end")}}async _notifyAllSubscribers(e,t,i=!0){if(this._pendingInitNotifications!==null&&i){this._pendingInitNotifications.push({event:e,session:t,broadcast:i});return}let n=`#_notifyAllSubscribers(${e})`;this._debug(n,"begin",t,`broadcast = ${i}`);try{this.broadcastChannel&&i&&this.broadcastChannel.postMessage({event:e,session:t});let l=[],s=Array.from(this.stateChangeEmitters.values()).map(async r=>{try{await r.callback(e,t)}catch(o){l.push(o)}});if(await Promise.all(s),l.length>0){for(let r=0;r<l.length;r+=1)console.error(l[r]);throw l[0]}}finally{this._debug(n,"end")}}async _saveSession(e){this._debug("#_saveSession()",e),this.suppressGetSessionWarning=!0;let t=Object.assign({},e),i=t.user&&t.user.__isUserNotAvailableProxy===!0;if(this.userStorage){!i&&t.user&&await ue(this.userStorage,this.storageKey+"-user",{user:t.user});let n=Object.assign({},t);delete n.user;let l=mi(n);await ue(this.storage,this.storageKey,l)}else{let n=mi(t);await ue(this.storage,this.storageKey,n)}}async _removeSession(){this._sessionRemovalEpoch+=1,this._debug("#_removeSession()"),this.lastRefreshFailure=null,this.suppressGetSessionWarning=!1,await V(this.storage,this.storageKey),await cn(this.storage,this.storageKey),await V(this.storage,this.storageKey+"-user"),this.userStorage&&await V(this.userStorage,this.storageKey+"-user"),await this._notifyAllSubscribers("SIGNED_OUT",null)}_removeVisibilityChangedCallback(){this._debug("#_removeVisibilityChangedCallback()");let e=this.visibilityChangedCallback;this.visibilityChangedCallback=null;try{e&&x()&&window?.removeEventListener&&window.removeEventListener("visibilitychange",e)}catch(t){console.error("removing visibilitychange callback failed",t)}}async _startAutoRefresh(){await this._stopAutoRefresh(),this._debug("#_startAutoRefresh()");let e=setInterval(()=>this._autoRefreshTokenTick(),oe);this.autoRefreshTicker=e,e&&typeof e=="object"&&typeof e.unref=="function"?e.unref():typeof Deno<"u"&&typeof Deno.unrefTimer=="function"&&Deno.unrefTimer(e);let t=setTimeout(async()=>{await this.initializePromise,await this._autoRefreshTokenTick()},0);this.autoRefreshTickTimeout=t,t&&typeof t=="object"&&typeof t.unref=="function"?t.unref():typeof Deno<"u"&&typeof Deno.unrefTimer=="function"&&Deno.unrefTimer(t)}async _stopAutoRefresh(){this._debug("#_stopAutoRefresh()");let e=this.autoRefreshTicker;this.autoRefreshTicker=null,e&&clearInterval(e);let t=this.autoRefreshTickTimeout;this.autoRefreshTickTimeout=null,t&&clearTimeout(t)}async startAutoRefresh(){this._removeVisibilityChangedCallback(),await this._startAutoRefresh()}async stopAutoRefresh(){this._removeVisibilityChangedCallback(),await this._stopAutoRefresh()}async dispose(){var e;this._removeVisibilityChangedCallback(),await this._stopAutoRefresh(),(e=this.broadcastChannel)===null||e===void 0||e.close(),this.broadcastChannel=null,this.stateChangeEmitters.clear()}async _autoRefreshTokenTick(){if(this._debug("#_autoRefreshTokenTick()","begin"),this.lock!=null){try{await this._acquireLock(0,async()=>{try{let e=Date.now();try{return await this._useSession(async t=>{let{data:{session:i}}=t;if(!i||!i.refresh_token||!i.expires_at){this._debug("#_autoRefreshTokenTick()","no session");return}let n=Math.floor((i.expires_at*1e3-e)/oe);this._debug("#_autoRefreshTokenTick()",`access token expires in ${n} ticks, a tick lasts ${oe}ms, refresh threshold is ${aa} ticks`),n<=aa&&await this._callRefreshToken(i.refresh_token)})}catch(t){console.error("Auto refresh tick failed with error. This is likely a transient error.",t)}}finally{this._debug("#_autoRefreshTokenTick()","end")}})}catch(e){if(e instanceof bt)this._debug("auto refresh token tick lock not available");else throw e}return}if(this.refreshingDeferred!==null){this._debug("#_autoRefreshTokenTick()","refresh already in flight, skipping");return}try{let e=Date.now();try{await this._useSession(async t=>{let{data:{session:i}}=t;if(!i||!i.refresh_token||!i.expires_at){this._debug("#_autoRefreshTokenTick()","no session");return}let n=Math.floor((i.expires_at*1e3-e)/oe);this._debug("#_autoRefreshTokenTick()",`access token expires in ${n} ticks, a tick lasts ${oe}ms, refresh threshold is ${aa} ticks`),n<=aa&&await this._callRefreshToken(i.refresh_token)})}catch(t){console.error("Auto refresh tick failed with error. This is likely a transient error.",t)}}finally{this._debug("#_autoRefreshTokenTick()","end")}}async _handleVisibilityChange(){if(this._debug("#_handleVisibilityChange()"),!x()||!window?.addEventListener)return this.autoRefreshToken&&this.startAutoRefresh(),!1;try{this.visibilityChangedCallback=async()=>{try{await this._onVisibilityChanged(!1)}catch(e){this._debug("#visibilityChangedCallback","error",e)}},window?.addEventListener("visibilitychange",this.visibilityChangedCallback),await this._onVisibilityChanged(!0)}catch(e){console.error("_handleVisibilityChange",e)}}async _onVisibilityChanged(e){let t=`#_onVisibilityChanged(${e})`;if(this._debug(t,"visibilityState",document.visibilityState),document.visibilityState==="visible"){if(this.autoRefreshToken&&this._startAutoRefresh(),!e)if(await this.initializePromise,this.lock!=null)await this._acquireLock(this.lockAcquireTimeout,async()=>{if(document.visibilityState!=="visible"){this._debug(t,"acquired the lock to recover the session, but the browser visibilityState is no longer visible, aborting");return}await this._recoverAndRefresh()});else{if(document.visibilityState!=="visible"){this._debug(t,"visibilityState is no longer visible, skipping recovery");return}await this._recoverAndRefresh()}}else document.visibilityState==="hidden"&&this.autoRefreshToken&&this._stopAutoRefresh()}async _getUrlForProvider(e,t,i){let n=i?.redirectTo,l=null,s=null,r=null;this.flowType==="pkce"&&([l,s,r]=await this._getCodeChallengeAndMethod(),n=this._maybeAppendFlowIdToRedirect(n,r));let o=[`provider=${encodeURIComponent(t)}`];if(n&&o.push(`redirect_to=${encodeURIComponent(n)}`),i?.scopes&&o.push(`scopes=${encodeURIComponent(i.scopes)}`),l!=null&&s!=null){let u=new URLSearchParams({code_challenge:`${encodeURIComponent(l)}`,code_challenge_method:`${encodeURIComponent(s)}`});o.push(u.toString())}if(i?.queryParams){let u=new URLSearchParams(i.queryParams);o.push(u.toString())}return i?.skipBrowserRedirect&&o.push(`skip_http_redirect=${i.skipBrowserRedirect}`),{url:`${e}?${o.join("&")}`,flowId:r}}_maybeAppendFlowIdToRedirect(e,t){return!e||!t||!this.experimental.appendPkceFlowIdToRedirects?e??void 0:mn(e,t)}async _getCodeChallengeAndMethod(e=!1){return dn(this.storage,this.storageKey,e,t=>this._debug("#_getCodeChallengeAndMethod()","evicted oldest pending PKCE verifier slot",t))}async _unenroll(e){try{return await this._useSession(async t=>{var i;let{data:n,error:l}=t;return l?this._returnResult({data:null,error:l}):await P(this.fetch,"DELETE",`${this.url}/factors/${e.factorId}`,{headers:this.headers,jwt:(i=n?.session)===null||i===void 0?void 0:i.access_token})})}catch(t){if(g(t))return this._returnResult({data:null,error:t});throw t}}async _enroll(e){try{return await this._useSession(async t=>{var i,n;let{data:l,error:s}=t;if(s)return this._returnResult({data:null,error:s});let r=Object.assign({friendly_name:e.friendlyName,factor_type:e.factorType},e.factorType==="phone"?{phone:e.phone}:e.factorType==="totp"?{issuer:e.issuer}:{}),{data:o,error:u}=await P(this.fetch,"POST",`${this.url}/factors`,{body:r,headers:this.headers,jwt:(i=l?.session)===null||i===void 0?void 0:i.access_token});return u?this._returnResult({data:null,error:u}):(e.factorType==="totp"&&o.type==="totp"&&(!((n=o?.totp)===null||n===void 0)&&n.qr_code)&&(o.totp.qr_code=`data:image/svg+xml;utf-8,${o.totp.qr_code}`),this._returnResult({data:o,error:null}))})}catch(t){if(g(t))return this._returnResult({data:null,error:t});throw t}}async _verify(e){let t=async()=>{try{return await this._useSession(async i=>{var n;let{data:l,error:s}=i;if(s)return this._returnResult({data:null,error:s});let r=Object.assign({challenge_id:e.challengeId},"webauthn"in e?{webauthn:Object.assign(Object.assign({},e.webauthn),{credential_response:e.webauthn.type==="create"?ki(e.webauthn.credential_response):Ai(e.webauthn.credential_response)})}:{code:e.code}),{data:o,error:u}=await P(this.fetch,"POST",`${this.url}/factors/${e.factorId}/verify`,{body:r,headers:this.headers,jwt:(n=l?.session)===null||n===void 0?void 0:n.access_token});return u?this._returnResult({data:null,error:u}):(await this._saveSession(Object.assign({expires_at:Math.round(Date.now()/1e3)+o.expires_in},o)),await this._notifyAllSubscribers("MFA_CHALLENGE_VERIFIED",o),this._returnResult({data:o,error:u}))})}catch(i){if(g(i))return this._returnResult({data:null,error:i});throw i}};return this.lock!=null?this._acquireLock(this.lockAcquireTimeout,t):t()}async _challenge(e){let t=async()=>{try{return await this._useSession(async i=>{var n;let{data:l,error:s}=i;if(s)return this._returnResult({data:null,error:s});let r=await P(this.fetch,"POST",`${this.url}/factors/${e.factorId}/challenge`,{body:e,headers:this.headers,jwt:(n=l?.session)===null||n===void 0?void 0:n.access_token});if(r.error)return r;let{data:o}=r;if(o.type!=="webauthn")return{data:o,error:null};switch(o.webauthn.type){case"create":return{data:Object.assign(Object.assign({},o),{webauthn:Object.assign(Object.assign({},o.webauthn),{credential_options:Object.assign(Object.assign({},o.webauthn.credential_options),{publicKey:yi(o.webauthn.credential_options.publicKey)})})}),error:null};case"request":return{data:Object.assign(Object.assign({},o),{webauthn:Object.assign(Object.assign({},o.webauthn),{credential_options:Object.assign(Object.assign({},o.webauthn.credential_options),{publicKey:gi(o.webauthn.credential_options.publicKey)})})}),error:null}}})}catch(i){if(g(i))return this._returnResult({data:null,error:i});throw i}};return this.lock!=null?this._acquireLock(this.lockAcquireTimeout,t):t()}async _challengeAndVerify(e){let{data:t,error:i}=await this._challenge({factorId:e.factorId});return i?this._returnResult({data:null,error:i}):await this._verify({factorId:e.factorId,challengeId:t.id,code:e.code})}async _listFactors(){var e;let{data:{user:t},error:i}=await this.getUser();if(i)return{data:null,error:i};let n={all:[],phone:[],totp:[],webauthn:[]};for(let l of(e=t?.factors)!==null&&e!==void 0?e:[])n.all.push(l),l.status==="verified"&&n[l.factor_type].push(l);return{data:n,error:null}}async _getAuthenticatorAssuranceLevel(e){var t,i,n,l;if(e)try{let{payload:p}=_a(e),h=null;p.aal&&(h=p.aal);let w=h,{data:{user:y},error:k}=await this.getUser(e);if(k)return this._returnResult({data:null,error:k});((i=(t=y?.factors)===null||t===void 0?void 0:t.filter(M=>M.status==="verified"))!==null&&i!==void 0?i:[]).length>0&&(w="aal2");let A=p.amr||[];return{data:{currentLevel:h,nextLevel:w,currentAuthenticationMethods:A},error:null}}catch(p){if(g(p))return this._returnResult({data:null,error:p});throw p}let{data:{session:s},error:r}=await this.getSession();if(r)return this._returnResult({data:null,error:r});if(!s)return{data:{currentLevel:null,nextLevel:null,currentAuthenticationMethods:[]},error:null};let{payload:o}=_a(s.access_token),u=null;o.aal&&(u=o.aal);let m=u;((l=(n=s.user.factors)===null||n===void 0?void 0:n.filter(p=>p.status==="verified"))!==null&&l!==void 0?l:[]).length>0&&(m="aal2");let f=o.amr||[];return{data:{currentLevel:u,nextLevel:m,currentAuthenticationMethods:f},error:null}}async _getAuthorizationDetails(e){try{return await this._useSession(async t=>{let{data:{session:i},error:n}=t;return n?this._returnResult({data:null,error:n}):i?await P(this.fetch,"GET",`${this.url}/oauth/authorizations/${e}`,{headers:this.headers,jwt:i.access_token,xform:l=>({data:l,error:null})}):this._returnResult({data:null,error:new C})})}catch(t){if(g(t))return this._returnResult({data:null,error:t});throw t}}async _approveAuthorization(e,t){try{return await this._useSession(async i=>{let{data:{session:n},error:l}=i;if(l)return this._returnResult({data:null,error:l});if(!n)return this._returnResult({data:null,error:new C});let s=await P(this.fetch,"POST",`${this.url}/oauth/authorizations/${e}/consent`,{headers:this.headers,jwt:n.access_token,body:{action:"approve"},xform:r=>({data:r,error:null})});return s.data&&s.data.redirect_url&&x()&&!t?.skipBrowserRedirect&&window.location.assign(s.data.redirect_url),s})}catch(i){if(g(i))return this._returnResult({data:null,error:i});throw i}}async _denyAuthorization(e,t){try{return await this._useSession(async i=>{let{data:{session:n},error:l}=i;if(l)return this._returnResult({data:null,error:l});if(!n)return this._returnResult({data:null,error:new C});let s=await P(this.fetch,"POST",`${this.url}/oauth/authorizations/${e}/consent`,{headers:this.headers,jwt:n.access_token,body:{action:"deny"},xform:r=>({data:r,error:null})});return s.data&&s.data.redirect_url&&x()&&!t?.skipBrowserRedirect&&window.location.assign(s.data.redirect_url),s})}catch(i){if(g(i))return this._returnResult({data:null,error:i});throw i}}async _listOAuthGrants(){try{return await this._useSession(async e=>{let{data:{session:t},error:i}=e;return i?this._returnResult({data:null,error:i}):t?await P(this.fetch,"GET",`${this.url}/user/oauth/grants`,{headers:this.headers,jwt:t.access_token,xform:n=>({data:n,error:null})}):this._returnResult({data:null,error:new C})})}catch(e){if(g(e))return this._returnResult({data:null,error:e});throw e}}async _revokeOAuthGrant(e){try{return await this._useSession(async t=>{let{data:{session:i},error:n}=t;return n?this._returnResult({data:null,error:n}):i?(await P(this.fetch,"DELETE",`${this.url}/user/oauth/grants`,{headers:this.headers,jwt:i.access_token,query:{client_id:e.clientId},noResolveJson:!0}),{data:{},error:null}):this._returnResult({data:null,error:new C})})}catch(t){if(g(t))return this._returnResult({data:null,error:t});throw t}}async fetchJwk(e,t={keys:[]}){let i=t.keys.find(r=>r.kid===e);if(i)return i;let n=Date.now();if(i=this.jwks.keys.find(r=>r.kid===e),i&&this.jwks_cached_at+K0>n)return i;let{data:l,error:s}=await P(this.fetch,"GET",`${this.url}/.well-known/jwks.json`,{headers:this.headers});if(s)throw s;return!l.keys||l.keys.length===0||(this.jwks=l,this.jwks_cached_at=n,i=l.keys.find(r=>r.kid===e),!i)?null:i}async getClaims(e,t={}){try{let i=e;if(!i){let{data:p,error:h}=await this.getSession();if(h||!p.session)return this._returnResult({data:null,error:h});i=p.session.access_token}let{header:n,payload:l,signature:s,raw:{header:r,payload:o}}=_a(i);if(!t?.allowExpired)try{fn(l.exp)}catch(p){throw new Ae(p instanceof Error?p.message:"JWT validation failed")}let u=!n.alg||n.alg.startsWith("HS")||!n.kid||!("crypto"in globalThis&&"subtle"in globalThis.crypto)?null:await this.fetchJwk(n.kid,t?.keys?{keys:t.keys}:t?.jwks);if(!u){let{error:p}=await this.getUser(i);if(p)throw p;return{data:{claims:l,header:n,signature:s},error:null}}let m=hn(n.alg),d=await crypto.subtle.importKey("jwk",u,m,!0,["verify"]);if(!await crypto.subtle.verify(m,d,s,an(`${r}.${o}`)))throw new Ae("Invalid JWT signature");return{data:{claims:l,header:n,signature:s},error:null}}catch(i){if(g(i))return this._returnResult({data:null,error:i});throw i}}async signInWithPasskey(e){var t,i,n;J(this.experimental);try{if(!Da())return this._returnResult({data:null,error:new G("Browser does not support WebAuthn",null)});let{data:l,error:s}=await this._startPasskeyAuthentication({options:{captchaToken:(t=e?.options)===null||t===void 0?void 0:t.captchaToken}});if(s||!l)return this._returnResult({data:null,error:s});let r=gi(l.options),o=(n=(i=e?.options)===null||i===void 0?void 0:i.signal)!==null&&n!==void 0?n:kt.createNewAbortSignal(),{data:u,error:m}=await Si({publicKey:r,signal:o});if(m||!u)return this._returnResult({data:null,error:m??new G("WebAuthn ceremony failed",null)});let d=Ai(u);return this._verifyPasskeyAuthentication({challengeId:l.challenge_id,credential:d})}catch(l){if(g(l))return this._returnResult({data:null,error:l});throw l}}async registerPasskey(e){var t,i;J(this.experimental);try{if(!Da())return this._returnResult({data:null,error:new G("Browser does not support WebAuthn",null)});let{data:n,error:l}=await this._startPasskeyRegistration();if(l||!n)return this._returnResult({data:null,error:l});let s=yi(n.options),r=(i=(t=e?.options)===null||t===void 0?void 0:t.signal)!==null&&i!==void 0?i:kt.createNewAbortSignal(),{data:o,error:u}=await Pi({publicKey:s,signal:r});if(u||!o)return this._returnResult({data:null,error:u??new G("WebAuthn ceremony failed",null)});let m=ki(o);return this._verifyPasskeyRegistration({challengeId:n.challenge_id,credential:m})}catch(n){if(g(n))return this._returnResult({data:null,error:n});throw n}}async _startPasskeyRegistration(){J(this.experimental);try{return await this._useSession(async e=>{let{data:{session:t},error:i}=e;if(i)return this._returnResult({data:null,error:i});if(!t)return this._returnResult({data:null,error:new C});let{data:n,error:l}=await P(this.fetch,"POST",`${this.url}/passkeys/registration/options`,{headers:this.headers,jwt:t.access_token,body:{}});return l?this._returnResult({data:null,error:l}):this._returnResult({data:n,error:null})})}catch(e){if(g(e))return this._returnResult({data:null,error:e});throw e}}async _verifyPasskeyRegistration(e){J(this.experimental);try{return await this._useSession(async t=>{let{data:{session:i},error:n}=t;if(n)return this._returnResult({data:null,error:n});if(!i)return this._returnResult({data:null,error:new C});let{data:l,error:s}=await P(this.fetch,"POST",`${this.url}/passkeys/registration/verify`,{headers:this.headers,jwt:i.access_token,body:{challenge_id:e.challengeId,credential:e.credential}});return s?this._returnResult({data:null,error:s}):this._returnResult({data:l,error:null})})}catch(t){if(g(t))return this._returnResult({data:null,error:t});throw t}}async _startPasskeyAuthentication(e){var t;J(this.experimental);try{let{data:i,error:n}=await P(this.fetch,"POST",`${this.url}/passkeys/authentication/options`,{headers:this.headers,body:{gotrue_meta_security:{captcha_token:(t=e?.options)===null||t===void 0?void 0:t.captchaToken}}});return n?this._returnResult({data:null,error:n}):this._returnResult({data:i,error:null})}catch(i){if(g(i))return this._returnResult({data:null,error:i});throw i}}async _verifyPasskeyAuthentication(e){J(this.experimental);try{let{data:t,error:i}=await P(this.fetch,"POST",`${this.url}/passkeys/authentication/verify`,{headers:this.headers,body:{challenge_id:e.challengeId,credential:e.credential},xform:K});return i?this._returnResult({data:null,error:i}):(t.session&&(await this._saveSession(t.session),await this._notifyAllSubscribers("SIGNED_IN",t.session)),this._returnResult({data:t,error:null}))}catch(t){if(g(t))return this._returnResult({data:null,error:t});throw t}}async _listPasskeys(){J(this.experimental);try{return await this._useSession(async e=>{let{data:{session:t},error:i}=e;if(i)return this._returnResult({data:null,error:i});if(!t)return this._returnResult({data:null,error:new C});let{data:n,error:l}=await P(this.fetch,"GET",`${this.url}/passkeys`,{headers:this.headers,jwt:t.access_token,xform:s=>({data:s,error:null})});return l?this._returnResult({data:null,error:l}):this._returnResult({data:n,error:null})})}catch(e){if(g(e))return this._returnResult({data:null,error:e});throw e}}async _updatePasskey(e){J(this.experimental);try{return await this._useSession(async t=>{let{data:{session:i},error:n}=t;if(n)return this._returnResult({data:null,error:n});if(!i)return this._returnResult({data:null,error:new C});let{data:l,error:s}=await P(this.fetch,"PATCH",`${this.url}/passkeys/${e.passkeyId}`,{headers:this.headers,jwt:i.access_token,body:{friendly_name:e.friendlyName}});return s?this._returnResult({data:null,error:s}):this._returnResult({data:l,error:null})})}catch(t){if(g(t))return this._returnResult({data:null,error:t});throw t}}async _deletePasskey(e){J(this.experimental);try{return await this._useSession(async t=>{let{data:{session:i},error:n}=t;if(n)return this._returnResult({data:null,error:n});if(!i)return this._returnResult({data:null,error:new C});let{error:l}=await P(this.fetch,"DELETE",`${this.url}/passkeys/${e.passkeyId}`,{headers:this.headers,jwt:i.access_token,noResolveJson:!0});return l?this._returnResult({data:null,error:l}):this._returnResult({data:null,error:null})})}catch(t){if(g(t))return this._returnResult({data:null,error:t});throw t}}};At.nextInstanceID={};var Ti=At;var eo=Ti,Ei=eo;var ao="2.112.2",Oa="",Tt;if(typeof Deno<"u")Oa="deno",Tt=(Pt=Deno.version)===null||Pt===void 0?void 0:Pt.deno;else if(typeof document<"u")Oa="web";else if(typeof navigator<"u"&&navigator.product==="ReactNative")Oa="react-native";else{Oa="node";let a=globalThis.process;Tt=a==null||(St=a.version)===null||St===void 0?void 0:St.replace(/^v/,"")}var Pt,St,zn=[`runtime=${Oa}`];Tt&&zn.push(`runtime-version=${Tt}`);var to={"X-Client-Info":`supabase-js/${ao}; ${zn.join("; ")}`},io={headers:to},no={schema:"public"},lo={autoRefreshToken:!0,persistSession:!0,detectSessionInUrl:!0,flowType:"implicit"},so={},ro={enabled:!1,respectSamplingDecision:!0};function oo(a){if(!a||typeof a!="string")return null;let e=a.split("-");if(e.length!==4)return null;let[t,i,n,l]=e;if(t.length!==2||i.length!==32||n.length!==16||l.length!==2)return null;let s=/^[0-9a-f]+$/i;return!s.test(t)||!s.test(i)||!s.test(n)||!s.test(l)||i==="00000000000000000000000000000000"||n==="0000000000000000"?null:{version:t,traceId:i,parentId:n,traceFlags:l,isSampled:(parseInt(l,16)&1)===1}}function uo(a,e){if(!a||!e||e.length===0)return!1;let t;if(a instanceof URL)t=a;else try{t=new URL(a)}catch{return!1}for(let i of e)try{if(typeof i=="string"){if(co(t.hostname,i))return!0}else if(i instanceof RegExp){if(i.test(t.hostname))return!0}else if(typeof i=="function"&&i(t))return!0}catch{continue}return!1}function co(a,e){if(e===a)return!0;if(e.startsWith("*.")){let t=e.slice(2);if(a.endsWith(t)&&(a===t||a.endsWith("."+t)))return!0}return!1}function mo(a){let e=[];try{let t=new URL(a);e.push(t.hostname)}catch{}return e.push("*.supabase.co","*.supabase.in"),e.push("localhost","127.0.0.1","[::1]"),e}function Ba(a){"@babel/helpers - typeof";return Ba=typeof Symbol=="function"&&typeof Symbol.iterator=="symbol"?function(e){return typeof e}:function(e){return e&&typeof Symbol=="function"&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},Ba(a)}function po(a,e){if(Ba(a)!="object"||!a)return a;var t=a[Symbol.toPrimitive];if(t!==void 0){var i=t.call(a,e||"default");if(Ba(i)!="object")return i;throw new TypeError("@@toPrimitive must return a primitive value.")}return(e==="string"?String:Number)(a)}function fo(a){var e=po(a,"string");return Ba(e)=="symbol"?e:e+""}function ho(a,e,t){return(e=fo(e))in a?Object.defineProperty(a,e,{value:t,enumerable:!0,configurable:!0,writable:!0}):a[e]=t,a}function vn(a,e){var t=Object.keys(a);if(Object.getOwnPropertySymbols){var i=Object.getOwnPropertySymbols(a);e&&(i=i.filter(function(n){return Object.getOwnPropertyDescriptor(a,n).enumerable})),t.push.apply(t,i)}return t}function D(a){for(var e=1;e<arguments.length;e++){var t=arguments[e]!=null?arguments[e]:{};e%2?vn(Object(t),!0).forEach(function(i){ho(a,i,t[i])}):Object.getOwnPropertyDescriptors?Object.defineProperties(a,Object.getOwnPropertyDescriptors(t)):vn(Object(t)).forEach(function(i){Object.defineProperty(a,i,Object.getOwnPropertyDescriptor(t,i))})}return a}var wo=a=>a?(...e)=>a(...e):(...e)=>fetch(...e),bo=()=>Headers,Un=a=>a.startsWith("sb_publishable_")||a.startsWith("sb_secret_"),yo="sb_temp_",Mn=new Set,go=a=>{var e,t;if(!a.startsWith("sb_")||Un(a)||a.startsWith(yo))return;let i=(e=(t=a.match(/^sb_[a-zA-Z0-9]+_/))===null||t===void 0?void 0:t[0])!==null&&e!==void 0?e:"unknown";Mn.has(i)||(Mn.add(i),console.warn("@supabase/supabase-js: Unrecognized Supabase API key format. The client will proceed and send this key as-is; if you see authentication errors you may need to upgrade @supabase/supabase-js to a version that recognizes this key type."))},In=(a,e,t,i,n,l)=>{let s=wo(i),r=bo(),o=n?.enabled===!0,u=n?.respectSamplingDecision!==!1,m=o?mo(e):null,d=!(l?.omitApiKeyAsBearer&&Un(a));return async(f,p)=>{let h=await t(),w=new r(p?.headers);if(w.has("apikey")||w.set("apikey",a),!w.has("Authorization")){let y=h??(d?a:null);y&&w.set("Authorization",`Bearer ${y}`)}if(m){let y=ko(f,m,u);y&&(y.traceparent&&!w.has("traceparent")&&w.set("traceparent",y.traceparent),y.tracestate&&!w.has("tracestate")&&w.set("tracestate",y.tracestate),y.baggage&&!w.has("baggage")&&w.set("baggage",y.baggage))}return s(f,D(D({},p),{},{headers:w}))}},jn=!1;function ko(a,e,t){let i=u0();if(!i)return jn||(jn=!0,console.warn("@supabase/supabase-js: tracePropagation is enabled but the tracing runtime is not loaded, so trace headers will not be attached. Add `import '@supabase/supabase-js/tracing'` at your application entry point (requires the OpenTelemetry API package to be installed). The CDN/UMD build does not support trace propagation.")),null;if(!uo(typeof a=="string"||a instanceof URL?a:a.url,e))return null;let n=i();if(!n||!n.traceparent)return null;if(t){let l=oo(n.traceparent);if(l&&!l.isSampled)return null}return n}function Nn(a){return typeof a=="boolean"?{enabled:a}:a}function Ao(a){return a.endsWith("/")?a:a+"/"}function Po(a,e){var t,i,n,l,s,r;let{db:o,auth:u,realtime:m,global:d}=a,{db:f,auth:p,realtime:h,global:w}=e,y=Nn(a.tracePropagation),k=Nn(e.tracePropagation),T={db:D(D({},f),o),auth:D(D({},p),u),realtime:D(D({},h),m),storage:{},global:D(D(D({},w),d),{},{headers:D(D({},(t=w?.headers)!==null&&t!==void 0?t:{}),(i=d?.headers)!==null&&i!==void 0?i:{})}),tracePropagation:{enabled:(n=(l=y?.enabled)!==null&&l!==void 0?l:k?.enabled)!==null&&n!==void 0?n:!1,respectSamplingDecision:(s=(r=y?.respectSamplingDecision)!==null&&r!==void 0?r:k?.respectSamplingDecision)!==null&&s!==void 0?s:!0},accessToken:async()=>""};return a.accessToken?T.accessToken=a.accessToken:delete T.accessToken,T}function So(a){let e=a?.trim();if(!e)throw new Error("supabaseUrl is required.");if(!e.match(/^https?:\/\//i))throw new Error("Invalid supabaseUrl: Must be a valid HTTP or HTTPS URL.");try{return new URL(Ao(e))}catch{throw Error("Invalid supabaseUrl: Provided URL is malformed.")}}var To=class extends Ei{constructor(a){super(a)}},Eo=class{constructor(a,e,t){var i,n;this.supabaseUrl=a,this.supabaseKey=e;let l=So(a);if(!e)throw new Error("supabaseKey is required.");go(e),this.realtimeUrl=new URL("realtime/v1",l),this.realtimeUrl.protocol=this.realtimeUrl.protocol.replace("http","ws"),this.authUrl=new URL("auth/v1",l),this.storageUrl=new URL("storage/v1",l),this.functionsUrl=new URL("functions/v1",l);let s=`sb-${l.hostname.split(".")[0]}-auth-token`,r={db:no,realtime:so,auth:D(D({},lo),{},{storageKey:s}),global:io,tracePropagation:ro},o=Po(t??{},r);if(this.settings=o,this.storageKey=(i=o.auth.storageKey)!==null&&i!==void 0?i:"",this.headers=(n=o.global.headers)!==null&&n!==void 0?n:{},o.accessToken)this.accessToken=o.accessToken,this.auth=new Proxy({},{get:(m,d)=>{throw new Error(`@supabase/supabase-js: Supabase Client is configured with the accessToken option, accessing supabase.auth.${String(d)} is not possible`)}});else{var u;this.auth=this._initSupabaseAuthClient((u=o.auth)!==null&&u!==void 0?u:{},this.headers,o.global.fetch)}this.fetch=In(e,a,this._getSessionToken.bind(this),o.global.fetch,o.tracePropagation),this.functionsFetch=In(e,a,this._getSessionToken.bind(this),o.global.fetch,o.tracePropagation,{omitApiKeyAsBearer:!0}),this.realtime=this._initRealtimeClient(D({headers:this.headers,accessToken:this._getAccessToken.bind(this),fetch:this.fetch},o.realtime)),this.accessToken&&Promise.resolve(this.accessToken()).then(m=>this.realtime.setAuth(m)).catch(m=>console.warn("Failed to set initial Realtime auth token:",m)),this.rest=new b0(new URL("rest/v1",l).href,{headers:this.headers,schema:o.db.schema,fetch:this.fetch,timeout:o.db.timeout,urlLengthLimit:o.db.urlLengthLimit,retry:o.db.retry}),this.storage=new R0(this.storageUrl.href,this.headers,this.fetch,t?.storage),o.accessToken||this._listenForAuthEvents()}get functions(){return new pa(this.functionsUrl.href,{headers:this.headers,customFetch:this.functionsFetch})}from(a){return this.rest.from(a)}schema(a){return this.rest.schema(a)}rpc(a,e={},t={head:!1,get:!1,count:void 0}){return this.rest.rpc(a,e,t)}channel(a,e={config:{}}){return this.realtime.channel(a,e)}getChannels(){return this.realtime.getChannels()}removeChannel(a){return this.realtime.removeChannel(a)}removeAllChannels(){return this.realtime.removeAllChannels()}async _getSessionToken(){var a=this,e,t;if(a.accessToken)return await a.accessToken();let{data:i}=await a.auth.getSession();return(e=(t=i.session)===null||t===void 0?void 0:t.access_token)!==null&&e!==void 0?e:null}async _getAccessToken(){var a=this,e;return(e=await a._getSessionToken())!==null&&e!==void 0?e:a.supabaseKey}_initSupabaseAuthClient({autoRefreshToken:a,persistSession:e,detectSessionInUrl:t,storage:i,userStorage:n,storageKey:l,flowType:s,lock:r,debug:o,throwOnError:u,experimental:m,lockAcquireTimeout:d,skipAutoInitialize:f},p,h){let w={Authorization:`Bearer ${this.supabaseKey}`,apikey:`${this.supabaseKey}`};return new To({url:this.authUrl.href,headers:D(D({},w),p),storageKey:l,autoRefreshToken:a,persistSession:e,detectSessionInUrl:t,storage:i,userStorage:n,flowType:s,lock:r,debug:o,throwOnError:u,experimental:m,fetch:h,lockAcquireTimeout:d,skipAutoInitialize:f,hasCustomAuthorizationHeader:Object.keys(this.headers).some(y=>y.toLowerCase()==="authorization")})}_initRealtimeClient(a){return new Xe(this.realtimeUrl.href,D(D({},a),{},{params:D(D({},{apikey:this.supabaseKey}),a?.params)}))}_listenForAuthEvents(){return this.auth.onAuthStateChange((a,e)=>{this._handleTokenChanged(a,"CLIENT",e?.access_token)})}_handleTokenChanged(a,e,t){(a==="TOKEN_REFRESHED"||a==="SIGNED_IN"||a==="INITIAL_SESSION")&&this.changedAccessToken!==t?(this.changedAccessToken=t,this.realtime.setAuth(t)):a==="SIGNED_OUT"&&(this.realtime.setAuth(),e=="STORAGE"&&this.auth.signOut(),this.changedAccessToken=void 0)}},qn=(a,e,t)=>new Eo(a,e,t);function Zo(){if(typeof window<"u"||globalThis.Deno!==void 0)return!1;let a=globalThis.process;if(!a)return!1;let e=a.version;if(e==null)return!1;let t=e.match(/^v(\d+)\./);return t?parseInt(t[1],10)<=20:!1}Zo()&&console.warn("\u26A0\uFE0F  Node.js 20 and below are deprecated and will no longer be supported in future versions of @supabase/supabase-js. Please upgrade to Node.js 22 or later. For more information, visit: https://github.com/orgs/supabase/discussions/45715");var Cn="",Dn="",xa=Cn!==""&&Dn!=="",Zi=null,_n=!1;function ee(){if(!xa||_n)return null;if(!Zi)try{Zi=qn(Cn,Dn,{auth:{persistSession:!0,autoRefreshToken:!0,detectSessionInUrl:!0}})}catch(a){return _n=!0,console.error("Supabase client failed to initialise; accounts are unavailable this session.",a),null}return Zi}function La(a,e){let t=a.toLowerCase();return t.includes("already registered")||t.includes("already exists")?"Check your email to finish setting up your account. If you already have one, use Sign in instead.":t.includes("invalid login credentials")?"That email and password combination is not recognised.":t.includes("email not confirmed")?"Please verify your email before signing in. Check your inbox for the link, or request a new one below.":t.includes("password")&&(t.includes("short")||t.includes("weak")||t.includes("at least"))?"Choose a password with at least 8 characters.":t.includes("rate limit")||t.includes("too many")?"Too many attempts. Wait a few minutes and try again.":t.includes("invalid")&&t.includes("email")?"That does not look like a valid email address.":e==="reset"?"If that address has an account, a reset link is on its way.":"Something went wrong. Please try again."}async function On(a,e){let t=ee();if(!t)return{ok:!1,message:"Accounts are not set up on this deployment yet."};let{error:i}=await t.auth.signUp({email:a,password:e,options:{emailRedirectTo:window.location.origin+"/account"}});return i?{ok:!1,message:La(i.message,"signUp")}:{ok:!0}}async function Bn(a,e){let t=ee();if(!t)return{ok:!1,message:"Accounts are not set up on this deployment yet."};let{error:i}=await t.auth.signInWithPassword({email:a,password:e});return i?{ok:!1,message:La(i.message,"signIn")}:{ok:!0}}async function xn(){let a=ee();a&&await a.auth.signOut()}async function Ln(a){let e=ee();if(!e)return{ok:!1,message:"Accounts are not set up on this deployment yet."};let{error:t}=await e.auth.resend({type:"signup",email:a,options:{emailRedirectTo:window.location.origin+"/account"}});return t?{ok:!1,message:La(t.message,"signUp")}:{ok:!0}}async function Rn(a){let e=ee();if(!e)return{ok:!1,message:"Accounts are not set up on this deployment yet."};let{error:t}=await e.auth.resetPasswordForEmail(a,{redirectTo:window.location.origin+"/account"});return t&&(t.message.toLowerCase().includes("rate limit")||t.message.toLowerCase().includes("invalid"))?{ok:!1,message:La(t.message,"reset")}:{ok:!0}}function Fn(){let a=ee();return a?a.auth.getUser().then(({data:e})=>e.user??null):Promise.resolve(null)}function ia(a){return a?.email_confirmed_at!=null}function Gn(a){let e=ee();if(!e)return()=>{};let{data:t}=e.auth.onAuthStateChange((i,n)=>{a(n?.user??null)});return()=>t.subscription.unsubscribe()}async function Vn(){let a=ee();if(!a)return[];let{data:{user:e}}=await a.auth.getUser();if(!e)return[];let{data:t,error:i}=await a.from("wishlists").select("fragrance_id, target_price_gbp, added_at").eq("user_id",e.id).order("added_at",{ascending:!1});return i||!t?[]:t.map(n=>({fragranceId:n.fragrance_id,targetPriceGbp:n.target_price_gbp??null,addedAt:n.added_at}))}async function Wn(a,e=null){let t=ee();if(!t)return{ok:!1,message:"Accounts are not set up on this deployment yet."};let{data:{user:i}}=await t.auth.getUser();if(!i)return{ok:!1,message:"Sign in to save fragrances to your wishlist."};let{error:n}=await t.from("wishlists").upsert({user_id:i.id,fragrance_id:a,target_price_gbp:e},{onConflict:"user_id,fragrance_id"});return n?{ok:!1,message:"Could not save this fragrance. Please try again."}:{ok:!0}}async function vi(a){let e=ee();if(!e)return{ok:!1,message:"Accounts are not set up on this deployment yet."};let{data:{user:t}}=await e.auth.getUser();if(!t)return{ok:!1,message:"Sign in to manage your wishlist."};let{error:i}=await e.from("wishlists").delete().eq("user_id",t.id).eq("fragrance_id",a);return i?{ok:!1,message:"Could not remove this fragrance. Please try again."}:{ok:!0}}function Hn(a){return`${a}`}var Mi={ok:!1,configured:!1,freellmapiReachable:!1,agentCount:0};async function Jn(){return Mi}async function Kn(a,e,t){let i;try{i=await fetch(Hn("/api/chat"),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({message:a,intent:e})})}catch{t({type:"error",message:"Could not reach Virtual Yanny. Check your connection and try again."});return}if(!i.ok||!i.body){let r=await i.json().catch(()=>({}));t({type:"error",message:r.message??"Something went wrong."});return}let n=i.body.getReader(),l=new TextDecoder,s="";for(;;){let{value:r,done:o}=await n.read();if(o)break;s+=l.decode(r,{stream:!0});let u=s.split(`
 
 `);s=u.pop()??"";for(let m of u){let d=m.trim();if(d.startsWith("data:"))try{t(JSON.parse(d.slice(5).trim()))}catch{}}}}var nl="pricesniffs.display",ll="pricesniffs.layout",sl="pricesniffs.perrow",rl=[3,5,8,10],vo=5,c={view:"home",tab:"brands",fragranceId:"",retailerId:"",brandProfile:"",noteName:"",legalId:"",brand:null,query:"",mode:"dark",layout:"mobile",perRow:vo,brandSort:"az",brandFilter:"all",dealSort:"discount",noteSort:"common",noteLayer:"any",noteDetailSort:"az",noteDetailFilter:"all",brandDetailSort:"az",retailerDetailSort:"az",retailerDetailFilter:"all",retailerInStockOnly:!1,facetsOpen:!1,facetVolume:new Set,facetConcentration:new Set,facetPriceBand:new Set,facetTier:new Set,facetOnSale:!1,facetInStock:!1,authUser:null,authChecked:!1,authTab:"signIn",authBusy:!1,authError:"",authPendingEmail:"",authResetSent:!1,wishlistIds:new Set,wishlistLoaded:!1,wishlistBusy:!1,wishlistEntries:[],yannyOpen:!1,yannyStatus:"idle",yannyIntent:null,yannyThread:[],yannyBusy:!1,yannySplash:"",yannyAgentChips:[],yannyLastResult:null,yannyOpenedFrom:null};function ol(){c.facetsOpen=!1,c.facetVolume.clear(),c.facetConcentration.clear(),c.facetPriceBand.clear(),c.facetTier.clear(),c.facetOnSale=!1,c.facetInStock=!1}function Mo(){return c.facetVolume.size+c.facetConcentration.size+c.facetPriceBand.size+c.facetTier.size+(c.facetOnSale?1:0)+(c.facetInStock?1:0)}function Et(a,e){a.has(e)?a.delete(e):a.add(e)}var b=a=>a.replace(/[&<>"']/g,e=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[e]),j=a=>document.querySelector(a),Ra=a=>a.replace(/\S+/g,e=>e[0].toUpperCase()+e.slice(1).toLowerCase()),ul=[...new Set([...te.map(a=>a.brand),...xt.map(a=>a.house)])].sort(),qi={designer:"Designer",niche:"Niche",mideast:"Middle Eastern / Dupe Houses"},cl=50,Io=Be.slice(0,12);function Ee(a){return Ot(Yi(a.id),{sortBy:"delivered",tier:a.tier})}var It=[{id:"0-20",label:"Under \xA320",min:0,max:20},{id:"20-30",label:"\xA320 - \xA330",min:20,max:30},{id:"30-50",label:"\xA330 - \xA350",min:30,max:50},{id:"50-80",label:"\xA350 - \xA380",min:50,max:80},{id:"80-150",label:"\xA380 - \xA3150",min:80,max:150},{id:"150-300",label:"\xA3150 - \xA3300",min:150,max:300},{id:"300+",label:"\xA3300 And Over",min:300,max:null}];function ml(a){if(a===null)return null;let e=a;return(It.find(t=>e>=t.min&&(t.max===null||e<t.max))??It[It.length-1]).id}function Te(a,e){if(e!=="volume"&&c.facetVolume.size&&!c.facetVolume.has(a.sizeMl)||e!=="concentration"&&c.facetConcentration.size&&!c.facetConcentration.has(a.concentration)||e!=="tier"&&c.facetTier.size&&!c.facetTier.has(a.tier))return!1;if(e!=="priceBand"&&c.facetPriceBand.size){let t=ve(Ee(a)),i=t?ml(t.deliveredPriceGbp):null;if(i===null||!c.facetPriceBand.has(i))return!1}return!(e!=="onSale"&&c.facetOnSale&&!Ee(a).some(t=>t.discount!==null)||e!=="inStock"&&c.facetInStock&&!Ee(a).some(t=>t.isPurchasable))}function Fa(a){return a.filter(e=>Te(e,null))}function jo(a){let e=new Map,t=new Map,i=new Map,n=new Map,l=0,s=0;for(let o of a){let u=Ee(o);if(Te(o,"volume")&&e.set(o.sizeMl,(e.get(o.sizeMl)??0)+1),Te(o,"concentration")&&t.set(o.concentration,(t.get(o.concentration)??0)+1),Te(o,"tier")&&n.set(o.tier,(n.get(o.tier)??0)+1),Te(o,"priceBand")){let m=ve(u),d=m?ml(m.deliveredPriceGbp):null;d!==null&&i.set(d,(i.get(d)??0)+1)}Te(o,"onSale")&&u.some(m=>m.discount!==null)&&l++,Te(o,"inStock")&&u.some(m=>m.isPurchasable)&&s++}let r=(o,u)=>[...o.entries()].filter(([,m])=>m>0).sort((m,d)=>typeof m[0]=="number"?m[0]-d[0]:String(m[0]).localeCompare(String(d[0]))).map(([m,d])=>({value:String(m),label:u(m),count:d}));return{volume:r(e,o=>`${o}ml`),concentration:r(t,o=>hl(o)),priceBand:It.filter(o=>(i.get(o.id)??0)>0).map(o=>({value:o.id,label:o.label,count:i.get(o.id)})),tier:r(n,o=>qi[o]),onSale:l,inStock:s}}function Ii(a,e,t,i,n){return`<button type="button" class="facet-pill${n?" is-active":""}" data-facet-group="${a}" data-facet-value="${b(e)}" aria-pressed="${n}">
-    ${b(t)} <span class="facet-count">${i}</span>
+    ${b(t)} <span class="facet-count t-count">${i}</span>
   </button>`}function oa(a){let e=jo(a),t=Mo(),i=(r,o,u,m)=>u.length<2?"":`<fieldset class="facet-group">
       <legend>${b(r)}</legend>
       <div class="facet-pills">${u.map(d=>Ii(o,d.value,d.label,d.count,m(d.value))).join("")}</div>
@@ -2212,15 +2178,15 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
       ${i.map(l=>`<option value="${b(l.value)}" ${l.value===n?"selected":""}>${b(l.label)}</option>`).join("")}
     </select>
     <span class="control-chevron" aria-hidden="true">${Ci}</span>
-  </label>`}function Di(a,e){return[...a].sort((t,i)=>{if(e==="az"||e==="za"){let s=`${t.brand} ${t.name}`.localeCompare(`${i.brand} ${i.name}`);return s!==0?e==="az"?s:-s:Ja(t,i)}let n=Rt(t.id)-Rt(i.id);if(n!==0)return e==="price-low"?n:-n;let l=`${t.brand} ${t.name}`.localeCompare(`${i.brand} ${i.name}`);return l!==0?l:Ja(t,i)})}function Oi(a,e){return Oe(a,"Sort fragrances",_i,[{value:"az",label:"A To Z"},{value:"za",label:"Z To A"},{value:"price-low",label:"Lowest Price"},{value:"price-high",label:"Highest Price"}],e)}function bl(a,e){return Oe(a,"Filter by type",Nt,[{value:"all",label:"All Types"},...["designer","niche","mideast"].map(t=>({value:t,label:qi[t]}))],e)}function yl(a,e="span"){return`<${e} class="phead">
+  </label>`}function Di(a,e){return[...a].sort((t,i)=>{if(e==="az"||e==="za"){let s=`${t.brand} ${t.name}`.localeCompare(`${i.brand} ${i.name}`);return s!==0?e==="az"?s:-s:Ja(t,i)}let n=Rt(t.id)-Rt(i.id);if(n!==0)return e==="price-low"?n:-n;let l=`${t.brand} ${t.name}`.localeCompare(`${i.brand} ${i.name}`);return l!==0?l:Ja(t,i)})}function Oi(a,e){return Oe(a,"Sort fragrances",_i,[{value:"az",label:"A To Z"},{value:"za",label:"Z To A"},{value:"price-low",label:"Lowest Price"},{value:"price-high",label:"Highest Price"}],e)}function bl(a,e){return Oe(a,"Filter by type",Nt,[{value:"all",label:"All Types"},...["designer","niche","mideast"].map(t=>({value:t,label:qi[t]}))],e)}function yl(a,e="span",t="t-title"){return`<${e} class="phead">
     <span class="phead-text">
-      <span class="phead-name-wrap"><span class="phead-name">${b(a.name)}</span></span>
+      <span class="phead-name-wrap"><span class="phead-name ${t}">${b(a.name)}</span></span>
     </span>
-    <span class="phead-meta">
+    <span class="phead-meta t-caption">
       <span>${a.sizeMl}ml</span>
       <span>${b(hl(a.concentration))}</span>
     </span>
-  </${e}>`}function gl(a){return`<button type="button" class="phead-brand" data-brand="${b(a)}">${b(a)}</button>`}function $o(a){let e=ve(Ee(a));return e?e.deliveredPriceGbp!==null?`<span class="amt">from ${F(e.deliveredPriceGbp)} <span aria-hidden="true">\u2192</span></span>`:`<span class="amt">${F(e.itemPriceGbp)} <span aria-hidden="true">\u2192</span></span>
+  </${e}>`}function gl(a){return`<button type="button" class="phead-brand t-eyebrow" data-brand="${b(a)}">${b(a)}</button>`}function $o(a){let e=ve(Ee(a));return e?e.deliveredPriceGbp!==null?`<span class="amt">from ${F(e.deliveredPriceGbp)} <span aria-hidden="true">\u2192</span></span>`:`<span class="amt">${F(e.itemPriceGbp)} <span aria-hidden="true">\u2192</span></span>
     <span class="amt-note">delivery not stated</span>`:'<span class="amt none">Sold out</span>'}function Bi(a,e){let t=Ee(a),i=ve(t),n=i?.retailer.name??null,l=i&&i.deliveredPriceGbp!==null?"from":"at",s=e?.rank!==void 0&&e.rank<3?Xo[e.rank]:null;return`<li${e?.rail?' class="pop-item"':""}>
     <div class="tile">
       ${gl(a.brand)}
@@ -2241,7 +2207,7 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
       ${rl.map(a=>`<option value="${a}" ${a===c.perRow?"selected":""}>${a} Per Row</option>`).join("")}
     </select>
     <span class="control-chevron" aria-hidden="true">${Ci}</span>
-  </label>`}function sa(a,e){if(a.length===0)return`<p class="empty-note">${b(e)}</p>`;let t=kl();return`${t?`<div class="controls">${t}</div>`:""}
+  </label>`}function sa(a,e){if(a.length===0)return`<p class="empty-note t-body">${b(e)}</p>`;let t=kl();return`${t?`<div class="controls">${t}</div>`:""}
     <ul class="tile-grid">${Li(a,Bi)}</ul>`}var Xo=["gold","silver","bronze"];function zt(){return`
     <section class="intro">
       <div class="hero-logo">
@@ -2260,7 +2226,7 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
 
     <section class="pop-section">
       <div class="section-head">
-        <h3>Most stocked</h3>
+        <h3 class="t-section">Most stocked</h3>
         <button class="link-btn see-top" data-browse>See Top ${cl} <span aria-hidden="true">\u2192</span></button>
       </div>
       <ul class="pop-rail">
@@ -2270,8 +2236,8 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
 
     <div class="bottom-split">
       <section class="suggest-section">
-        <h3>Got an idea?</h3>
-        <p class="panel-note">Tell us what you would like to see. There is no server behind this
+        <h3 class="t-section">Got an idea?</h3>
+        <p class="panel-note t-body">Tell us what you would like to see. There is no server behind this
           page, so sending opens your own email app with this addressed and ready to go.</p>
         <form id="home-suggest-form" class="contact-form">
           <label class="field">
@@ -2292,7 +2258,7 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
       </section>
 
       <section class="updates-section">
-        <h3>Update History</h3>
+        <h3 class="t-section">Update History</h3>
         <ul class="updates-list">
           ${n0.map(a=>`<li class="update-entry${a.version.startsWith("v0.")?" prelaunch":""}">
                 <p class="update-head">
@@ -2308,22 +2274,22 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
       </section>
     </div>`}function Al(){let a=c.query.trim().toLowerCase();return Be.filter(e=>c.brand&&e.brand!==c.brand?!1:a?`${e.brand} ${e.name} ${e.concentration}`.toLowerCase().includes(a):!0)}function Qo(){let a=Al(),e=Fa(a),t=!c.brand&&!c.query.trim(),i=t?e.slice(0,cl):e,n=c.brand??(c.query.trim()?`Results for "${c.query.trim()}"`:"Most stocked");return`
     <button class="back" data-back-home>Back</button>
-    <div class="page-head"><h2>${b(n)}</h2><span class="count">${i.length}</span></div>
-    ${t?`<p class="panel-note">Ranked by how many of our ${Ki} shops carry each one, cheapest first
+    <div class="page-head"><h2 class="t-page">${b(n)}</h2><span class="count t-count">${i.length}</span></div>
+    ${t?`<p class="panel-note t-body">Ranked by how many of our ${Ki} shops carry each one, cheapest first
              where that ties. This is stock breadth, not a measure of what sells: nothing here counts
              views or purchases, so it is never presented as if it did.</p>`:""}
     <div class="controls">${oa(a)}</div>
     ${sa(i,"Nothing here matches that search.")}`}function eu(a){return a==="inStock"||a==="lowStock"?" (-)":""}function $n(a,e){let t=a.discount,i=a.delivery.costGbp===null,n=[i?"Delivery not stated":a.delivery.isFree?"Free delivery":`plus ${F(a.delivery.costGbp)} delivery`];return a.delivery.spendMoreForFreeGbp!==null&&n.push(`${F(a.delivery.spendMoreForFreeGbp)} more for free postage`),`<li class="offer ${e?"best":""} ${a.isPurchasable?"":"unavail"}">
     <a class="offer-link" href="${b(a.outboundUrl)}" rel="nofollow noopener" target="_blank">
       <span class="offer-top">
-        <span class="shop">${b(a.retailer.name)}${$i(a.variantId,a.retailer.id)?'<span class="tag new">New</span>':""}${e?'<span class="tag">Cheapest</span>':""}</span>
+        <span class="shop t-title">${b(a.retailer.name)}${$i(a.variantId,a.retailer.id)?'<span class="tag new">New</span>':""}${e?'<span class="tag">Cheapest</span>':""}</span>
         <span class="price">
           ${t?`<span class="was">RRP ${F(t.wasPrice)}</span>`:""}
-          <span class="now ${t?"sale":""}">${F(a.deliveredPriceGbp??a.itemPriceGbp)}${i?'<span class="excl-del">+ delivery</span>':""}</span>
+          <span class="now t-price ${t?"sale":""}">${F(a.deliveredPriceGbp??a.itemPriceGbp)}${i?'<span class="excl-del">+ delivery</span>':""}</span>
         </span>
       </span>
       <span class="offer-bot">
-        <span class="facts">
+        <span class="facts t-caption">
           <span class="dot ${Bo[a.stock]}"></span>${Oo[a.stock]}${eu(a.stock)}
           <span class="sep">\xB7</span>${b(n.join(" \xB7 "))}
         </span>
@@ -2334,7 +2300,7 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
   </li>`}function au(a){return`<li class="offer unavail-elsewhere">
     <span class="offer-link">
       <span class="offer-top">
-        <span class="shop">${b(a)}</span>
+        <span class="shop t-title">${b(a)}</span>
         <span class="price"><span class="now none">&minus;</span></span>
       </span>
     </span>
@@ -2347,7 +2313,7 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
         data-date="${b(Fi)}"
         aria-label="${vl}"
       ></button>`}).join(""),O=Math.max(1,Math.ceil(f/(6-1))),S=new Set;for(let I=0;I<=f;I+=O)S.add(I);S.add(f);let v=[...S].sort((I,B)=>I-B).map(I=>`<span class="history-xlabel" style="left:${p(I).toFixed(2)}%">${b(ji(i[I].dateKey))}</span>`).join("");return`<div class="history-block">
-    <p class="gone-head">Price history</p>
+    <p class="gone-head t-eyebrow">Price history</p>
     <div class="history-chart" data-history-chart>
       <svg viewBox="0 0 ${n} ${l}" preserveAspectRatio="none" class="history-svg" aria-hidden="true" focusable="false">
         <path d="${T}" class="history-area" />
@@ -2357,28 +2323,28 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
       <div class="history-tip" data-history-tip hidden></div>
     </div>
     <div class="history-xaxis">${v}</div>
-    <p class="notes-source">One point per day \u2014 the cheapest live price recorded that day, or carried flat from the last day it changed. Tap or hover a point for the exact price, retailer and date.</p>
+    <p class="notes-source t-caption">One point per day \u2014 the cheapest live price recorded that day, or carried flat from the last day it changed. Tap or hover a point for the exact price, retailer and date.</p>
   </div>`}function nu(a){if(!a.notes)return`<div class="notes-block">
-      <p class="gone-head">Notes</p>
+      <p class="gone-head t-eyebrow">Notes</p>
       <p class="notes-none">Notes unavailable for this fragrance.</p>
     </div>`;let e=(t,i)=>i.length===0?"":`<div class="note-layer">
-           <p class="note-layer-name">${t}</p>
+           <p class="note-layer-name t-eyebrow">${t}</p>
            <p class="note-chips">${i.map(n=>`<button class="note-chip" data-note="${b(n)}">${b(Ra(n))}</button>`).join("")}</p>
          </div>`;return`<div class="notes-block">
-    <p class="gone-head">Notes</p>
+    <p class="gone-head t-eyebrow">Notes</p>
     ${e("Top",a.notes.top)}
     ${e("Middle",a.notes.middle)}
     ${e("Base",a.notes.base)}
-    <p class="notes-source">As published by the retailer listing it.</p>
-  </div>`}function lu(){if(!c.wishlistLoaded)return'<h3>Wishlist</h3><p class="settings-note">Loading.</p>';let a=c.wishlistEntries.map(e=>({entry:e,frag:Ha(e.fragranceId)})).filter(e=>e.frag!=null);return a.length===0?'<h3>Wishlist</h3><p class="settings-note">Nothing saved yet. Tap Save on a fragrance to add it here.</p>':`
-    <h3>Wishlist</h3>
+    <p class="notes-source t-caption">As published by the retailer listing it.</p>
+  </div>`}function lu(){if(!c.wishlistLoaded)return'<h3 class="t-section">Wishlist</h3><p class="settings-note t-caption">Loading.</p>';let a=c.wishlistEntries.map(e=>({entry:e,frag:Ha(e.fragranceId)})).filter(e=>e.frag!=null);return a.length===0?'<h3 class="t-section">Wishlist</h3><p class="settings-note t-caption">Nothing saved yet. Tap Save on a fragrance to add it here.</p>':`
+    <h3 class="t-section">Wishlist</h3>
     <ul class="shop-list">
       ${a.map(({frag:e})=>`<li class="wishlist-row">
             <button class="shop-row" data-frag="${b(e.id)}">
               ${Ut(e.brand)}
               <span class="shop-row-text">
-                <span class="shop-row-name">${b(e.brand)} ${b(e.name)}</span>
-                <span class="shop-row-meta">${b(e.concentration)}, ${e.sizeMl}ml</span>
+                <span class="shop-row-name t-title">${b(e.brand)} ${b(e.name)}</span>
+                <span class="shop-row-meta t-caption">${b(e.concentration)}, ${e.sizeMl}ml</span>
               </span>
               <span class="shop-row-go" aria-hidden="true">\u2192</span>
             </button>
@@ -2395,46 +2361,46 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
       <div class="hero">
         <div class="hero-art">${Vt(a.photoUrl,"lg",`${a.brand} ${a.name}`)}</div>
         ${gl(a.brand)}
-        ${yl(a,"div")}
+        ${yl(a,"div","t-page")}
         ${su(a.id)}
         ${t?t.deliveredPriceGbp!==null?`<div class="price-box">
-                 <p class="price-box-label">Cheapest price</p>
-                 <p class="price-box-amount">${F(t.deliveredPriceGbp)}</p>
-                 <p class="price-box-from">from ${b(t.retailer.name)}, incl. delivery</p>
+                 <p class="price-box-label t-eyebrow">Cheapest price</p>
+                 <p class="price-box-amount t-price t-price--hero">${F(t.deliveredPriceGbp)}</p>
+                 <p class="price-box-from t-caption">from ${b(t.retailer.name)}, incl. delivery</p>
                </div>`:`<div class="price-box">
-                 <p class="price-box-label">Lowest item price</p>
-                 <p class="price-box-amount">${F(t.itemPriceGbp)}</p>
-                 <p class="price-box-from">from ${b(t.retailer.name)} &mdash; delivery not stated, so this is not a delivered price</p>
+                 <p class="price-box-label t-eyebrow">Lowest item price</p>
+                 <p class="price-box-amount t-price t-price--hero">${F(t.itemPriceGbp)}</p>
+                 <p class="price-box-from t-caption">from ${b(t.retailer.name)} &mdash; delivery not stated, so this is not a delivered price</p>
                </div>`:'<p class="hero-price none">Sold out everywhere<span class="hero-at">no shop has it in stock right now</span></p>'}
         ${nu(a)}
       </div>
 
       <div class="detail-offers">
-        ${i.length?'<p class="gone-head">Available at</p>':""}
-        <div class="results-head">
+        ${i.length?'<p class="gone-head t-eyebrow">Available at</p>':""}
+        <div class="results-head t-caption">
           <span>${i.length} ${i.length===1?"shop":"shops"}</span>
           <span class="dim">${e.some(u=>u.deliveredPriceGbp===null)?"delivery included where the shop states it":"delivery included"}, checked ${b(xo(l))}</span>
         </div>
 
         <ul class="offers">${i.map(u=>$n(u,u===t)).join("")}</ul>
 
-        ${n.length?`<p class="gone-head">Sold out</p>
+        ${n.length?`<p class="gone-head t-eyebrow">Sold out</p>
                <ul class="offers">${n.map(u=>$n(u,!1)).join("")}</ul>`:""}
 
         ${iu(a,t!==null)}
 
-        ${o.length?`<p class="gone-head">Not available</p>
+        ${o.length?`<p class="gone-head t-eyebrow">Not available</p>
                <ul class="offers">${o.map(u=>au(u.name)).join("")}</ul>`:""}
       </div>
     </div>`}function ou(){let e=[...ul.filter(l=>c.brandFilter==="all"||e0(l)===c.brandFilter)].sort((l,s)=>c.brandSort==="az"?l.localeCompare(s):s.localeCompare(l)),t=`<div class="controls">
     ${Oe("brand-sort","Sort brands",_i,[{value:"az",label:"A To Z"},{value:"za",label:"Z To A"}],c.brandSort)}
     ${Oe("brand-filter","Filter brands",Nt,[{value:"all",label:"All Types"},...["designer","niche","mideast"].map(l=>({value:l,label:qi[l]}))],c.brandFilter)}
-  </div>`;if(e.length===0)return`${t}<p class="empty-note">No brands match that filter yet.</p>`;let i="",n="";for(let l of e){let s=(l[0]??"").toUpperCase();s!==n&&(n=s,i+=`<li class="alpha-break" aria-hidden="true"><span>${b(s)}</span><i></i></li>`),i+=`<li><button class="brand-row" data-brand="${b(l)}">${b(l)}</button></li>`}return`${t}<ul class="brand-list">${i}</ul>`}function uu(){let a=[...a0].sort((n,l)=>c.dealSort==="lowest"?n.price-l.price:c.dealSort==="highest"?l.price-n.price:l.percentOff-n.percentOff),e=a.filter(n=>Te(n.fragrance,null)),t=`<div class="controls">
+  </div>`;if(e.length===0)return`${t}<p class="empty-note t-body">No brands match that filter yet.</p>`;let i="",n="";for(let l of e){let s=(l[0]??"").toUpperCase();s!==n&&(n=s,i+=`<li class="alpha-break" aria-hidden="true"><span>${b(s)}</span><i></i></li>`),i+=`<li><button class="brand-row t-title" data-brand="${b(l)}">${b(l)}</button></li>`}return`${t}<ul class="brand-list">${i}</ul>`}function uu(){let a=[...a0].sort((n,l)=>c.dealSort==="lowest"?n.price-l.price:c.dealSort==="highest"?l.price-n.price:l.percentOff-n.percentOff),e=a.filter(n=>Te(n.fragrance,null)),t=`<div class="controls">
     ${Oe("deal-sort","Sort deals",Fo,[{value:"discount",label:"Biggest Savings (%)"},{value:"lowest",label:"Lowest Price"},{value:"highest",label:"Highest Price"}],c.dealSort)}
     ${kl()}
     ${oa(a.map(n=>n.fragrance))}
-  </div>`;return a.length===0?`${t}<p class="empty-note">No shop is publishing a reference price right now.</p>`:e.length===0?`${t}<p class="empty-note">No deal matches that filter.</p>`:`${t}
-    <p class="panel-note">Savings are against the shop's own published recommended retail price.</p>
+  </div>`;return a.length===0?`${t}<p class="empty-note t-body">No shop is publishing a reference price right now.</p>`:e.length===0?`${t}<p class="empty-note t-body">No deal matches that filter.</p>`:`${t}
+    <p class="panel-note t-body">Savings are against the shop's own published recommended retail price.</p>
     <ul class="tile-grid">${Li(e,n=>Bi(n.fragrance,{trailing:`<span class="off">${n.percentOff}% off</span>
         <span class="amt">${F(n.price)}</span>
         <span class="was">RRP ${F(n.wasPrice)}</span>`}))}</ul>`}function cu(a){let e=5381;for(let t=0;t<a.length;t++)e=e*33+a.charCodeAt(t)|0;return Math.abs(e)%360}function Ut(a){let e=a.replace(/[^A-Za-z ]/g,"").split(/\s+/).filter(Boolean).slice(0,2).map(t=>t[0].toUpperCase()).join("");return`<span class="monogram" style="--mh:${cu(a)}" aria-hidden="true">${b(e||"?")}</span>`}function mu(a){let e=a.shipping,t=[];t.push(e.standardGbp===null?"Delivery not stated \u2014 this shop does not publish a standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest":e.standardGbp===0?"Free standard delivery on every order":`Standard delivery ${F(e.standardGbp)}`),e.freeOverGbp!==null&&e.freeOverGbp>0?t.push(`Free once you spend ${F(e.freeOverGbp)}`):e.freeOverGbp===null&&t.push("No spend based free delivery");let[i,n]=e.estimatedDays;return t.push(i===n?`Arrives in about ${i} working days`:`Arrives in about ${i} to ${n} working days`),e.membershipPerk&&t.push(`${e.membershipPerk.scheme}: ${e.membershipPerk.description}`),t}function Pl(a){let e=i0(a);return e>0?`(${e.toLocaleString("en-GB")})`:"(-)"}function du(){return`<ul class="shop-list">
@@ -2442,8 +2408,8 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
           <button class="shop-row" data-retailer="${b(e.id)}">
             ${Ut(e.name)}
             <span class="shop-row-text">
-              <span class="shop-row-name">${b(e.name)}</span>
-              <span class="shop-row-meta">${Pl(e.id)}</span>
+              <span class="shop-row-name t-title">${b(e.name)}</span>
+              <span class="shop-row-meta t-caption">${Pl(e.id)}</span>
             </span>
             <span class="shop-row-go" aria-hidden="true">\u2192</span>
           </button>
@@ -2470,9 +2436,9 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
     <div class="org-hero">
       ${Ut(a.name)}
       <div class="org-hero-text">
-        <h2 class="org-hero-name">${b(a.name)} <span class="org-hero-count">${Pl(a.id)}</span></h2>
-        <p class="org-hero-domain">${b(a.domain)}</p>
-        ${a.blurb?`<p class="org-hero-blurb">${b(a.blurb)}</p>`:""}
+        <h2 class="org-hero-name t-page">${b(a.name)} <span class="org-hero-count t-count">${Pl(a.id)}</span></h2>
+        <p class="org-hero-domain t-caption">${b(a.domain)}</p>
+        ${a.blurb?`<p class="org-hero-blurb t-body">${b(a.blurb)}</p>`:""}
         <ul class="fact-list">
           ${mu(a).map(n=>`<li>${b(n)}</li>`).join("")}
         </ul>
@@ -2484,7 +2450,7 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
       </div>
     </div>
 
-    <p class="gone-head">${t.length} ${t.length===1?"fragrance":"fragrances"} here</p>
+    <p class="gone-head t-eyebrow">${t.length} ${t.length===1?"fragrance":"fragrances"} here</p>
     ${i}
     ${sa(t,"Nothing from this shop matches that filter.")}`}function wu(){let a=c.brandProfile;if(!a)return xi();let e=Be.filter(r=>r.brand===a),t=Di(Fa(e),c.brandDetailSort),i=s0(a),n=xt.filter(r=>r.house===a),l=be.find(r=>r.singleBrandOnly&&!Va(r,a)),s=`<div class="controls">
     ${Oi("brand-detail-sort",c.brandDetailSort)}
@@ -2494,19 +2460,19 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
     <div class="org-hero">
       ${Ut(a)}
       <div class="org-hero-text">
-        <h2 class="org-hero-name">${b(a)}</h2>
+        <h2 class="org-hero-name t-page">${b(a)}</h2>
         ${i?`<a class="brand-site-link" href="${b(i)}" target="_blank" rel="noopener nofollow">
                  <span class="control-ico">${Yo}</span>
                  <span>Open Brand Website</span>
-               </a>`:'<p class="org-hero-domain dimmer">Official site not yet confirmed</p>'}
-        ${l?`<p class="org-hero-blurb">Sells direct in the UK${l.enabled?", and its own price is compared below like any other shop\u2019s.":", but its delivery terms are not confirmed yet, so its price is not compared."}</p>`:""}
+               </a>`:'<p class="org-hero-domain dimmer t-caption">Official site not yet confirmed</p>'}
+        ${l?`<p class="org-hero-blurb t-body">Sells direct in the UK${l.enabled?", and its own price is compared below like any other shop\u2019s.":", but its delivery terms are not confirmed yet, so its price is not compared."}</p>`:""}
       </div>
     </div>
 
-    ${t.length>0?`<p class="gone-head">${t.length} ${t.length===1?"fragrance":"fragrances"}</p>
+    ${t.length>0?`<p class="gone-head t-eyebrow">${t.length} ${t.length===1?"fragrance":"fragrances"}</p>
            ${s}
            ${sa(t,"Nothing from this brand has been harvested yet.")}`:n.length===0?sa(t,"Nothing from this brand has been harvested yet."):""}
-    ${n.length>0?`<p class="gone-head">${n.length} direct from ${b(a)}
+    ${n.length>0?`<p class="gone-head t-eyebrow">${n.length} direct from ${b(a)}
              <span class="dimmer">not part of the UK comparison</span></p>
            <ul class="house-grid">${Li(n,Pu)}</ul>`:""}`}var Se=[..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"];function bu(a){return`<div class="alpha-scrubber" data-alpha-scrubber aria-hidden="true">${Se.map(t=>a.has(t)?`<span class="alpha-scrubber-letter" data-letter="${t}">${t}</span>`:`<span class="alpha-scrubber-letter" data-empty>${t}</span>`).join("")}</div>`}function yu(){let e=[...xe.filter(o=>c.noteLayer==="any"||o.layers.has(c.noteLayer))].sort((o,u)=>c.noteSort==="az"?o.name.localeCompare(u.name):u.count-o.count||o.name.localeCompare(u.name)),t=`<div class="controls">
     ${Oe("note-sort","Sort notes",_i,[{value:"common",label:"Most Common"},{value:"az",label:"A To Z"}],c.noteSort)}
@@ -2515,20 +2481,20 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
       <span class="note-group-count">${m}</span>
       <span class="note-group-label">${u} Notes</span>
     </button>`},n=`<div class="notes-groups">
-    <p class="section-label">Note Groups</p>
+    <p class="section-label t-eyebrow">Note Groups</p>
     <div class="notes-groups-row">
       ${i("any","All")}
       ${i("top","Top")}
       ${i("middle","Middle")}
       ${i("base","Base")}
     </div>
-  </div>`;if(e.length===0)return`${n}${t}<p class="empty-note">No notes recorded for that layer yet.</p>`;let l="",s="",r=new Set;for(let o of e){if(c.noteSort==="az"){let u=(o.name[0]??"").toUpperCase();u!==s&&(s=u,r.add(u),l+=`<li class="alpha-break" data-alpha="${b(u)}" aria-hidden="true"><span>${b(u)}</span><i></i></li>`)}l+=`<li><button class="brand-row note-row" data-note="${b(o.name)}">
-      <span>${b(Ra(o.name))}</span><span class="note-row-count">(${o.count})</span>
+  </div>`;if(e.length===0)return`${n}${t}<p class="empty-note t-body">No notes recorded for that layer yet.</p>`;let l="",s="",r=new Set;for(let o of e){if(c.noteSort==="az"){let u=(o.name[0]??"").toUpperCase();u!==s&&(s=u,r.add(u),l+=`<li class="alpha-break" data-alpha="${b(u)}" aria-hidden="true"><span>${b(u)}</span><i></i></li>`)}l+=`<li><button class="brand-row note-row t-title" data-note="${b(o.name)}">
+      <span>${b(Ra(o.name))}</span><span class="note-row-count t-count">(${o.count})</span>
     </button></li>`}return`${n}
     ${t}
-    <p class="panel-note">Only notes a shop has explicitly published. ${te.filter(o=>o.notes).length} of ${te.length} fragrances list them.</p>
+    <p class="panel-note t-body">Only notes a shop has explicitly published. ${te.filter(o=>o.notes).length} of ${te.length} fragrances list them.</p>
     <div class="notes-browse">
-      <p class="section-label">Browse Alphabetically</p>
+      <p class="section-label t-eyebrow">Browse Alphabetically</p>
       <div class="notes-browse-scroll" data-notes-scroll>
         <ul class="brand-list">${l}</ul>
       </div>
@@ -2539,11 +2505,11 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
     ${oa(e)}
   </div>`,n=a?["top","middle","base"].filter(l=>a.layers.has(l)).map(l=>{let s=Ft(c.noteName,l).length;return`<button class="note-chip${c.noteLayer===l?" on":""}" data-note-layer="${l}">${Ra(l)} &middot; ${s}</button>`}).join(""):"";return`
     <button class="back" data-back-explore>Back</button>
-    <div class="page-head"><h2>${b(Ra(c.noteName))}</h2><span class="count">${t.length}</span></div>
+    <div class="page-head"><h2 class="t-page">${b(Ra(c.noteName))}</h2><span class="count t-count">${t.length}</span></div>
     ${n?`<p class="note-chips note-chips-profile">${n}</p>`:""}
-    <p class="panel-note">Fragrances listing ${b(Ra(c.noteName))}${c.noteLayer==="any"?"":` as a ${c.noteLayer} note`}.</p>
+    <p class="panel-note t-body">Fragrances listing ${b(Ra(c.noteName))}${c.noteLayer==="any"?"":` as a ${c.noteLayer} note`}.</p>
     ${i}
-    ${sa(t,"Nothing matches that filter.")}`}function Sl(a){if(!a)return`<p class="empty-note">Type to search all ${te.length} fragrances.</p>`;let e=Al(),t=Fa(e);return`<div class="page-head"><h2>Results</h2><span class="count">${t.length}</span></div>
+    ${sa(t,"Nothing matches that filter.")}`}function Sl(a){if(!a)return`<p class="empty-note t-body">Type to search all ${te.length} fragrances.</p>`;let e=Al(),t=Fa(e);return`<div class="page-head"><h2 class="t-page">Results</h2><span class="count t-count">${t.length}</span></div>
     <div class="controls">${oa(e)}</div>
     ${sa(t,"Nothing matches that search.")}`}function ku(){let a=c.query.trim();return`
     <label class="search-big">
@@ -2551,7 +2517,7 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
       <input type="search" id="search-full" placeholder="Search by brand, name or concentration"
         value="${b(c.query)}" aria-label="Search fragrances" />
     </label>
-    ${c.brand?`<p class="panel-note">Filtered to ${b(c.brand)}. <button class="link-btn" data-clear-brand>Clear</button></p>`:""}
+    ${c.brand?`<p class="panel-note t-body">Filtered to ${b(c.brand)}. <button class="link-btn" data-clear-brand>Clear</button></p>`:""}
     <div class="search-results">${Sl(a)}</div>`}var Au=[{id:"brands",label:"Brands"},{id:"deals",label:"Top Deals Today"},{id:"retailers",label:"Retailers"},{id:"notes",label:"Notes"},{id:"search",label:"Search"}];function xi(){return`<div class="explore">${c.tab==="brands"?ou():c.tab==="deals"?uu():c.tab==="retailers"?du():c.tab==="notes"?yu():ku()}</div>`}function Pu(a){return`<li class="house-card">
     <a href="${b(a.url)}" target="_blank" rel="noopener nofollow sponsored">
       ${a.image?`<img class="house-img" src="${b(a.image)}" alt="" loading="lazy"
@@ -2563,30 +2529,30 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
   </li>`}var Su=[{id:"dark",label:"Dark"},{id:"light",label:"Light"},{id:"system",label:"Use System Setting"}],Tu=["An issue","A suggestion","A promotional enquiry","Something else"];function Eu(){return`
     <button class="back" data-back>Back</button>
     <article class="doc settings-doc">
-      <h2>Settings</h2>
+      <h2 class="t-page">Settings</h2>
 
       ${xa?`<button class="account-entry" data-go-account>
         <span>${Zu()}</span>${Ci}
       </button>`:""}
 
       <div class="seg-group">
-        <p class="seg-label">Theme</p>
+        <p class="seg-label t-eyebrow">Theme</p>
         <div class="seg" role="group" aria-label="Display theme">
           ${Su.map(a=>`<button class="seg-btn ${c.mode===a.id?"on":""}" data-set-mode="${a.id}">${b(a.label)}</button>`).join("")}
         </div>
       </div>
 
       <div class="seg-group">
-        <p class="seg-label">Layout</p>
+        <p class="seg-label t-eyebrow">Layout</p>
         <div class="seg" role="group" aria-label="Page layout">
           <button class="seg-btn seg-icon ${c.layout==="mobile"?"on":""}" data-set-layout="mobile" aria-label="Mobile layout">${Wo}<span>Mobile</span></button>
           <button class="seg-btn seg-icon ${c.layout==="desktop"?"on":""}" data-set-layout="desktop" aria-label="Desktop layout">${Ho}<span>Desktop</span></button>
         </div>
       </div>
 
-      <p class="settings-note">Your preference will be remembered on this device.</p>
+      <p class="settings-note t-caption">Your preference will be remembered on this device.</p>
 
-      <h3>Contact us</h3>
+      <h3 class="t-section">Contact us</h3>
       <form id="contact-form" class="contact-form">
         <label class="field">
           <span>What is this about</span>
@@ -2602,7 +2568,7 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
       </form>
       <p id="contact-confirm" class="contact-confirm" hidden></p>
 
-      <h3>Follow</h3>
+      <h3 class="t-section">Follow</h3>
       <a class="social" href="https://www.tiktok.com/@yannysniffs">
         ${Jo}<span>TikTok</span><span class="social-handle">@yannysniffs</span>
       </a>
@@ -2610,7 +2576,7 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
         ${Ko}<span>Instagram</span><span class="social-handle">@yannysniffs</span>
       </a>
 
-      <h3>Legal</h3>
+      <h3 class="t-section">Legal</h3>
       <nav class="foot-links">
         ${Wt.filter(a=>a.id!=="about").map(a=>`<button class="link-btn" data-page="${a.id}">${b(a.short)}</button>`).join("")}
       </nav>
@@ -2618,19 +2584,19 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
     </article>`}function Zu(){if(!c.authChecked)return"Account";let a=c.authUser;return a?ia(a)?a.email??"Account":"Verify your email":"Sign in or create an account"}function vu(){if(!xa)return`
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
-        <h2>Account</h2>
+        <h2 class="t-page">Account</h2>
         <p>Accounts are not switched on for this deployment yet. Check back soon.</p>
-      </article>`;if(!c.authChecked)return'<button class="back" data-back>Back</button><article class="doc settings-doc"><h2>Account</h2><p>Loading.</p></article>';let a=c.authUser;if(a&&ia(a))return`
+      </article>`;if(!c.authChecked)return'<button class="back" data-back>Back</button><article class="doc settings-doc"><h2 class="t-page">Account</h2><p>Loading.</p></article>';let a=c.authUser;if(a&&ia(a))return`
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
-        <h2>Account</h2>
+        <h2 class="t-page">Account</h2>
         <p class="account-note">Signed in as ${b(a.email??"")}.</p>
         <button class="contact-send" id="auth-sign-out">Sign out</button>
         ${lu()}
       </article>`;if(a&&!ia(a))return`
       <button class="back" data-back>Back</button>
       <article class="doc settings-doc">
-        <h2>Verify your email</h2>
+        <h2 class="t-page">Verify your email</h2>
         <p class="account-note">
           We sent a link to ${b(a.email??"your email address")}. Follow it to finish setting up your
           account, then come back here.
@@ -2641,7 +2607,7 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
       </article>`;let e=c.authTab==="signUp";return`
     <button class="back" data-back>Back</button>
     <article class="doc settings-doc">
-      <h2>Account</h2>
+      <h2 class="t-page">Account</h2>
 
       <div class="seg" role="group" aria-label="Sign in or sign up">
         <button class="seg-btn ${e?"":"on"}" data-auth-tab="signIn">Sign in</button>
@@ -2668,12 +2634,12 @@ ${k}`}var U=class extends Error{constructor({message:e,code:t,cause:i,name:n}){v
       ${c.authResetSent?'<p class="contact-confirm">If that address has an account, a reset link is on its way.</p>':""}
     </article>`}function Mu(){let a=Ka("about");return a?`
     <article class="doc">
-      <h2>${b(a.title)}</h2>
+      <h2 class="t-page">${b(a.title)}</h2>
       ${a.body}
     </article>`:zt()}function Iu(){let a=Ka(c.legalId);return a?`
     <button class="back" data-back>Back</button>
     <article class="doc">
-      <h2>${b(a.title)}</h2>
+      <h2 class="t-page">${b(a.title)}</h2>
       ${a.body}
     </article>`:zt()}var jt=48,la=new Map,De=null,Tl=0;function ju(){De?.disconnect(),De=null,la.clear(),Tl=0}function Li(a,e){let t=a.slice(0,jt),i=a.slice(jt);if(i.length===0)return t.map(e).join("");let n=`chunk-${++Tl}`;return la.set(n,{items:i,render:e}),t.map(e).join("")+`<li class="grid-more" data-more="${n}" aria-hidden="true"></li>`}function Nu(){if(De?.disconnect(),De=null,la.size!==0){De=new IntersectionObserver(a=>{for(let e of a){if(!e.isIntersecting)continue;let t=e.target,i=t.dataset.more,n=i?la.get(i):void 0;if(!i||!n)continue;let l=n.items.slice(0,jt),s=n.items.slice(jt);t.insertAdjacentHTML("beforebegin",l.map(n.render).join("")),s.length===0?(la.delete(i),De?.unobserve(t),t.remove()):la.set(i,{items:s,render:n.render})}},{rootMargin:"600px 0px"});for(let a of document.querySelectorAll("[data-more]"))De.observe(a)}}var na=null;function Ni(a){let e=a.closest("[data-history-chart]"),t=e?.querySelector("[data-history-tip]");if(!e||!t)return;t.innerHTML=`<b>${b(a.getAttribute("data-price")??"")}</b><span>${b(a.getAttribute("data-retailer")??"")} \xB7 ${b(a.getAttribute("data-date")??"")}</span>`,t.hidden=!1;let i=e.getBoundingClientRect(),n=a.getBoundingClientRect(),l=n.left+n.width/2-i.left,s=n.top-i.top,r=t.offsetWidth,o=Math.min(Math.max(l-r/2,4),i.width-r-4);t.style.left=`${o}px`,t.style.top=`${Math.max(s,40)}px`}function vt(){for(let a of document.querySelectorAll("[data-history-tip]"))a.hidden=!0;na=null}function zu(a,e){let t=a.getBoundingClientRect();if(t.height===0)return null;let i=Math.min(Math.max((e-t.top)/t.height,0),.999),n=Math.floor(i*Se.length),l=s=>!!a.querySelector(`.alpha-scrubber-letter[data-letter="${Se[s]}"]`);if(l(n))return Se[n];for(let s=1;s<Se.length;s++){if(n-s>=0&&l(n-s))return Se[n-s];if(n+s<Se.length&&l(n+s))return Se[n+s]}return null}function Uu(a){document.querySelector(`[data-notes-scroll] [data-alpha="${a}"]`)?.scrollIntoView({block:"start"})}var we=null;function qu(a,e,t){we||(we=document.createElement("div"),we.className="alpha-scrubber-bubble",document.body.appendChild(we)),we.textContent=a,we.style.left=`${e-90}px`,we.style.top=`${t-32}px`}function Qn(){we?.remove(),we=null}function _u(){let a={};switch(c.query&&(a.q=c.query),c.view){case"home":return{name:"home",param:"",query:{}};case"browse":return{name:"search",param:"",query:a};case"detail":return{name:"fragrance",param:c.fragranceId,query:{}};case"retailer":return{name:"retailer",param:c.retailerId,query:{}};case"brand":return{name:"brand",param:ca(c.brandProfile),query:{}};case"note":return{name:"note",param:ca(c.noteName),query:{}};case"legal":return{name:"legal",param:c.legalId,query:{}};case"about":return{name:"about",param:"",query:{}};case"settings":return{name:"settings",param:"",query:{}};case"account":return{name:"account",param:"",query:{}};case"explore":return{name:c.tab==="search"?"search":c.tab,param:"",query:c.tab==="search"?a:{}}}}function Cu(a){switch(c.query=a.query.q??"",a.name){case"home":return c.view="home",!0;case"about":return c.view="about",!0;case"settings":return c.view="settings",!0;case"account":return c.view="account",!0;case"search":return c.view="browse",!0;case"brands":case"deals":case"retailers":case"notes":return c.view="explore",c.tab=a.name,!0;case"fragrance":return Ha(a.param)?(c.fragranceId=a.param,c.view="detail",!0):!1;case"retailer":return Ze(a.param)?(c.retailerId=a.param,c.view="retailer",!0):!1;case"brand":{let e=ul.find(t=>ca(t)===a.param);return e?(c.brandProfile=e,c.view="brand",!0):!1}case"note":{let e=xe.find(t=>ca(t.name)===a.param)?.name;return e?(c.noteName=e,c.view="note",!0):!1}case"legal":return Ka(a.param)?(c.legalId=a.param,c.view="legal",!0):!1}}function Ui(a="push"){let e=Ht().replace(/\/$/,"")+o0(_u()),t=window.location.pathname+window.location.search;if(e!==t)try{window.history[a==="push"?"pushState":"replaceState"](null,"",e)}catch{}}var Du={price:"Check a price",suggest:"Suggest by notes",general:"General question"},Ou={price:"e.g. how much is Bleu de Chanel EDP?",suggest:"e.g. vanilla, oud, no florals",general:"Ask anything about this site\u2026"};function zi(){return`<div class="yanny-head">
     <span class="yanny-head-mark" aria-hidden="true">\u{1F916}</span>
