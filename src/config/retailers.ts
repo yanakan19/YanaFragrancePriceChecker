@@ -1599,31 +1599,30 @@ export const RETAILERS: readonly Retailer[] = [
       'with over 160 brands, along with a curated selection of beauty, cosmetics, and ' +
       'home products.',
     tiers: ['niche'],
-    // Approved is not yet reachable: the programme accepted this account
-    // 2026-08-11, but nothing about actually getting their products has been
-    // established yet. adapter is set to 'affiliate-feed' as a genuine test,
-    // not a claim: scripts/awin-feed-sync.ts only checks a merchant against
-    // this account's own feed list when its adapter already says
-    // 'affiliate-feed', so this is what lets that script tell us whether
-    // Nicchia Luxury publishes a feed at all. enabled stays false regardless
-    // of the answer — build-demo-catalogue.ts skips every disabled retailer,
-    // so even a successful feed pull writes real data to data/catalogue
-    // without it reaching the site until this is deliberately flipped to
-    // true on real evidence. If no feed turns up, adapter reverts to
-    // 'unknown', the same honest state Glorious Beauty was left in after the
-    // same check came back empty for them (see that entry's comment).
-    enabled: false,
+    // Live: a real, confirmed Awin feed (6,794 listings pulled 2026-08-12),
+    // and their own shipping policy has now genuinely been read — see
+    // shipping.notes below for what it does and does not say. No standard
+    // delivery rate is stated, the same shape as Glorious Beauty, Manchester
+    // Ouds, Perfume Shopping and The Fragrance Counter: shown with delivery
+    // not stated rather than kept off the site, and never rankable as
+    // cheapest because of it (see src/services/shipping.ts and
+    // buildComparison's deliveryRank).
+    enabled: true,
     adapter: 'affiliate-feed',
     currency: 'GBP',
     shipping: {
       standardGbp: null,
       freeOverGbp: null,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
+      verifiedAt: '2026-08-12',
       confidence: 'unverified',
       notes:
-        'Approved into their Awin programme 2026-08-11. Delivery terms and page ' +
-        'structure not yet read.',
+        'Their shipping-policy and refund-policy pages were read by ' +
+        'shipping:discover on 2026-08-12 (16 pages tried). Both only state a ' +
+        'free EXPRESS delivery threshold ("Free express delivery over 140 ' +
+        'USD") and a list of free-shipping thresholds by destination — never ' +
+        'a standard flat rate for an order that does not clear a threshold. ' +
+        'That figure is not published anywhere found.',
     },
     catalogue: null,
     // Real approval, not another application-in-flight: Awin notified this

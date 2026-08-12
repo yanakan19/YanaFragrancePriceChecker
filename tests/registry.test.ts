@@ -67,20 +67,25 @@ describe('retailer registry', () => {
     it('is a short, deliberate list rather than everything unresearched', () => {
       // Being shown without a delivery cost is safe, but it is not free: each
       // of these is a shop a reader can open and be sent to. They are here
-      // because each has a real ingestion route (a catalogue config) and a
-      // real reason to be listed. The other retailers carrying
-      // standardGbp: null have catalogue: null and adapter: 'unknown' —
-      // nothing to fetch, so they would render as empty shops — and mostly a
-      // pending affiliate application, so listing them as live partners would
-      // describe a relationship that does not exist yet.
+      // because each has a real ingestion route (a catalogue config, or a
+      // confirmed live Awin feed) and a real reason to be listed. The other
+      // retailers carrying standardGbp: null have catalogue: null and
+      // adapter: 'unknown' — nothing to fetch, so they would render as empty
+      // shops — and mostly a pending affiliate application, so listing them
+      // as live partners would describe a relationship that does not exist
+      // yet.
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'glorious-beauty',
         'manchester-ouds',
+        'nicchia-luxury-uk',
         'perfume-shopping',
         'the-fragrance-counter',
       ]);
       for (const r of unstated) {
-        expect(r.catalogue, `${r.name} is enabled with no way to fetch anything`).not.toBeNull();
+        expect(
+          r.catalogue !== null || r.adapter === 'affiliate-feed',
+          `${r.name} is enabled with no way to fetch anything`,
+        ).toBe(true);
       }
     });
 
