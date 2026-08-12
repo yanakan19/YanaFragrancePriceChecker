@@ -60,6 +60,7 @@ import {
   type RobotsRules,
 } from '../src/catalogue/robots.js';
 import { BROWSER_HEADERS, type Http } from '../src/catalogue/attempt.js';
+import { parseShopCurrency } from '../src/catalogue/shopifyJson.js';
 import {
   emptyPriceIndex,
   indexShopifyPage,
@@ -156,6 +157,17 @@ interface ShopOutcome {
   /** True when `compared` covers every active listing, not a sample. */
   fullPopulation: boolean;
   snapshotUpdatedAt: string;
+  /**
+   * The currency the storefront itself publishes, or null where it publishes
+   * none. Recorded on every outcome because a comparison between two
+   * currencies is not a drift measurement, it is a nonsense one.
+   */
+  storefrontCurrency: string | null;
+  /**
+   * Set when the result was thrown away as not a like-for-like comparison.
+   * Distinct from "no route": a route ran, and its answer was rejected.
+   */
+  notComparable: string | null;
 }
 
 async function robotsFor(origin: string): Promise<RobotsRules> {
@@ -313,6 +325,8 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
     notes: [],
     fullPopulation: false,
     snapshotUpdatedAt: snapshot.updatedAt,
+    storefrontCurrency: null,
+    notComparable: null,
   };
 
   if (active.length === 0) {
@@ -343,6 +357,29 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
   const gap = gapFor(retailer, robots);
   outcome.notes.push(`gap ${gap}ms (registry ${retailer.catalogue?.minRequestGapMs ?? 0}, robots ${robots.crawlDelaySeconds ?? 0}s)`);
 
+  // Currency before prices, because it changes what every number below means.
+  //
+  // Nicchia Luxury is why this exists. Run 2 compared all 6,844 of its
+  // listings against its storefront and reported every single one as drifted,
+  // none agreeing, all in the same direction — and the worst cases were a
+  // stored £5 against a live 6, exactly 1.2x, repeated. A shop does not
+  // reprice its entire catalogue by a constant factor. That is two different
+  // currencies being subtracted from each other and the difference reported as
+  // pounds, which is the one class of error this project must never commit.
+  //
+  // The same check src/catalogue/shopifyJson.ts already uses for houses, for
+  // the same reason.
+  const meta = await http(`${origin}/meta.json`, BROWSER_HEADERS);
+  const home = await http(`${origin}/`, BROWSER_HEADERS);
+  outcome.storefrontCurrency = parseShopCurrency(meta.ok ? meta.body : null, home.ok ? home.body : null);
+  if (outcome.storefrontCurrency !== null && outcome.storefrontCurrency !== 'GBP') {
+    outcome.notComparable =
+      `storefront publishes prices in ${outcome.storefrontCurrency}, not GBP — ` +
+      'no comparison made rather than a difference between two currencies reported as pounds';
+    outcome.notes.push(outcome.notComparable);
+    return outcome;
+  }
+
   const drifts: number[] = [];
 
   // ── Route 1: the shop's whole live catalogue ──────────────────────────────
@@ -364,6 +401,28 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
     // 116" would be a route failure dressed up as a result, so anything under
     // half keyed falls through to reading the product pages instead — which
     // works, because those retailers store their own real product URLs.
+    // A shop cannot have repriced every listing it sells since the last sync.
+    // Zero agreement across a large population means the two sides are not the
+    // same quantity — a currency the check above could not read, a market with
+    // its own price list, a tax base. Whatever it is, it is not drift, and
+    // reporting it as drift would put a fabricated number in the report.
+    if (outcome.compared >= 50 && outcome.agree === 0) {
+      outcome.notComparable =
+        `not one of ${outcome.compared} listings agreed with the storefront, and every ` +
+        `difference ran the same way — the two sides are not the same quantity ` +
+        `(storefront currency: ${outcome.storefrontCurrency ?? 'not published'}). ` +
+        'Reported as uncomparable rather than as drift.';
+      outcome.notes.push(outcome.notComparable);
+      outcome.route = 'products.json';
+      outcome.drifted = 0;
+      outcome.overstated = 0;
+      outcome.understated = 0;
+      outcome.compared = 0;
+      outcome.worst = [];
+      outcome.overstatementGbpTotal = 0;
+      return outcome;
+    }
+
     const keyed = outcome.compared / active.length;
     if (keyed >= 0.5) {
       outcome.route = 'products.json';

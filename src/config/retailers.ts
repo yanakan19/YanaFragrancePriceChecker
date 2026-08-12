@@ -187,6 +187,24 @@ export const RETAILERS: readonly Retailer[] = [
     // Live spike 1 Aug 2026: HTTP 200 but no product markup found. Either
     // the section URL is wrong or the grid is drawn by script.
     adapter: 'unknown',
+    // Confirmed on Shopify, and deliberately not switched to it yet — the same
+    // call as Beauty Base above, with its own numbers.
+    //
+    // "Price verification" run 1 (job 94286860783, 2026-08-12) read
+    // justmylook.com/products.json: 17,169 products, 117,462 lookup keys, and
+    // 1,934 of the 1,941 stored listings keyed to a live variant, so the
+    // stored SKUs are this shop's Shopify variant SKUs.
+    //
+    // Staleness here is milder than Beauty Base's but real: a median 30.0
+    // hours, 52.1 at the 90th percentile, up to 173.4, with 39.7% under a day
+    // old. Measured cost of it: of the 1,934 keyed listings, 59 disagreed with
+    // the live storefront and 11 were overstatements — 3.05% drift, 0.57%
+    // overstated.
+    //
+    // The reason to hold is scale. 17,169 products against 1,941 listings held
+    // today is roughly a ninefold expansion of this snapshot, most of it not
+    // fragrance, and that is a deliberate decision about crawl budget and repo
+    // size rather than a price fix.
     currency: 'GBP',
     shipping: {
       standardGbp: 2.99,
@@ -415,6 +433,30 @@ export const RETAILERS: readonly Retailer[] = [
     // Live spike 1 Aug 2026: HTTP 200 but no product markup found. Either
     // the section URL is wrong or the grid is drawn by script.
     adapter: 'unknown',
+    // Confirmed on Shopify, and deliberately not switched to it yet.
+    //
+    // "Price verification" run 1 (job 94286860783, 2026-08-12) read
+    // beautybase.com/products.json: 3,695 products, 22,137 lookup keys, and
+    // 3,056 of the 3,058 stored listings keyed straight to a live variant —
+    // so this shop's stored SKUs *are* its Shopify variant SKUs, and setting
+    // `shopifyStorefront: true` would not orphan a single listing or trigger
+    // a mass delist.
+    //
+    // What it would fix is staleness. The sitemap route re-prices ~28 of this
+    // shop's listings per run, so its stored prices are a median 47.3 hours
+    // old, 108 at the 90th percentile and up to 265 (measured over all 3,058
+    // active listings on 2026-08-12); only 25.2% were under a day old.
+    // products.json would re-price every one of them every run, as it already
+    // does for Escentual.
+    //
+    // Left unset because the measured cost of that staleness turns out to be
+    // small — the same run compared all 3,056 keyed listings against the live
+    // storefront and found 14 disagreements, 9 of them overstatements, 0.46%
+    // — while the change itself is large and cannot be rehearsed offline: the
+    // endpoint returns the shop's entire catalogue, not just fragrance, so
+    // the snapshot would grow severalfold and the harvest's time budget would
+    // shift with it. Worth doing deliberately, with a blast-radius diff, not
+    // as a side effect of a price-accuracy fix.
     currency: 'GBP',
     shipping: {
       standardGbp: 4.95,
@@ -698,6 +740,35 @@ export const RETAILERS: readonly Retailer[] = [
     // Fragrance Click, and the reason docs/INGESTION.md puts feeds first.
     // No sitemap walk is configured because the feed is the ingestion route.
     adapter: 'affiliate-feed',
+    // The feed is the ingestion route; it is not the price.
+    //
+    // "Price verification" run 2 (job 94288914961, 2026-08-12) keyed 8,902 of
+    // these 8,908 listings to a live variant on mybeauty.boutique's own
+    // Shopify storefront, by the exact product and variant id the feed row
+    // already carries in merchant_product_id, and compared every one:
+    //
+    //     agree      2,613  (29.4%)
+    //     disagree   6,289  (70.6%)  — 6,245 overstated, 44 understated
+    //     median absolute difference £11
+    //     total overstatement across the retailer £205,624
+    //     worst: Creed White Amber 250ml, we showed £1,797.99, shop
+    //            charges £962.99
+    //
+    // 6,245 against 44 is not a stale snapshot — that drifts both ways
+    // evenly. It is the feed systematically publishing above what the shop
+    // charges. Separately, 3,370 of those listings are out of stock on the
+    // storefront while the feed calls them in stock.
+    //
+    // The 2,613 exact penny-level agreements are also what rules out the
+    // reading that this storefront answers CI in another currency: two
+    // currencies do not agree to the penny 2,613 times. Nicchia Luxury shows
+    // what that failure actually looks like — 6,844 listings, zero
+    // agreements — and is why both scripts now resolve the currency first.
+    //
+    // See src/catalogue/feedPriceRepair.ts for what this flag does and
+    // src/types/retailer.ts for what has to be true before setting it.
+    shopifyStorefront: true,
+    storefrontIsPriceAuthority: true,
     currency: 'GBP',
     shipping: {
       // Not established. Their Awin programme terms describe commission and
