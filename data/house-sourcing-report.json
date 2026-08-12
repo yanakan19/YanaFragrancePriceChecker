@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-12T09:22:21.787Z",
+  "checkedAt": "2026-08-12T11:12:51.369Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -64,8 +64,7 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded",
-        "stopped early: the house began refusing requests"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -195,9 +194,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 53,
-      "pricedInGbp": 53,
-      "withPhoto": 53,
+      "listings": 58,
+      "pricedInGbp": 58,
+      "withPhoto": 58,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -496,22 +495,6 @@
       ]
     },
     {
-      "houseId": "escentric-molecules",
-      "name": "Escentric Molecules",
-      "origin": "https://www.escentric.com",
-      "routeUsed": "shopify-products-json",
-      "currency": "GBP",
-      "listings": 118,
-      "pricedInGbp": 118,
-      "withPhoto": 118,
-      "errors": [],
-      "blockers": [
-        "storefront currency and UK delivery terms not yet established",
-        "applied to their UK Awin programme 2026-08-11; only a US-labelled (escentric.com/en-us) storefront was found, no separate UK domain confirmed",
-        "already stocked by several UK retailers (Liberty, Selfridges, Cult Beauty, Space NK) for anyone wanting a UK price sooner than confirming this"
-      ]
-    },
-    {
       "houseId": "mugler",
       "name": "Mugler",
       "origin": "https://www.mugler.co.uk",
@@ -527,7 +510,7 @@
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "applied to their UK Awin programme 2026-08-11; a dedicated mugler.co.uk exists but has not been opened from this environment",
+        "applied to their UK Awin programme 2026-08-11; a dedicated mugler.co.uk exists. Re-attempted directly 2026-08-12: homepage and /delivery both returned HTTP 404 to this tooling — the delivery page path is not where guessed, or the domain blocks non-browser requests. Not established from here either pass.",
         "no listings retrieved from the storefront on this run"
       ]
     },
@@ -544,7 +527,8 @@
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "applied to their UK Awin programme 2026-08-11; no separate UK-specific domain confirmed, thebodyshop.com may resolve UK pricing by geolocation or may not — not established from here",
-        "fragrance is a small part of a much larger bath/body/cosmetics catalogue; expect most harvested listings to be rejected by the isFragrance filter"
+        "fragrance is a small part of a much larger bath/body/cosmetics catalogue; expect most harvested listings to be rejected by the isFragrance filter",
+        "Re-attempted directly 2026-08-12: both /en-gb/delivery-returns and /en-gb/delivery-information returned HTTP 404 to this tooling — the real path was not found, so currency is still unconfirmed too."
       ]
     },
     {
@@ -553,13 +537,14 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 219,
-      "pricedInGbp": 219,
-      "withPhoto": 217,
+      "listings": 218,
+      "pricedInGbp": 218,
+      "withPhoto": 216,
       "errors": [],
       "blockers": [
-        "storefront currency and UK delivery terms not yet established",
-        "applied to their UK Awin programme (registered as \"Jo Loves Limited\") 2026-08-11 — joloves.com is the company's own registered domain per Companies House, not merely the most likely of several found"
+        "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",
+        "applied to their UK Awin programme (registered as \"Jo Loves Limited\") 2026-08-11 — joloves.com is the company's own registered domain per Companies House, not merely the most likely of several found",
+        "Read directly 2026-08-12: the storefront advertises \"Free Standard Delivery on UK orders over £70\" (homepage) but the flat rate below that was not found — /policies/shipping-policy and /pages/delivery-information exist but do not state a number in the extracted text, /policies/refund-policy does not mention delivery cost, and /pages/faq 404s. Needs a raw-text read of delivery-information or a different path."
       ]
     },
     {
