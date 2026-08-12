@@ -71,7 +71,23 @@ export interface SitemapCrawlResult {
   pagesFetched: number;
   urlsDiscovered: number;
   errors: string[];
+  /**
+   * The first few product URLs this walk actually fetched.
+   *
+   * A shop reporting "2862 urls  70 fetched  0 priced listings" with no errors
+   * is the hardest state to diagnose in this whole pipeline: nothing failed, so
+   * there is nothing to read, and the run output cannot distinguish "their
+   * pages carry no JSON-LD" from "we fetched 70 pages that were never products
+   * in the first place". The second was the truth for three shops for weeks
+   * (see pathOf above) and it was invisible, because what got fetched was never
+   * written down anywhere. Capped hard: this is a diagnostic, not a log of the
+   * walk.
+   */
+  sampledUrls: string[];
 }
+
+/** How many fetched URLs a result carries back for diagnosis. */
+const SAMPLE_LIMIT = 5;
 
 /**
  * Ceiling on how many product URLs one discovery pass will collect.
@@ -91,6 +107,41 @@ const isXml = (u: string) => /\.xml(\.gz)?(\?|$)/i.test(u);
 
 /** Names that suggest a sitemap or URL is about fragrance rather than socks. */
 const SCENT = /fragrance|perfume|aftershave|cologne|eau-de|parfum|scent/i;
+
+/**
+ * The part of a URL where a fragrance word actually tells us something.
+ *
+ * SCENT used to be tested against the whole URL, host included, which is fine
+ * until the shop's own name is a fragrance word — and for a fragrance shop it
+ * usually is. escentual.com, thefragrancecounter.co.uk, scentstore.com and
+ * escentric.com all match SCENT on the hostname alone ("e-scent-ual",
+ * "e-scent-ric"), so *every* URL those sitemaps listed looked like a named
+ * fragrance aisle: the about-us page, the blog, the basket, the store locator.
+ * The `scented` set below then filled with the whole site, the `generic`
+ * fallback was never reached because `scented` was non-empty, and the walk
+ * spent its entire 70-page budget on the head of a sitemap full of CMS pages.
+ *
+ * That is exactly what run #158 (2026-08-12) recorded: Escentual 5319 urls /
+ * 70 fetched / 0 priced, The Fragrance Counter 2862 / 70 / 0, ScentStore
+ * 501 / 70 / 0 — 14m35s of that run spent on three shops for nothing, while
+ * every shop whose hostname does *not* contain a fragrance word (Allbeauty,
+ * Justmylook, Beauty Base, LOOKFANTASTIC, Glorious Beauty, BellaVita, Oud
+ * Arabian, Manchester Ouds, Emirates Oud) returned real priced listings from
+ * the same code on the same run. The split was on the hostname, nothing else.
+ *
+ * Matching the path and query only restores the signal the regex was always
+ * meant to carry: this URL, specifically, is filed under fragrance.
+ */
+const pathOf = (u: string): string => {
+  try {
+    const parsed = new URL(u);
+    return parsed.pathname + parsed.search;
+  } catch {
+    // A relative or malformed <loc>. Nothing to strip, so match it whole
+    // rather than silently dropping it.
+    return u;
+  }
+};
 
 /**
  * A sitemap whose own name says it lists products rather than content pages.
@@ -153,7 +204,7 @@ async function discover(
   // child's contents can be trusted without re-deriving that from every URL.
   const queue: { url: string; isProductSitemap: boolean }[] = roots.map((url) => ({
     url,
-    isProductSitemap: PRODUCT_SITEMAP.test(url),
+    isProductSitemap: PRODUCT_SITEMAP.test(pathOf(url)),
   }));
   let fetched = 0;
 
@@ -173,16 +224,17 @@ async function discover(
     }
 
     for (const found of locs(res.body)) {
+      const path = pathOf(found);
       if (isXml(found)) {
-        const worthDescending = SCENT.test(found) || PRODUCT_SITEMAP.test(found);
+        const worthDescending = SCENT.test(path) || PRODUCT_SITEMAP.test(path);
         // A fragrance-named index is explored before a merely product-named
         // one, so a tight budget is spent on the aisle we actually want.
-        if (SCENT.test(found)) {
+        if (SCENT.test(path)) {
           queue.unshift({ url: found, isProductSitemap: true });
         } else if (worthDescending) {
           queue.push({ url: found, isProductSitemap: true });
         }
-      } else if (SCENT.test(found)) {
+      } else if (SCENT.test(path)) {
         scented.add(found);
       } else if (isProductSitemap && generic.size < MAX_DISCOVERED_URLS) {
         generic.add(found);
@@ -246,6 +298,7 @@ export async function crawlViaSitemap(
   const { urls, errors } = await discover(options, 12, deadlineAt);
 
   const listings: RawListing[] = [];
+  const sampledUrls: string[] = [];
   let pagesFetched = 0;
 
   for (const url of selectUrlsToFetch(urls, maxPages, options.knownUrls, options.refreshShare)) {
@@ -255,6 +308,7 @@ export async function crawlViaSitemap(
     }
     if (!isAllowed(robots, url)) continue;
 
+    if (sampledUrls.length < SAMPLE_LIMIT) sampledUrls.push(url);
     const res = await http(url, headers);
     pagesFetched++;
     options.onProgress?.(pagesFetched, listings.length);
@@ -275,5 +329,5 @@ export async function crawlViaSitemap(
     if (gapMs > 0) await sleep(gapMs);
   }
 
-  return { listings, pagesFetched, urlsDiscovered: urls.length, errors };
+  return { listings, pagesFetched, urlsDiscovered: urls.length, errors, sampledUrls };
 }

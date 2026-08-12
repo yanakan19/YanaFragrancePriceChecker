@@ -326,6 +326,49 @@ describe('sitemap discovery', () => {
     expect(r.urlsDiscovered).toBe(1);
   });
 
+  it('does not treat every URL as fragrance just because the shop is named after one', async () => {
+    // The regression that cost run #158 14m35s for zero listings. SCENT was
+    // tested against the whole URL, so a hostname like escentual.com,
+    // thefragrancecounter.co.uk or scentstore.com matched on its own — every
+    // URL in the sitemap looked like a named fragrance aisle, the generic
+    // fallback was never reached because the scented set was never empty, and
+    // the page budget went on the shop's CMS pages.
+    const scentedHost = { id: 'y', name: 'Y', domain: 'scentstore.example' } as unknown as Retailer;
+    const { http } = server({
+      'https://www.scentstore.example/sitemap.xml': sitemapOf([
+        'https://www.scentstore.example/sitemap_products_1.xml',
+        'https://www.scentstore.example/sitemap_content.xml',
+      ]),
+      'https://www.scentstore.example/sitemap_products_1.xml': sitemapOf([
+        'https://www.scentstore.example/p/10429551',
+      ]),
+      'https://www.scentstore.example/sitemap_content.xml': sitemapOf([
+        'https://www.scentstore.example/about-us',
+        'https://www.scentstore.example/delivery-information',
+      ]),
+    });
+    const r = await crawlViaSitemap({ ...opts, retailer: scentedHost, http });
+
+    // Only the one real product URL, from the sitemap whose own name says it
+    // lists products. The two content pages are not fragrance URLs just
+    // because "scent" appears in the host.
+    expect(r.urlsDiscovered).toBe(1);
+    expect(r.sampledUrls).toEqual(['https://www.scentstore.example/p/10429551']);
+  });
+
+  it('still reads a fragrance word in the path of a shop named after one', async () => {
+    const scentedHost = { id: 'y', name: 'Y', domain: 'scentstore.example' } as unknown as Retailer;
+    const { http } = server({
+      'https://www.scentstore.example/sitemap.xml': sitemapOf([
+        'https://www.scentstore.example/perfume/aventus',
+        'https://www.scentstore.example/socks/black',
+      ]),
+    });
+    const r = await crawlViaSitemap({ ...opts, retailer: scentedHost, http });
+    expect(r.urlsDiscovered).toBe(1);
+    expect(r.sampledUrls).toEqual(['https://www.scentstore.example/perfume/aventus']);
+  });
+
   it('falls back to the conventional path when the declared sitemap is dead', async () => {
     // John Lewis's shape: robots.txt names a siteindex.xml that never answers.
     const { http, asked } = server({
