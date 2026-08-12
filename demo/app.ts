@@ -2408,17 +2408,95 @@ function applyRoute(route: Route): boolean {
   }
 }
 
+/**
+ * How many in-app navigations deep the current history entry is.
+ *
+ * Carried in `history.state` itself rather than a module-level counter,
+ * because a counter would only track pushes we made in this tab and would
+ * drift the moment the reader used the browser's own Back/Forward — those
+ * fire `popstate`, not our code, and land on whatever entry the browser
+ * restores. `history.state` is restored right along with the entry by the
+ * browser itself, on both Back and Forward, so reading it here always
+ * reflects the page actually on screen rather than a copy we forgot to
+ * update. render() replacing the DOM every navigation cannot desync it,
+ * because it never touches the DOM in the first place.
+ */
+function historyDepth(): number {
+  return (window.history.state as { depth?: number } | null)?.depth ?? 0;
+}
+
 /** Push the current state onto history, or replace the top of it. */
 function syncUrl(mode: 'push' | 'replace' = 'push'): void {
   const url = basePath().replace(/\/$/, '') + routeToPath(currentRoute());
   const current = window.location.pathname + window.location.search;
   if (url === current) return;
+  const depth = mode === 'push' ? historyDepth() + 1 : historyDepth();
   try {
-    window.history[mode === 'push' ? 'pushState' : 'replaceState'](null, '', url);
+    window.history[mode === 'push' ? 'pushState' : 'replaceState']({ depth }, '', url);
   } catch {
     // A sandboxed frame or a file:// document rejects pushState. The app is
     // fully usable without it, so this is not worth surfacing.
   }
+}
+
+/**
+ * Where Back should land when there is no in-app history entry behind the
+ * current one to return to — a fragrance opened from a shared link, a
+ * bookmark, or GitHub Pages serving the path through 404.html, none of which
+ * push anything onto the stack before this page renders. `history.back()`
+ * would walk off the site in that case, so the site's own hierarchy stands
+ * in for "where the reader came from" instead: a retailer, brand or note
+ * page falls back to its own list, legal and account fall back to Settings
+ * (the only place either is linked from), a fragrance falls back to the
+ * current search results if a query or brand filter is already active
+ * (mirroring what the bar search would show) and home otherwise, and
+ * anything else that is not already a top-level page falls back to home.
+ */
+function fallbackBackRoute(): Route {
+  switch (state.view) {
+    case 'detail':
+      return state.query || state.brand
+        ? { name: 'search', param: '', query: state.query ? { q: state.query } : {} }
+        : { name: 'home', param: '', query: {} };
+    case 'retailer': return { name: 'retailers', param: '', query: {} };
+    case 'brand': return { name: 'brands', param: '', query: {} };
+    case 'note': return { name: 'notes', param: '', query: {} };
+    case 'legal':
+    case 'account':
+      return { name: 'settings', param: '', query: {} };
+    default:
+      return { name: 'home', param: '', query: {} };
+  }
+}
+
+/**
+ * The one handler behind every "Back" button on the site.
+ *
+ * When the current entry was reached by an in-app navigation (`historyDepth()
+ * > 0`), the previous in-app view really is the previous entry in the
+ * browser's own history, so real Back is used — `history.back()` — and
+ * `popstate` (wired below) takes it from there. Nothing is pushed in that
+ * branch, so History does not grow and repeated presses walk back through
+ * exactly the views that were visited, never further.
+ *
+ * When it was not (`historyDepth() === 0`: a deep link, a reload, or a fresh
+ * tab), there is nothing in real history to go back to, so the fallback
+ * route above is applied with `replace` rather than `push` — it rewrites the
+ * current entry instead of stacking a new one, which is what keeps this from
+ * turning into a two-view Back/Back loop: the next Back press (still at
+ * depth 0) walks one level further up the same fixed hierarchy rather than
+ * bouncing to the page just replaced.
+ */
+function handleBack(): void {
+  if (historyDepth() > 0) {
+    window.history.back();
+    return;
+  }
+  clearFacets();
+  applyRoute(fallbackBackRoute());
+  render();
+  syncUrl('replace');
+  window.scrollTo({ top: 0 });
 }
 
 /* ── virtual yanny ───────────────────────────────────────────────────────── */
@@ -3068,18 +3146,8 @@ function init(): void {
       return;
     }
 
-    if (t.closest('[data-back-explore]')) {
-      go('explore');
-      return;
-    }
-
-    if (t.closest('[data-back]')) {
-      go(state.query || state.brand ? 'browse' : 'home');
-      return;
-    }
-
-    if (t.closest('[data-back-home]')) {
-      goHome();
+    if (t.closest('[data-back-explore], [data-back], [data-back-home]')) {
+      handleBack();
       return;
     }
 
