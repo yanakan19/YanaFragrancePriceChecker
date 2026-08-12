@@ -29,6 +29,7 @@
     "awin:feed-sync": "tsx scripts/awin-feed-sync.ts",
     "awin:feed-diag": "tsx scripts/awin-feed-diag.ts",
     "price:verify": "tsx scripts/price-verify.ts",
+    "storefront:reprice": "tsx scripts/storefront-reprice.ts",
     "images:check": "tsx scripts/image-link-check.ts",
     "icons": "tsx scripts/generate-icons.ts",
     "og:preview": "tsx scripts/generate-og-preview.ts"
