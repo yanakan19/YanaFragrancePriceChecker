@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-12T11:28:33.772Z",
+  "checkedAt": "2026-08-12T13:56:06.799Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -30,11 +30,10 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "robots.txt unreachable at https://www.afnanperfumes.com and https://afnanperfumes.com — holding off rather than guessing we are welcome"
       ],
       "blockers": [
-        "storefront currency and UK delivery terms not yet established",
-        "no listings retrieved from the storefront on this run"
+        "storefront currency and UK delivery terms not yet established"
       ]
     },
     {
@@ -60,7 +59,7 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 2,
+      "listings": 4,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
@@ -192,18 +191,20 @@
       "houseId": "paris-corner",
       "name": "Paris Corner",
       "origin": "https://pariscorner.ae",
-      "routeUsed": "sitemap-jsonld",
-      "currency": "AED",
-      "listings": 51,
-      "pricedInGbp": 51,
-      "withPhoto": 51,
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
       "errors": [
-        "stopped early: exceeded this house's time budget"
+        "storefront currency could not be established — no sterling price recorded",
+        "https://pariscorner.ae/products.json?limit=250&page=1: HTTP 503",
+        "https://pariscorner.ae/sitemap_index.xml: HTTP 503"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "no listings retrieved from the storefront on this run"
       ]
     },
     {
@@ -537,9 +538,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 218,
-      "pricedInGbp": 218,
-      "withPhoto": 216,
+      "listings": 217,
+      "pricedInGbp": 217,
+      "withPhoto": 215,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",
