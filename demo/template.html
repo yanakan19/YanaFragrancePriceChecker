@@ -713,8 +713,8 @@
      (and a real photo's own white ground) so only the mark and caption
      read as content, not the box around them. */
   .art-empty {
-    background: #FFFFFF; border: 1px solid #E7E3E7;
-    display: flex; align-items: center; justify-content: center; color: #8A838F;
+    background: #FFFFFF; border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center; color: var(--faint);
   }
   .art-none { width: 82%; height: 82%; }
   .art-sm .art-none { width: 68%; height: 68%; }
@@ -746,22 +746,26 @@
     display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr));
     grid-auto-rows: 1fr; gap: 12px;
   }
-  /* Always white, in both themes: the tile holds the picture, and feed
-     photography is already shot on a white ground (see .art below), so a
-     white tile lets the two backgrounds disappear into one another instead
-     of leaving a visible seam. Because that decouples the tile from
-     --surface, its own text can no longer ride the theme's ink variables —
-     those are tuned for --surface, which stays theme-dependent for every
-     other card in the app, and dark mode's is pale text meant for a dark
-     ground. So the tile fixes its text colours too, rather than inheriting. */
+  /* The tile itself follows the theme; only the image well inside it stays
+     white. This narrows an earlier decision that made the whole card white
+     in both themes: feed photography is shot on a white ground, so something
+     white has to sit behind it or the cut-out leaves a visible seam — but
+     that only needs to be the picture's own well (.art below, which already
+     carries aspect-ratio 1/1 and a white background), not the card. Keeping
+     the card on --surface means its text rides the theme's ink variables
+     like every other card in the app, instead of pinning its own colours and
+     drifting from them. */
   .tile {
     width: 100%; display: flex; flex-direction: column; gap: 6px;
-    background: #FFFFFF; border: 1px solid #E7E3E7; border-radius: 14px;
-    padding: 12px 13px 14px; color: #17141A;
-    transition: border-color .15s ease, box-shadow .15s ease;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+    padding: 12px 13px 14px; color: var(--ink); box-shadow: var(--shadow-lift);
+    transition: border-color var(--dur-2) var(--ease-standard);
   }
+  /* Behaviour 4, hover: the border moves --line to --line-firm and nothing
+     else. No lift, no shadow, no scale — cards stay on the grid, so a row of
+     them does not ripple as the pointer crosses it. */
   @media (hover: hover) and (pointer: fine) {
-    .tile:hover { border-color: #D3CDD3; box-shadow: 0 0 0 1px #D3CDD3; }
+    .tile:hover { border-color: var(--line-firm); }
   }
   /* The tile's own two controls: the brand label above, and everything else
      (name, art, price, shop) below as one button — see fragranceTile in
@@ -772,14 +776,17 @@
     font: inherit; color: inherit; text-align: left;
     transition: transform .12s ease;
   }
-  .tile-body:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
-  .tile-body:active { transform: scale(.97); }
-  .tile .phead-meta { color: #8A838F; }
+  .tile-body:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 8px; }
+  /* Behaviour 3, press. .985 rather than the .97 this used to carry: at tile
+     size the deeper scale read as the card flinching away from the tap. */
+  .tile-body:active { transform: scale(.985); }
+  .tile .phead-meta { color: var(--faint); }
   /* Same pill as .sold-by lower down the tile — same background, border and
      ink — so the two read as a matched pair: this is the shop pill's brand
      counterpart, not a differently styled control. */
   .tile .phead-brand {
-    background: #F0EDEF; border-color: #E7E3E7; color: #55505A; font-size: 9px;
+    background: var(--surface-2); border-color: var(--line); color: var(--ink-2);
+    font-size: 11px; font-weight: 600; letter-spacing: .08em;
   }
   @media (hover: hover) and (pointer: fine) {
     .tile .phead-brand:hover { border-color: var(--accent); color: var(--accent); }
@@ -824,11 +831,11 @@
     display: flex; flex-direction: column; align-items: center; gap: 1px;
   }
   .tile-price .off {
-    font-size: 10.5px; font-weight: 700; color: #17724B;
+    font-size: 10.5px; font-weight: 700; color: var(--ok);
     text-transform: uppercase; letter-spacing: .06em;
   }
   .tile-price .amt { font-size: 15.5px; }
-  .tile-price .amt.none { color: #8A838F; font-weight: 600; font-size: 13.5px; }
+  .tile-price .amt.none { color: var(--faint); font-weight: 600; font-size: 13.5px; }
   /* "delivery not stated" under a tile price. Quiet, but present: the number
      above it is an item price where every other tile shows a delivered one,
      and leaving that unsaid is what would be dishonest. */
@@ -837,7 +844,7 @@
     text-transform: uppercase; letter-spacing: .05em;
   }
   .tile-price .was {
-    font-size: 11px; font-weight: 600; color: #8A838F;
+    font-size: 11px; font-weight: 600; color: var(--faint);
     text-decoration: line-through; font-variant-numeric: tabular-nums;
   }
   .from { font-size: 10px; font-weight: 600; color: var(--faint); text-transform: uppercase; letter-spacing: .08em; }
@@ -847,12 +854,28 @@
      this is a plain text tag using the name instead, the same call already
      made for the Retailers directory's monogram tiles. */
   .sold-by {
-    align-self: center; max-width: 100%;
-    background: #F0EDEF; color: #55505A; border: 1px solid #E7E3E7;
-    font-size: 9px; font-weight: 700; letter-spacing: .03em;
-    padding: 3px 8px; border-radius: 999px;
+    position: relative; align-self: center; max-width: 100%; margin-top: 6px;
+    background: var(--surface-2); color: var(--ink-2);
+    font: 600 12px/1 var(--font-sans);
+    padding: 6px 10px; border-radius: 8px;
     overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
   }
+  /* The tail that makes this a balloon rather than another pill: a square
+     rotated 45deg, same fill as the body, tucked under its top edge so the
+     two read as one shape pointing at the price above. overflow:hidden on
+     .sold-by would clip it, so the tail is drawn outside the padding box and
+     the clip is scoped to the label text instead. */
+  .sold-by { overflow: visible; }
+  .sold-by > span {
+    display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .sold-by::before {
+    content: ""; position: absolute; top: -3px; left: 50%; margin-left: -3.5px;
+    width: 7px; height: 7px; background: var(--surface-2); transform: rotate(45deg);
+  }
+  /* The sold-out placeholder keeps the row height but must not draw a tail
+     pointing at a shop that is not named. */
+  .sold-by[aria-hidden="true"]::before { display: none; }
   .empty-note { color: var(--ink-2); font-size: 14.5px; padding: 30px 2px; text-align: center; }
 
   /* ── page headings and shared panel furniture ──────────────────────────── */
