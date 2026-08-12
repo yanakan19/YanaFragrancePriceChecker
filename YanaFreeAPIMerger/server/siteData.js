@@ -8,10 +8,10 @@ import path from 'node:path';
  * site, and its real "database" is the TypeScript modules the rest of that
  * repo already builds and ships from — `demo/data.ts`, `demo/catalogue.
  * generated.ts`, `src/services/priceService.ts`, `src/index.ts`, `demo/
- * brandSites.ts`, `demo/legal.ts`. Importing those directly, from this
- * subfolder of the same repo, is the whole integration: no re-scrape, no
- * JSON copy, no second source of truth that can drift from the one the
- * site itself renders from.
+ * brandSites.ts`, `demo/legal.ts`, `src/config/retailers.ts`. Importing those
+ * directly, from this subfolder of the same repo, is the whole integration:
+ * no re-scrape, no JSON copy, no second source of truth that can drift from
+ * the one the site itself renders from.
  *
  * ── Why every import below is cache-busted ───────────────────────────────
  * Node's ES module loader caches a module the first time it is imported and
@@ -43,15 +43,16 @@ async function freshImport(relPathFromRepoRoot) {
 
 /** One fresh snapshot of every site module this backend reads from. */
 export async function loadSite() {
-  const [data, catalogue, priceService, index, brandSites, legal] = await Promise.all([
+  const [data, catalogue, priceService, index, brandSites, legal, retailers] = await Promise.all([
     freshImport('demo/data.js'),
     freshImport('demo/catalogue.generated.js'),
     freshImport('src/services/priceService.js'),
     freshImport('src/index.js'),
     freshImport('demo/brandSites.js'),
     freshImport('demo/legal.js'),
+    freshImport('src/config/retailers.js'),
   ]);
-  return { data, catalogue, priceService, index, brandSites, legal };
+  return { data, catalogue, priceService, index, brandSites, legal, retailers };
 }
 
 function normalize(s) {
@@ -152,11 +153,25 @@ async function priceContextFor(question) {
   }
 
   const gbp = (pence) => `£${(pence).toFixed(2)}`;
+
+  // Some purchasable rows for this exact fragrance can still have no delivered
+  // price: `buildComparison`'s own sort already keeps `bestOffer` from ever
+  // picking one of these as cheapest (see priceService.ts's own comment on
+  // that), but a reader can still reasonably ask "what about <that shop>?", so
+  // naming them here — rather than only enforcing the rule silently upstream
+  // — gives Virtual Yanny the words to answer honestly instead of guessing.
+  const unstatedDelivery = rows.filter((r) => r.isPurchasable && r.deliveredPriceGbp === null);
+  const unstatedNote = unstatedDelivery.length
+    ? ` Also stocked (item price only, delivery not stated, never the cheapest option) by: ${unstatedDelivery
+        .map((r) => `${r.retailer.name} (${gbp(r.itemPriceGbp)} item price)`)
+        .join(', ')}.`
+    : '';
+
   return (
     `PRICE MATCH (${matchConfidence}% confidence): ${fragrance.brand} ${fragrance.name}, ` +
     `${fragrance.concentration}, ${fragrance.sizeMl}ml. Cheapest right now: ${gbp(best.deliveredPriceGbp)} ` +
     `delivered, from ${best.retailer.name}. Stocked by ${rows.filter((r) => r.isPurchasable).length} shop(s) ` +
-    `this site tracks in total.`
+    `this site tracks in total.${unstatedNote}`
   );
 }
 
@@ -223,9 +238,34 @@ async function policyContextFor(question) {
   return `SITE POLICY (${best.title}): ${text.slice(0, 1200)}${text.length > 1200 ? '…' : ''}`;
 }
 
+/**
+ * Catalogue-wide facts every answer can lean on, computed fresh from the same
+ * imports as everything else in this file rather than typed as a number
+ * anywhere — a hardcoded count would start drifting the hour after it was
+ * written, since the harvest recommits `demo/catalogue.generated.ts` roughly
+ * every hour (see this file's own header comment on cache-busted imports).
+ */
 async function aboutContext() {
-  const { legal } = await loadSite();
-  return `ABOUT THIS SITE: ${legal.COMPANY.name} is a UK fragrance price comparison site run by ${legal.COMPANY.legalName}. Contact: ${legal.COMPANY.email}.`;
+  const { legal, data, catalogue, retailers } = await loadSite();
+
+  const totalFragrances = data.DEMO_FRAGRANCES.length;
+  const enabledRetailers = retailers.RETAILERS.filter((r) => r.enabled !== false);
+  // Mirrors resolveDelivery's own check in src/services/shipping.ts exactly:
+  // `standardGbp === null` is the one signal that means "delivery not stated"
+  // there, in buildComparison's sort, and now here.
+  const unstatedRetailers = enabledRetailers.filter((r) => r.shipping?.standardGbp === null);
+  const unstatedNote = unstatedRetailers.length
+    ? ` ${unstatedRetailers.length} of those retailers (${unstatedRetailers.map((r) => r.name).join(', ')}) ` +
+      `do not publish a standard delivery cost. They are shown as "delivery not stated", never as the cheapest option.`
+    : '';
+
+  return (
+    `ABOUT THIS SITE: ${legal.COMPANY.name} is a UK fragrance price comparison site run by ` +
+    `${legal.COMPANY.legalName}. Contact: ${legal.COMPANY.email}. Currently tracks ` +
+    `${totalFragrances.toLocaleString('en-GB')} fragrances across ${enabledRetailers.length} enabled UK ` +
+    `retailers, last refreshed ${catalogue.CRAWLED_AT}.${unstatedNote} No retailer pays for placement: results ` +
+    `are ordered by stock and then delivered price only, never by commission ("No Promoted Listings").`
+  );
 }
 
 /**

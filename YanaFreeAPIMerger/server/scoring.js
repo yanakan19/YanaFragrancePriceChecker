@@ -16,7 +16,7 @@ const CRITERIA = [
   {
     key: 'groundedness',
     weight: 0.3,
-    describe: 'Every price/claim in the answer actually traces back to the injected SITE DATA, with no invented URLs and no confident answer where SITE DATA found nothing',
+    describe: 'Every price/claim in the answer actually traces back to the injected SITE DATA — no invented URLs, no confident answer where SITE DATA found nothing or said out of stock, no puffery language contradicting "No Promoted Listings"',
     score: ({ content, siteData }) => groundednessScore(content, siteData),
   },
   {
@@ -157,6 +157,16 @@ function safetyScore(content) {
  *   - when SITE DATA explicitly recorded no match for this question ("PRICE
  *     MATCH: none" / "NOTE MATCHED CANDIDATES: none"), the answer must say
  *     it does not have that on file rather than confidently filling the gap.
+ *   - when SITE DATA says a fragrance is out of stock everywhere, the answer
+ *     must reflect that rather than quoting a price as if it were still
+ *     available — the same "do not paper over a gap" failure as the point
+ *     above, just triggered by a different SITE DATA shape.
+ *   - language that dresses a retailer up as sponsored, trusted, or a
+ *     partner contradicts this site's own "No Promoted Listings" line (see
+ *     demo/app.ts's hero copy and demo/legal.ts's affiliate disclosure) even
+ *     when every price in the answer is accurate, so it is scored as a
+ *     groundedness failure too: it is stating a relationship SITE DATA never
+ *     asserted.
  */
 export function groundednessScore(content, siteData) {
   const data = siteData || '';
@@ -171,6 +181,14 @@ export function groundednessScore(content, siteData) {
   const dataFoundNothing = /price match: none|note matched candidates: none/i.test(data);
   const answerAdmitsGap = /don'?t have that on file|no (fragrance|match|information)\s+(on file|found)/i.test(content);
   if (dataFoundNothing && !answerAdmitsGap) score -= 35;
+
+  const dataSaysOutOfStock = /out of stock everywhere/i.test(data);
+  const answerReflectsOutOfStock = /out of stock|sold out|not (currently )?available|no(?:ne|thing) (in stock|available)/i.test(content);
+  if (dataSaysOutOfStock && !answerReflectsOutOfStock) score -= 35;
+
+  if (/\b(sponsored|paid partner|official partner|trusted partner|promoted listing|our partner|recommended by us|advertisement|advertorial)\b/i.test(content)) {
+    score -= 25;
+  }
 
   return Math.max(0, score);
 }

@@ -63,6 +63,25 @@ test('scoreAndRank: an answer that ignores the site-data-only rule loses to one 
   assert.ok(matrix[0].totalScore > matrix[1].totalScore);
 });
 
+test('groundednessScore: ignoring an explicit out-of-stock fact is penalised', () => {
+  const siteData = 'PRICE MATCH (100% confidence): Some Brand Some Perfume, Eau de Parfum, 50ml. Currently out of stock everywhere this site tracks.';
+  const content = 'That one is £65.00 delivered right now.';
+  // The invented price alone costs 40; ignoring the out-of-stock fact costs another 35.
+  assert.equal(groundednessScore(content, siteData), 25);
+});
+
+test('groundednessScore: reflecting an out-of-stock fact is not penalised for that', () => {
+  const siteData = 'PRICE MATCH (100% confidence): Some Brand Some Perfume, Eau de Parfum, 50ml. Currently out of stock everywhere this site tracks.';
+  const content = "That one is currently out of stock everywhere this site tracks, so I can't give you a price.";
+  assert.equal(groundednessScore(content, siteData), 100);
+});
+
+test('groundednessScore: calling a retailer "trusted" or "our partner" contradicts No Promoted Listings and is penalised', () => {
+  const siteData = 'PRICE MATCH (100% confidence): Dior Sauvage, Eau de Toilette, 30ml. Cheapest right now: £56.99 delivered, from Justmylook.';
+  const content = 'Our trusted partner Justmylook has it for £56.99 delivered.';
+  assert.equal(groundednessScore(content, siteData), 75);
+});
+
 test('scoreAndRank: criteria weights sum to 1', () => {
   const { criteria } = scoreAndRank('x', '', [{ agentNumber: 1, content: 'x' }]);
   const total = criteria.reduce((sum, c) => sum + c.weight, 0);
