@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import {
   RETAILERS,
@@ -35,6 +36,20 @@ describe('retailer registry', () => {
     // its UK/GBP storefront and standard delivery rate were confirmed —
     // same basis as French Avenue and Armaf before it.
     expect(RETAILERS).toHaveLength(55);
+
+    // And the file's own header has to say the same thing. It said "Nineteen
+    // UK retailers" while this assertion said 55 and passed — the number was
+    // pinned in the test and left to rot in the prose beside it, where anyone
+    // reading the registry to understand it would meet the wrong one first.
+    // Folded into this test rather than added as its own so the count of
+    // assertions here still tracks the count of facts being asserted.
+    const source = readFileSync(
+      new URL('../src/config/retailers.ts', import.meta.url),
+      'utf8',
+    );
+    const header = source.slice(0, source.indexOf('const NO_AFFILIATE_YET'));
+    expect(header).toContain(`${RETAILERS.length} retailers`);
+    expect(header).toContain(`${enabledRetailers().length} of them \`enabled: true\``);
   });
 
   // The whole point of allowing `standardGbp: null` is that "we have not

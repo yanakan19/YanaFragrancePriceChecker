@@ -180,6 +180,41 @@ interface ShopOutcome {
    * Distinct from "no route": a route ran, and its answer was rejected.
    */
   notComparable: string | null;
+  /**
+   * What the two sides looked like relative to each other, computed only when
+   * a result is rejected for total disagreement.
+   *
+   * Refusing to report a nonsense number is right, but on its own it leaves
+   * the question open for ever — which is what happened to Nicchia Luxury: the
+   * guard correctly declined to call 6,844 mismatches "drift", and nobody
+   * could then say whether the storefront or the snapshot was the sterling
+   * side. The shape of `live / stored` answers that, because the two
+   * explanations do not look alike:
+   *
+   *   one constant factor     One price list expressed in two currencies. A
+   *                           shop does not reprice its whole catalogue by an
+   *                           identical multiple.
+   *   a dispersed spread      Two genuinely different price lists — a stale
+   *                           snapshot, a different market, a different tax
+   *                           base. Ordinary disagreement, not a currency.
+   *
+   * Which side is then the non-sterling one is decided by `storefrontCurrency`
+   * together with this, and never by this alone. See `diagnoseScale`.
+   */
+  scale: ScaleDiagnosis | null;
+}
+
+/** The distribution of `live / stored`, and the most this pass can read off it. */
+interface ScaleDiagnosis {
+  samples: number;
+  medianRatio: number;
+  p10: number;
+  p90: number;
+  /** How many ratios sit within 1% of the median — the constant-factor test. */
+  withinOnePct: number;
+  withinOnePctShare: number;
+  /** Plain reading of the above. Never asserts a currency it has not been told. */
+  reading: string;
 }
 
 async function robotsFor(origin: string): Promise<RobotsRules> {
@@ -270,11 +305,101 @@ function median(values: number[]): number {
   return s.length % 2 ? s[mid]! : (s[mid - 1]! + s[mid]!) / 2;
 }
 
+function quantile(sorted: number[], p: number): number {
+  if (sorted.length === 0) return 0;
+  const i = Math.min(sorted.length - 1, Math.max(0, Math.floor(p * sorted.length)));
+  return sorted[i]!;
+}
+
+/**
+ * Read the distribution of `live / stored` and say what it can support.
+ *
+ * The bar for "one constant factor" is deliberately high — 90% of ratios
+ * inside a 1% window — because that is the only shape a currency conversion
+ * can produce and very nearly the only shape anything else cannot. Real price
+ * disagreement is never that tight across thousands of products.
+ *
+ * What this must not do is name a currency. It knows two things: whether the
+ * factor is constant, and what the storefront said it charges in. A constant
+ * factor with a storefront that publishes no currency at all identifies that
+ * one of the two sides is not sterling without identifying which, and saying
+ * so is the honest end of the inference. Guessing the direction is precisely
+ * the error the guard above exists to prevent, so this reports the ambiguity
+ * rather than resolving it by assumption.
+ */
+function diagnoseScale(ratios: number[], storefrontCurrency: string | null): ScaleDiagnosis | null {
+  if (ratios.length < 50) return null;
+  const sorted = [...ratios].sort((a, b) => a - b);
+  const med = median(sorted);
+  if (!(med > 0)) return null;
+  const withinOnePct = sorted.filter((r) => Math.abs(r / med - 1) <= 0.01).length;
+  const share = withinOnePct / sorted.length;
+  const f = (n: number) => n.toFixed(4);
+
+  let reading: string;
+  if (share >= 0.9) {
+    const constant =
+      `live is a constant ${f(med)}x stored across ${sorted.length} listings ` +
+      `(${(share * 100).toFixed(1)}% within 1% of that factor). A shop does not reprice its ` +
+      'entire catalogue by one identical multiple, so these are one price list in two units.';
+    if (storefrontCurrency === 'GBP') {
+      reading =
+        `${constant} The storefront publishes GBP, so the non-sterling side is the stored ` +
+        'snapshot — the prices this site publishes. Treat as a live mispricing.';
+    } else {
+      reading =
+        `${constant} The storefront publishes no currency of its own, so this pass cannot say ` +
+        'which of the two sides is sterling — only that they are not both. Establish the ' +
+        "storefront's currency before drawing any conclusion about the stored prices.";
+    }
+  } else {
+    reading =
+      `live / stored is dispersed — median ${f(med)}, p10 ${f(quantile(sorted, 0.1))}, ` +
+      `p90 ${f(quantile(sorted, 0.9))}, only ${(share * 100).toFixed(1)}% within 1% of the ` +
+      'median. Not a single conversion factor, so the disagreement is two different price ' +
+      'lists rather than two currencies.';
+  }
+
+  return {
+    samples: sorted.length,
+    medianRatio: Number(med.toFixed(4)),
+    p10: Number(quantile(sorted, 0.1).toFixed(4)),
+    p90: Number(quantile(sorted, 0.9).toFixed(4)),
+    withinOnePct,
+    withinOnePctShare: Number(share.toFixed(4)),
+    reading,
+  };
+}
+
+/**
+ * Throw away a comparison that was never like-for-like, keeping the diagnosis.
+ *
+ * Every drift counter goes to zero, because none of them measured anything:
+ * `compared` in particular, so the summary cannot average a nonsense number
+ * into a fleet-wide agreement rate. `notComparable` says why and `scale` says
+ * what the two sides were — the parts that are still true.
+ */
+function reject(outcome: ShopOutcome, ratios: number[]): ShopOutcome {
+  outcome.scale = diagnoseScale(ratios, outcome.storefrontCurrency);
+  if (outcome.scale) outcome.notes.push(outcome.scale.reading);
+  outcome.route = 'products.json';
+  outcome.agree = 0;
+  outcome.drifted = 0;
+  outcome.overstated = 0;
+  outcome.understated = 0;
+  outcome.compared = 0;
+  outcome.worst = [];
+  outcome.overstatementGbpTotal = 0;
+  outcome.medianAbsDriftGbp = 0;
+  return outcome;
+}
+
 function record(
   outcome: ShopOutcome,
   listing: StoredListing,
   live: { price: number; available: boolean | null; productUrl: string },
   drifts: number[],
+  ratios: number[],
 ): void {
   const stored = listing.priceGbp!;
   outcome.compared++;
@@ -282,6 +407,9 @@ function record(
 
   const delta = stored - live.price;
   drifts.push(Math.abs(delta));
+  // Kept for every comparison, agreeing or not: a ratio series that is only
+  // collected once something already looks wrong cannot show that nothing is.
+  if (stored > 0 && live.price > 0) ratios.push(live.price / stored);
 
   if (Math.abs(delta) < PENNY) {
     outcome.agree++;
@@ -339,6 +467,7 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
     snapshotUpdatedAt: snapshot.updatedAt,
     storefrontCurrency: null,
     notComparable: null,
+    scale: null,
   };
 
   if (active.length === 0) {
@@ -384,15 +513,34 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
   const meta = await http(`${origin}/meta.json`, BROWSER_HEADERS);
   const home = await http(`${origin}/`, BROWSER_HEADERS);
   outcome.storefrontCurrency = parseShopCurrency(meta.ok ? meta.body : null, home.ok ? home.body : null);
-  if (outcome.storefrontCurrency !== null && outcome.storefrontCurrency !== 'GBP') {
+
+  // A storefront in another currency still gets read, and this used to return
+  // here instead. Returning was safe and answered nothing, which is how
+  // Nicchia Luxury stayed open: "we cannot compare these" is true of both the
+  // reassuring case and the emergency, and they are told apart by exactly one
+  // measurement — the ratio between the two sides.
+  //
+  //   live ≈ stored x some sane rate   the stored list is this list converted;
+  //                                    the snapshot is a genuine sterling list
+  //   live ≈ stored (ratio ~ 1.0)      the stored numbers *are* these numbers
+  //                                    relabelled — foreign prices published
+  //                                    as pounds, the worst fault available
+  //
+  // Nothing is ever counted as drift on this path: `notComparable` is set
+  // before a single comparison is made and the counters are cleared on the way
+  // out. The only thing this buys is the diagnosis, which is worth one
+  // products.json read of a shop we were already reading.
+  const foreignStorefront =
+    outcome.storefrontCurrency !== null && outcome.storefrontCurrency !== 'GBP';
+  if (foreignStorefront) {
     outcome.notComparable =
       `storefront publishes prices in ${outcome.storefrontCurrency}, not GBP — ` +
       'no comparison made rather than a difference between two currencies reported as pounds';
     outcome.notes.push(outcome.notComparable);
-    return outcome;
   }
 
   const drifts: number[] = [];
+  const ratios: number[] = [];
 
   // ── Route 1: the shop's whole live catalogue ──────────────────────────────
   const index = await shopifyIndex(origin, robots, gap, deadlineAt, outcome.notes);
@@ -412,7 +560,7 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
         outcome.unkeyed++;
         continue;
       }
-      record(outcome, listing, live, drifts);
+      record(outcome, listing, live, drifts, ratios);
     }
 
     // A storefront can be on Shopify and still be unkeyable: AllBeauty serves
@@ -426,6 +574,10 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
     // same quantity — a currency the check above could not read, a market with
     // its own price list, a tax base. Whatever it is, it is not drift, and
     // reporting it as drift would put a fabricated number in the report.
+    // A storefront in a currency of its own was already known to be
+    // uncomparable before the loop ran; it ran anyway, for the ratio.
+    if (foreignStorefront) return reject(outcome, ratios);
+
     if (outcome.compared >= 50 && outcome.agree === 0) {
       outcome.notComparable =
         `not one of ${outcome.compared} listings agreed with the storefront, and every ` +
@@ -433,14 +585,7 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
         `(storefront currency: ${outcome.storefrontCurrency ?? 'not published'}). ` +
         'Reported as uncomparable rather than as drift.';
       outcome.notes.push(outcome.notComparable);
-      outcome.route = 'products.json';
-      outcome.drifted = 0;
-      outcome.overstated = 0;
-      outcome.understated = 0;
-      outcome.compared = 0;
-      outcome.worst = [];
-      outcome.overstatementGbpTotal = 0;
-      return outcome;
+      return reject(outcome, ratios);
     }
 
     const keyed = outcome.compared / active.length;
@@ -468,7 +613,14 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
     outcome.overstatementGbpTotal = 0;
     outcome.worst = [];
     drifts.length = 0;
+    ratios.length = 0;
   }
+
+  // Route 2 costs one request per sampled product. Spending that on a shop
+  // whose own storefront says it charges in another currency buys nothing —
+  // the answer is already known and products.json was the only route that
+  // could have produced the ratio behind it.
+  if (foreignStorefront) return reject(outcome, ratios);
 
   // ── Route 2: re-read a sample of product pages ────────────────────────────
   //
@@ -542,6 +694,7 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
       listing,
       { price: hit.priceGbp, available: hit.inStock, productUrl: url },
       drifts,
+      ratios,
     );
     await sleep(gap);
   }
@@ -581,6 +734,18 @@ for (const retailer of shops) {
       `${Math.round((Date.now() - started) / 1000)}s`,
   );
   for (const n of outcome.notes.slice(0, 4)) console.log(`      ${n}`);
+  // Printed whole, not truncated into the notes tail above: this is the line
+  // that decides whether a retailer is publishing foreign prices as pounds,
+  // and it is worth more of the log than everything else this loop prints.
+  if (outcome.scale) {
+    console.log(`      currency: storefront says ${outcome.storefrontCurrency ?? 'nothing'}`);
+    console.log(
+      `      live/stored: median ${outcome.scale.medianRatio}  p10 ${outcome.scale.p10}  ` +
+        `p90 ${outcome.scale.p90}  within 1% of median ${outcome.scale.withinOnePct}/` +
+        `${outcome.scale.samples} (${(outcome.scale.withinOnePctShare * 100).toFixed(1)}%)`,
+    );
+    console.log(`      ${outcome.scale.reading}`);
+  }
   // Printed here, per shop, rather than only in the summary at the end: a run
   // that is cancelled or hits the job cap loses everything after the last line
   // it printed, and the first full-fleet pass was cut off exactly that way.
@@ -638,6 +803,29 @@ for (const w of allWorst) {
       `live £${w.livePrice.toFixed(2).padStart(8)}  ` +
       `+£${w.overstatementGbp.toFixed(2).padStart(8)} (${w.overstatementPct}%)  ${w.title}`,
   );
+}
+
+// Repeated at the end because a rejected comparison is the one result that is
+// easy to read as "nothing to see": it prints zeroes in every column of the
+// table above, which is exactly what a clean shop prints too.
+const rejected = outcomes.filter((o) => o.notComparable !== null);
+if (rejected.length > 0) {
+  console.log('\n──────── not comparable, and why ────────');
+  for (const o of rejected) {
+    console.log(`  ${o.retailerId} (${o.activeListings} active listings)`);
+    console.log(`    storefront currency: ${o.storefrontCurrency ?? 'not published'}`);
+    console.log(`    ${o.notComparable}`);
+    if (o.scale) {
+      console.log(
+        `    live/stored across ${o.scale.samples}: median ${o.scale.medianRatio}, ` +
+          `p10 ${o.scale.p10}, p90 ${o.scale.p90}, ` +
+          `${(o.scale.withinOnePctShare * 100).toFixed(1)}% within 1% of the median`,
+      );
+      console.log(`    ${o.scale.reading}`);
+    } else {
+      console.log('    no ratio distribution — too few listings keyed to read one');
+    }
+  }
 }
 
 const totalCompared = outcomes.reduce((n, o) => n + o.compared, 0);
