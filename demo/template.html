@@ -1947,13 +1947,24 @@
   .yanny-ranking th, .yanny-ranking td { padding: 4px 6px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
   .yanny-ranking tr.winner { color: var(--accent); font-weight: 700; }
 
-  .yanny-options { flex: none; display: flex; gap: 6px; padding: 0 16px 10px; flex-wrap: wrap; }
-  .yanny-option-btn {
-    font: inherit; font-size: 12px; font-weight: 600; padding: 7px 11px; border-radius: 20px;
-    background: var(--surface); border: 1px solid var(--line); color: var(--ink-2); cursor: pointer;
+  /* The opening state of an empty chat. Centred in the body's own space
+     rather than pinned above the composer, so it reads as an invitation
+     sitting in the room the conversation is about to fill — and it vanishes
+     the moment there is a real first message. Deliberately not interactive:
+     no buttons, no hover, no cursor change. The three examples are quoted
+     because they are things to say, not controls to press. */
+  .yanny-empty {
+    height: 100%; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 14px; text-align: center; padding: 8px 4px;
   }
-  .yanny-option-btn.on { background: var(--accent-sf); border-color: var(--accent); color: var(--accent); }
-  .yanny-option-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .yanny-empty-lead {
+    margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink-2); max-width: 30ch;
+  }
+  .yanny-empty-eg {
+    margin: 0; padding: 0; list-style: none;
+    display: flex; flex-direction: column; gap: 7px;
+  }
+  .yanny-empty-eg li { font-size: 13px; line-height: 1.4; color: var(--faint); font-style: italic; }
 
   /* Bottom padding includes the safe area too: on the mobile full-sheet
      panel the composer sits at the true screen edge, right where the home
