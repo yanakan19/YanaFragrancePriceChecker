@@ -123,6 +123,56 @@ describe('fragranceOnlyCatalogue is opt-in and deliberately narrow', () => {
   });
 });
 
+describe('isFragrance: a quantity against a size means several bottles', () => {
+  // sizeMl reads the first size in the title, so each of these published as a
+  // single small bottle at the price of the whole pack: £205 for "10ml",
+  // £114 for "20ml". All real titles; all 44 matches in the live catalogue
+  // were read by hand and every one is a genuine multi-pack.
+  it.each([
+    ['nicchia-luxury-uk', 'Parfums de Marly Delina Exclusif Parfum 3x10 ml Travel Set + Case'],
+    ['nicchia-luxury-uk', 'Franck Boclet Cocaine Extrait de Parfum 4x20 ml'],
+    ['nicchia-luxury-uk', 'Kilian Good Girl Gone Bad Eau de Parfum 4x7.5 ml'],
+    ['justmylook', 'Parfums De Marly Delina Eau De Parfum Travel Set 3 x 10ml'],
+    ['emirates-oud', 'Lattafa Pride No.1 Gift Set 5X20ml EDP Lattafa'],
+    ['mybeauty-boutique', 'Laurent Mazzone Hysteric Extrait de Parfum Travel set 3x15ml'],
+  ])('rejects a multi-pack at %s: %s', (retailerId, title) => {
+    expect(isFragrance(listing(retailerId, title))).toBe(false);
+  });
+
+  // The rule this replaces, and the reason it was never applied site-wide.
+  // Emirates Oud repeats the size in its own titles and Escentual and Oud
+  // Arabian both write a size twice for one bottle. Re-measured against the
+  // live catalogue: a ">= 2 sizes" rule would drop 47 kept listings this one
+  // does not, mostly single bottles like these.
+  it.each([
+    ['emirates-oud', 'Odyssey Aqua Perfume 100ml EDP Armaf 100ml'],
+    ['emirates-oud', 'Marwa Perfume 100ml EDP Arabiyat Prestige 100ml'],
+    ['escentual', "Jimmy Choo I Want Choo Eau de Parfum 100ml -  Collector's Edition 100ml"],
+    ['oud-arabian', 'Bujairami Only Ever 100ml 100ml Eau De Parfum Bujairami Sydney'],
+    ['mybeauty-boutique', "L'Artisan Mure et Musc Extreme Eau de Parfum 100ml Spray 100ml Spray"],
+  ])('still keeps a single bottle whose size is written twice at %s: %s', (retailerId, title) => {
+    expect(isFragrance(listing(retailerId, title))).toBe(true);
+  });
+
+  // A bare "set" is not safe globally either. Tommy Bahama's line is called
+  // Set Sail, and Fragrance Click's "+ 10ml" listings really are the headline
+  // 100ml bottle with a miniature beside it — sizeMl reads the right size.
+  it.each([
+    ['mybeauty-boutique', 'Tommy Bahama Tommy Bahama Set Sail Cologne St. Barts Eau de Cologne 100ml Spray'],
+    ['fragrance-click', 'Burberry Her 100ml Eau de Parfum + 10ml Set'],
+    ['emirates-oud', 'Genesis Perfume Set 90ml EDP French Avenue by Fragrance World'],
+  ])('does not reject a single bottle for the word "set" alone at %s: %s', (retailerId, title) => {
+    expect(isFragrance(listing(retailerId, title))).toBe(true);
+  });
+
+  it('reads "1 x" as one bottle, not several', () => {
+    // Nothing in the catalogue relies on this today — all 5 such titles are
+    // already rejected for other reasons — but a rule meaning "several" must
+    // not quietly mean "one or more".
+    expect(isFragrance(listing('escentual', 'Diptyque Do Son Eau de Parfum 1 x 100ml'))).toBe(true);
+  });
+});
+
 describe('accented spellings still name a concentration', () => {
   // Seven real bottles were dropped by this, all at Nicchia Luxury UK,
   // including Kilian Good Girl Gone Bad at £205: "eau fraiche" was in the

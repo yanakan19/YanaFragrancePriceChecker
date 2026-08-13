@@ -44113,17 +44113,6 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     }
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8338345230473-44927259246729",
-    "brand": "Acqua Di Parma",
-    "name": "Discovery Set Signatures Of The Sun 3 x",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 12,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "escentual-adpgelsomino001",
     "brand": "Acqua Di Parma",
     "name": "Gelsomino a Freddo",
@@ -52062,10 +52051,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
         "Guaiac wood"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
+  },
   {
     "id": "nicchia-luxury-uk-57007859958144",
     "brand": "Amouage",
@@ -52076,7 +52062,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   {
     "id": "ean-701666410447",
     "brand": "Amouage",
@@ -61152,10 +61141,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
       ],
       "base": []
     }
-  }
-];
-
-const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15691235328349-default-title",
     "brand": "Assaf",
@@ -61182,7 +61168,10 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Vetiver"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15691076272477-default-title",
     "brand": "Assaf",
@@ -63414,33 +63403,6 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
-  {
-    "id": "ean-3614274412789",
-    "brand": "Azzaro",
-    "name": "Forever Wanted Elixir + 2x Set",
-    "concentration": "Parfum",
-    "sizeMl": 100,
-    "ean": "3614274412789",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274412789_bab.jpg",
-    "notes": {
-      "top": [
-        "Raspberry",
-        "Green Mandarin",
-        "Bergamot"
-      ],
-      "middle": [
-        "Cardamom",
-        "Lavender",
-        "Clary Sage"
-      ],
-      "base": [
-        "Leather",
-        "Vetiver",
-        "Wolfwood"
-      ]
-    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416637223049-45146967867529",
@@ -67858,10 +67820,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8055277281838",
     "brand": "Bois 1920",
@@ -67883,7 +67842,10 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
   {
     "id": "ean-3760246987554",
     "brand": "Bon Parfumeur",
@@ -74894,17 +74856,6 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8338179326089-44927002083465",
-    "brand": "Burberry",
-    "name": "(L) Mini 2 x Burberry + EDT Burberry Her + EDP Burberry Her London Dream",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 5,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8338179424393-44927002181769",
     "brand": "Burberry",
     "name": "Brit For Her",
@@ -75039,10 +74990,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
+  },
   {
     "id": "ean-5045252667422",
     "brand": "Burberry",
@@ -75075,7 +75023,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "escentual-burberrygoddess012",
     "brand": "Burberry",
@@ -75801,17 +75752,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/BURB0035.png?v=1765452780&width=1000",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338182209673-44927007293577",
-    "brand": "Bvlgari",
-    "name": "(L) 4 x Mini Rose Goldea Blossom Delight + EDT Rose Goldea Blossom Delight + EDT Omnia Crystalline + EDT Omnia Amethyste",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 5,
-    "ean": null,
-    "shops": 1,
-    "image": null,
     "notes": null
   },
   {
@@ -81564,10 +81504,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
+  },
   {
     "id": "nicchia-luxury-uk-58029548863872",
     "brand": "Carthusia i Profumi di Capri",
@@ -81611,7 +81548,10 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "nicchia-luxury-uk-58029559710080",
     "brand": "Carthusia i Profumi di Capri",
@@ -83054,17 +82994,6 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3770003318811",
-    "brand": "Chabaud Maison de Parfum",
-    "name": "Caprices Discovery Set 4x7.",
-    "concentration": "Parfum",
-    "sizeMl": 8,
-    "ean": "3770003318811",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3770003318965",
     "brand": "Chabaud Maison de Parfum",
     "name": "Caramelito",
@@ -83131,17 +83060,6 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3770003318293",
-    "brand": "Chabaud Maison de Parfum",
-    "name": "Classical Discovery Set 4x7.",
-    "concentration": "Parfum",
-    "sizeMl": 8,
-    "ean": "3770003318293",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3770003318217",
     "brand": "Chabaud Maison de Parfum",
     "name": "Eau Ambrée",
@@ -83192,17 +83110,6 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "3770003318736",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3770003318767",
-    "brand": "Chabaud Maison de Parfum",
-    "name": "Gourmand Discovery Set 4x7.",
-    "concentration": "Parfum",
-    "sizeMl": 8,
-    "ean": "3770003318767",
     "shops": 1,
     "image": null,
     "notes": null
@@ -88028,10 +87935,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416665239689-45147025670281",
     "brand": "Cuba Paris",
@@ -88108,7 +88012,10 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1729094006-60487800.jpg?v=1763396193&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "ean-3442150951943",
     "brand": "Cyrus",
@@ -90472,17 +90379,6 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "Sweet Amber"
       ]
     }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338401329289-44927356338313",
-    "brand": "Deluxe",
-    "name": "MCM Deluxe Travel 3 x",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 18,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338203934857-44927041667209",
@@ -94934,10 +94830,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
+  },
   {
     "id": "escentual-qbydandg002",
     "brand": "Dolce & Gabbana",
@@ -95097,7 +94990,10 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1729170341-76083200.jpg?v=1763394882&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "ean-3423473021001",
     "brand": "Dolce & Gabbana",
@@ -101265,10 +101161,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/EXNI0003_289c3ea1-5b63-4cf6-b341-2890abc3e714.png?v=1770719497&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338215862409-44927056183433",
     "brand": "F1 Parfums",
@@ -101378,7 +101271,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "ean-8032779258698",
     "brand": "Farmacia SS. Annunziata",
@@ -110952,10 +110848,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Tonka Bean"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-9026399535453-150ml",
     "brand": "Fragrance World",
@@ -111157,7 +111050,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Amber"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15863481925981-default-title",
     "brand": "Fragrance World",
@@ -113608,23 +113504,6 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "concentration": "Extrait De Parfum",
     "sizeMl": 100,
     "ean": "3575070054446",
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Patchouli"
-      ]
-    }
-  },
-  {
-    "id": "ean-3760333770441",
-    "brand": "Franck Boclet",
-    "name": "Cocaine 4x20 ml",
-    "concentration": "Extrait De Parfum",
-    "sizeMl": 20,
-    "ean": "3760333770441",
     "shops": 1,
     "image": null,
     "notes": {
@@ -119982,10 +119861,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "ean-5038607206193",
     "brand": "Geo F. Trumper Perfumer",
@@ -120084,7 +119960,10 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1666185444-46797200.jpg?v=1763392601&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "ean-3700134412263",
     "brand": "Geparlys",
@@ -127357,10 +127236,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3346470243989",
     "brand": "Guerlain",
@@ -127490,7 +127366,10 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "Tonka Bean"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "escentual-10000748",
     "brand": "Guerlain",
@@ -134677,10 +134556,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
+  },
   {
     "id": "escentual-initio002",
     "brand": "Initio",
@@ -134791,7 +134667,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "escentual-initio030",
     "brand": "Initio",
@@ -141033,10 +140912,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/JIMC0046.jpg?v=1769104967&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3386460078870",
     "brand": "Jimmy Choo",
@@ -141189,7 +141065,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/JIMC0061_6847d940-8986-4077-b683-f17af4876bd0.png?v=1738168804&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "escentual-jimmychoourban003",
     "brand": "Jimmy Choo",
@@ -148092,17 +147971,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3700550220473",
-    "brand": "Kilian",
-    "name": "Black Phantom Memento Mori 4x7.",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 8,
-    "ean": "3700550220473",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3700550237952",
     "brand": "Kilian",
     "name": "Born To Be Unforgettable",
@@ -148235,17 +148103,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3700550220428",
-    "brand": "Kilian",
-    "name": "Good Girl Gone Bad 4x7.",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 8,
-    "ean": "3700550220428",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3700550232780",
     "brand": "Kilian",
     "name": "Good Girl Gone Bad Eau Fraîche",
@@ -148357,17 +148214,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 250,
     "ean": "3700550224891",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3700550220466",
-    "brand": "Kilian",
-    "name": "Love Don’t Be Shy 4x7.",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 8,
-    "ean": "3700550220466",
     "shops": 1,
     "image": null,
     "notes": null
@@ -148582,17 +148428,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3700550220459",
-    "brand": "Kilian",
-    "name": "Straight to Heaven 4x7.",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 8,
-    "ean": "3700550220459",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-27425920",
     "brand": "Kilian",
     "name": "Sunkissed Goddess",
@@ -148681,10 +148516,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416706265225-45147077312649",
     "brand": "Korres",
@@ -148869,7 +148701,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416706199689-45147077247113",
     "brand": "Korres",
@@ -155901,20 +155736,6 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15723946574173-default-title",
-    "brand": "Lattafa",
-    "name": "Badee Al Collection Set 5x Lattafa",
-    "concentration": "Oud",
-    "sizeMl": 5,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Collection-Set-5x-5ml-Lattafa-179807553.jpg?v=1762021344",
-    "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
-  {
     "id": "emirates-oud-15568493871453-default-title",
     "brand": "Lattafa",
     "name": "Badee Al Honor & Glory Air Freshener Lattafa",
@@ -156254,7 +156075,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15593252815197-default-title",
     "brand": "Lattafa",
@@ -159397,29 +159221,6 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
       ],
       "base": [
         "Amber",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15644472541533-default-title",
-    "brand": "Lattafa",
-    "name": "My Yara Collection Perfume Set 4x25ml Lattafa",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 25,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/My-Yara-Collection-Perfume-Set-4x25ml-EDP-Lattafa-177273971.jpg?v=1758673790",
-    "notes": {
-      "top": [
-        "Green Mandarin"
-      ],
-      "middle": [
-        "Strawberry Fizz Candy"
-      ],
-      "base": [
-        "Sandalwood",
-        "Vanilla Syrup",
         "Musk"
       ]
     }
@@ -162877,17 +162678,6 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416717635721-45147092910217",
-    "brand": "Laurent Mazzone",
-    "name": "Arsenic Osman Extreme Travel set 3x15ml",
-    "concentration": "Extrait De Parfum",
-    "sizeMl": 15,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3760213761668",
     "brand": "Laurent Mazzone",
     "name": "Black Oud",
@@ -162905,17 +162695,6 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "concentration": "Extrait De Parfum",
     "sizeMl": 100,
     "ean": "3760213760555",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416717668489-45147092942985",
-    "brand": "Laurent Mazzone",
-    "name": "Black Oud Extreme Amber Travel set 3x15ml",
-    "concentration": "Extrait De Parfum",
-    "sizeMl": 15,
-    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -163014,17 +162793,6 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "name": "Hysteric",
     "concentration": "Extrait De Parfum",
     "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416717439113-45147092615305",
-    "brand": "Laurent Mazzone",
-    "name": "Hysteric Travel set 3x15ml",
-    "concentration": "Extrait De Parfum",
-    "sizeMl": 15,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -163323,17 +163091,6 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "concentration": "Extrait De Parfum",
     "sizeMl": 15,
     "ean": "3760213760395",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416717701257-45147093008521",
-    "brand": "Laurent Mazzone",
-    "name": "Ultimate Seduction Extreme Oud Travel set 3x15ml",
-    "concentration": "Extrait De Parfum",
-    "sizeMl": 15,
-    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -165270,10 +165027,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3760040116198",
     "brand": "Les Néréides",
@@ -165496,7 +165250,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "ean-3760303363109",
     "brand": "Liquides Imaginaires",
@@ -174123,10 +173880,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6290362164920",
     "brand": "Maison Asrar",
@@ -174512,7 +174266,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1752066909-12400300.jpg?v=1763398269&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "ean-9831166542166",
     "brand": "Maison Asrar",
@@ -175966,17 +175723,6 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/MFK0006.png?v=1772099196&width=1000",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416733495433-45147114635401",
-    "brand": "Maison Francis Kurkdjian",
-    "name": "Baccarat Rouge 540 Travel Set 3 x Extrait de Parfum Refills",
-    "concentration": "Extrait De Parfum",
-    "sizeMl": 11,
-    "ean": null,
-    "shops": 1,
-    "image": null,
     "notes": null
   },
   {
@@ -180744,10 +180490,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8055118031691",
     "brand": "Milano Fragranze",
@@ -181191,7 +180934,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
         "Sugar"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "escentual-millerharris178",
     "brand": "Miller Harris",
@@ -188244,10 +187990,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8717774840016",
     "brand": "Nasomatto",
@@ -188475,7 +188218,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "ean-3760333770830",
     "brand": "Nectar Olfactif",
@@ -193653,28 +193399,6 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3700578507624",
-    "brand": "Parfums de Marly",
-    "name": "Althaïr 3x10 ml Ricarica",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3700578507624",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3700578507709",
-    "brand": "Parfums de Marly",
-    "name": "Althaïr 3x10 ml Travel Set + Case",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3700578507709",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3700578501332",
     "brand": "Parfums de Marly",
     "name": "Athalia",
@@ -193789,28 +193513,6 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3700578507655",
-    "brand": "Parfums de Marly",
-    "name": "Delina 3x10 ml Ricarica",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3700578507655",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3700578507693",
-    "brand": "Parfums de Marly",
-    "name": "Delina 3x10 ml Travel Set + Case",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3700578507693",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3700578501318",
     "brand": "Parfums de Marly",
     "name": "Delina Exclusif",
@@ -193830,28 +193532,6 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/PDM0019_21d3043b-ebdc-49c1-9ecf-86e34b289543.png?v=1772099201&width=1000",
-    "notes": null
-  },
-  {
-    "id": "ean-3700578507648",
-    "brand": "Parfums de Marly",
-    "name": "Delina Exclusif 3x10 ml Ricarica",
-    "concentration": "Parfum",
-    "sizeMl": 10,
-    "ean": "3700578507648",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3700578507686",
-    "brand": "Parfums de Marly",
-    "name": "Delina Exclusif 3x10 ml Travel Set + Case",
-    "concentration": "Parfum",
-    "sizeMl": 10,
-    "ean": "3700578507686",
-    "shops": 1,
-    "image": null,
     "notes": null
   },
   {
@@ -193885,17 +193565,6 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "ean": "3700578501967",
     "shops": 1,
     "image": null,
-    "notes": null
-  },
-  {
-    "id": "justmylook-pdm0021",
-    "brand": "Parfums de Marly",
-    "name": "Delina Travel Set 3 x",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/PDM0021.png?v=1766583610&width=1000",
     "notes": null
   },
   {
@@ -193989,10 +193658,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3700578501493",
     "brand": "Parfums de Marly",
@@ -194022,17 +193688,6 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 2,
     "ean": "3700578501479",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3700578507716",
-    "brand": "Parfums de Marly",
-    "name": "Layton 3x10 ml Travel Set + Case",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3700578507716",
     "shops": 1,
     "image": null,
     "notes": null
@@ -194205,28 +193860,6 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3700578511058",
-    "brand": "Parfums de Marly",
-    "name": "Valaya 3x10 ml Ricarica",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3700578511058",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3700578511065",
-    "brand": "Parfums de Marly",
-    "name": "Valaya 3x10 ml Travel Set + Case",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3700578511065",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3700578505781",
     "brand": "Parfums de Marly",
     "name": "Valaya Exclusif",
@@ -194335,7 +193968,10 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1738320816-91219300.jpg?v=1763393303&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "ean-3442150901962",
     "brand": "Paris Bleu",
@@ -200346,17 +199982,6 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-652685260424",
-    "brand": "Perris Monte Carlo",
-    "name": "Rose de Taif 2x7.",
-    "concentration": "Extrait De Parfum",
-    "sizeMl": 8,
-    "ean": "652685260424",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-0652685300502",
     "brand": "Perris Monte Carlo",
     "name": "Santal du Pacifique",
@@ -200385,17 +200010,6 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "0652685300106",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-652685300427",
-    "brand": "Perris Monte Carlo",
-    "name": "Santal du Pacifique 2x7.",
-    "concentration": "Extrait De Parfum",
-    "sizeMl": 8,
-    "ean": "652685300427",
     "shops": 1,
     "image": null,
     "notes": null
@@ -201784,10 +201398,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
         "Vetiver"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338268848265-44927137022089",
     "brand": "Police",
@@ -202271,7 +201882,10 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "escentual-pradarose002",
     "brand": "Prada",
@@ -206178,17 +205792,6 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8338393202825-44927335202953",
-    "brand": "Ralph Lauren",
-    "name": "Ralph Lauren World of Polo Men's 3 x Set",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3605973076563",
     "brand": "Ralph Lauren",
     "name": "Ralph's Club New York",
@@ -209750,10 +209353,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8682241303915",
     "brand": "Régalien Istanbul",
@@ -210116,7 +209716,10 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "ean-3596930001066",
     "brand": "Reminiscence",
@@ -217155,17 +216758,6 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "escentual-sergelutens98",
-    "brand": "Serge Lutens",
-    "name": "La Fille de Berlin Travel Set 4x7.",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 8,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8338280054921-44927173034121",
     "brand": "Serge Lutens",
     "name": "La Fille De Berlin Unisex",
@@ -217626,10 +217218,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8055681293403",
     "brand": "Simone Andreoli",
@@ -218003,7 +217592,10 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
   {
     "id": "ean-8055681293298",
     "brand": "Simone Andreoli",
@@ -222313,17 +221905,6 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     }
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416775995529-45147164180617",
-    "brand": "Thameen",
-    "name": "Britologne Collection Discovery Set 3x10ml",
-    "concentration": "Eau de Cologne",
-    "sizeMl": 10,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8416775635081-45147163721865",
     "brand": "Thameen",
     "name": "Centre Stage Elixir",
@@ -224507,10 +224088,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8016741142703",
     "brand": "Tiziana Terenzi",
@@ -224933,7 +224511,10 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
   {
     "id": "ean-5055170216015",
     "brand": "Tom Edward",
@@ -230207,17 +229788,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3760298542411",
-    "brand": "Vilhelm Parfumerie",
-    "name": "125th & Bloom 3x10 ml",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3760298542411",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3760298545153",
     "brand": "Vilhelm Parfumerie",
     "name": "Back to the Roots",
@@ -230246,17 +229816,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "3760298545139",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3760298545269",
-    "brand": "Vilhelm Parfumerie",
-    "name": "Back to the Roots 3x10 ml",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3760298545269",
     "shops": 1,
     "image": null,
     "notes": null
@@ -230372,17 +229931,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3760298541773",
-    "brand": "Vilhelm Parfumerie",
-    "name": "Chicago High 3x10 ml",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3760298541773",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3760298545405",
     "brand": "Vilhelm Parfumerie",
     "name": "Chimilka",
@@ -230466,17 +230014,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "3760298542510",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3760298542367",
-    "brand": "Vilhelm Parfumerie",
-    "name": "Dear Polly 3x10 ml",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3760298542367",
     "shops": 1,
     "image": null,
     "notes": null
@@ -230647,17 +230184,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3760298541827",
-    "brand": "Vilhelm Parfumerie",
-    "name": "Mango Skin 3x10 ml",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3760298541827",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3760298541940",
     "brand": "Vilhelm Parfumerie",
     "name": "Modest Mimosa",
@@ -230735,17 +230261,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3760298541735",
-    "brand": "Vilhelm Parfumerie",
-    "name": "Morning Chess 3x10 ml",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3760298541735",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3760298542381",
     "brand": "Vilhelm Parfumerie",
     "name": "Opus Kore",
@@ -230801,17 +230316,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3760298542176",
-    "brand": "Vilhelm Parfumerie",
-    "name": "Poets Of Berlin 3x10 ml",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3760298542176",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3760298541834",
     "brand": "Vilhelm Parfumerie",
     "name": "Purple Fig",
@@ -230821,10 +230325,7 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3760298542572",
     "brand": "Vilhelm Parfumerie",
@@ -230854,17 +230355,6 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "3760298542718",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3760298542756",
-    "brand": "Vilhelm Parfumerie",
-    "name": "Room Service 3x10 ml",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3760298542756",
     "shops": 1,
     "image": null,
     "notes": null
@@ -230909,17 +230399,6 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "3760298545160",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-3760298545276",
-    "brand": "Vilhelm Parfumerie",
-    "name": "Sparkling Jo 3x10 ml",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 10,
-    "ean": "3760298545276",
     "shops": 1,
     "image": null,
     "notes": null
@@ -231418,7 +230897,10 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
   {
     "id": "ean-370022720781",
     "brand": "WienerBlut",
@@ -314227,20 +313709,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/o/u/oud.jpg"
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338345230473-44927259246729": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 78.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174941734&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "escentual-adpgelsomino001": [
     {
       "retailerId": "escentual",
@@ -329949,20 +329417,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3614274412789": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 66.95,
-      "wasPrice": 112,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089041656&a=3026001&m=124166",
-      "fetchedAt": "2026-08-12T18:57:07.303Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274412789_bab.jpg"
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8416637223049-45146967867529": [
     {
       "retailerId": "mybeauty-boutique",
@@ -341933,20 +341387,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338179326089-44927002083465": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 54.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928174&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8338179424393-44927002181769": [
     {
       "retailerId": "mybeauty-boutique",
@@ -342897,20 +342337,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-01T21:42:34.212Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/BURB0035.png?v=1765452780&width=1000"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338182209673-44927007293577": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 52.49,
-      "wasPrice": 64.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928206&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "escentual-aqvahomme09": [
@@ -350907,20 +350333,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3770003318811": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 52,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44133025006&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3770003318965": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -351005,20 +350417,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3770003318293": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 52,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44133025005&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3770003318217": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -351083,20 +350481,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43972603253&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-3770003318767": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 52,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44133025004&a=3026001&m=123544",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
       "isNew": false,
@@ -358979,20 +358363,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928641&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338401329289-44927356338313": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 51.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174943215&a=3026001&m=106925",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -378929,20 +378299,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43924977961&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-3760333770441": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 114,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43972603593&a=3026001&m=123544",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
       "isNew": false,
@@ -411373,20 +410729,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3700550220473": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 175,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43972603889&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3700550237952": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -411555,20 +410897,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3700550220428": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 175,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43972603900&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3700550232780": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -411703,20 +411031,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43972603915&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-3700550220466": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 175,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43972603916&a=3026001&m=123544",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
       "isNew": false,
@@ -411983,20 +411297,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43972603936&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-3700550220459": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 175,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43972603937&a=3026001&m=123544",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
       "isNew": false,
@@ -419087,20 +418387,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-al-Oud-Amethyst-Air-Freshener-300ml-Lattafa-138615185.jpg?v=1720736000"
     }
   ],
-  "emirates-oud-15723946574173-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/badee-al-oud-collection-set-lattafa",
-      "fetchedAt": "2026-08-13T07:17:22.828Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Collection-Set-5x-5ml-Lattafa-179807553.jpg?v=1762021344"
-    }
-  ],
   "emirates-oud-15568493871453-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -421479,20 +420765,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/musk-mood-perfume-100ml-edp-lattafa-emirates-oud-2.jpg?v=1713055501"
-    }
-  ],
-  "emirates-oud-15644472541533-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": 45,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/my-yara-collection-lattafa",
-      "fetchedAt": "2026-08-13T07:17:22.828Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/My-Yara-Collection-Perfume-Set-4x25ml-EDP-Lattafa-177273971.jpg?v=1758673790"
     }
   ],
   "ean-6291106063233": [
@@ -423931,20 +423203,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416717635721-45147092910217": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 114.49,
-      "wasPrice": 215.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687983&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3760213761668": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -423969,20 +423227,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43972604017&a=3026001&m=123544",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416717668489-45147092942985": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 114.49,
-      "wasPrice": 215.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687982&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -424107,20 +423351,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687961&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416717439113-45147092615305": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 138.99,
-      "wasPrice": 260.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687979&a=3026001&m=106925",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -424501,20 +423731,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43972604049&a=3026001&m=123544",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416717701257-45147093008521": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 114.49,
-      "wasPrice": 215.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687984&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -434709,20 +433925,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-08T11:26:50.485Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/MFK0006.png?v=1772099196&width=1000"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416733495433-45147114635401": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 213.99,
-      "wasPrice": 400.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661688262&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "justmylook-mfk0015": [
@@ -453709,34 +452911,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3700578507624": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 144,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45366698043&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-3700578507709": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 196,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45279539875&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3700578501332": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -453863,34 +453037,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3700578507655": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 144,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45366698044&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-3700578507693": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 196,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45279539881&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3700578501318": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -453917,34 +453063,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-08T22:27:14.777Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/PDM0019_21d3043b-ebdc-49c1-9ecf-86e34b289543.png?v=1772099201&width=1000"
-    }
-  ],
-  "ean-3700578507648": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 153,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45366698045&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-3700578507686": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 205,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45279539883&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "ean-3700578501295": [
@@ -453987,20 +453105,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
       "isNew": false,
       "imageUrl": null
-    }
-  ],
-  "justmylook-pdm0021": [
-    {
-      "retailerId": "justmylook",
-      "price": 140.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/parfums-de-marly-delina-eau-de-parfum-travel-set-3-x-10ml",
-      "fetchedAt": "2026-08-12T04:06:19.685Z",
-      "firstSeenAt": "2026-08-08T22:27:14.777Z",
-      "isNew": true,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/PDM0021.png?v=1766583610&width=1000"
     }
   ],
   "ean-3701415904354": [
@@ -454137,20 +453241,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43924978466&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-3700578507716": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 196,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45279539896&a=3026001&m=123544",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
       "isNew": false,
@@ -454347,34 +453437,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43924978480&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-3700578511058": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 144,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45366698046&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-3700578511065": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 196,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45321818635&a=3026001&m=123544",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
       "isNew": false,
@@ -459603,20 +458665,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-652685260424": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 77,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43924978509&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-0652685300502": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -459653,20 +458701,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43972605293&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-652685300427": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 77,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43924978510&a=3026001&m=123544",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
       "isNew": false,
@@ -465299,20 +464333,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-08T07:47:52.407Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1736852976-84259700.jpg?v=1763395812&width=1920"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338393202825-44927335202953": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 46.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942746&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "ean-3605973076563": [
@@ -474541,20 +473561,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "escentual-sergelutens98": [
-    {
-      "retailerId": "escentual",
-      "price": 125,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://escentual.com/products/serge-lutens-la-fille-de-berlin-eau-de-parfum-travel-set-4x7-5ml",
-      "fetchedAt": "2026-08-13T07:17:22.828Z",
-      "firstSeenAt": "2026-08-12T14:51:43.037Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8338280054921-44927173034121": [
     {
       "retailerId": "mybeauty-boutique",
@@ -479953,20 +478959,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689152&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416775995529-45147164180617": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 72.49,
-      "wasPrice": 136.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661689162&a=3026001&m=106925",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -488317,20 +487309,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3760298542411": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 118,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43972605731&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3760298545153": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -488367,20 +487345,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43924978699&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-3760298545269": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 118,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43972605733&a=3026001&m=123544",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
       "isNew": false,
@@ -488527,20 +487491,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3760298541773": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 118,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43972605743&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3760298545405": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -488647,20 +487597,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43972605747&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-3760298542367": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 118,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43972605748&a=3026001&m=123544",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
       "isNew": false,
@@ -488877,20 +487813,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3760298541827": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 118,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43972605760&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3760298541940": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -488989,20 +487911,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3760298541735": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 118,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43972605766&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3760298542381": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -489073,20 +487981,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3760298542176": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 118,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43972605771&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3760298541834": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -489143,20 +488037,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-3760298542756": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 118,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43972605776&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3760298541995": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -489207,20 +488087,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43972605780&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-3760298545276": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 118,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43972605781&a=3026001&m=123544",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
       "isNew": false,
