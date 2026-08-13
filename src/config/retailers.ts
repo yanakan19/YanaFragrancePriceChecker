@@ -1797,11 +1797,13 @@ export const RETAILERS: readonly Retailer[] = [
     //   euro prices as sterling — is ruled out by measurement.
     //
     //   What is still open is whether the stored list is sterling at all.
-    //   1.3486 is not a EUR/GBP exchange rate, so the stored numbers are not
-    //   simply this storefront's prices converted, and no address on this
-    //   storefront has yet been found that publishes a GBP price list to check
-    //   them against. Until one is, "these are the pounds Nicchia charges" is
-    //   an assumption, and 4,032 live rows is too much to rest on one.
+    //   What 1.3486 represents was not established: an exchange rate, a
+    //   market-specific price list, a VAT base, or some combination of those
+    //   are all consistent with it, and no live FX rate was consulted, so this
+    //   note asserts none of them. No address on this storefront has yet been
+    //   found that publishes a GBP price list to check the feed against.
+    //   Until one is, "these are the pounds Nicchia charges" is an assumption,
+    //   and 4,032 live rows is too much to rest on one.
     //
     // See CURRENCY_UNCONFIRMED at the foot of this file. The way back to
     // `enabled: true` is a GBP price list read off this shop's own storefront
@@ -2234,11 +2236,11 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'publishing EUR on 2026-08-13 (parseShopCurrency, Price verification run 4, job ' +
       '94426059278). Its stored prices are NOT those euro figures — live/stored across all ' +
       '6,843 keyable listings has a median of 1.3486, where relabelled euros would give 1.0 — ' +
-      'so the feed is not republishing the storefront in the wrong unit. But 1.3486 is not a ' +
-      'EUR/GBP rate either, and no GBP price list has been found on this storefront to check ' +
-      'the feed against, so what currency the shop actually charges a UK customer is still ' +
-      'unestablished. It ran enabled with 4,032 offer rows live on that unproven declaration ' +
-      'until 2026-08-13.',
+      'so the feed is not republishing the storefront in the wrong unit. What 1.3486 does ' +
+      'represent was not established (no live FX rate was consulted), and no GBP price list ' +
+      'has been found on this storefront to check the feed against, so what currency the shop ' +
+      'actually charges a UK customer is still unestablished. It ran enabled with 4,032 offer ' +
+      'rows live on that unproven declaration until 2026-08-13.',
   ],
 ]);
 
