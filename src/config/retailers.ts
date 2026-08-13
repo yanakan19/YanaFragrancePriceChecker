@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 55 retailers, 27 of them `enabled: true`. Every one of them is a legitimate
+ * 56 retailers, 27 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -2197,6 +2197,55 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: null,
     affiliate: { ...awinPending('29993') },
   },
+
+  // ── Surfaced by Microsoft Shopping, nothing yet read from the shop ──────────
+  {
+    id: 'carethy',
+    name: 'Carethy',
+    // Taken from the shopping listing, which named the shop "Carethy.co.uk".
+    // That is the only source for this domain — nobody has opened it, so the
+    // `www.` on the homepage below is a convention, not something observed.
+    // Confirm both before enabling.
+    domain: 'carethy.co.uk',
+    homepage: 'https://www.carethy.co.uk',
+    // From the one listing seen: a Calvin Klein Eau de Parfum, which is
+    // designer. Whether they carry niche or Middle Eastern houses is unknown,
+    // so those tiers are not claimed.
+    tiers: ['designer'],
+    // Disabled, and it must stay that way until someone has actually read this
+    // shop. Everything known about it is one line of a third-party shopping
+    // widget. In particular the currency is not established and this entry is
+    // listed in CURRENCY_UNCONFIRMED at the foot of this file, which is the
+    // lesson from nicchia-luxury-uk written down as data rather than as
+    // regret: that shop went live with 4,032 listings on a `currency: 'GBP'`
+    // nobody had checked, and the guard could not catch it because nobody had
+    // added it to the list. A .co.uk domain is not evidence of sterling
+    // pricing — uk.zimayaperfumes.com quotes dollars.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      // Not a reading of their delivery page, which nobody has opened — the
+      // registry requires a range and this is the neutral one used for every
+      // unresearched entry here. shipping:discover replaces it with what the
+      // page says, or records that the page says nothing.
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-13',
+      confidence: 'unverified',
+      notes:
+        'Added 2026-08-13 from a Microsoft Shopping results page, which listed it against ' +
+        'Calvin Klein Contradiction Eau de Parfum 100ml. Nothing here has been read from the ' +
+        'shop itself: not its delivery terms, not its robots.txt, not its checkout currency, ' +
+        'not whether it sells fragrance beyond the one listing seen. The £30.14 in that ' +
+        'listing was a paid placement in a third-party surface, not a price read from this ' +
+        'shop, and is deliberately not recorded as one anywhere. No affiliate programme has ' +
+        'been researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
 ] as const;
 
 /**
@@ -2265,6 +2314,14 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'rate was not established, and nothing measured suggests this shop takes sterling at ' +
       'all. It ran enabled with 4,032 offer rows live on that unproven declaration until ' +
       '2026-08-13.',
+  ],
+  [
+    'carethy',
+    'Listed here on the day it was added, before anyone had opened the shop — which is the ' +
+      'only moment at which this list can be complete. Everything known about carethy.co.uk ' +
+      'is one row of a Microsoft Shopping results page; its checkout currency has not been ' +
+      'looked at, and a .co.uk domain is not evidence of sterling (uk.zimayaperfumes.com ' +
+      'quotes dollars). No claim is made that it prices in anything in particular.',
   ],
   [
     'escentual',
