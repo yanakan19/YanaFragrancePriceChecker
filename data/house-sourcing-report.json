@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-13T15:55:55.072Z",
+  "checkedAt": "2026-08-13T17:51:33.077Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,7 +59,7 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 2,
+      "listings": 4,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
