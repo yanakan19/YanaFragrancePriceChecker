@@ -48,9 +48,49 @@ export interface YannyHealth {
   configured: boolean;
   freellmapiReachable: boolean;
   agentCount: number;
+  /**
+   * Why it is not ok, when it is not. Present so the panel can say which of
+   * three quite different things went wrong instead of one blanket line —
+   * "we could not reach the service" and "the service is up but the model
+   * router is rate-limited" need different words and have different
+   * lifetimes, and telling them apart from the outside was impossible.
+   */
+  reason: 'none' | 'not-built' | 'no-answer' | 'not-configured' | 'router-down';
 }
 
-const UNAVAILABLE: YannyHealth = { ok: false, configured: false, freellmapiReachable: false, agentCount: 0 };
+const UNAVAILABLE: YannyHealth = {
+  ok: false,
+  configured: false,
+  freellmapiReachable: false,
+  agentCount: 0,
+  reason: 'no-answer',
+};
+
+/**
+ * How long the browser waits for /api/health before giving up.
+ *
+ * This was 6000, and 6000 could not work. The handler on the other end
+ * budgets HEALTH_TIMEOUT_MS = 5000 for its own call to the model router
+ * (YanaFreeAPIMerger/server/index.js), so six seconds left one second for
+ * everything around it: DNS, TLS, a Fly machine resuming from suspend
+ * (fly.toml runs min_machines_running = 0, so an idle backend is suspended
+ * between readers), Express, two file reads, and the response back. The
+ * first reader after a quiet spell lost that race and was told the chatbot
+ * was unavailable when it was merely asleep.
+ *
+ * 15000 clears the server's own 5s ceiling with room for a resume and the
+ * round trip, and is still short enough that a genuinely dead backend gives
+ * up in a way a person will wait through rather than abandon. It is a
+ * client-side bound on somebody else's latency, so it is a judgement, not a
+ * measured figure — but the old value was not a judgement, it was smaller
+ * than the timeout it was waiting on.
+ *
+ * fly.toml's [http_service] comment offers the other lever for this exact
+ * symptom: min_machines_running = 1, which keeps a machine warm. That costs
+ * a machine running 24/7 and would still leave only one second of margin
+ * once the router itself is slow, so it is the fallback, not the fix.
+ */
+const HEALTH_TIMEOUT_MS = 15000;
 
 /**
  * Run every time the popup opens, never assumed from a previous check — see
@@ -60,10 +100,10 @@ const UNAVAILABLE: YannyHealth = { ok: false, configured: false, freellmapiReach
  * healthy right up until the first real question hung or failed.
  */
 export async function checkYannyHealth(): Promise<YannyHealth> {
-  if (!VIRTUAL_YANNY_CONFIGURED) return UNAVAILABLE;
+  if (!VIRTUAL_YANNY_CONFIGURED) return { ...UNAVAILABLE, reason: 'not-built' };
   try {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 6000);
+    const timer = setTimeout(() => controller.abort(), HEALTH_TIMEOUT_MS);
     let res: Response;
     try {
       res = await fetch(apiUrl('/api/health'), { signal: controller.signal });
@@ -72,11 +112,18 @@ export async function checkYannyHealth(): Promise<YannyHealth> {
     }
     if (!res.ok) return UNAVAILABLE;
     const body = (await res.json()) as Partial<YannyHealth>;
+    const configured = body.configured === true;
+    const freellmapiReachable = body.freellmapiReachable === true;
+    const ok = body.ok === true;
     return {
-      ok: body.ok === true,
-      configured: body.configured === true,
-      freellmapiReachable: body.freellmapiReachable === true,
+      ok,
+      configured,
+      freellmapiReachable,
       agentCount: typeof body.agentCount === 'number' ? body.agentCount : 0,
+      // Order matters: an unconfigured backend also reports the router
+      // unreachable, and naming the router there would send someone to
+      // debug a third party's rate limit over a missing key.
+      reason: ok ? 'none' : !configured ? 'not-configured' : !freellmapiReachable ? 'router-down' : 'no-answer',
     };
   } catch {
     return UNAVAILABLE;
