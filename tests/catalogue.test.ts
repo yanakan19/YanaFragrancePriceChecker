@@ -270,6 +270,58 @@ function raw(sku: string, over: Partial<RawListing> = {}): RawListing {
 const DAY1 = '2026-07-25T06:00:00Z';
 const DAY2 = '2026-07-26T06:00:00Z';
 
+describe('reconcile — merchantUrl survives storage', () => {
+  // reconcile spreads the crawled listing rather than copying named fields, so
+  // merchantUrl reaches storage without reconcile knowing it exists. These
+  // guard that: if someone replaces the spread with an enumerated field list,
+  // affiliate-feed listings silently lose their only verifiable address and
+  // Fragrance Click drops back out of price verification with nothing failing.
+  const feedRaw = (sku: string) =>
+    raw(sku, {
+      url: `https://www.awin1.com/pclick.php?p=${sku}&a=3026001&m=124166`,
+      merchantUrl: `https://shop.example/products/${sku}`,
+    });
+
+  it('stores merchantUrl on a listing seen for the first time', () => {
+    const r = reconcile({
+      existing: [], crawled: [feedRaw('a')],
+      retailerId: 'fragrance-click', now: DAY1, complete: true,
+    });
+
+    const stored = r.listings.find((l) => l.retailerSku === 'a');
+    expect(stored?.merchantUrl).toBe('https://shop.example/products/a');
+    expect(stored?.url).toBe('https://www.awin1.com/pclick.php?p=a&a=3026001&m=124166');
+  });
+
+  it('refreshes merchantUrl on a listing seen again, without touching url', () => {
+    const base = reconcile({
+      existing: [], crawled: [feedRaw('a')],
+      retailerId: 'fragrance-click', now: DAY1, complete: true,
+    });
+    const moved = raw('a', {
+      url: 'https://www.awin1.com/pclick.php?p=a&a=3026001&m=124166',
+      merchantUrl: 'https://shop.example/products/a-renamed',
+    });
+    const next = reconcile({
+      existing: base.listings, crawled: [moved],
+      retailerId: 'fragrance-click', now: DAY2, complete: true,
+    });
+
+    const stored = next.listings.find((l) => l.retailerSku === 'a');
+    expect(stored?.merchantUrl).toBe('https://shop.example/products/a-renamed');
+    expect(stored?.url).toBe('https://www.awin1.com/pclick.php?p=a&a=3026001&m=124166');
+    expect(stored?.firstSeenAt).toBe(DAY1);
+  });
+
+  it('leaves merchantUrl absent for a scraped listing that has no second URL', () => {
+    const r = reconcile({
+      existing: [], crawled: [raw('a')],
+      retailerId: 'boots', now: DAY1, complete: true,
+    });
+    expect(r.listings[0]!.merchantUrl ?? null).toBeNull();
+  });
+});
+
 describe('reconcile', () => {
   it('marks the first crawl as a baseline and flags nothing new', () => {
     const r = reconcile({

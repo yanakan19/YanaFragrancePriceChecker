@@ -39,6 +39,17 @@
  *     that feeds us. Listings whose only URL is a tracking link are verified
  *     through `products.json` or reported unverifiable — never by following the
  *     link.
+ *
+ *     Since 2026-08-13 a feed listing usually has a second address: Awin's
+ *     `merchant_deep_link`, stored as `merchantUrl` (see the header of
+ *     src/catalogue/awinFeed.ts). That is the merchant's own product page, so
+ *     it can be fetched exactly like any scraped retailer's URL, and it is
+ *     what gives Fragrance Click — 907 active listings, no `/products.json`,
+ *     every stored `url` a tracking link — a verification route for the first
+ *     time. The choice between the two URLs is made in one place,
+ *     `verificationTarget()`, which returns nothing at all unless the address
+ *     is on the retailer's own domain. A tracking link therefore cannot be
+ *     fetched even if the two fields are ever populated the wrong way round.
  *   - It never guesses a price. A listing it could not key against live data is
  *     counted as `unkeyed`, not as agreeing.
  *   - It obeys robots.txt, the registry's `minRequestGapMs` and any
@@ -68,6 +79,7 @@ import {
   type ShopifyPriceIndex,
 } from '../src/catalogue/shopifyPriceIndex.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
+import { verificationTarget } from '../src/catalogue/verificationTarget.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -387,7 +399,15 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
   if (index) {
     for (const listing of active) {
       outcome.attempted++;
-      const live = lookupLivePrice(listing.retailerSku, listing.url, index);
+      // `merchantUrl` first: the index's last-resort lookup reads a
+      // `/products/<handle>` path out of the URL, and a feed listing's `url` is
+      // a tracking link that has no such path — so before this field existed
+      // that fallback was simply dead for every feed retailer.
+      const live = lookupLivePrice(
+        listing.retailerSku,
+        listing.merchantUrl ?? listing.url,
+        index,
+      );
       if (!live) {
         outcome.unkeyed++;
         continue;
@@ -452,39 +472,46 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
 
   // ── Route 2: re-read a sample of product pages ────────────────────────────
   //
-  // Only listings whose stored URL is the retailer's own. A feed retailer's
-  // URLs are Awin tracking links; fetching one reports a customer click that
-  // never happened, so those listings are counted unverifiable instead.
-  const ownDomain = (url: string): boolean => {
-    try {
-      const host = new URL(url, origin).hostname.replace(/^www\./, '');
-      return host === retailer.domain.replace(/^www\./, '') || host.endsWith(`.${retailer.domain}`);
-    } catch {
-      return false;
-    }
-  };
+  // Only listings that expose an address on the retailer's own domain — their
+  // `merchantUrl` where a feed published one, otherwise their `url`. A feed
+  // retailer's `url` is an Awin tracking link and fetching one reports a
+  // customer click that never happened, so a listing offering nothing else is
+  // counted unverifiable instead. See `verificationTarget`.
+  const fetchable = active
+    .map((listing) => ({ listing, target: verificationTarget(listing, retailer.domain) }))
+    .filter((entry): entry is { listing: StoredListing; target: string } => entry.target !== null);
 
-  const fetchable = active.filter((l) => ownDomain(l.url));
+  const viaMerchantUrl = fetchable.filter((e) => Boolean(e.listing.merchantUrl)).length;
+
   if (fetchable.length === 0) {
     outcome.notes.push(
       'no listing carries a URL on this retailer\'s own domain — the only stored URL is an ' +
-        'affiliate tracking link, which this pass will not fetch. Unverifiable by this route.',
+        'affiliate tracking link, which this pass will not fetch, and no merchant_deep_link ' +
+        'was carried through either. Unverifiable by this route.',
     );
     return outcome;
   }
   if (fetchable.length < active.length) {
-    outcome.notes.push(`${active.length - fetchable.length} listings skipped: affiliate-link-only URL`);
+    outcome.notes.push(
+      `${active.length - fetchable.length} listings skipped: no address on the retailer's own domain`,
+    );
+  }
+  if (viaMerchantUrl > 0) {
+    outcome.notes.push(
+      `${viaMerchantUrl} listings verified via merchant_deep_link rather than the tracking link`,
+    );
   }
 
   outcome.route = 'product-page';
   const picked = sample(fetchable, sampleSize, rng(seed));
 
-  for (const listing of picked) {
+  for (const { listing, target } of picked) {
     if (Date.now() >= deadlineAt) {
       outcome.notes.push('stopped early: out of time budget');
       break;
     }
-    const url = new URL(listing.url, origin).toString();
+    // Already absolute and already domain-checked by verificationTarget().
+    const url = target;
     if (!isAllowed(robots, url)) {
       outcome.notes.push(`robots.txt disallows ${new URL(url).pathname} — skipped`);
       continue;
