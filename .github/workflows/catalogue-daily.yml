@@ -189,14 +189,25 @@ jobs:
             "Probe: what the crawler learned $(date -u +%Y-%m-%d)" \
             data/strategy-memory.json
 
-      # Reads each disabled shop's own delivery page, because the flat standard
-      # rate is what keeps them disabled and it is not findable by research —
-      # shops advertise the free-over threshold and bury the rate below it.
+      # Reads each shop's own delivery page and records what it says.
       #
-      # Report only. This step cannot enable a retailer or set standardGbp:
-      # delivered price is the default sort, so a wrong-low delivery charge
-      # makes a shop falsely win it. A human reads the quoted sentence and
-      # types the number. See scripts/shipping-discover.ts.
+      # Covers every enabled shop whose delivery rule is not confirmed, plus
+      # every shop with no rate at all. It used to cover only the second group,
+      # which meant 20 of the 22 enabled shops carrying an unverified delivery
+      # figure had never been fetched by this step once — the population that
+      # decides most of the site's "Cheapest" labels was the population it
+      # skipped.
+      #
+      # --write promotes confidence to 'confirmed' for a shop whose page agrees
+      # with the figure the registry already holds, and records
+      # standardRateNotPublished for a shop whose page states delivery terms
+      # and names no flat rate. Both write the URL and the sentence into
+      # shipping.source. It still cannot introduce a figure the registry does
+      # not hold, and it still cannot pick a side when page and registry
+      # disagree: delivered price is the default sort, so a wrong-low delivery
+      # charge makes a shop falsely win it, and a human reads the quoted
+      # sentence and types that number. See scripts/shipping-discover.ts and
+      # src/catalogue/shippingRegistryPatch.ts.
       #
       # Twice a day rather than hourly: a shop revises its delivery terms a few
       # times a year, so checking every hour would be 24 times the requests to
@@ -220,7 +231,15 @@ jobs:
           if [ -n "${{ inputs.shipping_raw_shop }}" ]; then
             npm run shipping:discover -- --raw=${{ inputs.shipping_raw_shop }}
           elif [ "${{ inputs.shipping_discover }}" = "true" ] || [ "$AGE" -ge 39600 ]; then
-            npm run shipping:discover
+            npm run shipping:discover -- --write
+            # A registry the run has just edited has to still compile and still
+            # satisfy the registry tests before it is committed. If it does
+            # not, the edit is thrown away rather than pushed: a broken
+            # retailers.ts takes the whole site down.
+            if ! npm run typecheck || ! npx vitest run tests/registry.test.ts; then
+              echo "Registry edits failed verification — reverting them."
+              git checkout -- src/config/retailers.ts
+            fi
             echo "$NOW" > "$MARKER"
           else
             echo "Last shipping discovery was $(( AGE / 3600 )) hours ago, under the eleven hour threshold — skipping."
@@ -233,7 +252,8 @@ jobs:
         run: |
           ./scripts/commit-and-push.sh \
             "Shipping terms: what each delivery page says $(date -u +%Y-%m-%d)" \
-            data/shipping-discovery-report.json data/shipping-discover-marker.txt
+            data/shipping-discovery-report.json data/shipping-discover-marker.txt \
+            src/config/retailers.ts
 
       # Every affiliate-feed retailer (adapter: 'affiliate-feed' in
       # src/config/retailers.ts — Fragrance Click UK, MyBeauty.Boutique and The

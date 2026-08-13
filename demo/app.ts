@@ -1653,10 +1653,27 @@ function deliveryLines(r: Retailer): string[] {
   const lines: string[] = [];
   lines.push(
     s.standardGbp === null
-      ? 'Delivery not stated — this shop does not publish a standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest'
+      ? // Two different facts wear the same null, and the line said the
+        // stronger of them for both. "This shop does not publish a standard
+        // delivery cost" is a claim about the shop, and it is only ours to
+        // make once someone has read their delivery page and found none —
+        // which is what standardRateNotPublished records. Without it all we
+        // can say is that we do not have the figure.
+        s.standardRateNotPublished
+        ? 'Delivery not stated — this shop publishes no standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest'
+        : 'Delivery not stated — we have not established this shop’s standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest'
       : s.standardGbp === 0
         ? 'Free standard delivery on every order'
         : `Standard delivery ${formatGbp(s.standardGbp)}`,
+  );
+  // Which of these figures has actually been read off the shop's own delivery
+  // page, said once per shop rather than repeated against every number.
+  lines.push(
+    s.confidence === 'confirmed'
+      ? s.source
+        ? `Read from this shop’s own delivery page on ${s.source.readAt}`
+        : 'Confirmed against this shop’s own delivery page'
+      : 'Not yet confirmed with the shop — these delivery terms came from research, not from their own delivery page',
   );
   if (s.freeOverGbp !== null && s.freeOverGbp > 0) {
     lines.push(`Free once you spend ${formatGbp(s.freeOverGbp)}`);
