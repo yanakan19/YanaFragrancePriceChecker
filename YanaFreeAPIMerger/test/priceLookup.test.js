@@ -55,7 +55,13 @@ test('formatPriceAnswer: ambiguous names every tied candidate and asks, never gu
 test('formatPriceAnswer: low_confidence hedges on identity and states no price', () => {
   const result = { status: 'low_confidence', matchConfidence: 40, brand: 'Mexx', name: 'Whenever Wherever For Him', concentration: 'Aftershave' };
   const text = formatPriceAnswer('what fragrance have you ever heard of philosophically', result);
-  assert.match(text, /40% confidence/);
+  // The hedge has to be *in the words*, not in a percentage. This used to
+  // assert /40% confidence/, which pinned the copy rather than the promise:
+  // a matcher score printed at a reader invites them to arbitrate a number
+  // whose basis they cannot see. What must hold is that the reply admits it
+  // is unsure and quotes no price — both still asserted below.
+  assert.match(text, /not certain/i);
+  assert.doesNotMatch(text, /%/, 'an internal matcher score must not reach the reader');
   assert.match(text, /is that what you meant/i);
   assert.doesNotMatch(text, /£/, 'a weak match must not be quoted a price against');
 });

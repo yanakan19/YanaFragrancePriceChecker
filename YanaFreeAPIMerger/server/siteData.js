@@ -487,13 +487,24 @@ export function formatPriceAnswer(question, result) {
 
   if (result.status === 'ambiguous') {
     const names = result.candidates.map((f) => `${f.brand} ${f.name} (${f.concentration})`);
-    return `A few products match that (${result.matchConfidence}% confidence): ${names.join(', ')}. Which one did you mean?`;
+    // matchConfidence is deliberately not printed here. It is a matcher
+    // score, and on this branch it is a score for the *set* — "100%
+    // confidence" beside a list of eight different perfumes reads as a
+    // claim about the answer when it is really "all eight matched your
+    // words equally well", which is the opposite of confident. The
+    // question already says everything the reader needs.
+    return `A few products match that: ${names.join(', ')}. Which one did you mean?`;
   }
 
   if (result.status === 'low_confidence') {
+    // Here the number is genuinely load-bearing — it is why this reply
+    // hedges instead of stating a price — but a percentage invites the
+    // reader to arbitrate a score they cannot see the basis for. Say the
+    // uncertainty in words and let them correct it.
     return (
-      `The closest match I can find (${result.matchConfidence}% confidence) is ${result.brand} ${result.name} ` +
-      `(${result.concentration}). Is that what you meant? If not, try the exact brand and product name.`
+      `The closest I can find is ${result.brand} ${result.name} ` +
+      `(${result.concentration}), though I'm not certain that's the one. ` +
+      `Is that what you meant? If not, try the exact brand and product name.`
     );
   }
 
