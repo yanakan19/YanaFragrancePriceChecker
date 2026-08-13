@@ -157,6 +157,18 @@ function safetyScore(content) {
  *   - when SITE DATA explicitly recorded no match for this question ("PRICE
  *     MATCH: none" / "NOTE MATCHED CANDIDATES: none"), the answer must say
  *     it does not have that on file rather than confidently filling the gap.
+ *   - the reverse failure, and the one that actually produced the "One
+ *     Million Elixir" bug this criterion was missing: when SITE DATA *did*
+ *     find a real match ("PRICE MATCH (NN% confidence): ..." / "NOTE MATCHED
+ *     CANDIDATES (requested: ...): ...", i.e. anything other than the
+ *     "none" form above), an answer that still claims the fragrance is not
+ *     on file is not a cautious answer, it is a wrong one — SITE DATA is
+ *     sitting right there with the fact the answer denies. Before this
+ *     check, that denial scored a perfect 100: it contains no ungrounded
+ *     price and no invented URL, so nothing else here touched it, and its
+ *     tidy bulleted "closest matches" list could out-score a plain correct
+ *     answer on structure and actionability. See scoring.test.js for the
+ *     regression pinned to the exact reported wording.
  *   - when SITE DATA says a fragrance is out of stock everywhere, the answer
  *     must reflect that rather than quoting a price as if it were still
  *     available — the same "do not paper over a gap" failure as the point
@@ -181,6 +193,19 @@ export function groundednessScore(content, siteData) {
   const dataFoundNothing = /price match: none|note matched candidates: none/i.test(data);
   const answerAdmitsGap = /don'?t have that on file|no (fragrance|match|information)\s+(on file|found)/i.test(content);
   if (dataFoundNothing && !answerAdmitsGap) score -= 35;
+
+  // The reverse case (see this function's own doc comment above): SITE DATA
+  // named a real match, "PRICE MATCH (NN% confidence): ..." or "NOTE MATCHED
+  // CANDIDATES (requested: ...): ...", but the answer still denies knowing
+  // the fragrance. This is the exact shape of the "One Million Elixir" bug —
+  // caught here even though it carries no ungrounded price and no fake URL,
+  // because the denial itself is the ungrounded claim.
+  const dataFoundSomething = /price match \(|note matched candidates \(/i.test(data);
+  const answerDeniesKnownMatch =
+    /don'?t have (a fragrance|that|it|one)\b/i.test(content) ||
+    /no fragrance (named|called)/i.test(content) ||
+    /not (currently )?on file/i.test(content);
+  if (dataFoundSomething && answerDeniesKnownMatch) score -= 60;
 
   const dataSaysOutOfStock = /out of stock everywhere/i.test(data);
   const answerReflectsOutOfStock = /out of stock|sold out|not (currently )?available|no(?:ne|thing) (in stock|available)/i.test(content);

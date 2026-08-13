@@ -1,6 +1,6 @@
 import { callAgentModel } from './freellmapiClient.js';
 import { scoreAndRank } from './scoring.js';
-import { buildSiteDataBlock } from './siteData.js';
+import { buildSiteDataBlock, resolvePriceQuery, formatPriceAnswer, policyContextFor } from './siteData.js';
 
 /**
  * Site-grounded only. Every agent gets the same instruction: the SITE DATA
@@ -40,7 +40,17 @@ function buildSystemPrompt() {
       'below. If it is not there, you do not know it. Say so plainly: "I don\'t have ' +
       'that on file right now." You may then mention what IS in SITE DATA that comes ' +
       'closest. Never fill the gap from anything else, including a fragrance or price ' +
-      'you personally recognise.',
+      'you personally recognise. This applies to spelling too: if SITE DATA names a ' +
+      'brand or fragrance one way, use that exact spelling, even if you recall the ' +
+      'house under a different or former name from your own training (a real example: ' +
+      'SITE DATA says "Rabanne", not "Paco Rabanne" — the house renamed itself, and an ' +
+      'answer that reverts to the old name is not using SITE DATA).',
+    '1b. FOUND MEANS FOUND. When SITE DATA contains a "PRICE MATCH" or "NOTE MATCHED ' +
+      'CANDIDATES" line that is not the word "none", that fragrance IS in the current ' +
+      'catalogue. Never say you don\'t have it on file, can\'t find it, or don\'t ' +
+      'recognise it when SITE DATA is quoting it to you directly underneath this ' +
+      'prompt — read the match before answering, do not pattern-match the question ' +
+      'against your own memory of what this house sells.',
     '2. DELIVERY. Some retailers in SITE DATA do not publish a standard delivery cost ' +
       'and are marked "delivery not stated". Never present one of these as the ' +
       'cheapest option, and never guess, estimate, or round a delivery figure that ' +
@@ -70,12 +80,45 @@ function buildSystemPrompt() {
 }
 
 /**
+ * "How much is X" is a database question, not an opinion one: the exact fact
+ * a price answer needs (does this fragrance exist, what sizes, what does
+ * each cost, from where) is already sitting in this repo's own catalogue,
+ * looked up the same deterministic way `resolvePriceQuery` in siteData.js
+ * looks it up for the LLM's own SITE DATA block. Fanning that out to 28
+ * models and ranking their prose adds latency for no accuracy gain, and — as
+ * measured against the reported "One Million Elixir" case, see
+ * scoring.test.js — is exactly how a *wrong* answer got produced: nothing
+ * stopped a model from confidently denying a fragrance the data underneath
+ * it named outright. A template with no model in the loop cannot do that; it
+ * can only ever repeat a price, size or retailer that is genuinely there, or
+ * say plainly that nothing matched.
+ *
+ * This is not a shortcut taken because the council is slow; it is the
+ * correct tool for this question shape. The council still runs, unchanged,
+ * for 'suggest' and 'general' — questions with no single right database
+ * answer, where a model's phrasing is the actual product.
+ */
+async function answerPriceDirectly(result, question) {
+  const content = formatPriceAnswer(question, result);
+  return {
+    ok: true,
+    winner: { agentNumber: 0, content, totalScore: 100, criteriaScores: {}, rank: 1 },
+    source: 'site-data-direct',
+    priceMatchStatus: result.status,
+  };
+}
+
+/**
  * Runs the full council: fetches the site-grounded data for this question,
  * fans the resulting prompt out to every configured agent model (pinned, in
  * parallel), scores+ranks the survivors against that same data, and returns
  * the winner plus the full anonymous scoring matrix. `onEvent` is called
  * with splash / progress events as they happen so the caller can stream them
  * (SSE).
+ *
+ * Intent `'price'` never reaches the council at all — see
+ * `answerPriceDirectly` above for why answering it from site data alone,
+ * with no model call, is more accurate as well as faster.
  */
 export async function runCouncil({ question, intent, config, onEvent }) {
   const { baseUrl, apiKey, models } = config;
@@ -83,7 +126,27 @@ export async function runCouncil({ question, intent, config, onEvent }) {
 
   emit('status', { message: 'Looking up what pricesniffs.space actually has on this…' });
 
-  const siteData = await buildSiteDataBlock(question, intent);
+  let effectiveIntent = intent;
+  if (intent === 'price') {
+    const result = await resolvePriceQuery(question);
+    // `classifyIntent` (intent.js) fires 'price' on the bare word "price" or
+    // "cost" anywhere in the message, so "how does your price comparison
+    // work" arrives labelled 'price' despite naming no fragrance at all.
+    // resolvePriceQuery finding nothing is not, on its own, "this fragrance
+    // does not exist" in that case — it is evidence the question was never
+    // about a specific fragrance. Only fall through to the full council
+    // (as a 'general' question) when there is a real policy/FAQ match to
+    // ground it in; a plain "no match" with no such signal is answered
+    // directly, the normal case for a genuine price lookup gone unmatched.
+    if (result.status !== 'no_match' || !(await policyContextFor(question))) {
+      const answer = await answerPriceDirectly(result, question);
+      emit('status', { message: 'Here we go.' });
+      return answer;
+    }
+    effectiveIntent = 'general';
+  }
+
+  const siteData = await buildSiteDataBlock(question, effectiveIntent);
 
   const messages = [
     { role: 'system', content: buildSystemPrompt() },
