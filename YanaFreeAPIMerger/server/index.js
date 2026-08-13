@@ -23,14 +23,43 @@ app.use(express.json());
 // build serving from a different origin during setup must keep working too.
 app.use(cors());
 
+/**
+ * The agent roster, read fresh from disk per call so editing agents.json
+ * takes effect without a restart.
+ *
+ * It never throws, and that is load-bearing rather than defensive habit.
+ * Express 4 does not catch a rejected promise from an `async` handler: the
+ * rejection escapes the router, no response is ever written, and the
+ * request hangs until the client gives up. Every route below awaits this,
+ * so a missing or malformed agents.json would have turned `/api/health`
+ * into a black hole — the deploy workflow's verify step would sit through
+ * twelve empty responses and report "the app did not stay up", which is
+ * both wrong and unfixable from that message. Returning an empty list
+ * instead makes it `configured:false` with a named reason, which is a fact
+ * the health check can report and a person can act on.
+ *
+ * @returns {Promise<{ models: string[], error: string | null }>}
+ */
 async function loadAgentModels() {
-  const raw = await readFile(path.join(__dirname, 'config', 'agents.json'), 'utf8');
-  const parsed = JSON.parse(raw);
-  return (parsed.models ?? []).slice(0, 28);
+  try {
+    const raw = await readFile(path.join(__dirname, 'config', 'agents.json'), 'utf8');
+    const parsed = JSON.parse(raw);
+    const models = Array.isArray(parsed.models) ? parsed.models.slice(0, 28) : [];
+    if (models.length === 0) {
+      return { models, error: 'server/config/agents.json parsed but listed no models' };
+    }
+    return { models, error: null };
+  } catch (err) {
+    const error = `could not read server/config/agents.json: ${String(err?.message ?? err)}`;
+    // Goes to the container's stderr, which is what `flyctl logs` shows —
+    // the one place an operator can see why agentCount is 0.
+    console.error(error);
+    return { models: [], error };
+  }
 }
 
 app.get('/api/config', async (req, res) => {
-  const models = await loadAgentModels();
+  const { models } = await loadAgentModels();
   const configured = Boolean(process.env.FREELLMAPI_BASE_URL && process.env.FREELLMAPI_API_KEY);
   res.json({ agentCount: models.length, configured });
 });
@@ -66,7 +95,7 @@ app.get('/api/config', async (req, res) => {
 app.get('/api/health', async (req, res) => {
   const baseUrl = process.env.FREELLMAPI_BASE_URL;
   const apiKey = process.env.FREELLMAPI_API_KEY;
-  const models = await loadAgentModels();
+  const { models, error: agentsError } = await loadAgentModels();
   const configured = Boolean(baseUrl && apiKey) && models.length > 0;
 
   // Never loads the site modules itself — reports "not loaded yet" until the
@@ -79,8 +108,22 @@ app.get('/api/health', async (req, res) => {
     siteData = { loaded: false, error: String(err?.message ?? err) };
   }
 
+  // `agentsError` is reported only when there is one, and only alongside
+  // configured:false — it is the difference between "no key" and "the
+  // roster file is unreadable", which otherwise look identical from
+  // outside. Nothing consumes it programmatically: the four fields the
+  // deploy workflow and demo/virtualYanny.ts read are ok, configured,
+  // freellmapiReachable and agentCount, and those keep their exact names
+  // and types here.
   if (!configured) {
-    return res.json({ ok: false, configured: false, freellmapiReachable: false, agentCount: models.length, siteData });
+    return res.json({
+      ok: false,
+      configured: false,
+      freellmapiReachable: false,
+      agentCount: models.length,
+      siteData,
+      ...(agentsError ? { agentsError } : {}),
+    });
   }
 
   let freellmapiReachable = false;
@@ -118,9 +161,12 @@ app.post('/api/chat', async (req, res) => {
     });
   }
 
-  const models = await loadAgentModels();
+  const { models, error: agentsError } = await loadAgentModels();
   if (models.length === 0) {
-    return res.status(503).json({ error: 'no_agents_configured', message: 'server/config/agents.json has no models listed.' });
+    return res.status(503).json({
+      error: 'no_agents_configured',
+      message: agentsError ?? 'server/config/agents.json has no models listed.',
+    });
   }
 
   res.setHeader('Content-Type', 'text/event-stream');
@@ -151,6 +197,15 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
+// No host argument on purpose, and it must stay that way. Node binds the
+// unspecified address when none is given — `::` on a dual-stack host, which
+// accepts IPv4 too — so the process is reachable on every interface. Fly's
+// proxy reaches a machine over the private network, not over loopback, so
+// the classic silent deploy failure here would be binding '127.0.0.1':
+// the container starts, the log says "listening", and every request from
+// outside times out because nothing outside the machine can see the socket.
+// Passing '0.0.0.0' explicitly is the other trap — it looks stricter and is
+// actually narrower, since it drops the IPv6 half.
 app.listen(PORT, () => {
-  console.log(`Virtual Yanny backend listening on http://localhost:${PORT}`);
+  console.log(`Virtual Yanny backend listening on port ${PORT} (all interfaces)`);
 });

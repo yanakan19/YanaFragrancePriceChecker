@@ -14,13 +14,44 @@ name: Deploy Virtual Yanny backend
 # fresh as the site. Re-run it when that gap starts to matter. (The server
 # re-reads its data from disk per question — see server/siteData.js — but
 # inside a container that disk is the image.)
+#
+# ── Never press "Re-run", always dispatch a new run ──────────────────────
+# A GitHub Actions re-run replays the ORIGINAL commit of that run. It does
+# not pick up anything committed since — not a renamed app, not a fixed
+# Dockerfile, nothing. Every failed attempt so far has been a replay of a
+# commit that predated the fix being tested, which is why the log kept
+# printing an app name that had already been changed on the branch. The
+# "Refuse to build a stale commit" step below now catches that two ways and
+# stops, rather than deploying the wrong thing. To retry, come back here
+# and press "Run workflow" again.
+#
+# ── What this workflow does NOT do: create the Fly app ───────────────────
+# It used to try, and that is what failed with `Error: unauthorized`.
+# Creating an app is an organisation-level action; a deploy token is scoped
+# to one app and cannot do it. Automating a once-in-the-lifetime step was
+# not worth making the CI token permanently able to create and destroy
+# things across a whole Fly org — this repo is public, and the narrower the
+# token behind that secret, the smaller the damage if it ever leaks. So the
+# app is created once, by hand, from a terminal that is already logged in;
+# this workflow checks that it exists and says exactly what to run if it
+# does not. The `create_app_if_missing` input re-enables the old behaviour
+# for anyone who would rather use a broader token.
 on:
   workflow_dispatch:
     inputs:
       fly_org:
-        description: 'Fly organisation to create the app in the first time this runs. "personal" is right unless you have set up an org.'
+        description: 'Fly organisation the app lives in. "personal" is right unless you have set up an org. Only used when create_app_if_missing is ticked.'
         required: false
         default: 'personal'
+      app_name:
+        description: 'Leave blank. Only fill this in if Fly reports the name in YanaFreeAPIMerger/fly.toml as already taken — Fly app names are globally unique across every Fly account. A value here overrides fly.toml for this run only; commit it to fly.toml afterwards.'
+        required: false
+        default: ''
+      create_app_if_missing:
+        description: 'Try to create the Fly app if it does not exist. Needs an org-scoped FLY_API_TOKEN; an app-scoped deploy token will fail with "unauthorized". Leave off and create the app once by hand instead.'
+        type: boolean
+        required: false
+        default: false
 
 # Its own group, deliberately distinct from the `catalogue` group in
 # catalogue-daily.yml and the `pages` group in deploy-pages.yml, so this can
@@ -36,7 +67,13 @@ jobs:
   deploy:
     name: Build, deploy and verify
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # Bounded per step below as well, which is where the real limits are.
+    # Worst case across the steps: deploy 25 + verify 12 + a couple of
+    # minutes of setup, so this ceiling is headroom rather than the binding
+    # constraint. It used to be 30, which a slow remote builder plus a full
+    # ten-minute deploy wait plus a full six-minute verify loop could
+    # genuinely exceed.
+    timeout-minutes: 45
 
     env:
       # Read once, here, so no step has to interpolate a secret into a shell
@@ -51,15 +88,91 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v4
 
+      # ── The re-run trap, caught two ways ──────────────────────────────
+      # `github.run_attempt` is 1 for a dispatched run and 2, 3, … for
+      # every "Re-run jobs" of it. A re-run checks out the SHA the original
+      # run used, so a fix committed in between is invisible to it. That is
+      # not hypothetical: it is what every failed attempt of this workflow
+      # has actually been.
+      #
+      #   Check A (specific, always on): does the fly.toml in THIS checkout
+      #   name the same app as the fly.toml at the tip of the branch? If
+      #   not, this run is building a superseded copy of the one file whose
+      #   contents decide where the deploy goes. That is worth stopping for
+      #   whatever the attempt number says, and it has almost no false
+      #   positives — the hourly crawl commits to this branch constantly
+      #   but never touches fly.toml.
+      #
+      #   Check B (general, re-runs only): is this a re-run of a commit the
+      #   branch has moved past at all? A re-run whose commit is still the
+      #   tip is a fine way to retry a transient upstream failure, so this
+      #   only fires when the commit has actually been overtaken.
+      - name: Refuse to build a stale commit
+        env:
+          BRANCH: ${{ github.ref_name }}
+          RUN_SHA: ${{ github.sha }}
+          ATTEMPT: ${{ github.run_attempt }}
+          APP_NAME_INPUT: ${{ inputs.app_name }}
+        run: |
+          set -euo pipefail
+          config="YanaFreeAPIMerger/fly.toml"
+          local_app="$(sed -n 's/^app *= *"\(.*\)" *$/\1/p' "${config}" | head -n 1)"
+
+          echo "======================================================================"
+          echo " branch        ${BRANCH}"
+          echo " commit        ${RUN_SHA}"
+          echo " attempt       ${ATTEMPT} (1 = dispatched, 2+ = a re-run of an older run)"
+          echo " fly.toml app  ${local_app}"
+          echo "======================================================================"
+
+          tip="$(git ls-remote origin "refs/heads/${BRANCH}" 2>/dev/null | cut -f1 || true)"
+          if [ -z "${tip}" ]; then
+            echo "::warning::Could not read the tip of ${BRANCH} to compare this checkout against, so neither staleness check ran. If this run resolves an app name you do not recognise, it is building an old commit — dispatch a fresh run."
+            exit 0
+          fi
+          echo "Tip of ${BRANCH} right now: ${tip}"
+          if [ "${tip}" = "${RUN_SHA}" ]; then
+            echo "This checkout IS the tip of ${BRANCH}. Nothing stale."
+            exit 0
+          fi
+
+          # Check A. Skipped when app_name is overridden for this run,
+          # because then a difference from fly.toml is the whole point.
+          if [ -z "${APP_NAME_INPUT}" ]; then
+            tip_app=""
+            if git fetch --no-tags --depth=1 origin "refs/heads/${BRANCH}" >/dev/null 2>&1; then
+              tip_app="$(git show "FETCH_HEAD:${config}" 2>/dev/null | sed -n 's/^app *= *"\(.*\)" *$/\1/p' | head -n 1 || true)"
+            fi
+            if [ -n "${tip_app}" ] && [ "${tip_app}" != "${local_app}" ]; then
+              echo "This checkout's ${config} says: ${local_app}"
+              echo "The tip of ${BRANCH} says:      ${tip_app}"
+              echo "::error::This run is building commit ${RUN_SHA}, whose ${config} still names the app '${local_app}'. The tip of ${BRANCH} (${tip}) names '${tip_app}'. So this run would deploy to the wrong app, or fail on a name that has already been changed. A GitHub Actions re-run always replays the original commit and can never pick up a later fix. Stop, go to Actions -> 'Deploy Virtual Yanny backend' -> 'Run workflow', choose branch ${BRANCH}, and press the green 'Run workflow' button. That starts a NEW run at ${tip}, which is the one that has '${tip_app}' in it."
+              exit 1
+            fi
+          fi
+
+          # Check B.
+          if [ "${ATTEMPT}" != "1" ]; then
+            echo "Replaying:  ${RUN_SHA}"
+            echo "Branch tip: ${tip}"
+            echo "::error::This is a RE-RUN (attempt ${ATTEMPT}) replaying ${RUN_SHA}, which is no longer the tip of ${BRANCH} (now ${tip}). Re-runs always replay the original commit, so nothing committed since — including whatever fix you are trying to test — is in this checkout. Do not use 'Re-run jobs'. Go to Actions -> 'Deploy Virtual Yanny backend' -> 'Run workflow', choose branch ${BRANCH}, press the green 'Run workflow' button."
+            exit 1
+          fi
+
+          echo "::warning::${BRANCH} has moved on since this run was dispatched (${RUN_SHA} -> ${tip}), but ${config} is unchanged, so the deploy target is still right. Continuing; the image will carry the catalogue as of ${RUN_SHA}."
+
       # Fails in three seconds with a clear message rather than five minutes
       # later inside flyctl with an opaque one. Tests only whether the
-      # values are empty — never prints them.
+      # values are empty — never prints them. Note what it CANNOT test: a
+      # token that is present but too narrowly scoped for what a later step
+      # asks of it. Fly answers that question, and the steps that ask it
+      # read the answer properly.
       - name: Confirm both secrets are present
         run: |
           set -euo pipefail
           missing=0
           if [ -z "${FLY_API_TOKEN}" ]; then
-            echo "::error::Repository secret FLY_API_TOKEN is not set. Create it at Settings -> Secrets and variables -> Actions. Generate the value with: flyctl tokens create deploy"
+            echo "::error::Repository secret FLY_API_TOKEN is not set. Create it at Settings -> Secrets and variables -> Actions. Generate the value on a machine with flyctl logged in, AFTER the Fly app exists: flyctl tokens create deploy -a <app name from YanaFreeAPIMerger/fly.toml>. See docs/VIRTUAL-YANNY-DEPLOY.md."
             missing=1
           fi
           if [ -z "${FREELLMAPI_API_KEY}" ]; then
@@ -67,45 +180,133 @@ jobs:
             missing=1
           fi
           [ "${missing}" -eq 0 ] || exit 1
-          echo "Both secrets are present."
+          echo "Both secrets are present (non-empty). Whether FLY_API_TOKEN is scoped widely enough is decided by Fly in the next steps, not here."
 
       - name: Install flyctl
         uses: superfly/flyctl-actions/setup-flyctl@master
 
       # One source of truth for the app name: YanaFreeAPIMerger/fly.toml.
-      # Renaming the app there is all it takes; nothing in this file repeats
-      # the name. The public hostname is always <app>.fly.dev.
-      - name: Read the app name from fly.toml
+      # The optional `app_name` input does not become a second one — it is
+      # applied by rewriting the checked-out copy of fly.toml before the
+      # name is read, so `--app` and `--config` can never disagree and
+      # everything downstream still reads exactly one place. The rewrite
+      # touches the runner's working copy only; nothing is committed.
+      - name: Resolve the app name
         id: app
+        env:
+          APP_NAME_INPUT: ${{ inputs.app_name }}
         run: |
           set -euo pipefail
-          app_name="$(sed -n 's/^app *= *"\(.*\)" *$/\1/p' YanaFreeAPIMerger/fly.toml | head -n 1)"
+          config="YanaFreeAPIMerger/fly.toml"
+
+          if [ -n "${APP_NAME_INPUT}" ]; then
+            case "${APP_NAME_INPUT}" in
+              *[!a-z0-9-]*|-*|*-)
+                echo "::error::app_name '${APP_NAME_INPUT}' is not a valid Fly app name. Use lower-case letters, digits and hyphens only, not starting or ending with a hyphen."
+                exit 1
+                ;;
+            esac
+            sed -i "s|^app = \".*\"\$|app = \"${APP_NAME_INPUT}\"|" "${config}"
+            echo "::warning::Using the app_name input '${APP_NAME_INPUT}' instead of the name committed in ${config}. This run only. If it works, commit that name into ${config} so the next run needs no input."
+          fi
+
+          app_name="$(sed -n 's/^app *= *"\(.*\)" *$/\1/p' "${config}" | head -n 1)"
           if [ -z "${app_name}" ]; then
-            echo "::error::Could not read the 'app' name from YanaFreeAPIMerger/fly.toml."
+            echo "::error::Could not read the 'app' name from ${config}."
             exit 1
           fi
+          if [ -n "${APP_NAME_INPUT}" ] && [ "${app_name}" != "${APP_NAME_INPUT}" ]; then
+            echo "::error::Tried to override the app name with '${APP_NAME_INPUT}' but ${config} still reads '${app_name}'. The 'app = \"...\"' line is not in the shape this step expects; edit that file directly instead."
+            exit 1
+          fi
+
           echo "name=${app_name}" >> "$GITHUB_OUTPUT"
           echo "hostname=${app_name}.fly.dev" >> "$GITHUB_OUTPUT"
-          echo "App: ${app_name} (https://${app_name}.fly.dev)"
+          echo ">>> Deploying to Fly app '${app_name}' at https://${app_name}.fly.dev <<<"
 
-      # Makes the very first run work without anyone touching a terminal.
-      # On every later run the app already exists and this is a no-op.
-      - name: Create the Fly app if it does not exist yet
+      # ── Three different failures used to land on one opaque line ──────
+      # `flyctl status` exiting non-zero was read as "the app does not
+      # exist". It also exits non-zero when the app exists and this token
+      # simply cannot see it. And `apps create` failing was read as "the
+      # name is taken", when the actual message on every failed attempt of
+      # this workflow was `Error: unauthorized` — a token-scope problem,
+      # not a name problem. Those three need three different remedies, so
+      # the output is read here, not just the exit code.
+      - name: Confirm the Fly app exists
         env:
           APP_NAME: ${{ steps.app.outputs.name }}
           FLY_ORG: ${{ inputs.fly_org }}
+          CREATE_IF_MISSING: ${{ inputs.create_app_if_missing }}
         run: |
           set -euo pipefail
-          if flyctl status --app "${APP_NAME}" >/dev/null 2>&1; then
-            echo "App ${APP_NAME} already exists — nothing to create."
-          else
-            echo "App ${APP_NAME} not found; creating it in org ${FLY_ORG}."
-            # If this fails with a name-taken error, the name is claimed by
-            # someone else on Fly (names are globally unique). Change `app`
-            # in YanaFreeAPIMerger/fly.toml and re-run — nothing else needs
-            # editing.
-            flyctl apps create "${APP_NAME}" --org "${FLY_ORG}"
+
+          echo "flyctl version: $(flyctl version 2>&1 | head -n 1)"
+          echo "--- identity behind FLY_API_TOKEN (informational; some token types cannot answer) ---"
+          flyctl auth whoami 2>&1 | head -n 5 || true
+          echo "------------------------------------------------------------------------------------"
+
+          status_out="$(flyctl status --app "${APP_NAME}" 2>&1)" && status_rc=0 || status_rc=$?
+          if [ "${status_rc}" -eq 0 ]; then
+            echo "App ${APP_NAME} exists and this token can see it."
+            exit 0
           fi
+
+          echo "flyctl status --app ${APP_NAME} exited ${status_rc}:"
+          echo "${status_out}"
+
+          # Failure mode 1: the app is there, the token is not allowed near
+          # it. Creating it would be the wrong move, so do not offer that.
+          if printf '%s' "${status_out}" | grep -qiE 'unauthorized|not authori[sz]ed|forbidden|access denied|permission'; then
+            echo "::error::Fly did not answer 'no such app' — it answered that this FLY_API_TOKEN is not authorised for '${APP_NAME}'. Two possibilities: the app exists in a Fly account that is not yours (app names are globally unique across all of Fly), or your token is scoped to a different app. Fix, in order: (1) run 'flyctl apps list' on your own machine — if '${APP_NAME}' is not in it, the name belongs to a stranger, so dispatch this workflow again with the app_name input set to a free name; (2) if it IS yours, mint a token scoped to it with 'flyctl tokens create deploy -a ${APP_NAME}' and replace the FLY_API_TOKEN secret. Then dispatch a NEW run — never 'Re-run jobs'."
+            exit 1
+          fi
+
+          # Failure mode 2: no such app. By default that is a stop, with
+          # the one-time commands to run locally, because creating an app
+          # is an org-level action and giving CI that power permanently for
+          # a step that runs once is the wrong trade for a public repo.
+          if [ "${CREATE_IF_MISSING}" != "true" ]; then
+            echo "::error::The Fly app '${APP_NAME}' does not exist yet, and this workflow does not create apps by default. Create it once, from a terminal where flyctl is logged in as you, then dispatch a new run: [1] flyctl apps create ${APP_NAME} --org ${FLY_ORG}   [2] flyctl tokens create deploy -a ${APP_NAME}  -- paste that token into the FLY_API_TOKEN repository secret. If Fly says the name is taken, pick another, put it in YanaFreeAPIMerger/fly.toml (or pass it as the app_name input), and use that name in both commands. Alternatively, tick 'create_app_if_missing' when you dispatch — but that needs a FLY_API_TOKEN that can create apps in the org (an org-scoped token or a personal access token), which is a much broader secret to hold in a public repo."
+            exit 1
+          fi
+
+          echo "App ${APP_NAME} does not exist and create_app_if_missing was ticked. Creating it in org ${FLY_ORG}."
+
+          # Non-fatal capability probe. An app-scoped deploy token
+          # (`flyctl tokens create deploy`) has no visibility of the org, so
+          # this failing is strong corroboration for the token-scope
+          # diagnosis below rather than a separate problem.
+          if orgs_out="$(flyctl orgs list 2>&1)"; then
+            echo "Organisations this token can see:"
+            echo "${orgs_out}"
+          else
+            echo "This token cannot list organisations:"
+            echo "${orgs_out}"
+            echo "::warning::FLY_API_TOKEN cannot list Fly organisations. That is the signature of an app-scoped deploy token, which cannot create apps."
+          fi
+
+          create_out="$(flyctl apps create "${APP_NAME}" --org "${FLY_ORG}" 2>&1)" && create_rc=0 || create_rc=$?
+          echo "${create_out}"
+          if [ "${create_rc}" -eq 0 ]; then
+            echo "Created ${APP_NAME}."
+            exit 0
+          fi
+
+          # Failure mode 3: the name belongs to somebody else.
+          if printf '%s' "${create_out}" | grep -qiE 'taken|already (exists|in use)|not available|unavailable|duplicate'; then
+            echo "::error::The Fly app name '${APP_NAME}' is not available — Fly app names are globally unique across every Fly account, so a stranger holds it. Remedy with no code change: dispatch this workflow again with the app_name input set to a free name, e.g. '${APP_NAME}-uk'. Once one works, commit that name into YanaFreeAPIMerger/fly.toml so later runs need no input."
+            exit 1
+          fi
+
+          # Failure mode 1 again, at create time — the one that has
+          # actually happened here, twice.
+          if printf '%s' "${create_out}" | grep -qiE 'unauthorized|not authori[sz]ed|forbidden|access denied|permission'; then
+            echo "::error::Fly refused to CREATE '${APP_NAME}' with an authorisation error, not a name error. This is exactly what an app-scoped deploy token looks like: 'flyctl tokens create deploy' produces a token that can deploy an app it is scoped to, and cannot create apps. Best fix: untick create_app_if_missing and create the app once by hand -- flyctl apps create ${APP_NAME} --org ${FLY_ORG} -- then dispatch a new run. Alternative fix if you want CI to keep doing it: replace FLY_API_TOKEN with an org-scoped token ('flyctl tokens create org') or a personal access token from the Fly dashboard, accepting that a public repo's CI secret then has authority over the whole org. Either way, dispatch a NEW run afterwards — never 'Re-run jobs'. Also check the org: this run used --org '${FLY_ORG}', which the fly_org input sets."
+            exit 1
+          fi
+
+          echo "::error::flyctl apps create failed for '${APP_NAME}' in org '${FLY_ORG}' with exit code ${create_rc}, and the message above is neither a name-taken nor an authorisation error. Read it, address it, then dispatch a new run."
+          exit 1
 
       # ── The only place the API key is written ─────────────────────────
       # It goes straight from the GitHub secret into Fly's encrypted secret
@@ -117,30 +318,61 @@ jobs:
       # flyctl does not echo the value, and the shell has no `set -x`, so
       # nothing here can print it. GitHub would mask it in the log anyway;
       # that is a backstop, not the mechanism.
+      #
+      # An authorisation failure here is a warning, not a stop, and that is
+      # deliberate: if the key was already set on the app by hand, the
+      # deploy is fine and failing would be wrong. The thing that actually
+      # knows whether the key is present is the health check at the end,
+      # which reports `configured:false` if it is not. Any other failure is
+      # a real stop.
       - name: Push the API key to Fly as a secret
         env:
           APP_NAME: ${{ steps.app.outputs.name }}
         run: |
           set -euo pipefail
-          flyctl secrets set --app "${APP_NAME}" --stage \
-            FREELLMAPI_API_KEY="${FREELLMAPI_API_KEY}"
-          echo "FREELLMAPI_API_KEY staged for the next deploy."
-          echo "Non-secret config (FREELLMAPI_BASE_URL, PORT, AGENT_TIMEOUT_SECONDS) comes from fly.toml's [env]."
+          set_out="$(flyctl secrets set --app "${APP_NAME}" --stage \
+            FREELLMAPI_API_KEY="${FREELLMAPI_API_KEY}" 2>&1)" && set_rc=0 || set_rc=$?
+          echo "${set_out}"
+          if [ "${set_rc}" -eq 0 ]; then
+            echo "FREELLMAPI_API_KEY staged for the next deploy."
+            echo "Non-secret config (FREELLMAPI_BASE_URL, PORT, AGENT_TIMEOUT_SECONDS) comes from fly.toml's [env]."
+            exit 0
+          fi
+          if printf '%s' "${set_out}" | grep -qiE 'unauthorized|not authori[sz]ed|forbidden|access denied|permission'; then
+            echo "::warning::This FLY_API_TOKEN is not allowed to set secrets on '${APP_NAME}', so the key was NOT staged. Continuing, because the deploy still works and the key may already be set on the app. If the health check at the end reports configured:false, set it once by hand and dispatch again: flyctl secrets set --app ${APP_NAME} FREELLMAPI_API_KEY=<the unified key>   (type it in a terminal; never commit it — this repo is public)."
+            exit 0
+          fi
+          echo "::error::flyctl secrets set failed for '${APP_NAME}' (exit ${set_rc}) for a reason that is not an authorisation problem. The message above is it; nothing in that message can contain the key itself."
+          exit 1
 
       # Context is the repo root ('.'), not YanaFreeAPIMerger/, because the
       # backend imports the site's demo/*.ts and src/ modules at runtime.
       # The Dockerfile's header explains this at length.
       - name: Build and deploy
+        timeout-minutes: 25
         env:
           APP_NAME: ${{ steps.app.outputs.name }}
         run: |
           set -euo pipefail
+
+          # flyctl has changed the type of --wait-timeout across releases:
+          # in some it is an int (seconds), in others a Go duration ("10m").
+          # Passing the wrong shape is a flag-parse error, which kills the
+          # deploy before it starts and looks nothing like the real problem.
+          # Ask the binary which it wants rather than hard-coding a guess
+          # about whichever version setup-flyctl installed today.
+          wait_timeout="600"
+          if flyctl deploy --help 2>&1 | grep -qE '^[[:space:]]*--wait-timeout[[:space:]]+duration'; then
+            wait_timeout="10m"
+          fi
+          echo "Using --wait-timeout ${wait_timeout}"
+
           flyctl deploy . \
             --app "${APP_NAME}" \
             --config YanaFreeAPIMerger/fly.toml \
             --dockerfile YanaFreeAPIMerger/Dockerfile \
             --remote-only \
-            --wait-timeout 600
+            --wait-timeout "${wait_timeout}"
 
       # ── Does it actually work? ────────────────────────────────────────
       # A successful `flyctl deploy` only means a container started and kept
@@ -154,7 +386,9 @@ jobs:
       # The response contains no secret — just four booleans and a count —
       # so printing it is safe and is the most useful thing in the log.
       - name: Verify the deployed backend reports healthy
+        timeout-minutes: 12
         env:
+          APP_NAME: ${{ steps.app.outputs.name }}
           HOSTNAME_FLY: ${{ steps.app.outputs.hostname }}
         run: |
           set -euo pipefail
@@ -162,10 +396,11 @@ jobs:
           echo "Checking ${url}"
 
           body=""
-          # Up to ~2 minutes: the machine may still be booting, and the
-          # health handler itself allows 5s for its upstream call. Retries
-          # also stop a single transient blip on the shared router from
-          # failing an otherwise good deploy.
+          # Up to ~2 minutes of real waiting: 12 attempts, each at most a
+          # 20-second request plus a 10-second pause. The machine may still
+          # be booting, and the health handler itself allows 5s for its
+          # upstream call. Retrying also stops a single transient blip on
+          # the shared router from failing an otherwise good deploy.
           for attempt in 1 2 3 4 5 6 7 8 9 10 11 12; do
             body="$(curl -sS --max-time 20 "${url}" 2>/dev/null || true)"
             if [ -n "${body}" ] && printf '%s' "${body}" | jq -e 'has("ok")' >/dev/null 2>&1; then
@@ -174,11 +409,11 @@ jobs:
               fi
             fi
             echo "attempt ${attempt}: not healthy yet${body:+ — ${body}}"
-            sleep 10
+            [ "${attempt}" -eq 12 ] || sleep 10
           done
 
           if [ -z "${body}" ] || ! printf '%s' "${body}" | jq -e 'has("ok")' >/dev/null 2>&1; then
-            echo "::error::No valid JSON from ${url}. The app did not stay up, or is not serving. Check: flyctl logs --app ${HOSTNAME_FLY%%.fly.dev}"
+            echo "::error::No valid JSON from ${url}. The app did not stay up, or is not serving. Check: flyctl logs --app ${APP_NAME}"
             echo "Last response: ${body:-<empty>}"
             exit 1
           fi
@@ -190,7 +425,7 @@ jobs:
           agents="$(printf '%s' "${body}" | jq -r '.agentCount')"
 
           if [ "${configured}" != "true" ]; then
-            echo "::error::Backend is running but reports configured:false — it cannot see FREELLMAPI_BASE_URL and FREELLMAPI_API_KEY together, or agents.json listed no models (agentCount=${agents}). Confirm the FREELLMAPI_API_KEY repository secret is set, then re-run."
+            echo "::error::Backend is running but reports configured:false — it cannot see FREELLMAPI_BASE_URL and FREELLMAPI_API_KEY together, or agents.json listed no models (agentCount=${agents}). If an earlier step warned that the token could not set secrets, this is that warning coming true: run 'flyctl secrets set --app ${APP_NAME} FREELLMAPI_API_KEY=<the unified key>' by hand, then dispatch a new run. Otherwise confirm the FREELLMAPI_API_KEY repository secret is set. If agentCount is 0, check 'flyctl logs --app ${APP_NAME}' for a message about server/config/agents.json."
             exit 1
           fi
 
@@ -216,4 +451,31 @@ jobs:
             echo "\`'https://${HOSTNAME_FLY}'\`, run \`npm run demo\`, and push."
             echo ""
             echo "Or run: \`bash deploy/set-yanny-api-base-url.sh https://${HOSTNAME_FLY}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # The summary page is where someone who pressed the button looks
+      # first, and on a failure it is otherwise blank. The mistakes that
+      # have actually cost runs here are easy to repeat, so they get said
+      # again where they will be read.
+      - name: Explain a failure on the summary page
+        if: failure()
+        env:
+          APP_NAME: ${{ steps.app.outputs.name }}
+          BRANCH: ${{ github.ref_name }}
+          RUN_SHA: ${{ github.sha }}
+        run: |
+          {
+            echo "### This deploy failed"
+            echo ""
+            echo "- Commit built: \`${RUN_SHA}\` on \`${BRANCH}\`"
+            echo "- Fly app targeted: \`${APP_NAME:-not resolved}\`"
+            echo ""
+            echo "Open the failed step and read its \`::error::\` line — it names the cause and the remedy."
+            echo ""
+            echo "The two mistakes that have actually cost runs here:"
+            echo ""
+            echo "1. **Do not press \"Re-run jobs\".** A re-run replays this run's original commit, so nothing committed since is in it. Retry with **Actions -> Deploy Virtual Yanny backend -> Run workflow**, branch \`${BRANCH}\`."
+            echo "2. **A deploy token cannot create a Fly app.** \`Error: unauthorized\` from \`flyctl apps create\` is a token-scope answer, not a name answer. Create the app once yourself: \`flyctl apps create ${APP_NAME:-<app>} --org personal\`, then \`flyctl tokens create deploy -a ${APP_NAME:-<app>}\` for the \`FLY_API_TOKEN\` secret."
+            echo ""
+            echo "If Fly says the name is taken, dispatch again with the **app_name** input set to a free one."
           } >> "$GITHUB_STEP_SUMMARY"
