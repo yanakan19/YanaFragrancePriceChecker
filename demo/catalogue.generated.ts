@@ -54353,17 +54353,6 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "emirates-oud-9047107469661-default-title",
-    "brand": "Ard Al Zaafaran",
-    "name": "24 Hours Air Freshener Ard Al Zaafaran",
-    "concentration": "Oud",
-    "sizeMl": 300,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/oud-24-hours-air-freshener-300ml-ard-al-zaafaran-emirates-oud.jpg?v=1710630133",
-    "notes": null
-  },
-  {
     "id": "emirates-oud-16260954784093-default-title",
     "brand": "Ard Al Zaafaran",
     "name": "Abinus Perfume Ard Al Zaafaran",
@@ -61046,39 +61035,6 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     }
   },
   {
-    "id": "justmylook-as0103",
-    "brand": "Ashleigh & Burwood",
-    "name": "Lamp Fragrance Bergamot &",
-    "concentration": "Oud",
-    "sizeMl": 500,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/lamp-fragrance-bergamot-oud-500ml-p37242-116460_image.jpg?v=1721323221&width=1000",
-    "notes": null
-  },
-  {
-    "id": "justmylook-as0106",
-    "brand": "Ashleigh & Burwood",
-    "name": "Lamp Fragrance Midnight",
-    "concentration": "Oud",
-    "sizeMl": 500,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/lamp-fragrance-midnight-oud-500ml-p37245-116463_image.jpg?v=1721323224&width=1000",
-    "notes": null
-  },
-  {
-    "id": "justmylook-as0013",
-    "brand": "Ashleigh & Burwood",
-    "name": "Lamp Fragrance Rose & White",
-    "concentration": "Oud",
-    "sizeMl": 500,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/ashleigh-burwood-lamp-fragrance-rose-white-oud-500ml-p15984-29464_image.jpg?v=1721323220&width=1000",
-    "notes": null
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8338404475017-44927366135945",
     "brand": "Ashore",
     "name": "Amouage Ashore",
@@ -61168,10 +61124,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
         "Vetiver"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15691076272477-default-title",
     "brand": "Assaf",
@@ -61273,7 +61226,10 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15691087151453-default-title",
     "brand": "Assaf",
@@ -67842,10 +67798,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3760246987554",
     "brand": "Bon Parfumeur",
@@ -67889,7 +67842,10 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
   {
     "id": "ean-3760246987561",
     "brand": "Bon Parfumeur",
@@ -75023,10 +74979,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
+  },
   {
     "id": "escentual-burberrygoddess012",
     "brand": "Burberry",
@@ -75090,7 +75043,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Vanilla Absolute"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "escentual-burberryher025",
     "brand": "Burberry",
@@ -81548,10 +81504,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
+  },
   {
     "id": "nicchia-luxury-uk-58029559710080",
     "brand": "Carthusia i Profumi di Capri",
@@ -81595,7 +81548,10 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "ean-8032790462906",
     "brand": "Carthusia i Profumi di Capri",
@@ -88012,10 +87968,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1729094006-60487800.jpg?v=1763396193&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3442150951943",
     "brand": "Cyrus",
@@ -88059,7 +88012,10 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1502441813-50799500.jpg?v=1763398579&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "ean-3442151000886",
     "brand": "Cyrus",
@@ -94990,10 +94946,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1729170341-76083200.jpg?v=1763394882&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3423473021001",
     "brand": "Dolce & Gabbana",
@@ -95067,7 +95020,10 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338365087881-44927285919881",
     "brand": "Dolce & Gabbana",
@@ -101271,10 +101227,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8032779258698",
     "brand": "Farmacia SS. Annunziata",
@@ -101318,7 +101271,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "ean-8032779258711",
     "brand": "Farmacia SS. Annunziata",
@@ -104021,17 +103977,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6297001034651",
-    "brand": "Fogg",
-    "name": "Intense Fragranced Body Bottle",
-    "concentration": "Oud",
-    "sizeMl": 120,
-    "ean": "6297001034651",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1759763174-56243100.jpg?v=1763399106&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-3760168593512",
     "brand": "For Them",
     "name": "For Them 1",
@@ -105117,28 +105062,6 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Grey Amber",
         "Cedar",
         "Amber"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-9204213875037-default-title",
-    "brand": "Fragrance World",
-    "name": "Barakkat Satin Body Fragrance World",
-    "concentration": "Oud",
-    "sizeMl": 200,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Barakkat-Satin-Oud-Body-Spray-200ml-Fragrance-World-123467270.jpg?v=1714517433",
-    "notes": {
-      "top": [
-        "Bulgarian",
-        "Turkish roses"
-      ],
-      "middle": [
-        "Vanilla"
-      ],
-      "base": [
-        "Agarwood"
       ]
     }
   },
@@ -111050,10 +110973,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Amber"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15863481925981-default-title",
     "brand": "Fragrance World",
@@ -111206,7 +111126,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15583956369757-default-title",
     "brand": "Fragrance World",
@@ -119960,10 +119883,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1666185444-46797200.jpg?v=1763392601&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3700134412263",
     "brand": "Geparlys",
@@ -120029,7 +119949,10 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1739529193-36070600.jpg?v=1763396558&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "ean-3700134412164",
     "brand": "Geparlys",
@@ -127366,10 +127289,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
         "Tonka Bean"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
+  },
   {
     "id": "escentual-10000748",
     "brand": "Guerlain",
@@ -127435,7 +127355,10 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "escentual-habitrouge24",
     "brand": "Guerlain",
@@ -134667,10 +134590,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
+  },
   {
     "id": "escentual-initio030",
     "brand": "Initio",
@@ -134790,7 +134710,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
         "Patchouli"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416695943305-45147063058569",
     "brand": "Initio Parfums Prives",
@@ -138756,17 +138679,6 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     }
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8338383569033-44927315738761",
-    "brand": "Jeanne Arthes",
-    "name": "Arthes Rocky Man + Body Set",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8338371641481-44927297421449",
     "brand": "Jeanne Arthes",
     "name": "Balade à Paris Soirée Rooftop",
@@ -141065,10 +140977,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/JIMC0061_6847d940-8986-4077-b683-f17af4876bd0.png?v=1738168804&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "escentual-jimmychoourban003",
     "brand": "Jimmy Choo",
@@ -141155,7 +141064,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "ean-690251147182",
     "brand": "Jo Malone",
@@ -148701,10 +148613,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416706199689-45147077247113",
     "brand": "Korres",
@@ -148798,7 +148707,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1763482138-55889200.jpg?v=1772624984&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "ean-4064941156833",
     "brand": "Kylie Jenner",
@@ -155606,17 +155518,6 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6291108737675",
-    "brand": "Lattafa",
-    "name": "Bade'e Al Amethyst Perfumed Body",
-    "concentration": "Oud",
-    "sizeMl": 200,
-    "ean": "6291108737675",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1748944809-66426900.jpg?v=1763398059&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-6298043160056",
     "brand": "Lattafa",
     "name": "Bade'e Al Oud Amethyst Fusion",
@@ -155637,131 +155538,6 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/Blackoud.jpg?v=1786006160&width=1920",
     "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714227849-45147086979209",
-    "brand": "Lattafa",
-    "name": "Bade'e Al Perfumed Body",
-    "concentration": "Oud",
-    "sizeMl": 200,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-7633051615369-42357961392265",
-    "brand": "Lattafa",
-    "name": "Bade'e Al Room",
-    "concentration": "Oud",
-    "sizeMl": 300,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416714064009-45147086815369",
-    "brand": "Lattafa",
-    "name": "Bade'e Al Sublime All Over Body",
-    "concentration": "Oud",
-    "sizeMl": 150,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416715112585-45147089535113",
-    "brand": "Lattafa",
-    "name": "Bade'e Al Sublime All Over Body",
-    "concentration": "Oud",
-    "sizeMl": 200,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8023540269193-43431665729673",
-    "brand": "Lattafa",
-    "name": "Bade'e Al Sublime Room",
-    "concentration": "Oud",
-    "sizeMl": 300,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-9046268084573-default-title",
-    "brand": "Lattafa",
-    "name": "Badee al - Oud For Glory Air Freshener Lattafa",
-    "concentration": "Oud",
-    "sizeMl": 300,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/badee-al-oud-oud-for-glory-air-freshener-300ml-lattafa-emirates-oud.jpg?v=1713058125",
-    "notes": {
-      "top": [
-        "Saffron"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
-    "id": "emirates-oud-9529421332829-default-title",
-    "brand": "Lattafa",
-    "name": "Badee al Amethyst Air Freshener Lattafa",
-    "concentration": "Oud",
-    "sizeMl": 300,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-al-Oud-Amethyst-Air-Freshener-300ml-Lattafa-138615185.jpg?v=1720736000",
-    "notes": {
-      "top": [
-        "Pink Pepper",
-        "Bergamot"
-      ],
-      "middle": [
-        "Turkish Rose",
-        "Bulgarian Rose",
-        "Jasmine"
-      ],
-      "base": [
-        "Amber",
-        "Vanilla"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15568493871453-default-title",
-    "brand": "Lattafa",
-    "name": "Badee Al Honor & Glory Air Freshener Lattafa",
-    "concentration": "Oud",
-    "sizeMl": 300,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Honor-_-Glory-Air-Freshener-300ml-Lattafa-175532786.jpg?v=1755891653",
-    "notes": {
-      "top": [
-        "Pineapple",
-        "Creme Brulee"
-      ],
-      "middle": [
-        "Cinnamon",
-        "Turmeric",
-        "Black Pepper",
-        "Benzoin"
-      ],
-      "base": [
-        "Vanilla",
-        "Sandalwood",
-        "Cashmeran",
-        "Moss"
-      ]
-    }
   },
   {
     "id": "justmylook-lat0003",
@@ -155952,58 +155728,6 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-9377222754653-default-title",
-    "brand": "Lattafa",
-    "name": "Badee Al Room Lattafa",
-    "concentration": "Oud",
-    "sizeMl": 450,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Room-Spray-450ml-Lattafa-131906564.jpg?v=1718059461",
-    "notes": {
-      "top": [
-        "Saffron",
-        "Lavender",
-        "Nutmeg"
-      ],
-      "middle": [
-        "Agarwood",
-        "Patchouli"
-      ],
-      "base": [
-        "Agarwood",
-        "Patchouli",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-9003226071389-default-title",
-    "brand": "Lattafa",
-    "name": "Badee al Sublime Air Freshener Lattafa",
-    "concentration": "Oud",
-    "sizeMl": 300,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/badee_al_oud_sublime_air_freshener_1.jpg?v=1713057135",
-    "notes": {
-      "top": [
-        "Litchi",
-        "Rose",
-        "Apple"
-      ],
-      "middle": [
-        "Jasmine",
-        "Plum"
-      ],
-      "base": [
-        "Moss",
-        "Vanilla",
-        "Patchouli"
-      ]
-    }
-  },
-  {
     "id": "emirates-oud-15502685471069-default-title",
     "brand": "Lattafa",
     "name": "Badee Al Sublime All Over Lattafa",
@@ -156075,10 +155799,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15593252815197-default-title",
     "brand": "Lattafa",
@@ -156502,7 +156223,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9342207525213-default-title",
     "brand": "Lattafa",
@@ -158163,17 +157887,6 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416712556681-45147084816521",
-    "brand": "Lattafa",
-    "name": "Lattafa Bade'e Al Amethyst Body",
-    "concentration": "Oud",
-    "sizeMl": 200,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8416713670793-45147086389385",
     "brand": "Lattafa",
     "name": "Lattafa Eclaire",
@@ -159047,28 +158760,6 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-9043893715293-default-title",
-    "brand": "Lattafa",
-    "name": "Mood Air Freshener Lattafa",
-    "concentration": "Oud",
-    "sizeMl": 300,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/oud-mood-air-freshener-300ml-lattafa-emirates-oud.jpg?v=1713058061",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-7633051517065-42357961293961",
-    "brand": "Lattafa",
-    "name": "Mood Room",
-    "concentration": "Oud",
-    "sizeMl": 300,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-9184345391453-default-title",
     "brand": "Lattafa",
     "name": "Mughal Fort Perfume Niche Emarati By Lattafa",
@@ -159224,17 +158915,6 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
-  {
-    "id": "ean-6291106063233",
-    "brand": "Lattafa",
-    "name": "Najdia & Body",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6291106063233",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1714040124-28455300.jpg?v=1763394073&width=1920",
-    "notes": null
   },
   {
     "id": "emirates-oud-16204028019037-default-title",
@@ -165250,10 +164930,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3760303363109",
     "brand": "Liquides Imaginaires",
@@ -165495,7 +165172,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "ean-3760303362065",
     "brand": "Liquides Imaginaires",
@@ -174266,10 +173946,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1752066909-12400300.jpg?v=1763398269&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "ean-9831166542166",
     "brand": "Maison Asrar",
@@ -174710,7 +174387,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
         "Cedarwood"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15784770470237-default-title",
     "brand": "Maison Asrar",
@@ -180934,10 +180614,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
         "Sugar"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "escentual-millerharris178",
     "brand": "Miller Harris",
@@ -181352,7 +181029,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1763648264-33409900.jpg?v=1774349070&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338374623369-44927300567177",
     "brand": "Milton Lloyd",
@@ -188218,10 +187898,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3760333770830",
     "brand": "Nectar Olfactif",
@@ -188463,7 +188140,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "ean-8055773546660",
     "brand": "New Notes",
@@ -192743,17 +192423,6 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     }
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-7941385584777-43197044850825",
-    "brand": "Oud And Cashmere",
-    "name": "Floris And Cashmere Room",
-    "concentration": "Oud",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-5055958468995",
     "brand": "Oud Elixir",
     "name": "Dubai Imperial",
@@ -193968,10 +193637,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1738320816-91219300.jpg?v=1763393303&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3442150901962",
     "brand": "Paris Bleu",
@@ -194342,7 +194008,10 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
         "White Musk"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16260927455581-default-title",
     "brand": "Paris Corner",
@@ -201882,10 +201551,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
+  },
   {
     "id": "escentual-pradarose002",
     "brand": "Prada",
@@ -202163,7 +201829,10 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/prada-luna-rossa-sport-eau-de-toilette-100ml-p27943-91253_image.jpg?v=1721322311&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338377932937-44927306956937",
     "brand": "Prada",
@@ -209716,10 +209385,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3596930001066",
     "brand": "Reminiscence",
@@ -210012,7 +209678,10 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
         "Amber"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338274320521-44927144755337",
     "brand": "Replay",
@@ -217592,10 +217261,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8055681293298",
     "brand": "Simone Andreoli",
@@ -217860,7 +217526,10 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1735907398-34927100.jpg?v=1763396898&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
   {
     "id": "ean-3442151002637",
     "brand": "Sistelle",
@@ -222630,17 +222299,6 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     }
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416776716425-45147164934281",
-    "brand": "The Olphactory",
-    "name": "Cedar Home",
-    "concentration": "Oud",
-    "sizeMl": 500,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8338400084105-44927353553033",
     "brand": "The One",
     "name": "Dolce Gabbana The One Pour Homme",
@@ -224511,10 +224169,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
+  },
   {
     "id": "ean-5055170216015",
     "brand": "Tom Edward",
@@ -224798,7 +224453,10 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416781336713-45147170013321",
     "brand": "Tom Ford",
@@ -225531,17 +225189,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     }
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8338379767945-44927309938825",
-    "brand": "Tom Ford",
-    "name": "Private Blend Wood by Tom Ford All Over Body",
-    "concentration": "Oud",
-    "sizeMl": 150,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8416781140105-45147169587337",
     "brand": "Tom Ford",
     "name": "Rose D'Amalfi",
@@ -225713,17 +225360,6 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "888066178136",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-0888066030212",
-    "brand": "Tom Ford",
-    "name": "Wood all over Body",
-    "concentration": "Oud",
-    "sizeMl": 150,
-    "ean": "0888066030212",
     "shops": 1,
     "image": null,
     "notes": null
@@ -230897,10 +230533,7 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
+  },
   {
     "id": "ean-370022720781",
     "brand": "WienerBlut",
@@ -231199,7 +230832,10 @@ const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_30: CatalogueEntry[] = [
   {
     "id": "ean-8054320900771",
     "brand": "Xerjoff",
@@ -322795,20 +322431,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/AR0002_x100.png?v=1766583596"
     }
   ],
-  "emirates-oud-9047107469661-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 3.85,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/oud-24-hours-air-freshener-300ml-ard-al-zaafaran",
-      "fetchedAt": "2026-08-13T07:17:22.828Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/oud-24-hours-air-freshener-300ml-ard-al-zaafaran-emirates-oud.jpg?v=1710630133"
-    }
-  ],
   "emirates-oud-16260954784093-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -327455,48 +327077,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": null
-    }
-  ],
-  "justmylook-as0103": [
-    {
-      "retailerId": "justmylook",
-      "price": 12.79,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/ashleigh-burwood-lamp-fragrance-bergamot-oud-500ml",
-      "fetchedAt": "2026-08-10T22:35:31.778Z",
-      "firstSeenAt": "2026-08-06T00:01:26.900Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/lamp-fragrance-bergamot-oud-500ml-p37242-116460_image.jpg?v=1721323221&width=1000"
-    }
-  ],
-  "justmylook-as0106": [
-    {
-      "retailerId": "justmylook",
-      "price": 12.79,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/ashleigh-burwood-lamp-fragrance-midnight-oud-500ml",
-      "fetchedAt": "2026-08-10T22:35:31.778Z",
-      "firstSeenAt": "2026-08-06T00:01:26.900Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/lamp-fragrance-midnight-oud-500ml-p37245-116463_image.jpg?v=1721323224&width=1000"
-    }
-  ],
-  "justmylook-as0013": [
-    {
-      "retailerId": "justmylook",
-      "price": 12.79,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/ashleigh-burwood-lamp-fragrance-rose-white-oud-500ml",
-      "fetchedAt": "2026-08-10T22:35:31.778Z",
-      "firstSeenAt": "2026-08-06T00:01:26.900Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ashleigh-burwood-lamp-fragrance-rose-white-oud-500ml-p15984-29464_image.jpg?v=1721323220&width=1000"
     }
   ],
   "mybeauty-boutique-shopify-gb-8338404475017-44927366135945": [
@@ -372453,20 +372033,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-6297001034651": [
-    {
-      "retailerId": "beautybase",
-      "price": 2.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/fogg-intense-oud-fragranced-body-spray-120ml-bottle",
-      "fetchedAt": "2026-08-10T14:56:38.817Z",
-      "firstSeenAt": "2026-08-10T14:56:38.817Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759763174-56243100.jpg?v=1763399106&width=1920"
-    }
-  ],
   "ean-3760168593512": [
     {
       "retailerId": "nicchia-luxury-uk",
@@ -373123,20 +372689,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Barakkat-Rouge-Perfume-100ml-EDP-Fragrance-World-175551752.jpg?v=1755996885"
-    }
-  ],
-  "emirates-oud-9204213875037-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 3.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/barakkat-satin-oud-body-spray-200ml-fragrance-world",
-      "fetchedAt": "2026-08-13T07:17:22.828Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Barakkat-Satin-Oud-Body-Spray-200ml-Fragrance-World-123467270.jpg?v=1714517433"
     }
   ],
   "emirates-oud-9026340684125-default-title": [
@@ -402091,20 +401643,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338383569033-44927315738761": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 11.19,
-      "wasPrice": 19.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942888&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8338371641481-44927297421449": [
     {
       "retailerId": "mybeauty-boutique",
@@ -418247,20 +417785,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-6291108737675": [
-    {
-      "retailerId": "beautybase",
-      "price": 3.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lattafa-badee-al-oud-amethyst-perfumed-body-spray-200ml-spray",
-      "fetchedAt": "2026-08-09T12:46:11.571Z",
-      "firstSeenAt": "2026-08-09T12:46:11.571Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1748944809-66426900.jpg?v=1763398059&width=1920"
-    }
-  ],
   "ean-6298043160056": [
     {
       "retailerId": "beautybase",
@@ -418287,118 +417811,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-12T04:06:19.685Z",
       "isNew": true,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/Blackoud.jpg?v=1786006160&width=1920"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714227849-45147086979209": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 5.19,
-      "wasPrice": 10.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687913&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-7633051615369-42357961392265": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 5.29,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=40549567236&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416714064009-45147086815369": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 14.19,
-      "wasPrice": 26.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687909&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416715112585-45147089535113": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 4.19,
-      "wasPrice": 8.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687931&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8023540269193-43431665729673": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 5.29,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=40664077252&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "emirates-oud-9046268084573-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 2.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/badee-al-oud-oud-for-glory-air-freshener-300ml-lattafa",
-      "fetchedAt": "2026-08-13T07:17:22.828Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/badee-al-oud-oud-for-glory-air-freshener-300ml-lattafa-emirates-oud.jpg?v=1713058125"
-    }
-  ],
-  "emirates-oud-9529421332829-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 2.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/badee-al-oud-amethyst-air-freshener-300ml-lattafa",
-      "fetchedAt": "2026-08-13T07:17:22.828Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-al-Oud-Amethyst-Air-Freshener-300ml-Lattafa-138615185.jpg?v=1720736000"
-    }
-  ],
-  "emirates-oud-15568493871453-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 2.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/badee-al-oud-honor-glory-air-freshener-300ml-lattafa",
-      "fetchedAt": "2026-08-13T07:17:22.828Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Honor-_-Glory-Air-Freshener-300ml-Lattafa-175532786.jpg?v=1755891653"
     }
   ],
   "justmylook-lat0003": [
@@ -418511,34 +417923,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-al-Oud-Sublime-Perfume-100ml-EDP-Lattafa-153339227.jpg?v=1732557245"
-    }
-  ],
-  "emirates-oud-9377222754653-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 9.99,
-      "wasPrice": 14.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/badee-al-oud-room-spray-450ml-lattafa",
-      "fetchedAt": "2026-08-13T07:17:22.828Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Badee-Al-Oud-Room-Spray-450ml-Lattafa-131906564.jpg?v=1718059461"
-    }
-  ],
-  "emirates-oud-9003226071389-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 2.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/badee-al-oud-sublime-air-freshener-300ml-lattafa",
-      "fetchedAt": "2026-08-13T07:17:22.828Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/badee_al_oud_sublime_air_freshener_1.jpg?v=1713057135"
     }
   ],
   "emirates-oud-15502685471069-default-title": [
@@ -419983,20 +419367,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416712556681-45147084816521": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 4.19,
-      "wasPrice": 8.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687879&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8416713670793-45147086389385": [
     {
       "retailerId": "mybeauty-boutique",
@@ -420641,34 +420011,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/mohra-silky-rose-perfume-100ml-edp-lattafa-emirates-oud.jpg?v=1713056634"
     }
   ],
-  "emirates-oud-9043893715293-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 2.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/oud-mood-air-freshener-300ml-lattafa",
-      "fetchedAt": "2026-08-13T07:17:22.828Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/oud-mood-air-freshener-300ml-lattafa-emirates-oud.jpg?v=1713058061"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-7633051517065-42357961293961": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 5.29,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=40549567235&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-9184345391453-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -420765,20 +420107,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/musk-mood-perfume-100ml-edp-lattafa-emirates-oud-2.jpg?v=1713055501"
-    }
-  ],
-  "ean-6291106063233": [
-    {
-      "retailerId": "beautybase",
-      "price": 14,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-najdia-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-12T12:55:07.912Z",
-      "firstSeenAt": "2026-08-06T23:57:00.047Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1714040124-28455300.jpg?v=1763394073&width=1920"
     }
   ],
   "emirates-oud-16204028019037-default-title": [
@@ -452099,20 +451427,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-7941385584777-43197044850825": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 29.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661685722&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-5055958468995": [
     {
       "retailerId": "beautybase",
@@ -479441,20 +478755,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416776716425-45147164934281": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 14.69,
-      "wasPrice": 26.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661689167&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8338400084105-44927353553033": [
     {
       "retailerId": "mybeauty-boutique",
@@ -482773,20 +482073,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338379767945-44927309938825": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 65.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942172&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8416781140105-45147169587337": [
     {
       "retailerId": "mybeauty-boutique",
@@ -483005,20 +482291,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43996003756&a=3026001&m=123544",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-12T00:08:35.765Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-0888066030212": [
-    {
-      "retailerId": "nicchia-luxury-uk",
-      "price": 69,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43972605702&a=3026001&m=123544",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
       "isNew": false,
