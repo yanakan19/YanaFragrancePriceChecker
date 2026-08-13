@@ -493520,132 +493520,6 @@ const HOUSE_PRODUCTS_CHUNK_0: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "al-wataniah-7939770318917-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Air Freshener 300ml - Ameerati",
-    "sizeMl": 300,
-    "url": "https://www.alwataniah.com/products/air-freshener-300ml-ameerati",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Ameerati_Airfreshner.jpg?v=1781767234",
-    "nativePrice": {
-      "amount": 20,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7939769598021-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Air Freshener 300ml - Attar Al Wesal",
-    "sizeMl": 300,
-    "url": "https://www.alwataniah.com/products/air-freshener-300ml-attar-al-wesal",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/ATTAR-AL-WESAL_Airfreshner.jpg?v=1781767275",
-    "nativePrice": {
-      "amount": 20,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7939770482757-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Air Freshener 300ml - Durrat Al Aroos",
-    "sizeMl": 300,
-    "url": "https://www.alwataniah.com/products/air-freshener-300ml-durrat-al-aroos",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/DURRAT-AL-AROOS_Airfreshner.jpg?v=1781767219",
-    "nativePrice": {
-      "amount": 20,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7939770744901-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Air Freshener 300ml - Marwa",
-    "sizeMl": 300,
-    "url": "https://www.alwataniah.com/products/air-freshener-300ml-marwa",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Marwa_Airfreshner.jpg?v=1781767205",
-    "nativePrice": {
-      "amount": 20,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7939769794629-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Air Freshener 300ml - Musk Dubai",
-    "sizeMl": 300,
-    "url": "https://www.alwataniah.com/products/air-freshener-300ml-musk-dubai",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Musk_Dubai_Airfreshner.jpg?v=1781767248",
-    "nativePrice": {
-      "amount": 20,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7939767992389-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Air Freshener 300ml - Sabah Al Ward",
-    "sizeMl": 300,
-    "url": "https://www.alwataniah.com/products/air-freshener-300ml-sabah-al-ward",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Sabah_Al_Ward_Airfreshner.jpg?v=1781767412",
-    "nativePrice": {
-      "amount": 20,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7939768254533-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Air Freshener 300ml - Shaghaf Al Ward",
-    "sizeMl": 300,
-    "url": "https://www.alwataniah.com/products/air-freshener-300ml-shaghaf-al-ward",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/SHAGHAF-AL-WARD_Airfreshner.jpg?v=1781767395",
-    "nativePrice": {
-      "amount": 20,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7939769270341-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Air Freshener 300ml - Sultan Al Lail",
-    "sizeMl": 300,
-    "url": "https://www.alwataniah.com/products/air-freshener-300ml-sultan-al-lail",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Sultan_Al_Lail_Airfreshner.jpg?v=1781767341",
-    "nativePrice": {
-      "amount": 20,
-      "currency": "AED"
-    },
-    "inStock": false
-  },
-  {
-    "id": "al-wataniah-7939792666693-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Air Freshener 300ml - Watani Purple",
-    "sizeMl": 300,
-    "url": "https://www.alwataniah.com/products/air-freshener-300ml-watani-purple",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Watani_Purple_Airfreshner.jpg?v=1781767162",
-    "nativePrice": {
-      "amount": 20,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
     "id": "al-wataniah-7795419643973-default-title",
     "house": "Al Wataniah",
     "brand": "Alwataniah",
@@ -493809,62 +493683,6 @@ const HOUSE_PRODUCTS_CHUNK_0: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/bareeq-al-dhahab.png?v=1759830101",
     "nativePrice": {
       "amount": 95,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7971079716933-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Body Mist Bom Dia Rio 90ml",
-    "sizeMl": 90,
-    "url": "https://www.alwataniah.com/products/body-mist-bom-dia-rio-90ml",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Bom_Dia_Rio_Hair_Body_mist.jpg?v=1781767127",
-    "nativePrice": {
-      "amount": 40,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7971081551941-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Body Mist Bonjour Paris 90ml",
-    "sizeMl": 90,
-    "url": "https://www.alwataniah.com/products/body-mist-bonjour-paris-90ml",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Paris_Body_mist.jpg?v=1781767071",
-    "nativePrice": {
-      "amount": 40,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7971080699973-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Body Mist Good Morning New York 90ml",
-    "sizeMl": 90,
-    "url": "https://www.alwataniah.com/products/body-mist-good-morning-new-york-90ml",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/New_York_Hair_Body_mist.jpg?v=1781767094",
-    "nativePrice": {
-      "amount": 40,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7971081158725-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Body Mist Sabah Al Khair Dubai 90ml",
-    "sizeMl": 90,
-    "url": "https://www.alwataniah.com/products/body-mist-sabah-al-khair-dubai-90ml",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Sabah_Al_Khair_Dubai_Body_mist.jpg?v=1781767044",
-    "nativePrice": {
-      "amount": 40,
       "currency": "AED"
     },
     "inStock": true
@@ -494397,342 +494215,6 @@ const HOUSE_PRODUCTS_CHUNK_0: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/oud-mystery-intense.png?v=1759755628",
     "nativePrice": {
       "amount": 100,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940425875525-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Ameerati",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-ameerati",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Ameerati_Bodymist.jpg?v=1781767510",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940461920325-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Apple Musk",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-apple-musk",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Apple_Musk_Bodymist.jpg?v=1781767828",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940425121861-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Attar Al Wesal",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-attar-al-wesal",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Attar_al_Wesal_Bodymist.jpg?v=1781767471",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940438818885-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Bareeq Al Dhahab",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-bareeq-al-dhahab",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Bareeq_al_Dhahab_Bodymist.jpg?v=1781767720",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940462149701-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Candy Musk",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-candy-musk",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Candy_Musk_Bodymist.jpg?v=1781767839",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940460970053-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Cherry Musk",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-cherry-musk",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Cherry_Musk_Bodymist.jpg?v=1781767786",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940461363269-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Coconut Musk",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-coconut-musk",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Coconut_Musk_Bodymist.jpg?v=1781767802",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940437016645-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Kenz Al Malik",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-kenz-al-malik",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Kenz_Al_Malik_BodyMist.jpg?v=1781767877",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940440391749-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Lychee Musk",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-lychee-musk",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Lychee_Musk_Bodymist.jpg?v=1781767753",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940427186245-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Marwa",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-marwa",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Marwa_Bodymist.jpg?v=1781767610",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940437540933-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Musk Dubai",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-musk-dubai",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Musk_Dubai_Bodymist.jpg?v=1781767686",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940424761413-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Najah",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-najah",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Najah_Body_Mist.jpg?v=1781767671",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940430659653-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Oud Mystery Intense",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-oud-mystery-intense",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Oud_Mystery_Intense_BodyMist.jpg?v=1781767651",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940460707909-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Pistachio Musk",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-pistachio-musk",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Pistachio_Musk_BodyMist.jpg?v=1781767771",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940461658181-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Rose Musk",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-rose-musk",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Rose_Musk_Bodymist.jpg?v=1781767815",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940427382853-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Rose Mystery Intense",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-rose-mystery-intense",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Rose_Mystery_Bodymist.jpg?v=1781767625",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940426530885-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Sabah Al Ward",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-sabah-al-ward",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Sabah_Al_Ward_Bodymist.jpg?v=1781767539",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940425580613-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Shagaf Al Ward",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-shagaf-al-ward",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Shagaf_Al_Ward_Bodymist.jpg?v=1781767494",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940426694725-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Special Oud",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-special-oud",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Special_Oud_Bodymist.jpg?v=1781767551",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940426956869-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Sultan Al Lail",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-sultan-al-lail",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Sultan_Al_Lail_Bodymist.jpg?v=1781767579",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940426399813-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Tibyan",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-tibyan",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Tibyan_Bodymist.jpg?v=1781767523",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940439703621-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Vanilla Musk",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-vanilla-musk",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Vanilla_Musk_Bodymist.jpg?v=1781767739",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940425449541-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Watani Purple",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-watani-purple",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Watani_Body_Mist.jpg?v=1781767452",
-    "nativePrice": {
-      "amount": 50,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "al-wataniah-7940426825797-default-title",
-    "house": "Al Wataniah",
-    "brand": "Alwataniah",
-    "name": "Perfumed Body Mist 250ml - Zahra",
-    "sizeMl": 250,
-    "url": "https://www.alwataniah.com/products/perfumed-body-mist-250ml-zahra",
-    "image": "https://cdn.shopify.com/s/files/1/0679/9871/1877/files/Zahra_Bodymist.jpg?v=1781767564",
-    "nativePrice": {
-      "amount": 50,
       "currency": "AED"
     },
     "inStock": true
@@ -500476,10 +499958,7 @@ const HOUSE_PRODUCTS_CHUNK_0: HouseProduct[] = [
       "currency": "EUR"
     },
     "inStock": true
-  }
-];
-
-const HOUSE_PRODUCTS_CHUNK_1: HouseProduct[] = [
+  },
   {
     "id": "bdk-parfums-ouda100",
     "house": "BDK Parfums",
@@ -500997,7 +500476,10 @@ const HOUSE_PRODUCTS_CHUNK_1: HouseProduct[] = [
       "currency": "EUR"
     },
     "inStock": true
-  },
+  }
+];
+
+const HOUSE_PRODUCTS_CHUNK_1: HouseProduct[] = [
   {
     "id": "bdk-parfums-tabac100",
     "house": "BDK Parfums",
@@ -506099,20 +505581,6 @@ const HOUSE_PRODUCTS_CHUNK_1: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "gulf-orchid-2030519",
-    "house": "Gulf Orchid",
-    "brand": "Gulf Orchid",
-    "name": "ANGEL MUSK BODY MIST",
-    "sizeMl": null,
-    "url": "https://shop-gulforchid.com/products/musk-tahara-body-mist-angel-musk",
-    "image": "https://cdn.shopify.com/s/files/1/0491/3591/1072/files/Angel_Musk_Gulf_Orchid_Musk_Collection_Body_Mists_White_Background_Bottle_c50fb17d-f74d-4893-b37c-344689cab4f2.jpg?v=1750078237",
-    "nativePrice": {
-      "amount": 30,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
     "id": "gulf-orchid-2040253",
     "house": "Gulf Orchid",
     "brand": "Gulf Orchid",
@@ -506444,20 +505912,6 @@ const HOUSE_PRODUCTS_CHUNK_1: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0491/3591/1072/files/COTTONCANDYMUSK_GULFORCHID_039776f1-0424-400e-9a8f-93ecd9b7432e.jpg?v=1763129083",
     "nativePrice": {
       "amount": 150,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "gulf-orchid-2030520",
-    "house": "Gulf Orchid",
-    "brand": "Gulf Orchid",
-    "name": "COTTON CANDY MUSK BODY MIST",
-    "sizeMl": null,
-    "url": "https://shop-gulforchid.com/products/musk-tahara-body-mist-cotton-candy",
-    "image": "https://cdn.shopify.com/s/files/1/0491/3591/1072/files/Cotton_Candy_Gulf_Orchid_Musk_Collection_Body_Mists_White_Background_Bottle.jpg?v=1750078244",
-    "nativePrice": {
-      "amount": 30,
       "currency": "AED"
     },
     "inStock": true
@@ -507329,10 +506783,7 @@ const HOUSE_PRODUCTS_CHUNK_1: HouseProduct[] = [
       "currency": "AED"
     },
     "inStock": true
-  }
-];
-
-const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
+  },
   {
     "id": "gulf-orchid-2040397",
     "house": "Gulf Orchid",
@@ -507684,20 +507135,6 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "gulf-orchid-2030521",
-    "house": "Gulf Orchid",
-    "brand": "Gulf Orchid",
-    "name": "MYSTERIOUS TAHARA MUSK BODY MIST",
-    "sizeMl": null,
-    "url": "https://shop-gulforchid.com/products/musk-tahara-body-mist-mysterious-tahara",
-    "image": "https://cdn.shopify.com/s/files/1/0491/3591/1072/files/Mysterious_Tahara_Gulf_Orchid_Musk_Collection_Body_Mists_White_Background_Bottle_2_ad7dfdd8-0000-4686-ac8d-33c011c29dc3.jpg?v=1750078207",
-    "nativePrice": {
-      "amount": 30,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
     "id": "gulf-orchid-2040755",
     "house": "Gulf Orchid",
     "brand": "Maison Asrar",
@@ -507892,7 +507329,10 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
       "currency": "AED"
     },
     "inStock": true
-  },
+  }
+];
+
+const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
   {
     "id": "gulf-orchid-2040744",
     "house": "Gulf Orchid",
@@ -507936,20 +507376,6 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "gulf-orchid-2030522",
-    "house": "Gulf Orchid",
-    "brand": "Gulf Orchid",
-    "name": "PIñA COLADA MUSK BODY MIST",
-    "sizeMl": null,
-    "url": "https://shop-gulforchid.com/products/musk-tahara-body-mist-pina-colada",
-    "image": "https://cdn.shopify.com/s/files/1/0491/3591/1072/files/Pina_Colada_Gulf_Orchid_Musk_Collection_Body_Mists_White_Background_Bottle_2_4fa6402b-6ac3-46bf-8a33-f28ab870ddc3.jpg?v=1750078238",
-    "nativePrice": {
-      "amount": 30,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
     "id": "gulf-orchid-2040344",
     "house": "Gulf Orchid",
     "brand": "Gulf Orchid",
@@ -507973,20 +507399,6 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0491/3591/1072/files/PistachioMuskCollectionGulfOrchidPerfume.jpg?v=1759492924",
     "nativePrice": {
       "amount": 150,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "gulf-orchid-2030523",
-    "house": "Gulf Orchid",
-    "brand": "Gulf Orchid",
-    "name": "PISTACHIO MUSK BODY MIST",
-    "sizeMl": null,
-    "url": "https://shop-gulforchid.com/products/musk-tahara-body-mist-pistachio",
-    "image": "https://cdn.shopify.com/s/files/1/0491/3591/1072/files/Pistachio_Gulf_Orchid_Musk_Collection_Body_Mists_White_Background_Bottle_ecd1ff6e-82bb-40bd-9f98-a3483e87efb4.jpg?v=1750078208",
-    "nativePrice": {
-      "amount": 30,
       "currency": "AED"
     },
     "inStock": true
@@ -508832,20 +508244,6 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "gulf-orchid-2030524",
-    "house": "Gulf Orchid",
-    "brand": "Gulf Orchid",
-    "name": "TOFFEE MUSK BODY MIST",
-    "sizeMl": null,
-    "url": "https://shop-gulforchid.com/products/musk-tahara-body-mist-toffee",
-    "image": "https://cdn.shopify.com/s/files/1/0491/3591/1072/files/Toffee_Gulf_Orchid_Musk_Collection_Body_Mists_White_Background_Bottle_18dd52ee-7d84-4970-bf2b-4ac7f6715e33.jpg?v=1750078209",
-    "nativePrice": {
-      "amount": 30,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
     "id": "gulf-orchid-2040793",
     "house": "Gulf Orchid",
     "brand": "Maison Asrar",
@@ -509336,17 +508734,6 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/JL_2024_PDP_GG_EDT_2000px2500px_4x5_2_a7b15c9b-3f41-4bcf-851e-96733edab3fd.jpg?v=1749466801",
     "nativePrice": null,
     "inStock": false
-  },
-  {
-    "id": "jo-loves-jlbomi001b",
-    "house": "Jo Loves",
-    "brand": "Jo Loves",
-    "name": "Grapefruit Body Mist (50ml)",
-    "sizeMl": 50,
-    "url": "https://www.joloves.com/products/grapefruit-body-mist-50ml",
-    "image": "https://cdn.shopify.com/s/files/1/0794/6197/4339/files/Grapefruit_body_mist_packshot.png?v=1779453746",
-    "nativePrice": null,
-    "inStock": true
   },
   {
     "id": "jo-loves-jledtl203",
@@ -510719,20 +510106,6 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "maison-asrar-210061",
-    "house": "Maison Asrar",
-    "brand": "Maison Asrar",
-    "name": "DAHAM - ROOM SPRAY 500 ML",
-    "sizeMl": 500,
-    "url": "https://maisonasrar.com/products/maison-asrar-room-spray-500-ml-daham",
-    "image": "https://cdn.shopify.com/s/files/1/0703/6000/6968/products/Daham-CurrentView.jpg?v=1687246853",
-    "nativePrice": {
-      "amount": 150,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
     "id": "maison-asrar-2040783",
     "house": "Maison Asrar",
     "brand": "Maison Asrar",
@@ -510999,20 +510372,6 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "maison-asrar-210063",
-    "house": "Maison Asrar",
-    "brand": "Maison Asrar",
-    "name": "HAMSAT GHAZAL - ROOM SPRAY 500 ML",
-    "sizeMl": 500,
-    "url": "https://maisonasrar.com/products/maison-asrar-room-spray-500-ml-hamsat-ghazal",
-    "image": "https://cdn.shopify.com/s/files/1/0703/6000/6968/products/hamsatghazal-CurrentView.jpg?v=1687246864",
-    "nativePrice": {
-      "amount": 150,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
     "id": "maison-asrar-2040705",
     "house": "Maison Asrar",
     "brand": "Maison Asrar",
@@ -511022,20 +510381,6 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0703/6000/6968/products/HAMSATHOB1.jpg?v=1672667774",
     "nativePrice": {
       "amount": 90,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "maison-asrar-210062",
-    "house": "Maison Asrar",
-    "brand": "Maison Asrar",
-    "name": "HAMSAT HOB - ROOM SPRAY 500 ML",
-    "sizeMl": 500,
-    "url": "https://maisonasrar.com/products/maison-asrar-room-spray-500-ml-hamsat-hob",
-    "image": "https://cdn.shopify.com/s/files/1/0703/6000/6968/products/HamsatHob-CurrentView.jpg?v=1687246857",
-    "nativePrice": {
-      "amount": 150,
       "currency": "AED"
     },
     "inStock": true
@@ -511078,20 +510423,6 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0703/6000/6968/files/Heritage_Maison_Asrar_Perfume_While_Background_Bottile.jpg?v=1742903354",
     "nativePrice": {
       "amount": 220,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "maison-asrar-210064",
-    "house": "Maison Asrar",
-    "brand": "Maison Asrar",
-    "name": "HERITAGE -ROOM SPRAY 500 ML",
-    "sizeMl": 500,
-    "url": "https://maisonasrar.com/products/maison-asrar-room-spray-500-ml-heritage",
-    "image": "https://cdn.shopify.com/s/files/1/0703/6000/6968/products/Heritage-CurrentView.jpg?v=1687246867",
-    "nativePrice": {
-      "amount": 150,
       "currency": "AED"
     },
     "inStock": true
@@ -511204,20 +510535,6 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0703/6000/6968/products/italianleather1.jpg?v=1672667734",
     "nativePrice": {
       "amount": 130,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "maison-asrar-210065",
-    "house": "Maison Asrar",
-    "brand": "Maison Asrar",
-    "name": "ITALIAN LEATHER - ROOM SPRAY 500 ML",
-    "sizeMl": 500,
-    "url": "https://maisonasrar.com/products/maison-asrar-room-spray-500-ml-italian-leather",
-    "image": "https://cdn.shopify.com/s/files/1/0703/6000/6968/products/ItalianLeather-CurrentView.jpg?v=1687246860",
-    "nativePrice": {
-      "amount": 150,
       "currency": "AED"
     },
     "inStock": true
@@ -511657,20 +510974,6 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "maison-asrar-210066",
-    "house": "Maison Asrar",
-    "brand": "Maison Asrar",
-    "name": "PINK CRUSH - ROOM SPRAY 500 ML",
-    "sizeMl": 500,
-    "url": "https://maisonasrar.com/products/maison-asrar-room-spray-500-ml-pink-crush",
-    "image": "https://cdn.shopify.com/s/files/1/0703/6000/6968/products/pinkcrushz-CurrentView.jpg?v=1687246872",
-    "nativePrice": {
-      "amount": 150,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
     "id": "maison-asrar-2040756",
     "house": "Maison Asrar",
     "brand": "Maison Asrar",
@@ -511694,20 +510997,6 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0703/6000/6968/products/redvelvet1.jpg?v=1672667755",
     "nativePrice": {
       "amount": 180,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "maison-asrar-8379497447736-default-title",
-    "house": "Maison Asrar",
-    "brand": "Maison Asrar",
-    "name": "RED VELVET - ROOM SPRAY 500 ML",
-    "sizeMl": 500,
-    "url": "https://maisonasrar.com/products/maison-asrar-room-spray-500-ml-red-velvet",
-    "image": "https://cdn.shopify.com/s/files/1/0703/6000/6968/products/RedVelvet-CurrentView.jpg?v=1687246875",
-    "nativePrice": {
-      "amount": 150,
       "currency": "AED"
     },
     "inStock": true
@@ -511792,20 +511081,6 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0703/6000/6968/files/Maison-Asrar-Rose-Honey.png?v=1719317598",
     "nativePrice": {
       "amount": 110,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "maison-asrar-8379497677112-default-title",
-    "house": "Maison Asrar",
-    "brand": "Maison Asrar",
-    "name": "ROSE HONEY - ROOM SPRAY 500 ML",
-    "sizeMl": 500,
-    "url": "https://maisonasrar.com/products/maison-asrar-room-spray-500-ml-rose-honey",
-    "image": "https://cdn.shopify.com/s/files/1/0703/6000/6968/products/RoseHeney-CurrentView.jpg?v=1687246879",
-    "nativePrice": {
-      "amount": 150,
       "currency": "AED"
     },
     "inStock": true
@@ -513945,10 +513220,7 @@ const HOUSE_PRODUCTS_CHUNK_2: HouseProduct[] = [
     "image": null,
     "nativePrice": null,
     "inStock": true
-  }
-];
-
-const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
+  },
   {
     "id": "pairfum-london-5050515907030",
     "house": "Pairfum London",
@@ -514520,7 +513792,10 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
     "image": "https://pariscorner.ae/wp-content/uploads/2024/12/NS-HYPNOTIC-OUD-XIV-2-scaled.jpg",
     "nativePrice": null,
     "inStock": true
-  },
+  }
+];
+
+const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
   {
     "id": "paris-corner-56543",
     "house": "Paris Corner",
@@ -520678,10 +519953,7 @@ const HOUSE_PRODUCTS_CHUNK_3: HouseProduct[] = [
       "currency": "AED"
     },
     "inStock": true
-  }
-];
-
-const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
+  },
   {
     "id": "surrati-101015090",
     "house": "Surrati",
@@ -520846,160 +520118,6 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/2_9f5ea802-eeb8-46c6-848f-3f930f835e48.jpg?v=1728378987",
     "nativePrice": {
       "amount": 30,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "surrati-101045001",
-    "house": "Surrati",
-    "brand": "Surrati",
-    "name": "Body Mist Anfasak Oud 250 Ml",
-    "sizeMl": 250,
-    "url": "https://surrati.ae/products/body-mist-anfasak-oud-250-ml",
-    "image": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/3_767d5c4c-0c9e-4885-97b7-629859dde364.jpg?v=1728381347",
-    "nativePrice": {
-      "amount": 15.75,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "surrati-101045011",
-    "house": "Surrati",
-    "brand": "Surrati",
-    "name": "Body Mist Blue 250 Ml",
-    "sizeMl": 250,
-    "url": "https://surrati.ae/products/body-mist-blue-250-ml",
-    "image": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/7_90d52bf9-5ce4-439a-bd98-0de0022defc5.jpg?v=1728381361",
-    "nativePrice": {
-      "amount": 15.75,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "surrati-101045002",
-    "house": "Surrati",
-    "brand": "Surrati",
-    "name": "Body Mist Fedaytuk 250 Ml",
-    "sizeMl": 250,
-    "url": "https://surrati.ae/products/body-mist-fedaytuk-250-ml",
-    "image": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/8_9a14f1fe-e86b-4d96-8ab8-d871060a3a2c.jpg?v=1728381368",
-    "nativePrice": {
-      "amount": 15.75,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "surrati-101045017",
-    "house": "Surrati",
-    "brand": "Surrati",
-    "name": "Body Mist Fresh Berries 250 Ml",
-    "sizeMl": 250,
-    "url": "https://surrati.ae/products/body-mist-fresh-berries-250-ml",
-    "image": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/1_1a93206f-d29f-4fec-b8e0-d4f5f9748bf9.jpg?v=1728381373",
-    "nativePrice": {
-      "amount": 15.75,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "surrati-101045014",
-    "house": "Surrati",
-    "brand": "Surrati",
-    "name": "Body Mist Oud Al Sharqiah 250 Ml",
-    "sizeMl": 250,
-    "url": "https://surrati.ae/products/body-mist-oud-al-sharqiah-250-ml",
-    "image": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/6_975cf480-bf19-4fcc-8274-39ddbe07a9d4.jpg?v=1728381380",
-    "nativePrice": {
-      "amount": 15.75,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "surrati-101045018",
-    "house": "Surrati",
-    "brand": "Surrati",
-    "name": "Body Mist Peach 250 Ml",
-    "sizeMl": 250,
-    "url": "https://surrati.ae/products/body-mist-peach-250-ml",
-    "image": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/3.jpg?v=1728381386",
-    "nativePrice": {
-      "amount": 15.75,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "surrati-101045016",
-    "house": "Surrati",
-    "brand": "Surrati",
-    "name": "Body Mist Raspberry 250 Ml",
-    "sizeMl": 250,
-    "url": "https://surrati.ae/products/body-mist-raspberry-250-ml",
-    "image": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/2.jpg?v=1728381392",
-    "nativePrice": {
-      "amount": 15.75,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "surrati-101045012",
-    "house": "Surrati",
-    "brand": "Surrati",
-    "name": "Body Mist Royal Musk 250 Ml",
-    "sizeMl": 250,
-    "url": "https://surrati.ae/products/body-mist-royal-musk-250-ml",
-    "image": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/10_aea2ca95-dd15-41ef-aa70-dda7f14b14eb.jpg?v=1728381404",
-    "nativePrice": {
-      "amount": 15.75,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "surrati-101045004",
-    "house": "Surrati",
-    "brand": "Surrati",
-    "name": "Body Mist Shagaf Femme 250 Ml",
-    "sizeMl": 250,
-    "url": "https://surrati.ae/products/body-mist-shagaf-femme-250-ml",
-    "image": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/12_fe55dab5-dd01-4955-90f0-5eecc73903a8.jpg?v=1728381411",
-    "nativePrice": {
-      "amount": 15.75,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "surrati-101045003",
-    "house": "Surrati",
-    "brand": "Surrati",
-    "name": "Body Mist Shagaf Homme 250 Ml",
-    "sizeMl": 250,
-    "url": "https://surrati.ae/products/body-mist-shagaf-homme-250-ml",
-    "image": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/2_6cb4e067-889b-46e2-8404-08ab0899e18d.jpg?v=1728381418",
-    "nativePrice": {
-      "amount": 15.75,
-      "currency": "AED"
-    },
-    "inStock": true
-  },
-  {
-    "id": "surrati-101045015",
-    "house": "Surrati",
-    "brand": "Surrati",
-    "name": "Body Mist Strawberry 250 Ml",
-    "sizeMl": 250,
-    "url": "https://surrati.ae/products/body-mist-strawberry-250-ml",
-    "image": "https://cdn.shopify.com/s/files/1/0910/6935/0197/files/Untitleddesign_9.jpg?v=1728381423",
-    "nativePrice": {
-      "amount": 15.75,
       "currency": "AED"
     },
     "inStock": true
@@ -521563,7 +520681,10 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
       "currency": "AED"
     },
     "inStock": true
-  },
+  }
+];
+
+const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
   {
     "id": "surrati-101044334",
     "house": "Surrati",
@@ -524184,17 +523305,6 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "the-body-shop-1049630",
-    "house": "The Body Shop",
-    "brand": "The Body Shop",
-    "name": "Aurora Shimmer Body Mist 100ml",
-    "sizeMl": 100,
-    "url": "https://www.thebodyshop.com/products/aurora-shimmer-body-mist",
-    "image": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/1049630_Shimmer_Body_Oil_Aurora_Shimmer_Mist_FAFAFA_R1_INAKNPS001.jpg?v=1781257039",
-    "nativePrice": null,
-    "inStock": true
-  },
-  {
     "id": "the-body-shop-1037033",
     "house": "The Body Shop",
     "brand": "The Body Shop",
@@ -525229,17 +524339,6 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "the-body-shop-1018667",
-    "house": "The Body Shop",
-    "brand": "The Body Shop",
-    "name": "Glowing Cherry Blossom Body Mist 100ml",
-    "sizeMl": 100,
-    "url": "https://www.thebodyshop.com/products/glowing-cherry-blossom-body-mist",
-    "image": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/1018667_BDY_MST_CHOICE_GLOWING_CBLSM_100ML_A0X_Bronze_INABUPS079.jpg?v=1735922549",
-    "nativePrice": null,
-    "inStock": true
-  },
-  {
     "id": "the-body-shop-1042651",
     "house": "The Body Shop",
     "brand": "The Body Shop",
@@ -525493,17 +524592,6 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "the-body-shop-1016328",
-    "house": "The Body Shop",
-    "brand": "The Body Shop",
-    "name": "Passionfruit Body Mist 100ml",
-    "sizeMl": 100,
-    "url": "https://www.thebodyshop.com/products/passionfruit-body-mist",
-    "image": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/1016328-BODYMISTPASSIONFRUIT100ML2022A0X--INAIQPS045_FAFAFA.jpg?v=1746200662",
-    "nativePrice": null,
-    "inStock": true
-  },
-  {
     "id": "the-body-shop-1047031",
     "house": "The Body Shop",
     "brand": "The Body Shop",
@@ -525544,17 +524632,6 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
     "sizeMl": 10,
     "url": "https://www.thebodyshop.com/products/pink-grapefruit-lip-butter",
     "image": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/1097644_Pink_Grapefruit_Lip_Butter_10ml_BRNZ_INAAUPS145_FAFAFA.jpg?v=1759845618",
-    "nativePrice": null,
-    "inStock": true
-  },
-  {
-    "id": "the-body-shop-1018766",
-    "house": "The Body Shop",
-    "brand": "The Body Shop",
-    "name": "Rebel Rosebud Body Mist 100ml",
-    "sizeMl": 100,
-    "url": "https://www.thebodyshop.com/products/rebel-rosebud-body-mist",
-    "image": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/1018766_BODY_MIST_CHOICE_REBEL_ROSEBUD_100ML_A0X_Bronze_INABUPS080_1.jpg?v=1758037486",
     "nativePrice": null,
     "inStock": true
   },
@@ -526164,17 +525241,6 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "the-body-shop-1047149",
-    "house": "The Body Shop",
-    "brand": "The Body Shop",
-    "name": "Sugarplum Passion Body Mist 100ml",
-    "sizeMl": 100,
-    "url": "https://www.thebodyshop.com/products/sugarplum-passion-body-mist",
-    "image": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/1047149_BODY_MIST_PLUM_100ML_INAJMPS366_FAFAFA_Front.jpg?v=1760303702",
-    "nativePrice": null,
-    "inStock": true
-  },
-  {
     "id": "the-body-shop-1051868",
     "house": "The Body Shop",
     "brand": "The Body Shop",
@@ -526769,17 +525835,6 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
     "inStock": false
   },
   {
-    "id": "the-body-shop-1019984",
-    "house": "The Body Shop",
-    "brand": "The Body Shop",
-    "name": "Vibrant Bergamot Body Mist 100ml",
-    "sizeMl": 100,
-    "url": "https://www.thebodyshop.com/products/vibrant-bergamot-body-mist",
-    "image": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/1019984_BDY_MIST_CHOICE_VBRNT_BERGAMOT_100ML_A0X_Bronze_INABUPS078.jpg?v=1736443383",
-    "nativePrice": null,
-    "inStock": true
-  },
-  {
     "id": "the-body-shop-1042657",
     "house": "The Body Shop",
     "brand": "The Body Shop",
@@ -526910,10 +525965,7 @@ const HOUSE_PRODUCTS_CHUNK_4: HouseProduct[] = [
     "image": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/1015236_CONCEALER_VITAMIN_C_FAIR_1N_8ML_BRONZE_INABUPS805_87a98966-e380-4e15-b113-8a84437827e4.jpg?v=1736443522",
     "nativePrice": null,
     "inStock": false
-  }
-];
-
-const HOUSE_PRODUCTS_CHUNK_5: HouseProduct[] = [
+  },
   {
     "id": "the-body-shop-1015309",
     "house": "The Body Shop",
@@ -527135,17 +526187,6 @@ const HOUSE_PRODUCTS_CHUNK_5: HouseProduct[] = [
     "inStock": true
   },
   {
-    "id": "the-body-shop-1018692",
-    "house": "The Body Shop",
-    "brand": "The Body Shop",
-    "name": "Wild Jasmine Body Mist 100ml",
-    "sizeMl": 100,
-    "url": "https://www.thebodyshop.com/products/wild-jasmine-body-mist",
-    "image": "https://cdn.shopify.com/s/files/1/0840/6679/5785/files/1018692_BODY_MIST_CHOICE_WILD_JASMINE_100ML_A0X_Bronze_INABUPS081.jpg?v=1736267070",
-    "nativePrice": null,
-    "inStock": true
-  },
-  {
     "id": "the-body-shop-1047629",
     "house": "The Body Shop",
     "brand": "The Body Shop",
@@ -527191,7 +526232,7 @@ const HOUSE_PRODUCTS_CHUNK_5: HouseProduct[] = [
   }
 ];
 
-export const HOUSE_PRODUCTS: HouseProduct[] = [...HOUSE_PRODUCTS_CHUNK_0, ...HOUSE_PRODUCTS_CHUNK_1, ...HOUSE_PRODUCTS_CHUNK_2, ...HOUSE_PRODUCTS_CHUNK_3, ...HOUSE_PRODUCTS_CHUNK_4, ...HOUSE_PRODUCTS_CHUNK_5];
+export const HOUSE_PRODUCTS: HouseProduct[] = [...HOUSE_PRODUCTS_CHUNK_0, ...HOUSE_PRODUCTS_CHUNK_1, ...HOUSE_PRODUCTS_CHUNK_2, ...HOUSE_PRODUCTS_CHUNK_3, ...HOUSE_PRODUCTS_CHUNK_4];
 
 /** When the harvest that produced this data ran. */
 export const CRAWLED_AT = "2026-08-13T09:10:11.945Z";
