@@ -35,4 +35,14 @@ export {
   isPurchasable,
 } from './services/priceService.js';
 export type { ComparisonOptions, SortKey } from './services/priceService.js';
+export {
+  cheapestVerdict,
+  deliveredPriceRange,
+  tooCloseToCallNote,
+} from './services/deliveryConfidence.js';
+export type {
+  CheapestVerdict,
+  CheapestReason,
+  DeliveredPriceRange,
+} from './services/deliveryConfidence.js';
 export { formatGbp, roundPence } from './services/money.js';

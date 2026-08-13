@@ -20,7 +20,18 @@
  * dashes, no em dashes. Where a compound would normally take a hyphen, reword
  * it. Code comments are exempt.
  */
-import { buildComparison, bestOffer, canShowCountdown, formatGbp, RETAILERS, getRetailer, cannotCarryBrand } from '../src/index.js';
+import {
+  buildComparison,
+  bestOffer,
+  canShowCountdown,
+  cheapestVerdict,
+  tooCloseToCallNote,
+  formatGbp,
+  RETAILERS,
+  getRetailer,
+  cannotCarryBrand,
+  type CheapestVerdict,
+} from '../src/index.js';
 import type { PresentedOffer, StockState } from '../src/types/offer.js';
 import type { Retailer, RetailerTier } from '../src/types/retailer.js';
 import {
@@ -32,7 +43,7 @@ import { productArt, type ArtSize } from './photo.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
-import { priceHistoryFor } from './priceHistory.generated.js';
+import { priceHistoryFor, PRICE_HISTORY } from './priceHistory.generated.js';
 import { officialSiteFor } from './brandSites.js';
 import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
 import { SUPABASE_CONFIGURED } from './supabase.js';
@@ -942,19 +953,48 @@ function stockQtyMark(stock: StockState): string {
   return stock === 'inStock' || stock === 'lowStock' ? ' (-)' : '';
 }
 
-function offerRow(row: PresentedOffer, isBest: boolean): string {
+/**
+ * What the leading row may be called, in the three or four words a tag holds.
+ *
+ * "Cheapest" is a superlative and only survives when the evidence supports it.
+ * The two weaker labels are not hedges for their own sake: each says exactly
+ * what the number beside it is. "Lowest total" is the lowest delivered price we
+ * can compute, on figures one of which is not confirmed. "Lowest item price" is
+ * a bottle price with no delivery in it at all.
+ */
+function cheapestTag(v: CheapestVerdict): string | null {
+  if (!v.offer) return null;
+  if (v.decided) return 'Cheapest';
+  return v.reason === 'delivery-unstated' ? 'Lowest item price' : 'Lowest total';
+}
+
+/**
+ * `isBest` marks the row the comparison put first. `bestTag` is what that row
+ * is allowed to be *called*, which is a different question and is answered by
+ * cheapestVerdict: when an unverified delivery figure is what puts this row in
+ * front, the accent and the ordering stay — it is still our best reading — and
+ * only the superlative goes.
+ */
+function offerRow(row: PresentedOffer, isBest: boolean, bestTag: string | null = 'Cheapest'): string {
   const d = row.discount;
   // A shop that has never published a standard delivery rate gets said out
   // loud, the same way "No longer stocked" is. Anything quieter — a blank, a
   // "Free delivery", a £0 — would be us filling in a number the shop has not
   // given, and this row is deliberately never the cheapest one as a result.
   const deliveryUnknown = row.delivery.costGbp === null;
+  // Delivery figures we have not read off the shop's own delivery page are
+  // marked as such wherever they are shown. The registry has always recorded
+  // which is which (shipping.confidence); until now the screen did not, so an
+  // unverified £2.99 and a confirmed £3.99 arrived at the reader looking
+  // identically solid. Two thirds of live listings are in the first group, so
+  // this is the ordinary case rather than a rare caveat.
+  const unconfirmed = !deliveryUnknown && !row.delivery.confirmed;
   const sub: string[] = [
     deliveryUnknown
       ? 'Delivery not stated'
       : row.delivery.isFree
-        ? 'Free delivery'
-        : `plus ${formatGbp(row.delivery.costGbp!)} delivery`,
+        ? `Free delivery${unconfirmed ? ' (not confirmed with the shop)' : ''}`
+        : `plus ${formatGbp(row.delivery.costGbp!)} delivery${unconfirmed ? ' (not confirmed with the shop)' : ''}`,
   ];
   if (row.delivery.spendMoreForFreeGbp !== null) {
     sub.push(`${formatGbp(row.delivery.spendMoreForFreeGbp)} more for free postage`);
@@ -965,7 +1005,11 @@ function offerRow(row: PresentedOffer, isBest: boolean): string {
       <span class="offer-top">
         <span class="shop t-title">${esc(row.retailer.name)}${
           isNewAt(row.variantId, row.retailer.id) ? '<span class="tag new">New</span>' : ''
-        }${isBest ? '<span class="tag">Cheapest</span>' : ''}</span>
+        }${
+          isBest && bestTag
+            ? `<span class="tag ${bestTag === 'Cheapest' ? '' : 'unsure'}">${esc(bestTag)}</span>`
+            : ''
+        }</span>
         <span class="price">
           ${d ? `<span class="was">RRP ${formatGbp(d.wasPrice)}</span>` : ''}
           <span class="now t-price ${d ? 'sale' : ''}">${formatGbp(
@@ -1021,17 +1065,27 @@ function dayKey(iso: string): string {
 
 interface DailyHistoryPoint {
   dateKey: string;
-  priceGbp: number;
-  retailerId: string;
+  /**
+   * null on a day this fragrance had no price at all — every day before the
+   * site first saw it, and every day after it stopped being purchasable.
+   * Deliberately null rather than 0: it is plotted down on the baseline, but
+   * it must never be *labelled* £0.00, because nobody ever offered it for
+   * nothing. "No price recorded" is the true statement; zero would be an
+   * invented number, which is the one thing this codebase does not do.
+   */
+  priceGbp: number | null;
+  retailerId: string | null;
   /** The real harvest timestamp this price actually came from. */
-  recordedAt: string;
+  recordedAt: string | null;
   /** True on a day nothing was re-harvested — the price carried forward
    *  unchanged from recordedAt rather than a fresh reading taken that day. */
   isCarried: boolean;
 }
 
 /**
- * One point per calendar day, never one per harvest event.
+ * One point per calendar day across the site's whole recorded span, never one
+ * per harvest event, and never a ragged axis that starts wherever this
+ * particular fragrance happens to have been first seen.
  *
  * The raw history can carry several points on a single busy day and none at
  * all on a quiet one — real, but noisy and gappy to plot directly. A day
@@ -1041,8 +1095,25 @@ interface DailyHistoryPoint {
  * way a stock chart draws flat across a weekend rather than leaving a hole.
  * `isCarried` keeps that distinction visible in the tooltip rather than
  * pretending every dot was a fresh reading.
+ *
+ * Two kinds of day get no price rather than a carried one, and both are real
+ * absences rather than gaps in the crawl:
+ *
+ *   - **Before the first sighting.** A fragrance added on the 9th did not
+ *     have a secret price on the 3rd; it was not on the site. Carrying
+ *     backwards would invent one.
+ *   - **After the last sighting, when it is no longer purchasable.** Carrying
+ *     a price forward for something now sold out everywhere would assert a
+ *     live price that no shop is offering. Carrying forward is only honest
+ *     while the thing is still buyable, which is what `stillPurchasable`
+ *     decides.
  */
-function dailyHistory(points: readonly { at: string; priceGbp: number; retailerId: string }[]): DailyHistoryPoint[] {
+function dailyHistory(
+  points: readonly { at: string; priceGbp: number; retailerId: string }[],
+  fromDayKey: string,
+  toDayKey: string,
+  stillPurchasable: boolean,
+): DailyHistoryPoint[] {
   const byDay = new Map<string, { at: string; priceGbp: number; retailerId: string }>();
   for (const p of points) {
     const key = dayKey(p.at);
@@ -1050,9 +1121,19 @@ function dailyHistory(points: readonly { at: string; priceGbp: number; retailerI
     if (!cheapest || p.priceGbp < cheapest.priceGbp) byDay.set(key, p);
   }
 
-  const firstDay = new Date(`${dayKey(points[0]!.at)}T00:00:00Z`);
-  const lastDay = new Date(`${dayKey(points.at(-1)!.at)}T00:00:00Z`);
+  const lastRealDay = [...byDay.keys()].sort().at(-1) ?? null;
+
+  const firstDay = new Date(`${fromDayKey}T00:00:00Z`);
+  const lastDay = new Date(`${toDayKey}T00:00:00Z`);
   const totalDays = Math.round((lastDay.getTime() - firstDay.getTime()) / 86_400_000) + 1;
+
+  const blank = (key: string): DailyHistoryPoint => ({
+    dateKey: key,
+    priceGbp: null,
+    retailerId: null,
+    recordedAt: null,
+    isCarried: false,
+  });
 
   const daily: DailyHistoryPoint[] = [];
   let carrying: { priceGbp: number; retailerId: string; recordedAt: string } | null = null;
@@ -1063,12 +1144,40 @@ function dailyHistory(points: readonly { at: string; priceGbp: number; retailerI
     if (real) {
       carrying = { priceGbp: real.priceGbp, retailerId: real.retailerId, recordedAt: real.at };
       daily.push({ dateKey: key, priceGbp: real.priceGbp, retailerId: real.retailerId, recordedAt: real.at, isCarried: false });
-    } else if (carrying) {
+      continue;
+    }
+    const isAfterLastReading = lastRealDay !== null && key > lastRealDay;
+    if (carrying && !(isAfterLastReading && !stillPurchasable)) {
       daily.push({ dateKey: key, priceGbp: carrying.priceGbp, retailerId: carrying.retailerId, recordedAt: carrying.recordedAt, isCarried: true });
+    } else {
+      daily.push(blank(key));
     }
   }
   return daily;
 }
+
+/**
+ * The first and last calendar day any price was recorded for anything — the
+ * shared x-axis every chart is drawn on, so two fragrances' charts sit on the
+ * same timeline and can be compared by eye. Computed once from the generated
+ * history rather than hardcoded, so it extends itself as the site ages.
+ *
+ * Every point is scanned rather than just each list's ends: the rest of this
+ * file assumes those lists are in commit order, and that assumption being
+ * wrong anywhere would silently mis-scale the axis on every chart at once.
+ */
+const HISTORY_SPAN: { first: string; last: string } | null = (() => {
+  let first: string | null = null;
+  let last: string | null = null;
+  for (const series of Object.values(PRICE_HISTORY)) {
+    for (const p of series) {
+      const key = dayKey(p.at);
+      if (first === null || key < first) first = key;
+      if (last === null || key > last) last = key;
+    }
+  }
+  return first !== null && last !== null ? { first, last } : null;
+})();
 
 /**
  * The historical cheapest-price line for one fragrance, reconstructed from
@@ -1090,44 +1199,99 @@ function dailyHistory(points: readonly { at: string; priceGbp: number; retailerI
  */
 function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): string {
   const raw = priceHistoryFor(f.id);
-  if (raw.length < 2) return '';
-  const points = dailyHistory(raw);
-  if (points.length < 2) return '';
+  if (raw.length < 2 || HISTORY_SPAN === null) return '';
+  const points = dailyHistory(raw, HISTORY_SPAN.first, HISTORY_SPAN.last, isCurrentlyPurchasable);
+  // Two days on which a price was actually *read* — not two days that have a
+  // price. The axis below now always spans the site's whole history, so
+  // points.length is identical for every fragrance and tests nothing; and
+  // counting priced days instead would wave through a fragrance seen exactly
+  // once, whose single reading then carries flat to today. That flat line
+  // would imply a price held steady for a fortnight when it was measured on
+  // one afternoon. Same bar as before this chart gained a full calendar
+  // axis: at least two real readings, or no chart.
+  const priced = points.filter((p) => p.priceGbp !== null);
+  if (points.filter((p) => p.priceGbp !== null && !p.isCarried).length < 2) return '';
 
   const W = 600;
   const H = 160;
   const PAD_X_PCT = 1.3;
   const PAD_Y_PCT = 8.75;
 
-  const prices = points.map((p) => p.priceGbp);
+  // Scaled off real prices only. Letting the no-price days into this would
+  // drag every chart's floor to zero and squash the actual price movement —
+  // the thing the chart exists to show — into a flat line at the top.
+  const prices = priced.map((p) => p.priceGbp!);
   const minP = Math.min(...prices);
   const maxP = Math.max(...prices);
   // A flat line (every point the same price) would divide by zero placing y;
   // treated as its own one-point-wide band, centred, rather than crashing.
   const spanP = maxP - minP || 1;
   const lastIndex = points.length - 1;
+  // The most recent day that has a real or carried price — where the "this is
+  // the current price" dot belongs. On a sold-out fragrance that is no longer
+  // the right-hand edge of the chart, because the days since are blank.
+  const lastPricedIndex = points.reduce((acc, p, i) => (p.priceGbp !== null ? i : acc), -1);
 
   const xPct = (i: number): number => PAD_X_PCT + (i / (lastIndex || 1)) * (100 - PAD_X_PCT * 2);
   const yPct = (p: number): number => PAD_Y_PCT + (1 - (p - minP) / spanP) * (100 - PAD_Y_PCT * 2);
+  // Where a day with no price sits: on the chart's own floor. Visually "at
+  // zero" without claiming a price of zero — see DailyHistoryPoint.priceGbp.
+  const yFloorPct = 100 - PAD_Y_PCT;
 
-  const coordsPx = points.map((p, i) => [(xPct(i) / 100) * W, (yPct(p.priceGbp) / 100) * H] as [number, number]);
-  const linePath = coordsPx.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+  // The line is drawn in runs of consecutive priced days and breaks across
+  // the blank ones. Joining across a gap would draw the price plunging to the
+  // floor and back — a crash and recovery that never happened.
+  const runs: [number, number][][] = [];
+  let run: [number, number][] = [];
+  points.forEach((p, i) => {
+    if (p.priceGbp === null) {
+      if (run.length > 0) runs.push(run);
+      run = [];
+      return;
+    }
+    run.push([(xPct(i) / 100) * W, (yPct(p.priceGbp) / 100) * H]);
+  });
+  if (run.length > 0) runs.push(run);
+
+  const asPath = (seg: [number, number][]): string =>
+    seg.map(([x, y], i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${y.toFixed(1)}`).join(' ');
+  const linePath = runs.map(asPath).join(' ');
   // Filled area under the line, purely decorative, closed back along the
-  // baseline rather than the data — never read as a second data series.
-  const baseY = ((100 - PAD_Y_PCT) / 100) * H;
-  const areaPath = `${linePath} L${coordsPx.at(-1)![0].toFixed(1)},${baseY.toFixed(1)} L${coordsPx[0]![0].toFixed(1)},${baseY.toFixed(1)} Z`;
+  // baseline rather than the data — never read as a second data series. One
+  // closed shape per run, for the same reason the line breaks.
+  const baseY = (yFloorPct / 100) * H;
+  const areaPath = runs
+    .filter((seg) => seg.length >= 2)
+    .map((seg) => `${asPath(seg)} L${seg.at(-1)![0].toFixed(1)},${baseY.toFixed(1)} L${seg[0]![0].toFixed(1)},${baseY.toFixed(1)} Z`)
+    .join(' ');
 
   const dots = points
     .map((p, i) => {
-      const isLast = i === lastIndex;
+      if (p.priceGbp === null) {
+        // A day with nothing to report: grey, on the floor, and it says so
+        // rather than showing a price. Not focusable as a data point would
+        // be — there is no datum here — but still hoverable/tappable so the
+        // reader can find out why the line stops.
+        const label = `No price recorded, ${shortDate(`${p.dateKey}T00:00:00Z`)}`;
+        return `<button
+        type="button"
+        class="history-dot history-dot-nodata"
+        style="left:${xPct(i).toFixed(2)}%;top:${yFloorPct.toFixed(2)}%"
+        data-price="No price recorded"
+        data-retailer=""
+        data-date="${esc(shortDate(`${p.dateKey}T00:00:00Z`))}"
+        aria-label="${esc(label)}"
+      ></button>`;
+      }
+      const isLast = i === lastPricedIndex;
       // The pulse means "this is a live price right now", so it only belongs
       // on the final point when the fragrance is actually purchasable this
       // moment — a fragrance that has since sold out everywhere still gets
       // its last known point marked as the most recent (bigger, filled), just
       // without a live animation implying a currency this data no longer has.
       const isLive = isLast && isCurrentlyPurchasable;
-      const retailerName = esc(getRetailer(p.retailerId)?.name ?? p.retailerId);
-      const dateLabel = p.isCarried ? `unchanged since ${shortDate(p.recordedAt)}` : shortDate(p.recordedAt);
+      const retailerName = esc(getRetailer(p.retailerId!)?.name ?? p.retailerId!);
+      const dateLabel = p.isCarried ? `unchanged since ${shortDate(p.recordedAt!)}` : shortDate(p.recordedAt!);
       const label = `${formatGbp(p.priceGbp)} at ${retailerName}, ${dateLabel}`;
       return `<button
         type="button"
@@ -1169,7 +1333,7 @@ function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): s
       <div class="history-tip" data-history-tip hidden></div>
     </div>
     <div class="history-xaxis">${xAxis}</div>
-    <p class="notes-source t-caption">One point per day — the cheapest live price recorded that day, or carried flat from the last day it changed. Tap or hover a point for the exact price, retailer and date.</p>
+    <p class="notes-source t-caption">One point for every day since ${esc(shortDate(`${HISTORY_SPAN.first}T00:00:00Z`))} — the cheapest live price recorded that day, or carried flat from the last day it changed. Grey points on the baseline are days with no price recorded at all, before this fragrance appeared on the site or after it stopped being available; they are not a price of zero. Tap or hover a point for the exact price, retailer and date.</p>
   </div>`;
 }
 
@@ -1276,6 +1440,11 @@ function detailView(): string {
 
   const rows = rowsFor(frag);
   const best = bestOffer(rows);
+  // Whether this page is entitled to the word "cheapest" at all — see
+  // src/services/deliveryConfidence.ts. The ordering is untouched either way;
+  // what this decides is the wording placed on top of it.
+  const verdict = cheapestVerdict(rows);
+  const bestTag = cheapestTag(verdict);
   const live = rows.filter((r) => r.isPurchasable);
   // Alphabetical, not by price: this section is about "who usually stocks it",
   // not "who was cheapest last time it was in stock" — a price ordering would
@@ -1304,9 +1473,18 @@ function detailView(): string {
           best
             ? best.deliveredPriceGbp !== null
               ? `<div class="price-box">
-                 <p class="price-box-label t-eyebrow">Cheapest price</p>
+                 <p class="price-box-label t-eyebrow">${verdict.decided ? 'Cheapest price' : 'Lowest total price'}</p>
                  <p class="price-box-amount t-price t-price--hero">${formatGbp(best.deliveredPriceGbp)}</p>
                  <p class="price-box-from t-caption">from ${esc(best.retailer.name)}, incl. delivery</p>
+                 ${
+                   // Said here, next to the number it qualifies, rather than in
+                   // a footnote nobody reads. It names the gap and names the
+                   // shop whose delivery charge is the unconfirmed one, so the
+                   // reader can check the one thing that would settle it.
+                   tooCloseToCallNote(verdict)
+                     ? `<p class="price-box-caveat t-caption">${esc(tooCloseToCallNote(verdict)!)}</p>`
+                     : ''
+                 }
                </div>`
               : // No shop that states its delivery cost has this one, so there is
                 // no cheapest delivered price to name. The box says what it is
@@ -1335,7 +1513,7 @@ function detailView(): string {
           }, checked ${esc(age(newest))}</span>
         </div>
 
-        <ul class="offers">${live.map((r) => offerRow(r, r === best)).join('')}</ul>
+        <ul class="offers">${live.map((r) => offerRow(r, r === best, bestTag)).join('')}</ul>
 
         ${
           gone.length
@@ -2253,9 +2431,13 @@ function positionHistoryTip(dot: Element): void {
   const tip = chart?.querySelector('[data-history-tip]') as HTMLElement | null;
   if (!chart || !tip) return;
 
+  // A no-price day has no retailer to name, so the separator has to go too —
+  // otherwise the tip reads " · 3 Aug" with a dangling dot in front of it.
+  const retailer = dot.getAttribute('data-retailer') ?? '';
+  const date = dot.getAttribute('data-date') ?? '';
   tip.innerHTML =
     `<b>${esc(dot.getAttribute('data-price') ?? '')}</b>` +
-    `<span>${esc(dot.getAttribute('data-retailer') ?? '')} · ${esc(dot.getAttribute('data-date') ?? '')}</span>`;
+    `<span>${retailer === '' ? esc(date) : `${esc(retailer)} · ${esc(date)}`}</span>`;
   tip.hidden = false;
 
   const chartRect = chart.getBoundingClientRect();

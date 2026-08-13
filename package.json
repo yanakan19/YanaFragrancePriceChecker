@@ -13,6 +13,7 @@
     "test:watch": "vitest",
     "affiliate:status": "tsx scripts/affiliate-status.ts",
     "shipping:staleness": "tsx scripts/shipping-staleness.ts",
+    "shipping:confidence": "tsx scripts/shipping-confidence-report.ts",
     "shipping:discover": "tsx scripts/shipping-discover.ts",
     "match:report": "tsx scripts/match-report.ts",
     "demo": "tsc -p tsconfig.demo.json && esbuild dist-demo/demo/app.js --bundle --format=iife --minify --target=es2020 --outfile=dist-demo/bundle.js && tsx scripts/build-demo.ts",

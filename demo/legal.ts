@@ -44,9 +44,21 @@ const COMMISSIONED = RETAILERS.filter((r) => r.affiliate.status === 'active');
  * even as the list changes.
  */
 const DELIVERY_UNSTATED = ENABLED.filter((r) => r.shipping.standardGbp === null);
+/**
+ * Split by how the delivery figure was obtained: read off that shop's own
+ * delivery page, or sourced indirectly and never checked against it.
+ *
+ * This page used to quote delivery charges as settled fact, which they mostly
+ * are not, and the split was invisible to a reader even though the registry has
+ * always recorded it. Computed here for the same reason every other count on
+ * this page is computed: a number typed by hand drifts, and this one moves
+ * every time a shop is confirmed.
+ */
+const DELIVERY_CONFIRMED = ENABLED.filter((r) => r.shipping.confidence === 'confirmed');
+const DELIVERY_UNCONFIRMED = ENABLED.filter((r) => r.shipping.confidence === 'unverified');
 
 /** Hand checked against `npm test` whenever this file is edited. */
-const TEST_COUNT = 339;
+const TEST_COUNT = 467;
 
 export const COMPANY = {
   name: 'PriceSniffs',
@@ -77,8 +89,11 @@ export const LEGAL_PAGES: LegalPage[] = [
       <p>So I spent five days building the thing I wanted to use. Go and look at what the shops charge right now, add the delivery they will actually bill you, put the answer on one screen. ${TEST_COUNT} tests keep it honest.</p>
       <h3 class="t-section">What it does</h3>
       <p>Prices are checked every two hours, so 12 times a day. Boots, Selfridges, Superdrug, LOOKFANTASTIC, Escentual and the rest all get looked at on the same clock. Not one of those ${n(DEMO_FRAGRANCES.length)} prices is typed in by hand. A fragrance shows up here because a shop was genuinely selling it when we looked, and the number beside it came off that page.</p>
-      <p>Delivery terms get their own check twice a day, at 6am and 6pm. Boots posts free once you spend £25 and charges £3.95 under that. Harvey Nichols wants £300, which one bottle will never reach, so its listings always carry £5.95 on top. Shops rewrite those rules maybe twice a year, so checking them on the price clock would be six times the effort for the same answer.</p>
+      <p>Delivery terms sit on a slower clock than prices do. Shops rewrite them maybe twice a year, so checking them every two hours would be a great deal of effort for the same answer. Boots posts free once you spend £25 and charges £3.95 under that. Harvey Nichols wants £300, which one bottle will never reach, so its listings always carry £5.95 on top.</p>
       <p>That gap between Boots and Harvey Nichols is the whole point. A bottle at £24.99 from Superdrug can cost you more than the same bottle at £26 from Beauty Base, once postage lands.</p>
+      <h3 class="t-section">Which delivery charges we have actually checked</h3>
+      <p>Of the ${ENABLED.length} shops switched on today, ${DELIVERY_CONFIRMED.length} have had their delivery charge read off their own delivery page: ${DELIVERY_CONFIRMED.map((r) => r.name).join(', ')}. The other ${DELIVERY_UNCONFIRMED.length} carry a figure that came from research and has not yet been checked against the shop itself. Every listing from those ${DELIVERY_UNCONFIRMED.length} says so, in the same line as the charge.</p>
+      <p>That matters because delivery decides the ranking. So the word cheapest is now withheld whenever the gap between first place and second is smaller than a delivery charge we have not confirmed. Those listings still appear, still in price order, and the leader is still marked. It is labelled lowest total instead, because on figures like that we do not actually know which of the two is cheaper, and saying we do would be the whole problem in one word.</p>
       <h3 class="t-section">Being straight with you</h3>
       <p>If we do not know something, we say so instead of filling the gap with a guess. ${SWITCHED_OFF.length} of the ${RETAILERS.length} shops researched so far sit switched off, most of them waiting on a delivery cost or on a way to read their listings at all. Take Manchester Ouds. Their site advertises free postage over £50 but never prints what it charges below that. They are switched on, and their listings carry the words delivery not stated instead of a made up number, which also means they can never come out cheapest however low the bottle price is. ${DELIVERY_UNSTATED.length} shops sit in that state today: ${DELIVERY_UNSTATED.map((r) => r.name).join(', ')}. Sounds fussy over one missing figure. But a blank postage cost quietly counted as zero would shove a shop to the top of every result as the cheapest, and it would be a lie.</p>
       <p>Nothing here is a paid placement. No shop buys its way up. We earn commission on ${COMMISSIONED.length} of them, and on those the link still lands exactly where it would have anyway.</p>
@@ -104,6 +119,13 @@ export const LEGAL_PAGES: LegalPage[] = [
       Nichols wants £300, which one bottle will never reach, so its listings
       always carry £5.95 on top. That is why a bottle priced at £24.99 can cost
       you more than one priced at £26.</p>
+      <p>Not every one of those charges has been read off the shop's own
+      delivery page. ${DELIVERY_CONFIRMED.length} of the ${ENABLED.length} shops
+      we fetch from have been; the remaining ${DELIVERY_UNCONFIRMED.length} carry
+      a researched figure instead, and every listing of theirs is marked not
+      confirmed with the shop. Where the difference between the top two prices is
+      smaller than one of those unconfirmed charges, we do not call either of
+      them the cheapest, because we would be guessing at which one is.</p>
 
       <h3 class="t-section">Reductions come from the shop</h3>
       <p>When you see a previous price and a percentage saving, that figure is the
