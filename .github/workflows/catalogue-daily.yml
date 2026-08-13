@@ -199,13 +199,24 @@ jobs:
       - name: Discover shipping terms
         if: ${{ inputs.shipping_discover || github.event_name == 'schedule' }}
         run: |
-          HOUR=$(date -u +%H)
+          # Age based, same reasoning as the two steps below: scheduling drift
+          # means the clock is never read at the hour the cron named. Twelve
+          # hourly here rather than six, which is the cadence this step was
+          # always meant to have — shops rewrite delivery terms maybe twice a
+          # year, so this is deliberately the least frequent thing in the job.
+          MARKER=data/shipping-discover-marker.txt
+          NOW=$(date -u +%s)
+          LAST=0
+          if [ -f "$MARKER" ]; then LAST=$(cat "$MARKER" 2>/dev/null || echo 0); fi
+          case "$LAST" in ''|*[!0-9]*) LAST=0 ;; esac
+          AGE=$(( NOW - LAST ))
           if [ -n "${{ inputs.shipping_raw_shop }}" ]; then
             npm run shipping:discover -- --raw=${{ inputs.shipping_raw_shop }}
-          elif [ "${{ inputs.shipping_discover }}" = "true" ] || [ "$HOUR" = "06" ] || [ "$HOUR" = "18" ]; then
+          elif [ "${{ inputs.shipping_discover }}" = "true" ] || [ "$AGE" -ge 39600 ]; then
             npm run shipping:discover
+            echo "$NOW" > "$MARKER"
           else
-            echo "Not a 06:00 or 18:00 UTC tick (currently ${HOUR}:00) — skipping."
+            echo "Last shipping discovery was $(( AGE / 3600 )) hours ago, under the eleven hour threshold — skipping."
           fi
 
       # No-ops when the step above skipped: commit-and-push.sh exits cleanly
@@ -215,7 +226,7 @@ jobs:
         run: |
           ./scripts/commit-and-push.sh \
             "Shipping terms: what each delivery page says $(date -u +%Y-%m-%d)" \
-            data/shipping-discovery-report.json
+            data/shipping-discovery-report.json data/shipping-discover-marker.txt
 
       # Every affiliate-feed retailer (adapter: 'affiliate-feed' in
       # src/config/retailers.ts — Fragrance Click UK, MyBeauty.Boutique and The
@@ -243,24 +254,62 @@ jobs:
         env:
           AWIN_FEED_LIST_URL: ${{ secrets.AWIN_FEED_LIST_URL }}
         run: |
-          HOUR=$(date -u +%H)
-          if [ "${{ inputs.awin_feed_sync }}" = "true" ] || [ "$HOUR" = "00" ] || [ "$HOUR" = "06" ] || [ "$HOUR" = "12" ] || [ "$HOUR" = "18" ]; then
+          # Gated on "long enough since the last one", not on the clock reading
+          # exactly 00/06/12/18. A scheduled run does not start when it is
+          # scheduled: GitHub defers them under load, and this workflow's own
+          # runs started at 22:33, 01:19, 04:04 and 07:16 on a two hourly cron.
+          # `date -u +%H` reads the moment the runner got to this line, so the
+          # old exact-hour test skipped the sync on four consecutive cycles and
+          # would have gone on skipping it indefinitely — the drift never lands
+          # back on an even hour by itself. It took the storefront reprice down
+          # with it, which is why MyBeauty.Boutique stayed roughly seventy per
+          # cent overstated with a working fix already merged.
+          #
+          # The marker is written here rather than derived from a commit,
+          # because the sync legitimately produces no commit when a feed has
+          # not changed, and an age derived from the last commit would then
+          # grow without bound and fire the sync every single run.
+          MARKER=data/feed-sync-marker.txt
+          NOW=$(date -u +%s)
+          LAST=0
+          if [ -f "$MARKER" ]; then LAST=$(cat "$MARKER" 2>/dev/null || echo 0); fi
+          case "$LAST" in ''|*[!0-9]*) LAST=0 ;; esac
+          AGE=$(( NOW - LAST ))
+          # Five hours, not six: with a two hourly cron the eligible run lands
+          # at roughly six hour spacing, and a six hour threshold would push
+          # every other attempt just under the line and stretch it to eight.
+          if [ "${{ inputs.awin_feed_sync }}" = "true" ] || [ "$AGE" -ge 18000 ]; then
             npm run awin:feed-sync
-            # Inside this block, immediately after the sync and before the
-            # rebuild, because ordering here is load-bearing in both
-            # directions. The sync overwrites each feed retailer's snapshot
-            # with whatever the feed currently says, so a correction applied
-            # before it would be silently discarded — both steps would still
-            # report success. And the rebuild below has to see the corrected
-            # prices, not the feed's. See scripts/storefront-reprice.ts.
-            npm run storefront:reprice
-            if ! git diff --quiet -- data/catalogue data/awin-feed-sync-state.json; then
-              npm run catalogue:demo
-              npm run catalogue:history
-              npm run demo
+            # Ordering here is load-bearing in both directions. The sync
+            # overwrites each feed retailer's snapshot with whatever the feed
+            # currently says, so a correction applied before it would be
+            # silently discarded — both steps would still report success. And
+            # the rebuild below has to see the corrected prices, not the
+            # feed's. See scripts/storefront-reprice.ts.
+            #
+            # A failure here is contained rather than fatal, but it cannot be
+            # ignored either: the sync has already replaced the snapshot with
+            # raw feed prices, and for a retailer flagged
+            # storefrontIsPriceAuthority those are the prices measured wrong on
+            # seven listings in ten. Publishing them because the correction
+            # crashed would be worse than publishing nothing new, so the
+            # snapshot is rolled back to the last corrected state and the
+            # rebuild is skipped. The harvest below still runs: this must not
+            # be able to take the whole job down, which is what an unguarded
+            # failure in a step this late would do.
+            if npm run storefront:reprice; then
+              if ! git diff --quiet -- data/catalogue data/awin-feed-sync-state.json; then
+                npm run catalogue:demo
+                npm run catalogue:history
+                npm run demo
+              fi
+              echo "$NOW" > "$MARKER"
+            else
+              echo "::warning::storefront reprice failed. Reverting the feed sync so uncorrected feed prices are not published, and leaving the previous snapshot in place."
+              git checkout -- data/catalogue data/awin-feed-sync-state.json || true
             fi
           else
-            echo "Not a 00/06/12/18 UTC tick (currently ${HOUR}:00) — skipping."
+            echo "Last feed sync was $(( AGE / 60 )) minutes ago, under the five hour threshold — skipping."
           fi
 
       - name: Commit synced Awin feeds
@@ -269,6 +318,7 @@ jobs:
           ./scripts/commit-and-push.sh \
             "Awin feed sync: $(date -u +%Y-%m-%d)" \
             data/catalogue data/awin-feed-sync-state.json data/storefront-reprice-report.json \
+            data/feed-sync-marker.txt \
             demo/catalogue.generated.ts \
             demo/priceHistory.generated.ts demo/index.html demo/404.html
 
@@ -309,14 +359,27 @@ jobs:
       - name: Refresh Top Deals Today
         if: ${{ inputs.deals_refresh || github.event_name == 'schedule' }}
         run: |
-          HOUR=$(date -u +%H)
-          if [ "${{ inputs.deals_refresh }}" = "true" ] || [ "$HOUR" = "00" ] || [ "$HOUR" = "06" ] || [ "$HOUR" = "12" ] || [ "$HOUR" = "18" ]; then
+          # Age based for the same reason as the feed sync above: a scheduled
+          # run starts when a runner is free, not when the cron said, so an
+          # exact-hour test skips silently and indefinitely once the drift
+          # settles on odd hours. Deals are meant to move on a six hourly
+          # cadence so a reader is not watching the list reshuffle mid visit
+          # (see scripts/build-deals.ts) — that intent is preserved here, it is
+          # just measured in elapsed time rather than read off the clock.
+          MARKER=data/deals-refresh-marker.txt
+          NOW=$(date -u +%s)
+          LAST=0
+          if [ -f "$MARKER" ]; then LAST=$(cat "$MARKER" 2>/dev/null || echo 0); fi
+          case "$LAST" in ''|*[!0-9]*) LAST=0 ;; esac
+          AGE=$(( NOW - LAST ))
+          if [ "${{ inputs.deals_refresh }}" = "true" ] || [ "$AGE" -ge 18000 ]; then
             npm run deals:build
             if ! git diff --quiet -- demo/deals.generated.ts; then
               npm run demo
             fi
+            echo "$NOW" > "$MARKER"
           else
-            echo "Not a 00/06/12/18 UTC tick (currently ${HOUR}:00) — skipping."
+            echo "Last deals refresh was $(( AGE / 60 )) minutes ago, under the five hour threshold — skipping."
           fi
 
       - name: Commit refreshed deals
@@ -324,7 +387,7 @@ jobs:
         run: |
           ./scripts/commit-and-push.sh \
             "Top Deals Today: $(date -u +%Y-%m-%d)" \
-            demo/deals.generated.ts demo/index.html demo/404.html
+            demo/deals.generated.ts data/deals-refresh-marker.txt demo/index.html demo/404.html
 
       # The route the probe proved works: ask the sitemap instead of guessing.
       # This is now what runs every night, not just on request. The plain
