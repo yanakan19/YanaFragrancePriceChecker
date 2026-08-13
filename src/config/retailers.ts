@@ -4,10 +4,23 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * Nineteen UK retailers. Every one of them is a legitimate stockist and every
- * one is fine to send a customer to — see the header comment in
- * `src/types/retailer.ts` for why there is no `trusted` flag here and what
- * replaced it.
+ * 55 retailers, 29 of them `enabled: true`. Every one of them is a legitimate
+ * stockist and every one is fine to send a customer to — see the header
+ * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
+ * and what replaced it.
+ *
+ * Counts in this header are asserted by `tests/registry.test.ts`, so a header
+ * that has drifted from the array below fails the build rather than quietly
+ * misdescribing it. It said "Nineteen UK retailers" until 2026-08-13, when
+ * there were 55 — that is what this note is guarding against.
+ *
+ * "UK retailers" is not quite what this list is, either. Most are UK
+ * storefronts; several are not (Nicchia Luxury is Italian, Paco Perfumerias
+ * Spanish, Beauty The Shop ships from Madrid). What every *enabled* entry has
+ * in common is that it sells to UK customers and its prices reach us in
+ * sterling — which is a claim about each shop that has to be established, not
+ * assumed, and the subject of the CURRENCY_UNCONFIRMED list at the foot of
+ * this file.
  *
  * ── Shipping figures ─────────────────────────────────────────────────────────
  * `verifiedAt` and `confidence` are load-bearing. Delivery terms change without
@@ -29,10 +42,14 @@ import { brandKey } from '../catalogue/brandName.js';
  * a customer is a member.
  *
  * ── Affiliate ────────────────────────────────────────────────────────────────
- * Every programme below is currently unmonetised: links resolve to the plain
- * retailer URL. Boots, Superdrug and LOOKFANTASTIC are confirmed Awin
- * merchants; the rest need the §2.1 audit. See `docs/AFFILIATE_SETUP.md` for
- * how to apply, and `npm run affiliate:status` for what is outstanding.
+ * Six programmes are live and monetised (`status: 'active'`): Fragrance Click,
+ * MyBeauty.Boutique, Glorious Beauty, The Beauty Store UK and Nicchia Luxury
+ * through Awin, Emirates Oud through its own in-house tool. Their links carry
+ * tracking; every other entry's resolve to the plain retailer URL. Ten
+ * retailers are confirmed Awin merchants; 22 applications are in flight and 25
+ * entries have not been researched at all. See `docs/AFFILIATE_SETUP.md` for
+ * how to apply, and `npm run affiliate:status` for the current breakdown —
+ * that command reads the array, so it is right when this paragraph is not.
  */
 
 /** Placeholder used for every programme that is not yet live. */
