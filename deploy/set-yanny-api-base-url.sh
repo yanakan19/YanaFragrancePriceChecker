@@ -2,7 +2,7 @@
 #
 # Point the site's chat widget at a deployed Virtual Yanny backend.
 #
-#   bash deploy/set-yanny-api-base-url.sh https://virtual-yanny-backend.fly.dev
+#   bash deploy/set-yanny-api-base-url.sh https://pricesniffs-yanny.fly.dev
 #
 # This is the single line that changes once the backend is actually live:
 # demo/virtualYanny.ts's VIRTUAL_YANNY_API_BASE_URL, which ships blank on
@@ -34,7 +34,7 @@ Usage: bash deploy/set-yanny-api-base-url.sh <https://your-backend-host>
                                YanaFreeAPIMerger/fly.toml.
 
 Example:
-  bash deploy/set-yanny-api-base-url.sh https://virtual-yanny-backend.fly.dev
+  bash deploy/set-yanny-api-base-url.sh https://pricesniffs-yanny.fly.dev
 
 After it finishes, commit demo/virtualYanny.ts together with the rebuilt
 demo/index.html and demo/404.html, and push.

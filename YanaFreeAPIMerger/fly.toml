@@ -15,7 +15,14 @@
 # hostname is always <app>.fly.dev. This is deliberately a different app
 # from `yanny-freellmapi`, the model router — that one is already live and
 # is not touched by any of this.
-app = "virtual-yanny-backend"
+#
+# Renamed from "virtual-yanny-backend" after the first deploy attempt failed
+# at "Create the Fly app": Fly app names are globally unique across every
+# account, not per account, so an obvious name is very likely already taken by
+# a stranger. Prefixing with the site name makes a collision unlikely without
+# making the hostname unguessable. If this one is taken too, change it here
+# and nowhere else — the workflow reads the name from this file.
+app = "pricesniffs-yanny"
 
 # London: the site, its prices and its readers are all UK-facing.
 primary_region = "lhr"
