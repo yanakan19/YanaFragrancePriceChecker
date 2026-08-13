@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { readFile } from 'node:fs/promises';
 import { runCouncil } from './council.js';
 import { classifyIntent } from './intent.js';
+import { siteDataFreshness } from './siteData.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = Number(process.env.PORT) || 4000;
@@ -49,6 +50,18 @@ app.get('/api/config', async (req, res) => {
  *
  * Never throws past this handler: any failure below is a fact about the
  * backend's current state, not a 500 to the caller.
+ *
+ * The `siteData` block is reported for operators, and deliberately does not
+ * feed `ok`. `server/siteData.js` imports the site's data modules once per
+ * process (that file's header explains why re-importing them per question
+ * was both a memory leak and a correctness bug), so on a host where the
+ * checkout can be updated underneath a running service — the bare-metal
+ * `deploy/` path, not the container, whose files are baked into the image —
+ * this is how "restart me, my catalogue is older than the disk's" becomes
+ * visible. It is not a reason to fail a health check and have the machine
+ * killed mid-answer: stale-but-consistent data is still a usable service,
+ * and every number the chatbot states is at least internally consistent
+ * with the snapshot it holds.
  */
 app.get('/api/health', async (req, res) => {
   const baseUrl = process.env.FREELLMAPI_BASE_URL;
@@ -56,8 +69,18 @@ app.get('/api/health', async (req, res) => {
   const models = await loadAgentModels();
   const configured = Boolean(baseUrl && apiKey) && models.length > 0;
 
+  // Never loads the site modules itself — reports "not loaded yet" until the
+  // first question has pulled them in, so a health check cannot be what pays
+  // the ~15 MB parse.
+  let siteData;
+  try {
+    siteData = await siteDataFreshness();
+  } catch (err) {
+    siteData = { loaded: false, error: String(err?.message ?? err) };
+  }
+
   if (!configured) {
-    return res.json({ ok: false, configured: false, freellmapiReachable: false, agentCount: models.length });
+    return res.json({ ok: false, configured: false, freellmapiReachable: false, agentCount: models.length, siteData });
   }
 
   let freellmapiReachable = false;
@@ -77,7 +100,7 @@ app.get('/api/health', async (req, res) => {
     freellmapiReachable = false;
   }
 
-  res.json({ ok: freellmapiReachable, configured: true, freellmapiReachable, agentCount: models.length });
+  res.json({ ok: freellmapiReachable, configured: true, freellmapiReachable, agentCount: models.length, siteData });
 });
 
 app.post('/api/chat', async (req, res) => {

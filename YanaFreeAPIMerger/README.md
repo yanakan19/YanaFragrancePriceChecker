@@ -19,11 +19,25 @@ using **only** the SITE DATA block built for that specific question, never
 its own general knowledge. That block comes from `server/siteData.js`, which
 imports pricesniffs.space's real data **directly from the parent repo** —
 `demo/data.ts`, `demo/catalogue.generated.ts`, `src/services/priceService.ts`,
-`src/index.ts`, `demo/brandSites.ts`, `demo/legal.ts` — re-read fresh on
-every question rather than cached at boot, so an answer can never be more
-than one harvest behind the live site. There is no separate database and no
-scrape: this app runs from the same checkout as the rest of the repo and
-reads the identical modules the static site itself renders from.
+`src/index.ts`, `demo/brandSites.ts`, `demo/legal.ts`, `src/config/retailers.ts`.
+There is no separate database and no scrape: this app runs from the same
+checkout as the rest of the repo and reads the identical modules the static
+site itself renders from.
+
+Those modules are imported **once per process**, as one coherent snapshot,
+and every part of an answer is computed from that same snapshot. So the
+chatbot's data is as fresh as the process is old — in the container, as
+fresh as the last deploy, since the image bakes `demo/*.ts` in at build
+time and nothing writes to that filesystem afterwards. Re-run the deploy
+workflow to move it forward. `server/siteData.js`'s header has the full
+reasoning, including the two measured reasons the previous
+re-read-per-question design was abandoned: it retained ~129 MB of heap per
+question permanently, and it could only ever refresh half the module graph,
+leaving the fragrance count the chatbot quotes pinned to boot while the
+prices beside it were not. Where the checkout genuinely can change under a
+running server (the bare-metal `deploy/` path), `/api/health` reports
+`siteData.stale` so that divergence is visible rather than silent; a
+restart is the fix.
 
 The scoring matrix (`server/scoring.js`) enforces this mechanically, not
 just by prompt: its highest-weighted criterion, `groundedness`, fails any

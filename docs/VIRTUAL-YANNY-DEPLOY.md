@@ -249,29 +249,66 @@ first response.
 
 ## Two things to know about running this in a container
 
-**Memory.** The machine is configured with 1 GB and 512 MB of swap, which is
-far more than an Express app that answers a few questions an hour looks like
-it should need. It is measured, not padded: `server/siteData.js` re-imports
-the site's data modules on every single question, cache-busting the
-specifier so Node genuinely re-reads them (that file explains why it wants
-data that fresh). `demo/catalogue.generated.ts` alone is ~15 MB of
-TypeScript, and every re-import is a distinct module Node's loader keeps
-for the life of the process. Measured against the current catalogue,
-resident memory goes from ~85 MB at boot to ~500 MB after the first
-question and oscillates up to ~750 MB as the collector works against it. A
-256 MB machine dies on question one. If chat requests start failing under
-real traffic, raise `memory` in `fly.toml` to `2gb` first. The
-`auto_stop_machines = "suspend"` setting helps incidentally, by recycling
-an idle machine and clearing what has accumulated.
+**Memory.** The machine is configured with 512 MB and 512 MB of swap. That
+is measured, not padded, and it used to say 1 GB.
+
+`server/siteData.js` originally re-imported the site's data modules on
+every single question, cache-busting the specifier so Node treated each
+call as a brand new module. `demo/catalogue.generated.ts` alone is ~15 MB
+of TypeScript, and every one of those re-imports is a module Node's loader
+pins for the life of the process — nothing the collector can ever free.
+Driving `buildSiteDataBlock()` in a loop against this repo's checkout,
+reading peak RSS from the kernel's `VmHWM` and sampling `heapUsed` after a
+forced full GC, that design retained **129 MB per question**: 6.6 MB of
+heap at boot, 209 MB after one question, 6,531 MB after fifty, with peak
+RSS for the run at 7.1 GB. The 1 GB machine was not "enough" — it was one
+or two questions from dying, and the swap was a plaster.
+
+The modules are now imported once per process (see that file's header).
+Same measurement, same catalogue: 6.7 MB at boot, 67.7 MB after one
+question, 67.8 MB after fifty — 0.002 MB retained per question — with peak
+RSS at 393.6 MB for the run, and 393.6–397.2 MB across five runs of 50 to
+200 questions. Nothing grows after the first question, so 512 MB with the
+swap cushion fits with roughly 115 MB of headroom. 256 MB still does not:
+the one-time import of the catalogue peaks past it.
+
+The number that governs this is the catalogue's size, since peak RSS is
+dominated by transpiling and parsing that one file once. Re-measure if
+`demo/catalogue.generated.ts` passes ~20 MB, and raise `memory` in
+`fly.toml` to `1gb` if peak RSS gets within ~50 MB of the limit. All the
+figures above were taken in a dev container under Node 22, not on Fly —
+the environment that measured them has no outbound network and could not
+reach Fly at all.
 
 **Data freshness.** The image contains a *snapshot* of
-`demo/catalogue.generated.ts` from the moment it was built. The server
-re-reads its data from disk per question, but inside a container that disk
-is the image, so the chatbot's prices are as fresh as the last run of the
-deploy workflow — not as fresh as the site. Re-run the workflow when that
-gap starts to matter. Wiring the deploy to the crawl would close it, but
-that trade was declined here: it would mean rebuilding and restarting the
-backend many times a day.
+`demo/catalogue.generated.ts` from the moment it was built, and the process
+never writes to its own filesystem — so inside a container the data on disk
+cannot change while the server runs, and it never could. Loading those
+modules once per process therefore costs nothing in freshness here that the
+image had not already cost: the chatbot's prices are as fresh as the last
+run of the deploy workflow, not as fresh as the site. Re-run the workflow
+when that gap starts to matter. Wiring the deploy to the crawl would close
+it, but that trade was declined here: it would mean rebuilding and
+restarting the backend many times a day.
+
+Where the checkout *can* change under a running server — the bare-metal
+`deploy/` path below, where a `git pull` updates the files a systemd
+service is reading — `/api/health` now reports a `siteData` block:
+
+```json
+"siteData": { "loaded": true, "loadedAt": "…", "catalogueCrawledAt": "…",
+              "stale": false, "changedFiles": [] }
+```
+
+`stale: true` means this process is answering from an older catalogue than
+the disk holds, and names the files that moved. Restarting the service is
+the fix. It deliberately does not fail the health check and does not
+trigger an in-process reload: a reload could only refresh the seven entry
+modules and not the graph beneath them (Node drops a `?t=` query when
+resolving the relative imports *inside* a module — pinned by a test in
+`YanaFreeAPIMerger/test/siteData.test.js`), which would hand back a
+snapshot whose fragrance count and prices came from different catalogues.
+Stale but self-consistent beats fresh but self-contradicting.
 
 ## The Oracle Cloud VM alternative
 
