@@ -1,5 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import { RETAILERS, getRetailer, enabledRetailers, retailersForTier, cannotCarryBrand } from '../src/config/retailers.js';
+import {
+  RETAILERS,
+  getRetailer,
+  enabledRetailers,
+  retailersForTier,
+  cannotCarryBrand,
+  CURRENCY_UNCONFIRMED,
+} from '../src/config/retailers.js';
 import { buildComparison, bestOffer, presentOffer } from '../src/services/priceService.js';
 import type { RawOffer } from '../src/types/offer.js';
 
@@ -163,8 +170,50 @@ describe('retailer registry', () => {
     }
   });
 
-  it('prices everything in sterling', () => {
+  // This asserts less than its old name ("prices everything in sterling")
+  // implied. `Retailer['currency']` is the literal type 'GBP', so this can
+  // only ever pass — it catches a widening of the type, not a shop that turns
+  // out to price in euros. The check that carries real weight is the one
+  // below.
+  it('declares GBP on every entry, which is all the type allows', () => {
     for (const r of RETAILERS) expect(r.currency).toBe('GBP');
+  });
+
+  // Three entries assert 'GBP' while their own shipping.notes say the currency
+  // is unestablished — a Spanish site, a Madrid warehouse and a storefront
+  // advertising in dollars. Nothing is wrong today because all three are
+  // disabled; the danger is the edit that enables one without reading the
+  // note, which would publish euro prices as pounds. src/config/retailers.ts
+  // records that as data in CURRENCY_UNCONFIRMED and throws on import if any
+  // of them is enabled. These tests keep that record honest: an id that is
+  // quietly dropped, or renamed out from under it, would otherwise disarm the
+  // guard without anything failing.
+  describe('retailers whose currency is not confirmed', () => {
+    it('names only real retailers, each with a stated reason', () => {
+      expect(CURRENCY_UNCONFIRMED.size).toBeGreaterThan(0);
+      for (const [id, reason] of CURRENCY_UNCONFIRMED) {
+        expect(getRetailer(id), `${id} is not a retailer in this registry`).toBeDefined();
+        expect(reason.length, `${id} has no stated reason`).toBeGreaterThan(20);
+      }
+    });
+
+    it('keeps every one of them disabled', () => {
+      for (const id of CURRENCY_UNCONFIRMED.keys()) {
+        expect(
+          getRetailer(id)!.enabled,
+          `${id} is enabled without a confirmed currency — see CURRENCY_UNCONFIRMED`,
+        ).toBe(false);
+      }
+    });
+
+    // The specific case this was written for. Named rather than derived, so
+    // deleting the entry from CURRENCY_UNCONFIRMED fails here too and has to
+    // be a deliberate act with a checkout behind it.
+    it('still covers the Spanish and Madrid-shipping entries', () => {
+      expect(CURRENCY_UNCONFIRMED.has('paco-perfumerias')).toBe(true);
+      expect(CURRENCY_UNCONFIRMED.has('beauty-the-shop-uk')).toBe(true);
+      expect(CURRENCY_UNCONFIRMED.has('zimaya')).toBe(true);
+    });
   });
 
   it('includes Beauty Base, enabled', () => {

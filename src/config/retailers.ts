@@ -1490,6 +1490,12 @@ export const RETAILERS: readonly Retailer[] = [
     // on top — see the note below. The twice-daily shipping:discover run reads
     // their delivery page, so this should resolve without anyone opening a
     // browser.
+    //
+    // CURRENCY NOT CONFIRMED, and that half is now enforced rather than only
+    // described: this entry is listed in CURRENCY_UNCONFIRMED at the foot of
+    // this file, and the guard there throws if it is enabled while the dollar
+    // question below is still open. The delivery cost and the currency are two
+    // separate blockers; shipping:discover can only settle the first.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -1796,6 +1802,13 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'pacoperfumerias.com',
     homepage: 'https://www.pacoperfumerias.com',
     tiers: ['designer', 'niche'],
+    // CURRENCY NOT CONFIRMED. Do not flip this to true on the strength of the
+    // Awin application alone — read `shipping.notes` below and
+    // CURRENCY_UNCONFIRMED at the foot of this file first. The `currency:
+    // 'GBP'` on the next line is what the Retailer type forces, not a fact
+    // about this shop: it is Spanish, and nobody has established what its
+    // checkout charges in. Enabling it while that is open publishes euros as
+    // pounds. The guard below throws rather than let that happen quietly.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -1808,7 +1821,9 @@ export const RETAILERS: readonly Retailer[] = [
       notes:
         'Applied via Awin 2026-08-11. A Spanish retailer (pacoperfumerias.com); whether its Awin ' +
         'UK programme actually checks out in GBP or this is an EU-priced site with a UK-targeted ' +
-        'affiliate programme has not been confirmed. Delivery terms and page structure not yet read.',
+        'affiliate programme has not been confirmed — so the GBP above is the type talking, not ' +
+        'a checked figure, and this entry is listed in CURRENCY_UNCONFIRMED at the foot of this ' +
+        'file. Delivery terms and page structure not yet read.',
     },
     catalogue: null,
     affiliate: { ...awinRequested() },
@@ -1945,6 +1960,11 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'beautytheshop.com',
     homepage: 'https://www.beautytheshop.com',
     tiers: ['designer', 'niche'],
+    // CURRENCY NOT CONFIRMED — same shape as Paco Perfumerias above. The
+    // `currency: 'GBP'` on the next line is what the Retailer type forces, not
+    // a fact about this shop: it ships from Madrid and nobody has established
+    // what UK orders are actually priced in. Read `shipping.notes` below and
+    // CURRENCY_UNCONFIRMED at the foot of this file before enabling it.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -1956,7 +1976,9 @@ export const RETAILERS: readonly Retailer[] = [
       confidence: 'unverified',
       notes:
         'Applied via Awin 2026-08-11. Ships from Madrid, Spain — whether UK orders are actually ' +
-        'GBP-priced has not been confirmed. Delivery terms and page structure not yet read.',
+        'GBP-priced has not been confirmed, so the GBP above is the type talking, not a checked ' +
+        'figure, and this entry is listed in CURRENCY_UNCONFIRMED at the foot of this file. ' +
+        'Delivery terms and page structure not yet read.',
     },
     catalogue: null,
     affiliate: { ...awinRequested() },
@@ -2113,6 +2135,80 @@ export const RETAILERS: readonly Retailer[] = [
     affiliate: { ...awinPending('29993') },
   },
 ] as const;
+
+/**
+ * Retailers whose `currency: 'GBP'` above is an artefact of the type rather
+ * than a checked fact, each mapped to the reason nobody can yet say what that
+ * shop charges in.
+ *
+ * `Retailer['currency']` is the literal type `'GBP'` — its doc comment in
+ * src/types/retailer.ts reads "All registry entries are UK storefronts pricing
+ * in sterling" — so the type has no value meaning "not established yet". Every
+ * entry in this file therefore asserts sterling whether or not anyone looked.
+ * For the shops below nobody has looked, and each one's own `shipping.notes`
+ * says so in as many words. That left the entry stating as fact the exact
+ * thing its own note calls unconfirmed.
+ *
+ * It is a trap rather than a cosmetic contradiction, because code downstream
+ * reads the registry's promise literally. src/catalogue/shopifyProductsCrawl.ts
+ * stamps `currency: 'GBP'` onto every price it reads and cites "that type's own
+ * constraint" as its authority for doing so. Enable a euro-priced shop on a
+ * scrape route and euro amounts publish as pounds on every listing, with
+ * nothing failing anywhere — on a site whose entire premise is real GBP prices.
+ * The affiliate-feed route happens to be safer: src/catalogue/awinFeed.ts skips
+ * any row whose currency column is not GBP, so such a retailer would yield
+ * nothing rather than nonsense. That covers one of the several ways a retailer
+ * gets brought online, not all of them, and it is a side effect of the feed
+ * parser rather than a guarantee this file makes.
+ *
+ * So the unconfirmed-ness lives here as data, and the check below turns
+ * "someone flips `enabled: true` without reading the note" from a silent
+ * mispricing into a throw on the first import. No currency is invented for any
+ * of these — none has been confirmed, and guessing one is the error being
+ * prevented.
+ *
+ * The way off this list is to reach one of these shops' own checkout and
+ * record which currency it actually charged, then delete the id here and say
+ * so in that retailer's `shipping.notes`. Deleting an id to quieten a failing
+ * build re-arms the trap and removes the only thing standing in front of it.
+ */
+export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
+  [
+    'zimaya',
+    'uk.zimayaperfumes.com advertises "FREE DELIVERY OVER $50" in dollars, so it is not ' +
+      'confirmed that it prices or ships in sterling; an unlocalised Shopify storefront looks ' +
+      'exactly like this.',
+  ],
+  [
+    'paco-perfumerias',
+    'A Spanish retailer (pacoperfumerias.com) with a UK-targeted Awin programme. Whether that ' +
+      'programme checks out in GBP, or the site is EU-priced throughout, has not been confirmed.',
+  ],
+  [
+    'beauty-the-shop-uk',
+    'Ships from Madrid, Spain. Whether UK orders are actually GBP-priced has not been confirmed.',
+  ],
+]);
+
+// Runs once, at import, which is the only moment early enough to matter: by
+// the time a price reaches a snapshot the currency has already been assumed.
+// Cannot fire today — all three are `enabled: false` — and that is the point.
+// It exists for the edit that flips one of them without reading the note.
+const enabledWithoutConfirmedCurrency = RETAILERS.filter(
+  (r) => r.enabled && CURRENCY_UNCONFIRMED.has(r.id),
+);
+if (enabledWithoutConfirmedCurrency.length > 0) {
+  throw new Error(
+    'Retailer(s) enabled without a confirmed currency: ' +
+      enabledWithoutConfirmedCurrency
+        .map((r) => `${r.id} — ${CURRENCY_UNCONFIRMED.get(r.id)}`)
+        .join(' | ') +
+      " Their currency: 'GBP' is what the Retailer type forces, not anything anyone checked, so " +
+      'enabling them can publish euro prices as pounds. Confirm the checkout currency first, then ' +
+      'remove the id from CURRENCY_UNCONFIRMED in src/config/retailers.ts. Removing it to make ' +
+      'this message go away is the failure this check exists to prevent.',
+  );
+}
 
 /** Registry lookup by id. Built once — the registry is static. */
 const BY_ID = new Map(RETAILERS.map((r) => [r.id, r]));
