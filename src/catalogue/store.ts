@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, renameSync, unlinkSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import type { CatalogueRun, StoredListing } from './types.js';
 
@@ -58,6 +58,31 @@ export class CatalogueStore {
     }
   }
 
+  /**
+   * Replace one retailer's snapshot, atomically.
+   *
+   * The harvest calls this once per shop, inside its loop, so the shops it has
+   * already finished are on disk the moment they finish. That is what lets a
+   * harvest that runs out of time keep its work: the workflow caps the harvest
+   * step and commits `data/catalogue` regardless, so a run cut short publishes
+   * every shop it got to instead of discarding all of them.
+   *
+   * Which makes the *manner* of the cut load-bearing. A step timeout kills the
+   * process tree outright — run #180's log ends with the runner terminating
+   * `npm run harvest` and its node children mid-shop — and a plain
+   * `writeFileSync` truncates the file before it writes, so a kill landing in
+   * that window leaves a half-written snapshot on disk. `read()` above rightly
+   * refuses to parse one: it throws rather than mistake a truncated file for an
+   * empty shop, because treating it as empty would look like a first crawl and
+   * suppress every NEW badge for a week. So the next run would not degrade — it
+   * would fail outright, on a file the previous run corrupted, and stay failing
+   * until someone deleted it by hand.
+   *
+   * Writing beside the target and renaming closes that window. rename(2) within
+   * a directory is atomic, so a reader sees either the previous snapshot or the
+   * new one, never a prefix of either. The temp file is removed on failure so a
+   * killed run leaves no litter for the next one to commit.
+   */
   write(snapshot: CatalogueSnapshot): void {
     const file = this.path(snapshot.retailerId);
     mkdirSync(dirname(file), { recursive: true });
@@ -66,7 +91,21 @@ export class CatalogueStore {
       ...snapshot,
       runs: [...snapshot.runs].sort((a, b) => b.startedAt.localeCompare(a.startedAt)).slice(0, 30),
     };
-    writeFileSync(file, `${JSON.stringify(trimmed, null, 2)}\n`);
+    // Same directory as the target, so the rename never crosses a filesystem —
+    // across one it would fall back to a copy and reopen the very window this
+    // exists to close. The pid keeps two concurrent writers apart.
+    const temp = `${file}.${process.pid}.tmp`;
+    try {
+      writeFileSync(temp, `${JSON.stringify(trimmed, null, 2)}\n`);
+      renameSync(temp, file);
+    } catch (err) {
+      try {
+        unlinkSync(temp);
+      } catch {
+        // Already gone, or never created. Nothing to clean up.
+      }
+      throw err;
+    }
   }
 
   /** Has this retailer ever been crawled successfully? */
