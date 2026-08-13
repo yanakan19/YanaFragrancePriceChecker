@@ -9,23 +9,48 @@
 #
 # ── Changing the app name ────────────────────────────────────────────────
 # Fly app names are globally unique across all of Fly, so this one may
-# already be taken by someone else. If `flyctl apps create` reports it as
-# unavailable, change `app` below to anything free and change nothing else:
-# the deploy workflow reads the name from this file, and the public
-# hostname is always <app>.fly.dev. This is deliberately a different app
-# from `yanny-freellmapi`, the model router — that one is already live and
-# is not touched by any of this.
+# already be taken by someone else. If Fly reports it as unavailable, change
+# `app` below to anything free and change nothing else: the deploy workflow
+# reads the name from this file, and the public hostname is always
+# <app>.fly.dev. (The workflow also takes an `app_name` dispatch input,
+# which rewrites this line on the runner for one run, so a collision can be
+# worked around without a commit — but the fix belongs here afterwards.)
+# This is deliberately a different app from `yanny-freellmapi`, the model
+# router — that one is already live and is not touched by any of this.
 #
-# Renamed from "virtual-yanny-backend" after the first deploy attempt failed
-# at "Create the Fly app": Fly app names are globally unique across every
-# account, not per account, so an obvious name is very likely already taken by
-# a stranger. Prefixing with the site name makes a collision unlikely without
-# making the hostname unguessable. If this one is taken too, change it here
-# and nowhere else — the workflow reads the name from this file.
+# ── What the rename from "virtual-yanny-backend" was, and was not ────────
+# It was renamed on the assumption that the deploy failed because the old
+# name was taken. The logs do not support that. Every failed attempt of the
+# deploy workflow ended at `flyctl apps create` with:
+#
+#     Error: unauthorized (Request ID: ...)
+#
+# which is Fly refusing the *token*, not the name — a deploy token is scoped
+# to one app and cannot create apps at all, so it never got as far as
+# checking whether "virtual-yanny-backend" was free. Nobody has established
+# whether either name is available; that takes a network this repo's tooling
+# has never had. The name stays "pricesniffs-yanny" because prefixing with
+# the site makes a collision less likely, not because a collision was proved.
 app = "pricesniffs-yanny"
 
 # London: the site, its prices and its readers are all UK-facing.
 primary_region = "lhr"
+
+# A cushion for the one-time import spike at the first question, so a
+# transient peak pages out instead of getting the process OOM-killed
+# mid-answer. See the [[vm]] memory note near the bottom for the numbers.
+#
+# It has to sit up here, above every table header. It used to be the last
+# line of this file, after `[[vm]]`, where it was NOT a top-level key at
+# all: in TOML every key after a table header belongs to that table, so
+# `swap_size_mb` was being parsed as a member of the vm entry —
+# `[{memory = "512mb", cpus = 1, cpu_kind = "shared", swap_size_mb = 512}]`
+# — which is not where Fly looks for it. Confirmed by parsing this file
+# with a TOML library, not by reading it. Best case the swap was silently
+# absent; worst case flyctl rejected the config as having an unknown vm
+# field, and nothing in this repo had ever run flyctl against it to find
+# out.
+swap_size_mb = 512
 
 # ── Non-secret configuration ─────────────────────────────────────────────
 # These three are public facts and belong in the repo. The fourth env var
@@ -77,7 +102,11 @@ primary_region = "lhr"
     path = "/api/health"
 
 [[vm]]
-  size = "shared-cpu-1x"
+  # `cpus` + `cpu_kind` + `memory` state the machine completely, so the
+  # `size = "shared-cpu-1x"` shorthand that used to sit here as well has
+  # been dropped: it said the same thing a second way, and a preset
+  # alongside the individual keys is one more thing for a future flyctl to
+  # disagree with. Nothing about the machine changed with it.
   # ── Why 512 MB and not the 256 MB default ──────────────────────────────
   # Measured, not guessed, and measured again after this app stopped
   # leaking.
@@ -117,8 +146,3 @@ primary_region = "lhr"
   memory = "512mb"
   cpus = 1
   cpu_kind = "shared"
-
-# Kept as a cushion for the one-time import spike at the first question,
-# so a transient peak pages out instead of getting the process OOM-killed
-# mid-answer.
-swap_size_mb = 512
