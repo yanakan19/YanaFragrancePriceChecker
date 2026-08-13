@@ -134,7 +134,7 @@ Only after a real deployment has reported healthy, point the widget at it.
 In `demo/virtualYanny.ts`:
 
 ```ts
-const VIRTUAL_YANNY_API_BASE_URL = 'https://virtual-yanny-backend.fly.dev';
+const VIRTUAL_YANNY_API_BASE_URL = 'https://pricesniffs-yanny.fly.dev';
 ```
 
 then `npm run demo`, commit `demo/virtualYanny.ts` with the rebuilt
@@ -144,7 +144,7 @@ carries the live widget. Nothing else in `demo/` changes.
 Or let the script do all of that:
 
 ```
-bash deploy/set-yanny-api-base-url.sh https://virtual-yanny-backend.fly.dev
+bash deploy/set-yanny-api-base-url.sh https://pricesniffs-yanny.fly.dev
 ```
 
 It refuses to write a URL it has not just seen report `ok:true` itself, then
@@ -173,7 +173,7 @@ Render and Railway would both work and neither was scaffolded, on purpose —
 one finished path beats three half-built ones. The `Dockerfile` is not
 Fly-specific, so moving later mostly means pointing another provider at it.
 
-**The app name is `virtual-yanny-backend`, set in
+**The app name is `pricesniffs-yanny`, set in
 `YanaFreeAPIMerger/fly.toml`.** Fly app names are globally unique across all
 of Fly, so if `flyctl apps create` reports it as taken, change `app` in that
 file to anything free and change nothing else — the workflow reads the name
@@ -186,11 +186,11 @@ touches.
 Same thing without the workflow, run once each:
 
 ```
-flyctl apps create virtual-yanny-backend --org personal
-flyctl secrets set --app virtual-yanny-backend FREELLMAPI_API_KEY='<the key>'
+flyctl apps create pricesniffs-yanny --org personal
+flyctl secrets set --app pricesniffs-yanny FREELLMAPI_API_KEY='<the key>'
 flyctl deploy . --config YanaFreeAPIMerger/fly.toml \
                 --dockerfile YanaFreeAPIMerger/Dockerfile --remote-only
-curl https://virtual-yanny-backend.fly.dev/api/health
+curl https://pricesniffs-yanny.fly.dev/api/health
 ```
 
 **Run these from the repo root, not from `YanaFreeAPIMerger/`.** The build
