@@ -118,7 +118,15 @@ echo "Backend is healthy."
 # ── The edit ─────────────────────────────────────────────────────────────
 # Matches the declaration whatever it currently holds, so re-pointing an
 # already-configured build at a new host works the same as the first run.
-MATCHES="$(grep -c "^const VIRTUAL_YANNY_API_BASE_URL = '.*';$" "${TARGET_FILE}" || true)"
+#
+# The optional `: string` is matched because the declaration carries one and
+# must: without it TypeScript infers a literal type and the
+# VIRTUAL_YANNY_CONFIGURED comparison beside it becomes a compile error
+# under tsconfig.demo.json. Both shapes are accepted so this script keeps
+# working either way, and the annotation is preserved rather than stripped —
+# see the comment on that declaration.
+DECL_RE="^const VIRTUAL_YANNY_API_BASE_URL\(: string\)\{0,1\} = '.*';$"
+MATCHES="$(grep -c "${DECL_RE}" "${TARGET_FILE}" || true)"
 if [ "${MATCHES}" != "1" ]; then
   echo "ERROR: expected exactly one VIRTUAL_YANNY_API_BASE_URL declaration in ${TARGET_FILE}, found ${MATCHES}." >&2
   echo "The file has changed shape; edit it by hand instead." >&2
@@ -127,7 +135,7 @@ fi
 
 # BASE_URL is already known to match https://... with no trailing slash, so
 # it cannot contain a quote or a sed delimiter.
-sed -i.bak "s|^const VIRTUAL_YANNY_API_BASE_URL = '.*';\$|const VIRTUAL_YANNY_API_BASE_URL = '${BASE_URL}';|" "${TARGET_FILE}"
+sed -i.bak "s|${DECL_RE}|const VIRTUAL_YANNY_API_BASE_URL: string = '${BASE_URL}';|" "${TARGET_FILE}"
 rm -f "${TARGET_FILE}.bak"
 
 echo "Updated: $(grep '^const VIRTUAL_YANNY_API_BASE_URL' "${TARGET_FILE}")"
