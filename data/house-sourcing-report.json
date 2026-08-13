@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-12T23:40:15.438Z",
+  "checkedAt": "2026-08-13T02:26:07.410Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,7 +59,7 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 13,
+      "listings": 16,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
@@ -193,12 +193,10 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 56,
-      "pricedInGbp": 56,
-      "withPhoto": 56,
-      "errors": [
-        "stopped early: exceeded this house's time budget"
-      ],
+      "listings": 60,
+      "pricedInGbp": 60,
+      "withPhoto": 60,
+      "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
@@ -536,9 +534,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 217,
-      "pricedInGbp": 217,
-      "withPhoto": 215,
+      "listings": 218,
+      "pricedInGbp": 218,
+      "withPhoto": 216,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",
