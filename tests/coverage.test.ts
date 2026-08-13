@@ -178,6 +178,38 @@ describe('Shopify products.json', () => {
     expect(gbp[0]!.nativePrice).toBeNull();
   });
 
+  // A user reported French Avenue "Vulcan Feu" showing £67.99 against a £30.99
+  // shop price, and the house harvest was suspected of reading compare_at_price
+  // as the selling price. It was not: the listing was MyBeauty.Boutique's, off
+  // the Awin feed, and no French Avenue house exists in src/config/houses.ts at
+  // all. These two hold the house route to the reading that cleared it.
+  it('reads price as the selling price and compare_at_price as the reference, never the reverse', () => {
+    const out = parseShopifyProducts(SHOPIFY, {
+      origin: 'https://x.example', sectionId: 's', currency: 'GBP',
+    });
+    expect(out[0]!.priceGbp).toBe(95);
+    expect(out[0]!.wasPriceGbp).toBe(120);
+    // The failure being guarded against is the swap, so state it directly.
+    expect(out[0]!.priceGbp).toBeLessThan(out[0]!.wasPriceGbp!);
+  });
+
+  it('drops a compare_at_price at or below the selling price instead of swapping it in', () => {
+    const body = JSON.stringify({
+      products: [{
+        id: 1, title: 'X', handle: 'x', vendor: 'V', images: [],
+        variants: [
+          { id: 1, sku: 'EQUAL', title: '100ml', price: '30.99', compare_at_price: '30.99', available: true },
+          { id: 2, sku: 'BELOW', title: '50ml', price: '30.99', compare_at_price: '20.00', available: true },
+        ],
+      }],
+    });
+    const out = parseShopifyProducts(body, {
+      origin: 'https://x.example', sectionId: 's', currency: 'GBP',
+    });
+    expect(out.map((l) => l.priceGbp)).toEqual([30.99, 30.99]);
+    expect(out.map((l) => l.wasPriceGbp)).toEqual([null, null]);
+  });
+
   it('never presents dirhams as pounds', () => {
     const aed = parseShopifyProducts(SHOPIFY, {
       origin: 'https://x.example', sectionId: 's', currency: 'AED',
