@@ -3,15 +3,39 @@
  *
  * The backend (YanaFreeAPIMerger/, a separate Node service — see its own
  * README and docs/VIRTUAL-YANNY-DEPLOY.md) is not something this static
- * site can run itself. VIRTUAL_YANNY_API_BASE_URL starts blank because that
- * service has nowhere to live yet (an Oracle Cloud VM is provisioning, not
- * live) — the same "absent rather than invented" pattern demo/supabase.ts
- * already uses for the same reason: a guessed or placeholder URL here would
- * make the widget fail on every single use instead of failing once, openly,
- * at the health check. Once the backend is deployed, this is the one line
- * in the whole integration that changes.
+ * site can run itself. This value shipped blank until the backend had
+ * somewhere to live — the same "absent rather than invented" pattern
+ * demo/supabase.ts uses, because a guessed or placeholder URL makes the
+ * widget fail on every single use instead of failing once, openly, at the
+ * health check below.
+ *
+ * Live since 2026-08-13. Set to the app deployed by
+ * .github/workflows/deploy-yanny.yml, whose name comes from
+ * YanaFreeAPIMerger/fly.toml and whose hostname is always <app>.fly.dev.
+ *
+ * Normally this line is written by deploy/set-yanny-api-base-url.sh, which
+ * refuses to write a URL it has not just seen report itself healthy. That
+ * script could not run where this edit was made — the environment has no
+ * outbound network, and the health request 403s at its proxy before it
+ * leaves. What stands in its place is the same check, made from a machine
+ * that does have network: run 2 of the deploy workflow (job 94432961781,
+ * commit 600ada3, 2026-08-13T11:30) passed step "Verify the deployed
+ * backend reports healthy", which exits non-zero unless the response body
+ * reports ok, configured and freellmapiReachable all true. It passed on its
+ * first poll. Nobody here has fetched this host; that job has.
+ *
+ * If it ever needs repointing, prefer the script over editing this by hand.
+ *
+ * The `: string` is load-bearing, not decoration. Without it TypeScript
+ * infers the literal type of whatever is on the right, and the check below
+ * — the one that decides whether the widget even tries — becomes a
+ * comparison between two literals that the compiler can settle on its own.
+ * That is an error under tsconfig.demo.json, so the site stops building the
+ * moment this stops being blank. Annotating it keeps the value a plain
+ * string and the check a real runtime question, which is what it is: this
+ * line is meant to be edited.
  */
-const VIRTUAL_YANNY_API_BASE_URL = '';
+const VIRTUAL_YANNY_API_BASE_URL: string = 'https://pricesniffs-yanny.fly.dev';
 
 export const VIRTUAL_YANNY_CONFIGURED = VIRTUAL_YANNY_API_BASE_URL !== '';
 
