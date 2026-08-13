@@ -123,6 +123,50 @@ describe('fragranceOnlyCatalogue is opt-in and deliberately narrow', () => {
   });
 });
 
+describe('isFragrance: scented air and body sprays are not perfume', () => {
+  // These passed because "Oud" is the product *line's* name — Lattafa's
+  // "Bade'e Al Oud" and "Oud Mood" ranges — not a strength, and the size
+  // parses. 26 of them were in the comparison beside the actual eau de parfum
+  // of the same line, at £2.99-£5.29, reading as the bargain of the site.
+  it.each([
+    ['emirates-oud', 'Badee al Oud Sublime Air Freshener 300ml Lattafa'],
+    ['emirates-oud', 'Oud 24 Hours Air Freshener 300ml Ard Al Zaafaran'],
+    ['mybeauty-boutique', "Lattafa Bade'e Al Oud Room Spray 300ml"],
+    ['mybeauty-boutique', 'Floris Oud And Cashmere Room Spray 100ml'],
+    ['justmylook', 'Ashleigh & Burwood Lamp Fragrance Bergamot & Oud 500ml'],
+    ['mybeauty-boutique', 'The Olphactory Cedar Oud Home Spray 500ml'],
+    ['mybeauty-boutique', 'Private Blend Oud Wood by Tom Ford All Over Body Spray 150ml'],
+    ['beautybase', "Lattafa Bade'e Al Oud Amethyst Perfumed Body Spray 200ml Spray"],
+  ])('rejects %s: %s', (retailerId, title) => {
+    expect(isFragrance(listing(retailerId, title))).toBe(false);
+  });
+
+  // Every entry is a phrase, and this is why. Each of these is a genuine
+  // fragrance carrying the bare word on its own — the bare word would take all
+  // of them, and 34 more real listings containing "air".
+  it.each([
+    ['beautybase', "Nina Ricci L'Air Du Temps Eau De Parfum 100ml Spray"],
+    ['fragrance-click', 'Calvin Klein Eternity Air 100ml Eau de Parfum'],
+    ['nicchia-luxury-uk', 'Vilhelm Parfumerie Room Service Eau de Parfum 50 ml'],
+    ['nicchia-luxury-uk', 'Vilhelm Parfumerie Body Paint Eau de Parfum 100 ml'],
+    ['mybeauty-boutique', 'Reebok Cool Your Body Men Eau de Toilette 100ml Spray'],
+    ['mybeauty-boutique', 'TOVA Beverly Hills Body Mind Spirit Eau De Parfum 100ml'],
+  ])('keeps a real fragrance carrying the bare word at %s: %s', (retailerId, title) => {
+    expect(isFragrance(listing(retailerId, title))).toBe(true);
+  });
+
+  // The only two titles in all 32,912 active priced listings that pair one of
+  // these phrases with a real concentration. Both are two products sold as one
+  // unit, published as a lone 100ml bottle at the pair's price — dropped on
+  // purpose, not tolerated as collateral.
+  it.each([
+    ['beautybase', 'Lattafa Najdia Eau De Parfum 100ml & Body Spray 50ml Spray'],
+    ['mybeauty-boutique', 'Arthes Rocky Man 100Ml EDT + Body Spray 200Ml Set'],
+  ])('drops a bottle-plus-body-spray pair deliberately at %s: %s', (retailerId, title) => {
+    expect(isFragrance(listing(retailerId, title))).toBe(false);
+  });
+});
+
 describe('isFragrance: a quantity against a size means several bottles', () => {
   // sizeMl reads the first size in the title, so each of these published as a
   // single small bottle at the price of the whole pack: £205 for "10ml",

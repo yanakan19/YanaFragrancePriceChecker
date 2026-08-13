@@ -49,9 +49,37 @@ const CONCENTRATION =
  * exactly as safe as the existing "reed" entry already is against "Creed"
  * (no word boundary between the C and the r, so it is never touched).
  * Checked against the live catalogue before being added: no collision.
+ *
+ * The scented-air and body-spray entries — "air freshener", "room spray",
+ * "lamp fragrance", "home spray", "body spray", "body mist" — were added after
+ * 26 of them were being sold to readers as perfume. They get in because the
+ * concentration test is satisfied by a word that is part of the *product line's*
+ * name rather than a strength: almost all of them are Lattafa's "Bade'e Al Oud"
+ * or "Oud Mood" range, where "Oud" is the name, plus a parseable size. So
+ * "Badee Al Oud Sublime Air Freshener 300ml" and "Lattafa Bade'e Al Oud Room
+ * Spray 300ml" sat in the comparison beside the actual eau de parfum of the
+ * same line, at £2.99 and £5.29 — which reads as the bargain of the site and is
+ * not the same product at all.
+ *
+ * Every one is a phrase, never a bare word, and that is the whole point:
+ *
+ *   - bare "air" would take Nina Ricci L'Air du Temps and CK Eternity Air
+ *     (checked: 40 kept listings contain "air", 34 of them real fragrances);
+ *   - bare "room" would take Vilhelm Parfumerie's Room Service Eau de Parfum;
+ *   - bare "body" would take Reebok Cool Your Body, Vilhelm Parfumerie Body
+ *     Paint and TOVA Body Mind Spirit, all genuine eaux de parfum.
+ *
+ * "body spray" covers "all over body spray" without needing its own entry.
+ * Checked across all 32,912 active priced listings: exactly two titles pair one
+ * of these phrases with a real concentration — "Lattafa Najdia Eau De Parfum
+ * 100ml & Body Spray 50ml" and "Arthes Rocky Man 100Ml EDT + Body Spray 200Ml
+ * Set". Both are two products sold as one unit, and both were being published
+ * as a lone 100ml bottle at the pair's price, which understates what the bottle
+ * costs — the same misrepresentation as MULTI_PACK, pointing the other way. So
+ * they are dropped deliberately, not tolerated as collateral.
  */
 export const NOT_A_FRAGRANCE =
-  /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|body cream|shampoo|conditioner|deodorant|shower gel|body wash|candle|diffuser|reed|gift ?set|set of|bundle|tester|sample|refill|travel spray|decant|hand wash|moisturis|lotion|balm|scrub|talc|hair)\b/i;
+  /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|body cream|shampoo|conditioner|deodorant|shower gel|body wash|candle|diffuser|reed|gift ?set|set of|bundle|tester|sample|refill|travel spray|decant|hand wash|moisturis|lotion|balm|scrub|talc|hair|air ?freshener|room spray|lamp fragrance|home spray|body spray|body mist)\b/i;
 
 /** Size in millilitres, needed before two listings can be compared at all. */
 export function sizeMl(title: string): number | null {
