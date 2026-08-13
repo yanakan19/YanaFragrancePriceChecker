@@ -33,6 +33,7 @@ import {
   repairMojibake,
   NOT_A_FRAGRANCE,
 } from '../src/catalogue/fragranceId.js';
+import { concentration, displayName } from '../src/catalogue/productName.js';
 
 /**
  * Retailers whose product photos may be displayed, and on what grounds.
@@ -53,44 +54,6 @@ const now = new Date();
 
 /* ── deciding what is actually a fragrance ─────────────────────────────────── */
 
-/**
- * Concentrations, split into two tiers so a match can be tried by
- * specificity — the full "eau de X" / "extrait de X" phrases first, then the
- * bare single-word alternatives — rather than by whichever happens to sit
- * first in the title. See concentrationMatch below for why that distinction
- * is load-bearing, not tidiness: "cologne" alone is ambiguous between a real
- * concentration and part of a product line's own name (Creed's "Aventus
- * Cologne"), where a full "eau de parfum" is never anything but the
- * concentration.
- *
- * "perfume" was a real gap in the generic tier: a title reading "Chanel No 5
- * Perfume 100ml" matched none of the French-derived terms and was silently
- * rejected as not a fragrance, despite being an obvious one — plain English
- * listings (feeds especially) favour "perfume" over "parfum". "attar" and
- * "oud" cover the concentrated-oil style Middle Eastern perfumery uses,
- * relevant because the registry already models a 'mideast' tier for three
- * retailers.
- *
- * The generic tier is itself ordered by reliability, not left as one
- * alternation — see concentrationMatch, which checks each word in this order
- * rather than taking whichever occurs earliest in the string. "oud" is last
- * for a concrete reason: it is also an extremely common leading word in a
- * fragrance's own name in Middle Eastern perfumery — "Oud & Roses", "Oud
- * Couture", "Oud Ispahan" — so a title like "Oud & Roses Perfume 60ml EDP"
- * naively matched leftmost picked "Oud" as the concentration, stripped it
- * from the display name, and left "& Roses Perfume 60ml EDP" with a bare
- * leading ampersand and the wrong concentration badge, even though "EDP"
- * sits right there later in the same title. Checked against Emirates Oud's
- * own catalogue: 38+ titles hit this exact collision.
- */
-const CONCENTRATION_SPECIFIC =
-  /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche|extrait de parfum|extrait de toilette)\b/i;
-const CONCENTRATION_GENERIC_PRIORITY = [
-  'edp', 'edt', 'edc', 'parfum', 'perfume', 'aftershave', 'cologne', 'extrait', 'attar', 'oud',
-] as const;
-const CONCENTRATION_GENERIC_PATTERNS: Record<string, RegExp> = Object.fromEntries(
-  CONCENTRATION_GENERIC_PRIORITY.map((w) => [w, new RegExp(`\\b${w}\\b`, 'i')]),
-);
 
 /**
  * The same question asked of a fragrance house's own storefront.
@@ -126,125 +89,9 @@ function isHouseFragrance(l: StoredListing): boolean {
   return !/\b(set|coffret|collection)\b/i.test(l.rawTitle);
 }
 
-/**
- * Canonical display form per CONCENTRATION alternative, so "EDT" and "Eau De
- * Toilette" in two different retailers' titles both land on the identical
- * string. Without this, a naive title case of whatever phrase the title used
- * produced two different strings ("Eau de Toilette" from the abbreviation,
- * "Eau De Toilette" from the spelled out phrase) for the same concentration,
- * which then meant only one of the two ever matched the app's own
- * abbreviation table for the popular rail's compact size and concentration
- * label.
- */
-const CONCENTRATION_DISPLAY: Record<string, string> = {
-  edp: 'Eau de Parfum', edt: 'Eau de Toilette', edc: 'Eau de Cologne',
-  'eau de parfum': 'Eau de Parfum', 'eau de toilette': 'Eau de Toilette',
-  'eau de cologne': 'Eau de Cologne', 'eau fraiche': 'Eau Fraiche',
-  parfum: 'Parfum', perfume: 'Perfume', aftershave: 'Aftershave',
-  cologne: 'Cologne', extrait: 'Extrait', attar: 'Attar', oud: 'Oud',
-};
 
-/**
- * Whichever concentration phrase a title actually names, by specificity
- * rather than by which one merely occurs first in the string.
- *
- * A single combined alternation isn't global, so `.match()` stops at the
- * first alternative that matches, scanning left to right — not the most
- * specific one. That is usually harmless, but Creed's own "Aventus Cologne"
- * line breaks it: the
- * title reads "Creed Aventus Cologne Eau De Parfum 50ml", where "Cologne" is
- * genuinely part of that line's own name (Creed formulates its Cologne
- * expressions at Eau de Parfum strength — an oddity of that one house, not a
- * general rule) and "Eau De Parfum" right after it is the actual
- * concentration. Because "Cologne" sits earlier in the string, the old
- * single match picked it as *the* concentration and left "Eau De Parfum"
- * sitting unremoved in the display name — "Aventus Eau De Parfum" labelled
- * Cologne, on the same product this file's other fix was written for.
- * Checking the specific "eau de X" phrases first, regardless of position,
- * is what a reader would call the actual concentration; a bare word like
- * "cologne" only gets to answer the question when nothing more specific
- * appears anywhere in the title.
- *
- * The same reasoning applies one level down, inside the generic tier itself:
- * checked by CONCENTRATION_GENERIC_PRIORITY order — does EDP appear anywhere,
- * then EDT, then Parfum, and so on down to "oud" last — rather than by
- * position. Without this, "Oud & Roses Perfume 60ml EDP" matched bare "Oud"
- * at position 0 for the exact same reason "Cologne" won above: leftmost, not
- * most reliable.
- */
-function concentrationMatch(title: string): string | null {
-  const specific = title.match(CONCENTRATION_SPECIFIC)?.[0];
-  if (specific) return specific;
-  for (const word of CONCENTRATION_GENERIC_PRIORITY) {
-    const hit = title.match(CONCENTRATION_GENERIC_PATTERNS[word]!)?.[0];
-    if (hit) return hit;
-  }
-  return null;
-}
 
-/** Concentration as a display string. */
-function concentration(title: string): string {
-  const raw = concentrationMatch(title);
-  if (!raw) return 'Fragrance';
-  const key = raw.toLowerCase();
-  return CONCENTRATION_DISPLAY[key] ?? key.replace(/\b\w/g, (c) => c.toUpperCase());
-}
 
-/**
- * Strip the shop's noise off a title to get something readable.
- *
- * Deliberately conservative. Where this cannot do better it leaves the shop's
- * own words alone, because a mangled name is worse than a verbose one.
- *
- * `for men/women/him/her` used to be stripped here alongside genuine format
- * noise like "spray" and "splash", on the assumption that it was always
- * redundant gender marketing on an otherwise identical bottle. It is not:
- * Creed sells "Aventus" and "Aventus For Her" as two different fragrances
- * with different compositions, not one fragrance with an optional label, and
- * the same pattern repeats across the catalogue under whichever name a house
- * gives its own paired lines — Calvin Klein's "Eternity" and "Eternity for
- * Him", Dolce & Gabbana's "The One" and "The One For Men", Hugo Boss's "The
- * Scent" and "The Scent For Her" are each two distinct products, not a men's
- * and women's presentation of one. Stripping the phrase collapsed "Aventus"
- * and "Aventus For Her" to the same displayed name, which is how a reader
- * ended up looking at what read as three identical Creed Aventus listings —
- * checked against the live catalogue: 302 listings carry this phrase, so
- * this was never a Creed-only edge case. Kept in the name from here on,
- * because a shop's own genuine distinguishing word being dropped is a worse
- * failure than a name that reads a little more verbose than strictly needed.
- *
- * Only the specific phrase concentrationMatch actually identified gets
- * stripped here, not the whole CONCENTRATION alternation — the same
- * "Aventus Cologne Eau De Parfum" case again: blindly stripping every
- * concentration-shaped word would take "Cologne" out too, and "Cologne" is
- * part of that line's own name, not just a concentration descriptor,
- * exactly the same category of mistake this function stopped making with
- * "For Her" above. Removing only the one phrase that was actually used to
- * decide the concentration badge leaves the rest of the title's own words
- * alone, which is the whole rule this function follows everywhere else.
- */
-function displayName(title: string, brand: string | null): string {
-  let s = title;
-  if (brand) s = s.replace(new RegExp(`^${brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*`, 'i'), '');
-  const matchedConcentration = concentrationMatch(title);
-  if (matchedConcentration) {
-    s = s.replace(new RegExp(`\\b${matchedConcentration.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i'), '');
-  }
-  s = s
-    .replace(/\b\d{1,4}(?:\.\d)?\s*ml\b/gi, '')
-    .replace(/\b(spray|splash|refillable|vapo|natural)\b/gi, '')
-    .replace(/\s{2,}/g, ' ')
-    // Leading "&" only, not trailing: Tiffany & Co's own titles read "Tiffany
-    // & Co & Love for Her ...", where the second "&" belongs to the "Tiffany
-    // & Love" line's own name, not the brand being stripped above. Stripping
-    // the brand leaves a stray leading ampersand ("& Love for Her") on all
-    // four of that line's listings — checked, no other product's name starts
-    // with "&" for a legitimate reason. A trailing "&" is left alone: nothing
-    // in the catalogue has one, so there is no case to fix and no reason to
-    // guess at what stripping one would do.
-    .replace(/^[\s,\-&|]+|[\s,\-|]+$/g, '');
-  return s || title;
-}
 
 /* ── gather ────────────────────────────────────────────────────────────────── */
 
@@ -718,10 +565,14 @@ if (existsSync(dir)) {
       if (existing) {
         existing.offers.push(offer);
       } else {
+        // The displayed brand is handed to displayName as well as the raw
+        // vendor field: it is the string that will sit beside the name on
+        // screen, so it is the one whose duplication a reader actually sees.
+        const displayedBrand = canonBrand(effectiveRawBrand);
         products.set(id, {
           id,
-          brand: canonBrand(effectiveRawBrand) ?? 'Unbranded',
-          name: displayName(l.rawTitle, effectiveRawBrand),
+          brand: displayedBrand ?? 'Unbranded',
+          name: displayName(l.rawTitle, effectiveRawBrand, displayedBrand),
           concentration: concentration(l.rawTitle),
           sizeMl: size,
           ean: l.ean,
