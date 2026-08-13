@@ -103,11 +103,15 @@ describe('retailer registry', () => {
       // 2026-08-12: both now have a directly-quoted flat rate read off their
       // own shipping policy pages (see src/config/retailers.ts), so they
       // carry a real standardGbp and are no longer shown as "delivery not
-      // stated". Manchester Ouds, Nicchia Luxury UK and Perfume Shopping
-      // remain here — see each entry's shipping.notes for what was tried.
+      // stated". Manchester Ouds and Perfume Shopping remain here — see each
+      // entry's shipping.notes for what was tried.
+      // Nicchia Luxury UK left this list on 2026-08-13 for a different and
+      // worse reason: it was disabled outright, because what currency it
+      // charges in was never established. This list only covers *enabled*
+      // retailers, so a disabled one drops out of it — that is the list
+      // tracking the registry, not a delivery figure having been found.
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'manchester-ouds',
-        'nicchia-luxury-uk',
         'perfume-shopping',
       ]);
       for (const r of unstated) {
