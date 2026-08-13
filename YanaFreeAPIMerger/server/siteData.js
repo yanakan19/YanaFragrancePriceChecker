@@ -533,26 +533,51 @@ export function formatPriceAnswer(question, result) {
 /**
  * Real note-matched candidates, from whichever fragrances this site's own
  * feeds actually published notes for — never a guessed or generic note list.
+ *
+ * Exported so the product-level dedup (see the comment inside) is directly
+ * testable against a known live-catalogue case, the same reason
+ * `policyContextFor` above is exported.
  */
-async function suggestContextFor(question) {
+export async function suggestContextFor(question) {
   const { data } = await loadSite();
   const { wanted, unwanted } = parseNoteRequest(question);
   if (wanted.length === 0) {
     return 'NOTE MATCHED CANDIDATES: none requested. The question did not name any notes to match against.';
   }
 
-  const candidatesByFragrance = new Map();
+  // Grouped by product (brand+name+concentration), not by row id: the same
+  // perfume's different bottle sizes are separate catalogue entries with
+  // separate ids, sometimes carrying different note data because they were
+  // harvested from different retailers' pages of differing completeness —
+  // measured case, Tom Ford Black Orchid EDP: the 30ml row lists 3 notes,
+  // the 100ml row lists 7, none of which overlap perfectly. Grouping by id
+  // showed the same product name twice with two different, seemingly
+  // arbitrary note lists, which reads as a broken duplicate rather than one
+  // real recommendation. Grouping by product and merging every size's notes
+  // into one set keeps the real information from every size instead of
+  // silently dropping whichever variant lost the id race.
+  const groups = new Map();
   for (const note of wanted) {
     for (const frag of data.fragrancesWithNote(note, 'any')) {
-      if (!candidatesByFragrance.has(frag.id)) candidatesByFragrance.set(frag.id, frag);
+      const key = groupKeyFor(frag);
+      let entry = groups.get(key);
+      if (!entry) {
+        entry = { frag, notes: { top: new Set(), middle: new Set(), base: new Set() } };
+        groups.set(key, entry);
+      }
+      for (const layer of ['top', 'middle', 'base']) {
+        for (const n of frag.notes?.[layer] ?? []) entry.notes[layer].add(n);
+      }
     }
   }
 
-  let candidates = [...candidatesByFragrance.values()];
+  let candidates = [...groups.values()].map((entry) => ({
+    frag: entry.frag,
+    notes: [...entry.notes.top, ...entry.notes.middle, ...entry.notes.base],
+  }));
   if (unwanted.length > 0) {
-    candidates = candidates.filter((frag) => {
-      const noteWords = [...(frag.notes?.top ?? []), ...(frag.notes?.middle ?? []), ...(frag.notes?.base ?? [])]
-        .map((n) => n.toLowerCase());
+    candidates = candidates.filter(({ notes }) => {
+      const noteWords = notes.map((n) => n.toLowerCase());
       return !unwanted.some((u) => noteWords.some((n) => n.includes(u) || u.includes(n)));
     });
   }
@@ -562,10 +587,9 @@ async function suggestContextFor(question) {
     return `NOTE MATCHED CANDIDATES: none. No fragrance in the current catalogue has a published note match for [${wanted.join(', ')}].`;
   }
 
-  const lines = candidates.map((frag) => {
-    const notes = [...(frag.notes?.top ?? []), ...(frag.notes?.middle ?? []), ...(frag.notes?.base ?? [])];
-    return `${frag.brand} ${frag.name} (${frag.concentration}) — notes on file: ${notes.join(', ') || 'none published'}`;
-  });
+  const lines = candidates.map(({ frag, notes }) =>
+    `${frag.brand} ${frag.name} (${frag.concentration}) — notes on file: ${notes.join(', ') || 'none published'}`,
+  );
   return `NOTE MATCHED CANDIDATES (requested: ${wanted.join(', ')}${unwanted.length ? `; excluding: ${unwanted.join(', ')}` : ''}):\n${lines.join('\n')}`;
 }
 
