@@ -35,7 +35,12 @@ describe('retailer registry', () => {
     // Escentric Molecules added 2026-08-12, promoted out of houses.ts once
     // its UK/GBP storefront and standard delivery rate were confirmed —
     // same basis as French Avenue and Armaf before it.
-    expect(RETAILERS).toHaveLength(55);
+    //
+    // Carethy added 2026-08-13 from a Microsoft Shopping results page, on the
+    // same route that surfaced Cosmetify two days earlier. Disabled, and in
+    // CURRENCY_UNCONFIRMED from the moment it was written: nothing has been
+    // read from that shop.
+    expect(RETAILERS).toHaveLength(56);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
