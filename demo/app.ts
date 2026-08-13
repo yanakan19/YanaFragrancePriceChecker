@@ -235,8 +235,36 @@ const POPULAR = BY_POPULARITY.slice(0, 12);
  * Prices come from the catalogue crawl and the affiliate feed, never from a
  * hand written table. That is what makes them live.
  */
+/**
+ * Deliberately does not pass `tier`.
+ *
+ * That option is a plausibility filter — "restrict to retailers that stock
+ * this catalogue segment", there so a search does not go asking Superdrug for
+ * Amouage. It answers a question about who *might* have something. Every offer
+ * `offersFor` returns is the opposite kind of thing: a shop that was observed
+ * listing this exact bottle, at a price read off its own page. Filtering
+ * observation through a guess about plausibility can only ever discard true
+ * information, and it did, at scale.
+ *
+ * Measured before removing it: 4,217 of 15,447 products with at least one
+ * in-stock offer — 27.3% — had every one of those offers dropped here and
+ * rendered "Sold out everywhere / no shop has it in stock right now / 0 shops"
+ * while genuinely in stock at up to three shops. French Avenue Vulcan Feu is
+ * stocked by Beautybase, Justmylook and MyBeauty.Boutique; its tier is
+ * 'mideast'; none of those three declares 'mideast'; so all three real offers
+ * vanished and the page said nobody had it.
+ *
+ * This is the third appearance of the same fault. Emirates Oud and Escentric
+ * Molecules were each patched by correcting one brand's tier assignment, which
+ * fixed those brands and left the mechanism intact to do it again. A product's
+ * tier is one guessed label; a retailer's `tiers` is a hand-maintained list;
+ * they disagree constantly, and on this page the disagreement is not
+ * informative about anything. The option stays — it is right for a browse or
+ * search context, and tests cover it — it just has no business standing
+ * between a reader and a shop that demonstrably has the bottle.
+ */
 function rowsFor(frag: DemoFragrance): PresentedOffer[] {
-  return buildComparison(offersFor(frag.id), { sortBy: 'delivered', tier: frag.tier });
+  return buildComparison(offersFor(frag.id), { sortBy: 'delivered' });
 }
 
 /* ── facets ──────────────────────────────────────────────────────────────────
