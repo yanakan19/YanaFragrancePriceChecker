@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 55 retailers, 29 of them `enabled: true`. Every one of them is a legitimate
+ * 55 retailers, 28 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -1776,15 +1776,37 @@ export const RETAILERS: readonly Retailer[] = [
       'with over 160 brands, along with a curated selection of beauty, cosmetics, and ' +
       'home products.',
     tiers: ['niche'],
-    // Live: a real, confirmed Awin feed (6,794 listings pulled 2026-08-12),
-    // and their own shipping policy has now genuinely been read — see
-    // shipping.notes below for what it does and does not say. No standard
-    // delivery rate is stated, the same shape as Glorious Beauty, Manchester
-    // Ouds, Perfume Shopping and The Fragrance Counter: shown with delivery
-    // not stated rather than kept off the site, and never rankable as
-    // cheapest because of it (see src/services/shipping.ts and
-    // buildComparison's deliveryRank).
-    enabled: true,
+    // CURRENCY NOT CONFIRMED — switched off 2026-08-13. It ran `enabled: true`
+    // on a real, confirmed Awin feed (6,794 listings pulled 2026-08-12), and
+    // its shipping policy was genuinely read; what was never established is
+    // the one thing the whole snapshot depends on, which currency the shop
+    // charges in. 4,032 offer rows were published as GBP on that unproven
+    // declaration (counted in demo/catalogue.generated.ts, 2026-08-13).
+    //
+    // What has since been measured, and what has not:
+    //
+    //   Its storefront publishes EUR. `parseShopCurrency` read
+    //   nicchialuxury.com in CI on 2026-08-13T11:00Z (Price verification run
+    //   4, job 94426059278) and got EUR, not GBP.
+    //
+    //   Our stored figures are NOT those euro figures. The same run compared
+    //   all 6,843 keyable listings against that storefront: live/stored has a
+    //   median of 1.3486 (p10 1.2000, p90 1.3571). Copying euros and printing
+    //   them as pounds would put that ratio at 1.0. It is not, anywhere in the
+    //   population, so the worst available fault — republishing this shop's
+    //   euro prices as sterling — is ruled out by measurement.
+    //
+    //   What is still open is whether the stored list is sterling at all.
+    //   1.3486 is not a EUR/GBP exchange rate, so the stored numbers are not
+    //   simply this storefront's prices converted, and no address on this
+    //   storefront has yet been found that publishes a GBP price list to check
+    //   them against. Until one is, "these are the pounds Nicchia charges" is
+    //   an assumption, and 4,032 live rows is too much to rest on one.
+    //
+    // See CURRENCY_UNCONFIRMED at the foot of this file. The way back to
+    // `enabled: true` is a GBP price list read off this shop's own storefront
+    // and compared to the feed — not a judgement that the above looks fine.
+    enabled: false,
     adapter: 'affiliate-feed',
     currency: 'GBP',
     shipping: {
@@ -2205,12 +2227,32 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
     'beauty-the-shop-uk',
     'Ships from Madrid, Spain. Whether UK orders are actually GBP-priced has not been confirmed.',
   ],
+  [
+    'nicchia-luxury-uk',
+    'An Italian storefront (nicchialuxury.com) whose own shipping policy states its threshold ' +
+      'in dollars ("Free express delivery over 140 USD"), and whose storefront was measured ' +
+      'publishing EUR on 2026-08-13 (parseShopCurrency, Price verification run 4, job ' +
+      '94426059278). Its stored prices are NOT those euro figures — live/stored across all ' +
+      '6,843 keyable listings has a median of 1.3486, where relabelled euros would give 1.0 — ' +
+      'so the feed is not republishing the storefront in the wrong unit. But 1.3486 is not a ' +
+      'EUR/GBP rate either, and no GBP price list has been found on this storefront to check ' +
+      'the feed against, so what currency the shop actually charges a UK customer is still ' +
+      'unestablished. It ran enabled with 4,032 offer rows live on that unproven declaration ' +
+      'until 2026-08-13.',
+  ],
 ]);
 
 // Runs once, at import, which is the only moment early enough to matter: by
 // the time a price reaches a snapshot the currency has already been assumed.
-// Cannot fire today — all three are `enabled: false` — and that is the point.
+// Cannot fire today — all four are `enabled: false` — and that is the point.
 // It exists for the edit that flips one of them without reading the note.
+//
+// It did not catch Nicchia Luxury, because Nicchia Luxury was never on this
+// list: the entry was enabled on 2026-08-12 by someone who had read the Awin
+// feed's GBP column and taken it for the shop's currency, and this map only
+// guards ids that are already in it. A check over a hand-maintained list
+// cannot fire for the case nobody thought to add, which is the case that
+// needs it. What it does do is make the next flip of any listed id loud.
 const enabledWithoutConfirmedCurrency = RETAILERS.filter(
   (r) => r.enabled && CURRENCY_UNCONFIRMED.has(r.id),
 );
