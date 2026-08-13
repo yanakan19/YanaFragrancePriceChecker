@@ -13,6 +13,47 @@
  * Nothing here fabricates anything. A house that cannot be reached is reported
  * as unreachable, a price in dirhams is recorded as dirhams, and a house whose
  * currency could not be established gets no sterling price at all.
+ *
+ * ── This script was not behind the "Vulcan Feu £67.99" report ───────────────
+ * Checked 2026-08-13, because it had been suggested twice and never tested.
+ *
+ * A user reported French Avenue "Vulcan Feu" priced at £67.99 when the shop
+ * charged £30.99. The second-hand explanation was that French Avenue is
+ * `enabled: false, adapter: 'unknown'` in retailers.ts and therefore arrives
+ * through this file's direct Shopify scrape. Every step of that is wrong, and
+ * it is written down here because this is where the next person will look:
+ *
+ *   - French Avenue is a *brand* on that listing, not the shop selling it.
+ *     The listing is MyBeauty.Boutique's, `sectionId: 'awin-feed'`, SKU
+ *     shopify_GB_8416685916297_45147050049673 in
+ *     data/catalogue/mybeauty-boutique.json.
+ *   - There is no French Avenue house. src/config/houses.ts holds 33 houses
+ *     and none of them is French Avenue — its header says so explicitly, it
+ *     was moved to retailers.ts when a UK-specific domain turned up. This
+ *     script has therefore never fetched it.
+ *   - The `french-avenue` retailers.ts entry has no data file under
+ *     data/catalogue/ or data/houses/ at all, so it contributes zero listings.
+ *     `enabled: false` is doing exactly what it says.
+ *
+ * What actually happened: the merchant's Awin feed published `search_price`
+ * 67.99 while its own storefront charged 30.99 — and 67.99 turned out to be
+ * that storefront's `compare_at_price`. So it *was* a compare-at figure being
+ * served as a selling price, which is the bug that was suspected, but it
+ * happened inside the merchant's feed export, upstream of this repo, not in
+ * any parser here. Traced through five daily snapshots holding 67.99
+ * (2026-08-10 e6ed32a through 2026-08-12 3da6aa7) and the correction to 30.99
+ * in f25111c, once scripts/storefront-reprice.ts ran at 2026-08-13T09:11:28Z.
+ *
+ * The route this file uses is clean: src/catalogue/shopifyJson.ts takes the
+ * variant's `price` as the selling price and keeps `compare_at_price` only
+ * when it is genuinely above it — asserted as 95 against 120 by "prices in
+ * sterling only when the shop actually sells in sterling" in
+ * tests/coverage.test.ts. An offline audit of every active stored listing
+ * agrees: of 36,253 active listings across data/catalogue and data/houses,
+ * 12,589 carry a reference price and zero of them have that reference sitting
+ * at or below the selling price. There was no bug here to fix, so nothing in
+ * this file changed — only this note, so the third person to suspect it can
+ * start from the evidence instead of repeating the search.
  */
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
