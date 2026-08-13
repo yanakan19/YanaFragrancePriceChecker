@@ -53,7 +53,8 @@ import {
 import type { User } from '@supabase/supabase-js';
 import { fetchWishlist, addToWishlist, removeFromWishlist, type WishlistEntry } from './wishlist.js';
 import {
-  VIRTUAL_YANNY_CONFIGURED, checkYannyHealth, askVirtualYanny, type YannyIntent, type YannyResult, type YannyEvent,
+  VIRTUAL_YANNY_CONFIGURED, checkYannyHealth, askVirtualYanny,
+  type YannyIntent, type YannyResult, type YannyEvent, type YannyHealth,
 } from './virtualYanny.js';
 
 type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account';
@@ -156,6 +157,11 @@ const state = {
   // check only ever runs on open (see openYanny), never speculatively, so a
   // reader who never clicks the launcher never pays for it.
   yannyStatus: 'idle' as 'idle' | 'checking' | 'unavailable' | 'ready',
+  // Why the last check failed, so the unavailable panel can say which thing
+  // is wrong. "Not available" covered a missing deploy, a sleeping machine
+  // and a rate-limited third-party router equally, and those want different
+  // words: one is permanent, one fixes itself in seconds, one in minutes.
+  yannyReason: 'no-answer' as YannyHealth['reason'],
   yannyIntent: null as YannyIntent | null,
   yannyThread: [] as YannyThreadItem[],
   yannyBusy: false,
@@ -2791,15 +2797,40 @@ function yannyThreadHtml(): string {
   return `${items}<div class="yanny-splash"><span class="yanny-spinner" aria-hidden="true"></span><span>${esc(state.yannySplash)}</span></div>${chips}`;
 }
 
+const YANNY_UNAVAILABLE_COPY: Record<YannyHealth['reason'], { mark: string; text: string }> = {
+  none: { mark: '🤖', text: 'Virtual Yanny is available.' },
+  'not-built': {
+    mark: '🤖🔧',
+    text: "Virtual Yanny isn't switched on in this build of the site yet.",
+  },
+  'no-answer': {
+    mark: '🤖💤',
+    text: "Virtual Yanny didn't answer in time. It sleeps when nobody's chatting, so give it a few seconds and open this again.",
+  },
+  'not-configured': {
+    mark: '🤖🔧',
+    text: "Virtual Yanny is running but hasn't been given its key, so it can't answer anything yet.",
+  },
+  'router-down': {
+    mark: '🤖⏳',
+    text: "Virtual Yanny is up, but the free model service behind it is busy or rate-limited right now. It usually clears within a few minutes — try again shortly.",
+  },
+};
+
 function yannyPanelHtml(): string {
   if (state.yannyStatus === 'idle' || state.yannyStatus === 'checking') {
     return `<div class="yanny-panel">${yannyHeadHtml()}<div class="yanny-checking"><span class="yanny-spinner" aria-hidden="true"></span></div></div>`;
   }
   if (state.yannyStatus === 'unavailable') {
+    // Each line says what is actually true and what the reader can do about
+    // it. "Try again" only appears where trying again could plausibly work:
+    // a suspended machine wakes and a rate limit clears, whereas an
+    // unconfigured or unbuilt backend will answer identically all day.
+    const { mark, text } = YANNY_UNAVAILABLE_COPY[state.yannyReason] ?? YANNY_UNAVAILABLE_COPY['no-answer'];
     return `<div class="yanny-panel">${yannyHeadHtml()}
       <div class="yanny-unavailable">
-        <div class="yanny-unavailable-mark" aria-hidden="true">🤖💤</div>
-        <p>Virtual Yanny isn't available right now. Check back soon.</p>
+        <div class="yanny-unavailable-mark" aria-hidden="true">${mark}</div>
+        <p>${esc(text)}</p>
       </div>
     </div>`;
   }
@@ -2850,6 +2881,7 @@ function openYanny(triggeredBy: HTMLElement): void {
 
   checkYannyHealth().then((health) => {
     state.yannyStatus = health.ok ? 'ready' : 'unavailable';
+    state.yannyReason = health.reason;
     if (state.yannyStatus === 'ready' && state.yannyThread.length === 0) {
       state.yannyThread.push({
         kind: 'msg',
