@@ -265,6 +265,16 @@ const UK_MARKET_PREFIXES = ['/en-gb', '/gb', '/uk', '/en-uk'] as const;
  * Only called when the bare origin already answered in another currency, so a
  * single-market UK shop pays nothing for this. Returns the base to read prices
  * from and the currency that base reports.
+ *
+ * The currency here is read out of the market's HTML, not `/meta.json`, which
+ * describes the shop rather than the market and so answers the same whichever
+ * prefix it is asked under. HTML is the weaker of the two sources — the
+ * fallback pattern in `parseShopCurrency` will match a `"currency"` key
+ * anywhere in the page, including one belonging to a currency *selector*
+ * rather than the active market — so a positive result here is treated as
+ * grounds to compare prices, never on its own as proof of what a checkout
+ * charges. A negative result, which is what Nicchia Luxury returned at every
+ * prefix, is the stronger direction: nothing claimed sterling.
  */
 async function resolveSterlingMarket(
   origin: string,
@@ -431,6 +441,16 @@ function diagnoseScale(
       reading =
         `${constant} The storefront publishes GBP, so the non-sterling side is the stored ` +
         'snapshot — the prices this site publishes. Treat as a live mispricing.';
+    } else if (storefrontCurrency !== null) {
+      // The case that was being described as "publishes no currency" while the
+      // storefront had just said EUR, which is both wrong and the exact
+      // situation this branch exists for.
+      reading =
+        `${constant} The storefront charges in ${storefrontCurrency}, so the stored figures ` +
+        `are that ${storefrontCurrency} list divided by ${f(med)} — a conversion, not a price ` +
+        'this shop quotes. Whether that factor was ever a real exchange rate, and whether the ' +
+        'shop will take sterling at all, both have to be established before these are published ' +
+        'as pounds.';
     } else {
       reading =
         `${constant} The storefront publishes no currency of its own, so this pass cannot say ` +
