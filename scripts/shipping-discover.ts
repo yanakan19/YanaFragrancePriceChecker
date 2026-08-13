@@ -5,6 +5,7 @@
  *   npm run shipping:discover -- --shop=boots
  *   npm run shipping:discover -- --write     # promote what the pages confirm
  *   npm run shipping:discover -- --all       # every retailer, confirmed ones too
+ *   npm run shipping:discover -- --budget=10 # only the 10 least recently checked
  *
  * ── Who this runs for, and why that changed ──────────────────────────────────
  * It used to run only for shops with `shipping.standardGbp === null`, on the
@@ -19,6 +20,19 @@
  *
  * The default population is now: every enabled shop whose delivery rule is not
  * confirmed, plus every shop of any kind with no rate at all.
+ *
+ * ── And why it is now rationed ───────────────────────────────────────────────
+ * That correction took the step from 3m59s (run #172) to 48m05s (run #180, 49
+ * shops, 714 pages) — and #180 was cancelled at the job's 100 minute cap during
+ * the harvest that followed it, losing the harvest. `--budget=N` bounds a run
+ * to the N least recently checked shops and records when each was last read in
+ * data/shipping-discover-state.json, so coverage becomes a rotation over a few
+ * cycles rather than one sweep the job cannot afford. Everything below still
+ * applies unchanged to whichever shops a given run reads. The argument for the
+ * trade is in src/catalogue/shippingDiscoveryQueue.ts.
+ *
+ * `--shop=`, `--raw=` and `--all` are never rationed: those mean "read exactly
+ * what I asked for".
  *
  * ── How a page is found ──────────────────────────────────────────────────────
  * Two routes, cheapest first, and the first is new: fetch the shop's own home
@@ -44,7 +58,7 @@
  */
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { writeFileSync, readFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, readFileSync, mkdirSync, existsSync } from 'node:fs';
 import { RETAILERS } from '../src/config/retailers.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import { loadRobots } from '../src/catalogue/attempt.js';
@@ -58,6 +72,11 @@ import {
   type ShippingPatch,
 } from '../src/catalogue/shippingRegistryPatch.js';
 import { quoteShipping, QUOTE_POSTCODE } from '../src/catalogue/shippingQuote.js';
+import {
+  parseDiscoveryState,
+  selectDueTargets,
+  recordChecked,
+} from '../src/catalogue/shippingDiscoveryQueue.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -74,6 +93,12 @@ const shouldWrite = process.argv.includes('--write');
 // diagnosing a shop whose page returns 200 but whose rate the parser missed
 // because of unanticipated phrasing. Never runs on ordinary scheduled calls.
 const rawShop = arg('raw');
+// How many shops this run may read, least-recently-checked first. Absent or
+// non-numeric means no bound, which is what an interactive run wants. The
+// scheduled run passes one because the full population no longer fits in the
+// job — see src/catalogue/shippingDiscoveryQueue.ts for the measurement.
+const budgetArg = arg('budget');
+const budget = budgetArg !== null && /^\d+$/.test(budgetArg) ? Number(budgetArg) : null;
 
 const BROWSER_HEADERS: Record<string, string> = {
   'user-agent':
@@ -121,10 +146,24 @@ export function discoveryTargets(
   );
 }
 
-const shops = discoveryTargets(RETAILERS, {
+const eligible = discoveryTargets(RETAILERS, {
   onlyShop: onlyShop ?? rawShop,
   includeEverything,
 });
+
+// The rotation ledger. Kept beside the report rather than derived from it: the
+// report only ever describes the last run's slice, so deriving "when did we
+// last look at Boots" from it would answer "never" for every shop the last run
+// happened not to reach.
+const statePath = resolve(root, 'data/shipping-discover-state.json');
+const discoveryState = parseDiscoveryState(
+  existsSync(statePath) ? readFileSync(statePath, 'utf8') : null,
+);
+
+// An explicitly named shop, a --raw diagnosis and --all all mean "read exactly
+// what I asked for". Only the unqualified scheduled sweep is rationed.
+const rationed = !onlyShop && !rawShop && !includeEverything;
+const { due: shops, held } = selectDueTargets(eligible, discoveryState, rationed ? budget : null);
 
 interface PageFinding {
   url: string;
@@ -173,8 +212,15 @@ const http = createHttp();
 const pause = () => new Promise((r) => setTimeout(r, REQUEST_GAP_MS));
 
 console.log('\nShipping terms discovery');
-console.log(`shops    ${shops.length}`);
+console.log(`shops    ${shops.length}${held.length ? ` of ${eligible.length} eligible` : ''}`);
 console.log(`target   an unverified delivery rule, or no rate at all`);
+if (held.length) {
+  const never = shops.filter((s) => !discoveryState.checked[s.id]).length;
+  console.log(
+    `queue    least recently checked first — ${never} never checked, ` +
+      `${held.length} held for a later run`,
+  );
+}
 console.log(`writing  ${shouldWrite ? 'yes — confirmations only' : 'no (report only)'}\n`);
 
 const outcomes: ShopOutcome[] = [];
@@ -399,7 +445,38 @@ const reportPath = resolve(root, 'data/shipping-discovery-report.json');
 mkdirSync(dirname(reportPath), { recursive: true });
 writeFileSync(
   reportPath,
-  `${JSON.stringify({ checkedAt: new Date().toISOString(), wrote: written, outcomes }, null, 2)}\n`,
+  `${JSON.stringify(
+    {
+      checkedAt: new Date().toISOString(),
+      wrote: written,
+      // What this run covered, so the report is not mistaken for a full sweep.
+      // Without these a reader comparing two reports would see shops vanish and
+      // reappear and read it as shops being dropped from the registry.
+      eligible: eligible.length,
+      heldForLaterRuns: held.map((r) => r.id),
+      outcomes,
+    },
+    null,
+    2,
+  )}\n`,
+);
+
+// Stamped only for the shops actually read above, and only once the run has got
+// this far. A run killed mid-loop leaves the ledger untouched, so the shops it
+// did not finish stay at the front of the queue and the next run picks them up
+// rather than rotating past them.
+writeFileSync(
+  statePath,
+  `${JSON.stringify(
+    recordChecked(
+      discoveryState,
+      shops.map((r) => r.id),
+      RETAILERS.map((r) => r.id),
+      new Date().toISOString(),
+    ),
+    null,
+    2,
+  )}\n`,
 );
 
 const confirmed = outcomes.filter((o) => o.patch?.action === 'confirm-rate').length;
@@ -417,4 +494,9 @@ console.log(
     ? `Registry updated for ${written} shop(s). Nothing was invented: every write carries the URL and the sentence.`
     : 'Nothing was written to the registry — pass --write to promote confirmations.',
 );
+if (held.length) {
+  console.log(
+    `${held.length} shop(s) held for a later run: ${held.map((r) => r.id).join(', ')}`,
+  );
+}
 console.log(`Report: data/shipping-discovery-report.json\n`);

@@ -145,8 +145,37 @@ jobs:
     # cron above with ~20 minutes to spare, so a long run cannot stack into the
     # next tick. It is not papering over a hang: every cancelled run inspected
     # here showed steady progress right up to the cutoff, never a step stuck
-    # doing nothing. The two steps that can genuinely run long are separately
-    # capped below, so this ceiling should never be what stops a run again.
+    # doing nothing.
+    #
+    # ── Run #180, and why this number is now a ceiling rather than a dial ─────
+    # The paragraph above used to end "the two steps that can genuinely run
+    # long are separately capped below, so this ceiling should never be what
+    # stops a run again." It was wrong about which steps those were. #180
+    # (2026-08-13 20:34:27Z-22:14:47Z, cancelled at exactly 100 minutes) was
+    # killed inside "Harvest via sitemap", which had no cap, after "Discover
+    # shipping terms" — also uncapped — had taken 48m05s of the run. Both now
+    # have one.
+    #
+    # What that run cost, precisely: shipping 48m05s, Awin sync 2m19s, deals
+    # 10s, then harvest from 21:26:08Z until the cap landed at 22:14:44Z. The
+    # first three committed as they went (2e0f82b, 0387614, e8012e5); the
+    # harvest did not, because a job timeout cancels the running step and every
+    # step after it, so "Commit harvested prices" never ran. Six shops' worth of
+    # freshly stored prices were on disk and were thrown away.
+    #
+    # This number is now bounded from both sides and should not be raised
+    # again. Above: the two-hourly cron. A run may not exceed 120 minutes
+    # without stacking into the next tick, and the ~20 minutes between 100 and
+    # 120 is the margin that keeps a slow run from doing so. Below: the sum of
+    # the step caps that have to fit inside it — worst case ~19 minutes of
+    # setup and periodic stages, 60 for the harvest, 15 for houses, ~3 for the
+    # rebuild and push, which reaches "Commit harvested prices" at ~97 minutes
+    # even if every capped step exhausts its full budget at once.
+    #
+    # So the run no longer needs more time; it needs the work to fit. If a
+    # stage genuinely outgrows its budget, the fix is to shrink or split that
+    # stage, not to move this line. What this cap now protects is only the
+    # tail — and losing the tail costs a report, not a harvest.
     timeout-minutes: 100
 
     steps:
@@ -231,16 +260,52 @@ jobs:
           if [ -n "${{ inputs.shipping_raw_shop }}" ]; then
             npm run shipping:discover -- --raw=${{ inputs.shipping_raw_shop }}
           elif [ "${{ inputs.shipping_discover }}" = "true" ] || [ "$AGE" -ge 39600 ]; then
-            npm run shipping:discover -- --write
+            # --budget=10 rations the sweep. Measured, not guessed: this step
+            # took 3m59s on run #172 (09:06:10Z-09:10:09Z) when its population
+            # was two shops, and 48m05s on #180 (20:35:23Z-21:23:28Z) — the
+            # first scheduled run after 6b56632 widened it to every enabled
+            # shop whose rule is not confirmed — covering 49 shops and 714
+            # fetched pages. That is ~59s a shop, so ten shops is ~10 minutes.
+            #
+            # A step cap would not have helped here and is deliberately not
+            # what this uses. scripts/shipping-discover.ts writes the registry
+            # patch and the report *after* its loop, so a sweep killed at
+            # minute 47 of 48 records nothing at all: this work has to be small
+            # enough to finish, not interruptible. Rationing makes each run
+            # finish and turns coverage into a rotation — every shop is still
+            # reached, over a few cycles rather than all in one. A shop revises
+            # its delivery terms a few times a year, so nobody reading the site
+            # can tell the difference. Before 6b56632 these shops were checked
+            # never; a rotation is not a regression against that.
+            #
+            # `timeout` is a backstop against a single shop hanging, not the
+            # budget: 900s is roughly 50% over the ten-shop estimate. It wraps
+            # only the discovery, so the verification below runs either way —
+            # a step-level cap would skip it and let the commit step publish an
+            # unverified retailers.ts.
+            if timeout 900 npm run shipping:discover -- --write --budget=10; then
+              echo "Shipping discovery finished; marking the cycle done."
+              DISCOVERED=yes
+            else
+              echo "::warning::Shipping discovery did not finish within its 15 minute backstop. Nothing was recorded for this cycle, and the marker is left alone so the next scheduled run retries the same shops."
+              DISCOVERED=no
+            fi
             # A registry the run has just edited has to still compile and still
             # satisfy the registry tests before it is committed. If it does
             # not, the edit is thrown away rather than pushed: a broken
             # retailers.ts takes the whole site down.
+            #
+            # Runs unconditionally, including after the backstop fired: the
+            # point is that nothing reaches the commit step below unverified,
+            # and a half-finished run is exactly when that matters most.
             if ! npm run typecheck || ! npx vitest run tests/registry.test.ts; then
               echo "Registry edits failed verification — reverting them."
               git checkout -- src/config/retailers.ts
             fi
-            echo "$NOW" > "$MARKER"
+            # Only a completed sweep advances the eleven-hour clock. Writing it
+            # after a killed run would rotate the queue past shops nothing
+            # looked at and hide the failure for eleven hours.
+            if [ "$DISCOVERED" = yes ]; then echo "$NOW" > "$MARKER"; fi
           else
             echo "Last shipping discovery was $(( AGE / 3600 )) hours ago, under the eleven hour threshold — skipping."
           fi
@@ -253,6 +318,7 @@ jobs:
           ./scripts/commit-and-push.sh \
             "Shipping terms: what each delivery page says $(date -u +%Y-%m-%d)" \
             data/shipping-discovery-report.json data/shipping-discover-marker.txt \
+            data/shipping-discover-state.json \
             src/config/retailers.ts
 
       # Every affiliate-feed retailer (adapter: 'affiliate-feed' in
@@ -459,8 +525,47 @@ jobs:
       # 9,820 listings completely every 6 hours regardless of what this step
       # does, and is what genuinely delivers a 6-hourly refresh for that part
       # of the catalogue.
+      #
+      # ── Why this step is capped, and why that is not a loss ──────────────────
+      # This is the step run #180 died in, and it is the reason this whole
+      # pattern is here. #180 harvested from 21:26:08Z to 22:14:44Z — 48m36s —
+      # and its log shows it had already stored LOOKFANTASTIC (55 active), The
+      # Fragrance Counter (27), ScentStore (15), Glorious Beauty (49), BellaVita
+      # Luxury (27) and Oud Arabian (173) before the job's own 100-minute cap
+      # landed mid-way through Manchester Ouds. Every one of those was on disk.
+      # None of it was committed, because a job timeout cancels the step and
+      # every step after it, so "Commit harvested prices" was never reached.
+      # The catalogue stayed at the previous run's state and 48 minutes of real
+      # harvesting went in the bin.
+      #
+      # scripts/catalogue-harvest.ts calls store.write() inside its per-shop
+      # loop, so the shops it has finished are durable the moment they finish —
+      # this step was already resumable, and nothing was resuming it. A step cap
+      # plus continue-on-error is the whole fix: the cap ends the harvest while
+      # there is still time to publish, continue-on-error lets the job carry on,
+      # and the commit step below saves the shops that did complete. Same
+      # pattern, same reasoning, as the two steps that already carry one.
+      # src/catalogue/store.ts writes via a rename so a shop cut off mid-write
+      # leaves the previous snapshot rather than a truncated file.
+      #
+      # 60 minutes is what the run can afford, not what the harvest wants. The
+      # job cap is 100 and cannot go higher — see its comment — so the budget is
+      # 100 minus everything that has to happen before this step (checkout,
+      # tests and the three periodic stages: ~19 minutes when all of them fire
+      # at their own caps) minus everything that has to happen after it to reach
+      # the commit (houses at its 15-minute cap, ~1m20s rebuild, ~1m30s push):
+      # 100 - 19 - 18 = 63, less a margin. The harvest has been measured at
+      # 52m56s (#179), 53m21s (#177), 53m46s (#176), 54m04s (#178) and 59m05s
+      # (#172), so 60 clears every observed run — but only just, and #172 is
+      # within a minute of it. If truncation starts showing up in the warning
+      # below on ordinary runs, the answer is a smaller --max or --refresh-share
+      # here, or shops split across runs: it is not a higher cap, because the
+      # two-hourly cron is what bounds the job and there is nothing left to give.
       - name: Harvest via sitemap
+        id: harvest
         if: ${{ inputs.harvest || github.event_name == 'schedule' }}
+        continue-on-error: true
+        timeout-minutes: 60
         env:
           APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
         run: |
@@ -510,6 +615,28 @@ jobs:
             data/catalogue demo/catalogue.generated.ts demo/priceHistory.generated.ts \
             demo/index.html demo/404.html \
             data/houses data/house-sourcing-report.json
+
+      # Deliberately after the commit above, and deliberately a warning rather
+      # than a failure.
+      #
+      # After, because the ordering is the point: whatever the harvest managed
+      # is published first, and only then does the run say the harvest was
+      # short. A step that failed the job here would put us back where #180 was.
+      #
+      # A warning, because a truncated harvest is a degraded run, not a broken
+      # one — the shops that completed are live, and the ones that did not are
+      # first in line next cycle. Failing on it would paint the workflow red
+      # every time the catalogue outgrew a budget, and this file already has the
+      # argument for why that is worse than useless: runs #166 and #167 went red
+      # for something nobody needed to act on, and "a red run that means nothing
+      # trains everyone to ignore the red."
+      #
+      # `outcome` rather than `conclusion`: continue-on-error rewrites
+      # conclusion to success, and outcome is what still holds the real result.
+      - name: Note an incomplete harvest
+        if: ${{ (inputs.harvest || github.event_name == 'schedule') && steps.harvest.outcome == 'failure' }}
+        run: |
+          echo "::warning::The sitemap harvest did not run to completion — it hit its 60 minute cap or exited non-zero. Whatever it had already stored per shop has been committed by the step above; the shops it did not reach keep their previous prices and are picked up by the next run. Check the harvest step's log for where it stopped."
 
       # No product photo is ever downloaded or hosted here — every tile links
       # straight to the retailer's own image URL (see demo/photo.ts) — so a
