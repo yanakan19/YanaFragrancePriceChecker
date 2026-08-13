@@ -1,5 +1,6 @@
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
+import fs from 'node:fs/promises';
 
 /**
  * The only place this app touches pricesniffs.space's actual data.
@@ -13,19 +14,68 @@ import path from 'node:path';
  * no re-scrape, no JSON copy, no second source of truth that can drift from
  * the one the site itself renders from.
  *
- * ── Why every import below is cache-busted ───────────────────────────────
- * Node's ES module loader caches a module the first time it is imported and
- * never re-reads it, which is exactly wrong here: the hourly harvest commits
- * a freshly rebuilt `demo/catalogue.generated.ts` to this same checkout, and
- * a long-running server process that imported it once at boot would keep
- * answering from whatever prices existed the moment it started, silently
- * drifting further from the live site with every hour that passes. Appending
- * a changing query string (`?t=...`) to the specifier makes Node treat each
- * call as a distinct module and actually re-read the file from disk, at the
- * cost of re-parsing it every time — accepted deliberately, because a chat
- * backend answering a few dozen questions an hour has room to spend a
- * fraction of a second on that where a page served to every visitor would
- * not.
+ * ── The site modules are imported exactly once per process ───────────────
+ * This file used to append a changing query string (`?t=...`) to every
+ * specifier, so that Node's module loader — which caches a module the first
+ * time it is imported and never re-reads it — would treat each call as a
+ * brand new module and re-read the file from disk. The intent was that a
+ * long-running server should not keep answering from whatever prices
+ * existed the moment it booted. Three measured facts killed that approach:
+ *
+ *   1. **It leaked, hard.** Every cache-busted specifier is a module Node's
+ *      registry pins for the life of the process. `demo/catalogue.
+ *      generated.ts` alone is ~15 MB of TypeScript, and `buildSiteDataBlock`
+ *      called `loadSite()` three or four times per question. Measured on
+ *      this repo's catalogue with `--expose-gc`, forcing a full collection
+ *      between samples: heapUsed went 6.6 MB at boot → 209.7 MB after one
+ *      question → 6,549 MB after fifty, i.e. ~129 MB of *permanently
+ *      retained* heap per question. Nothing about that is reclaimable; the
+ *      collector cannot free a live entry in the module registry.
+ *
+ *   2. **It only ever refreshed half the graph, so the halves disagreed.**
+ *      A query string survives on the specifier you pass to `import()`, but
+ *      it does not propagate through the relative specifiers *inside* the
+ *      module you just loaded: `new URL('./catalogue.generated.js', '.../
+ *      data.ts?t=2')` drops the query, so `demo/data.ts`'s own view of the
+ *      catalogue resolved to the plain, first-import-wins URL and was pinned
+ *      at boot no matter how many times `demo/data.js?t=N` was re-imported.
+ *      The net effect was the worst of both: `catalogue.CRAWLED_AT` and
+ *      `catalogue.offersFor()` were fresh, while `data.DEMO_FRAGRANCES` —
+ *      the number `aboutContext()` states as "currently tracks N
+ *      fragrances" — was boot-stale, and the two were quoted side by side in
+ *      the same system prompt. Worse, because each `loadSite()` call built
+ *      its own set of modules, `aboutContext()` and `priceContextFor()`
+ *      within a *single answer* were reading different catalogues.
+ *      (`test/siteData.test.js` pins this loader behaviour so the claim is
+ *      checked rather than remembered.)
+ *
+ *   3. **In the container there was nothing to refresh.** The image COPYs
+ *      `demo/*.ts` and `src/` at build time and the process never writes to
+ *      the filesystem, so the bytes on disk cannot change while the server
+ *      runs. Re-reading them per question bought precisely nothing there.
+ *
+ * So the seven modules below are imported once, plainly, as one coherent
+ * graph: `catalogue` and the catalogue `data.ts` sees are now the same
+ * module instance rather than two copies that can disagree, and every part
+ * of one answer is computed from the same snapshot.
+ *
+ * ── How freshness is answered instead ────────────────────────────────────
+ * By restarting, and honestly rather than silently. The chatbot's data is
+ * as fresh as the last deploy — that was already true in production before
+ * this change (see fact 3, and the "Data freshness" note in
+ * docs/VIRTUAL-YANNY-DEPLOY.md), and re-running the deploy workflow is what
+ * closes the gap. For the deployments where the files genuinely can change
+ * under a running process — the bare-metal `deploy/` path, where a `git
+ * pull` updates the checkout a systemd service is serving from —
+ * `siteDataFreshness()` below stats the files this snapshot was built from
+ * and reports whether any of them has changed since. `/api/health` surfaces
+ * that as `siteData.stale`, so "this process is serving an older catalogue
+ * than the disk holds" is a visible, monitorable fact with a one-line fix
+ * (restart), instead of a silent drift. It deliberately does not trigger an
+ * automatic in-process reload: fact 2 above is a property of Node's
+ * resolver, not of this file, so a reload could only ever refresh the seven
+ * entry modules and would hand back a snapshot whose halves disagree —
+ * trading a clean staleness signal for a quiet correctness bug.
  *
  * ── Why this file has to run under tsx, not plain node ───────────────────
  * `demo/data.ts` and friends are TypeScript, and this app's own `npm start`
@@ -36,23 +86,142 @@ import path from 'node:path';
  */
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 
-async function freshImport(relPathFromRepoRoot) {
-  const fileUrl = pathToFileURL(path.join(repoRoot, relPathFromRepoRoot)).href;
-  return import(`${fileUrl}?t=${Date.now()}_${Math.random().toString(36).slice(2)}`);
+/** Every site module this backend reads from, keyed by the name `loadSite()`
+ *  returns it under. Specifiers are `.js`; tsx resolves them to the `.ts`
+ *  files that actually exist (see the header). */
+const SITE_MODULES = {
+  data: 'demo/data.js',
+  catalogue: 'demo/catalogue.generated.js',
+  priceService: 'src/services/priceService.js',
+  index: 'src/index.js',
+  brandSites: 'demo/brandSites.js',
+  legal: 'demo/legal.js',
+  retailers: 'src/config/retailers.js',
+};
+
+/**
+ * The files whose contents this snapshot's answers depend on, for staleness
+ * reporting only — never for cache invalidation (see the header).
+ *
+ * The seven entry modules, plus every `demo/*.generated.ts`: the generated
+ * files are the ones the harvest actually rewrites hour to hour, they reach
+ * this snapshot transitively through `demo/data.ts` rather than as entries
+ * of their own, and globbing them means a new generated file added by a
+ * later harvest is watched without anyone having to remember to list it.
+ */
+async function watchedFiles() {
+  const files = new Set(
+    Object.values(SITE_MODULES).map((rel) => path.join(repoRoot, rel.replace(/\.js$/, '.ts'))),
+  );
+  try {
+    const demoDir = path.join(repoRoot, 'demo');
+    for (const name of await fs.readdir(demoDir)) {
+      if (name.endsWith('.generated.ts')) files.add(path.join(demoDir, name));
+    }
+  } catch {
+    // No demo/ directory to glob (a trimmed image, a test fixture): the seven
+    // entries above are still watched, and a missing file is reported as
+    // 'missing' by fingerprint() rather than thrown.
+  }
+  return [...files].sort();
 }
 
-/** One fresh snapshot of every site module this backend reads from. */
+/** mtime+size per watched file. Cheap enough to recompute on every health
+ *  check, and precise enough that a rewritten catalogue cannot look
+ *  unchanged even if it happens to land on the same byte count. */
+async function fingerprint() {
+  const files = await watchedFiles();
+  const stamped = await Promise.all(
+    files.map(async (file) => {
+      try {
+        const st = await fs.stat(file);
+        return [path.relative(repoRoot, file), `${st.mtimeMs}:${st.size}`];
+      } catch {
+        return [path.relative(repoRoot, file), 'missing'];
+      }
+    }),
+  );
+  return new Map(stamped);
+}
+
+/** Names present in either fingerprint whose stamp differs. Pure, and
+ *  exported so the staleness rule is testable without touching the real
+ *  catalogue files (which other jobs in this repo are writing to). */
+export function changedSince(before, after) {
+  const names = new Set([...before.keys(), ...after.keys()]);
+  const changed = [];
+  for (const name of names) {
+    if (before.get(name) !== after.get(name)) changed.push(name);
+  }
+  return changed.sort();
+}
+
+/**
+ * The one snapshot, as a promise so that concurrent first questions share a
+ * single import rather than each starting their own ~15 MB parse.
+ * @type {Promise<{ site: Record<string, object>, fingerprint: Map<string, string>, loadedAt: string }> | null}
+ */
+let snapshotPromise = null;
+
+async function buildSnapshot() {
+  // Fingerprinted *before* the import, deliberately: a file rewritten while
+  // the import is in flight then reads as changed afterwards, which is the
+  // safe direction to be wrong in.
+  const fp = await fingerprint();
+  const loadedAt = new Date().toISOString();
+  const names = Object.keys(SITE_MODULES);
+  const mods = await Promise.all(
+    names.map((name) => import(pathToFileURL(path.join(repoRoot, SITE_MODULES[name])).href)),
+  );
+  const site = {};
+  names.forEach((name, i) => {
+    site[name] = mods[i];
+  });
+  return { site, fingerprint: fp, loadedAt };
+}
+
+/**
+ * Every site module this backend reads from, as one coherent snapshot.
+ *
+ * Returns the same object on every call for the life of the process — see
+ * the header for why that is the correct answer here and not a shortcut.
+ * Callers must treat it as read-only.
+ */
 export async function loadSite() {
-  const [data, catalogue, priceService, index, brandSites, legal, retailers] = await Promise.all([
-    freshImport('demo/data.js'),
-    freshImport('demo/catalogue.generated.js'),
-    freshImport('src/services/priceService.js'),
-    freshImport('src/index.js'),
-    freshImport('demo/brandSites.js'),
-    freshImport('demo/legal.js'),
-    freshImport('src/config/retailers.js'),
-  ]);
-  return { data, catalogue, priceService, index, brandSites, legal, retailers };
+  if (!snapshotPromise) {
+    snapshotPromise = buildSnapshot().catch((err) => {
+      // A failed first import must not poison every later call: the most
+      // likely cause is a generated file caught mid-rewrite by a concurrent
+      // harvest, which succeeds on the next attempt.
+      snapshotPromise = null;
+      throw err;
+    });
+  }
+  return (await snapshotPromise).site;
+}
+
+/**
+ * Whether the data this process is answering from still matches the data on
+ * disk. Reported by `/api/health` as `siteData`; see the header's freshness
+ * note for why this reports rather than reloads.
+ */
+export async function siteDataFreshness() {
+  // Captured locally: `loadSite()` clears `snapshotPromise` if the import
+  // fails, and a health check racing that must report "not loaded", never
+  // throw out of a handler whose whole contract is to answer 200 with facts.
+  const pending = snapshotPromise;
+  const notLoaded = { loaded: false, loadedAt: null, catalogueCrawledAt: null, stale: false, changedFiles: [] };
+  if (!pending) return notLoaded;
+  const snap = await pending.catch(() => null);
+  if (!snap) return notLoaded;
+  const changedFiles = changedSince(snap.fingerprint, await fingerprint());
+  return {
+    loaded: true,
+    loadedAt: snap.loadedAt,
+    catalogueCrawledAt: snap.site.catalogue?.CRAWLED_AT ?? null,
+    stale: changedFiles.length > 0,
+    changedFiles,
+  };
 }
 
 function normalize(s) {

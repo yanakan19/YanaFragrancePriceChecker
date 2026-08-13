@@ -42,8 +42,10 @@ primary_region = "lhr"
   # "suspend" rather than "stop": the machine's memory is snapshotted and
   # restored in well under a second, so an idle backend costs nothing but
   # the first reader after a quiet spell does not sit through a cold boot.
-  # It also has a useful side effect given the memory note below — a
-  # suspend/resume cycle clears the accumulated module cache.
+  # That matters slightly more now than it used to: the site modules are
+  # imported once per process, so a resumed machine keeps the parse it has
+  # already paid for, where a full stop/start would pay it again on the
+  # next reader's question.
   auto_stop_machines = "suspend"
   # 0 lets the machine idle down when nobody is chatting. Set this to 1 if
   # the widget's 6-second health-check timeout (demo/virtualYanny.ts) ever
@@ -69,23 +71,47 @@ primary_region = "lhr"
 
 [[vm]]
   size = "shared-cpu-1x"
-  # ── Why 1 GB and not the 256 MB default ────────────────────────────────
-  # Measured, not guessed. server/siteData.js re-imports the site's data
-  # modules from disk on every single question, cache-busting the specifier
-  # so Node actually re-reads them (that file's header explains why it
-  # wants fresh data). demo/catalogue.generated.ts alone is ~15 MB of
-  # TypeScript, and each re-import is a distinct module Node's loader keeps
-  # forever. Observed on this repo's current catalogue: RSS goes from
-  # ~85 MB at boot to ~500 MB after the first load and oscillates up to
-  # ~750 MB as GC works against it. A 256 MB machine dies on question one;
-  # 512 MB dies shortly after. If chat requests ever start failing with
-  # out-of-memory once real traffic arrives, this number is the first thing
-  # to raise (2gb), and the memory note in docs/VIRTUAL-YANNY-DEPLOY.md is
-  # the fuller explanation.
-  memory = "1gb"
+  # ── Why 512 MB and not the 256 MB default ──────────────────────────────
+  # Measured, not guessed, and measured again after this app stopped
+  # leaking.
+  #
+  # This used to say 1gb, sized around server/siteData.js re-importing the
+  # site's ~15 MB of generated TypeScript on every question under a
+  # cache-busted specifier — every one of those a module Node's loader pins
+  # for the life of the process. That is fixed: the site modules are now
+  # imported once per process (see that file's header for why loading once
+  # is the honest answer here and how staleness is reported instead), and
+  # what is left is a single flat parse cost rather than a slope.
+  #
+  # Numbers behind the 512, all taken by driving buildSiteDataBlock() in a
+  # loop on this repo's checkout under Node 22 with a ~15 MB catalogue,
+  # reading peak RSS from the kernel's own VmHWM and sampling heapUsed
+  # after a forced full GC:
+  #
+  #                        before            after
+  #   heapUsed, boot        6.6 MB           6.7 MB
+  #   heapUsed, 1 question  209.0 MB         67.7 MB
+  #   heapUsed, 50 q        6,530.6 MB       67.8 MB
+  #   retained per question +129.0 MB        +0.002 MB
+  #   peak RSS, whole run   7,131.6 MB       393.6 MB
+  #
+  # After the fix, peak RSS landed at 393.6–397.2 MB over five runs of 50
+  # to 200 questions and did not move after the first question. 512 MB
+  # leaves ~115 MB of headroom over that, and swap below cushions the rest.
+  # 256 MB is still not enough: the one-time import of the catalogue peaks
+  # well past it.
+  #
+  # What would make this wrong: the catalogue growing. Peak RSS here is
+  # dominated by transpiling and parsing demo/catalogue.generated.ts once,
+  # so it tracks that file's size. Re-measure if it passes ~20 MB, and
+  # raise this to 1gb if peak RSS gets within ~50 MB of the limit. These
+  # figures come from a dev container, not from Fly — nobody has been able
+  # to reach Fly from the environment that wrote them.
+  memory = "512mb"
   cpus = 1
   cpu_kind = "shared"
 
-# Cushions the GC spikes described above so a transient peak pages out
-# instead of getting the process OOM-killed mid-answer.
+# Kept as a cushion for the one-time import spike at the first question,
+# so a transient peak pages out instead of getting the process OOM-killed
+# mid-answer.
 swap_size_mb = 512
