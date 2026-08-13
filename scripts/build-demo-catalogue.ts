@@ -26,6 +26,7 @@ import type { Retailer } from '../src/types/retailer.js';
 import { HOUSES } from '../src/config/houses.js';
 import { buildBrandCanon } from '../src/catalogue/brandName.js';
 import { findDuplicateGroups } from '../src/catalogue/productMatch.js';
+import { auditPriceScale } from '../src/catalogue/priceScale.js';
 import {
   isFragrance,
   sizeMl,
@@ -601,6 +602,32 @@ for (const { canonical, absorbed } of duplicateGroups) {
 }
 const mergedProducts = duplicateGroups.reduce((n, g) => n + g.absorbed.length, 0);
 
+/* ── a shop whose whole price list is on the wrong scale ────────────────────
+   Escentual published 2,542 offers here at about 1.44× what it charges, and
+   every check upstream passed: the figures were copied faithfully from the
+   shop's own /products.json, so re-reading that source could only ever confirm
+   the copy. The ingest guard in src/catalogue/shopCurrency.ts stops those
+   figures being written as pounds; this stops them being *published* whatever
+   route they arrived by. See src/catalogue/priceScale.ts for the measurement
+   and for why it is run on reference prices rather than selling prices. */
+const scaleAudit = auditPriceScale([...products.values()]);
+const withheldForScale = new Map<string, number>();
+if (scaleAudit.offScale.length > 0) {
+  const suspect = new Set(scaleAudit.offScale.map((f) => f.retailerId));
+  for (const product of products.values()) {
+    const kept = product.offers.filter((o) => !suspect.has(o.retailerId));
+    if (kept.length === product.offers.length) continue;
+    for (const o of product.offers) {
+      if (suspect.has(o.retailerId)) {
+        withheldForScale.set(o.retailerId, (withheldForScale.get(o.retailerId) ?? 0) + 1);
+      }
+    }
+    product.offers = kept;
+  }
+  // A product left with no offers is no longer something anyone can buy here.
+  for (const [id, product] of products) if (product.offers.length === 0) products.delete(id);
+}
+
 /* ── houses we source direct, which we cannot price in sterling yet ────────── */
 
 /**
@@ -846,3 +873,12 @@ console.log(
       ? `\n  skipped: ${skippedShops.join(', ')}`
       : ''),
 );
+
+for (const f of scaleAudit.offScale) {
+  console.log(
+    `::warning::${f.retailerId}: reference prices sit at ${f.factor.toFixed(3)}× the rest of the ` +
+      `market's across ${f.sample} shared products, interquartile spread ${(f.spread * 100).toFixed(1)}% ` +
+      `— a scale, not a disagreement. ${withheldForScale.get(f.retailerId) ?? 0} offers withheld ` +
+      'rather than published at a price we cannot stand behind.',
+  );
+}
