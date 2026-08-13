@@ -262,10 +262,57 @@ describe('repairMojibake', () => {
 
   // The conservative guard. A title carrying BOTH correct UTF-8 and mojibake
   // cannot be round-tripped without corrupting the correct half, so it is left
-  // exactly as it is rather than made worse. 29 such titles remain.
-  it('declines a mixed-encoding title rather than corrupting the good half', () => {
-    const mixed = 'Lancôme Ã”ff Now';
+  // exactly as it is rather than made worse.
+  it.each([
+    'Lancôme Ã”ff Now',
+    'Lancôme La Vie Est Belle IntensÃ©ment Eau de Parfum 50ml Spray',
+    "Hermès Terre d'Hermès Eau GivrÃ©e Eau de Parfum 175ml Spray",
+    "L'Oréal Professionnel SÃ©rie Expert Blondifier Conditioner 200ml",
+  ])('declines a mixed-encoding title rather than corrupting the good half: %s', (mixed) => {
     expect(repairMojibake(mixed)).toBe(mixed);
+  });
+
+  // The reversal has to be CP1252, not Latin-1, because the decoder that broke
+  // these was a Windows one. UTF-8 byte 0x89 — the second byte of "É" — came
+  // back as "‰" (U+2030), and Buffer.from(s, 'latin1') truncates that to 0x30,
+  // the digit "0". "Ã‰clat" became "�0clat", the guard saw the U+FFFD and
+  // correctly refused, and eleven real titles stayed broken because the
+  // reversal used the wrong table — not because they were unrepairable.
+  it.each([
+    ['Atelier Cologne Ã‰clat De TubÃ©reuse', 'Atelier Cologne Éclat De Tubéreuse'],
+    ['Caron Rose Ã‰bÃ¨ne De Caron', 'Caron Rose Ébène De Caron'],
+    ['Miller Harris Ã‰tui Noir', 'Miller Harris Étui Noir'],
+    ['Giorgio Armani SÃŒ Eau De Parfum Intense', 'Giorgio Armani SÌ Eau De Parfum Intense'],
+    ['United Colors & Prestige BeautyTRIBÃ™ Luscious Pink', 'United Colors & Prestige BeautyTRIBÙ Luscious Pink'],
+  ])('repairs a CP1252 misreading Latin-1 could not: %s', (broken, fixed) => {
+    expect(repairMojibake(broken)).toBe(fixed);
+  });
+
+  // Worse than leaving it broken: the Latin-1 reversal turned this one into a
+  // different, wrong character and the guard never fired, because "€" (U+20AC)
+  // truncates to 0xAC, which happens to be a valid UTF-8 continuation byte.
+  // "À la Rose" was published as "ì la Rose".
+  it('does not silently substitute a wrong character where the truncation stays valid', () => {
+    expect(repairMojibake('Maison Francis Kurkdjian Ã€ la Rose')).toBe('Maison Francis Kurkdjian À la Rose');
+  });
+
+  // Left broken on purpose, and the honest reason for each.
+  it('declines a title whose identifying byte was destroyed upstream', () => {
+    // That "Ã" should be followed by 0xA0, the second byte of "à". Something
+    // normalised the non-breaking space to an ordinary one, and 0xC3 0x20 is
+    // not valid UTF-8. Reading it as "à" would be inferring the character from
+    // the product name rather than from the encoding.
+    for (const t of ['Coty PrÃªt Ã Porter', 'Gloria Vanderbilt Minuit Ã New York']) {
+      expect(repairMojibake(t)).toBe(t);
+    }
+  });
+
+  it('leaves correct French that merely trips the marker', () => {
+    // "âme" is soul. These were never mojibake; the guard declining them is
+    // the guard working.
+    for (const t of ['Liquides Imaginaires Âme de Fleur', 'Liquides Imaginaires Âme du Coeur']) {
+      expect(repairMojibake(t)).toBe(t);
+    }
   });
 
   it('recovers a fragrance whose title was only mojibake-encoded', () => {
