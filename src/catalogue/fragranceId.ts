@@ -80,6 +80,44 @@ export function sizeMl(title: string): number | null {
  */
 const MULTI_ITEM = /\bset\b|\b\d+\s*x\b|\bx\s*\d+\b/i;
 
+/**
+ * A quantity multiplied by a size — "3x10ml", "4 x 7.5ml", "5X20ml".
+ *
+ * This is the half of the multi-pack question that is safe to ask everywhere,
+ * and it is asked everywhere, because the damage it prevents is not confined to
+ * fragrance-only shops. `sizeMl` reads the first size in a title, so "Parfums de
+ * Marly Delina Exclusif Parfum 3x10 ml Travel Set + Case" at £205 publishes as a
+ * 10ml bottle at £205 and "Franck Boclet Cocaine Extrait de Parfum 4x20 ml" at
+ * £114 as a 20ml. Those land at £14-£20/ml: expensive rather than impossible,
+ * so nothing downstream flags them, and a reader comparing 10ml bottles is
+ * quietly shown the price of thirty millilitres. Measured across the live
+ * catalogue: 44 kept listings match this, and all 44 were read by hand — every
+ * one is a genuine multi-pack, discovery set or travel-refill trio.
+ *
+ * Why this and not the `>= 2 sizes` rule above, which would also catch them.
+ * Re-measured today, that rule would drop 47 kept listings this one does not,
+ * and they are mostly real single bottles: Emirates Oud simply repeats the size
+ * in its own titles ("Odyssey Aqua Perfume 100ml EDP Armaf 100ml", "Marwa
+ * Perfume 100ml EDP Arabiyat Prestige 100ml"), Escentual writes "I Want Choo
+ * Eau de Parfum 100ml - Collector's Edition 100ml", Oud Arabian writes
+ * "Bujairami Only Ever 100ml 100ml Eau De Parfum". One bottle each. The
+ * difference is that a repeated size states the same fact twice, whereas a
+ * quantity sitting directly against a size states a count — which is the thing
+ * actually being asked.
+ *
+ * A bare `\bset\b` is not safe globally either, for the same class of reason:
+ * "Tommy Bahama Set Sail Cologne St. Barts Eau de Cologne 100ml Spray" is one
+ * 100ml bottle whose own name contains the word, and Fragrance Click's "Burberry
+ * Her 100ml Eau de Parfum + 10ml Set" really is a 100ml bottle with a
+ * miniature beside it — the headline size `sizeMl` reads is the right one, so
+ * there is nothing to fix and dropping it would lose a real offer.
+ *
+ * The count must be 2 or more. "1 x 5ml" names a single bottle, and while every
+ * such title in the catalogue today is already rejected for other reasons (all
+ * 5 checked), a rule that says "several" should not quietly mean "one or more".
+ */
+const MULTI_PACK = /\b([2-9]|[1-9]\d)\s*[x×]\s*\d{1,4}(?:\.\d)?\s*ml\b/i;
+
 function sellsOnlyFragrance(retailerId: string): boolean {
   return getRetailer(retailerId)?.fragranceOnlyCatalogue === true;
 }
@@ -140,6 +178,10 @@ export function isFragrance(l: StoredListing): boolean {
   if (NOT_A_FRAGRANCE.test(t)) return false;
   if (sizeMl(t) === null) return false;
   if (l.priceGbp === null || l.priceGbp <= 0) return false;
+  // Asked of every shop, unlike the two rules inside the branch below — see
+  // MULTI_PACK for why a quantity against a size is the one multi-pack signal
+  // that survives contact with the whole catalogue.
+  if (MULTI_PACK.test(t)) return false;
 
   // A shop whose whole catalogue is fragrance does not have to say so in every
   // title — see Retailer.fragranceOnlyCatalogue for why this is an explicit
