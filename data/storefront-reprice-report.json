@@ -1,0 +1,21 @@
+{
+  "repricedAt": "2026-08-13T09:11:28.478Z",
+  "dryRun": false,
+  "outcomes": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "ok": true,
+      "reason": "repriced from the storefront",
+      "products": 9354,
+      "storefrontCurrency": "GBP",
+      "active": 8908,
+      "keyed": 8902,
+      "agreed": 2613,
+      "corrected": 6289,
+      "wasOverstated": 6245,
+      "wasUnderstated": 44,
+      "overstatementRemovedGbp": 205624.12,
+      "cleared": 6
+    }
+  ]
+}
