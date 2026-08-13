@@ -62282,7 +62282,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416635682953-45146966130825",
     "brand": "Atelier Cologne",
-    "name": "Ã‰clat De TubÃ©reuse",
+    "name": "Éclat De Tubéreuse",
     "concentration": "Eau de Parfum",
     "sizeMl": 30,
     "ean": null,
@@ -81253,10 +81253,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     }
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416651444361-45146998210697",
+    "id": "mybeauty-boutique-shopify-gb-8416651477129-45146998243465",
     "brand": "Caron",
-    "name": "Rose Ã‰bÃ¨ne De Caron",
-    "concentration": "Eau de Parfum",
+    "name": "Rose Croquante",
+    "concentration": "Eau de Toilette",
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
@@ -81264,10 +81264,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416651477129-45146998243465",
+    "id": "mybeauty-boutique-shopify-gb-8416651444361-45146998210697",
     "brand": "Caron",
-    "name": "Rose Croquante",
-    "concentration": "Eau de Toilette",
+    "name": "Rose Ébène De Caron",
+    "concentration": "Eau de Parfum",
     "sizeMl": 50,
     "ean": null,
     "shops": 1,
@@ -96431,7 +96431,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416672678025-45147035533449",
     "brand": "Eau Jeune",
-    "name": "L'Ã‰chappÃ©e Belle d'une Nuit",
+    "name": "L'Échappée Belle d'une Nuit",
     "concentration": "Eau de Toilette",
     "sizeMl": 75,
     "ean": null,
@@ -114538,33 +114538,6 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416686112905-45147050311817",
-    "brand": "French Avenue",
-    "name": "Ã‰clair Affair",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Jasmine",
-        "Vanilla Bean",
-        "Coconut Milk"
-      ],
-      "middle": [
-        "Caramel",
-        "Amber",
-        "Gourmand Accord"
-      ],
-      "base": [
-        "Musk",
-        "Tonka Bean",
-        "Vanilla"
-      ]
-    }
-  },
-  {
     "id": "emirates-oud-15441389322589-default-title",
     "brand": "French Avenue",
     "name": "Abraaj Brackish Perfume French Avenue",
@@ -115561,6 +115534,33 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Warm Amber Accords"
       ],
       "base": []
+    }
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416686112905-45147050311817",
+    "brand": "French Avenue",
+    "name": "Éclair Affair",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Jasmine",
+        "Vanilla Bean",
+        "Coconut Milk"
+      ],
+      "middle": [
+        "Caramel",
+        "Amber",
+        "Gourmand Accord"
+      ],
+      "base": [
+        "Musk",
+        "Tonka Bean",
+        "Vanilla"
+      ]
     }
   },
   {
@@ -121976,9 +121976,31 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3614274322293",
+    "brand": "Giorgio Armani",
+    "name": "Si",
+    "concentration": "Parfum",
+    "sizeMl": 50,
+    "ean": "3614274322293",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1755767428-98488500.jpg?v=1763398403&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-8431240098021",
+    "brand": "Giorgio Armani",
+    "name": "Si",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 150,
+    "ean": "8431240098021",
+    "shops": 1,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/giorgio_armani_si_150ml_eau_de_parfum_.jpg",
+    "notes": null
+  },
+  {
     "id": "mybeauty-boutique-shopify-gb-8416687063177-45147051262089",
     "brand": "Giorgio Armani",
-    "name": "SÃŒ Intense",
+    "name": "SÌ Intense",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -122003,28 +122025,6 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
         "Patchouli"
       ]
     }
-  },
-  {
-    "id": "ean-3614274322293",
-    "brand": "Giorgio Armani",
-    "name": "Si",
-    "concentration": "Parfum",
-    "sizeMl": 50,
-    "ean": "3614274322293",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1755767428-98488500.jpg?v=1763398403&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-8431240098021",
-    "brand": "Giorgio Armani",
-    "name": "Si",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 150,
-    "ean": "8431240098021",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/giorgio_armani_si_150ml_eau_de_parfum_.jpg",
-    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338218614921-44927060115593",
@@ -162055,17 +162055,6 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416717209737-45147092385929",
-    "brand": "Laurent Mazzone",
-    "name": "Ã‰pine Mortelle 2023",
-    "concentration": "Extrait De Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8416718356617-45147093762185",
     "brand": "Laurent Mazzone",
     "name": "Acqua Zenzero",
@@ -162210,6 +162199,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "concentration": "Extrait De Parfum",
     "sizeMl": 100,
     "ean": "3760213761392",
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416717209737-45147092385929",
+    "brand": "Laurent Mazzone",
+    "name": "Épine Mortelle 2023",
+    "concentration": "Extrait De Parfum",
+    "sizeMl": 100,
+    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -175104,6 +175104,17 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8416733364361-45147114438793",
+    "brand": "Maison Francis Kurkdjian",
+    "name": "À la Rose",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 200,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "mybeauty-boutique-shopify-gb-8416733659273-45147114799241",
     "brand": "Maison Francis Kurkdjian",
     "name": "Amyris Homme",
@@ -175271,17 +175282,6 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/MFK0023.png?v=1772099196&width=1000",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416733364361-45147114438793",
-    "brand": "Maison Francis Kurkdjian",
-    "name": "ì la Rose",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 200,
-    "ean": null,
-    "shops": 1,
-    "image": null,
     "notes": null
   },
   {
@@ -180019,17 +180019,6 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416737919113-45147119452297",
-    "brand": "Miller Harris",
-    "name": "Ã‰tui Noir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "escentual-millerharris301",
     "brand": "Miller Harris",
     "name": "Black Datura",
@@ -180110,6 +180099,17 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "id": "mybeauty-boutique-shopify-gb-8338393825417-44927337824393",
     "brand": "Miller Harris",
     "name": "Craft & Glamour",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416737919113-45147119452297",
+    "brand": "Miller Harris",
+    "name": "Étui Noir",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -205704,7 +205704,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416754368649-45147137376393",
     "brand": "Rasasi",
-    "name": "Hawas For Her Ã‰clat",
+    "name": "Hawas For Her Éclat",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -227375,7 +227375,7 @@ const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416783204489-45147171913865",
     "brand": "United Colors & Prestige Beauty",
-    "name": "TRIBÃ™ Luscious Pink",
+    "name": "TRIBÙ Luscious Pink",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -347819,20 +347819,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416651444361-45146998210697": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 86.99,
-      "wasPrice": 163.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686585&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8416651477129-45146998243465": [
     {
       "retailerId": "mybeauty-boutique",
@@ -347841,6 +347827,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686586&a=3026001&m=106925",
+      "fetchedAt": "2026-08-13T09:10:11.945Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416651444361-45146998210697": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 86.99,
+      "wasPrice": 163.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686585&a=3026001&m=106925",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -379179,20 +379179,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769008011-62310100.jpg?v=1772624919&width=1920"
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416686112905-45147050311817": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 30.99,
-      "wasPrice": 57.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687297&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-15441389322589-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -379765,6 +379751,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Eau-De-Brun-Perfume-100ml-EDP-French-Avenue-194404939.png?v=1783521629"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416686112905-45147050311817": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 30.99,
+      "wasPrice": 57.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687297&a=3026001&m=106925",
+      "fetchedAt": "2026-08-13T09:10:11.945Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "emirates-oud-15082127917405-default-title": [
@@ -385115,20 +385115,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769705505-29568600.jpg?v=1772624909&width=1920"
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416687063177-45147051262089": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 121.99,
-      "wasPrice": 228.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687321&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3614274322293": [
     {
       "retailerId": "beautybase",
@@ -385155,6 +385141,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/giorgio_armani_si_150ml_eau_de_parfum_.jpg"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416687063177-45147051262089": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 121.99,
+      "wasPrice": 228.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687321&a=3026001&m=106925",
+      "fetchedAt": "2026-08-13T09:10:11.945Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "mybeauty-boutique-shopify-gb-8338218614921-44927060115593": [
@@ -422173,20 +422173,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1700663677-78158900.jpg?v=1763393901&width=1920"
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416717209737-45147092385929": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 171.49,
-      "wasPrice": 321.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687973&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8416718356617-45147093762185": [
     {
       "retailerId": "mybeauty-boutique",
@@ -422365,6 +422351,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43972604026&a=3026001&m=123544",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-12T00:08:35.765Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416717209737-45147092385929": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 171.49,
+      "wasPrice": 321.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687973&a=3026001&m=106925",
+      "fetchedAt": "2026-08-13T09:10:11.945Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -432911,6 +432911,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "mybeauty-boutique-shopify-gb-8416733364361-45147114438793": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 436.99,
+      "wasPrice": 816.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661688258&a=3026001&m=106925",
+      "fetchedAt": "2026-08-13T09:10:11.945Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "mybeauty-boutique-shopify-gb-8416733659273-45147114799241": [
     {
       "retailerId": "mybeauty-boutique",
@@ -433105,20 +433119,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-08T11:26:50.485Z",
       "isNew": true,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/MFK0023.png?v=1772099196&width=1000"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416733364361-45147114438793": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 436.99,
-      "wasPrice": 816.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661688258&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "justmylook-mfk0026": [
@@ -438441,20 +438441,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416737919113-45147119452297": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 65.49,
-      "wasPrice": 116.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661688357&a=3026001&m=106925",
-      "fetchedAt": "2026-08-13T09:10:11.945Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "escentual-millerharris301": [
     {
       "retailerId": "escentual",
@@ -438505,6 +438491,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=43174943036&a=3026001&m=106925",
+      "fetchedAt": "2026-08-13T09:10:11.945Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416737919113-45147119452297": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 65.49,
+      "wasPrice": 116.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661688357&a=3026001&m=106925",
       "fetchedAt": "2026-08-13T09:10:11.945Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
