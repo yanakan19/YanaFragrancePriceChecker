@@ -210,8 +210,13 @@ interface ScaleDiagnosis {
   medianRatio: number;
   p10: number;
   p90: number;
-  /** How many ratios sit within 1% of the median — the constant-factor test. */
+  /**
+   * How many ratios sit within 1% of the median — the constant-factor test —
+   * and out of how many. The denominator is not `samples`: see
+   * CONSTANT_FACTOR_PRICE_FLOOR.
+   */
   withinOnePct: number;
+  withinOnePctOf: number;
   withinOnePctShare: number;
   /** Plain reading of the above. Never asserts a currency it has not been told. */
   reading: string;
@@ -238,6 +243,55 @@ function gapFor(retailer: Retailer, robots: RobotsRules): number {
  * exactly the same rules this pass used to measure them, or a re-verification
  * would be checking a different question from the one the fix answered.
  */
+/**
+ * Path prefixes Shopify Markets serves a UK market under.
+ *
+ * A merchant selling into several countries from one Shopify store keeps one
+ * primary currency and gives each market its own price list behind a URL
+ * prefix. Nicchia Luxury is exactly that shape: nicchialuxury.com answers in
+ * EUR, and its Awin programme — the one whose feed we hold — is "Nicchia
+ * Luxury UK". Reading the bare origin therefore reads the wrong market's
+ * prices, which is not a currency bug but is indistinguishable from one from
+ * the outside, and is why 6,844 listings sat unresolved for a day.
+ *
+ * Guessed prefixes are checked, never assumed: each candidate is fetched and
+ * kept only if the storefront it returns says GBP itself.
+ */
+const UK_MARKET_PREFIXES = ['/en-gb', '/gb', '/uk', '/en-uk'] as const;
+
+/**
+ * Find the storefront's sterling market, if it publishes one.
+ *
+ * Only called when the bare origin already answered in another currency, so a
+ * single-market UK shop pays nothing for this. Returns the base to read prices
+ * from and the currency that base reports.
+ */
+async function resolveSterlingMarket(
+  origin: string,
+  robots: RobotsRules,
+  gap: number,
+  notes: string[],
+): Promise<{ base: string; currency: string } | null> {
+  for (const prefix of UK_MARKET_PREFIXES) {
+    const url = `${origin}${prefix}/`;
+    if (!isAllowed(robots, url)) continue;
+    const res = await http(url, BROWSER_HEADERS);
+    await sleep(gap);
+    if (!res.ok) continue;
+    const currency = parseShopCurrency(null, res.body);
+    if (currency === 'GBP') {
+      notes.push(`sterling market found at ${prefix} — reading prices from there`);
+      return { base: `${origin}${prefix}`, currency };
+    }
+    if (currency) notes.push(`${prefix} answers in ${currency}`);
+  }
+  notes.push(
+    `no sterling market found under ${UK_MARKET_PREFIXES.join(', ')} — ` +
+      'this storefront publishes no GBP price list at any address tried',
+  );
+  return null;
+}
+
 async function shopifyIndex(
   origin: string,
   robots: RobotsRules,
@@ -312,6 +366,23 @@ function quantile(sorted: number[], p: number): number {
 }
 
 /**
+ * Cheapest stored price the constant-factor test will look at.
+ *
+ * Both sides of this comparison may be rounded price lists — Nicchia Luxury's
+ * 6,844 stored prices are whole pounds, every one of them. Rounding to the
+ * unit moves a ratio by roughly 1/price, which is under a tenth of a percent
+ * on a £150 bottle and ±10% on a £5 sample vial. 12.5% of that shop's listings
+ * are under £10.
+ *
+ * So a 1%-window test run over everything would have found rounding noise from
+ * the cheap tail, called the distribution dispersed, and concluded "not a
+ * currency" about a shop where it was. Above £50 the arithmetic cannot produce
+ * a 1% deviation, so the test is asked only about listings where a positive
+ * answer means something. The full distribution is still reported.
+ */
+const CONSTANT_FACTOR_PRICE_FLOOR = 50;
+
+/**
  * Read the distribution of `live / stored` and say what it can support.
  *
  * The bar for "one constant factor" is deliberately high — 90% of ratios
@@ -327,20 +398,34 @@ function quantile(sorted: number[], p: number): number {
  * the error the guard above exists to prevent, so this reports the ambiguity
  * rather than resolving it by assumption.
  */
-function diagnoseScale(ratios: number[], storefrontCurrency: string | null): ScaleDiagnosis | null {
-  if (ratios.length < 50) return null;
-  const sorted = [...ratios].sort((a, b) => a - b);
+function diagnoseScale(
+  pairs: readonly { stored: number; ratio: number }[],
+  storefrontCurrency: string | null,
+): ScaleDiagnosis | null {
+  if (pairs.length < 50) return null;
+  const sorted = pairs.map((p) => p.ratio).sort((a, b) => a - b);
   const med = median(sorted);
   if (!(med > 0)) return null;
-  const withinOnePct = sorted.filter((r) => Math.abs(r / med - 1) <= 0.01).length;
-  const share = withinOnePct / sorted.length;
+
+  // Judged on the listings expensive enough for the answer to mean something,
+  // and only when enough of them exist to be worth judging on.
+  const testable = pairs.filter((p) => p.stored >= CONSTANT_FACTOR_PRICE_FLOOR);
+  const basis = testable.length >= 50 ? testable : pairs;
+  const withinOnePct = basis.filter((p) => Math.abs(p.ratio / med - 1) <= 0.01).length;
+  const share = withinOnePct / basis.length;
   const f = (n: number) => n.toFixed(4);
+
+  const on =
+    basis.length === testable.length && testable.length !== pairs.length
+      ? `${basis.length} listings at or above £${CONSTANT_FACTOR_PRICE_FLOOR}, where ` +
+        'rounding to the unit cannot move a ratio by 1%'
+      : `${basis.length} listings`;
 
   let reading: string;
   if (share >= 0.9) {
     const constant =
-      `live is a constant ${f(med)}x stored across ${sorted.length} listings ` +
-      `(${(share * 100).toFixed(1)}% within 1% of that factor). A shop does not reprice its ` +
+      `live is a constant ${f(med)}x stored — ${(share * 100).toFixed(1)}% of ${on} sit ` +
+      'within 1% of that factor. A shop does not reprice its ' +
       'entire catalogue by one identical multiple, so these are one price list in two units.';
     if (storefrontCurrency === 'GBP') {
       reading =
@@ -355,9 +440,9 @@ function diagnoseScale(ratios: number[], storefrontCurrency: string | null): Sca
   } else {
     reading =
       `live / stored is dispersed — median ${f(med)}, p10 ${f(quantile(sorted, 0.1))}, ` +
-      `p90 ${f(quantile(sorted, 0.9))}, only ${(share * 100).toFixed(1)}% within 1% of the ` +
-      'median. Not a single conversion factor, so the disagreement is two different price ' +
-      'lists rather than two currencies.';
+      `p90 ${f(quantile(sorted, 0.9))}, and only ${(share * 100).toFixed(1)}% of ${on} sit ` +
+      'within 1% of the median. Not a single conversion factor, so the disagreement is two ' +
+      'different price lists rather than two currencies.';
   }
 
   return {
@@ -366,9 +451,16 @@ function diagnoseScale(ratios: number[], storefrontCurrency: string | null): Sca
     p10: Number(quantile(sorted, 0.1).toFixed(4)),
     p90: Number(quantile(sorted, 0.9).toFixed(4)),
     withinOnePct,
+    withinOnePctOf: basis.length,
     withinOnePctShare: Number(share.toFixed(4)),
     reading,
   };
+}
+
+/** One comparison's stored price and its `live / stored`. */
+interface ScaleSample {
+  stored: number;
+  ratio: number;
 }
 
 /**
@@ -379,7 +471,7 @@ function diagnoseScale(ratios: number[], storefrontCurrency: string | null): Sca
  * into a fleet-wide agreement rate. `notComparable` says why and `scale` says
  * what the two sides were — the parts that are still true.
  */
-function reject(outcome: ShopOutcome, ratios: number[]): ShopOutcome {
+function reject(outcome: ShopOutcome, ratios: readonly ScaleSample[]): ShopOutcome {
   outcome.scale = diagnoseScale(ratios, outcome.storefrontCurrency);
   if (outcome.scale) outcome.notes.push(outcome.scale.reading);
   outcome.route = 'products.json';
@@ -399,7 +491,7 @@ function record(
   listing: StoredListing,
   live: { price: number; available: boolean | null; productUrl: string },
   drifts: number[],
-  ratios: number[],
+  ratios: ScaleSample[],
 ): void {
   const stored = listing.priceGbp!;
   outcome.compared++;
@@ -409,7 +501,7 @@ function record(
   drifts.push(Math.abs(delta));
   // Kept for every comparison, agreeing or not: a ratio series that is only
   // collected once something already looks wrong cannot show that nothing is.
-  if (stored > 0 && live.price > 0) ratios.push(live.price / stored);
+  if (stored > 0 && live.price > 0) ratios.push({ stored, ratio: live.price / stored });
 
   if (Math.abs(delta) < PENNY) {
     outcome.agree++;
@@ -530,6 +622,25 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
   // before a single comparison is made and the counters are cleared on the way
   // out. The only thing this buys is the diagnosis, which is worth one
   // products.json read of a shop we were already reading.
+  //
+  // Before concluding any of that, though: a storefront answering in another
+  // currency at its bare origin may still publish a sterling price list at
+  // another address. A multi-market Shopify store does exactly that, and the
+  // Awin programme feeding us is the *UK* one, so the market we want is very
+  // likely the one we are not looking at. Reading the wrong market and
+  // reading the wrong currency are different faults with identical symptoms,
+  // and only one of them is the shop's problem.
+  let base = origin;
+  const foreignAtOrigin =
+    outcome.storefrontCurrency !== null && outcome.storefrontCurrency !== 'GBP';
+  if (foreignAtOrigin) {
+    const sterling = await resolveSterlingMarket(origin, robots, gap, outcome.notes);
+    if (sterling) {
+      base = sterling.base;
+      outcome.storefrontCurrency = sterling.currency;
+    }
+  }
+
   const foreignStorefront =
     outcome.storefrontCurrency !== null && outcome.storefrontCurrency !== 'GBP';
   if (foreignStorefront) {
@@ -540,10 +651,10 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
   }
 
   const drifts: number[] = [];
-  const ratios: number[] = [];
+  const ratios: ScaleSample[] = [];
 
   // ── Route 1: the shop's whole live catalogue ──────────────────────────────
-  const index = await shopifyIndex(origin, robots, gap, deadlineAt, outcome.notes);
+  const index = await shopifyIndex(base, robots, gap, deadlineAt, outcome.notes);
   if (index) {
     for (const listing of active) {
       outcome.attempted++;
@@ -707,7 +818,17 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
 
 // ── Run ─────────────────────────────────────────────────────────────────────
 
-const shops = RETAILERS.filter((r) => r.enabled && (!onlyShop || r.id === onlyShop));
+// `enabled` decides what the *scheduled* pass sweeps. An explicit --shop is a
+// different act: someone is asking about one named retailer, and the retailer
+// most worth asking about is often one that was switched off precisely because
+// its prices were in doubt. Nicchia Luxury was disabled on 2026-08-13 pending a
+// currency check and, under the old filter, immediately became the one shop
+// this script would refuse to check — so the evidence needed to bring it back
+// could never be gathered by the tool built to gather it. A named shop is
+// checked whether or not it is live.
+const shops = onlyShop
+  ? RETAILERS.filter((r) => r.id === onlyShop)
+  : RETAILERS.filter((r) => r.enabled);
 
 console.log('\nPrice verification');
 console.log(`shops     ${shops.length}`);
@@ -742,7 +863,7 @@ for (const retailer of shops) {
     console.log(
       `      live/stored: median ${outcome.scale.medianRatio}  p10 ${outcome.scale.p10}  ` +
         `p90 ${outcome.scale.p90}  within 1% of median ${outcome.scale.withinOnePct}/` +
-        `${outcome.scale.samples} (${(outcome.scale.withinOnePctShare * 100).toFixed(1)}%)`,
+        `${outcome.scale.withinOnePctOf} (${(outcome.scale.withinOnePctShare * 100).toFixed(1)}%)`,
     );
     console.log(`      ${outcome.scale.reading}`);
   }
@@ -819,7 +940,8 @@ if (rejected.length > 0) {
       console.log(
         `    live/stored across ${o.scale.samples}: median ${o.scale.medianRatio}, ` +
           `p10 ${o.scale.p10}, p90 ${o.scale.p90}, ` +
-          `${(o.scale.withinOnePctShare * 100).toFixed(1)}% within 1% of the median`,
+          `${o.scale.withinOnePct}/${o.scale.withinOnePctOf} within 1% of the median ` +
+            `(${(o.scale.withinOnePctShare * 100).toFixed(1)}%)`,
       );
       console.log(`    ${o.scale.reading}`);
     } else {
