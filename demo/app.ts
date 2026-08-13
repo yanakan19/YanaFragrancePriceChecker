@@ -162,6 +162,11 @@ const state = {
   // and a rate-limited third-party router equally, and those want different
   // words: one is permanent, one fixes itself in seconds, one in minutes.
   yannyReason: 'no-answer' as YannyHealth['reason'],
+  // Always null now that the intent buttons are gone, and kept rather than
+  // deleted because askVirtualYanny's signature is the contract with the
+  // server: null is the value that means "you work it out", and the server
+  // does (classifyIntent). Dropping the parameter would make an explicit
+  // intent unexpressible if a future surface ever needs to send one.
   yannyIntent: null as YannyIntent | null,
   yannyThread: [] as YannyThreadItem[],
   yannyBusy: false,
@@ -2738,16 +2743,28 @@ type YannyThreadItem =
   | { kind: 'msg'; who: 'user' | 'bot'; text: string }
   | { kind: 'ranking'; result: YannyResult };
 
-const YANNY_INTENT_LABEL: Record<YannyIntent, string> = {
-  price: 'Check a price',
-  suggest: 'Suggest by notes',
-  general: 'General question',
-};
-const YANNY_PLACEHOLDER: Record<YannyIntent, string> = {
-  price: 'e.g. how much is Bleu de Chanel EDP?',
-  suggest: 'e.g. vanilla, oud, no florals',
-  general: 'Ask anything about this site…',
-};
+/**
+ * The opening state of an empty chat: what this thing can be asked, as a
+ * sentence rather than a set of buttons.
+ *
+ * There used to be three buttons — "Check a price", "Suggest by notes",
+ * "General question" — that set an intent sent alongside the question. They
+ * are gone, and nothing is lost by it: the server already classifies intent
+ * from the message text itself (`classifyIntent` in server/index.js, used
+ * whenever no explicit intent arrives), so the buttons only ever overrode a
+ * decision that was being made anyway. What they cost was real, though —
+ * three taps competing with the input, and a reader deciding which category
+ * their question was before they were allowed to ask it.
+ *
+ * Named examples rather than category labels, because the useful thing to
+ * communicate is the shape of a question that works, not a taxonomy.
+ */
+const YANNY_EMPTY_PROMPTS = [
+  'how much is Bleu de Chanel EDP',
+  'something vanilla, no florals',
+  'how do these prices get checked',
+];
+const YANNY_PLACEHOLDER = 'Ask anything about this site…';
 
 function yannyHeadHtml(): string {
   return `<div class="yanny-head">
@@ -2783,6 +2800,19 @@ function yannyRankingHtml(result: YannyResult): string {
 }
 
 function yannyThreadHtml(): string {
+  // Nothing said yet: centre the invitation in the empty space instead of
+  // opening with a bot message the reader did not ask for. It is prose, not
+  // controls — nothing here is clickable, so it reads as "here is the kind
+  // of thing that works" rather than "pick one of three".
+  if (state.yannyThread.length === 0 && !state.yannyBusy) {
+    return `<div class="yanny-empty">
+      <p class="yanny-empty-lead">Ask about a price, get picks by notes, or ask how this site works.</p>
+      <ul class="yanny-empty-eg">
+        ${YANNY_EMPTY_PROMPTS.map((p) => `<li>“${esc(p)}”</li>`).join('')}
+      </ul>
+    </div>`;
+  }
+
   const items = state.yannyThread
     .map((item) => (item.kind === 'msg' ? `<div class="yanny-msg ${item.who}">${esc(item.text)}</div>` : yannyRankingHtml(item.result)))
     .join('');
@@ -2835,18 +2865,12 @@ function yannyPanelHtml(): string {
     </div>`;
   }
 
-  const intent = state.yannyIntent ?? 'general';
   return `<div class="yanny-panel">
     ${yannyHeadHtml()}
     <div class="yanny-body" id="yanny-body">${yannyThreadHtml()}</div>
-    <div class="yanny-options" role="group" aria-label="What is this about">
-      ${(['price', 'suggest', 'general'] as const)
-        .map((i) => `<button class="yanny-option-btn ${state.yannyIntent === i ? 'on' : ''}" data-yanny-intent="${i}">${YANNY_INTENT_LABEL[i]}</button>`)
-        .join('')}
-    </div>
     <form id="yanny-composer" class="yanny-composer">
       <label class="sr" for="yanny-input">Message Virtual Yanny</label>
-      <input id="yanny-input" type="text" placeholder="${esc(YANNY_PLACEHOLDER[intent])}" autocomplete="off" ${state.yannyBusy ? 'disabled' : ''} />
+      <input id="yanny-input" type="text" placeholder="${esc(YANNY_PLACEHOLDER)}" autocomplete="off" ${state.yannyBusy ? 'disabled' : ''} />
       <button type="submit" aria-label="Send" ${state.yannyBusy ? 'disabled' : ''}>&#10148;</button>
     </form>
   </div>`;
@@ -2882,13 +2906,10 @@ function openYanny(triggeredBy: HTMLElement): void {
   checkYannyHealth().then((health) => {
     state.yannyStatus = health.ok ? 'ready' : 'unavailable';
     state.yannyReason = health.reason;
-    if (state.yannyStatus === 'ready' && state.yannyThread.length === 0) {
-      state.yannyThread.push({
-        kind: 'msg',
-        who: 'bot',
-        text: "Hi, I'm Virtual Yanny. Ask about a price, get fragrance picks by notes, or ask how this site works.",
-      });
-    }
+    // No greeting is pushed into the thread any more. It said the same thing
+    // the empty state now says, but as a message, which made the transcript
+    // open with a turn nobody took and pushed the real first answer down.
+    // See yannyThreadHtml's empty branch.
     renderYanny();
     (document.querySelector('#yanny-close') as HTMLElement | null)?.focus();
   });
@@ -3295,15 +3316,6 @@ function init(): void {
       closeYanny();
       return;
     }
-    const yannyIntentBtn = t.closest('[data-yanny-intent]');
-    if (yannyIntentBtn) {
-      const intent = yannyIntentBtn.getAttribute('data-yanny-intent') as YannyIntent;
-      state.yannyIntent = state.yannyIntent === intent ? null : intent;
-      renderYanny();
-      (document.querySelector('#yanny-input') as HTMLElement | null)?.focus();
-      return;
-    }
-
     const authTabBtn = t.closest('[data-auth-tab]');
     if (authTabBtn) {
       state.authTab = authTabBtn.getAttribute('data-auth-tab') as AuthTab;
