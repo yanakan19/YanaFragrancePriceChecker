@@ -15,15 +15,29 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-08-12T18:58:31.662Z";
+export const DEALS_GENERATED_AT = "2026-08-13T09:12:49.254Z";
 
 export const DEALS_RAW: RawDeal[] = [
+  {
+    "fragranceId": "ean-088300606511",
+    "price": 20.49,
+    "wasPrice": 77.99,
+    "percentOff": 73,
+    "retailerId": "mybeauty-boutique"
+  },
   {
     "fragranceId": "ean-8028713210020",
     "price": 79.95,
     "wasPrice": 153,
     "percentOff": 47,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-719346065405",
+    "price": 18.99,
+    "wasPrice": 48.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614227693876",
@@ -33,11 +47,32 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-027131017752",
-    "price": 36.95,
-    "wasPrice": 60,
-    "percentOff": 38,
+    "fragranceId": "ean-088300602513",
+    "price": 24.49,
+    "wasPrice": 75.99,
+    "percentOff": 67,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3423222015565",
+    "price": 37.49,
+    "wasPrice": 80.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-027131006534",
+    "price": 46.75,
+    "wasPrice": 88,
+    "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-027131017752",
+    "price": 20.99,
+    "wasPrice": 59.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614272907676",
@@ -62,24 +97,24 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3423470300161",
-    "price": 55.25,
-    "wasPrice": 104,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 42.49,
+    "wasPrice": 91.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423470311365",
-    "price": 57.25,
-    "wasPrice": 108,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 39.49,
+    "wasPrice": 91.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423474867158",
-    "price": 34.5,
-    "wasPrice": 65,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 22.99,
+    "wasPrice": 76.99,
+    "percentOff": 70,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8435415017206",
@@ -146,10 +181,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614225452079",
-    "price": 39.95,
-    "wasPrice": 75,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 35.99,
+    "wasPrice": 75.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460118675",
@@ -160,10 +195,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3386460135832",
-    "price": 20.75,
-    "wasPrice": 39,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 19.49,
+    "wasPrice": 37.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460135825",
@@ -171,6 +206,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 61,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-8011003991617",
+    "price": 23.49,
+    "wasPrice": 77.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614274066999",
@@ -230,23 +272,44 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3349668545667",
-    "price": 45.75,
-    "wasPrice": 86,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 37.49,
+    "wasPrice": 76.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3349666010518",
-    "price": 53.5,
+    "price": 45.49,
     "wasPrice": 99,
-    "percentOff": 45,
-    "retailerId": "fragrance-click"
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3605972910240",
     "price": 50.95,
     "wasPrice": 87,
     "percentOff": 41,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-888066000055",
+    "price": 58.95,
+    "wasPrice": 78,
+    "percentOff": 24,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-888066000062",
+    "price": 76.95,
+    "wasPrice": 108,
+    "percentOff": 28,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-888066000079",
+    "price": 101.95,
+    "wasPrice": 150,
+    "percentOff": 32,
     "retailerId": "fragrance-click"
   },
   {
@@ -258,10 +321,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3605521879905",
-    "price": 55.75,
-    "wasPrice": 105,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 47.99,
+    "wasPrice": 107.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3360374000059",
@@ -286,24 +349,31 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8028713000096",
-    "price": 82.75,
-    "wasPrice": 153,
-    "percentOff": 45,
-    "retailerId": "fragrance-click"
+    "price": 73.99,
+    "wasPrice": 146.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8028713001734",
-    "price": 106.75,
-    "wasPrice": 201,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 91.49,
+    "wasPrice": 192.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-0812256020318",
-    "price": 45,
-    "wasPrice": 60,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 32.49,
+    "wasPrice": 41.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-812256021711",
+    "price": 42.99,
+    "wasPrice": 52.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614273521345",
@@ -328,17 +398,31 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-608940585818",
-    "price": 75,
-    "wasPrice": 100,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 59.99,
+    "wasPrice": 129.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-britneyfantasy03",
+    "price": 17.99,
+    "wasPrice": 27.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-719346107297",
-    "price": 17,
-    "wasPrice": 23,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 12.19,
+    "wasPrice": 27.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-719346094665",
+    "price": 17.99,
+    "wasPrice": 48.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616302020652",
@@ -356,10 +440,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-5045419039611",
-    "price": 72.75,
-    "wasPrice": 137,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 55.49,
+    "wasPrice": 130.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-783320461002",
@@ -384,31 +468,45 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3360374533205",
-    "price": 74,
+    "price": 59,
     "wasPrice": 99,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3360373016358",
-    "price": 74,
-    "wasPrice": 99,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 31.49,
+    "wasPrice": 68.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614223164462",
-    "price": 31.5,
-    "wasPrice": 59,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 29.99,
+    "wasPrice": 69.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3607342058057",
+    "price": 18.49,
+    "wasPrice": 55.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-088300608409",
+    "price": 25.49,
+    "wasPrice": 69.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-88300603404",
-    "price": 46.75,
-    "wasPrice": 88,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 23.99,
+    "wasPrice": 83.99,
+    "percentOff": 71,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3607342306134",
@@ -416,6 +514,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 62,
     "percentOff": 45,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-8411061088166",
+    "price": 62.99,
+    "wasPrice": 89.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8411061995754",
@@ -426,31 +531,31 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3607340188602",
-    "price": 30.75,
-    "wasPrice": 58,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 18.49,
+    "wasPrice": 49.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3414202011752",
-    "price": 31.5,
-    "wasPrice": 59,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 23.49,
+    "wasPrice": 69.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3607344163773",
-    "price": 36,
-    "wasPrice": 47,
-    "percentOff": 23,
-    "retailerId": "escentual"
+    "price": 17.49,
+    "wasPrice": 59.99,
+    "percentOff": 70,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3605520385568",
-    "price": 35.75,
-    "wasPrice": 67,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 20.49,
+    "wasPrice": 64.99,
+    "percentOff": 68,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-763511009824",
@@ -495,6 +600,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-7640233341391",
+    "price": 18.99,
+    "wasPrice": 52.99,
+    "percentOff": 64,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3423473996859",
     "price": 56.95,
     "wasPrice": 101,
@@ -502,11 +614,32 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-085805555313",
+    "price": 14.69,
+    "wasPrice": 33.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-085805120900",
+    "price": 16.49,
+    "wasPrice": 47.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-085805510541",
-    "price": 15,
-    "wasPrice": 19,
-    "percentOff": 21,
-    "retailerId": "escentual"
+    "price": 12.69,
+    "wasPrice": 35.99,
+    "percentOff": 64,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-027131086871",
+    "price": 41.99,
+    "wasPrice": 84.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-887167095878",
@@ -517,17 +650,52 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-027131595045",
-    "price": 36.25,
-    "wasPrice": 67,
-    "percentOff": 45,
-    "retailerId": "fragrance-click"
+    "price": 25.99,
+    "wasPrice": 69.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-027131020424",
+    "price": 36.99,
+    "wasPrice": 74.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290360378053",
+    "price": 30.99,
+    "wasPrice": 67.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290360378060",
+    "price": 35.99,
+    "wasPrice": 66.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3605521172525",
+    "price": 86.99,
+    "wasPrice": 175.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614272907652",
-    "price": 75,
-    "wasPrice": 100,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 59.99,
+    "wasPrice": 118.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3605521816580",
+    "price": 79.99,
+    "wasPrice": 152.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3605521816658",
@@ -545,23 +713,23 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614274459869",
-    "price": 150,
-    "wasPrice": 200,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 114.99,
+    "wasPrice": 220.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3274872399167",
-    "price": 82,
-    "wasPrice": 130,
-    "percentOff": 36,
-    "retailerId": "escentual"
+    "price": 40.49,
+    "wasPrice": 80.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3274872448773",
-    "price": 67,
+    "price": 64,
     "wasPrice": 120,
-    "percentOff": 44,
+    "percentOff": 46,
     "retailerId": "escentual"
   },
   {
@@ -579,17 +747,31 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-3274872441989",
-    "price": 58.95,
-    "wasPrice": 103,
-    "percentOff": 42,
-    "retailerId": "fragrance-click"
+    "fragranceId": "ean-3274872400726",
+    "price": 79.99,
+    "wasPrice": 159.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3274872372146",
+    "price": 75.49,
+    "wasPrice": 92.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3274872372153",
     "price": 68.95,
     "wasPrice": 131,
     "percentOff": 47,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3274872441989",
+    "price": 58.95,
+    "wasPrice": 103,
+    "percentOff": 42,
     "retailerId": "fragrance-click"
   },
   {
@@ -615,10 +797,24 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3360372017332",
-    "price": 47,
-    "wasPrice": 63,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 19.49,
+    "wasPrice": 59.99,
+    "percentOff": 67,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3360372009573",
+    "price": 18.99,
+    "wasPrice": 39.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3360372009641",
+    "price": 25.99,
+    "wasPrice": 64.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616302968237",
@@ -636,10 +832,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614228220897",
-    "price": 46.75,
-    "wasPrice": 88,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 41.99,
+    "wasPrice": 87.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-737052766775",
@@ -650,17 +846,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-737052057989",
-    "price": 44.25,
-    "wasPrice": 83,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 31.99,
+    "wasPrice": 68.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423470300154",
-    "price": 35.25,
-    "wasPrice": 65,
-    "percentOff": 45,
-    "retailerId": "fragrance-click"
+    "price": 27.49,
+    "wasPrice": 71.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423470485448",
@@ -671,10 +867,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3423470486025",
-    "price": 27.75,
-    "wasPrice": 52,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 19.49,
+    "wasPrice": 49.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8435415017244",
@@ -699,10 +895,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3386460066297",
-    "price": 47,
-    "wasPrice": 63,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 29.49,
+    "wasPrice": 42.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3386460066273",
+    "price": 37.49,
+    "wasPrice": 75.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460048125",
@@ -719,6 +922,20 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3386460129893",
+    "price": 34.99,
+    "wasPrice": 50.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3386460129886",
+    "price": 49.49,
+    "wasPrice": 71.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3386460142014",
     "price": 42.95,
     "wasPrice": 81,
@@ -727,17 +944,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3386460071727",
-    "price": 50.5,
-    "wasPrice": 95,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 48.49,
+    "wasPrice": 94.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460075343",
-    "price": 45.75,
-    "wasPrice": 86,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 34.99,
+    "wasPrice": 85.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3414206000608",
@@ -754,17 +971,24 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3414200640015",
+    "price": 17.99,
+    "wasPrice": 63.99,
+    "percentOff": 71,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3770000002782",
-    "price": 105,
+    "price": 100,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3760022730466",
-    "price": 150,
+    "price": 120,
     "wasPrice": 195,
-    "percentOff": 23,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
@@ -776,9 +1000,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-737052074740",
-    "price": 41,
+    "price": 37,
     "wasPrice": 75,
-    "percentOff": 45,
+    "percentOff": 50,
     "retailerId": "escentual"
   },
   {
@@ -825,10 +1049,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3616303423841",
-    "price": 50.5,
-    "wasPrice": 95,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 49.49,
+    "wasPrice": 103.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616304254871",
@@ -859,6 +1083,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3607349389062",
+    "price": 32.99,
+    "wasPrice": 98.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3616305187307",
     "price": 39.95,
     "wasPrice": 73,
@@ -874,10 +1105,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-022548289655",
-    "price": 48,
-    "wasPrice": 63,
-    "percentOff": 23,
-    "retailerId": "escentual"
+    "price": 30.49,
+    "wasPrice": 53.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460153737",
@@ -895,17 +1126,31 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3386460135818",
-    "price": 45.25,
-    "wasPrice": 85,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 41.49,
+    "wasPrice": 81.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3386460032704",
+    "price": 19.99,
+    "wasPrice": 35.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460118132",
-    "price": 63,
-    "wasPrice": 84,
+    "price": 39.99,
+    "wasPrice": 53.99,
     "percentOff": 25,
-    "retailerId": "escentual"
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3386460032698",
+    "price": 32.49,
+    "wasPrice": 48.99,
+    "percentOff": 33,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460144230",
@@ -913,6 +1158,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 83,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3386460127950",
+    "price": 43.49,
+    "wasPrice": 72.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460074827",
@@ -923,10 +1175,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8011003878611",
-    "price": 95,
-    "wasPrice": 130,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 55.49,
+    "wasPrice": 86.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8011003845132",
+    "price": 45.49,
+    "wasPrice": 86.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3439600056969",
@@ -958,24 +1217,31 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614274085501",
-    "price": 51.5,
-    "wasPrice": 97,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 50.49,
+    "wasPrice": 136.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423222080952",
-    "price": 48.95,
-    "wasPrice": 92,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 45.99,
+    "wasPrice": 91.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423478925557",
-    "price": 61,
-    "wasPrice": 84,
-    "percentOff": 27,
-    "retailerId": "escentual"
+    "price": 34.49,
+    "wasPrice": 53.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3423470890013",
+    "price": 59.49,
+    "wasPrice": 109.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423222012687",
@@ -983,6 +1249,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 92,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3423222055516",
+    "price": 32.99,
+    "wasPrice": 67.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423222055547",
@@ -993,16 +1266,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3423222107604",
-    "price": 73,
-    "wasPrice": 97,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 34.99,
+    "wasPrice": 62.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423222107611",
-    "price": 105,
+    "price": 100,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -1013,11 +1286,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3423478504158",
+    "price": 72.99,
+    "wasPrice": 134.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3137370302131",
     "price": 56.25,
     "wasPrice": 106,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3137370207016",
+    "price": 55.49,
+    "wasPrice": 89.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8435137727087",
@@ -1041,11 +1328,53 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3614273768825",
+    "price": 72.99,
+    "wasPrice": 138.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3614273768832",
+    "price": 101.99,
+    "wasPrice": 190.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3614273556620",
+    "price": 86.49,
+    "wasPrice": 152.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3614273556637",
+    "price": 113.49,
+    "wasPrice": 188.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614274182897",
-    "price": 91,
-    "wasPrice": 125,
-    "percentOff": 27,
-    "retailerId": "escentual"
+    "price": 79.99,
+    "wasPrice": 157.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3614274172997",
+    "price": 118.49,
+    "wasPrice": 215.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3614273760164",
+    "price": 128.99,
+    "wasPrice": 134.99,
+    "percentOff": 4,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614273961707",
@@ -1056,9 +1385,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614274000566",
-    "price": 115,
+    "price": 89,
     "wasPrice": 150,
-    "percentOff": 23,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -1083,18 +1412,18 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-3349668680993",
-    "price": 72,
-    "wasPrice": 96,
-    "percentOff": 25,
-    "retailerId": "escentual"
-  },
-  {
     "fragranceId": "ean-3349668627523",
     "price": 62.95,
     "wasPrice": 75,
     "percentOff": 16,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3349668680993",
+    "price": 56.49,
+    "wasPrice": 98.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3349668627530",
@@ -1104,6 +1433,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3349668515660",
+    "price": 75.99,
+    "wasPrice": 141.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3349668627547",
     "price": 94.95,
     "wasPrice": 143,
@@ -1111,11 +1447,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3349668683055",
+    "price": 65.49,
+    "wasPrice": 120.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3349668582365",
+    "price": 57.49,
+    "wasPrice": 68.99,
+    "percentOff": 16,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3349668614592",
-    "price": 115,
-    "wasPrice": 150,
-    "percentOff": 23,
-    "retailerId": "escentual"
+    "price": 79.99,
+    "wasPrice": 106.99,
+    "percentOff": 25,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3349668021345",
@@ -1125,17 +1475,45 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3360377022928",
+    "price": 47.99,
+    "wasPrice": 87.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3360377009356",
-    "price": 57,
-    "wasPrice": 75,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 35.99,
+    "wasPrice": 51.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3605971512575",
     "price": 50.5,
     "wasPrice": 95,
     "percentOff": 46,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3616303445119",
+    "price": 29.99,
+    "wasPrice": 90.99,
+    "percentOff": 67,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-888066112734",
+    "price": 92.95,
+    "wasPrice": 135,
+    "percentOff": 31,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-888066124287",
+    "price": 125.95,
+    "wasPrice": 195,
+    "percentOff": 35,
     "retailerId": "fragrance-click"
   },
   {
@@ -1151,6 +1529,20 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 152,
     "percentOff": 28,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-022548024317",
+    "price": 28.99,
+    "wasPrice": 43.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-022548040126",
+    "price": 27.99,
+    "wasPrice": 67.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614272761445",
@@ -1238,23 +1630,44 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8018365260757",
-    "price": 22,
-    "wasPrice": 29,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 16.49,
+    "wasPrice": 38.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8011003993819",
-    "price": 87,
-    "wasPrice": 115,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 46.99,
+    "wasPrice": 73.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8011003993826",
+    "price": 67.49,
+    "wasPrice": 94.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8011003817498",
+    "price": 107.49,
+    "wasPrice": 109.99,
+    "percentOff": 2,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8011003818112",
+    "price": 76.49,
+    "wasPrice": 99.99,
+    "percentOff": 23,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8018365070264",
-    "price": 95,
+    "price": 91,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
@@ -1265,32 +1678,60 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "ean-8011003890798",
+    "price": 56.99,
+    "wasPrice": 103.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8011003890804",
+    "price": 65.49,
+    "wasPrice": 134.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8011003845347",
-    "price": 87,
-    "wasPrice": 115,
+    "price": 55.99,
+    "wasPrice": 73.99,
     "percentOff": 24,
-    "retailerId": "escentual"
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8011003845354",
-    "price": 110,
-    "wasPrice": 150,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 71.49,
+    "wasPrice": 94.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8011003846627",
+    "price": 89.49,
+    "wasPrice": 109.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8011003823536",
-    "price": 120,
-    "wasPrice": 160,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 76.99,
+    "wasPrice": 112.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8011003995967",
-    "price": 100,
-    "wasPrice": 135,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 67.99,
+    "wasPrice": 86.99,
+    "percentOff": 21,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8018365250468",
+    "price": 30.49,
+    "wasPrice": 86.99,
+    "percentOff": 64,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3360374000004",
@@ -1298,6 +1739,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 72,
     "percentOff": 45,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3360374000011",
+    "price": 76.49,
+    "wasPrice": 124.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614274158151",
@@ -1329,10 +1777,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3605521515629",
-    "price": 75,
-    "wasPrice": 100,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 47.99,
+    "wasPrice": 66.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614270659706",
@@ -1343,16 +1791,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614272191549",
-    "price": 75,
+    "price": 60,
     "wasPrice": 100,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273067775",
-    "price": 80,
+    "price": 77,
     "wasPrice": 110,
-    "percentOff": 27,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
@@ -1364,45 +1812,59 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3365440787858",
-    "price": 75,
-    "wasPrice": 100,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 67.49,
+    "wasPrice": 129.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3365440787919",
-    "price": 110,
-    "wasPrice": 145,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 89.99,
+    "wasPrice": 95,
+    "percentOff": 5,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3365440787971",
-    "price": 145,
+    "price": 115,
     "wasPrice": 190,
-    "percentOff": 23,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "ean-3614272648418",
+    "price": 88.99,
+    "wasPrice": 163.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614273069533",
-    "price": 86,
+    "price": 82,
     "wasPrice": 115,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273776110",
-    "price": 135,
+    "price": 130,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273776127",
-    "price": 185,
+    "price": 180,
     "wasPrice": 245,
-    "percentOff": 24,
+    "percentOff": 26,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-3614270561634",
+    "price": 112.99,
+    "wasPrice": 210.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8028713816611",
@@ -1426,11 +1888,18 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-8028713270024",
-    "price": 79.95,
-    "wasPrice": 153,
+    "fragranceId": "escentual-coloniaintensa001",
+    "price": 53.99,
+    "wasPrice": 102.99,
     "percentOff": 47,
-    "retailerId": "fragrance-click"
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8028713270024",
+    "price": 72.49,
+    "wasPrice": 130.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8028713270031",
@@ -1454,6 +1923,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-6290171072836",
+    "price": 28.99,
+    "wasPrice": 34.99,
+    "percentOff": 17,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-6291100130122",
     "price": 39.95,
     "wasPrice": 75,
@@ -1462,31 +1938,66 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-arianagrandeari004",
-    "price": 56,
-    "wasPrice": 74,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 42.99,
+    "wasPrice": 52.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-812256023296",
-    "price": 47,
+    "price": 45,
     "wasPrice": 63,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-810101502798",
+    "price": 62.49,
+    "wasPrice": 116.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-812256028482",
-    "price": 45,
+    "price": 36,
     "wasPrice": 60,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "ean-812256028475",
+    "price": 41.49,
+    "wasPrice": 46.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-812256021735",
-    "price": 35,
+    "price": 28,
     "wasPrice": 46,
-    "percentOff": 23,
+    "percentOff": 39,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-6294015170566",
+    "price": 9.29,
+    "wasPrice": 12.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6294015157789",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-arm0076",
+    "price": 9.29,
+    "wasPrice": 12.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614273638869",
@@ -1525,23 +2036,44 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-608940585849",
-    "price": 58,
+    "price": 55,
     "wasPrice": 77,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-608940585825",
-    "price": 68,
+    "price": 65,
     "wasPrice": 90,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "ean-719346117708",
+    "price": 8.69,
+    "wasPrice": 26.99,
+    "percentOff": 67,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-719346117722",
+    "price": 16.99,
+    "wasPrice": 48.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-719346228992",
+    "price": 15.49,
+    "wasPrice": 41.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3616302020676",
-    "price": 105,
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -1559,11 +2091,18 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-5045252668184",
+    "price": 31.99,
+    "wasPrice": 78.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614226905994",
-    "price": 52.5,
-    "wasPrice": 99,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 41.99,
+    "wasPrice": 74.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614229829044",
@@ -1571,6 +2110,20 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 137,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-5045252649015",
+    "price": 19.99,
+    "wasPrice": 64.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3614227748446",
+    "price": 30.99,
+    "wasPrice": 78.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-783320411946",
@@ -1608,32 +2161,95 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-7340032875393",
+    "price": 198.99,
+    "wasPrice": 220,
+    "percentOff": 9,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-amoramor01",
+    "price": 16.49,
+    "wasPrice": 38.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3360373063703",
+    "price": 23.99,
+    "wasPrice": 54.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-amoramor03",
-    "price": 74,
-    "wasPrice": 99,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 41.49,
+    "wasPrice": 68.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3360373016341",
+    "price": 25.49,
+    "wasPrice": 54.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-ckall002",
+    "price": 21.49,
+    "wasPrice": 48.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-88300104437",
-    "price": 38.25,
-    "wasPrice": 72,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 23.99,
+    "wasPrice": 71.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-ckeveryone001",
+    "price": 29.99,
+    "wasPrice": 45.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-88300107438",
-    "price": 40.5,
-    "wasPrice": 76,
+    "price": 29.49,
+    "wasPrice": 73.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-088300100514",
+    "price": 30.75,
+    "wasPrice": 58,
     "percentOff": 46,
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-088300605385",
+    "price": 17.99,
+    "wasPrice": 18.99,
+    "percentOff": 5,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-088300605514",
-    "price": 84,
+    "price": 67,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-088300147953",
+    "price": 14.69,
+    "wasPrice": 37.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3607342686229",
@@ -1651,10 +2267,52 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8411061043844",
-    "price": 97,
-    "wasPrice": 130,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 69.99,
+    "wasPrice": 78.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8411061099735",
+    "price": 54.99,
+    "wasPrice": 66.99,
+    "percentOff": 17,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8411061099728",
+    "price": 79.99,
+    "wasPrice": 95.99,
+    "percentOff": 16,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8411061056776",
+    "price": 63.49,
+    "wasPrice": 65.99,
+    "percentOff": 3,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8411061056769",
+    "price": 84.99,
+    "wasPrice": 94.99,
+    "percentOff": 10,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8411061083673",
+    "price": 68.49,
+    "wasPrice": 127.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8411061083666",
+    "price": 86.99,
+    "wasPrice": 108.99,
+    "percentOff": 20,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8411061083659",
@@ -1678,11 +2336,60 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-7640177366160",
+    "price": 18.99,
+    "wasPrice": 61.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-020714005887",
+    "price": 23.99,
+    "wasPrice": 44.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-020714999346",
+    "price": 51.49,
+    "wasPrice": 91.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-020714156893",
+    "price": 34.5,
+    "wasPrice": 65,
+    "percentOff": 46,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3386460142182",
+    "price": 39.99,
+    "wasPrice": 80.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3414200204415",
+    "price": 19.49,
+    "wasPrice": 59.99,
+    "percentOff": 67,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614228174275",
     "price": 33.95,
     "wasPrice": 56.5,
     "percentOff": 39,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3414202011820",
+    "price": 12.69,
+    "wasPrice": 31.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3607347565321",
@@ -1707,16 +2414,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-onlythebrave002",
-    "price": 63,
-    "wasPrice": 84,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 31.49,
+    "wasPrice": 58.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3605521034014",
-    "price": 89,
+    "price": 71,
     "wasPrice": 120,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -1735,9 +2442,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-085715950376",
-    "price": 32,
+    "price": 30,
     "wasPrice": 42,
-    "percentOff": 23,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -1749,10 +2456,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-22548355114",
-    "price": 39.25,
-    "wasPrice": 74,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 28.99,
+    "wasPrice": 80.99,
+    "percentOff": 64,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8054754403510",
@@ -1770,17 +2477,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8054754404739",
-    "price": 87,
-    "wasPrice": 115,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 41.49,
+    "wasPrice": 78.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8054754405095",
-    "price": 66.5,
-    "wasPrice": 125,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 56.49,
+    "wasPrice": 120.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423473049456",
@@ -1798,10 +2505,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8057971181346",
-    "price": 40.5,
-    "wasPrice": 76,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 40.49,
+    "wasPrice": 78.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8057971188123",
@@ -1812,17 +2519,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3423473020639",
-    "price": 140,
+    "price": 115,
     "wasPrice": 190,
-    "percentOff": 26,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8057971180417",
-    "price": 75.95,
-    "wasPrice": 125,
-    "percentOff": 39,
-    "retailerId": "fragrance-click"
+    "price": 70.49,
+    "wasPrice": 104.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-737052872094",
@@ -1839,10 +2546,17 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3423473021230",
+    "price": 43.49,
+    "wasPrice": 65.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3423473021209",
-    "price": 110,
+    "price": 86,
     "wasPrice": 145,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -1860,6 +2574,27 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "escentual-dgtheone029",
+    "price": 77.49,
+    "wasPrice": 138.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8011003852741",
+    "price": 32.99,
+    "wasPrice": 76.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8011003852697",
+    "price": 30.49,
+    "wasPrice": 76.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-085715806345",
     "price": 49.95,
     "wasPrice": 94,
@@ -1867,60 +2602,130 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "escentual-eliesaab036",
-    "price": 48,
-    "wasPrice": 64,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "fragranceId": "ean-7640233341414",
+    "price": 52.49,
+    "wasPrice": 94.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-eliesaab037",
-    "price": 71,
-    "wasPrice": 95,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 48.99,
+    "wasPrice": 62.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3423473095651",
+    "price": 43.49,
+    "wasPrice": 67.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-7640233341698",
+    "price": 29.99,
+    "wasPrice": 67.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-7640233341704",
-    "price": 73,
-    "wasPrice": 97,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 48.99,
+    "wasPrice": 69.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-7640233341711",
-    "price": 99,
-    "wasPrice": 135,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 55.99,
+    "wasPrice": 105.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423473016953",
-    "price": 51,
-    "wasPrice": 68,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 23.99,
+    "wasPrice": 44.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3423473998556",
+    "price": 32.49,
+    "wasPrice": 58.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-085805558420",
-    "price": 63,
-    "wasPrice": 84,
-    "percentOff": 25,
+    "price": 50,
+    "wasPrice": 83,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-truelove001",
-    "price": 17,
-    "wasPrice": 23,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 13.69,
+    "wasPrice": 41.99,
+    "percentOff": 67,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-85805210458",
-    "price": 27.95,
-    "wasPrice": 52,
+    "price": 21.99,
+    "wasPrice": 46.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8005610516134",
+    "price": 18.49,
+    "wasPrice": 71.99,
+    "percentOff": 74,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-027131086864",
+    "price": 29.49,
+    "wasPrice": 54.99,
     "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-027131261612",
+    "price": 34.49,
+    "wasPrice": 84.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-027131043294",
+    "price": 27.99,
+    "wasPrice": 69.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-027131286905",
+    "price": 39.49,
+    "wasPrice": 79.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-887167095915",
+    "price": 46.49,
+    "wasPrice": 69.99,
+    "percentOff": 33,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290360378602",
+    "price": 29.99,
+    "wasPrice": 58.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614273604932",
@@ -1930,39 +2735,53 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3614273947770",
+    "price": 79.99,
+    "wasPrice": 152.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614273734882",
-    "price": 80,
-    "wasPrice": 110,
-    "percentOff": 27,
-    "retailerId": "escentual"
+    "price": 53.99,
+    "wasPrice": 72.99,
+    "percentOff": 26,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614273734790",
-    "price": 115,
+    "price": 92,
     "wasPrice": 155,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614271994806",
-    "price": 110,
-    "wasPrice": 150,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 79.99,
+    "wasPrice": 152.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614274459685",
-    "price": 76,
+    "price": 61,
     "wasPrice": 105,
-    "percentOff": 27,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274459708",
-    "price": 110,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-3274872396180",
+    "price": 58.49,
+    "wasPrice": 84.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3274872422995",
@@ -2050,10 +2869,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-10001185",
-    "price": 125,
-    "wasPrice": 165,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 57.49,
+    "wasPrice": 112.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-737052925028",
+    "price": 41.49,
+    "wasPrice": 63.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-737052925073",
@@ -2064,10 +2890,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-737052925127",
-    "price": 57.95,
-    "wasPrice": 109,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 53.99,
+    "wasPrice": 109.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8005610481081",
+    "price": 44.49,
+    "wasPrice": 67.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8005610481043",
@@ -2075,6 +2908,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 99,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3616302022465",
+    "price": 54.99,
+    "wasPrice": 67.99,
+    "percentOff": 19,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616303470906",
@@ -2113,10 +2953,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-guerlaininsolence003",
-    "price": 93,
+    "price": 78,
     "wasPrice": 155,
-    "percentOff": 40,
+    "percentOff": 49,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-3346470301856",
+    "price": 47.49,
+    "wasPrice": 55.99,
+    "percentOff": 15,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3346470114746",
@@ -2141,9 +2988,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-drakkarnoir02",
-    "price": 32,
+    "price": 25,
     "wasPrice": 42,
-    "percentOff": 23,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -2152,6 +2999,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 150,
     "percentOff": 45,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3616302968220",
+    "price": 29.99,
+    "wasPrice": 53.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614229828535",
@@ -2175,11 +3029,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3614228220903",
+    "price": 39.49,
+    "wasPrice": 61.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3616306661264",
+    "price": 36.99,
+    "wasPrice": 71.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-737052041247",
-    "price": 21.95,
-    "wasPrice": 36,
-    "percentOff": 39,
-    "retailerId": "fragrance-click"
+    "price": 19.99,
+    "wasPrice": 38.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-737052041285",
@@ -2190,9 +3058,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-10000670",
-    "price": 67,
+    "price": 54,
     "wasPrice": 89,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
@@ -2203,11 +3071,32 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3614229823790",
+    "price": 28.49,
+    "wasPrice": 57.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3423222090708",
+    "price": 33.49,
+    "wasPrice": 100.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3423470311358",
     "price": 27.95,
     "wasPrice": 51,
     "percentOff": 45,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3423470486018",
+    "price": 29.49,
+    "wasPrice": 71.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423474874651",
@@ -2218,9 +3107,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3423474884155",
-    "price": 90,
+    "price": 74,
     "wasPrice": 125,
-    "percentOff": 28,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -2232,9 +3121,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8435415017190",
-    "price": 78,
+    "price": 75,
     "wasPrice": 105,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -2253,9 +3142,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8435415076937",
-    "price": 93,
+    "price": 87,
     "wasPrice": 125,
-    "percentOff": 25,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
@@ -2274,10 +3163,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8435415030908",
-    "price": 77,
+    "price": 62,
     "wasPrice": 105,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-jpgscandal022",
+    "price": 78.99,
+    "wasPrice": 84.99,
+    "percentOff": 7,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8435415055963",
@@ -2288,24 +3184,31 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-lemale26",
-    "price": 110,
-    "wasPrice": 150,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 87.49,
+    "wasPrice": 152.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-jimmychooblossom003",
-    "price": 38,
-    "wasPrice": 84,
-    "percentOff": 54,
-    "retailerId": "escentual"
+    "price": 29.49,
+    "wasPrice": 60.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460150392",
-    "price": 61,
+    "price": 49,
     "wasPrice": 81,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-3386460097345",
+    "price": 30.49,
+    "wasPrice": 50.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460097321",
@@ -2322,18 +3225,39 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3386460071741",
+    "price": 23.99,
+    "wasPrice": 49.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3386460071734",
-    "price": 36.25,
-    "wasPrice": 68,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 35.49,
+    "wasPrice": 64.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3386460073882",
+    "price": 25.99,
+    "wasPrice": 39.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3386460073875",
+    "price": 27.99,
+    "wasPrice": 56.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460064132",
-    "price": 44,
-    "wasPrice": 59,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 22.49,
+    "wasPrice": 38.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460129848",
@@ -2351,30 +3275,30 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3386460072625",
-    "price": 44,
+    "price": 35,
     "wasPrice": 59,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3386460072588",
-    "price": 60,
+    "price": 48,
     "wasPrice": 79,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3386460148733",
-    "price": 54,
+    "price": 44,
     "wasPrice": 72,
-    "percentOff": 25,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3386460148726",
-    "price": 71,
+    "price": 68,
     "wasPrice": 95,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -2385,11 +3309,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3386460137553",
+    "price": 29.99,
+    "wasPrice": 67.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3386460109383",
-    "price": 42,
+    "price": 34,
     "wasPrice": 56,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-3386460127066",
+    "price": 43.49,
+    "wasPrice": 79.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614228858045",
@@ -2400,10 +3338,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3607347392637",
-    "price": 40.95,
-    "wasPrice": 77,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 25.99,
+    "wasPrice": 62.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3414206000059",
@@ -2413,39 +3351,81 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "escentual-go002",
+    "price": 18.49,
+    "wasPrice": 57.99,
+    "percentOff": 68,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3414206000615",
+    "price": 13.69,
+    "wasPrice": 28.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-10000218",
+    "price": 23.99,
+    "wasPrice": 48.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-719346128070",
+    "price": 24.99,
+    "wasPrice": 78.99,
+    "percentOff": 68,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3760022730268",
-    "price": 105,
+    "price": 100,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3760022733924",
-    "price": 150,
+    "price": 140,
     "wasPrice": 195,
-    "percentOff": 23,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3760022732743",
-    "price": 105,
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3274872427204",
-    "price": 57.95,
-    "wasPrice": 109,
+    "price": 51.49,
+    "wasPrice": 105.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3700550218197",
+    "price": 221.99,
+    "wasPrice": 417.99,
     "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460149150",
-    "price": 53,
-    "wasPrice": 71,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 28.49,
+    "wasPrice": 59.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-styleinplay01",
+    "price": 33.49,
+    "wasPrice": 64.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614273069175",
@@ -2456,10 +3436,59 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-lancomemiracle004",
-    "price": 105,
-    "wasPrice": 140,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 79.49,
+    "wasPrice": 107.99,
+    "percentOff": 26,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6291107454412",
+    "price": 11.69,
+    "wasPrice": 16.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290362340362",
+    "price": 22.49,
+    "wasPrice": 40.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6291108733875",
+    "price": 24.99,
+    "wasPrice": 27.99,
+    "percentOff": 10,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290360593135",
+    "price": 22.99,
+    "wasPrice": 42.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290360593142",
+    "price": 27.99,
+    "wasPrice": 29.99,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6291107455365",
+    "price": 13.19,
+    "wasPrice": 26.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290360591421",
+    "price": 21.99,
+    "wasPrice": 27.99,
+    "percentOff": 21,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3760265190485",
@@ -2484,10 +3513,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-mj-daisydream004",
-    "price": 110,
-    "wasPrice": 145,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 40.49,
+    "wasPrice": 98.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3616301776000",
+    "price": 34.99,
+    "wasPrice": 53.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616301776017",
@@ -2519,10 +3555,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614227372344",
-    "price": 39.95,
-    "wasPrice": 75,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 35.99,
+    "wasPrice": 64.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616305033031",
@@ -2540,9 +3576,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3616302777228",
-    "price": 69,
+    "price": 55,
     "wasPrice": 92,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -2554,9 +3590,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3616305187321",
-    "price": 145,
+    "price": 120,
     "wasPrice": 195,
-    "percentOff": 25,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
@@ -2568,23 +3604,30 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-022548420010",
-    "price": 49,
-    "wasPrice": 66,
-    "percentOff": 25,
+    "price": 39,
+    "wasPrice": 65,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-022548419953",
-    "price": 89,
+    "price": 71,
     "wasPrice": 120,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "escentual-mkgorgeous003",
+    "price": 62.49,
+    "wasPrice": 72.99,
+    "percentOff": 14,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-850049716314",
-    "price": 90,
+    "price": 86,
     "wasPrice": 120,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -2596,24 +3639,38 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-moncler007",
-    "price": 120,
-    "wasPrice": 160,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 52.49,
+    "wasPrice": 169.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-moncler008",
-    "price": 180,
-    "wasPrice": 240,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 70.49,
+    "wasPrice": 169.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-montale016",
-    "price": 130,
-    "wasPrice": 175,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 78.49,
+    "wasPrice": 147.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-montale006",
+    "price": 88.49,
+    "wasPrice": 165.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-montblancexplorer002",
+    "price": 25.99,
+    "wasPrice": 37.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460146081",
@@ -2630,38 +3687,66 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "escentual-montblanc-leg11-006",
+    "price": 65.49,
+    "wasPrice": 114.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3386460127974",
-    "price": 61,
-    "wasPrice": 81,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 24.49,
+    "wasPrice": 50.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-montblancsignature006",
+    "price": 44.99,
+    "wasPrice": 80.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-moschinofresh004",
+    "price": 40.49,
+    "wasPrice": 67.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-moschinofresh009",
+    "price": 46.99,
+    "wasPrice": 67.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8011003839292",
-    "price": 75,
+    "price": 60,
     "wasPrice": 100,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003839308",
-    "price": 95,
+    "price": 76,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003878598",
-    "price": 51,
-    "wasPrice": 68,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 38.49,
+    "wasPrice": 44.99,
+    "percentOff": 14,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8011003878604",
-    "price": 75,
+    "price": 60,
     "wasPrice": 100,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -2673,9 +3758,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614274126884",
-    "price": 110,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
@@ -2687,16 +3772,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3439600056204",
-    "price": 63,
-    "wasPrice": 84,
-    "percentOff": 25,
+    "price": 60,
+    "wasPrice": 83,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3439601204611",
-    "price": 105,
+    "price": 96,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 31,
     "retailerId": "escentual"
   },
   {
@@ -2715,23 +3800,23 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614274066982",
-    "price": 105,
-    "wasPrice": 140,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 72.49,
+    "wasPrice": 94.99,
+    "percentOff": 23,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3439600056525",
-    "price": 72,
+    "price": 67,
     "wasPrice": 96,
-    "percentOff": 25,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3439600056532",
-    "price": 105,
+    "price": 97,
     "wasPrice": 135,
-    "percentOff": 22,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -2750,16 +3835,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614273764933",
-    "price": 56,
+    "price": 50,
     "wasPrice": 135,
-    "percentOff": 58,
+    "percentOff": 62,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274085525",
-    "price": 72,
+    "price": 58,
     "wasPrice": 96,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
@@ -2771,17 +3856,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3423222080969",
-    "price": 63.75,
-    "wasPrice": 120,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 50.49,
+    "wasPrice": 119.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423222108281",
-    "price": 71.25,
-    "wasPrice": 134,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 67.49,
+    "wasPrice": 132,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423478807556",
@@ -2789,6 +3874,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 64,
     "percentOff": 43,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "escentual-narciso03",
+    "price": 63.99,
+    "wasPrice": 99.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423470890129",
@@ -2806,16 +3898,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-narciso148",
-    "price": 140,
-    "wasPrice": 185,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 93.99,
+    "wasPrice": 119.99,
+    "percentOff": 21,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423222056063",
-    "price": 98,
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 30,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -2827,23 +3919,23 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3137370207023",
-    "price": 68,
+    "price": 65,
     "wasPrice": 90,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3700578502278",
-    "price": 250,
+    "price": 240,
     "wasPrice": 315,
-    "percentOff": 20,
+    "percentOff": 23,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3700578502285",
-    "price": 250,
+    "price": 240,
     "wasPrice": 315,
-    "percentOff": 20,
+    "percentOff": 23,
     "retailerId": "escentual"
   },
   {
@@ -2855,16 +3947,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8435137742226",
-    "price": 160,
+    "price": 130,
     "wasPrice": 215,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8435137764730",
-    "price": 120,
+    "price": 105,
     "wasPrice": 155,
-    "percentOff": 22,
+    "percentOff": 32,
     "retailerId": "escentual"
   },
   {
@@ -2876,9 +3968,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614273478748",
-    "price": 80,
+    "price": 77,
     "wasPrice": 110,
-    "percentOff": 27,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
@@ -2890,51 +3982,51 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614273760652",
-    "price": 115,
+    "price": 110,
     "wasPrice": 150,
-    "percentOff": 23,
+    "percentOff": 26,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273961738",
-    "price": 86,
+    "price": 82,
     "wasPrice": 115,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273961752",
-    "price": 125,
+    "price": 115,
     "wasPrice": 165,
-    "percentOff": 24,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274305388",
-    "price": 91,
+    "price": 85,
     "wasPrice": 125,
-    "percentOff": 27,
+    "percentOff": 31,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274306217",
-    "price": 135,
+    "price": 130,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274305401",
-    "price": 185,
+    "price": 150,
     "wasPrice": 245,
-    "percentOff": 24,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274000597",
-    "price": 155,
+    "price": 125,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
@@ -2953,30 +4045,37 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3349668614646",
-    "price": 75,
-    "wasPrice": 100,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 52.49,
+    "wasPrice": 71.99,
+    "percentOff": 27,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3349668594603",
+    "price": 45.99,
+    "wasPrice": 85.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3349668614653",
-    "price": 115,
-    "wasPrice": 150,
-    "percentOff": 23,
-    "retailerId": "escentual"
+    "price": 79.99,
+    "wasPrice": 107.99,
+    "percentOff": 25,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3349668614660",
-    "price": 150,
-    "wasPrice": 195,
-    "percentOff": 23,
-    "retailerId": "escentual"
+    "price": 104.49,
+    "wasPrice": 137.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3349668630127",
-    "price": 75,
+    "price": 60,
     "wasPrice": 100,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -2988,9 +4087,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3349668614516",
-    "price": 87,
+    "price": 83,
     "wasPrice": 115,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
@@ -2999,6 +4098,20 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 120,
     "percentOff": 17,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3349668617159",
+    "price": 47.99,
+    "wasPrice": 59.99,
+    "percentOff": 20,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3349668617166",
+    "price": 65.49,
+    "wasPrice": 86.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3349668528677",
@@ -3022,24 +4135,31 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "escentual-xspourhomme02",
+    "price": 55.99,
+    "wasPrice": 81.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3605972910264",
-    "price": 75,
+    "price": 60,
     "wasPrice": 100,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3605970416003",
-    "price": 91,
+    "price": 73,
     "wasPrice": 125,
-    "percentOff": 27,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3605971512612",
-    "price": 82,
+    "price": 66,
     "wasPrice": 110,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -3050,11 +4170,102 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "escentual-justcavalliman004",
+    "price": 26.49,
+    "wasPrice": 59.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-810023675679",
+    "price": 20.99,
+    "wasPrice": 39.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-810023679943",
+    "price": 29.49,
+    "wasPrice": 62.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-810023677970",
+    "price": 27.49,
+    "wasPrice": 39.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-810023677345",
+    "price": 33.49,
+    "wasPrice": 62.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6295124024832",
+    "price": 28.49,
+    "wasPrice": 46.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614226969613",
     "price": 54.95,
     "wasPrice": 104,
     "percentOff": 47,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-888066006743",
+    "price": 95.49,
+    "wasPrice": 105.99,
+    "percentOff": 9,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-888066035392",
+    "price": 109.95,
+    "wasPrice": 155,
+    "percentOff": 29,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-0888066130714",
+    "price": 176.49,
+    "wasPrice": 328.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-888066050685",
+    "price": 117.75,
+    "wasPrice": 222,
+    "percentOff": 46,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-888066117135",
+    "price": 125.95,
+    "wasPrice": 180,
+    "percentOff": 30,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-0888066000512",
+    "price": 209.49,
+    "wasPrice": 219.99,
+    "percentOff": 4,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-888066023948",
+    "price": 95.99,
+    "wasPrice": 105.99,
+    "percentOff": 9,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-7640496670238",
@@ -3064,31 +4275,45 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "escentual-tommygirl01",
+    "price": 16.49,
+    "wasPrice": 30.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-022548387504",
+    "price": 38.99,
+    "wasPrice": 62.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614272761438",
-    "price": 110,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273790864",
-    "price": 82,
+    "price": 66,
     "wasPrice": 110,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274350722",
-    "price": 89,
+    "price": 85,
     "wasPrice": 120,
-    "percentOff": 25,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614272761452",
-    "price": 78,
+    "price": 75,
     "wasPrice": 105,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -3100,9 +4325,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614274024777",
-    "price": 76,
+    "price": 61,
     "wasPrice": 105,
-    "percentOff": 27,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
@@ -3114,16 +4339,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614274217117",
-    "price": 155,
+    "price": 125,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273073882",
-    "price": 110,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
@@ -3135,122 +4360,136 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8011003993802",
-    "price": 64,
+    "price": 51,
     "wasPrice": 85,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003891467",
-    "price": 130,
+    "price": 105,
     "wasPrice": 170,
-    "percentOff": 23,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8018365071162",
-    "price": 64,
+    "price": 61,
     "wasPrice": 85,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8018365071261",
-    "price": 87,
+    "price": 69,
     "wasPrice": 115,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-crystalnoir01",
+    "price": 71.99,
+    "wasPrice": 84.99,
+    "percentOff": 15,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8011003839100",
-    "price": 95,
-    "wasPrice": 130,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 59.49,
+    "wasPrice": 81.99,
+    "percentOff": 27,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8011003839117",
-    "price": 120,
+    "price": 94,
     "wasPrice": 160,
-    "percentOff": 25,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003876280",
-    "price": 120,
+    "price": 115,
     "wasPrice": 160,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-8011003861903",
+    "price": 54.99,
+    "wasPrice": 73.99,
+    "percentOff": 25,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8011003845330",
-    "price": 64,
-    "wasPrice": 85,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 45.49,
+    "wasPrice": 47.99,
+    "percentOff": 5,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8011003901579",
-    "price": 110,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003895755",
-    "price": 135,
+    "price": 110,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003823529",
-    "price": 95,
-    "wasPrice": 130,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 49.99,
+    "wasPrice": 112.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8011003827336",
-    "price": 87,
-    "wasPrice": 115,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 41.49,
+    "wasPrice": 73.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8018365500037",
-    "price": 100,
-    "wasPrice": 135,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 62.99,
+    "wasPrice": 71.99,
+    "percentOff": 12,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8011003803132",
-    "price": 145,
+    "price": 120,
     "wasPrice": 195,
-    "percentOff": 25,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-10001122",
-    "price": 22,
-    "wasPrice": 29,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 15.99,
+    "wasPrice": 38.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8018365150454",
-    "price": 35,
+    "price": 33,
     "wasPrice": 46,
-    "percentOff": 23,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-versacewoman01",
-    "price": 33,
-    "wasPrice": 43,
-    "percentOff": 23,
-    "retailerId": "escentual"
+    "price": 21.99,
+    "wasPrice": 73.99,
+    "percentOff": 70,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3605521879721",
@@ -3261,9 +4500,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614273987868",
-    "price": 115,
+    "price": 91,
     "wasPrice": 155,
-    "percentOff": 25,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
@@ -3275,17 +4514,24 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614274081176",
-    "price": 105,
+    "price": 99,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "ean-3614273662598",
+    "price": 48.49,
+    "wasPrice": 61.99,
+    "percentOff": 21,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614273662543",
-    "price": 94,
-    "wasPrice": 125,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 69.99,
+    "wasPrice": 107.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3605521820891",
@@ -3296,128 +4542,142 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-vrspicebomb031",
-    "price": 115,
-    "wasPrice": 155,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 70.99,
+    "wasPrice": 99.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614274293906",
-    "price": 80,
-    "wasPrice": 110,
-    "percentOff": 27,
-    "retailerId": "escentual"
+    "price": 72.99,
+    "wasPrice": 136.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614273067768",
-    "price": 115,
+    "price": 110,
     "wasPrice": 155,
-    "percentOff": 25,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "ean-8054320902560",
+    "price": 115.49,
+    "wasPrice": 255.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8054320902553",
+    "price": 215.49,
+    "wasPrice": 363.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614274185317",
-    "price": 80,
+    "price": 75,
     "wasPrice": 110,
-    "percentOff": 27,
+    "percentOff": 31,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274185300",
-    "price": 115,
+    "price": 89,
     "wasPrice": 150,
-    "percentOff": 23,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274185294",
-    "price": 150,
+    "price": 120,
     "wasPrice": 200,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-yslblackopium045",
-    "price": 125,
-    "wasPrice": 165,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 79.99,
+    "wasPrice": 104.99,
+    "percentOff": 23,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614273863384",
-    "price": 91,
+    "price": 73,
     "wasPrice": 125,
-    "percentOff": 27,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273863377",
-    "price": 130,
+    "price": 125,
     "wasPrice": 170,
-    "percentOff": 23,
+    "percentOff": 26,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274076578",
-    "price": 115,
+    "price": 110,
     "wasPrice": 150,
-    "percentOff": 23,
+    "percentOff": 26,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274076202",
-    "price": 150,
+    "price": 145,
     "wasPrice": 200,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3365440316546",
-    "price": 78,
+    "price": 63,
     "wasPrice": 105,
-    "percentOff": 25,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "ean-3614273321891",
-    "price": 140,
-    "wasPrice": 185,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614272648425",
-    "price": 155,
+    "price": 150,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 26,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-3614273321891",
+    "price": 135,
+    "wasPrice": 185,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273776134",
-    "price": 94,
+    "price": 90,
     "wasPrice": 125,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-10001239",
-    "price": 94,
-    "wasPrice": 125,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 72.49,
+    "wasPrice": 81.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3365440025578",
-    "price": 83,
-    "wasPrice": 135,
-    "percentOff": 38,
+    "price": 78,
+    "wasPrice": 130,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3365440002197",
-    "price": 130,
+    "price": 125,
     "wasPrice": 175,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -3428,17 +4688,52 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-6290171075639",
+    "price": 23.99,
+    "wasPrice": 40.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-aaffierce003",
+    "price": 20.49,
+    "wasPrice": 40.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-aaffirstinstinct004",
+    "price": 29.99,
+    "wasPrice": 53.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-085715167804",
+    "price": 16.99,
+    "wasPrice": 57.99,
+    "percentOff": 70,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-adpbmberg005",
-    "price": 165,
+    "price": 160,
     "wasPrice": 220,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "justmylook-acq0043",
+    "price": 41.99,
+    "wasPrice": 67.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-adpblumedmandarino001",
-    "price": 150,
+    "price": 140,
     "wasPrice": 220,
-    "percentOff": 31,
+    "percentOff": 36,
     "retailerId": "escentual"
   },
   {
@@ -3450,10 +4745,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-adpblumedmirto004",
-    "price": 165,
+    "price": 130,
     "wasPrice": 220,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "justmylook-acq0001",
+    "price": 41.99,
+    "wasPrice": 70.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8028713150029",
@@ -3471,30 +4773,51 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-adpcoloniapura002",
-    "price": 105,
+    "price": 100,
     "wasPrice": 155,
-    "percentOff": 32,
+    "percentOff": 35,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "escentual-adplillyofvalley002",
+    "price": 87.49,
+    "wasPrice": 250,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-adplillyofvalley003",
+    "price": 123.99,
+    "wasPrice": 314.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-adpmagnolia003",
+    "price": 211.49,
+    "wasPrice": 370.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-adpoud002",
-    "price": 270,
+    "price": 260,
     "wasPrice": 360,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-adpoud003",
-    "price": 340,
+    "price": 275,
     "wasPrice": 455,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-adpoudspice002",
-    "price": 270,
+    "price": 215,
     "wasPrice": 360,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -3505,10 +4828,52 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3616303321932",
+    "price": 7.19,
+    "wasPrice": 14.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3616303322052",
+    "price": 8.29,
+    "wasPrice": 14.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290171002338",
+    "price": 25.49,
+    "wasPrice": 62.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-085715710307",
+    "price": 29.49,
+    "wasPrice": 53.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290360610122",
+    "price": 25.99,
+    "wasPrice": 48.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3701278600479",
+    "price": 70.49,
+    "wasPrice": 156.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-annasuisky004",
-    "price": 32,
-    "wasPrice": 84,
-    "percentOff": 61,
+    "price": 28,
+    "wasPrice": 83,
+    "percentOff": 66,
     "retailerId": "escentual"
   },
   {
@@ -3519,18 +4884,81 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "justmylook-alza0003",
+    "price": 14.69,
+    "wasPrice": 26.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-arianagrande001",
-    "price": 35,
+    "price": 28,
     "wasPrice": 46,
-    "percentOff": 23,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-agthankunext002",
-    "price": 37,
+    "price": 30,
     "wasPrice": 49,
-    "percentOff": 24,
+    "percentOff": 38,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-6085010094151",
+    "price": 28.99,
+    "wasPrice": 46.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6294015171280",
+    "price": 8.19,
+    "wasPrice": 17.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6085010094977",
+    "price": 29.49,
+    "wasPrice": 45,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6295199801116",
+    "price": 36.49,
+    "wasPrice": 51.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-arm0013",
+    "price": 29.99,
+    "wasPrice": 54.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-arm0016",
+    "price": 41.49,
+    "wasPrice": 59.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6294015169928",
+    "price": 23.99,
+    "wasPrice": 49.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-arm0052",
+    "price": 45.49,
+    "wasPrice": 109.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15857972019549-100ml",
@@ -3540,11 +4968,46 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "ean-6294015189575",
+    "price": 19.99,
+    "wasPrice": 37.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6295199807217",
+    "price": 24.49,
+    "wasPrice": 44.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-arm0034",
+    "price": 26.99,
+    "wasPrice": 42,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-atelierdesors009",
+    "price": 107.99,
+    "wasPrice": 224.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-atkinsons046",
-    "price": 180,
+    "price": 170,
     "wasPrice": 240,
-    "percentOff": 25,
+    "percentOff": 29,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-atkinsons029",
+    "price": 108.99,
+    "wasPrice": 199.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614274347562",
@@ -3554,25 +5017,53 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-7640163970012",
+    "price": 19.99,
+    "wasPrice": 69.99,
+    "percentOff": 71,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-608940582220",
-    "price": 37,
+    "price": 35,
     "wasPrice": 49,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "justmylook-bil0006",
+    "price": 45.49,
+    "wasPrice": 51.99,
+    "percentOff": 12,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-608940583777",
-    "price": 37,
+    "price": 30,
     "wasPrice": 49,
-    "percentOff": 24,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-608940583760",
-    "price": 47,
+    "price": 38,
     "wasPrice": 63,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-888874008007",
+    "price": 210.99,
+    "wasPrice": 390.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-0888874001152",
+    "price": 200.99,
+    "wasPrice": 283.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460036405",
@@ -3582,11 +5073,74 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "justmylook-brit0023",
+    "price": 15.19,
+    "wasPrice": 41.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-brit0008",
+    "price": 16.49,
+    "wasPrice": 48.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-00719346065399",
+    "price": 15.19,
+    "wasPrice": 35.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-brit0019",
+    "price": 15.49,
+    "wasPrice": 23.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-brit0020",
+    "price": 19.99,
+    "wasPrice": 24.99,
+    "percentOff": 20,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-brit0021",
+    "price": 16.99,
+    "wasPrice": 41.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-00719346107297",
+    "price": 16.99,
+    "wasPrice": 35.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-burb0006",
+    "price": 49.49,
+    "wasPrice": 99.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-5045252667392",
     "price": 41.95,
     "wasPrice": 79,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-5045252667330",
+    "price": 26.49,
+    "wasPrice": 69.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-5045252667309",
@@ -3604,23 +5158,23 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-burberrygoddess008",
-    "price": 80,
+    "price": 64,
     "wasPrice": 110,
-    "percentOff": 27,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3616301975748",
-    "price": 92,
+    "price": 74,
     "wasPrice": 125,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-burberryher004",
-    "price": 105,
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -3632,24 +5186,24 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-burberryhero003",
-    "price": 115,
+    "price": 91,
     "wasPrice": 155,
-    "percentOff": 25,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614226905215",
-    "price": 41.95,
-    "wasPrice": 79,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 34.99,
+    "wasPrice": 78.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616301838227",
-    "price": 41.95,
-    "wasPrice": 79,
+    "price": 41.49,
+    "wasPrice": 77.99,
     "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-5045497416274",
@@ -3657,6 +5211,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 137,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-5045498902189",
+    "price": 28.49,
+    "wasPrice": 51.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-5045294100406",
@@ -3694,18 +5255,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "escentual-bvlgarihomme017",
+    "price": 71.99,
+    "wasPrice": 136.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-bvlgarirosegoldea012",
-    "price": 96,
+    "price": 77,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bvlgarirosegoldea013",
-    "price": 115,
-    "wasPrice": 150,
-    "percentOff": 23,
-    "retailerId": "escentual"
+    "price": 79.99,
+    "wasPrice": 81,
+    "percentOff": 1,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-783320411175",
@@ -3730,17 +5298,31 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3360373000081",
-    "price": 62,
+    "price": 49,
     "wasPrice": 82,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "justmylook-cach0003",
+    "price": 46.49,
+    "wasPrice": 64.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3607340216008",
-    "price": 70,
+    "price": 56,
     "wasPrice": 93,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338184274057-44927010570377",
+    "price": 16.99,
+    "wasPrice": 54.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3607342401426",
@@ -3764,6 +5346,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3616304175978",
+    "price": 20.49,
+    "wasPrice": 42.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-088300601400",
     "price": 47.25,
     "wasPrice": 89,
@@ -3778,11 +5367,32 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "justmylook-ck0144",
+    "price": 22.99,
+    "wasPrice": 59.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-cketernity007",
+    "price": 22.99,
+    "wasPrice": 84.99,
+    "percentOff": 72,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614225670435",
     "price": 39.95,
     "wasPrice": 75,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-0088300601301",
+    "price": 28.99,
+    "wasPrice": 58.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616303476809",
@@ -3792,6 +5402,27 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-088300139507",
+    "price": 23.99,
+    "wasPrice": 91.99,
+    "percentOff": 73,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-088300603305",
+    "price": 15.99,
+    "wasPrice": 56.99,
+    "percentOff": 71,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3614221537763",
+    "price": 19.99,
+    "wasPrice": 54.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3607342401860",
     "price": 31.5,
     "wasPrice": 59,
@@ -3799,11 +5430,60 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-088300049479",
+    "price": 27.99,
+    "wasPrice": 73.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8437011481757",
+    "price": 112.99,
+    "wasPrice": 211.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-greyooo8",
+    "price": 36.99,
+    "wasPrice": 60.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-10000907",
+    "price": 52.49,
+    "wasPrice": 70.99,
+    "percentOff": 26,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-213sexymen001",
+    "price": 56.99,
+    "wasPrice": 65.99,
+    "percentOff": 13,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-cherr0015",
+    "price": 98.99,
+    "wasPrice": 109.99,
+    "percentOff": 10,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8411061027820",
     "price": 84.95,
     "wasPrice": 130,
     "percentOff": 34,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "justmylook-cherr0068",
+    "price": 90.49,
+    "wasPrice": 108.99,
+    "percentOff": 16,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8411061106297",
@@ -3818,6 +5498,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 135,
     "percentOff": 40,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-8411061954966",
+    "price": 54.49,
+    "wasPrice": 61.99,
+    "percentOff": 12,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8411061083765",
@@ -3848,6 +5535,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "justmylook-cherr0036",
+    "price": 145.49,
+    "wasPrice": 271.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8411061106228",
     "price": 89.95,
     "wasPrice": 145,
@@ -3870,9 +5564,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-0688575201901",
-    "price": 74,
+    "price": 71,
     "wasPrice": 99,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -3905,10 +5599,52 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-chloerose003",
-    "price": 95,
+    "price": 91,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-chloerose004",
+    "price": 79.99,
+    "wasPrice": 98.99,
+    "percentOff": 19,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-chl0011",
+    "price": 69.99,
+    "wasPrice": 77.99,
+    "percentOff": 10,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-chl0012",
+    "price": 65.49,
+    "wasPrice": 159.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-chl0015",
+    "price": 67.49,
+    "wasPrice": 88.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-ca0004",
+    "price": 17.49,
+    "wasPrice": 36.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-clq0002",
+    "price": 40.49,
+    "wasPrice": 58.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-20714170486",
@@ -3919,17 +5655,45 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3386460142199",
-    "price": 44,
+    "price": 42,
     "wasPrice": 59,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3386460126595",
-    "price": 44,
+    "price": 42,
     "wasPrice": 59,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "justmylook-creed0026",
+    "price": 258.99,
+    "wasPrice": 451.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-creed0042",
+    "price": 264.49,
+    "wasPrice": 508.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-creed0044",
+    "price": 265.99,
+    "wasPrice": 508.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-creed0030",
+    "price": 240.99,
+    "wasPrice": 418.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3508440505057",
@@ -3939,11 +5703,67 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "escentual-10000181",
-    "price": 51,
-    "wasPrice": 68,
+    "fragranceId": "justmylook-creed0012",
+    "price": 195.49,
+    "wasPrice": 411.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-5060524510008",
+    "price": 31.49,
+    "wasPrice": 57.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-5060524510909",
+    "price": 28.49,
+    "wasPrice": 38.99,
+    "percentOff": 26,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-5060524511142",
+    "price": 25.49,
+    "wasPrice": 46.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-5060524510725",
+    "price": 18.99,
+    "wasPrice": 21.99,
+    "percentOff": 13,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-5060524510749",
+    "price": 31.49,
+    "wasPrice": 38.99,
+    "percentOff": 19,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-5425017733508",
+    "price": 10.19,
+    "wasPrice": 19.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-5425017736363",
+    "price": 9.69,
+    "wasPrice": 12.99,
     "percentOff": 25,
-    "retailerId": "escentual"
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-10000181",
+    "price": 22.99,
+    "wasPrice": 69.99,
+    "percentOff": 67,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3414202000572",
@@ -3958,6 +5778,27 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 89,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3616303467371",
+    "price": 18.49,
+    "wasPrice": 51.99,
+    "percentOff": 64,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3616303467388",
+    "price": 19.49,
+    "wasPrice": 35.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3614220080499",
+    "price": 21.49,
+    "wasPrice": 58.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3605522052826",
@@ -3982,9 +5823,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614273924443",
-    "price": 64,
+    "price": 51,
     "wasPrice": 85,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -4000,6 +5841,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 61,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "escentual-onlythebrave009",
+    "price": 34.49,
+    "wasPrice": 56.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614272631885",
@@ -4031,45 +5879,59 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-085715950437",
-    "price": 26,
+    "price": 25,
     "wasPrice": 35,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-dknygd003",
-    "price": 32,
-    "wasPrice": 42,
-    "percentOff": 23,
-    "retailerId": "escentual"
+    "price": 24.49,
+    "wasPrice": 61.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338201411721-44927038718089",
+    "price": 23.99,
+    "wasPrice": 39.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-dgdevotion002",
-    "price": 74,
+    "price": 71,
     "wasPrice": 99,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-dgdevotion007",
-    "price": 81,
+    "price": 65,
     "wasPrice": 110,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-dgdevotion008",
-    "price": 115,
-    "wasPrice": 155,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 57.49,
+    "wasPrice": 105.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-dgdevotion011",
-    "price": 120,
-    "wasPrice": 160,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 57.49,
+    "wasPrice": 111.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3423473020035",
+    "price": 35.99,
+    "wasPrice": 84.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8057971183739",
@@ -4093,6 +5955,27 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-8057971187997",
+    "price": 38.99,
+    "wasPrice": 84.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8057971186945",
+    "price": 36.99,
+    "wasPrice": 78.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8054754405088",
+    "price": 44.49,
+    "wasPrice": 87.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3423473101154",
     "price": 44.95,
     "wasPrice": 74,
@@ -4114,10 +5997,17 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "justmylook-dandg0106",
+    "price": 75.49,
+    "wasPrice": 140.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-kbydandgint003",
-    "price": 125,
+    "price": 99,
     "wasPrice": 165,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -4135,6 +6025,41 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3423473020523",
+    "price": 34.99,
+    "wasPrice": 61.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-10001088",
+    "price": 46.99,
+    "wasPrice": 87.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-dgintenso-005",
+    "price": 44.99,
+    "wasPrice": 74.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8057971183654",
+    "price": 45.49,
+    "wasPrice": 88.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8057971187836",
+    "price": 48.99,
+    "wasPrice": 69.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8057971187829",
     "price": 61.25,
     "wasPrice": 115,
@@ -4143,115 +6068,150 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3423473020981",
-    "price": 74,
+    "price": 71,
     "wasPrice": 99,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3423473020998",
-    "price": 105,
+    "price": 84,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "ean-737052036625",
+    "price": 37.99,
+    "wasPrice": 44.99,
+    "percentOff": 15,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8057971188680",
-    "price": 150,
-    "wasPrice": 200,
-    "percentOff": 25,
+    "price": 120,
+    "wasPrice": 195,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003864294",
-    "price": 31,
+    "price": 29,
     "wasPrice": 41,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-ds2greenwood002",
+    "price": 25.99,
+    "wasPrice": 48.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-085715806352",
+    "price": 49.95,
+    "wasPrice": 94,
+    "percentOff": 46,
+    "retailerId": "fragrance-click"
   },
   {
     "fragranceId": "escentual-eliesaab089",
-    "price": 99,
-    "wasPrice": 135,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 58.99,
+    "wasPrice": 107.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-eliesaab053",
-    "price": 48,
-    "wasPrice": 64,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 28.49,
+    "wasPrice": 43.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-eliesaab054",
+    "price": 45.49,
+    "wasPrice": 79.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423478481350",
-    "price": 95,
+    "price": 76,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-eliesaab070",
-    "price": 48,
-    "wasPrice": 64,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 28.49,
+    "wasPrice": 45.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-eliesaab071",
-    "price": 71,
+    "price": 68,
     "wasPrice": 95,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-7640233341070",
-    "price": 95,
+    "price": 76,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-eliesaab085",
-    "price": 48,
+    "price": 39,
     "wasPrice": 64,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-7640233342459",
-    "price": 71,
+    "price": 57,
     "wasPrice": 95,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-7640233342466",
-    "price": 95,
+    "price": 76,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-eliesaab063",
-    "price": 73,
-    "wasPrice": 97,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 41.99,
+    "wasPrice": 65.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-eliesaab064",
-    "price": 99,
-    "wasPrice": 135,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 48.99,
+    "wasPrice": 87.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-eliesaab066",
+    "price": 45.49,
+    "wasPrice": 48.99,
+    "percentOff": 7,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-eliesaab068",
-    "price": 99,
-    "wasPrice": 135,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 50.49,
+    "wasPrice": 94.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-eliesaab056",
@@ -4269,10 +6229,143 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-eliesaab058",
-    "price": 99,
+    "price": 95,
     "wasPrice": 135,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-7640233341001",
+    "price": 45.49,
+    "wasPrice": 66.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-085805390402",
+    "price": 11.19,
+    "wasPrice": 35.99,
+    "percentOff": 68,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-eliz0004",
+    "price": 12.69,
+    "wasPrice": 46.99,
+    "percentOff": 72,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-085805268749",
+    "price": 10.19,
+    "wasPrice": 28.99,
+    "percentOff": 64,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-eliz0001",
+    "price": 14.69,
+    "wasPrice": 34.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-085805378349",
+    "price": 10.19,
+    "wasPrice": 19.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-085805069308",
+    "price": 12.19,
+    "wasPrice": 31.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-eliz0078",
+    "price": 21.49,
+    "wasPrice": 54.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-085805757847",
+    "price": 7.69,
+    "wasPrice": 33.99,
+    "percentOff": 77,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-eliz0138",
+    "price": 19.99,
+    "wasPrice": 36.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-elizt0017",
+    "price": 17.49,
+    "wasPrice": 52.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-elizt0013",
+    "price": 16.99,
+    "wasPrice": 28.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-719346266154",
+    "price": 14.29,
+    "wasPrice": 37.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-elizt0001",
+    "price": 19.99,
+    "wasPrice": 27.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3616301789239",
+    "price": 18.99,
+    "wasPrice": 44.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-escd0007",
+    "price": 38.49,
+    "wasPrice": 67.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-escd0002",
+    "price": 36.49,
+    "wasPrice": 49.99,
+    "percentOff": 27,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-escd0006",
+    "price": 27.49,
+    "wasPrice": 47.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3616303452414",
+    "price": 21.49,
+    "wasPrice": 44.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-5060103310012",
@@ -4280,6 +6373,34 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 120,
     "percentOff": 10,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "justmylook-est0007",
+    "price": 19.99,
+    "wasPrice": 54.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-est0009",
+    "price": 39.99,
+    "wasPrice": 79.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3575070054422",
+    "price": 79.99,
+    "wasPrice": 150.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "manchester-ouds-ff-coconut-leche-100",
+    "price": 32.49,
+    "wasPrice": 75.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-10063391752534",
@@ -4290,45 +6411,52 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-5050456009749",
-    "price": 32,
+    "price": 25,
     "wasPrice": 42,
-    "percentOff": 23,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-5050456009770",
-    "price": 47,
+    "price": 45,
     "wasPrice": 63,
-    "percentOff": 25,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "ean-3614274361339",
-    "price": 76,
-    "wasPrice": 105,
-    "percentOff": 27,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273953764",
-    "price": 97,
+    "price": 93,
     "wasPrice": 130,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
-    "fragranceId": "ean-3614274361322",
-    "price": 105,
-    "wasPrice": 140,
-    "percentOff": 25,
+    "fragranceId": "ean-3614274361339",
+    "price": 73,
+    "wasPrice": 105,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273953696",
-    "price": 135,
+    "price": 125,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 30,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-3614274361322",
+    "price": 99,
+    "wasPrice": 140,
+    "percentOff": 29,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-acquadigioprofondo003",
+    "price": 87.49,
+    "wasPrice": 174.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614273953672",
@@ -4338,38 +6466,45 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "justmylook-arma0136",
+    "price": 67.49,
+    "wasPrice": 99.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614273636582",
-    "price": 80,
+    "price": 64,
     "wasPrice": 110,
-    "percentOff": 27,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273605069",
-    "price": 110,
+    "price": 85,
     "wasPrice": 145,
-    "percentOff": 24,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273636568",
-    "price": 97,
+    "price": 93,
     "wasPrice": 130,
-    "percentOff": 25,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "ean-3614273636513",
-    "price": 120,
-    "wasPrice": 160,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273636384",
-    "price": 130,
+    "price": 125,
     "wasPrice": 170,
-    "percentOff": 23,
+    "percentOff": 26,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-3614273636513",
+    "price": 96,
+    "wasPrice": 160,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -4381,37 +6516,44 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-emporioyou016",
-    "price": 115,
-    "wasPrice": 155,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 93.99,
+    "wasPrice": 106.39,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-emporioyou034",
-    "price": 115,
+    "price": 110,
     "wasPrice": 155,
-    "percentOff": 25,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "escentual-emporioyou023",
+    "price": 65.49,
+    "wasPrice": 120.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614273844673",
-    "price": 91,
+    "price": 73,
     "wasPrice": 125,
-    "percentOff": 27,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273844666",
-    "price": 130,
+    "price": 105,
     "wasPrice": 170,
-    "percentOff": 23,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273947787",
-    "price": 75,
+    "price": 72,
     "wasPrice": 100,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -4437,45 +6579,52 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614274322262",
-    "price": 175,
+    "price": 140,
     "wasPrice": 230,
-    "percentOff": 23,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-giorgioarmanisi056",
-    "price": 160,
+    "price": 155,
     "wasPrice": 215,
-    "percentOff": 25,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "ean-3614274752670",
-    "price": 150,
-    "wasPrice": 200,
-    "percentOff": 25,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "ean-3614271994721",
-    "price": 76,
-    "wasPrice": 105,
     "percentOff": 27,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "ean-3614274752670",
+    "price": 145,
+    "wasPrice": 200,
+    "percentOff": 27,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-3614271994721",
+    "price": 61,
+    "wasPrice": 105,
+    "percentOff": 41,
+    "retailerId": "escentual"
+  },
+  {
     "fragranceId": "ean-3614274653335",
-    "price": 110,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274657876",
-    "price": 150,
+    "price": 145,
     "wasPrice": 200,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-3605522040588",
+    "price": 65.49,
+    "wasPrice": 129.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614274219579",
@@ -4500,9 +6649,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-10001131",
-    "price": 31,
+    "price": 29,
     "wasPrice": 78,
-    "percentOff": 60,
+    "percentOff": 62,
     "retailerId": "escentual"
   },
   {
@@ -4513,59 +6662,52 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "escentual-angeoudemon001",
-    "price": 44,
-    "wasPrice": 97,
-    "percentOff": 54,
-    "retailerId": "escentual"
-  },
-  {
     "fragranceId": "escentual-angeoudemon003",
-    "price": 98,
-    "wasPrice": 195,
-    "percentOff": 49,
-    "retailerId": "escentual"
+    "price": 63.49,
+    "wasPrice": 130.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-angeoudemon019",
-    "price": 59,
-    "wasPrice": 78,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 34.99,
+    "wasPrice": 73.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-angeoudemon020",
-    "price": 52,
-    "wasPrice": 115,
-    "percentOff": 54,
-    "retailerId": "escentual"
+    "price": 46.99,
+    "wasPrice": 98.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-angeoudemon021",
-    "price": 125,
+    "price": 97,
     "wasPrice": 165,
-    "percentOff": 24,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3274870002717",
-    "price": 69.5,
+    "price": 61.49,
     "wasPrice": 131,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-angeoudemonsecret003",
-    "price": 44,
+    "price": 42,
     "wasPrice": 97,
-    "percentOff": 54,
+    "percentOff": 56,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-angeoudemonsecret002",
-    "price": 63,
+    "price": 60,
     "wasPrice": 140,
-    "percentOff": 55,
+    "percentOff": 57,
     "retailerId": "escentual"
   },
   {
@@ -4577,10 +6719,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3274872424999",
-    "price": 70,
+    "price": 65,
     "wasPrice": 93,
-    "percentOff": 24,
+    "percentOff": 30,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "justmylook-giv0001",
+    "price": 48.99,
+    "wasPrice": 89.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3274872425002",
@@ -4588,6 +6737,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 75,
     "percentOff": 40,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3274872423008",
+    "price": 54.99,
+    "wasPrice": 100.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3274872439078",
@@ -4605,10 +6761,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-givenchygentleman033",
-    "price": 170,
-    "wasPrice": 225,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 150.49,
+    "wasPrice": 197.99,
+    "percentOff": 23,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3274872467958",
@@ -4626,30 +6782,37 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-givenchyirresistible016",
-    "price": 110,
+    "price": 86,
     "wasPrice": 145,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3274872479753",
-    "price": 66.5,
-    "wasPrice": 125,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 63.49,
+    "wasPrice": 114.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3274872469006",
-    "price": 84,
+    "price": 83,
     "wasPrice": 140,
     "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "escentual-givenchylinterdit009",
+    "price": 39.49,
+    "wasPrice": 43.99,
+    "percentOff": 10,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3274872495487",
-    "price": 92,
+    "price": 89,
     "wasPrice": 155,
-    "percentOff": 40,
+    "percentOff": 42,
     "retailerId": "escentual"
   },
   {
@@ -4668,10 +6831,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-10001167",
-    "price": 63,
-    "wasPrice": 140,
-    "percentOff": 55,
-    "retailerId": "escentual"
+    "price": 59.49,
+    "wasPrice": 64,
+    "percentOff": 7,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-10001172",
@@ -4689,9 +6852,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-xeryusrouge01",
-    "price": 50,
+    "price": 48,
     "wasPrice": 130,
-    "percentOff": 61,
+    "percentOff": 63,
     "retailerId": "escentual"
   },
   {
@@ -4703,9 +6866,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-9356353001456",
-    "price": 155,
+    "price": 145,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
@@ -4717,10 +6880,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-9356353002033",
-    "price": 260,
+    "price": 250,
     "wasPrice": 350,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "justmylook-gres0008",
+    "price": 14.69,
+    "wasPrice": 26.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616302514298",
@@ -4728,6 +6898,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 118,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3614229461367",
+    "price": 34.99,
+    "wasPrice": 70.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616302968534",
@@ -4772,6 +6949,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3616301794615",
+    "price": 61.99,
+    "wasPrice": 89.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614229382129",
     "price": 58.95,
     "wasPrice": 105,
@@ -4801,9 +6985,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-epicesexquises001",
-    "price": 130,
+    "price": 110,
     "wasPrice": 230,
-    "percentOff": 43,
+    "percentOff": 52,
     "retailerId": "escentual"
   },
   {
@@ -4822,16 +7006,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-aquaallegoria085",
-    "price": 135,
-    "wasPrice": 180,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 51.99,
+    "wasPrice": 84.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-guerlainchamade001",
-    "price": 91,
+    "price": 76,
     "wasPrice": 155,
-    "percentOff": 41,
+    "percentOff": 50,
     "retailerId": "escentual"
   },
   {
@@ -4843,31 +7027,31 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-guerlain07",
-    "price": 120,
+    "price": 115,
     "wasPrice": 155,
-    "percentOff": 22,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "ean-3346470304352",
-    "price": 89,
-    "wasPrice": 120,
     "percentOff": 25,
     "retailerId": "escentual"
   },
   {
-    "fragranceId": "escentual-lapetiterobenoire009",
-    "price": 68,
-    "wasPrice": 90,
-    "percentOff": 24,
+    "fragranceId": "ean-3346470304352",
+    "price": 71,
+    "wasPrice": 120,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "escentual-lapetiterobenoire009",
+    "price": 24.49,
+    "wasPrice": 44.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-lapetiterobenoire002",
-    "price": 81,
-    "wasPrice": 110,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 35.99,
+    "wasPrice": 51.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-lapetiterobenoire005",
@@ -4877,17 +7061,38 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "escentual-lapetiterobenoire011",
+    "price": 50.99,
+    "wasPrice": 117.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-lapetiterobenoire026",
-    "price": 85,
+    "price": 68,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "escentual-lapetiterobenoire027",
+    "price": 46.49,
+    "wasPrice": 93.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-lapetiterobenoire028",
+    "price": 87.49,
+    "wasPrice": 143.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-monguerlainintense002",
-    "price": 88,
+    "price": 71,
     "wasPrice": 160,
-    "percentOff": 44,
+    "percentOff": 55,
     "retailerId": "escentual"
   },
   {
@@ -4912,10 +7117,45 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3614274309072",
+    "price": 17.49,
+    "wasPrice": 48.99,
+    "percentOff": 64,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-drakkarintense002",
+    "price": 14.19,
+    "wasPrice": 40.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-greyooo156",
+    "price": 20.99,
+    "wasPrice": 39.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-0711658851400",
+    "price": 160,
+    "wasPrice": 225,
+    "percentOff": 28,
+    "retailerId": "escentual"
+  },
+  {
     "fragranceId": "ean-5030645841312",
     "price": 125,
     "wasPrice": 175,
     "percentOff": 28,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-0711658541400",
+    "price": 150,
+    "wasPrice": 245,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
@@ -4926,17 +7166,31 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-737052351155",
+    "price": 23.49,
+    "wasPrice": 51.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-bossbottlednight003",
+    "price": 35.99,
+    "wasPrice": 71.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-bossfemme001",
-    "price": 48,
+    "price": 39,
     "wasPrice": 64,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossfemme003",
-    "price": 93,
+    "price": 74,
     "wasPrice": 125,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -4948,23 +7202,30 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-bossthescent002",
-    "price": 74,
+    "price": 71,
     "wasPrice": 99,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossthescent003",
-    "price": 105,
-    "wasPrice": 140,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 48.49,
+    "wasPrice": 85.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-bossthescent009",
+    "price": 43.49,
+    "wasPrice": 73.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-bossthescent041",
-    "price": 120,
+    "price": 93,
     "wasPrice": 155,
-    "percentOff": 22,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -4996,6 +7257,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "justmylook-hb0143",
+    "price": 21.99,
+    "wasPrice": 49.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-737052031415",
     "price": 26.75,
     "wasPrice": 50,
@@ -5017,11 +7285,32 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-737052987569",
+    "price": 34.49,
+    "wasPrice": 64.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-hb0083",
+    "price": 25.99,
+    "wasPrice": 62.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-737052802800",
     "price": 47.75,
     "wasPrice": 90,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "justmylook-hb0047",
+    "price": 29.49,
+    "wasPrice": 69.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616301623359",
@@ -5038,11 +7327,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "justmylook-hb0155",
+    "price": 27.99,
+    "wasPrice": 69.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-730870196885",
     "price": 70.5,
     "wasPrice": 133,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3614228902113",
+    "price": 30.49,
+    "wasPrice": 71.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616306690240",
@@ -5060,17 +7363,24 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-initio013",
-    "price": 320,
+    "price": 300,
     "wasPrice": 395,
-    "percentOff": 18,
+    "percentOff": 24,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "ean-3423222090937",
+    "price": 19.49,
+    "wasPrice": 75.99,
+    "percentOff": 74,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-impure017",
-    "price": 39,
-    "wasPrice": 96,
-    "percentOff": 59,
-    "retailerId": "escentual"
+    "price": 28.49,
+    "wasPrice": 44.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423222119485",
@@ -5081,17 +7391,24 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-imnuitdissey013",
-    "price": 115,
+    "price": 98,
     "wasPrice": 165,
-    "percentOff": 30,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-imnuitdissey003",
-    "price": 105,
+    "price": 88,
     "wasPrice": 150,
-    "percentOff": 30,
+    "percentOff": 41,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-3562700373145",
+    "price": 14.19,
+    "wasPrice": 54.99,
+    "percentOff": 74,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8435415032278",
@@ -5099,6 +7416,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 81,
     "percentOff": 27,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-8435415076821",
+    "price": 79.99,
+    "wasPrice": 99.99,
+    "percentOff": 20,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8435415076838",
@@ -5109,23 +7433,23 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-jpgdivine002",
-    "price": 78,
+    "price": 75,
     "wasPrice": 105,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpgdivine003",
-    "price": 110,
+    "price": 105,
     "wasPrice": 145,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpgdivine004",
-    "price": 145,
+    "price": 140,
     "wasPrice": 195,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -5144,10 +7468,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-jpglebeaumale014",
-    "price": 125,
-    "wasPrice": 165,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 94.49,
+    "wasPrice": 172.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-jpg0063",
+    "price": 69.99,
+    "wasPrice": 129.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8435415076906",
@@ -5165,9 +7496,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8435415114363",
-    "price": 110,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
@@ -5179,44 +7510,44 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-jpglemale005",
-    "price": 87,
+    "price": 81,
     "wasPrice": 115,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpglemale006",
-    "price": 120,
+    "price": 110,
     "wasPrice": 155,
-    "percentOff": 22,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpglemale007",
-    "price": 155,
+    "price": 145,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8435415059084",
-    "price": 70,
+    "price": 67,
     "wasPrice": 93,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8435415080408",
-    "price": 84,
+    "price": 67,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8435415080378",
-    "price": 93,
+    "price": 89,
     "wasPrice": 125,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -5235,66 +7566,87 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8435415113984",
-    "price": 84,
+    "price": 67,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8435415113977",
-    "price": 120,
+    "price": 96,
     "wasPrice": 160,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8435415113960",
-    "price": 155,
+    "price": 125,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8435415114004",
-    "price": 93,
+    "price": 89,
     "wasPrice": 125,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8435415114028",
-    "price": 125,
+    "price": 120,
     "wasPrice": 170,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpgscandal030",
-    "price": 76,
+    "price": 61,
     "wasPrice": 105,
-    "percentOff": 27,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "escentual-jpgscandal034",
+    "price": 67.49,
+    "wasPrice": 132.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-jpgscandal035",
-    "price": 115,
+    "price": 110,
     "wasPrice": 155,
-    "percentOff": 25,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3386460150408",
-    "price": 47,
+    "price": 45,
     "wasPrice": 63,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "ean-3386460103701",
+    "price": 24.99,
+    "wasPrice": 41.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3386460160841",
-    "price": 58,
+    "price": 55,
     "wasPrice": 77,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-3386460075367",
+    "price": 27.99,
+    "wasPrice": 42.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460025508",
@@ -5311,6 +7663,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3386460025492",
+    "price": 31.99,
+    "wasPrice": 51.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3386460025485",
     "price": 36.25,
     "wasPrice": 68,
@@ -5318,24 +7677,38 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3386460025522",
+    "price": 27.99,
+    "wasPrice": 49.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3386460169868",
-    "price": 77,
+    "price": 74,
     "wasPrice": 105,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3386460129824",
-    "price": 88,
+    "price": 70,
     "wasPrice": 120,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "ean-3386460137560",
+    "price": 37.99,
+    "wasPrice": 50.99,
+    "percentOff": 25,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3386460109369",
-    "price": 87,
+    "price": 69,
     "wasPrice": 115,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -5346,6 +7719,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "justmylook-joop0020",
+    "price": 15.49,
+    "wasPrice": 79.99,
+    "percentOff": 80,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3607345849867",
     "price": 36.25,
     "wasPrice": 68,
@@ -5354,10 +7734,10 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3414206000165",
-    "price": 26.75,
-    "wasPrice": 50,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 19.99,
+    "wasPrice": 46.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-98691047718",
@@ -5367,38 +7747,52 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "justmylook-juc0029",
+    "price": 34.99,
+    "wasPrice": 71.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3760022736062",
-    "price": 150,
+    "price": 140,
     "wasPrice": 195,
-    "percentOff": 23,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3760022734518",
-    "price": 105,
+    "price": 100,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3760022734532",
-    "price": 150,
+    "price": 140,
     "wasPrice": 195,
-    "percentOff": 23,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3760022733986",
-    "price": 105,
+    "price": 100,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "ean-3770000002331",
+    "price": 68.99,
+    "wasPrice": 136.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3760022734853",
-    "price": 150,
+    "price": 140,
     "wasPrice": 195,
-    "percentOff": 23,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -5410,37 +7804,79 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3760022730473",
-    "price": 105,
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "justmylook-kp0016",
+    "price": 17.49,
+    "wasPrice": 69.99,
+    "percentOff": 75,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3274872420618",
+    "price": 34.49,
+    "wasPrice": 63.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-kzo0010",
+    "price": 36.49,
+    "wasPrice": 70.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3274872421547",
-    "price": 69,
+    "price": 66,
     "wasPrice": 92,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "ean-3700550218203",
+    "price": 256.49,
+    "wasPrice": 480.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3386460149303",
+    "price": 23.99,
+    "wasPrice": 44.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-lacostepolo06-003",
-    "price": 38,
+    "price": 30,
     "wasPrice": 50,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lacostel1212013",
-    "price": 54,
-    "wasPrice": 72,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 28.49,
+    "wasPrice": 58.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8005610521183",
+    "price": 22.99,
+    "wasPrice": 44.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460169684",
-    "price": 41,
+    "price": 39,
     "wasPrice": 54,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
@@ -5473,9 +7909,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-lancomehypnose004",
-    "price": 94,
+    "price": 90,
     "wasPrice": 125,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -5487,17 +7923,24 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-lancomeidole026",
-    "price": 99,
+    "price": 79,
     "wasPrice": 135,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomeidole027",
-    "price": 135,
-    "wasPrice": 180,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 93.99,
+    "wasPrice": 119.99,
+    "percentOff": 21,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-lanc0047",
+    "price": 70.99,
+    "wasPrice": 91.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3605533286555",
@@ -5508,9 +7951,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-lancomemiracle002",
-    "price": 59,
+    "price": 47,
     "wasPrice": 78,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
@@ -5522,16 +7965,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-lancometresor003",
-    "price": 105,
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancometresormidnightrose002",
-    "price": 72,
+    "price": 69,
     "wasPrice": 96,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -5542,11 +7985,109 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3386461515695",
+    "price": 18.49,
+    "wasPrice": 39.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-lat0015",
+    "price": 17.49,
+    "wasPrice": 84.99,
+    "percentOff": 79,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6291106066890",
+    "price": 16.49,
+    "wasPrice": 16.99,
+    "percentOff": 2,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290362349938",
+    "price": 16.99,
+    "wasPrice": 30.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6291107458328",
+    "price": 18.99,
+    "wasPrice": 41.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6291108734056",
+    "price": 13.69,
+    "wasPrice": 28.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290360593180",
+    "price": 15.19,
+    "wasPrice": 28.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6291107457895",
+    "price": 16.49,
+    "wasPrice": 17.99,
+    "percentOff": 8,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290360599113",
+    "price": 35.99,
+    "wasPrice": 66.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290362342373",
+    "price": 28.49,
+    "wasPrice": 55.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-10241896186198",
     "price": 19.99,
     "wasPrice": 24.99,
     "percentOff": 20,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "ean-6291108732496",
+    "price": 19.49,
+    "wasPrice": 19.99,
+    "percentOff": 2,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290360598871",
+    "price": 30.99,
+    "wasPrice": 57.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290360598796",
+    "price": 31.99,
+    "wasPrice": 58.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290362347095",
+    "price": 38.49,
+    "wasPrice": 75.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15784774730077-default-title",
@@ -5556,38 +8097,171 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "justmylook-lat0008",
+    "price": 15.49,
+    "wasPrice": 31.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290362347484",
+    "price": 24.99,
+    "wasPrice": 49.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290360592909",
+    "price": 28.99,
+    "wasPrice": 53.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6423080728925",
+    "price": 7.19,
+    "wasPrice": 13.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3760213760333",
+    "price": 220.49,
+    "wasPrice": 411.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3760213761590",
+    "price": 294.99,
+    "wasPrice": 552.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3760213761354",
+    "price": 151.99,
+    "wasPrice": 283.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3760213760517",
+    "price": 171.49,
+    "wasPrice": 321.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3760213760258",
+    "price": 220.49,
+    "wasPrice": 411.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6299800203931",
+    "price": 14.69,
+    "wasPrice": 32.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-maal0003",
+    "price": 19.99,
+    "wasPrice": 37.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-mfk0002",
+    "price": 225.49,
+    "wasPrice": 411.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-masm0009",
+    "price": 112.99,
+    "wasPrice": 211.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-masm0029",
+    "price": 107.49,
+    "wasPrice": 109.99,
+    "percentOff": 2,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-masm0017",
+    "price": 95.49,
+    "wasPrice": 146.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-mancera022",
-    "price": 155,
+    "price": 145,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-mancera018",
-    "price": 155,
-    "wasPrice": 205,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 79.99,
+    "wasPrice": 156.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-mancera001",
+    "price": 93.49,
+    "wasPrice": 174.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-mancera003",
+    "price": 79.99,
+    "wasPrice": 154.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-mancera033",
+    "price": 89.99,
+    "wasPrice": 168.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-mancera028",
-    "price": 155,
+    "price": 125,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "escentual-mancera009",
+    "price": 79.99,
+    "wasPrice": 150.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-mancera026",
-    "price": 155,
+    "price": 125,
     "wasPrice": 210,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-mj-daisydream002",
-    "price": 58,
+    "price": 46,
     "wasPrice": 77,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -5599,9 +8273,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-mjdaisylove002",
-    "price": 58,
+    "price": 46,
     "wasPrice": 77,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -5613,142 +8287,163 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3616305033048",
-    "price": 95,
+    "price": 91,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3616305187314",
-    "price": 105,
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3616302025930",
-    "price": 75,
+    "price": 60,
     "wasPrice": 100,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-mkpourfemme002",
-    "price": 68,
+    "price": 65,
     "wasPrice": 90,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-850059827079",
-    "price": 68,
+    "price": 65,
     "wasPrice": 90,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-850049716154",
-    "price": 63,
-    "wasPrice": 84,
-    "percentOff": 25,
+    "price": 50,
+    "wasPrice": 83,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-850049716178",
-    "price": 110,
+    "price": 105,
     "wasPrice": 145,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-850059827345",
-    "price": 63,
-    "wasPrice": 84,
-    "percentOff": 25,
+    "price": 60,
+    "wasPrice": 83,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-850059827369",
-    "price": 84,
+    "price": 80,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-022548366462",
-    "price": 49,
-    "wasPrice": 66,
-    "percentOff": 25,
+    "price": 47,
+    "wasPrice": 65,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-millerharris063",
-    "price": 150,
+    "price": 120,
     "wasPrice": 195,
-    "percentOff": 23,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274520521",
-    "price": 110,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614222169192",
-    "price": 76,
+    "price": 61,
     "wasPrice": 105,
-    "percentOff": 27,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614222531586",
-    "price": 110,
+    "price": 88,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614222532637",
-    "price": 155,
+    "price": 125,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274569155",
-    "price": 76,
+    "price": 73,
     "wasPrice": 105,
-    "percentOff": 27,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274569148",
-    "price": 110,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274569131",
-    "price": 155,
+    "price": 145,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "justmylook-monc0007",
+    "price": 43.99,
+    "wasPrice": 75.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-monc0008",
+    "price": 77.49,
+    "wasPrice": 169.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-679602911214",
+    "price": 12.69,
+    "wasPrice": 22.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-montale008",
-    "price": 140,
+    "price": 135,
     "wasPrice": 185,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-montale004",
-    "price": 130,
+    "price": 125,
     "wasPrice": 175,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -5760,30 +8455,44 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-montale012",
-    "price": 130,
-    "wasPrice": 175,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 79.99,
+    "wasPrice": 150.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-montale021",
+    "price": 90.99,
+    "wasPrice": 118.99,
+    "percentOff": 23,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-montale024",
-    "price": 140,
+    "price": 110,
     "wasPrice": 185,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-montale010",
-    "price": 140,
+    "price": 135,
     "wasPrice": 185,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "justmylook-mon0030",
+    "price": 37.49,
+    "wasPrice": 66.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-montblancexplorer004",
-    "price": 93,
+    "price": 89,
     "wasPrice": 125,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -5794,11 +8503,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-3386460028424",
+    "price": 26.99,
+    "wasPrice": 49.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3386460169967",
-    "price": 68,
+    "price": 65,
     "wasPrice": 90,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-3386460127981",
+    "price": 37.99,
+    "wasPrice": 42.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460134965",
@@ -5809,10 +8532,38 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3386460028322",
-    "price": 31,
+    "price": 29,
     "wasPrice": 41,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "justmylook-mos0043",
+    "price": 35.99,
+    "wasPrice": 77.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-moschinofresh002",
+    "price": 23.99,
+    "wasPrice": 44.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-moschinofunny002",
+    "price": 15.49,
+    "wasPrice": 49.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-moschinofresh007",
+    "price": 23.99,
+    "wasPrice": 34.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-moschinotoy018",
@@ -5823,30 +8574,30 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-moschinotoy019",
-    "price": 71,
+    "price": 57,
     "wasPrice": 95,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274126891",
-    "price": 78,
+    "price": 75,
     "wasPrice": 105,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274317855",
-    "price": 78,
+    "price": 63,
     "wasPrice": 105,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274317862",
-    "price": 110,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
@@ -5872,30 +8623,30 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614274067002",
-    "price": 72,
+    "price": 64,
     "wasPrice": 96,
-    "percentOff": 25,
+    "percentOff": 33,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274503227",
-    "price": 67,
+    "price": 64,
     "wasPrice": 89,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274503234",
-    "price": 96,
+    "price": 92,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274503203",
-    "price": 120,
+    "price": 96,
     "wasPrice": 160,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -5907,9 +8658,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-angelnova004",
-    "price": 135,
+    "price": 130,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
@@ -5921,38 +8672,38 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614274292213",
-    "price": 72,
+    "price": 58,
     "wasPrice": 96,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274292220",
-    "price": 105,
+    "price": 97,
     "wasPrice": 135,
-    "percentOff": 22,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "ean-3614274292237",
-    "price": 135,
-    "wasPrice": 180,
-    "percentOff": 25,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "escentual-narciso152",
-    "price": 115,
-    "wasPrice": 160,
     "percentOff": 28,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "ean-3614274292237",
+    "price": 110,
+    "wasPrice": 180,
+    "percentOff": 38,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-narciso152",
+    "price": 79.99,
+    "wasPrice": 100.99,
+    "percentOff": 20,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3423222092245",
-    "price": 46.25,
-    "wasPrice": 87,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 39.99,
+    "wasPrice": 86.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423222121273",
@@ -5970,9 +8721,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-narciso84",
-    "price": 73,
+    "price": 60,
     "wasPrice": 100,
-    "percentOff": 27,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -5988,6 +8739,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 95,
     "percentOff": 42,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "escentual-narciso119",
+    "price": 33.49,
+    "wasPrice": 77.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423222055615",
@@ -6011,6 +8769,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "justmylook-nau0002",
+    "price": 15.19,
+    "wasPrice": 47.99,
+    "percentOff": 68,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-812256023999",
     "price": 21.95,
     "wasPrice": 40,
@@ -6023,6 +8788,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 69,
     "percentOff": 45,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "escentual-lairdutemps15",
+    "price": 23.49,
+    "wasPrice": 43.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3137370359494",
@@ -6061,24 +8833,73 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3700578502230",
-    "price": 250,
+    "price": 240,
     "wasPrice": 315,
-    "percentOff": 20,
+    "percentOff": 23,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3700578502308",
-    "price": 300,
+    "price": 285,
     "wasPrice": 375,
-    "percentOff": 19,
+    "percentOff": 24,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3700578503213",
-    "price": 430,
+    "price": 405,
     "wasPrice": 535,
-    "percentOff": 19,
+    "percentOff": 24,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "ean-3760004322016",
+    "price": 17.99,
+    "wasPrice": 30.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-679602241106",
+    "price": 14.19,
+    "wasPrice": 34.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-679602601245",
+    "price": 12.79,
+    "wasPrice": 34.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-679602601122",
+    "price": 20.49,
+    "wasPrice": 45.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-679602156110",
+    "price": 16.99,
+    "wasPrice": 48.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338269339785-44927137742985",
+    "price": 14.19,
+    "wasPrice": 43.99,
+    "percentOff": 67,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-679602611121",
+    "price": 12.69,
+    "wasPrice": 46.99,
+    "percentOff": 72,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8435137704231",
@@ -6089,9 +8910,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8435137750450",
-    "price": 74,
+    "price": 71,
     "wasPrice": 99,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -6103,9 +8924,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614274490206",
-    "price": 87,
+    "price": 81,
     "wasPrice": 115,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
@@ -6117,24 +8938,38 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-pradalunarossa022",
-    "price": 130,
+    "price": 125,
     "wasPrice": 175,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274089349",
-    "price": 94,
+    "price": 90,
     "wasPrice": 125,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3349668579839",
-    "price": 110,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-pr-onemillion008",
+    "price": 108.99,
+    "wasPrice": 121.99,
+    "percentOff": 10,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-pr-onemillion038",
+    "price": 74.49,
+    "wasPrice": 75.99,
+    "percentOff": 1,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3349668600298",
@@ -6194,16 +9029,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-pr-olympea002",
-    "price": 62,
+    "price": 49,
     "wasPrice": 82,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-pr-olympea003",
-    "price": 90,
+    "price": 86,
     "wasPrice": 120,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -6212,6 +9047,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 67,
     "percentOff": 25,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-3349668679263",
+    "price": 42.99,
+    "wasPrice": 57.99,
+    "percentOff": 25,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3349668627462",
@@ -6229,30 +9071,44 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-pr-olympea032",
-    "price": 99,
-    "wasPrice": 135,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 45.49,
+    "wasPrice": 91.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-pr-olympea033",
+    "price": 54.99,
+    "wasPrice": 113.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-pac0052",
+    "price": 30.99,
+    "wasPrice": 64.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-pacophantom010",
-    "price": 82,
+    "price": 66,
     "wasPrice": 110,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3349668644063",
-    "price": 89,
+    "price": 85,
     "wasPrice": 120,
-    "percentOff": 25,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-pacophantom015",
-    "price": 82,
+    "price": 66,
     "wasPrice": 110,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -6264,58 +9120,58 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3349666006016",
-    "price": 34.95,
-    "wasPrice": 56,
-    "percentOff": 37,
-    "retailerId": "fragrance-click"
+    "price": 33.49,
+    "wasPrice": 76.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3349666010532",
-    "price": 50.5,
-    "wasPrice": 95,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 40.99,
+    "wasPrice": 90.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-rlpolo67-04",
-    "price": 82,
+    "price": 79,
     "wasPrice": 110,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-rlpolo67-05",
-    "price": 105,
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3360377022911",
-    "price": 73,
+    "price": 59,
     "wasPrice": 97,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3605972768957",
-    "price": 88,
+    "price": 70,
     "wasPrice": 120,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3605972321831",
-    "price": 80,
+    "price": 64,
     "wasPrice": 110,
-    "percentOff": 27,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3605972768919",
-    "price": 115,
+    "price": 90,
     "wasPrice": 150,
-    "percentOff": 23,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -6327,23 +9183,23 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3605972455338",
-    "price": 32.95,
-    "wasPrice": 62,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 21.99,
+    "wasPrice": 43.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-ralph09",
-    "price": 42,
+    "price": 40,
     "wasPrice": 56,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-10000580",
-    "price": 110,
+    "price": 105,
     "wasPrice": 145,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
@@ -6361,6 +9217,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-614514331033",
+    "price": 26.49,
+    "wasPrice": 48.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-10062888010070",
     "price": 24.99,
     "wasPrice": 40,
@@ -6375,32 +9238,88 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "ean-9639701905750",
+    "price": 24.99,
+    "wasPrice": 60.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-5000386111838",
+    "price": 5.69,
+    "wasPrice": 20.99,
+    "percentOff": 72,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-5000386147745",
+    "price": 4.69,
+    "wasPrice": 20.99,
+    "percentOff": 77,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-5000386101310",
+    "price": 6.79,
+    "wasPrice": 20.99,
+    "percentOff": 67,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3607346236260",
+    "price": 19.99,
+    "wasPrice": 37.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3607346596210",
-    "price": 47,
+    "price": 45,
     "wasPrice": 63,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "justmylook-cav0021",
+    "price": 36.99,
+    "wasPrice": 57.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-3616303445232",
+    "price": 35.99,
+    "wasPrice": 66.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-cav0024",
+    "price": 26.49,
+    "wasPrice": 53.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-cavalliuomo001",
-    "price": 47,
-    "wasPrice": 63,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 24.99,
+    "wasPrice": 46.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-rgtwist001",
-    "price": 44,
+    "price": 42,
     "wasPrice": 59,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-rgtwist006",
-    "price": 22,
-    "wasPrice": 30,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 14.69,
+    "wasPrice": 26.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-5060399670272",
@@ -6410,18 +9329,53 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-8052464891306",
-    "price": 49.5,
-    "wasPrice": 93,
+    "fragranceId": "justmylook-sab0001",
+    "price": 26.49,
+    "wasPrice": 48.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-sab0002",
+    "price": 33.49,
+    "wasPrice": 62.99,
     "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-810023679646",
+    "price": 33.49,
+    "wasPrice": 57.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-8052464891306",
+    "price": 46.99,
+    "wasPrice": 78.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8056860210310",
-    "price": 53.75,
-    "wasPrice": 101,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 40.49,
+    "wasPrice": 80.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-sjp0036",
+    "price": 22.49,
+    "wasPrice": 78.99,
+    "percentOff": 71,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-5060426157868",
+    "price": 11.19,
+    "wasPrice": 41.99,
+    "percentOff": 73,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-sergelutens45",
@@ -6432,45 +9386,45 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-sergelutens49",
-    "price": 225,
+    "price": 190,
     "wasPrice": 310,
-    "percentOff": 27,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-sergelutens036",
-    "price": 225,
+    "price": 190,
     "wasPrice": 310,
-    "percentOff": 27,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-slblackcollection",
-    "price": 160,
-    "wasPrice": 220,
-    "percentOff": 27,
-    "retailerId": "escentual"
+    "price": 67.49,
+    "wasPrice": 109.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-sergelutens63",
-    "price": 225,
+    "price": 170,
     "wasPrice": 285,
-    "percentOff": 21,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-sergelutens29",
-    "price": 160,
+    "price": 135,
     "wasPrice": 220,
-    "percentOff": 27,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-sergelutens032",
-    "price": 160,
-    "wasPrice": 220,
-    "percentOff": 27,
-    "retailerId": "escentual"
+    "price": 79.99,
+    "wasPrice": 150.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-sergelutens026",
@@ -6481,23 +9435,23 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-sergelutens027",
-    "price": 115,
+    "price": 95,
     "wasPrice": 310,
-    "percentOff": 62,
+    "percentOff": 69,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-sergelutens71",
-    "price": 225,
+    "price": 190,
     "wasPrice": 310,
-    "percentOff": 27,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-sergelutens73",
-    "price": 225,
+    "price": 190,
     "wasPrice": 310,
-    "percentOff": 27,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
@@ -6509,31 +9463,115 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-768614152392",
-    "price": 61.25,
-    "wasPrice": 115,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 46.99,
+    "wasPrice": 114.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-shag0004",
+    "price": 43.49,
+    "wasPrice": 93.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-shag0006",
+    "price": 40.49,
+    "wasPrice": 89.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-shag0005",
+    "price": 43.49,
+    "wasPrice": 96.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-shag0007",
+    "price": 43.49,
+    "wasPrice": 82.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-5060523017669",
+    "price": 14.79,
+    "wasPrice": 19.99,
+    "percentOff": 26,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-5060523017652",
+    "price": 18.49,
+    "wasPrice": 31.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-tedb0031",
+    "price": 23.49,
+    "wasPrice": 34.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-5060412678377",
+    "price": 15.79,
+    "wasPrice": 31.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-5060523017546",
+    "price": 12.19,
+    "wasPrice": 34.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-tif0004",
+    "price": 78.49,
+    "wasPrice": 118.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-tiffany013",
+    "price": 59.49,
+    "wasPrice": 105.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-tiffany003",
-    "price": 115,
-    "wasPrice": 155,
-    "percentOff": 25,
-    "retailerId": "escentual"
+    "price": 61.99,
+    "wasPrice": 104.9,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
   },
   {
-    "fragranceId": "ean-888066000055",
-    "price": 58.95,
-    "wasPrice": 78,
-    "percentOff": 24,
-    "retailerId": "fragrance-click"
+    "fragranceId": "ean-8016741572555",
+    "price": 154.49,
+    "wasPrice": 324.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
   },
   {
-    "fragranceId": "ean-888066000062",
-    "price": 76.95,
-    "wasPrice": 108,
-    "percentOff": 28,
-    "retailerId": "fragrance-click"
+    "fragranceId": "justmylook-ford0045",
+    "price": 31.99,
+    "wasPrice": 39.99,
+    "percentOff": 20,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-0888066149068",
+    "price": 110.99,
+    "wasPrice": 215.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-888066172059",
@@ -6550,80 +9588,185 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-0888066117463",
+    "price": 99.99,
+    "wasPrice": 173.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-0888066117470",
+    "price": 157.99,
+    "wasPrice": 253.99,
+    "percentOff": 37,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-0888066124034",
+    "price": 96.49,
+    "wasPrice": 119.99,
+    "percentOff": 19,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-0888066007795",
+    "price": 138.99,
+    "wasPrice": 149.99,
+    "percentOff": 7,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-0888066000499",
+    "price": 187.49,
+    "wasPrice": 393.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-0888066004480",
+    "price": 237.99,
+    "wasPrice": 465.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-0888066136914",
+    "price": 109.49,
+    "wasPrice": 131.99,
+    "percentOff": 17,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-0888066136921",
+    "price": 160.49,
+    "wasPrice": 179.99,
+    "percentOff": 10,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-ford0013",
+    "price": 121.49,
+    "wasPrice": 131.99,
+    "percentOff": 7,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-0888066075145",
+    "price": 149.49,
+    "wasPrice": 151.99,
+    "percentOff": 1,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-888066000161",
+    "price": 139.95,
+    "wasPrice": 164,
+    "percentOff": 14,
+    "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "ean-888066139724",
+    "price": 208.49,
+    "wasPrice": 512.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-thimpact009",
+    "price": 19.49,
+    "wasPrice": 40.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-thimpact010",
-    "price": 67,
-    "wasPrice": 89,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 27.99,
+    "wasPrice": 64.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-tommynow006",
+    "price": 31.99,
+    "wasPrice": 35.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-tommynow003",
+    "price": 30.49,
+    "wasPrice": 35.99,
+    "percentOff": 15,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614273672054",
-    "price": 155,
+    "price": 145,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274626834",
-    "price": 76,
+    "price": 73,
     "wasPrice": 105,
-    "percentOff": 27,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274626841",
-    "price": 110,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274626858",
-    "price": 155,
+    "price": 145,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274626865",
-    "price": 78,
+    "price": 75,
     "wasPrice": 105,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274626872",
-    "price": 105,
+    "price": 98,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-valentinodonna049",
-    "price": 89,
+    "price": 85,
     "wasPrice": 120,
-    "percentOff": 25,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-valentinodonna050",
-    "price": 125,
+    "price": 120,
     "wasPrice": 170,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274024753",
-    "price": 110,
+    "price": 88,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274024784",
-    "price": 78,
+    "price": 75,
     "wasPrice": 105,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -6635,115 +9778,136 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-8011003818174",
-    "price": 95,
+    "price": 76,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003839094",
-    "price": 68,
+    "price": 54,
     "wasPrice": 90,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003890675",
-    "price": 68,
+    "price": 65,
     "wasPrice": 90,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003890682",
-    "price": 95,
+    "price": 91,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003876266",
-    "price": 68,
+    "price": 54,
     "wasPrice": 90,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003876273",
-    "price": 95,
+    "price": 76,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003858538",
-    "price": 64,
+    "price": 51,
     "wasPrice": 85,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003858545",
-    "price": 87,
+    "price": 69,
     "wasPrice": 115,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003809196",
-    "price": 60,
+    "price": 48,
     "wasPrice": 79,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003809202",
-    "price": 77,
+    "price": 74,
     "wasPrice": 105,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003813858",
-    "price": 145,
+    "price": 120,
     "wasPrice": 195,
-    "percentOff": 25,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003861910",
-    "price": 160,
+    "price": 155,
     "wasPrice": 215,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-8011003890996",
-    "price": 160,
+    "price": 130,
     "wasPrice": 215,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "escentual-versacemanfraiche01",
+    "price": 48.99,
+    "wasPrice": 53.99,
+    "percentOff": 9,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8011003811274",
-    "price": 135,
+    "price": 110,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-versacepourhomme001",
-    "price": 60,
-    "wasPrice": 79,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "price": 29.99,
+    "wasPrice": 35.99,
+    "percentOff": 16,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-versacepourhomme007",
+    "price": 93.99,
+    "wasPrice": 111.99,
+    "percentOff": 16,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-versacedylanblue002",
+    "price": 38.99,
+    "wasPrice": 45.99,
+    "percentOff": 15,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-versacedylanblue003",
-    "price": 77,
-    "wasPrice": 105,
-    "percentOff": 26,
-    "retailerId": "escentual"
+    "price": 48.99,
+    "wasPrice": 58.99,
+    "percentOff": 16,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-versacedylanblue004",
@@ -6754,24 +9918,24 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-yellowdiamond002",
-    "price": 64,
+    "price": 61,
     "wasPrice": 85,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-yellowdiamond003",
-    "price": 87,
+    "price": 69,
     "wasPrice": 115,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3605520983979",
-    "price": 32.95,
-    "wasPrice": 62,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "price": 27.49,
+    "wasPrice": 61.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614272045873",
@@ -6782,17 +9946,38 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614274505368",
-    "price": 75,
+    "price": 72,
     "wasPrice": 100,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274506150",
-    "price": 105,
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-vrflowerbomb040",
+    "price": 79.99,
+    "wasPrice": 105.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-vrgoodfortune009",
+    "price": 74.99,
+    "wasPrice": 139.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-vrgoodfortune010",
+    "price": 70.99,
+    "wasPrice": 190.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614274158113",
@@ -6810,9 +9995,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "ean-3614274293890",
-    "price": 115,
+    "price": 110,
     "wasPrice": 155,
-    "percentOff": 25,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
@@ -6823,199 +10008,262 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "ean-5017101045330",
+    "price": 9.79,
+    "wasPrice": 9.99,
+    "percentOff": 2,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-4035773111307",
+    "price": 11.69,
+    "wasPrice": 14.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614274076585",
-    "price": 80,
+    "price": 77,
     "wasPrice": 110,
-    "percentOff": 27,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274151145",
-    "price": 82,
+    "price": 79,
     "wasPrice": 110,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274151152",
-    "price": 120,
+    "price": 93,
     "wasPrice": 155,
-    "percentOff": 22,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614274151701",
-    "price": 165,
+    "price": 130,
     "wasPrice": 215,
-    "percentOff": 23,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "ean-3614273852814",
-    "price": 125,
+    "price": 120,
     "wasPrice": 170,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-10001238",
-    "price": 130,
+    "price": 105,
     "wasPrice": 175,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "ean-6290171071051",
+    "price": 22.99,
+    "wasPrice": 49.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "ean-6290171070269",
+    "price": 20.49,
+    "wasPrice": 37.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338116280457-44926932877449",
+    "price": 6.79,
+    "wasPrice": 15.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338116477065-44926933074057",
+    "price": 6.79,
+    "wasPrice": 15.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338113527945-44926930026633",
+    "price": 6.79,
+    "wasPrice": 15.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-4160tuesday114",
-    "price": 160,
+    "price": 125,
     "wasPrice": 210,
-    "percentOff": 23,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday122",
-    "price": 105,
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday134",
-    "price": 105,
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday146",
-    "price": 125,
+    "price": 120,
     "wasPrice": 170,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday026",
-    "price": 200,
+    "price": 160,
     "wasPrice": 265,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday156",
-    "price": 200,
+    "price": 160,
     "wasPrice": 265,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday037",
-    "price": 99,
+    "price": 95,
     "wasPrice": 135,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday043",
-    "price": 160,
+    "price": 125,
     "wasPrice": 210,
-    "percentOff": 23,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday044",
-    "price": 240,
+    "price": 195,
     "wasPrice": 320,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday170",
-    "price": 99,
+    "price": 79,
     "wasPrice": 135,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday008",
-    "price": 200,
+    "price": 160,
     "wasPrice": 265,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday017",
-    "price": 200,
+    "price": 160,
     "wasPrice": 265,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday032",
-    "price": 135,
+    "price": 110,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday046",
-    "price": 125,
+    "price": 100,
     "wasPrice": 170,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday047",
-    "price": 200,
+    "price": 160,
     "wasPrice": 265,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday049",
-    "price": 99,
+    "price": 79,
     "wasPrice": 135,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-4160tuesday050",
-    "price": 135,
+    "price": 110,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338404802697-44927367807113",
+    "price": 16.49,
+    "wasPrice": 19.13,
+    "percentOff": 13,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338119164041-44926935564425",
+    "price": 11.19,
+    "wasPrice": 39.99,
+    "percentOff": 72,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-aafpassion001",
-    "price": 43,
+    "price": 41,
     "wasPrice": 57,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-aafauthentic008",
-    "price": 43,
+    "price": 41,
     "wasPrice": 57,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-aafauthentic004",
-    "price": 43,
+    "price": 41,
     "wasPrice": 57,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-aafauthentic014",
-    "price": 43,
+    "price": 35,
     "wasPrice": 57,
-    "percentOff": 24,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-aafauthentic013",
-    "price": 43,
+    "price": 35,
     "wasPrice": 57,
-    "percentOff": 24,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
@@ -7033,10 +10281,73 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416623001737-45146950795401",
+    "price": 28.49,
+    "wasPrice": 51.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338346606729-44927260491913",
+    "price": 28.49,
+    "wasPrice": 67.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416623034505-45146950828169",
+    "price": 25.99,
+    "wasPrice": 46.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338346639497-44927260524681",
+    "price": 20.49,
+    "wasPrice": 67.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338122145929-44926938611849",
+    "price": 8.19,
+    "wasPrice": 33.99,
+    "percentOff": 75,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338121883785-44926938316937",
+    "price": 16.49,
+    "wasPrice": 67.99,
+    "percentOff": 75,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338125750409-44926942314633",
+    "price": 12.29,
+    "wasPrice": 18.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338126438537-44926943002761",
+    "price": 12.29,
+    "wasPrice": 18.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338126471305-44926943035529",
+    "price": 31.99,
+    "wasPrice": 50.99,
+    "percentOff": 37,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-adpbmberg007",
-    "price": 245,
+    "price": 235,
     "wasPrice": 330,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -7054,38 +10365,52 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416623558793-45146951516297",
+    "price": 91.99,
+    "wasPrice": 174.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338126504073-44926943068297",
+    "price": 46.49,
+    "wasPrice": 78.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-adpblumedmandarino002",
-    "price": 190,
+    "price": 185,
     "wasPrice": 280,
-    "percentOff": 32,
+    "percentOff": 33,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-adpblumedmirto006",
-    "price": 155,
+    "price": 150,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 26,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-adpblumedmirto008",
-    "price": 280,
+    "price": 270,
     "wasPrice": 375,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-adpcolonia004",
-    "price": 235,
+    "price": 225,
     "wasPrice": 310,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-adpcolonia005",
-    "price": 280,
+    "price": 270,
     "wasPrice": 375,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -7104,52 +10429,80 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-adpquercia002",
-    "price": 270,
+    "price": 215,
     "wasPrice": 360,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-adprosanobile002",
-    "price": 190,
+    "price": 180,
     "wasPrice": 250,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-adpsandalo007",
-    "price": 270,
+    "price": 260,
     "wasPrice": 360,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-adpsandalo008",
-    "price": 340,
+    "price": 295,
     "wasPrice": 455,
-    "percentOff": 25,
+    "percentOff": 35,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-adpyuzu002",
-    "price": 270,
+    "price": 215,
     "wasPrice": 360,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-adpyuzu003",
-    "price": 340,
+    "price": 275,
     "wasPrice": 455,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-adpzafferano002",
-    "price": 270,
+    "price": 215,
     "wasPrice": 360,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338346082441-44927259934857",
+    "price": 8.29,
+    "wasPrice": 14.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338383700105-44927315902601",
+    "price": 6.69,
+    "wasPrice": 14.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416625033353-45146952958089",
+    "price": 154.99,
+    "wasPrice": 291.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338159206537-44926976163977",
+    "price": 26.99,
+    "wasPrice": 44.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-8882584453469-default-title",
@@ -7180,6 +10533,83 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416625918089-45146954072201",
+    "price": 32.49,
+    "wasPrice": 69.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416626409609-45146955186313",
+    "price": 26.99,
+    "wasPrice": 46.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416626213001-45146954989705",
+    "price": 31.49,
+    "wasPrice": 57.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416625754249-45146953908361",
+    "price": 24.99,
+    "wasPrice": 42.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338385830025-44927318524041",
+    "price": 46.49,
+    "wasPrice": 59.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338385764489-44927318458505",
+    "price": 52.99,
+    "wasPrice": 79.99,
+    "percentOff": 33,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416625524873-45146953482377",
+    "price": 37.49,
+    "wasPrice": 67.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338433802377-44927433441417",
+    "price": 36.49,
+    "wasPrice": 50,
+    "percentOff": 27,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416626278537-45146955055241",
+    "price": 13.69,
+    "wasPrice": 22.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416625787017-45146953941129",
+    "price": 17.99,
+    "wasPrice": 33.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416625819785-45146953973897",
+    "price": 22.99,
+    "wasPrice": 48.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-16155793162589-default-title",
     "price": 29.99,
     "wasPrice": 35,
@@ -7187,11 +10617,53 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416625623177-45146953711753",
+    "price": 38.49,
+    "wasPrice": 75.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15434678600029-default-title",
     "price": 39.99,
     "wasPrice": 50,
     "percentOff": 20,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338385797257-44927318491273",
+    "price": 30.49,
+    "wasPrice": 49.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416626311305-45146955088009",
+    "price": 37.99,
+    "wasPrice": 78.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416626376841-45146955153545",
+    "price": 42.99,
+    "wasPrice": 78.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416625983625-45146954170505",
+    "price": 33.99,
+    "wasPrice": 48.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416625590409-45146953547913",
+    "price": 33.99,
+    "wasPrice": 58.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15566506918237-default-title",
@@ -7220,6 +10692,27 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 44.99,
     "percentOff": 33,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338162581641-44926979637385",
+    "price": 15.19,
+    "wasPrice": 34.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338314854537-44927223398537",
+    "price": 18.99,
+    "wasPrice": 34.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416626442377-45146955219081",
+    "price": 24.99,
+    "wasPrice": 46.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15675056947549-default-title",
@@ -7332,6 +10825,90 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 45,
     "percentOff": 22,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338165629065-44926982881417",
+    "price": 37.49,
+    "wasPrice": 70.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416626966665-45146955776137",
+    "price": 9.19,
+    "wasPrice": 17.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416627294345-45146956103817",
+    "price": 20.99,
+    "wasPrice": 39.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416627458185-45146956267657",
+    "price": 32.99,
+    "wasPrice": 58.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416627425417-45146956234889",
+    "price": 27.49,
+    "wasPrice": 49.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416627589257-45146956431497",
+    "price": 24.99,
+    "wasPrice": 39.99,
+    "percentOff": 37,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416627392649-45146956202121",
+    "price": 21.49,
+    "wasPrice": 39.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416627622025-45146956464265",
+    "price": 19.49,
+    "wasPrice": 44.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416627196041-45146956005513",
+    "price": 15.19,
+    "wasPrice": 28.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338317705353-44927226314889",
+    "price": 17.99,
+    "wasPrice": 29.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416626999433-45146955808905",
+    "price": 19.99,
+    "wasPrice": 37.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416627032201-45146955841673",
+    "price": 22.99,
+    "wasPrice": 39.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15497395175773-default-title",
@@ -7579,11 +11156,123 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416628605065-45146958364809",
+    "price": 14.19,
+    "wasPrice": 30.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416628670601-45146958430345",
+    "price": 14.69,
+    "wasPrice": 30.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416628637833-45146958397577",
+    "price": 14.19,
+    "wasPrice": 30.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15763193594205-default-title",
     "price": 34.99,
     "wasPrice": 45,
     "percentOff": 22,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416629948553-45146959872137",
+    "price": 22.49,
+    "wasPrice": 40.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416630079625-45146960035977",
+    "price": 30.99,
+    "wasPrice": 57.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416629850249-45146959773833",
+    "price": 30.99,
+    "wasPrice": 57.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-7633279058057-42358285566089",
+    "price": 58.49,
+    "wasPrice": 73.99,
+    "percentOff": 20,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338140201097-44926956896393",
+    "price": 74.49,
+    "wasPrice": 91.99,
+    "percentOff": 19,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338139152521-44926955749513",
+    "price": 98.99,
+    "wasPrice": 134.99,
+    "percentOff": 26,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416631718025-45146961739913",
+    "price": 19.99,
+    "wasPrice": 40.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338146197641-44926962827401",
+    "price": 20.99,
+    "wasPrice": 49.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338358173833-44927278383241",
+    "price": 18.49,
+    "wasPrice": 49.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338147999881-44926964793481",
+    "price": 18.99,
+    "wasPrice": 34.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338347294857-44927261180041",
+    "price": 22.99,
+    "wasPrice": 25.88,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338150588553-44926967283849",
+    "price": 11.69,
+    "wasPrice": 28.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338150621321-44926967414921",
+    "price": 14.19,
+    "wasPrice": 29.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15573121827165-default-title",
@@ -7640,6 +11329,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 50,
     "percentOff": 30,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338347327625-44927261212809",
+    "price": 30.49,
+    "wasPrice": 49.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-16260954784093-default-title",
@@ -8069,11 +11765,74 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338171134089-44926988681353",
+    "price": 40.49,
+    "wasPrice": 61.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338412306569-44927390679177",
+    "price": 35.49,
+    "wasPrice": 39.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416634110089-45146964066441",
+    "price": 33.49,
+    "wasPrice": 49.99,
+    "percentOff": 33,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338345099401-44927259115657",
+    "price": 23.49,
+    "wasPrice": 68.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338369249417-44927292178569",
+    "price": 49.99,
+    "wasPrice": 65.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416635256969-45146965704841",
+    "price": 43.99,
+    "wasPrice": 75.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15748179296605-default-title",
     "price": 41.99,
     "wasPrice": 50,
     "percentOff": 16,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338414665865-44927396249737",
+    "price": 11.79,
+    "wasPrice": 17.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338317803657-44927226413193",
+    "price": 23.99,
+    "wasPrice": 49.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338372853897-44927298666633",
+    "price": 43.99,
+    "wasPrice": 109.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-9369923191133-default-title",
@@ -8090,6 +11849,34 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416634175625-45146964164745",
+    "price": 20.99,
+    "wasPrice": 30.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338171986057-44926989598857",
+    "price": 25.49,
+    "wasPrice": 68.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416633618569-45146963542153",
+    "price": 49.99,
+    "wasPrice": 93.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338405949577-44927370592393",
+    "price": 13.79,
+    "wasPrice": 17.99,
+    "percentOff": 23,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-16230881755485-default-title",
     "price": 79.99,
     "wasPrice": 100,
@@ -8104,11 +11891,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416633749641-45146963673225",
+    "price": 38.99,
+    "wasPrice": 71.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-14971111932253-default-title",
     "price": 29.99,
     "wasPrice": 45,
     "percentOff": 33,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416633684105-45146963574921",
+    "price": 30.49,
+    "wasPrice": 67.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15566498398557-default-title",
@@ -8118,11 +11919,39 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338172149897-44926989762697",
+    "price": 18.49,
+    "wasPrice": 24.99,
+    "percentOff": 26,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416633553033-45146963476617",
+    "price": 57.49,
+    "wasPrice": 107.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8023537156233-43431661273225",
+    "price": 35.49,
+    "wasPrice": 39.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-9759862620509-default-title",
     "price": 24.99,
     "wasPrice": 45,
     "percentOff": 44,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338347393161-44927261278345",
+    "price": 21.49,
+    "wasPrice": 28.69,
+    "percentOff": 25,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15857961042269-default-title",
@@ -8139,6 +11968,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338411815049-44927390187657",
+    "price": 9.29,
+    "wasPrice": 17.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-9759848628573-default-title",
     "price": 27.99,
     "wasPrice": 45,
@@ -8153,11 +11989,32 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338347458697-44927261343881",
+    "price": 25.99,
+    "wasPrice": 48.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-9759868551517-default-title",
     "price": 27.99,
     "wasPrice": 40,
     "percentOff": 30,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338317901961-44927226511497",
+    "price": 23.99,
+    "wasPrice": 49.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338347491465-44927261376649",
+    "price": 22.99,
+    "wasPrice": 35,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-16155938062685-default-title",
@@ -8167,11 +12024,207 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338413682825-44927392317577",
+    "price": 37.49,
+    "wasPrice": 39.99,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338172248201-44926989861001",
+    "price": 29.49,
+    "wasPrice": 34.55,
+    "percentOff": 14,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338414502025-44927393693833",
+    "price": 26.99,
+    "wasPrice": 35,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338364825737-44927285624969",
+    "price": 30.99,
+    "wasPrice": 39.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338317869193-44927226478729",
+    "price": 23.99,
+    "wasPrice": 39.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416633782409-45146963705993",
+    "price": 20.99,
+    "wasPrice": 39.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338406375561-44927372525705",
+    "price": 23.99,
+    "wasPrice": 29.99,
+    "percentOff": 20,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416634372233-45146964426889",
+    "price": 21.49,
+    "wasPrice": 39.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338347524233-44927261409417",
+    "price": 20.49,
+    "wasPrice": 35.51,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338372886665-44927298699401",
+    "price": 25.99,
+    "wasPrice": 54.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416633913481-45146963837065",
+    "price": 36.49,
+    "wasPrice": 66.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338381373577-44927313182857",
+    "price": 36.49,
+    "wasPrice": 109.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416634077321-45146964033673",
+    "price": 16.99,
+    "wasPrice": 31.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338319147145-44927227756681",
+    "price": 35.99,
+    "wasPrice": 59.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338347589769-44927261802633",
+    "price": 20.49,
+    "wasPrice": 41.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338357944457-44927278088329",
+    "price": 40.49,
+    "wasPrice": 59.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338351521929-44927267340425",
+    "price": 21.49,
+    "wasPrice": 34.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338415124617-44927401197705",
+    "price": 53.49,
+    "wasPrice": 59.99,
+    "percentOff": 10,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338415976585-44927404900489",
+    "price": 53.49,
+    "wasPrice": 59.99,
+    "percentOff": 10,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338410635401-44927385174153",
+    "price": 35.99,
+    "wasPrice": 59.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338408046729-44927377047689",
+    "price": 35.49,
+    "wasPrice": 54.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338409422985-44927382323337",
+    "price": 35.49,
+    "wasPrice": 54.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338407882889-44927376883849",
+    "price": 35.49,
+    "wasPrice": 54.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338408013961-44927377014921",
+    "price": 35.49,
+    "wasPrice": 55,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338369773705-44927292768393",
+    "price": 39.49,
+    "wasPrice": 40.99,
+    "percentOff": 3,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416634601609-45146964754569",
+    "price": 19.99,
+    "wasPrice": 37.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416634437769-45146964525193",
+    "price": 18.99,
+    "wasPrice": 37.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15644474409309-default-title",
     "price": 22.5,
     "wasPrice": 40,
     "percentOff": 43,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416634732681-45146964951177",
+    "price": 19.99,
+    "wasPrice": 37.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15426870542685-default-title",
@@ -8181,6 +12234,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416633815177-45146963738761",
+    "price": 26.99,
+    "wasPrice": 49.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15426867298653-default-title",
     "price": 22.5,
     "wasPrice": 40,
@@ -8188,11 +12248,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416634306697-45146964328585",
+    "price": 26.99,
+    "wasPrice": 48.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15857969267037-default-title",
     "price": 22.5,
     "wasPrice": 40,
     "percentOff": 43,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416635289737-45146965737609",
+    "price": 20.99,
+    "wasPrice": 39.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15644474048861-default-title",
@@ -8207,6 +12281,41 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 40,
     "percentOff": 43,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416634568841-45146964721801",
+    "price": 19.99,
+    "wasPrice": 37.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416634798217-45146965115017",
+    "price": 26.49,
+    "wasPrice": 48.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338411683977-44927389991049",
+    "price": 38.49,
+    "wasPrice": 59.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416634536073-45146964689033",
+    "price": 19.99,
+    "wasPrice": 37.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338417418377-44927407390857",
+    "price": 26.99,
+    "wasPrice": 39.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15442713182557-default-title",
@@ -8244,6 +12353,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338412011657-44927390384265",
+    "price": 44.49,
+    "wasPrice": 49.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15857968021853-default-title",
     "price": 22.5,
     "wasPrice": 40,
@@ -8258,6 +12374,20 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416634765449-45146965082249",
+    "price": 19.99,
+    "wasPrice": 37.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338413453449-44927392088201",
+    "price": 19.49,
+    "wasPrice": 39.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15644473852253-default-title",
     "price": 22.5,
     "wasPrice": 40,
@@ -8265,11 +12395,151 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416634634377-45146964820105",
+    "price": 19.99,
+    "wasPrice": 37.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416633716873-45146963640457",
+    "price": 46.99,
+    "wasPrice": 85.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15614073897309-default-title",
     "price": 29.99,
     "wasPrice": 40,
     "percentOff": 25,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416633454729-45146963345545",
+    "price": 63.99,
+    "wasPrice": 98.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416633421961-45146963312777",
+    "price": 63.99,
+    "wasPrice": 98.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416633487497-45146963378313",
+    "price": 62.49,
+    "wasPrice": 116.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416633520265-45146963443849",
+    "price": 62.49,
+    "wasPrice": 116.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416633585801-45146963509385",
+    "price": 62.49,
+    "wasPrice": 116.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338417483913-44927407456393",
+    "price": 38.49,
+    "wasPrice": 44.99,
+    "percentOff": 14,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416634667145-45146964885641",
+    "price": 18.49,
+    "wasPrice": 33.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338362597513-44927283331209",
+    "price": 25.49,
+    "wasPrice": 29.59,
+    "percentOff": 13,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338406703241-44927372918921",
+    "price": 36.49,
+    "wasPrice": 44.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416633651337-45146963607689",
+    "price": 23.49,
+    "wasPrice": 42.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338416533641-44927406440585",
+    "price": 37.49,
+    "wasPrice": 39.99,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338351587465-44927267471497",
+    "price": 21.49,
+    "wasPrice": 27.3,
+    "percentOff": 21,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338351653001-44927267569801",
+    "price": 25.99,
+    "wasPrice": 42,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338172838025-44926990450825",
+    "price": 112.49,
+    "wasPrice": 224.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416636043401-45146966556809",
+    "price": 106.49,
+    "wasPrice": 199.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416636076169-45146966687881",
+    "price": 84.99,
+    "wasPrice": 159.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338173067401-44926990712969",
+    "price": 145.49,
+    "wasPrice": 164.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338173100169-44926990778505",
+    "price": 99.99,
+    "wasPrice": 119.99,
+    "percentOff": 16,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15914423157085-default-title",
@@ -8284,6 +12554,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 30,
     "percentOff": 16,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416636469385-45146967081097",
+    "price": 30.99,
+    "wasPrice": 57.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15914463691101-default-title",
@@ -8314,11 +12591,46 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416636305545-45146966917257",
+    "price": 29.49,
+    "wasPrice": 58.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416636371081-45146966982793",
+    "price": 29.49,
+    "wasPrice": 58.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15914486432093-default-title",
     "price": 24.99,
     "wasPrice": 30,
     "percentOff": 16,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338173296777-44926990975113",
+    "price": 32.99,
+    "wasPrice": 77.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416637255817-45146967900297",
+    "price": 26.99,
+    "wasPrice": 48.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416636960905-45146967605385",
+    "price": 104.49,
+    "wasPrice": 112.99,
+    "percentOff": 7,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614274412789",
@@ -8328,11 +12640,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338173493385-44926991171721",
+    "price": 18.49,
+    "wasPrice": 34.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3351500011476",
     "price": 31.95,
     "wasPrice": 44,
     "percentOff": 27,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338173558921-44926991237257",
+    "price": 13.29,
+    "wasPrice": 28.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3351500002696",
@@ -8342,6 +12668,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416637190281-45146967834761",
+    "price": 36.99,
+    "wasPrice": 69.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3351500002702",
     "price": 46.25,
     "wasPrice": 87,
@@ -8349,38 +12682,472 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "escentual-burberrygoddess011",
-    "price": 85,
-    "wasPrice": 115,
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416637091977-45146967736457",
+    "price": 46.99,
+    "wasPrice": 96.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338173689993-44926991368329",
+    "price": 12.29,
+    "wasPrice": 45.99,
+    "percentOff": 73,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416637485193-45146968227977",
+    "price": 8.19,
+    "wasPrice": 17.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416637419657-45146968096905",
+    "price": 8.19,
+    "wasPrice": 17.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416637288585-45146967933065",
+    "price": 8.19,
+    "wasPrice": 17.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416637452425-45146968195209",
+    "price": 8.19,
+    "wasPrice": 17.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416637386889-45146968064137",
+    "price": 8.19,
+    "wasPrice": 17.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416637321353-45146967998601",
+    "price": 8.19,
+    "wasPrice": 17.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416637616265-45146968359049",
+    "price": 36.99,
+    "wasPrice": 62.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416637714569-45146968457353",
+    "price": 23.99,
+    "wasPrice": 44.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338174673033-44926992449673",
+    "price": 37.49,
+    "wasPrice": 53.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338173952137-44926991728777",
+    "price": 19.99,
+    "wasPrice": 58.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416637747337-45146968490121",
+    "price": 41.99,
+    "wasPrice": 84.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338347229321-44927261114505",
+    "price": 22.49,
+    "wasPrice": 23.95,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416638075017-45146968981641",
+    "price": 48.99,
+    "wasPrice": 96.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416639516809-45146970783881",
+    "price": 11.19,
+    "wasPrice": 26.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416639549577-45146970816649",
+    "price": 14.69,
+    "wasPrice": 26.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416639713417-45146970980489",
+    "price": 42.99,
+    "wasPrice": 76.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338175393929-44926993268873",
+    "price": 24.49,
+    "wasPrice": 69.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338175328393-44926993170569",
+    "price": 24.49,
+    "wasPrice": 69.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-7633284300937-42358294151305",
+    "price": 20.49,
+    "wasPrice": 44.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338175656073-44926994088073",
+    "price": 24.99,
+    "wasPrice": 69.99,
+    "percentOff": 64,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416640270473-45146971635849",
+    "price": 54.99,
+    "wasPrice": 116.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416640303241-45146971701385",
+    "price": 54.99,
+    "wasPrice": 114.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416640172169-45146971570313",
+    "price": 61.49,
+    "wasPrice": 138.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416640336009-45146971734153",
+    "price": 62.99,
+    "wasPrice": 138.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416640204937-45146971603081",
+    "price": 62.99,
+    "wasPrice": 138.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338175852681-44926994940041",
+    "price": 22.99,
+    "wasPrice": 50.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338176049289-44926995136649",
+    "price": 22.99,
+    "wasPrice": 123.99,
+    "percentOff": 81,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338176180361-44926995300489",
+    "price": 6.19,
+    "wasPrice": 9.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338176245897-44926995366025",
+    "price": 30.99,
+    "wasPrice": 62.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338176278665-44926995398793",
+    "price": 79.99,
+    "wasPrice": 168.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338351849609-44927267864713",
+    "price": 64.99,
+    "wasPrice": 189.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338319212681-44927227822217",
+    "price": 259.49,
+    "wasPrice": 339.99,
+    "percentOff": 23,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338319245449-44927227854985",
+    "price": 224.99,
+    "wasPrice": 389.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338383831177-44927316033673",
+    "price": 47.99,
+    "wasPrice": 64.99,
     "percentOff": 26,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416642891913-45146975109257",
+    "price": 24.99,
+    "wasPrice": 42.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338176770185-44926995792009",
+    "price": 85.99,
+    "wasPrice": 174.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416642859145-45146975076489",
+    "price": 34.49,
+    "wasPrice": 60.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416642957449-45146975174793",
+    "price": 28.99,
+    "wasPrice": 53.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416642924681-45146975142025",
+    "price": 28.99,
+    "wasPrice": 49.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338176901257-44926995923081",
+    "price": 87.49,
+    "wasPrice": 174.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338176999561-44926996021385",
+    "price": 13.69,
+    "wasPrice": 44.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338408636553-44927378981001",
+    "price": 8.69,
+    "wasPrice": 25.49,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338177884297-44926999953545",
+    "price": 8.29,
+    "wasPrice": 12.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338177589385-44926999560329",
+    "price": 14.69,
+    "wasPrice": 46.99,
+    "percentOff": 68,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338177982601-44927000051849",
+    "price": 8.19,
+    "wasPrice": 19.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338178211977-44927000445065",
+    "price": 10.79,
+    "wasPrice": 24.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416643514505-45146975731849",
+    "price": 12.19,
+    "wasPrice": 22.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338178572425-44927000838281",
+    "price": 10.69,
+    "wasPrice": 25.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416643448969-45146975666313",
+    "price": 12.19,
+    "wasPrice": 22.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338179063945-44927001788553",
+    "price": 14.29,
+    "wasPrice": 19.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338178998409-44927001559177",
+    "price": 17.99,
+    "wasPrice": 24.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338179195017-44927001952393",
+    "price": 5.19,
+    "wasPrice": 7.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338179424393-44927002181769",
+    "price": 21.99,
+    "wasPrice": 79.99,
+    "percentOff": 72,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338385272969-44927317737609",
+    "price": 36.49,
+    "wasPrice": 95.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338179555465-44927002345609",
+    "price": 27.99,
+    "wasPrice": 49.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-7633281089673-42358287564937",
+    "price": 35.49,
+    "wasPrice": 39.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338179817609-44927002673289",
+    "price": 21.49,
+    "wasPrice": 69.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338179719305-44927002574985",
+    "price": 34.49,
+    "wasPrice": 99.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338180014217-44927003459721",
+    "price": 35.49,
+    "wasPrice": 95.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338179948681-44927003394185",
+    "price": 24.99,
+    "wasPrice": 55.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-burberrygoddess011",
+    "price": 68,
+    "wasPrice": 115,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-burberrygoddess012",
-    "price": 115,
+    "price": 91,
     "wasPrice": 155,
-    "percentOff": 25,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-burberryher024",
-    "price": 115,
+    "price": 92,
     "wasPrice": 155,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-burberryher025",
-    "price": 160,
+    "price": 155,
     "wasPrice": 215,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-burberryher013",
-    "price": 130,
+    "price": 125,
     "wasPrice": 170,
-    "percentOff": 23,
+    "percentOff": 26,
     "retailerId": "escentual"
   },
   {
@@ -8392,51 +13159,65 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-burberryher017",
-    "price": 115,
-    "wasPrice": 150,
-    "percentOff": 23,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "escentual-burberryher020",
-    "price": 80,
-    "wasPrice": 110,
-    "percentOff": 27,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "escentual-burberryher021",
     "price": 110,
     "wasPrice": 150,
     "percentOff": 26,
     "retailerId": "escentual"
   },
   {
-    "fragranceId": "escentual-burberryher022",
-    "price": 160,
-    "wasPrice": 215,
-    "percentOff": 25,
+    "fragranceId": "escentual-burberryher020",
+    "price": 64,
+    "wasPrice": 110,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
-    "fragranceId": "escentual-burberryhero016",
+    "fragranceId": "escentual-burberryher021",
     "price": 105,
+    "wasPrice": 150,
+    "percentOff": 30,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-burberryher022",
+    "price": 130,
+    "wasPrice": 215,
+    "percentOff": 39,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416644104329-45146976419977",
+    "price": 34.99,
+    "wasPrice": 64.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416643874953-45146976157833",
+    "price": 79.99,
+    "wasPrice": 156.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-burberryhero016",
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-burberryhero017",
-    "price": 155,
+    "price": 150,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 26,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-burberryhero018",
-    "price": 185,
+    "price": 150,
     "wasPrice": 245,
-    "percentOff": 24,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
@@ -8447,6 +13228,48 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338180997257-44927004573833",
+    "price": 23.99,
+    "wasPrice": 54.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-7633280237705-42358286712969",
+    "price": 50.49,
+    "wasPrice": 73.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338181095561-44927004672137",
+    "price": 41.99,
+    "wasPrice": 66.99,
+    "percentOff": 37,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338181226633-44927004803209",
+    "price": 24.99,
+    "wasPrice": 47.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338181456009-44927006703753",
+    "price": 42.99,
+    "wasPrice": 68.99,
+    "percentOff": 37,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338181357705-44927004901513",
+    "price": 52.49,
+    "wasPrice": 94.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-5045456747685",
     "price": 52.5,
     "wasPrice": 99,
@@ -8454,11 +13277,88 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416644169865-45146976485513",
+    "price": 55.99,
+    "wasPrice": 105.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416643907721-45146976190601",
+    "price": 47.99,
+    "wasPrice": 78.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338181488777-44927006736521",
+    "price": 26.99,
+    "wasPrice": 64.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-5045252648988",
     "price": 31.95,
     "wasPrice": 60,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338320654473-44927229296777",
+    "price": 36.99,
+    "wasPrice": 99.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338362728585-44927283462281",
+    "price": 22.99,
+    "wasPrice": 44.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338181783689-44927007064201",
+    "price": 25.99,
+    "wasPrice": 54.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338181718153-44927006998665",
+    "price": 25.49,
+    "wasPrice": 54.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-7633283547273-42358293430409",
+    "price": 25.99,
+    "wasPrice": 44.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338182176905-44927007260809",
+    "price": 18.99,
+    "wasPrice": 25.99,
+    "percentOff": 26,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338182209673-44927007293577",
+    "price": 52.49,
+    "wasPrice": 64.99,
+    "percentOff": 19,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338382782601-44927314854025",
+    "price": 60.49,
+    "wasPrice": 100.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-bvlgariparfumee24",
@@ -8483,16 +13383,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-maninblack003",
-    "price": 130,
+    "price": 125,
     "wasPrice": 170,
-    "percentOff": 23,
+    "percentOff": 26,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-maninblack008",
-    "price": 155,
+    "price": 145,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
@@ -8503,31 +13403,59 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416644726921-45146977042569",
+    "price": 76.49,
+    "wasPrice": 152.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338413289609-44927391793289",
+    "price": 109.49,
+    "wasPrice": 138.99,
+    "percentOff": 21,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-bvlgarimanrain002",
-    "price": 91,
+    "price": 73,
     "wasPrice": 125,
-    "percentOff": 27,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bvlgariman021",
-    "price": 155,
+    "price": 150,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 26,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338182406281-44927007490185",
+    "price": 52.99,
+    "wasPrice": 66.99,
+    "percentOff": 20,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-amethyste001",
-    "price": 73,
+    "price": 70,
     "wasPrice": 97,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416644857993-45146977173641",
+    "price": 50.49,
+    "wasPrice": 102.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-amethyste002",
-    "price": 96,
+    "price": 92,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
@@ -8573,17 +13501,66 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338304827529-44927212978313",
+    "price": 54.99,
+    "wasPrice": 80.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338182733961-44927008047241",
+    "price": 147.49,
+    "wasPrice": 149.99,
+    "percentOff": 1,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338182766729-44927008080009",
+    "price": 127.99,
+    "wasPrice": 211.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338320720009-44927229362313",
+    "price": 167.49,
+    "wasPrice": 219.99,
+    "percentOff": 23,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338182930569-44927008276617",
+    "price": 129.99,
+    "wasPrice": 149.99,
+    "percentOff": 13,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338182897801-44927008243849",
+    "price": 160.49,
+    "wasPrice": 219.99,
+    "percentOff": 27,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338183258249-44927009063049",
+    "price": 18.49,
+    "wasPrice": 32.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-10000424",
-    "price": 62,
+    "price": 49,
     "wasPrice": 82,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-cacharel002",
-    "price": 26,
+    "price": 25,
     "wasPrice": 35,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -8601,6 +13578,27 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338183717001-44927009685641",
+    "price": 26.99,
+    "wasPrice": 89.99,
+    "percentOff": 70,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338184437897-44927010799753",
+    "price": 11.69,
+    "wasPrice": 32.99,
+    "percentOff": 64,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338184405129-44927010734217",
+    "price": 22.49,
+    "wasPrice": 61.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-88300196876",
     "price": 32.95,
     "wasPrice": 62,
@@ -8608,10 +13606,17 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338184470665-44927010832521",
+    "price": 20.99,
+    "wasPrice": 61.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-10000080",
-    "price": 44,
+    "price": 43,
     "wasPrice": 79,
-    "percentOff": 44,
+    "percentOff": 45,
     "retailerId": "escentual"
   },
   {
@@ -8622,45 +13627,59 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338184831113-44927011192969",
+    "price": 22.49,
+    "wasPrice": 58.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338184929417-44927011291273",
+    "price": 22.99,
+    "wasPrice": 54.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-ckin2uher002",
-    "price": 60,
+    "price": 48,
     "wasPrice": 79,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-ckin2uher003",
-    "price": 36,
+    "price": 29,
     "wasPrice": 47,
-    "percentOff": 23,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-ckin2uhim002",
-    "price": 60,
+    "price": 48,
     "wasPrice": 79,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
-    "fragranceId": "ean-88300602513",
-    "price": 30.75,
-    "wasPrice": 58,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338185027721-44927011389577",
+    "price": 21.49,
+    "wasPrice": 58.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-ckdefy003",
-    "price": 70,
+    "price": 56,
     "wasPrice": 93,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-ckdefy004",
-    "price": 91,
+    "price": 85,
     "wasPrice": 125,
-    "percentOff": 27,
+    "percentOff": 31,
     "retailerId": "escentual"
   },
   {
@@ -8678,11 +13697,11 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-88300100514",
-    "price": 30.75,
-    "wasPrice": 58,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338362073225-44927282774153",
+    "price": 23.99,
+    "wasPrice": 59.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-88300105519",
@@ -8690,6 +13709,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 79,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338185191561-44927011586185",
+    "price": 15.49,
+    "wasPrice": 39.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614228979337",
@@ -8720,11 +13746,67 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416647970953-45146983792777",
+    "price": 8.69,
+    "wasPrice": 19.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338185289865-44927011684489",
+    "price": 23.99,
+    "wasPrice": 59.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3607342378353",
     "price": 30.25,
     "wasPrice": 57,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338352308361-44927268356233",
+    "price": 29.99,
+    "wasPrice": 49.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338369872009-44927292866697",
+    "price": 22.99,
+    "wasPrice": 82.99,
+    "percentOff": 72,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416647413897-45146982744201",
+    "price": 37.49,
+    "wasPrice": 67.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416647610505-45146983104649",
+    "price": 18.99,
+    "wasPrice": 33.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416647577737-45146983137417",
+    "price": 18.49,
+    "wasPrice": 33.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338185486473-44927011881097",
+    "price": 23.99,
+    "wasPrice": 74.99,
+    "percentOff": 68,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614229135145",
@@ -8735,16 +13817,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-cketernityformen004",
-    "price": 93,
+    "price": 74,
     "wasPrice": 125,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-cketernitywomen001",
-    "price": 74,
+    "price": 71,
     "wasPrice": 130,
-    "percentOff": 43,
+    "percentOff": 45,
     "retailerId": "escentual"
   },
   {
@@ -8753,6 +13835,20 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 73,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338186043529-44927012307081",
+    "price": 20.49,
+    "wasPrice": 67.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338186076297-44927012339849",
+    "price": 34.99,
+    "wasPrice": 78.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616303463373",
@@ -8767,6 +13863,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 94,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338186338441-44927012798601",
+    "price": 28.99,
+    "wasPrice": 77.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616305965639",
@@ -8790,6 +13893,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416647872649-45146983661705",
+    "price": 12.19,
+    "wasPrice": 26.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3616304478246",
     "price": 45.25,
     "wasPrice": 85,
@@ -8797,11 +13907,18 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-88300606511",
-    "price": 42.5,
-    "wasPrice": 80,
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338263801993-44927129649289",
+    "price": 15.99,
+    "wasPrice": 29.99,
     "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338186895497-44927013585033",
+    "price": 27.99,
+    "wasPrice": 84.99,
+    "percentOff": 67,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3607342306417",
@@ -8811,11 +13928,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338187288713-44927014535305",
+    "price": 17.49,
+    "wasPrice": 35.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-212women01",
-    "price": 90,
+    "price": 72,
     "wasPrice": 120,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338116706441-44926933303433",
+    "price": 43.49,
+    "wasPrice": 52.99,
+    "percentOff": 17,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8411061023655",
@@ -8825,11 +13956,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338187550857-44927019810953",
+    "price": 68.99,
+    "wasPrice": 80.99,
+    "percentOff": 14,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8411061762264",
     "price": 74.95,
     "wasPrice": 111,
     "percentOff": 32,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338188042377-44927020335241",
+    "price": 77.99,
+    "wasPrice": 109.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8411061120620",
@@ -8839,6 +13984,20 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416649511049-45146991591561",
+    "price": 78.49,
+    "wasPrice": 147.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416649248905-45146989297801",
+    "price": 79.99,
+    "wasPrice": 154.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8411061083482",
     "price": 81.95,
     "wasPrice": 115,
@@ -8846,11 +14005,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416650625161-45146996932745",
+    "price": 78.49,
+    "wasPrice": 147.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8411061027813",
     "price": 51.95,
     "wasPrice": 75,
     "percentOff": 30,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338406965385-44927375442057",
+    "price": 65.49,
+    "wasPrice": 78.99,
+    "percentOff": 17,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8411061083789",
@@ -8867,6 +14040,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416650428553-45146996768905",
+    "price": 20.99,
+    "wasPrice": 39.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8411061057056",
     "price": 69.95,
     "wasPrice": 101,
@@ -8874,11 +14054,109 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338338349193-44927248892041",
+    "price": 88.49,
+    "wasPrice": 109.99,
+    "percentOff": 19,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338365284489-44927286116489",
+    "price": 108.99,
+    "wasPrice": 134.99,
+    "percentOff": 19,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416650461321-45146996801673",
+    "price": 23.49,
+    "wasPrice": 42.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338190041225-44927023710345",
+    "price": 59.49,
+    "wasPrice": 75.99,
+    "percentOff": 21,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338189942921-44927023480969",
+    "price": 78.49,
+    "wasPrice": 102.99,
+    "percentOff": 23,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338190139529-44927023808649",
+    "price": 68.99,
+    "wasPrice": 80.99,
+    "percentOff": 14,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416649871497-45146992017545",
+    "price": 47.49,
+    "wasPrice": 89.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416649379977-45146991165577",
+    "price": 53.99,
+    "wasPrice": 102.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338190368905-44927024234633",
+    "price": 52.99,
+    "wasPrice": 81.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338190172297-44927023874185",
+    "price": 38.49,
+    "wasPrice": 40.99,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338379997321-44927310168201",
+    "price": 57.49,
+    "wasPrice": 64.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338191089801-44927025512585",
+    "price": 79.99,
+    "wasPrice": 94.99,
+    "percentOff": 15,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416649019529-45146988445833",
+    "price": 99.99,
+    "wasPrice": 228.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-84110611056752",
     "price": 84.95,
     "wasPrice": 139,
     "percentOff": 38,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416648986761-45146988413065",
+    "price": 107.49,
+    "wasPrice": 208.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8411061097922",
@@ -8910,10 +14188,59 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-herrera01",
-    "price": 110,
+    "price": 87,
     "wasPrice": 145,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416651182217-45146997751945",
+    "price": 96.49,
+    "wasPrice": 181.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416651673737-45146998472841",
+    "price": 53.99,
+    "wasPrice": 102.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416651542665-45146998341769",
+    "price": 79.99,
+    "wasPrice": 150.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416651313289-45146998079625",
+    "price": 86.99,
+    "wasPrice": 163.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416651477129-45146998243465",
+    "price": 108.99,
+    "wasPrice": 181.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416651346057-45146998112393",
+    "price": 108.99,
+    "wasPrice": 202.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416652099721-45146999160969",
+    "price": 69.99,
+    "wasPrice": 139.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3432240000989",
@@ -8930,11 +14257,81 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338345853065-44927259705481",
+    "price": 68.99,
+    "wasPrice": 94.99,
+    "percentOff": 27,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338380652681-44927311118473",
+    "price": 153.99,
+    "wasPrice": 239.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338192728201-44927027740809",
+    "price": 29.99,
+    "wasPrice": 59.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416652296329-45146999423113",
+    "price": 54.49,
+    "wasPrice": 100.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338116673673-44926933270665",
+    "price": 18.99,
+    "wasPrice": 44.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338192990345-44927028002953",
+    "price": 13.69,
+    "wasPrice": 27.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-688575134490",
     "price": 27.75,
     "wasPrice": 52,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338193088649-44927028101257",
+    "price": 18.49,
+    "wasPrice": 26.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338193055881-44927028068489",
+    "price": 27.99,
+    "wasPrice": 65.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416652361865-45146999488649",
+    "price": 23.99,
+    "wasPrice": 42.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338193154185-44927028166793",
+    "price": 14.19,
+    "wasPrice": 53.99,
+    "percentOff": 73,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3145891233803",
@@ -8949,6 +14346,20 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 94,
     "percentOff": 11,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338193383561-44927028428937",
+    "price": 4.19,
+    "wasPrice": 14.99,
+    "percentOff": 72,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338193350793-44927028396169",
+    "price": 5.19,
+    "wasPrice": 20.99,
+    "percentOff": 75,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3607346232385",
@@ -8979,66 +14390,73 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338352537737-44927268585609",
+    "price": 71.49,
+    "wasPrice": 87.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-leaudechloe012",
-    "price": 78,
+    "price": 63,
     "wasPrice": 105,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-leaudechloe013",
-    "price": 110,
+    "price": 88,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-leaudechloe014",
-    "price": 160,
+    "price": 130,
     "wasPrice": 210,
-    "percentOff": 23,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-leaudechloe010",
-    "price": 105,
+    "price": 98,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-leaudechloe011",
-    "price": 150,
+    "price": 120,
     "wasPrice": 200,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-chloeleparfum001",
-    "price": 78,
+    "price": 63,
     "wasPrice": 105,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-chloeleparfum002",
-    "price": 110,
+    "price": 88,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-chloeleparfum003",
-    "price": 160,
+    "price": 155,
     "wasPrice": 210,
-    "percentOff": 23,
+    "percentOff": 26,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-chloelovestory002",
-    "price": 74,
+    "price": 71,
     "wasPrice": 99,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -9057,9 +14475,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-chloenomade021",
-    "price": 78,
+    "price": 63,
     "wasPrice": 105,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -9070,6 +14488,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338380456073-44927310692489",
+    "price": 86.99,
+    "wasPrice": 99.99,
+    "percentOff": 13,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3616303477950",
     "price": 61.25,
     "wasPrice": 115,
@@ -9078,24 +14503,150 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-chloenaturelle006",
-    "price": 78,
+    "price": 75,
     "wasPrice": 105,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-chloenaturelle007",
-    "price": 110,
+    "price": 88,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-chloerose002",
-    "price": 64,
+    "price": 61,
     "wasPrice": 85,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338366595209-44927287328905",
+    "price": 22.99,
+    "wasPrice": 25,
+    "percentOff": 8,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416652918921-45147000438921",
+    "price": 74.99,
+    "wasPrice": 143.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416652820617-45147000340617",
+    "price": 67.99,
+    "wasPrice": 127.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338193842313-44927029641353",
+    "price": 60.99,
+    "wasPrice": 64.99,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338409750665-44927383502985",
+    "price": 78.49,
+    "wasPrice": 99.99,
+    "percentOff": 21,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338411552905-44927389859977",
+    "price": 93.99,
+    "wasPrice": 114.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416652853385-45147000373385",
+    "price": 64.99,
+    "wasPrice": 134.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416652722313-45147000242313",
+    "price": 86.99,
+    "wasPrice": 159.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416652787849-45147000307849",
+    "price": 95.49,
+    "wasPrice": 175.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416652984457-45147002634377",
+    "price": 47.99,
+    "wasPrice": 82.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338369413257-44927292407945",
+    "price": 65.49,
+    "wasPrice": 67.29,
+    "percentOff": 2,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416653213833-45147003125897",
+    "price": 52.49,
+    "wasPrice": 111.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338194595977-44927030427785",
+    "price": 29.49,
+    "wasPrice": 39.99,
+    "percentOff": 26,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338194694281-44927030558857",
+    "price": 15.49,
+    "wasPrice": 25.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338362499209-44927283232905",
+    "price": 31.49,
+    "wasPrice": 44.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338194923657-44927030821001",
+    "price": 27.99,
+    "wasPrice": 39.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-7633278992521-42358285500553",
+    "price": 40.49,
+    "wasPrice": 49.99,
+    "percentOff": 19,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416657932425-45147015544969",
+    "price": 34.49,
+    "wasPrice": 62.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-20714005887",
@@ -9105,11 +14656,39 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-20714156893",
-    "price": 34.5,
-    "wasPrice": 65,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416658129033-45147015741577",
+    "price": 46.99,
+    "wasPrice": 116.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338195644553-44927031869577",
+    "price": 16.99,
+    "wasPrice": 38.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338195349641-44927031279753",
+    "price": 22.99,
+    "wasPrice": 53.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338195382409-44927031410825",
+    "price": 27.99,
+    "wasPrice": 67.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338195546249-44927031574665",
+    "price": 27.49,
+    "wasPrice": 74.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-9365420507485-default-title",
@@ -9154,53 +14733,144 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416660455561-45147018723465",
+    "price": 34.99,
+    "wasPrice": 67.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338196398217-44927033049225",
+    "price": 22.49,
+    "wasPrice": 34.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416660357257-45147018690697",
+    "price": 47.99,
+    "wasPrice": 94.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-coachmen018",
-    "price": 61,
+    "price": 49,
     "wasPrice": 81,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-coachmen004",
-    "price": 77,
+    "price": 74,
     "wasPrice": 105,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-coachmen010",
-    "price": 37,
+    "price": 35,
     "wasPrice": 49,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-coachmen016",
-    "price": 74,
+    "price": 69,
     "wasPrice": 99,
-    "percentOff": 25,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-coachmen020",
-    "price": 44,
+    "price": 42,
     "wasPrice": 59,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-coachmen022",
-    "price": 90,
+    "price": 86,
     "wasPrice": 120,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-coachgold002",
-    "price": 67,
+    "price": 54,
     "wasPrice": 89,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416660684937-45147018821769",
+    "price": 7.19,
+    "wasPrice": 13.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338196955273-44927033639049",
+    "price": 10.29,
+    "wasPrice": 15.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338196988041-44927033671817",
+    "price": 2.79,
+    "wasPrice": 13.99,
+    "percentOff": 80,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416661733513-45147020787849",
+    "price": 47.49,
+    "wasPrice": 87.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416661766281-45147020820617",
+    "price": 45.99,
+    "wasPrice": 87.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416661667977-45147020722313",
+    "price": 45.99,
+    "wasPrice": 87.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416661995657-45147021082761",
+    "price": 28.49,
+    "wasPrice": 51.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416661635209-45147020689545",
+    "price": 45.99,
+    "wasPrice": 87.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416661700745-45147020755081",
+    "price": 47.49,
+    "wasPrice": 87.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416662716553-45147021934729",
+    "price": 231.49,
+    "wasPrice": 433.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3508440505064",
@@ -9210,11 +14880,263 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "escentual-davidoffadventure002",
-    "price": 70,
-    "wasPrice": 93,
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416664289417-45147024490633",
+    "price": 290.49,
+    "wasPrice": 543.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338197676169-44927034425481",
+    "price": 20.49,
+    "wasPrice": 26.99,
     "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338197610633-44927034359945",
+    "price": 31.49,
+    "wasPrice": 46.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416664584329-45147024818313",
+    "price": 22.99,
+    "wasPrice": 42.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338198069385-44927034818697",
+    "price": 25.99,
+    "wasPrice": 36.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416665993353-45147026489481",
+    "price": 8.69,
+    "wasPrice": 17.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416666026121-45147026522249",
+    "price": 8.69,
+    "wasPrice": 17.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416665174153-45147025604745",
+    "price": 8.69,
+    "wasPrice": 17.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416665206921-45147025637513",
+    "price": 8.69,
+    "wasPrice": 17.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416664846473-45147025080457",
+    "price": 8.69,
+    "wasPrice": 17.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416665239689-45147025670281",
+    "price": 10.19,
+    "wasPrice": 19.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338202067081-44927039602825",
+    "price": 26.49,
+    "wasPrice": 58.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416666386569-45147027734665",
+    "price": 5.19,
+    "wasPrice": 10.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416666353801-45147027701897",
+    "price": 5.19,
+    "wasPrice": 10.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416666419337-45147027767433",
+    "price": 9.69,
+    "wasPrice": 17.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338199052425-44927036457097",
+    "price": 10.69,
+    "wasPrice": 13.99,
+    "percentOff": 23,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338338971785-44927249744009",
+    "price": 11.69,
+    "wasPrice": 33.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338352734345-44927268782217",
+    "price": 14.79,
+    "wasPrice": 26.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338411454601-44927389761673",
+    "price": 11.69,
+    "wasPrice": 30,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338389041289-44927324717193",
+    "price": 11.69,
+    "wasPrice": 39.99,
+    "percentOff": 70,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338199150729-44927036555401",
+    "price": 14.69,
+    "wasPrice": 35.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338199445641-44927036883081",
+    "price": 11.69,
+    "wasPrice": 35.99,
+    "percentOff": 67,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-davidoffadventure002",
+    "price": 56,
+    "wasPrice": 93,
+    "percentOff": 39,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338199675017-44927037112457",
+    "price": 15.19,
+    "wasPrice": 40.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416666878089-45147028226185",
+    "price": 19.99,
+    "wasPrice": 40.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338199773321-44927037210761",
+    "price": 13.69,
+    "wasPrice": 44.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338199740553-44927037177993",
+    "price": 16.49,
+    "wasPrice": 73,
+    "percentOff": 77,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416666779785-45147028127881",
+    "price": 25.99,
+    "wasPrice": 48.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338200133769-44927037603977",
+    "price": 33.49,
+    "wasPrice": 39.99,
+    "percentOff": 16,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338203476105-44927041142921",
+    "price": 18.99,
+    "wasPrice": 59.99,
+    "percentOff": 68,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338203508873-44927041175689",
+    "price": 18.99,
+    "wasPrice": 45.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338203574409-44927041241225",
+    "price": 18.49,
+    "wasPrice": 24.99,
+    "percentOff": 26,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416667598985-45147029831817",
+    "price": 6.19,
+    "wasPrice": 12.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416667500681-45147029733513",
+    "price": 6.19,
+    "wasPrice": 12.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416667435145-45147029667977",
+    "price": 6.19,
+    "wasPrice": 12.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416667730057-45147029962889",
+    "price": 6.19,
+    "wasPrice": 12.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416667762825-45147029995657",
+    "price": 13.19,
+    "wasPrice": 26.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614273356053",
@@ -9224,10 +15146,17 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338204328073-44927042551945",
+    "price": 17.99,
+    "wasPrice": 62.99,
+    "percentOff": 71,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-dieselloverdose003",
-    "price": 64,
+    "price": 51,
     "wasPrice": 85,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -9259,6 +15188,90 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416668156041-45147030487177",
+    "price": 145.99,
+    "wasPrice": 256.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416669008009-45147031339145",
+    "price": 9.19,
+    "wasPrice": 17.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416669466761-45147031601289",
+    "price": 8.69,
+    "wasPrice": 17.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416668516489-45147030847625",
+    "price": 9.19,
+    "wasPrice": 17.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416669663369-45147031797897",
+    "price": 9.19,
+    "wasPrice": 17.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416668221577-45147030552713",
+    "price": 9.19,
+    "wasPrice": 17.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416668287113-45147030618249",
+    "price": 9.19,
+    "wasPrice": 17.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416669237385-45147031470217",
+    "price": 6.19,
+    "wasPrice": 12.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416668647561-45147030978697",
+    "price": 9.19,
+    "wasPrice": 17.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416670515337-45147032715401",
+    "price": 19.49,
+    "wasPrice": 35.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338200789129-44927038062729",
+    "price": 24.99,
+    "wasPrice": 46.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338200854665-44927038128265",
+    "price": 22.99,
+    "wasPrice": 30.99,
+    "percentOff": 25,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-22548436783",
     "price": 47.95,
     "wasPrice": 84,
@@ -9266,24 +15279,94 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338389401737-44927325536393",
+    "price": 21.99,
+    "wasPrice": 61.99,
+    "percentOff": 64,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338365317257-44927286182025",
+    "price": 19.99,
+    "wasPrice": 46.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338174509193-44926992285833",
+    "price": 17.49,
+    "wasPrice": 61.99,
+    "percentOff": 71,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416670777481-45147032977545",
+    "price": 24.99,
+    "wasPrice": 46.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338403688585-44927362891913",
+    "price": 30.99,
+    "wasPrice": 62.69,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-bdfreshblossom002",
-    "price": 32,
+    "price": 30,
     "wasPrice": 42,
-    "percentOff": 23,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338201084041-44927038357641",
+    "price": 31.49,
+    "wasPrice": 40.99,
+    "percentOff": 23,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338352767113-44927268814985",
+    "price": 25.99,
+    "wasPrice": 80.99,
+    "percentOff": 67,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416670580873-45147032780937",
+    "price": 17.99,
+    "wasPrice": 30.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338201182345-44927038455945",
+    "price": 23.99,
+    "wasPrice": 54.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416670384265-45147032584329",
+    "price": 27.99,
+    "wasPrice": 51.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-donnakaran006",
-    "price": 155,
+    "price": 145,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-donnakaran004",
-    "price": 155,
+    "price": 145,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
@@ -9294,10 +15377,17 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338353946761-44927270617225",
+    "price": 21.49,
+    "wasPrice": 62,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-dknygd004",
-    "price": 37,
+    "price": 35,
     "wasPrice": 49,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -9315,6 +15405,20 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338358632585-44927278907529",
+    "price": 25.49,
+    "wasPrice": 61.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338201444489-44927038750857",
+    "price": 30.99,
+    "wasPrice": 61.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-85715950284",
     "price": 30.95,
     "wasPrice": 46,
@@ -9323,10 +15427,24 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-dgdevotion014",
-    "price": 65,
+    "price": 62,
     "wasPrice": 86,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338202198153-44927039733897",
+    "price": 45.49,
+    "wasPrice": 64.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338202263689-44927039799433",
+    "price": 48.49,
+    "wasPrice": 91.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8057971185474",
@@ -9337,17 +15455,136 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-dgdevotion012",
-    "price": 105,
+    "price": 81,
     "wasPrice": 135,
-    "percentOff": 22,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-dgdevotion013",
-    "price": 140,
+    "price": 115,
     "wasPrice": 185,
-    "percentOff": 24,
+    "percentOff": 37,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338352865417-44927269470345",
+    "price": 45.49,
+    "wasPrice": 75.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338201542793-44927038881929",
+    "price": 36.99,
+    "wasPrice": 67.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338201706633-44927039045769",
+    "price": 26.99,
+    "wasPrice": 51.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416671334537-45147034091657",
+    "price": 38.99,
+    "wasPrice": 82.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338202296457-44927039832201",
+    "price": 34.49,
+    "wasPrice": 52.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338202361993-44927039897737",
+    "price": 36.99,
+    "wasPrice": 75.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338202394761-44927039930505",
+    "price": 46.99,
+    "wasPrice": 86.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416671137929-45147033370761",
+    "price": 53.99,
+    "wasPrice": 98.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338202427529-44927039963273",
+    "price": 48.99,
+    "wasPrice": 87.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338360926345-44927281561737",
+    "price": 60.49,
+    "wasPrice": 87.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338202493065-44927040028809",
+    "price": 47.49,
+    "wasPrice": 83.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338386256009-44927318982793",
+    "price": 56.49,
+    "wasPrice": 71.99,
+    "percentOff": 21,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338202558601-44927040094345",
+    "price": 58.99,
+    "wasPrice": 96.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338202591369-44927040127113",
+    "price": 59.99,
+    "wasPrice": 92.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338202820745-44927040389257",
+    "price": 19.99,
+    "wasPrice": 26.99,
+    "percentOff": 25,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338202722441-44927040258185",
+    "price": 79.99,
+    "wasPrice": 125.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338202853513-44927040454793",
+    "price": 68.99,
+    "wasPrice": 101.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8054754400847",
@@ -9365,31 +15602,38 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-kbydandg004",
-    "price": 97,
+    "price": 78,
     "wasPrice": 130,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-kbydandg005",
-    "price": 135,
+    "price": 110,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-kbydandg011",
-    "price": 87,
+    "price": 69,
     "wasPrice": 115,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-kbydandgint002",
-    "price": 92,
+    "price": 74,
     "wasPrice": 125,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338339070089-44927249842313",
+    "price": 43.99,
+    "wasPrice": 80.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8054754400625",
@@ -9407,9 +15651,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-lightblue01",
-    "price": 95,
+    "price": 76,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
@@ -9427,11 +15671,67 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416671039625-45147033239689",
+    "price": 55.49,
+    "wasPrice": 111.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416671170697-45147033403529",
+    "price": 51.99,
+    "wasPrice": 116.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338203017353-44927040618633",
+    "price": 39.49,
+    "wasPrice": 74.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338202984585-44927040585865",
+    "price": 63.99,
+    "wasPrice": 103.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338205769865-44927043895433",
+    "price": 49.49,
+    "wasPrice": 78.99,
+    "percentOff": 37,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-dglightblue017",
-    "price": 180,
+    "price": 175,
     "wasPrice": 240,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416671105161-45147033337993",
+    "price": 58.99,
+    "wasPrice": 114.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416671400073-45147034157193",
+    "price": 46.99,
+    "wasPrice": 93.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416671006857-45147033206921",
+    "price": 57.49,
+    "wasPrice": 105.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-737052263137",
@@ -9448,6 +15748,20 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338368626825-44927289950345",
+    "price": 54.99,
+    "wasPrice": 70.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338206621833-44927044911241",
+    "price": 40.99,
+    "wasPrice": 60.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8057971185481",
     "price": 68.95,
     "wasPrice": 130,
@@ -9462,52 +15776,59 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338270191753-44927139381385",
+    "price": 73.99,
+    "wasPrice": 89.99,
+    "percentOff": 17,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-qbydandg006",
-    "price": 84,
+    "price": 80,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-qbydandg007",
-    "price": 120,
+    "price": 94,
     "wasPrice": 160,
-    "percentOff": 25,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-qbydandg002",
-    "price": 72,
+    "price": 58,
     "wasPrice": 96,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-qbydandgint002",
-    "price": 81,
+    "price": 65,
     "wasPrice": 110,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-qbydandgint003",
-    "price": 115,
+    "price": 90,
     "wasPrice": 150,
-    "percentOff": 23,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-qbydandgint004",
-    "price": 150,
+    "price": 120,
     "wasPrice": 200,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-dgtheone003",
-    "price": 135,
+    "price": 110,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
@@ -9518,6 +15839,27 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338365087881-44927285919881",
+    "price": 55.49,
+    "wasPrice": 87.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338344247433-44927258132617",
+    "price": 60.99,
+    "wasPrice": 127.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338344280201-44927258165385",
+    "price": 52.99,
+    "wasPrice": 77.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3423222018245",
     "price": 59.95,
     "wasPrice": 110,
@@ -9526,23 +15868,23 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-dgtheoneformen016",
-    "price": 97,
+    "price": 93,
     "wasPrice": 130,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-dgtheoneformen017",
-    "price": 135,
+    "price": 130,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-dgtheoneformen004",
-    "price": 125,
+    "price": 99,
     "wasPrice": 165,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -9553,53 +15895,95 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338201936009-44927039307913",
+    "price": 67.49,
+    "wasPrice": 102.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-dgtheonegoldformen002",
-    "price": 92,
+    "price": 74,
     "wasPrice": 125,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-dgtheonegoldformen003",
-    "price": 125,
+    "price": 99,
     "wasPrice": 165,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-dgtheonegoldpf002",
-    "price": 115,
+    "price": 92,
     "wasPrice": 155,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-dgtheone039",
-    "price": 81,
+    "price": 65,
     "wasPrice": 110,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-dgtheone040",
-    "price": 115,
+    "price": 110,
     "wasPrice": 155,
-    "percentOff": 25,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-dgtheone041",
-    "price": 150,
-    "wasPrice": 200,
+    "price": 145,
+    "wasPrice": 195,
     "percentOff": 25,
     "retailerId": "escentual"
   },
   {
-    "fragranceId": "escentual-dgtheone028",
-    "price": 115,
-    "wasPrice": 155,
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338281037961-44927175753865",
+    "price": 65.49,
+    "wasPrice": 87.99,
     "percentOff": 25,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-dgtheone028",
+    "price": 92,
+    "wasPrice": 155,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416671694985-45147034452105",
+    "price": 10.19,
+    "wasPrice": 19.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416671662217-45147034419337",
+    "price": 16.49,
+    "wasPrice": 30.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338207637641-44927046353033",
+    "price": 14.79,
+    "wasPrice": 24.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338207539337-44927046221961",
+    "price": 45.49,
+    "wasPrice": 76.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-d2originalwood001",
@@ -9607,6 +15991,20 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 110,
     "percentOff": 50,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338208063625-44927047237769",
+    "price": 15.99,
+    "wasPrice": 62.99,
+    "percentOff": 74,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338208227465-44927047401609",
+    "price": 36.49,
+    "wasPrice": 43.99,
+    "percentOff": 17,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-ds2woodpourfemme008",
@@ -9630,11 +16028,60 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "escentual"
   },
   {
-    "fragranceId": "ean-85715806352",
-    "price": 49.95,
-    "wasPrice": 94,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338208325769-44927047499913",
+    "price": 49.49,
+    "wasPrice": 128.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416672645257-45147035500681",
+    "price": 14.69,
+    "wasPrice": 26.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338208391305-44927047598217",
+    "price": 57.49,
+    "wasPrice": 128.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338352963721-44927269601417",
+    "price": 36.99,
+    "wasPrice": 61.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416672514185-45147035369609",
+    "price": 27.49,
+    "wasPrice": 49.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416672415881-45147035238537",
+    "price": 21.49,
+    "wasPrice": 49.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416672153737-45147034976393",
+    "price": 62.49,
+    "wasPrice": 91.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338208522377-44927047729289",
+    "price": 24.99,
+    "wasPrice": 45.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-85715806406",
@@ -9644,116 +16091,886 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416672186505-45147035009161",
+    "price": 48.49,
+    "wasPrice": 91.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338347655305-44927261868169",
+    "price": 53.99,
+    "wasPrice": 76.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338208620681-44927047827593",
+    "price": 53.99,
+    "wasPrice": 128.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416672317577-45147035140233",
+    "price": 53.99,
+    "wasPrice": 91.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416672678025-45147035533449",
+    "price": 6.19,
+    "wasPrice": 12.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338347720841-44927261933705",
+    "price": 19.49,
+    "wasPrice": 54.99,
+    "percentOff": 64,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338208817289-44927048056969",
+    "price": 15.49,
+    "wasPrice": 27.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416673136777-45147036057737",
+    "price": 22.49,
+    "wasPrice": 40.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416673038473-45147035926665",
+    "price": 24.99,
+    "wasPrice": 49.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-eliesaab088",
-    "price": 73,
+    "price": 59,
     "wasPrice": 97,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416673366153-45147036287113",
+    "price": 52.49,
+    "wasPrice": 91.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416673398921-45147036319881",
+    "price": 40.49,
+    "wasPrice": 107.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338219761801-44927061557385",
+    "price": 57.49,
+    "wasPrice": 83.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338428100745-44927426101385",
+    "price": 50.49,
+    "wasPrice": 95,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-eliesaab067",
-    "price": 73,
+    "price": 59,
     "wasPrice": 97,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338423185545-44927415976073",
+    "price": 19.49,
+    "wasPrice": 45,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338170937481-44926988451977",
+    "price": 15.99,
+    "wasPrice": 33.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-ardenbeauty06",
-    "price": 17,
+    "price": 16,
     "wasPrice": 23,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
-    "fragranceId": "ean-27131086871",
-    "price": 45.25,
-    "wasPrice": 85,
-    "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338211405961-44927051169929",
+    "price": 18.99,
+    "wasPrice": 44.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
   },
   {
-    "fragranceId": "ean-27131006534",
-    "price": 46.75,
-    "wasPrice": 88,
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338211373193-44927051137161",
+    "price": 21.49,
+    "wasPrice": 57.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416674578569-45147037696137",
+    "price": 11.69,
+    "wasPrice": 19.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338348605577-44927263998089",
+    "price": 12.19,
+    "wasPrice": 32.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416674119817-45147037171849",
+    "price": 10.19,
+    "wasPrice": 22.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416674381961-45147037433993",
+    "price": 13.19,
+    "wasPrice": 19.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338211930249-44927051825289",
+    "price": 9.19,
+    "wasPrice": 19.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338211963017-44927051858057",
+    "price": 11.19,
+    "wasPrice": 34.99,
+    "percentOff": 68,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338212061321-44927051923593",
+    "price": 19.49,
+    "wasPrice": 51.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338212323465-44927052218505",
+    "price": 34.99,
+    "wasPrice": 59.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338212552841-44927052513417",
+    "price": 10.19,
+    "wasPrice": 23.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338212716681-44927052710025",
+    "price": 4.79,
+    "wasPrice": 5.99,
+    "percentOff": 20,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416673857673-45147036909705",
+    "price": 18.99,
+    "wasPrice": 35.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338212749449-44927052742793",
+    "price": 15.19,
+    "wasPrice": 25.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416674939017-45147038056585",
+    "price": 13.19,
+    "wasPrice": 24.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338348048521-44927262261385",
+    "price": 14.29,
+    "wasPrice": 37.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338213142665-44927053201545",
+    "price": 20.49,
+    "wasPrice": 51.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338213372041-44927053430921",
+    "price": 19.49,
+    "wasPrice": 47.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338213404809-44927053463689",
+    "price": 19.49,
+    "wasPrice": 54.99,
+    "percentOff": 64,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416675659913-45147038777481",
+    "price": 14.69,
+    "wasPrice": 26.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416676413577-45147039531145",
+    "price": 9.19,
+    "wasPrice": 17.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416676380809-45147039498377",
+    "price": 19.99,
+    "wasPrice": 37.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416676446345-45147039563913",
+    "price": 10.19,
+    "wasPrice": 17.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338391498889-44927330713737",
+    "price": 17.49,
+    "wasPrice": 26.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388877449-44927324553353",
+    "price": 15.49,
+    "wasPrice": 22.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388549769-44927324160137",
+    "price": 10.69,
+    "wasPrice": 14.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388942985-44927324618889",
+    "price": 15.49,
+    "wasPrice": 23.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338398511241-44927350145161",
+    "price": 12.19,
+    "wasPrice": 15.99,
+    "percentOff": 23,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388779145-44927324455049",
+    "price": 14.19,
+    "wasPrice": 21.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338398118025-44927348310153",
+    "price": 3.69,
+    "wasPrice": 5.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388844681-44927324520585",
+    "price": 14.19,
+    "wasPrice": 22.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388254857-44927323865225",
+    "price": 3.69,
+    "wasPrice": 5.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388811913-44927324487817",
+    "price": 14.19,
+    "wasPrice": 22.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388320393-44927323930761",
+    "price": 5.19,
+    "wasPrice": 7.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388680841-44927324291209",
+    "price": 12.19,
+    "wasPrice": 16.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338397986953-44927348179081",
+    "price": 3.69,
+    "wasPrice": 7.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388615305-44927324225673",
+    "price": 12.19,
+    "wasPrice": 16.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388418697-44927324029065",
+    "price": 5.19,
+    "wasPrice": 7.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388451465-44927324061833",
+    "price": 5.19,
+    "wasPrice": 7.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388648073-44927324258441",
+    "price": 12.19,
+    "wasPrice": 16.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388517001-44927324127369",
+    "price": 10.69,
+    "wasPrice": 14.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388910217-44927324586121",
+    "price": 15.49,
+    "wasPrice": 23.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338213601417-44927053660297",
+    "price": 99.99,
+    "wasPrice": 105.99,
+    "percentOff": 5,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338213666953-44927053758601",
+    "price": 36.49,
+    "wasPrice": 67.99,
     "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338213732489-44927053824137",
+    "price": 42.49,
+    "wasPrice": 69.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338412241033-44927390613641",
+    "price": 44.99,
+    "wasPrice": 69.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416676511881-45147039629449",
+    "price": 106.99,
+    "wasPrice": 201.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338355683465-44927275270281",
+    "price": 24.49,
+    "wasPrice": 69.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416676970633-45147040219273",
+    "price": 32.49,
+    "wasPrice": 44.99,
+    "percentOff": 27,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338348179593-44927262392457",
+    "price": 13.19,
+    "wasPrice": 52.6,
+    "percentOff": 74,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338348212361-44927262425225",
+    "price": 22.49,
+    "wasPrice": 59.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338339430537-44927250268297",
+    "price": 22.99,
+    "wasPrice": 59.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416677396617-45147040546953",
+    "price": 23.99,
+    "wasPrice": 44.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416677265545-45147040514185",
+    "price": 30.49,
+    "wasPrice": 62.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338214125705-44927054348425",
+    "price": 18.99,
+    "wasPrice": 54.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338214256777-44927054479497",
+    "price": 26.49,
+    "wasPrice": 67.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338339496073-44927250432137",
+    "price": 38.49,
+    "wasPrice": 69.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338339594377-44927250530441",
+    "price": 14.69,
+    "wasPrice": 49.99,
+    "percentOff": 70,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338339528841-44927250464905",
+    "price": 38.49,
+    "wasPrice": 56.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416677101705-45147040350345",
+    "price": 44.49,
+    "wasPrice": 80.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338214322313-44927054545033",
+    "price": 28.99,
+    "wasPrice": 39.99,
+    "percentOff": 27,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338214224009-44927054446729",
+    "price": 25.99,
+    "wasPrice": 49.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338214355081-44927054577801",
+    "price": 28.49,
+    "wasPrice": 47.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338364399753-44927285198985",
+    "price": 22.99,
+    "wasPrice": 47.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416678215817-45147041398921",
+    "price": 47.49,
+    "wasPrice": 89.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416678445193-45147041792137",
+    "price": 45.49,
+    "wasPrice": 96.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338214518921-44927054741641",
+    "price": 40.49,
+    "wasPrice": 69.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416678346889-45147041693833",
+    "price": 43.99,
+    "wasPrice": 80.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416680509577-45147043987593",
+    "price": 18.49,
+    "wasPrice": 33.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416681099401-45147044577417",
+    "price": 22.99,
+    "wasPrice": 42.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338215927945-44927056248969",
+    "price": 14.79,
+    "wasPrice": 32.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338216026249-44927056347273",
+    "price": 14.79,
+    "wasPrice": 42.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338216059017-44927056380041",
+    "price": 10.19,
+    "wasPrice": 32.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338216091785-44927056412809",
+    "price": 8.69,
+    "wasPrice": 44.99,
+    "percentOff": 80,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338216878217-44927057264777",
+    "price": 8.69,
+    "wasPrice": 47.99,
+    "percentOff": 81,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338363482249-44927284248713",
+    "price": 9.69,
+    "wasPrice": 32.99,
+    "percentOff": 70,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338216321161-44927056642185",
+    "price": 10.19,
+    "wasPrice": 32.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-ferragamoman011",
-    "price": 64,
+    "price": 51,
     "wasPrice": 85,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-ferragamoman029",
-    "price": 65,
+    "price": 52,
     "wasPrice": 86,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-ferragamoman030",
-    "price": 99,
+    "price": 79,
     "wasPrice": 135,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-sfsignorina004",
-    "price": 110,
+    "price": 86,
     "wasPrice": 145,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-signorinamisteriosa002",
-    "price": 60,
+    "price": 48,
     "wasPrice": 79,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-signorinaunica02",
-    "price": 60,
+    "price": 57,
     "wasPrice": 79,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-signorinaunica03",
-    "price": 84,
+    "price": 67,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-signorinaunica04",
-    "price": 110,
+    "price": 88,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-ferragamouomo003",
-    "price": 66,
+    "price": 53,
     "wasPrice": 88,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-ferragamouomo004",
-    "price": 86,
+    "price": 69,
     "wasPrice": 115,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-ferragamouomo018",
-    "price": 94,
+    "price": 75,
     "wasPrice": 125,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338357911689-44927278022793",
+    "price": 25.99,
+    "wasPrice": 29.99,
+    "percentOff": 13,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338386321545-44927319113865",
+    "price": 19.99,
+    "wasPrice": 21.99,
+    "percentOff": 9,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338386288777-44927319081097",
+    "price": 25.99,
+    "wasPrice": 29.99,
+    "percentOff": 13,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416682213513-45147046150281",
+    "price": 98.99,
+    "wasPrice": 159.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416683819145-45147047886985",
+    "price": 15.99,
+    "wasPrice": 30.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416683065481-45147047002249",
+    "price": 50.99,
+    "wasPrice": 96.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416683655305-45147047723145",
+    "price": 15.99,
+    "wasPrice": 30.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416682606729-45147046543497",
+    "price": 85.49,
+    "wasPrice": 145.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416682311817-45147046248585",
+    "price": 99.99,
+    "wasPrice": 186.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416683753609-45147047821449",
+    "price": 15.99,
+    "wasPrice": 30.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416683229321-45147047166089",
+    "price": 41.99,
+    "wasPrice": 75.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338216583305-44927056937097",
+    "price": 103.99,
+    "wasPrice": 179.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338216681609-44927057068169",
+    "price": 102.49,
+    "wasPrice": 199.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416683851913-45147047919753",
+    "price": 15.99,
+    "wasPrice": 30.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416682934409-45147046871177",
+    "price": 42.99,
+    "wasPrice": 76.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416682573961-45147046510729",
+    "price": 71.99,
+    "wasPrice": 136.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416682180745-45147046117513",
+    "price": 92.99,
+    "wasPrice": 174.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416682475657-45147046412425",
+    "price": 79.99,
+    "wasPrice": 147.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416684277897-45147048345737",
+    "price": 15.99,
+    "wasPrice": 30.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416682049673-45147045953673",
+    "price": 98.99,
+    "wasPrice": 147.99,
+    "percentOff": 33,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15410316247389-default-title",
@@ -11226,6 +18443,55 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416684966025-45147049263241",
+    "price": 17.49,
+    "wasPrice": 31.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416685293705-45147049394313",
+    "price": 19.49,
+    "wasPrice": 35.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416685359241-45147049459849",
+    "price": 17.99,
+    "wasPrice": 35.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416684802185-45147049066633",
+    "price": 15.99,
+    "wasPrice": 30.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416685326473-45147049427081",
+    "price": 17.49,
+    "wasPrice": 31.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416684540041-45147048640649",
+    "price": 216.99,
+    "wasPrice": 406.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416686112905-45147050311817",
+    "price": 30.99,
+    "wasPrice": 57.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15441384898909-default-title",
     "price": 19.99,
     "wasPrice": 35,
@@ -11422,6 +18688,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416686211209-45147050410121",
+    "price": 25.99,
+    "wasPrice": 48.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15501873807709-default-title",
     "price": 19.99,
     "wasPrice": 35,
@@ -11597,6 +18870,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416686178441-45147050377353",
+    "price": 44.49,
+    "wasPrice": 80.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-14702398996829-default-title",
     "price": 39.99,
     "wasPrice": 50,
@@ -11758,6 +19038,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416686014601-45147050147977",
+    "price": 34.99,
+    "wasPrice": 67.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-9416644460893-default-title",
     "price": 24.99,
     "wasPrice": 45,
@@ -11884,6 +19171,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416686145673-45147050344585",
+    "price": 35.99,
+    "wasPrice": 66.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-9416628437341-default-title",
     "price": 29.99,
     "wasPrice": 45,
@@ -11916,13 +19210,6 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 24.99,
     "wasPrice": 45,
     "percentOff": 44,
-    "retailerId": "emirates-oud"
-  },
-  {
-    "fragranceId": "emirates-oud-15568351691101-default-title",
-    "price": 29.99,
-    "wasPrice": 40,
-    "percentOff": 25,
     "retailerId": "emirates-oud"
   },
   {
@@ -11996,6 +19283,20 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416685981833-45147050115209",
+    "price": 45.49,
+    "wasPrice": 87.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416686243977-45147050442889",
+    "price": 45.49,
+    "wasPrice": 87.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15497317974365-default-title",
     "price": 24.99,
     "wasPrice": 40,
@@ -12038,10 +19339,24 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338216976521-44927057363081",
+    "price": 32.49,
+    "wasPrice": 94.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338217009289-44927057395849",
+    "price": 37.49,
+    "wasPrice": 94.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-sweetheart002",
-    "price": 46,
+    "price": 37,
     "wasPrice": 61,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
@@ -12053,16 +19368,44 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-ghostthefragrance005",
-    "price": 58,
+    "price": 55,
     "wasPrice": 77,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416686768265-45147050967177",
+    "price": 32.49,
+    "wasPrice": 58.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416686899337-45147051098249",
+    "price": 47.49,
+    "wasPrice": 102.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416686866569-45147051065481",
+    "price": 53.99,
+    "wasPrice": 102.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416688275593-45147052605577",
+    "price": 23.99,
+    "wasPrice": 46.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-acquadigio002",
-    "price": 85,
+    "price": 81,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
@@ -12073,24 +19416,38 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416688111753-45147052441737",
+    "price": 50.49,
+    "wasPrice": 93.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416687947913-45147052179593",
+    "price": 54.99,
+    "wasPrice": 121.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-10000014",
-    "price": 105,
+    "price": 98,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-acquadigiohomme008",
-    "price": 145,
+    "price": 140,
     "wasPrice": 190,
-    "percentOff": 23,
+    "percentOff": 26,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-acquadigioprofondo002",
-    "price": 85,
+    "price": 81,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
@@ -12101,11 +19458,39 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338389663881-44927326257289",
+    "price": 115.99,
+    "wasPrice": 154.99,
+    "percentOff": 25,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614273953849",
     "price": 77.95,
     "wasPrice": 125,
     "percentOff": 37,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416688242825-45147052540041",
+    "price": 22.49,
+    "wasPrice": 42.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416687358089-45147051589769",
+    "price": 97.49,
+    "wasPrice": 177.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338217926793-44927058608265",
+    "price": 79.99,
+    "wasPrice": 91.99,
+    "percentOff": 13,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614273604888",
@@ -12115,87 +19500,115 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416687849609-45147052081289",
+    "price": 69.99,
+    "wasPrice": 130.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338218057865-44927059525769",
+    "price": 23.99,
+    "wasPrice": 29.99,
+    "percentOff": 20,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-gacode013",
-    "price": 125,
-    "wasPrice": 165,
-    "percentOff": 24,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "escentual-armanicodefemme01",
-    "price": 72,
-    "wasPrice": 96,
-    "percentOff": 25,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "escentual-emporioyou003",
-    "price": 86,
-    "wasPrice": 115,
-    "percentOff": 25,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "escentual-emporioyou004",
     "price": 120,
-    "wasPrice": 155,
-    "percentOff": 22,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "escentual-emporioyou047",
-    "price": 65,
-    "wasPrice": 86,
-    "percentOff": 24,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "escentual-emporioyou039",
-    "price": 87,
-    "wasPrice": 115,
-    "percentOff": 24,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "escentual-emporioyou006",
-    "price": 72,
-    "wasPrice": 96,
-    "percentOff": 25,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "escentual-emporioyou007",
-    "price": 98,
-    "wasPrice": 135,
+    "wasPrice": 165,
     "percentOff": 27,
     "retailerId": "escentual"
   },
   {
-    "fragranceId": "escentual-emporioyou036",
-    "price": 84,
-    "wasPrice": 115,
-    "percentOff": 26,
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338218123401-44927059591305",
+    "price": 58.49,
+    "wasPrice": 66.99,
+    "percentOff": 12,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-armanicodefemme01",
+    "price": 69,
+    "wasPrice": 96,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
-    "fragranceId": "escentual-emporioyou042",
+    "fragranceId": "escentual-emporioyou003",
+    "price": 82,
+    "wasPrice": 115,
+    "percentOff": 28,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-emporioyou004",
     "price": 115,
     "wasPrice": 155,
     "percentOff": 25,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "escentual-emporioyou047",
+    "price": 61,
+    "wasPrice": 86,
+    "percentOff": 29,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-emporioyou039",
+    "price": 83,
+    "wasPrice": 115,
+    "percentOff": 27,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-emporioyou006",
+    "price": 69,
+    "wasPrice": 96,
+    "percentOff": 28,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-emporioyou007",
+    "price": 78,
+    "wasPrice": 130,
+    "percentOff": 40,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-emporioyou036",
+    "price": 80,
+    "wasPrice": 115,
+    "percentOff": 30,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416687915145-45147052146825",
+    "price": 64.49,
+    "wasPrice": 127.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-emporioyou042",
+    "price": 92,
+    "wasPrice": 155,
+    "percentOff": 40,
+    "retailerId": "escentual"
+  },
+  {
     "fragranceId": "escentual-emporioyou024",
-    "price": 110,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-emporioyou038",
-    "price": 72,
+    "price": 58,
     "wasPrice": 96,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
@@ -12214,17 +19627,24 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-emporioyou051",
-    "price": 110,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-emporioyou052",
-    "price": 120,
+    "price": 115,
     "wasPrice": 160,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416687882377-45147052114057",
+    "price": 46.49,
+    "wasPrice": 82.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3360372061830",
@@ -12234,6 +19654,34 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416687587465-45147051819145",
+    "price": 66.49,
+    "wasPrice": 125.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416688046217-45147052343433",
+    "price": 50.49,
+    "wasPrice": 121.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416687325321-45147051524233",
+    "price": 71.99,
+    "wasPrice": 130.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416687063177-45147051262089",
+    "price": 121.99,
+    "wasPrice": 228.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8431240098021",
     "price": 88.95,
     "wasPrice": 160,
@@ -12241,24 +19689,31 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338218713225-44927060213897",
+    "price": 79.99,
+    "wasPrice": 107.99,
+    "percentOff": 25,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-giorgioarmanisi038",
-    "price": 80,
+    "price": 77,
     "wasPrice": 110,
-    "percentOff": 27,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-giorgioarmanisi060",
-    "price": 115,
+    "price": 92,
     "wasPrice": 155,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-giorgioarmanisi040",
-    "price": 160,
+    "price": 150,
     "wasPrice": 210,
-    "percentOff": 23,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -12269,10 +19724,101 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416688603273-45147052933257",
+    "price": 16.49,
+    "wasPrice": 30.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338218844297-44927060312201",
+    "price": 9.29,
+    "wasPrice": 24.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338218909833-44927060377737",
+    "price": 19.49,
+    "wasPrice": 35.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338218942601-44927060410505",
+    "price": 23.99,
+    "wasPrice": 51.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338218975369-44927060443273",
+    "price": 12.29,
+    "wasPrice": 24.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338219008137-44927060476041",
+    "price": 8.29,
+    "wasPrice": 9.99,
+    "percentOff": 17,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338219073673-44927060607113",
+    "price": 20.99,
+    "wasPrice": 39.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338219106441-44927060639881",
+    "price": 16.99,
+    "wasPrice": 41.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338219171977-44927060738185",
+    "price": 13.19,
+    "wasPrice": 46.99,
+    "percentOff": 71,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338219270281-44927060902025",
+    "price": 11.29,
+    "wasPrice": 26.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416688701577-45147053031561",
+    "price": 67.49,
+    "wasPrice": 129.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338219860105-44927061655689",
+    "price": 47.49,
+    "wasPrice": 69.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416688865417-45147053359241",
+    "price": 53.99,
+    "wasPrice": 84.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-10001130",
-    "price": 87,
+    "price": 83,
     "wasPrice": 115,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
@@ -12290,6 +19836,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338220318857-44927062114441",
+    "price": 51.49,
+    "wasPrice": 108.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3274870373251",
     "price": 48.95,
     "wasPrice": 85,
@@ -12302,6 +19855,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 69,
     "percentOff": 31,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338360631433-44927280971913",
+    "price": 60.49,
+    "wasPrice": 92.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3274870303364",
@@ -12318,6 +19878,20 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416689291401-45147053817993",
+    "price": 63.49,
+    "wasPrice": 118.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416689750153-45147054342281",
+    "price": 43.49,
+    "wasPrice": 75.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3274872441057",
     "price": 55.95,
     "wasPrice": 101,
@@ -12332,6 +19906,27 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416689553545-45147054047369",
+    "price": 46.99,
+    "wasPrice": 89.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338384814217-44927317278857",
+    "price": 63.99,
+    "wasPrice": 89.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416688898185-45147053392009",
+    "price": 95.49,
+    "wasPrice": 179.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3274871935861",
     "price": 45.95,
     "wasPrice": 85,
@@ -12339,17 +19934,45 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338366267529-44927287001225",
+    "price": 57.49,
+    "wasPrice": 78.99,
+    "percentOff": 27,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416689258633-45147053785225",
+    "price": 63.99,
+    "wasPrice": 156.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-givenchygentleman036",
-    "price": 67,
+    "price": 64,
     "wasPrice": 125,
-    "percentOff": 46,
+    "percentOff": 48,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338413093001-44927391596681",
+    "price": 75.49,
+    "wasPrice": 84.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416689127561-45147053654153",
+    "price": 90.49,
+    "wasPrice": 172.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-givenchygentleman039",
-    "price": 82,
+    "price": 79,
     "wasPrice": 110,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -12360,11 +19983,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338220548233-44927062343817",
+    "price": 44.99,
+    "wasPrice": 84.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-hotcouture006",
     "price": 73,
     "wasPrice": 165,
     "percentOff": 55,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416689193097-45147053719689",
+    "price": 69.49,
+    "wasPrice": 130.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3274872428744",
@@ -12388,24 +20025,38 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416689881225-45147054473353",
+    "price": 30.99,
+    "wasPrice": 58.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-givenchyirresistible015",
-    "price": 87,
+    "price": 81,
     "wasPrice": 115,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416689815689-45147054407817",
+    "price": 34.49,
+    "wasPrice": 62.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-givenchyirresistible030",
-    "price": 105,
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-givenchyirresistible031",
-    "price": 130,
+    "price": 125,
     "wasPrice": 175,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -12417,17 +20068,31 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-givenchyirresistible020",
-    "price": 63,
+    "price": 60,
     "wasPrice": 140,
-    "percentOff": 55,
+    "percentOff": 57,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-givenchyirresistible021",
-    "price": 78,
+    "price": 75,
     "wasPrice": 175,
-    "percentOff": 55,
+    "percentOff": 57,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416688963721-45147053457545",
+    "price": 119.99,
+    "wasPrice": 228.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338370789513-44927293849737",
+    "price": 121.49,
+    "wasPrice": 148.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3274872415720",
@@ -12442,6 +20107,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 124,
     "percentOff": 38,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416689225865-45147053752457",
+    "price": 73.99,
+    "wasPrice": 139.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3274872411692",
@@ -12459,16 +20131,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-givenchylinterdit033",
-    "price": 51,
+    "price": 49,
     "wasPrice": 110,
-    "percentOff": 53,
+    "percentOff": 55,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-givenchylinterdit048",
-    "price": 60,
+    "price": 56,
     "wasPrice": 135,
-    "percentOff": 55,
+    "percentOff": 58,
     "retailerId": "escentual"
   },
   {
@@ -12480,9 +20152,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-organza03",
-    "price": 87,
+    "price": 84,
     "wasPrice": 195,
-    "percentOff": 55,
+    "percentOff": 56,
     "retailerId": "escentual"
   },
   {
@@ -12491,6 +20163,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 131,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338377605257-44927306629257",
+    "price": 59.99,
+    "wasPrice": 130.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-10001171",
@@ -12535,24 +20214,45 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416690077833-45147055521929",
+    "price": 9.19,
+    "wasPrice": 21.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416690045065-45147055489161",
+    "price": 10.69,
+    "wasPrice": 21.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338221072521-44927062900873",
+    "price": 9.69,
+    "wasPrice": 24.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-goldfieldbanks001",
-    "price": 165,
+    "price": 130,
     "wasPrice": 215,
-    "percentOff": 23,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-goldfieldbanks010",
-    "price": 260,
+    "price": 250,
     "wasPrice": 350,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-goldfieldbanks011",
-    "price": 165,
+    "price": 130,
     "wasPrice": 215,
-    "percentOff": 23,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
@@ -12568,6 +20268,34 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 250,
     "percentOff": 43,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416692109449-45147059126409",
+    "price": 55.49,
+    "wasPrice": 107.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416691749001-45147058765961",
+    "price": 51.49,
+    "wasPrice": 87.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416691978377-45147058995337",
+    "price": 53.99,
+    "wasPrice": 111.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338339790985-44927250727049",
+    "price": 63.99,
+    "wasPrice": 98.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616307112338",
@@ -12640,6 +20368,41 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338222350473-44927064309897",
+    "price": 48.99,
+    "wasPrice": 61.99,
+    "percentOff": 20,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338222153865-44927064080521",
+    "price": 84.49,
+    "wasPrice": 96.99,
+    "percentOff": 12,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338222186633-44927064113289",
+    "price": 67.49,
+    "wasPrice": 82.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338364334217-44927285133449",
+    "price": 84.99,
+    "wasPrice": 125.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416691552393-45147058569353",
+    "price": 93.49,
+    "wasPrice": 129.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3616301794639",
     "price": 73.75,
     "wasPrice": 139,
@@ -12668,24 +20431,31 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338223071369-44927065620617",
+    "price": 277.49,
+    "wasPrice": 284.99,
+    "percentOff": 2,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-absolusallegoria003",
-    "price": 130,
+    "price": 99,
     "wasPrice": 230,
-    "percentOff": 43,
+    "percentOff": 56,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-guerlaincuirintense001",
-    "price": 130,
+    "price": 105,
     "wasPrice": 230,
-    "percentOff": 43,
+    "percentOff": 54,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-guerlainoudessentiel001",
-    "price": 130,
+    "price": 99,
     "wasPrice": 230,
-    "percentOff": 43,
+    "percentOff": 56,
     "retailerId": "escentual"
   },
   {
@@ -12704,9 +20474,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-guerlain25",
-    "price": 120,
+    "price": 93,
     "wasPrice": 155,
-    "percentOff": 22,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -12718,9 +20488,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-aquaallegoria055",
-    "price": 135,
+    "price": 110,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
@@ -12732,9 +20502,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-aquaallegoria126",
-    "price": 135,
+    "price": 130,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
@@ -12746,23 +20516,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-aquaallegoria092",
-    "price": 99,
+    "price": 98,
     "wasPrice": 150,
     "percentOff": 34,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-aquaallegoria115",
-    "price": 82,
+    "price": 68,
     "wasPrice": 150,
-    "percentOff": 45,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "escentual-aquaallegoria111",
-    "price": 95,
-    "wasPrice": 150,
-    "percentOff": 36,
+    "percentOff": 54,
     "retailerId": "escentual"
   },
   {
@@ -12774,9 +20537,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-aquaallegoria058",
-    "price": 135,
+    "price": 110,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
@@ -12795,9 +20558,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-aquaallegoria084",
-    "price": 72,
+    "price": 62,
     "wasPrice": 130,
-    "percentOff": 44,
+    "percentOff": 52,
     "retailerId": "escentual"
   },
   {
@@ -12816,9 +20579,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-aquaallegoria130",
-    "price": 100,
+    "price": 85,
     "wasPrice": 180,
-    "percentOff": 44,
+    "percentOff": 52,
     "retailerId": "escentual"
   },
   {
@@ -12837,44 +20600,44 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-habitrouge11",
-    "price": 62,
+    "price": 51,
     "wasPrice": 120,
-    "percentOff": 48,
+    "percentOff": 57,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-habitrouge23",
-    "price": 115,
+    "price": 88,
     "wasPrice": 205,
-    "percentOff": 43,
+    "percentOff": 57,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-habitrouge10",
-    "price": 88,
+    "price": 82,
     "wasPrice": 170,
-    "percentOff": 48,
+    "percentOff": 51,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-habitrouge24",
-    "price": 78,
+    "price": 75,
     "wasPrice": 105,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-guerlainhommeintense002",
-    "price": 95,
+    "price": 80,
     "wasPrice": 170,
-    "percentOff": 44,
+    "percentOff": 52,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-guerlainidylle001",
-    "price": 140,
+    "price": 135,
     "wasPrice": 185,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
@@ -12886,16 +20649,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-guerlainjicky002",
-    "price": 140,
+    "price": 135,
     "wasPrice": 185,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jicky01",
-    "price": 330,
+    "price": 315,
     "wasPrice": 440,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -12907,9 +20670,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-guerlain11",
-    "price": 330,
+    "price": 315,
     "wasPrice": 440,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -12921,10 +20684,24 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-guerlainlhommeideal022",
-    "price": 130,
+    "price": 125,
     "wasPrice": 170,
-    "percentOff": 23,
+    "percentOff": 26,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338223399049-44927065948297",
+    "price": 79.99,
+    "wasPrice": 112.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338360828041-44927281168521",
+    "price": 52.99,
+    "wasPrice": 98.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-linstanthomme13",
@@ -12934,10 +20711,24 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338384912521-44927317377161",
+    "price": 45.49,
+    "wasPrice": 104.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338384945289-44927317409929",
+    "price": 63.99,
+    "wasPrice": 143.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-lapetiterobenoire008",
-    "price": 93,
+    "price": 84,
     "wasPrice": 195,
-    "percentOff": 52,
+    "percentOff": 56,
     "retailerId": "escentual"
   },
   {
@@ -12949,23 +20740,23 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-monguerlain025",
-    "price": 155,
+    "price": 125,
     "wasPrice": 210,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-guerlainnahema001",
-    "price": 96,
+    "price": 89,
     "wasPrice": 185,
-    "percentOff": 48,
+    "percentOff": 51,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-guerlain2011shalimar002",
-    "price": 69,
+    "price": 57,
     "wasPrice": 125,
-    "percentOff": 44,
+    "percentOff": 54,
     "retailerId": "escentual"
   },
   {
@@ -13005,17 +20796,136 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-vetiver011",
-    "price": 130,
+    "price": 125,
     "wasPrice": 175,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-guerlain20",
-    "price": 330,
+    "price": 315,
     "wasPrice": 440,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338362761353-44927283495049",
+    "price": 23.99,
+    "wasPrice": 54.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416692895881-45147059912841",
+    "price": 22.49,
+    "wasPrice": 40.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416692961417-45147059978377",
+    "price": 26.99,
+    "wasPrice": 49.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338363023497-44927283757193",
+    "price": 22.49,
+    "wasPrice": 45.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416693059721-45147060076681",
+    "price": 18.99,
+    "wasPrice": 31.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416693026953-45147060043913",
+    "price": 15.99,
+    "wasPrice": 30.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338362892425-44927283626121",
+    "price": 22.99,
+    "wasPrice": 32.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338362695817-44927283429513",
+    "price": 22.49,
+    "wasPrice": 27.99,
+    "percentOff": 19,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338224087177-44927066701961",
+    "price": 18.99,
+    "wasPrice": 39.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338224119945-44927066734729",
+    "price": 21.99,
+    "wasPrice": 39.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416692994185-45147060011145",
+    "price": 23.99,
+    "wasPrice": 42.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416693223561-45147060240521",
+    "price": 22.99,
+    "wasPrice": 44.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338224611465-44927067324553",
+    "price": 23.99,
+    "wasPrice": 44.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416692928649-45147059945609",
+    "price": 22.99,
+    "wasPrice": 42.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338386518153-44927319310473",
+    "price": 24.99,
+    "wasPrice": 45.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416692830345-45147059847305",
+    "price": 27.49,
+    "wasPrice": 49.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416693092489-45147060109449",
+    "price": 27.49,
+    "wasPrice": 49.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15575844094301-default-title",
@@ -13037,6 +20947,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 35,
     "percentOff": 28,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416693256329-45147060273289",
+    "price": 32.49,
+    "wasPrice": 55.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15676107227485-default-title",
@@ -13082,51 +20999,128 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-drakkarnoir04",
-    "price": 12,
+    "price": 11,
     "wasPrice": 16,
-    "percentOff": 25,
+    "percentOff": 31,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-drakkarnoir01",
-    "price": 18,
+    "price": 17,
     "wasPrice": 23,
-    "percentOff": 21,
+    "percentOff": 26,
     "retailerId": "escentual"
   },
   {
-    "fragranceId": "escentual-houbigant13",
-    "price": 170,
-    "wasPrice": 225,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338228379785-44927072075913",
+    "price": 7.29,
+    "wasPrice": 13.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
   },
   {
-    "fragranceId": "escentual-fleursroyale03",
-    "price": 170,
-    "wasPrice": 245,
-    "percentOff": 30,
-    "retailerId": "escentual"
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338228478089-44927072174217",
+    "price": 17.49,
+    "wasPrice": 44.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338228674697-44927072698505",
+    "price": 17.49,
+    "wasPrice": 19.99,
+    "percentOff": 12,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338229592201-44927074762889",
+    "price": 128.99,
+    "wasPrice": 149.99,
+    "percentOff": 14,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338349162633-44927265079433",
+    "price": 47.49,
+    "wasPrice": 99.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338230280329-44927076302985",
+    "price": 69.49,
+    "wasPrice": 96.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338389106825-44927324815497",
+    "price": 32.99,
+    "wasPrice": 47.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416694763657-45147061682313",
+    "price": 63.99,
+    "wasPrice": 120.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416695287945-45147062403209",
+    "price": 52.49,
+    "wasPrice": 98.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416695025801-45147062141065",
+    "price": 58.99,
+    "wasPrice": 111.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416695353481-45147062468745",
+    "price": 22.49,
+    "wasPrice": 46.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416695320713-45147062435977",
+    "price": 44.49,
+    "wasPrice": 80.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-bossalive003",
-    "price": 97,
+    "price": 78,
     "wasPrice": 130,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossalive004",
-    "price": 125,
+    "price": 99,
     "wasPrice": 165,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416695517321-45147062632585",
+    "price": 31.49,
+    "wasPrice": 58.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-bossbottled16",
-    "price": 74,
+    "price": 59,
     "wasPrice": 99,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -13138,17 +21132,24 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-bossbottled025",
-    "price": 86,
+    "price": 82,
     "wasPrice": 115,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossbottledinfinite004",
-    "price": 140,
+    "price": 115,
     "wasPrice": 190,
-    "percentOff": 26,
+    "percentOff": 39,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416694894729-45147061813385",
+    "price": 48.99,
+    "wasPrice": 96.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8005610460598",
@@ -13158,122 +21159,136 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338349195401-44927265112201",
+    "price": 25.99,
+    "wasPrice": 76.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-hugobossmavie002",
-    "price": 59,
+    "price": 47,
     "wasPrice": 78,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-10000663",
-    "price": 57,
+    "price": 54,
     "wasPrice": 105,
-    "percentOff": 45,
+    "percentOff": 48,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossorange002",
-    "price": 75,
+    "price": 60,
     "wasPrice": 100,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416694829193-45147061747849",
+    "price": 115.49,
+    "wasPrice": 242.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-bossthescent004",
-    "price": 150,
+    "price": 120,
     "wasPrice": 195,
-    "percentOff": 23,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossthescent050",
-    "price": 97,
+    "price": 93,
     "wasPrice": 130,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossthescent010",
-    "price": 105,
+    "price": 81,
     "wasPrice": 135,
-    "percentOff": 22,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossthescent011",
-    "price": 140,
+    "price": 115,
     "wasPrice": 185,
-    "percentOff": 24,
+    "percentOff": 37,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossthescent058",
-    "price": 81,
+    "price": 65,
     "wasPrice": 110,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossthescent059",
-    "price": 120,
+    "price": 93,
     "wasPrice": 155,
-    "percentOff": 22,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossthescent040",
-    "price": 81,
+    "price": 65,
     "wasPrice": 110,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossthescent048",
-    "price": 115,
+    "price": 89,
     "wasPrice": 150,
-    "percentOff": 23,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossthescent056",
-    "price": 86,
+    "price": 82,
     "wasPrice": 115,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossthescent057",
-    "price": 120,
+    "price": 115,
     "wasPrice": 160,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossthescent037",
-    "price": 85,
+    "price": 68,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossthescent038",
-    "price": 120,
+    "price": 115,
     "wasPrice": 155,
-    "percentOff": 22,
+    "percentOff": 25,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossbottled029",
-    "price": 84,
+    "price": 80,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-bossbottled030",
-    "price": 110,
+    "price": 88,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
@@ -13291,6 +21306,27 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338226053257-44927069094025",
+    "price": 25.49,
+    "wasPrice": 53.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338226446473-44927069487241",
+    "price": 21.99,
+    "wasPrice": 41.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338226413705-44927069454473",
+    "price": 41.99,
+    "wasPrice": 78.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-hugoenergise01",
     "price": 42,
     "wasPrice": 82,
@@ -13299,10 +21335,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-bossiced002",
-    "price": 64,
+    "price": 51,
     "wasPrice": 85,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338340642953-44927251906697",
+    "price": 27.99,
+    "wasPrice": 55.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616306721746",
@@ -13326,11 +21369,60 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338227003529-44927070077065",
+    "price": 18.49,
+    "wasPrice": 47.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338227101833-44927070208137",
+    "price": 33.49,
+    "wasPrice": 71.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338227232905-44927070339209",
+    "price": 18.49,
+    "wasPrice": 45.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338227265673-44927070404745",
+    "price": 26.99,
+    "wasPrice": 71.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338227298441-44927070437513",
+    "price": 28.99,
+    "wasPrice": 71.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338227396745-44927070535817",
+    "price": 25.99,
+    "wasPrice": 49.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-737052006468",
     "price": 34.5,
     "wasPrice": 65,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416694861961-45147061780617",
+    "price": 107.49,
+    "wasPrice": 118.99,
+    "percentOff": 9,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614228902106",
@@ -13340,11 +21432,74 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338227855497-44927071191177",
+    "price": 22.99,
+    "wasPrice": 65.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338227921033-44927071289481",
+    "price": 24.99,
+    "wasPrice": 65.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416695779465-45147062894729",
+    "price": 16.49,
+    "wasPrice": 31.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416695910537-45147063025801",
+    "price": 13.69,
+    "wasPrice": 24.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338378195081-44927307219081",
+    "price": 197.99,
+    "wasPrice": 234.99,
+    "percentOff": 15,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-initio037",
-    "price": 320,
+    "price": 300,
     "wasPrice": 395,
-    "percentOff": 18,
+    "percentOff": 24,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416695943305-45147063058569",
+    "price": 220.99,
+    "wasPrice": 408.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338231394441-44927083675785",
+    "price": 41.49,
+    "wasPrice": 96.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338231328905-44927083610249",
+    "price": 30.49,
+    "wasPrice": 79.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338231459977-44927083970697",
+    "price": 30.49,
+    "wasPrice": 75.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423478974654",
@@ -13352,6 +21507,34 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 89,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338231689353-44927084724361",
+    "price": 23.99,
+    "wasPrice": 58.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338340741257-44927252005001",
+    "price": 32.99,
+    "wasPrice": 82.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416696828041-45147064172681",
+    "price": 29.99,
+    "wasPrice": 55.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416697450633-45147064795273",
+    "price": 20.99,
+    "wasPrice": 33.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423222048044",
@@ -13362,59 +21545,87 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-leaudissey025",
-    "price": 82,
+    "price": 66,
     "wasPrice": 110,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338232082569-44927085445257",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-leaudissey044",
-    "price": 68,
+    "price": 57,
     "wasPrice": 95,
-    "percentOff": 28,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-leaudissey045",
-    "price": 110,
+    "price": 88,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-leaudissey046",
-    "price": 145,
+    "price": 120,
     "wasPrice": 200,
-    "percentOff": 27,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416697155721-45147064500361",
+    "price": 29.49,
+    "wasPrice": 58.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-leaudissey048",
-    "price": 71,
+    "price": 59,
     "wasPrice": 97,
-    "percentOff": 26,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-leaudissey029",
-    "price": 105,
+    "price": 84,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-leaudissey039",
-    "price": 77,
+    "price": 62,
     "wasPrice": 105,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-leaudissey040",
-    "price": 105,
+    "price": 84,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338232770697-44927086428297",
+    "price": 25.49,
+    "wasPrice": 64.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416696729737-45147064008841",
+    "price": 27.99,
+    "wasPrice": 55.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423478501058",
@@ -13425,23 +21636,23 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-leaudissey042",
-    "price": 86,
+    "price": 69,
     "wasPrice": 115,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-leaudissey043",
-    "price": 120,
+    "price": 94,
     "wasPrice": 160,
-    "percentOff": 25,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-leseldissey003",
-    "price": 75,
+    "price": 63,
     "wasPrice": 105,
-    "percentOff": 28,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -13464,6 +21675,146 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 205,
     "percentOff": 26,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338263769225-44927129550985",
+    "price": 28.49,
+    "wasPrice": 63.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416696664201-45147063943305",
+    "price": 34.99,
+    "wasPrice": 58.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416697221257-45147064533129",
+    "price": 29.49,
+    "wasPrice": 53.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338271207561-44927140561033",
+    "price": 19.49,
+    "wasPrice": 54.99,
+    "percentOff": 64,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416697647241-45147064991881",
+    "price": 12.19,
+    "wasPrice": 22.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338233360521-44927087870089",
+    "price": 13.69,
+    "wasPrice": 49.99,
+    "percentOff": 72,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416698007689-45147065352329",
+    "price": 32.49,
+    "wasPrice": 58.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416698105993-45147065450633",
+    "price": 40.99,
+    "wasPrice": 75.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416698138761-45147065483401",
+    "price": 40.99,
+    "wasPrice": 75.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416698204297-45147065548937",
+    "price": 12.69,
+    "wasPrice": 22.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338233655433-44927088558217",
+    "price": 14.19,
+    "wasPrice": 24.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338233688201-44927088590985",
+    "price": 12.19,
+    "wasPrice": 32.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338233720969-44927088623753",
+    "price": 14.19,
+    "wasPrice": 54.99,
+    "percentOff": 74,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338233819273-44927088722057",
+    "price": 13.69,
+    "wasPrice": 54.99,
+    "percentOff": 75,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338233852041-44927088754825",
+    "price": 16.49,
+    "wasPrice": 54.99,
+    "percentOff": 70,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338234179721-44927089246345",
+    "price": 17.49,
+    "wasPrice": 40.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338234015881-44927088984201",
+    "price": 13.79,
+    "wasPrice": 29.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416698466441-45147065811081",
+    "price": 37.49,
+    "wasPrice": 67.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416698400905-45147065745545",
+    "price": 37.49,
+    "wasPrice": 67.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416698368137-45147065712777",
+    "price": 46.49,
+    "wasPrice": 84.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423470317152",
@@ -13508,6 +21859,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416699220105-45147066663049",
+    "price": 68.99,
+    "wasPrice": 129.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8435415092067",
     "price": 83.95,
     "wasPrice": 127,
@@ -13515,17 +21873,24 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338235326601-44927093670025",
+    "price": 50.99,
+    "wasPrice": 53.99,
+    "percentOff": 5,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-jpgdivine016",
-    "price": 78,
+    "price": 75,
     "wasPrice": 105,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpgdivine017",
-    "price": 110,
+    "price": 105,
     "wasPrice": 145,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
@@ -13537,38 +21902,59 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-jpgdivine020",
-    "price": 125,
+    "price": 120,
     "wasPrice": 165,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpgdivine021",
-    "price": 170,
+    "price": 160,
     "wasPrice": 225,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpgdivine010",
-    "price": 86,
+    "price": 69,
     "wasPrice": 115,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpgdivine011",
-    "price": 120,
+    "price": 94,
     "wasPrice": 160,
-    "percentOff": 25,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpgdivine012",
-    "price": 160,
+    "price": 150,
     "wasPrice": 215,
-    "percentOff": 25,
+    "percentOff": 30,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338234474633-44927089934473",
+    "price": 60.99,
+    "wasPrice": 66.99,
+    "percentOff": 8,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338241257609-44927101632649",
+    "price": 61.99,
+    "wasPrice": 76.99,
+    "percentOff": 19,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338440355977-44927445500041",
+    "price": 91.99,
+    "wasPrice": 140,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8435415049542",
@@ -13592,6 +21978,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338246893705-44927108219017",
+    "price": 62.99,
+    "wasPrice": 69.99,
+    "percentOff": 10,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8435415117487",
     "price": 15.95,
     "wasPrice": 20,
@@ -13599,18 +21992,18 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "escentual-10000944",
-    "price": 105,
-    "wasPrice": 140,
-    "percentOff": 25,
-    "retailerId": "escentual"
-  },
-  {
     "fragranceId": "ean-3423470317534",
     "price": 63.95,
     "wasPrice": 98,
     "percentOff": 34,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338235588745-44927094325385",
+    "price": 79.99,
+    "wasPrice": 91.99,
+    "percentOff": 13,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8435415103268",
@@ -13625,6 +22018,20 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 96,
     "percentOff": 31,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416699056265-45147066400905",
+    "price": 108.99,
+    "wasPrice": 210.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338235916425-44927095505033",
+    "price": 67.49,
+    "wasPrice": 73.99,
+    "percentOff": 8,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8435415032360",
@@ -13662,6 +22069,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416698695817-45147066040457",
+    "price": 79.99,
+    "wasPrice": 157.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8435415054041",
     "price": 73.95,
     "wasPrice": 124,
@@ -13670,51 +22084,51 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-jpgscandal048",
-    "price": 76,
+    "price": 61,
     "wasPrice": 105,
-    "percentOff": 27,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpgscandal050",
-    "price": 140,
+    "price": 135,
     "wasPrice": 185,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpgscandal031",
-    "price": 110,
+    "price": 88,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpgscandal032",
-    "price": 140,
+    "price": 115,
     "wasPrice": 185,
-    "percentOff": 24,
+    "percentOff": 37,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpgscandal042",
-    "price": 85,
+    "price": 81,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpgscandal046",
-    "price": 115,
+    "price": 92,
     "wasPrice": 155,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jpgscandal047",
-    "price": 135,
+    "price": 130,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
@@ -13732,6 +22146,433 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338236604553-44927096619145",
+    "price": 9.79,
+    "wasPrice": 20.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338236571785-44927096586377",
+    "price": 11.29,
+    "wasPrice": 28.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338236539017-44927096553609",
+    "price": 26.99,
+    "wasPrice": 41.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338236637321-44927096651913",
+    "price": 7.19,
+    "wasPrice": 14.49,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338236670089-44927096717449",
+    "price": 7.19,
+    "wasPrice": 14.49,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338383634569-44927315837065",
+    "price": 10.29,
+    "wasPrice": 10.99,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338402672777-44927359615113",
+    "price": 11.29,
+    "wasPrice": 12.39,
+    "percentOff": 8,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338383569033-44927315738761",
+    "price": 11.19,
+    "wasPrice": 19.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338371641481-44927297421449",
+    "price": 9.79,
+    "wasPrice": 9.99,
+    "percentOff": 2,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338371608713-44927297388681",
+    "price": 9.79,
+    "wasPrice": 9.99,
+    "percentOff": 2,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338401722505-44927358140553",
+    "price": 15.99,
+    "wasPrice": 18.99,
+    "percentOff": 15,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338236735625-44927096782985",
+    "price": 14.79,
+    "wasPrice": 18.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338371346569-44927296209033",
+    "price": 9.79,
+    "wasPrice": 9.99,
+    "percentOff": 2,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416699711625-45147067285641",
+    "price": 9.19,
+    "wasPrice": 17.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338233294985-44927087378569",
+    "price": 20.99,
+    "wasPrice": 49.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338237030537-44927097110665",
+    "price": 18.49,
+    "wasPrice": 29.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416699777161-45147067351177",
+    "price": 17.49,
+    "wasPrice": 40.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338237063305-44927097143433",
+    "price": 10.29,
+    "wasPrice": 17.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338237096073-44927097176201",
+    "price": 15.79,
+    "wasPrice": 22.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416700301449-45147068137609",
+    "price": 8.69,
+    "wasPrice": 15.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338237390985-44927097536649",
+    "price": 10.29,
+    "wasPrice": 10.99,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338414010505-44927392841865",
+    "price": 27.49,
+    "wasPrice": 39.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338416861321-44927406768265",
+    "price": 27.49,
+    "wasPrice": 39.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416700104841-45147067941001",
+    "price": 14.69,
+    "wasPrice": 26.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338415943817-44927404867721",
+    "price": 27.49,
+    "wasPrice": 49.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338413879433-44927392579721",
+    "price": 33.49,
+    "wasPrice": 49.99,
+    "percentOff": 33,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338416697481-44927406604425",
+    "price": 33.49,
+    "wasPrice": 49.99,
+    "percentOff": 33,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338410242185-44927384387721",
+    "price": 10.29,
+    "wasPrice": 24.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416700072073-45147067908233",
+    "price": 14.69,
+    "wasPrice": 26.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338410832009-44927385370761",
+    "price": 16.99,
+    "wasPrice": 49.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338410176649-44927384158345",
+    "price": 10.29,
+    "wasPrice": 24.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338410799241-44927385337993",
+    "price": 27.49,
+    "wasPrice": 39.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338237522057-44927097667721",
+    "price": 10.29,
+    "wasPrice": 10.99,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338416205961-44927405129865",
+    "price": 33.49,
+    "wasPrice": 49.99,
+    "percentOff": 33,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416700170377-45147068006537",
+    "price": 14.69,
+    "wasPrice": 26.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416700235913-45147068072073",
+    "price": 8.69,
+    "wasPrice": 15.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416700203145-45147068039305",
+    "price": 8.69,
+    "wasPrice": 15.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338415550601-44927404245129",
+    "price": 10.29,
+    "wasPrice": 24.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338363613321-44927284379785",
+    "price": 10.29,
+    "wasPrice": 10.99,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416700137609-45147067973769",
+    "price": 14.69,
+    "wasPrice": 26.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338416304265-44927405228169",
+    "price": 23.99,
+    "wasPrice": 39.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338408112265-44927377113225",
+    "price": 27.49,
+    "wasPrice": 49.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338411094153-44927387205769",
+    "price": 27.49,
+    "wasPrice": 39.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338406604937-44927372787849",
+    "price": 27.49,
+    "wasPrice": 49.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338410963081-44927387041929",
+    "price": 27.49,
+    "wasPrice": 39.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338408210569-44927378325641",
+    "price": 27.49,
+    "wasPrice": 39.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338417746057-44927407751305",
+    "price": 27.49,
+    "wasPrice": 49.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338237620361-44927097766025",
+    "price": 10.29,
+    "wasPrice": 10.99,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338237653129-44927097798793",
+    "price": 16.49,
+    "wasPrice": 17.99,
+    "percentOff": 8,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338363187337-44927283953801",
+    "price": 16.49,
+    "wasPrice": 17.99,
+    "percentOff": 8,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338413715593-44927392415881",
+    "price": 27.49,
+    "wasPrice": 39.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416700334217-45147068170377",
+    "price": 20.49,
+    "wasPrice": 44.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416700399753-45147068235913",
+    "price": 23.99,
+    "wasPrice": 44.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338237816969-44927097995401",
+    "price": 27.99,
+    "wasPrice": 64.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416700465289-45147068301449",
+    "price": 11.19,
+    "wasPrice": 22.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416700563593-45147068399753",
+    "price": 18.49,
+    "wasPrice": 33.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338349555849-44927265505417",
+    "price": 18.99,
+    "wasPrice": 32.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416700530825-45147068366985",
+    "price": 18.99,
+    "wasPrice": 33.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338238144649-44927098355849",
+    "price": 27.99,
+    "wasPrice": 57.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338238242953-44927098454153",
+    "price": 44.99,
+    "wasPrice": 53.99,
+    "percentOff": 16,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416701284489-45147069120649",
+    "price": 8.69,
+    "wasPrice": 15.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3386460142038",
     "price": 13.5,
     "wasPrice": 22,
@@ -13739,11 +22580,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416701251721-45147069087881",
+    "price": 8.69,
+    "wasPrice": 15.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3386460167338",
     "price": 61.95,
     "wasPrice": 102,
     "percentOff": 39,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338238636169-44927098912905",
+    "price": 36.99,
+    "wasPrice": 67.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3386460073233",
@@ -13782,30 +22637,30 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-jimmychoo-001-01",
-    "price": 58,
+    "price": 46,
     "wasPrice": 77,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jimmychoo-006",
-    "price": 67,
+    "price": 54,
     "wasPrice": 89,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jimmychoo-007",
-    "price": 88,
+    "price": 70,
     "wasPrice": 120,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-jimmychoo-001-02",
-    "price": 105,
+    "price": 82,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
@@ -13893,6 +22748,20 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416701513865-45147069350025",
+    "price": 65.49,
+    "wasPrice": 91.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416701382793-45147069218953",
+    "price": 54.49,
+    "wasPrice": 102.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-690251126675",
     "price": 90.95,
     "wasPrice": 116,
@@ -13928,11 +22797,46 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338240110729-44927100321929",
+    "price": 41.49,
+    "wasPrice": 74.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338240307337-44927100649609",
+    "price": 35.49,
+    "wasPrice": 51.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614224907297",
     "price": 26.95,
     "wasPrice": 47,
     "percentOff": 42,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338240635017-44927101010057",
+    "price": 19.99,
+    "wasPrice": 49.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338240602249-44927100977289",
+    "price": 25.99,
+    "wasPrice": 89.99,
+    "percentOff": 71,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416702136457-45147070005385",
+    "price": 14.19,
+    "wasPrice": 33.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-joophomme007",
@@ -13942,11 +22846,88 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416702038153-45147069907081",
+    "price": 16.49,
+    "wasPrice": 28.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338240962697-44927101370505",
+    "price": 19.99,
+    "wasPrice": 66.99,
+    "percentOff": 70,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338241061001-44927101468809",
+    "price": 6.69,
+    "wasPrice": 17.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338241126537-44927101501577",
+    "price": 6.69,
+    "wasPrice": 14.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338379112585-44927308300425",
+    "price": 12.79,
+    "wasPrice": 14.99,
+    "percentOff": 14,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416702201993-45147070070921",
+    "price": 7.19,
+    "wasPrice": 12.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338241192073-44927101567113",
+    "price": 10.79,
+    "wasPrice": 10.99,
+    "percentOff": 1,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338241224841-44927101599881",
+    "price": 6.69,
+    "wasPrice": 25.99,
+    "percentOff": 74,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416702464137-45147070169225",
+    "price": 109.99,
+    "wasPrice": 206.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338241355913-44927101730953",
+    "price": 14.69,
+    "wasPrice": 49.99,
+    "percentOff": 70,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-98691036491",
     "price": 35.75,
     "wasPrice": 67,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338241388681-44927101763721",
+    "price": 40.99,
+    "wasPrice": 74.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-719346232890",
@@ -13956,6 +22937,202 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338241716361-44927102156937",
+    "price": 26.49,
+    "wasPrice": 51.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416702529673-45147070201993",
+    "price": 23.49,
+    "wasPrice": 58.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338241749129-44927102222473",
+    "price": 29.49,
+    "wasPrice": 41.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416702562441-45147070234761",
+    "price": 28.49,
+    "wasPrice": 53.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338241781897-44927102255241",
+    "price": 33.99,
+    "wasPrice": 69.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338242011273-44927102517385",
+    "price": 17.99,
+    "wasPrice": 29.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416703545481-45147073314953",
+    "price": 22.99,
+    "wasPrice": 42.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416703414409-45147072921737",
+    "price": 15.49,
+    "wasPrice": 30.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416703447177-45147072954505",
+    "price": 22.99,
+    "wasPrice": 42.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416703381641-45147072888969",
+    "price": 15.49,
+    "wasPrice": 30.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416703643785-45147073413257",
+    "price": 11.19,
+    "wasPrice": 21.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416703840393-45147073675401",
+    "price": 18.49,
+    "wasPrice": 35.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338349686921-44927265636489",
+    "price": 17.99,
+    "wasPrice": 29.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338242207881-44927102779529",
+    "price": 17.49,
+    "wasPrice": 39.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338242371721-44927102976137",
+    "price": 15.19,
+    "wasPrice": 34.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416704069769-45147073904777",
+    "price": 18.99,
+    "wasPrice": 35.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416703905929-45147073740937",
+    "price": 19.99,
+    "wasPrice": 35.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338242240649-44927102812297",
+    "price": 22.49,
+    "wasPrice": 37.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338362990729-44927283724425",
+    "price": 21.49,
+    "wasPrice": 34.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416703742089-45147073511561",
+    "price": 17.49,
+    "wasPrice": 31.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338242502793-44927103139977",
+    "price": 17.99,
+    "wasPrice": 48.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416704266377-45147074101385",
+    "price": 28.99,
+    "wasPrice": 53.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416704299145-45147074134153",
+    "price": 35.99,
+    "wasPrice": 66.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416704200841-45147074035849",
+    "price": 25.99,
+    "wasPrice": 48.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338242601097-44927103238281",
+    "price": 16.99,
+    "wasPrice": 38.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338378948745-44927308136585",
+    "price": 11.79,
+    "wasPrice": 23.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338242797705-44927103434889",
+    "price": 12.79,
+    "wasPrice": 25.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338242830473-44927103500425",
+    "price": 15.29,
+    "wasPrice": 35.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3352818718019",
     "price": 44.95,
     "wasPrice": 81.5,
@@ -13963,10 +23140,24 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338243059849-44927103729801",
+    "price": 48.49,
+    "wasPrice": 97.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338370723977-44927293784201",
+    "price": 56.99,
+    "wasPrice": 66.99,
+    "percentOff": 14,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-flower32",
-    "price": 52,
+    "price": 42,
     "wasPrice": 70,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -13978,45 +23169,80 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-flower26",
-    "price": 120,
+    "price": 115,
     "wasPrice": 155,
-    "percentOff": 22,
+    "percentOff": 25,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-kenzoikebana002",
-    "price": 81,
+    "price": 65,
     "wasPrice": 110,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-kenzoikebana003",
-    "price": 105,
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-kenzoikebana004",
-    "price": 81,
+    "price": 65,
     "wasPrice": 110,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-kenzoikebana005",
-    "price": 105,
+    "price": 81,
     "wasPrice": 135,
-    "percentOff": 22,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416704725129-45147075543177",
+    "price": 48.99,
+    "wasPrice": 93.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338362269833-44927283003529",
+    "price": 26.99,
+    "wasPrice": 40.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-kenzoflower013",
-    "price": 82,
+    "price": 79,
     "wasPrice": 110,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338243551369-44927104712841",
+    "price": 24.99,
+    "wasPrice": 49.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338243518601-44927104680073",
+    "price": 29.99,
+    "wasPrice": 55.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416704757897-45147075608713",
+    "price": 62.49,
+    "wasPrice": 93.99,
+    "percentOff": 33,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3274872441798",
@@ -14031,6 +23257,34 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 85,
     "percentOff": 36,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416705151113-45147076133001",
+    "price": 29.99,
+    "wasPrice": 55.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416705052809-45147076001929",
+    "price": 40.49,
+    "wasPrice": 71.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416705085577-45147076034697",
+    "price": 41.49,
+    "wasPrice": 73.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338406178953-44927372198025",
+    "price": 32.99,
+    "wasPrice": 61,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15666709856605-default-title",
@@ -14115,6 +23369,20 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 25,
     "percentOff": 48,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416705642633-45147076624521",
+    "price": 19.49,
+    "wasPrice": 35.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416705609865-45147076591753",
+    "price": 17.99,
+    "wasPrice": 31.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15566459273565-default-title",
@@ -14516,60 +23784,333 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416645283977-45146978287753",
+    "price": 205.49,
+    "wasPrice": 373.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338244042889-44927105302665",
+    "price": 242.99,
+    "wasPrice": 274.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416706265225-45147077312649",
+    "price": 28.99,
+    "wasPrice": 53.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416706461833-45147077509257",
+    "price": 32.49,
+    "wasPrice": 58.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416706166921-45147077214345",
+    "price": 28.99,
+    "wasPrice": 53.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416706363529-45147077410953",
+    "price": 31.99,
+    "wasPrice": 58.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416706101385-45147077148809",
+    "price": 29.99,
+    "wasPrice": 49.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416706035849-45147077050505",
+    "price": 27.49,
+    "wasPrice": 49.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416706232457-45147077279881",
+    "price": 27.49,
+    "wasPrice": 49.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338244567177-44927105630345",
+    "price": 10.19,
+    "wasPrice": 21.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338244599945-44927105663113",
+    "price": 12.69,
+    "wasPrice": 37.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338244665481-44927105728649",
+    "price": 10.29,
+    "wasPrice": 21.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338244698249-44927105761417",
+    "price": 13.19,
+    "wasPrice": 37.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416710721673-45147083079817",
+    "price": 167.49,
+    "wasPrice": 300.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416710852745-45147083243657",
+    "price": 163.99,
+    "wasPrice": 314.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416710819977-45147083210889",
+    "price": 167.99,
+    "wasPrice": 314.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338427314313-44927425216649",
+    "price": 115.49,
+    "wasPrice": 254,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338426396809-44927423840393",
+    "price": 115.49,
+    "wasPrice": 254,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416706887817-45147078066313",
+    "price": 26.49,
+    "wasPrice": 53.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338427510921-44927425446025",
+    "price": 41.99,
+    "wasPrice": 88,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338432393353-44927430787209",
+    "price": 123.99,
+    "wasPrice": 254,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338425577609-44927422824585",
+    "price": 47.49,
+    "wasPrice": 88,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338428690569-44927426789513",
+    "price": 107.49,
+    "wasPrice": 254,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338427084937-44927424987273",
+    "price": 24.99,
+    "wasPrice": 57,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416706855049-45147078033545",
+    "price": 33.49,
+    "wasPrice": 67.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338428952713-44927427084425",
+    "price": 48.99,
+    "wasPrice": 118,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338431606921-44927429771401",
+    "price": 132.49,
+    "wasPrice": 254,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338359025801-44927279333513",
+    "price": 32.49,
+    "wasPrice": 61.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416707182729-45147078361225",
+    "price": 48.99,
+    "wasPrice": 82.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338377736329-44927306760329",
+    "price": 43.99,
+    "wasPrice": 46.99,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338245157001-44927106220169",
+    "price": 28.99,
+    "wasPrice": 41.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-lacostel1212006",
-    "price": 40,
+    "price": 38,
     "wasPrice": 53,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338402738313-44927359680649",
+    "price": 28.49,
+    "wasPrice": 68.19,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338341167241-44927252332681",
+    "price": 17.49,
+    "wasPrice": 39.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-lacostel1212011",
-    "price": 39,
+    "price": 31,
     "wasPrice": 52,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lacostel1212014",
-    "price": 40,
+    "price": 38,
     "wasPrice": 53,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lacostel1212015",
-    "price": 58,
+    "price": 55,
     "wasPrice": 77,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338245255305-44927106351241",
+    "price": 30.99,
+    "wasPrice": 44.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338245288073-44927106384009",
+    "price": 25.99,
+    "wasPrice": 36.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338245386377-44927106515081",
+    "price": 30.99,
+    "wasPrice": 35.99,
+    "percentOff": 13,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338245320841-44927106416777",
+    "price": 20.99,
+    "wasPrice": 48.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338341232777-44927252398217",
+    "price": 29.99,
+    "wasPrice": 73.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-lacosteoriginal005",
-    "price": 68,
+    "price": 65,
     "wasPrice": 90,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lacosteoriginal002",
-    "price": 62,
+    "price": 49,
     "wasPrice": 82,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lacosteoriginal006",
-    "price": 93,
+    "price": 74,
     "wasPrice": 125,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lacostepink01",
-    "price": 40,
+    "price": 32,
     "wasPrice": 53,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338364203145-44927285002377",
+    "price": 22.49,
+    "wasPrice": 53.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-737052191331",
@@ -14586,38 +24127,164 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416707444873-45147078688905",
+    "price": 23.99,
+    "wasPrice": 44.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416707707017-45147078951049",
+    "price": 22.99,
+    "wasPrice": 35.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338245582985-44927106678921",
+    "price": 23.99,
+    "wasPrice": 99.99,
+    "percentOff": 76,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416707313801-45147078557833",
+    "price": 36.99,
+    "wasPrice": 42.99,
+    "percentOff": 13,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416708329609-45147079573641",
+    "price": 75.49,
+    "wasPrice": 141.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338245976201-44927107137673",
+    "price": 30.99,
+    "wasPrice": 94.99,
+    "percentOff": 67,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416707674249-45147078918281",
+    "price": 25.99,
+    "wasPrice": 48.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338246041737-44927107203209",
+    "price": 26.49,
+    "wasPrice": 91.99,
+    "percentOff": 71,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416707379337-45147078623369",
+    "price": 47.49,
+    "wasPrice": 89.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416707346569-45147078590601",
+    "price": 47.49,
+    "wasPrice": 89.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416708362377-45147079606409",
+    "price": 12.19,
+    "wasPrice": 22.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416708526217-45147079770249",
+    "price": 9.19,
+    "wasPrice": 17.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416708493449-45147079737481",
+    "price": 12.19,
+    "wasPrice": 22.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338248990857-44927110709385",
+    "price": 17.49,
+    "wasPrice": 29.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338249023625-44927110742153",
+    "price": 17.49,
+    "wasPrice": 29.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338249056393-44927110774921",
+    "price": 16.49,
+    "wasPrice": 29.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338249089161-44927110807689",
+    "price": 16.49,
+    "wasPrice": 29.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416709902473-45147082195081",
+    "price": 15.99,
+    "wasPrice": 30.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-lancomeidole029",
-    "price": 62,
+    "price": 49,
     "wasPrice": 82,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomeidole002",
-    "price": 68,
+    "price": 54,
     "wasPrice": 90,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomeidole030",
-    "price": 86,
+    "price": 69,
     "wasPrice": 115,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomeidole003",
-    "price": 99,
+    "price": 95,
     "wasPrice": 135,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomeidole031",
-    "price": 105,
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -14629,30 +24296,30 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-lancomeidole020",
-    "price": 99,
+    "price": 79,
     "wasPrice": 135,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomeidole033",
-    "price": 72,
+    "price": 69,
     "wasPrice": 96,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomeidole034",
-    "price": 110,
+    "price": 85,
     "wasPrice": 145,
-    "percentOff": 24,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomeidole035",
-    "price": 150,
+    "price": 120,
     "wasPrice": 200,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -14671,9 +24338,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-lancometresor014",
-    "price": 150,
+    "price": 140,
     "wasPrice": 195,
-    "percentOff": 23,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -14682,6 +24349,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 132,
     "percentOff": 34,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338250137737-44927112020105",
+    "price": 88.99,
+    "wasPrice": 104.99,
+    "percentOff": 15,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614272520868",
@@ -14706,30 +24380,44 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-lancomelavieestbelle053",
-    "price": 115,
+    "price": 88,
     "wasPrice": 150,
-    "percentOff": 23,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomelavieestbelle052",
-    "price": 150,
+    "price": 120,
     "wasPrice": 195,
-    "percentOff": 23,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338250498185-44927112773769",
+    "price": 79.99,
+    "wasPrice": 96.99,
+    "percentOff": 17,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338250465417-44927112741001",
+    "price": 120.49,
+    "wasPrice": 129.99,
+    "percentOff": 7,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-lancomelavieestbelle002",
-    "price": 72,
+    "price": 69,
     "wasPrice": 96,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomelavieestbelle003",
-    "price": 105,
+    "price": 97,
     "wasPrice": 135,
-    "percentOff": 22,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -14741,52 +24429,59 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-lancomelavieestbelle049",
-    "price": 170,
+    "price": 165,
     "wasPrice": 225,
-    "percentOff": 24,
+    "percentOff": 26,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomelavieestbelle064",
-    "price": 79,
+    "price": 64,
     "wasPrice": 110,
-    "percentOff": 28,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomelavieestbelle065",
-    "price": 115,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 23,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomelavieestbelle066",
-    "price": 150,
+    "price": 145,
     "wasPrice": 200,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomelavieestbelle060",
-    "price": 75,
+    "price": 60,
     "wasPrice": 100,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomelavieestbelle061",
-    "price": 115,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 23,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomelavieestbelle062",
-    "price": 150,
+    "price": 120,
     "wasPrice": 195,
-    "percentOff": 23,
+    "percentOff": 38,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338250629257-44927112904841",
+    "price": 79.49,
+    "wasPrice": 104.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614273357203",
@@ -14797,38 +24492,199 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-lancomelavieestbelle068",
-    "price": 72,
+    "price": 69,
     "wasPrice": 96,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomelavieestbelle070",
-    "price": 135,
+    "price": 130,
     "wasPrice": 180,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416709345417-45147080589449",
+    "price": 61.49,
+    "wasPrice": 114.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416709312649-45147080556681",
+    "price": 61.49,
+    "wasPrice": 114.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416709836937-45147082129545",
+    "price": 50.99,
+    "wasPrice": 98.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416709476489-45147081670793",
+    "price": 64.49,
+    "wasPrice": 121.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416709181577-45147080425609",
+    "price": 90.49,
+    "wasPrice": 175.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416708952201-45147080196233",
+    "price": 79.99,
+    "wasPrice": 152.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416708722825-45147079966857",
+    "price": 104.49,
+    "wasPrice": 210.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338250170505-44927112052873",
+    "price": 64.49,
+    "wasPrice": 66.99,
+    "percentOff": 3,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338250104969-44927111987337",
+    "price": 78.49,
+    "wasPrice": 94.99,
+    "percentOff": 17,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416709673097-45147081965705",
+    "price": 29.99,
+    "wasPrice": 53.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338250334345-44927112315017",
+    "price": 79.99,
+    "wasPrice": 85.99,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416709804169-45147082096777",
+    "price": 55.99,
+    "wasPrice": 105.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416708853897-45147080097929",
+    "price": 84.99,
+    "wasPrice": 159.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416709574793-45147081867401",
+    "price": 34.99,
+    "wasPrice": 66.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416709247113-45147080491145",
+    "price": 97.49,
+    "wasPrice": 177.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-lancomeodelancome006",
-    "price": 84,
+    "price": 67,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomeodelancome007",
-    "price": 84,
+    "price": 80,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lancomeodelancome008",
-    "price": 84,
+    "price": 80,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338250989705-44927113494665",
+    "price": 33.49,
+    "wasPrice": 64.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338251022473-44927113527433",
+    "price": 22.99,
+    "wasPrice": 43.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416710459529-45147082817673",
+    "price": 20.99,
+    "wasPrice": 39.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338251153545-44927113756809",
+    "price": 26.99,
+    "wasPrice": 60.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338251186313-44927113789577",
+    "price": 25.49,
+    "wasPrice": 53.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416710393993-45147082752137",
+    "price": 37.49,
+    "wasPrice": 66.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416710656137-45147083014281",
+    "price": 12.69,
+    "wasPrice": 22.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416710623369-45147082981513",
+    "price": 17.49,
+    "wasPrice": 31.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15668467892573-default-title",
@@ -14836,6 +24692,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 25,
     "percentOff": 32,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416711442569-45147083669641",
+    "price": 22.49,
+    "wasPrice": 49.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-8898571305309-default-title",
@@ -14859,6 +24722,20 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416712294537-45147084554377",
+    "price": 33.49,
+    "wasPrice": 66.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338357649545-44927277760649",
+    "price": 21.49,
+    "wasPrice": 23.99,
+    "percentOff": 10,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-8890913030493-default-title",
     "price": 19.99,
     "wasPrice": 29.99,
@@ -14873,6 +24750,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416714522761-45147088388233",
+    "price": 22.49,
+    "wasPrice": 53.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-9026350973277-default-title",
     "price": 24.99,
     "wasPrice": 40,
@@ -14885,6 +24769,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 40,
     "percentOff": 37,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416714260617-45147087011977",
+    "price": 22.49,
+    "wasPrice": 44.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-9184344506717-default-title",
@@ -14913,6 +24804,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 30,
     "percentOff": 33,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416712687753-45147084947593",
+    "price": 18.99,
+    "wasPrice": 39.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-8928156909917-default-title",
@@ -15062,6 +24960,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416712327305-45147084587145",
+    "price": 22.99,
+    "wasPrice": 49.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15486185144669-default-title",
     "price": 24.99,
     "wasPrice": 40,
@@ -15109,6 +25014,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 40,
     "percentOff": 37,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416713703561-45147086422153",
+    "price": 16.49,
+    "wasPrice": 40.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-8890920501597-default-title",
@@ -15258,6 +25170,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416711606409-45147083833481",
+    "price": 38.49,
+    "wasPrice": 71.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15630202339677-default-title",
     "price": 29.99,
     "wasPrice": 50,
@@ -15272,6 +25191,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416715178121-45147089600649",
+    "price": 30.99,
+    "wasPrice": 57.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-8839488307549-default-title",
     "price": 27.99,
     "wasPrice": 40,
@@ -15284,6 +25210,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 40,
     "percentOff": 12,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338357485705-44927277596809",
+    "price": 18.49,
+    "wasPrice": 27.99,
+    "percentOff": 33,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-8839504593245-default-title",
@@ -15305,6 +25238,20 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 29.99,
     "percentOff": 33,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416712392841-45147084652681",
+    "price": 20.99,
+    "wasPrice": 39.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416711671945-45147083931785",
+    "price": 19.99,
+    "wasPrice": 37.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15500142969181-default-title",
@@ -15391,6 +25338,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416711704713-45147083964553",
+    "price": 23.99,
+    "wasPrice": 44.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-8928159826269-default-title",
     "price": 19.99,
     "wasPrice": 30,
@@ -15417,6 +25371,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 80,
     "percentOff": 50,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416711999625-45147084259465",
+    "price": 18.99,
+    "wasPrice": 39.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-dukhan",
@@ -15454,6 +25415,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416712196233-45147084456073",
+    "price": 34.99,
+    "wasPrice": 67.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-9029622792541-default-title",
     "price": 32.99,
     "wasPrice": 40,
@@ -15473,6 +25441,69 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 40,
     "percentOff": 37,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416712491145-45147084750985",
+    "price": 34.99,
+    "wasPrice": 62.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416713670793-45147086389385",
+    "price": 26.49,
+    "wasPrice": 48.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416712425609-45147084685449",
+    "price": 25.99,
+    "wasPrice": 48.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416713212041-45147085471881",
+    "price": 25.99,
+    "wasPrice": 48.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416713638025-45147086356617",
+    "price": 39.49,
+    "wasPrice": 76.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416715145353-45147089567881",
+    "price": 39.49,
+    "wasPrice": 76.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416714358921-45147087110281",
+    "price": 14.69,
+    "wasPrice": 26.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416713343113-45147085602953",
+    "price": 39.49,
+    "wasPrice": 71.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416711508105-45147083735177",
+    "price": 16.49,
+    "wasPrice": 35.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-9184341524829-default-title",
@@ -15503,6 +25534,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416712982665-45147085242505",
+    "price": 22.49,
+    "wasPrice": 44.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-9034488545629-default-title",
     "price": 24.99,
     "wasPrice": 40,
@@ -15522,6 +25560,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 40,
     "percentOff": 30,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416714031241-45147086782601",
+    "price": 22.99,
+    "wasPrice": 66.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-8923818885469-default-title",
@@ -15564,6 +25609,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 30,
     "percentOff": 36,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416712720521-45147084980361",
+    "price": 17.99,
+    "wasPrice": 31.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-8911344206173-default-title",
@@ -15629,6 +25681,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416715866249-45147090944137",
+    "price": 30.99,
+    "wasPrice": 57.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15568364831069-default-title",
     "price": 24.99,
     "wasPrice": 40,
@@ -15641,6 +25700,20 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 40,
     "percentOff": 37,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416712622217-45147084882057",
+    "price": 34.99,
+    "wasPrice": 76.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416714850441-45147089272969",
+    "price": 30.99,
+    "wasPrice": 57.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-16204007309661-default-title",
@@ -15783,6 +25856,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416714096777-45147086848137",
+    "price": 17.49,
+    "wasPrice": 37.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-16063174082909-default-title",
     "price": 19.99,
     "wasPrice": 30,
@@ -15809,6 +25889,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 24.99,
     "percentOff": 20,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416712851593-45147085111433",
+    "price": 15.19,
+    "wasPrice": 28.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-8911369240925-default-title",
@@ -15844,6 +25931,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 29.99,
     "percentOff": 46,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416715079817-45147089502345",
+    "price": 24.99,
+    "wasPrice": 46.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-9029647630685-default-title",
@@ -15979,6 +26073,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416712949897-45147085209737",
+    "price": 26.49,
+    "wasPrice": 48.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15137788428637-default-title",
     "price": 22.49,
     "wasPrice": 34.99,
@@ -16014,11 +26115,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416715440265-45147090321545",
+    "price": 17.49,
+    "wasPrice": 31.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-8839512293725-default-title",
     "price": 16.99,
     "wasPrice": 24.99,
     "percentOff": 32,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416714948745-45147089371273",
+    "price": 31.99,
+    "wasPrice": 58.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15352670486877-default-title",
@@ -16091,6 +26206,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416714391689-45147087143049",
+    "price": 18.99,
+    "wasPrice": 35.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-8839508492637-default-title",
     "price": 18.99,
     "wasPrice": 29.99,
@@ -16105,11 +26227,431 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416712589449-45147084849289",
+    "price": 18.99,
+    "wasPrice": 35.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-8890942751069-default-title",
     "price": 18.99,
     "wasPrice": 29.99,
     "percentOff": 36,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416716292233-45147091402889",
+    "price": 10.69,
+    "wasPrice": 39.99,
+    "percentOff": 73,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338246664329-44927107989641",
+    "price": 23.49,
+    "wasPrice": 34.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416716095625-45147091140745",
+    "price": 37.49,
+    "wasPrice": 67.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416716325001-45147091435657",
+    "price": 22.49,
+    "wasPrice": 40.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338277302409-44927158681737",
+    "price": 19.49,
+    "wasPrice": 23.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416716161161-45147091239049",
+    "price": 19.49,
+    "wasPrice": 39.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416716652681-45147091763337",
+    "price": 9.19,
+    "wasPrice": 17.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416718356617-45147093762185",
+    "price": 28.99,
+    "wasPrice": 53.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416718913673-45147094319241",
+    "price": 21.49,
+    "wasPrice": 39.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416718979209-45147094384777",
+    "price": 20.49,
+    "wasPrice": 39.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416719110281-45147094515849",
+    "price": 20.49,
+    "wasPrice": 39.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416718782601-45147094155401",
+    "price": 33.49,
+    "wasPrice": 58.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416718848137-45147094253705",
+    "price": 28.99,
+    "wasPrice": 53.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416718815369-45147094220937",
+    "price": 28.49,
+    "wasPrice": 58.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416719011977-45147094417545",
+    "price": 28.49,
+    "wasPrice": 53.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416719143049-45147094548617",
+    "price": 28.49,
+    "wasPrice": 49.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416718684297-45147094089865",
+    "price": 26.49,
+    "wasPrice": 58.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416718618761-45147094024329",
+    "price": 33.49,
+    "wasPrice": 76.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338434621577-44927434457225",
+    "price": 18.99,
+    "wasPrice": 35,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416719765641-45147095171209",
+    "price": 23.99,
+    "wasPrice": 44.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416719667337-45147095072905",
+    "price": 16.99,
+    "wasPrice": 31.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338247549065-44927109300361",
+    "price": 17.49,
+    "wasPrice": 40.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416719700105-45147095105673",
+    "price": 17.49,
+    "wasPrice": 31.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338247942281-44927109693577",
+    "price": 39.49,
+    "wasPrice": 69.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416719929481-45147095302281",
+    "price": 24.99,
+    "wasPrice": 46.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338248466569-44927110316169",
+    "price": 50.99,
+    "wasPrice": 77.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338248138889-44927109922953",
+    "price": 24.49,
+    "wasPrice": 40.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416720126089-45147095335049",
+    "price": 34.49,
+    "wasPrice": 62.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338424758409-44927422005385",
+    "price": 22.99,
+    "wasPrice": 51,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338248401033-44927110185097",
+    "price": 50.99,
+    "wasPrice": 78.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416722321545-45147098284169",
+    "price": 14.19,
+    "wasPrice": 26.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416721961097-45147097825417",
+    "price": 29.49,
+    "wasPrice": 57.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338251579529-44927114215561",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416722550921-45147098579081",
+    "price": 21.49,
+    "wasPrice": 40.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416721993865-45147097858185",
+    "price": 23.99,
+    "wasPrice": 44.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416725500041-45147106443401",
+    "price": 19.49,
+    "wasPrice": 39.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338251612297-44927114248329",
+    "price": 23.99,
+    "wasPrice": 32.99,
+    "percentOff": 27,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416724779145-45147105722505",
+    "price": 23.99,
+    "wasPrice": 46.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338251776137-44927114346633",
+    "price": 24.99,
+    "wasPrice": 27.99,
+    "percentOff": 10,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338251808905-44927114379401",
+    "price": 27.99,
+    "wasPrice": 39.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416722944137-45147098972297",
+    "price": 27.99,
+    "wasPrice": 53.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416724484233-45147105362057",
+    "price": 15.19,
+    "wasPrice": 30.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416722059401-45147097923721",
+    "price": 18.49,
+    "wasPrice": 35.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416725041289-45147105951881",
+    "price": 15.19,
+    "wasPrice": 30.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338252038281-44927114543241",
+    "price": 18.99,
+    "wasPrice": 29.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338252103817-44927114576009",
+    "price": 21.99,
+    "wasPrice": 29.99,
+    "percentOff": 26,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416724123785-45147103002761",
+    "price": 15.19,
+    "wasPrice": 30.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416722911369-45147098939529",
+    "price": 17.99,
+    "wasPrice": 33.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416725827721-45147106771081",
+    "price": 18.49,
+    "wasPrice": 35.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416724844681-45147105788041",
+    "price": 27.99,
+    "wasPrice": 53.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416722649225-45147098677385",
+    "price": 19.49,
+    "wasPrice": 39.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416723894409-45147100414089",
+    "price": 19.49,
+    "wasPrice": 39.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416724058249-45147101986953",
+    "price": 19.49,
+    "wasPrice": 39.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338252300425-44927114805385",
+    "price": 27.99,
+    "wasPrice": 39.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416721928329-45147097792649",
+    "price": 21.49,
+    "wasPrice": 40.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416721862793-45147097727113",
+    "price": 29.49,
+    "wasPrice": 57.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416724156553-45147103035529",
+    "price": 24.99,
+    "wasPrice": 48.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416723468425-45147099496585",
+    "price": 19.49,
+    "wasPrice": 39.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416722747529-45147098775689",
+    "price": 24.99,
+    "wasPrice": 48.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-lubinblackjade003",
@@ -16120,17 +26662,24 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-lubinidole002",
-    "price": 210,
+    "price": 200,
     "wasPrice": 275,
-    "percentOff": 23,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-lubinvetiris001",
-    "price": 150,
+    "price": 120,
     "wasPrice": 195,
-    "percentOff": 23,
+    "percentOff": 38,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416732938377-45147114012809",
+    "price": 18.99,
+    "wasPrice": 40.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-9911096574301-default-title",
@@ -16145,6 +26694,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 24.99,
     "percentOff": 40,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416733134985-45147114209417",
+    "price": 14.69,
+    "wasPrice": 26.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15612330901853-default-title",
@@ -16173,6 +26729,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 30,
     "percentOff": 33,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416732414089-45147113488521",
+    "price": 12.69,
+    "wasPrice": 22.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15808395772253-default-title",
@@ -16229,6 +26792,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 30,
     "percentOff": 33,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416732479625-45147113554057",
+    "price": 14.19,
+    "wasPrice": 40.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15612331393373-default-title",
@@ -16397,6 +26967,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 24.99,
     "percentOff": 48,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416732610697-45147113652361",
+    "price": 18.49,
+    "wasPrice": 39.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-kismet-lunar-magic---maison-alhambra",
@@ -16658,6 +27235,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416732545161-45147113619593",
+    "price": 23.49,
+    "wasPrice": 42.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15532820332893-default-title",
     "price": 19.99,
     "wasPrice": 35,
@@ -16670,6 +27254,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 35,
     "percentOff": 42,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416732741769-45147113816201",
+    "price": 19.99,
+    "wasPrice": 40.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-9535327732061-default-title",
@@ -17043,39 +27634,165 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416733495433-45147114635401",
+    "price": 213.99,
+    "wasPrice": 400.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416733855881-45147114995849",
+    "price": 52.49,
+    "wasPrice": 98.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338433048713-44927432196233",
+    "price": 132.49,
+    "wasPrice": 165,
+    "percentOff": 19,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416733888649-45147115028617",
+    "price": 52.49,
+    "wasPrice": 98.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416734216329-45147115356297",
+    "price": 176.49,
+    "wasPrice": 330.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416735756425-45147116896393",
+    "price": 63.99,
+    "wasPrice": 120.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416734806153-45147115946121",
+    "price": 102.99,
+    "wasPrice": 193.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-mancera012",
-    "price": 95,
+    "price": 92,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-mancera032",
-    "price": 155,
+    "price": 145,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416734937225-45147116077193",
+    "price": 89.99,
+    "wasPrice": 168.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338346442889-44927260295305",
+    "price": 79.99,
+    "wasPrice": 123.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416735559817-45147116699785",
+    "price": 79.99,
+    "wasPrice": 156.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416734740617-45147115880585",
+    "price": 88.49,
+    "wasPrice": 165.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416735690889-45147116830857",
+    "price": 86.99,
+    "wasPrice": 163.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416735592585-45147116732553",
+    "price": 86.99,
+    "wasPrice": 163.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416734675081-45147115815049",
+    "price": 102.99,
+    "wasPrice": 193.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-mancera030",
-    "price": 170,
+    "price": 160,
     "wasPrice": 225,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-mancera014",
-    "price": 95,
+    "price": 92,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-mancera013",
-    "price": 155,
+    "price": 145,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 29,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416735887497-45147117027465",
+    "price": 86.99,
+    "wasPrice": 163.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416735166601-45147116306569",
+    "price": 86.99,
+    "wasPrice": 163.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416735953033-45147117093001",
+    "price": 12.69,
+    "wasPrice": 22.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338253152393-44927115690121",
+    "price": 8.19,
+    "wasPrice": 14.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-mjdaisylove010",
@@ -17083,6 +27800,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 77,
     "percentOff": 24,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338253545609-44927116247177",
+    "price": 44.49,
+    "wasPrice": 72.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3616304895654",
@@ -17100,16 +27824,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-mjperfect016",
-    "price": 85,
+    "price": 68,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-mjperfect017",
-    "price": 120,
+    "price": 93,
     "wasPrice": 155,
-    "percentOff": 22,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -17121,23 +27845,23 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-mjperfect022",
-    "price": 79,
+    "price": 64,
     "wasPrice": 110,
-    "percentOff": 28,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-mjperfect023",
-    "price": 110,
+    "price": 87,
     "wasPrice": 145,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-mjperfect024",
-    "price": 150,
+    "price": 145,
     "wasPrice": 200,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
@@ -17148,185 +27872,521 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338255282313-44927117983881",
+    "price": 15.49,
+    "wasPrice": 32.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416725958793-45147106902153",
+    "price": 39.99,
+    "wasPrice": 71.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338254856329-44927117394057",
+    "price": 16.49,
+    "wasPrice": 25.49,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338254823561-44927117361289",
+    "price": 30.99,
+    "wasPrice": 50.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416726745225-45147107688585",
+    "price": 23.99,
+    "wasPrice": 44.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338254954633-44927117557897",
+    "price": 16.49,
+    "wasPrice": 19.99,
+    "percentOff": 17,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416726843529-45147107786889",
+    "price": 20.49,
+    "wasPrice": 44.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338254921865-44927117492361",
+    "price": 25.99,
+    "wasPrice": 38.99,
+    "percentOff": 33,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416726220937-45147107164297",
+    "price": 15.99,
+    "wasPrice": 30.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416726679689-45147107623049",
+    "price": 23.99,
+    "wasPrice": 44.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338364629129-44927285428361",
+    "price": 14.69,
+    "wasPrice": 19.99,
+    "percentOff": 26,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416726614153-45147107557513",
+    "price": 23.99,
+    "wasPrice": 44.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338255085705-44927117721737",
+    "price": 27.99,
+    "wasPrice": 38.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416726057097-45147107000457",
+    "price": 23.49,
+    "wasPrice": 42.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338255315081-44927118016649",
+    "price": 16.99,
+    "wasPrice": 29.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338255511689-44927118278793",
+    "price": 17.49,
+    "wasPrice": 19.99,
+    "percentOff": 12,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338255609993-44927118409865",
+    "price": 7.29,
+    "wasPrice": 9.99,
+    "percentOff": 27,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416726384777-45147107328137",
+    "price": 11.19,
+    "wasPrice": 21.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416726352009-45147107295369",
+    "price": 11.19,
+    "wasPrice": 21.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338256035977-44927119556745",
+    "price": 12.29,
+    "wasPrice": 19.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338256101513-44927119622281",
+    "price": 9.29,
+    "wasPrice": 9.99,
+    "percentOff": 7,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338256199817-44927119753353",
+    "price": 12.29,
+    "wasPrice": 14.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338256232585-44927119786121",
+    "price": 9.29,
+    "wasPrice": 19.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338256298121-44927119851657",
+    "price": 10.29,
+    "wasPrice": 11.99,
+    "percentOff": 14,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338256363657-44927119982729",
+    "price": 9.29,
+    "wasPrice": 19.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338363678857-44927284445321",
+    "price": 9.29,
+    "wasPrice": 19.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338437144713-44927442092169",
+    "price": 38.49,
+    "wasPrice": 74.4,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416737558665-45147119091849",
+    "price": 42.99,
+    "wasPrice": 76.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338379243657-44927308464265",
+    "price": 9.79,
+    "wasPrice": 16.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416737624201-45147119157385",
+    "price": 8.69,
+    "wasPrice": 15.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338256724105-44927120441481",
+    "price": 6.79,
+    "wasPrice": 21.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-millerharris304",
-    "price": 190,
+    "price": 180,
     "wasPrice": 250,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-millerharris132",
-    "price": 200,
+    "price": 190,
     "wasPrice": 265,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-millerharris108",
-    "price": 99,
+    "price": 95,
     "wasPrice": 135,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-millerharris310",
-    "price": 190,
+    "price": 180,
     "wasPrice": 250,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-millerharris306",
-    "price": 190,
+    "price": 180,
     "wasPrice": 250,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-millerharris273",
-    "price": 200,
+    "price": 160,
     "wasPrice": 265,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-millerharris177",
-    "price": 150,
+    "price": 140,
     "wasPrice": 195,
-    "percentOff": 23,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-millerharris294",
-    "price": 47,
+    "price": 44,
     "wasPrice": 63,
-    "percentOff": 25,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-millerharris268",
-    "price": 150,
+    "price": 140,
     "wasPrice": 195,
-    "percentOff": 23,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-millerharris303",
-    "price": 190,
+    "price": 180,
     "wasPrice": 250,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-millerharris305",
-    "price": 190,
+    "price": 175,
     "wasPrice": 250,
-    "percentOff": 24,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-millerharris135",
-    "price": 47,
+    "price": 44,
     "wasPrice": 63,
-    "percentOff": 25,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-millerharris102",
-    "price": 99,
+    "price": 95,
     "wasPrice": 135,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338374885513-44927301681289",
+    "price": 7.29,
+    "wasPrice": 8.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338374000777-44927299911817",
+    "price": 7.29,
+    "wasPrice": 8.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338374590601-44927300534409",
+    "price": 7.29,
+    "wasPrice": 8.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338374525065-44927300468873",
+    "price": 7.29,
+    "wasPrice": 8.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338374459529-44927300403337",
+    "price": 7.79,
+    "wasPrice": 9.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338257281161-44927121096841",
+    "price": 7.29,
+    "wasPrice": 9.99,
+    "percentOff": 27,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416738181257-45147119714441",
+    "price": 17.49,
+    "wasPrice": 31.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416738115721-45147119648905",
+    "price": 24.99,
+    "wasPrice": 46.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416738148489-45147119681673",
+    "price": 16.49,
+    "wasPrice": 40.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416738082953-45147119616137",
+    "price": 17.49,
+    "wasPrice": 31.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416738738313-45147120074889",
+    "price": 18.99,
+    "wasPrice": 42.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416738541705-45147119878281",
+    "price": 21.49,
+    "wasPrice": 42.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416738476169-45147119812745",
+    "price": 31.99,
+    "wasPrice": 55.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-missoni007",
-    "price": 45,
+    "price": 36,
     "wasPrice": 60,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338349981833-44927265931401",
+    "price": 43.99,
+    "wasPrice": 69.99,
+    "percentOff": 37,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-miumiu001",
-    "price": 76,
+    "price": 61,
     "wasPrice": 105,
-    "percentOff": 27,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-miumiu002",
-    "price": 110,
+    "price": 88,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-miumiu003",
-    "price": 155,
+    "price": 125,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-miumiuleaurosee001",
-    "price": 99,
+    "price": 79,
     "wasPrice": 135,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-miumiuleaurosee002",
-    "price": 140,
+    "price": 110,
     "wasPrice": 185,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338257870985-44927121752201",
+    "price": 10.19,
+    "wasPrice": 35.99,
+    "percentOff": 71,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-mizensir009",
-    "price": 210,
+    "price": 200,
     "wasPrice": 280,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-mizensir012",
-    "price": 210,
+    "price": 200,
     "wasPrice": 280,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-mizensir004",
-    "price": 210,
+    "price": 170,
     "wasPrice": 280,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-mizensir006",
-    "price": 210,
+    "price": 200,
     "wasPrice": 280,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416739328137-45147120664713",
+    "price": 110.99,
+    "wasPrice": 197.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338257936521-44927121850505",
+    "price": 46.99,
+    "wasPrice": 71.99,
+    "percentOff": 34,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-moncler041",
-    "price": 270,
+    "price": 260,
     "wasPrice": 360,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-moncler019",
-    "price": 185,
+    "price": 175,
     "wasPrice": 245,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-moncler020",
-    "price": 270,
+    "price": 215,
     "wasPrice": 360,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -17338,100 +28398,156 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-moncler035",
-    "price": 270,
+    "price": 215,
     "wasPrice": 360,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-moncler022",
-    "price": 185,
+    "price": 150,
     "wasPrice": 245,
-    "percentOff": 24,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-moncler023",
-    "price": 270,
+    "price": 215,
     "wasPrice": 360,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-moncler031",
-    "price": 185,
+    "price": 175,
     "wasPrice": 245,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-moncler032",
-    "price": 270,
+    "price": 260,
     "wasPrice": 360,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-moncler015",
-    "price": 120,
+    "price": 115,
     "wasPrice": 160,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416739754121-45147121352841",
+    "price": 17.49,
+    "wasPrice": 31.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416741589129-45147123318921",
+    "price": 79.99,
+    "wasPrice": 150.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416741228681-45147122958473",
+    "price": 78.49,
+    "wasPrice": 147.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416741294217-45147123024009",
+    "price": 78.49,
+    "wasPrice": 147.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-montale005",
-    "price": 140,
+    "price": 110,
     "wasPrice": 185,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416741458057-45147123187849",
+    "price": 68.99,
+    "wasPrice": 129.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-montale017",
-    "price": 140,
+    "price": 135,
     "wasPrice": 185,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416741032073-45147122696329",
+    "price": 78.49,
+    "wasPrice": 147.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-montale023",
-    "price": 130,
+    "price": 105,
     "wasPrice": 175,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416741392521-45147123122313",
+    "price": 78.49,
+    "wasPrice": 147.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338259378313-44927123390601",
+    "price": 5.19,
+    "wasPrice": 27.99,
+    "percentOff": 81,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-montblancheritage004",
-    "price": 145,
+    "price": 135,
     "wasPrice": 190,
-    "percentOff": 23,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-montblancheritage001",
-    "price": 145,
+    "price": 135,
     "wasPrice": 190,
-    "percentOff": 23,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-montblancheritage002",
-    "price": 145,
+    "price": 135,
     "wasPrice": 190,
-    "percentOff": 23,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-montblancheritage005",
-    "price": 145,
+    "price": 135,
     "wasPrice": 190,
-    "percentOff": 23,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-montblancheritage003",
-    "price": 84,
+    "price": 81,
     "wasPrice": 190,
-    "percentOff": 55,
+    "percentOff": 57,
     "retailerId": "escentual"
   },
   {
@@ -17442,10 +28558,31 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338258657417-44927122505865",
+    "price": 23.99,
+    "wasPrice": 53.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416740278409-45147121942665",
+    "price": 31.99,
+    "wasPrice": 58.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338259017865-44927122899081",
+    "price": 38.99,
+    "wasPrice": 69.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-montblanc-legsp-003",
-    "price": 58,
+    "price": 46,
     "wasPrice": 77,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -17470,6 +28607,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338370035849-44927293030537",
+    "price": 25.49,
+    "wasPrice": 34.99,
+    "percentOff": 27,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3386460113588",
     "price": 43.5,
     "wasPrice": 82,
@@ -17484,38 +28628,143 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "escentual-10001029",
-    "price": 68,
-    "wasPrice": 90,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338429902985-44927427936393",
+    "price": 30.49,
+    "wasPrice": 55,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
   },
   {
-    "fragranceId": "escentual-moschinotoy020",
-    "price": 91,
-    "wasPrice": 125,
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416740737161-45147122401417",
+    "price": 18.49,
+    "wasPrice": 35.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416740638857-45147122303113",
+    "price": 22.99,
+    "wasPrice": 42.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338341953673-44927254265993",
+    "price": 46.99,
+    "wasPrice": 80.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-10001029",
+    "price": 65,
+    "wasPrice": 90,
     "percentOff": 27,
     "retailerId": "escentual"
   },
   {
-    "fragranceId": "escentual-moschinotoy009",
-    "price": 51,
-    "wasPrice": 68,
-    "percentOff": 25,
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338259902601-44927124045961",
+    "price": 24.99,
+    "wasPrice": 30.99,
+    "percentOff": 19,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338260131977-44927124275337",
+    "price": 27.49,
+    "wasPrice": 60.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338260328585-44927124504713",
+    "price": 26.49,
+    "wasPrice": 33.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338260394121-44927124570249",
+    "price": 29.49,
+    "wasPrice": 41.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338260459657-44927124635785",
+    "price": 15.19,
+    "wasPrice": 56.99,
+    "percentOff": 73,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338260492425-44927124668553",
+    "price": 21.49,
+    "wasPrice": 77.99,
+    "percentOff": 72,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338260623497-44927124799625",
+    "price": 22.99,
+    "wasPrice": 35.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-moschinotoy020",
+    "price": 73,
+    "wasPrice": 125,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "escentual-moschinotoy009",
+    "price": 41,
+    "wasPrice": 68,
+    "percentOff": 39,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338261213321-44927125782665",
+    "price": 30.49,
+    "wasPrice": 44.99,
+    "percentOff": 32,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338261278857-44927126339721",
+    "price": 14.69,
+    "wasPrice": 35.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416741916809-45147123843209",
+    "price": 8.69,
+    "wasPrice": 15.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416741949577-45147124072585",
+    "price": 8.69,
+    "wasPrice": 15.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-angelmen05",
-    "price": 70,
+    "price": 65,
     "wasPrice": 93,
-    "percentOff": 24,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-angelmen28",
-    "price": 93,
+    "price": 89,
     "wasPrice": 125,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
@@ -17526,6 +28775,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338261475465-44927126536329",
+    "price": 45.99,
+    "wasPrice": 66.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3439602810019",
     "price": 44.25,
     "wasPrice": 83,
@@ -17534,23 +28790,23 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-mugleralien50",
-    "price": 78,
+    "price": 75,
     "wasPrice": 105,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-mugleralien51",
-    "price": 110,
+    "price": 105,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-mugleralien52",
-    "price": 155,
+    "price": 125,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
@@ -17569,38 +28825,87 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-muglerstar002",
-    "price": 52,
+    "price": 50,
     "wasPrice": 70,
-    "percentOff": 25,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "escentual-narciso162",
-    "price": 73,
-    "wasPrice": 95,
-    "percentOff": 23,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "escentual-narciso163",
-    "price": 100,
-    "wasPrice": 140,
     "percentOff": 28,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416742572169-45147124695177",
+    "price": 32.99,
+    "wasPrice": 75.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338360303753-44927280578697",
+    "price": 86.49,
+    "wasPrice": 124.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338353291401-44927269929097",
+    "price": 121.49,
+    "wasPrice": 129.99,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416742408329-45147124531337",
+    "price": 36.99,
+    "wasPrice": 69.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416742703241-45147124826249",
+    "price": 15.49,
+    "wasPrice": 28.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338369740937-44927292735625",
+    "price": 36.99,
+    "wasPrice": 76.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-narciso162",
+    "price": 57,
+    "wasPrice": 95,
+    "percentOff": 40,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "escentual-narciso163",
+    "price": 83,
+    "wasPrice": 140,
+    "percentOff": 40,
+    "retailerId": "escentual"
+  },
+  {
     "fragranceId": "escentual-narciso164",
-    "price": 130,
+    "price": 105,
     "wasPrice": 175,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-narciso151",
-    "price": 77,
+    "price": 65,
     "wasPrice": 110,
-    "percentOff": 30,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338350735497-44927266521225",
+    "price": 39.49,
+    "wasPrice": 55.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423222121754",
@@ -17610,11 +28915,32 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338361450633-44927282118793",
+    "price": 50.49,
+    "wasPrice": 53.99,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3423478806054",
     "price": 42.25,
     "wasPrice": 79.5,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338411716745-44927390089353",
+    "price": 48.99,
+    "wasPrice": 64.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338262458505-44927127683209",
+    "price": 75.49,
+    "wasPrice": 119.99,
+    "percentOff": 37,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423222107635",
@@ -17625,16 +28951,16 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-narciso100",
-    "price": 105,
+    "price": 88,
     "wasPrice": 150,
-    "percentOff": 30,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-narciso118",
-    "price": 73,
+    "price": 60,
     "wasPrice": 100,
-    "percentOff": 27,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -17645,11 +28971,39 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416743293065-45147125416073",
+    "price": 71.49,
+    "wasPrice": 134.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416743129225-45147125252233",
+    "price": 79.99,
+    "wasPrice": 172.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3423470890136",
     "price": 53.25,
     "wasPrice": 100,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416743161993-45147125285001",
+    "price": 70.99,
+    "wasPrice": 143.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338262720649-44927128502409",
+    "price": 67.99,
+    "wasPrice": 86.99,
+    "percentOff": 21,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3423222121976",
@@ -17666,6 +29020,104 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416743948425-45147126235273",
+    "price": 11.69,
+    "wasPrice": 21.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338355486857-44927275073673",
+    "price": 6.29,
+    "wasPrice": 9.99,
+    "percentOff": 37,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416744112265-45147126399113",
+    "price": 9.69,
+    "wasPrice": 19.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416744407177-45147126759561",
+    "price": 15.99,
+    "wasPrice": 30.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416744636553-45147126988937",
+    "price": 32.49,
+    "wasPrice": 58.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416744571017-45147126923401",
+    "price": 45.99,
+    "wasPrice": 87.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416744603785-45147126956169",
+    "price": 49.49,
+    "wasPrice": 93.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338263474313-44927129157769",
+    "price": 53.49,
+    "wasPrice": 55.99,
+    "percentOff": 4,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338263507081-44927129190537",
+    "price": 46.99,
+    "wasPrice": 50.99,
+    "percentOff": 7,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338263539849-44927129321609",
+    "price": 46.99,
+    "wasPrice": 66.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416744734857-45147127087241",
+    "price": 28.99,
+    "wasPrice": 53.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338342314121-44927254659209",
+    "price": 34.49,
+    "wasPrice": 51.99,
+    "percentOff": 33,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338342346889-44927254691977",
+    "price": 39.99,
+    "wasPrice": 93.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416744538249-45147126890633",
+    "price": 44.99,
+    "wasPrice": 91.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3137370361336",
     "price": 68.95,
     "wasPrice": 104,
@@ -17680,11 +29132,88 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338263605385-44927129387145",
+    "price": 50.49,
+    "wasPrice": 58.99,
+    "percentOff": 14,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338263638153-44927129419913",
+    "price": 47.99,
+    "wasPrice": 56.99,
+    "percentOff": 15,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338263834761-44927129682057",
+    "price": 44.49,
+    "wasPrice": 88.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416746668169-45147129184393",
+    "price": 63.99,
+    "wasPrice": 120.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416746504329-45147129020553",
+    "price": 60.49,
+    "wasPrice": 114.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416746471561-45147128987785",
+    "price": 60.49,
+    "wasPrice": 114.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416746537097-45147129053321",
+    "price": 60.49,
+    "wasPrice": 114.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416746438793-45147128955017",
+    "price": 60.49,
+    "wasPrice": 114.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416746602633-45147129118857",
+    "price": 60.49,
+    "wasPrice": 114.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416746832009-45147129348233",
+    "price": 22.49,
+    "wasPrice": 40.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-85715567222",
     "price": 42.5,
     "wasPrice": 80,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416746733705-45147129249929",
+    "price": 32.49,
+    "wasPrice": 58.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-85715571007",
@@ -17701,9 +29230,23 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338377474185-44927306498185",
+    "price": 24.99,
+    "wasPrice": 67.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416749060233-45147131510921",
+    "price": 15.99,
+    "wasPrice": 30.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-ppmonparfum002",
-    "price": 30,
-    "wasPrice": 40,
+    "price": 29,
+    "wasPrice": 39,
     "percentOff": 25,
     "retailerId": "escentual"
   },
@@ -17713,6 +29256,34 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 75,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338270978185-44927140233353",
+    "price": 32.49,
+    "wasPrice": 88.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416749125769-45147131576457",
+    "price": 11.19,
+    "wasPrice": 21.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338267996297-44927134695561",
+    "price": 24.49,
+    "wasPrice": 72.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338268061833-44927134761097",
+    "price": 22.99,
+    "wasPrice": 54.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15832243470685-default-title",
@@ -17831,13 +29402,6 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 17.99,
     "wasPrice": 30,
     "percentOff": 40,
-    "retailerId": "emirates-oud"
-  },
-  {
-    "fragranceId": "emirates-oud-15497563472221-default-title",
-    "price": 29.99,
-    "wasPrice": 40,
-    "percentOff": 25,
     "retailerId": "emirates-oud"
   },
   {
@@ -18177,6 +29741,55 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416749879433-45147132526729",
+    "price": 14.19,
+    "wasPrice": 24.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416749781129-45147132428425",
+    "price": 17.99,
+    "wasPrice": 30.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338367021193-44927287984265",
+    "price": 41.99,
+    "wasPrice": 149.99,
+    "percentOff": 72,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338364563593-44927285362825",
+    "price": 41.99,
+    "wasPrice": 149.99,
+    "percentOff": 72,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338364465289-44927285264521",
+    "price": 41.99,
+    "wasPrice": 149.99,
+    "percentOff": 72,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338364498057-44927285297289",
+    "price": 41.99,
+    "wasPrice": 149.99,
+    "percentOff": 72,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416749944969-45147132592265",
+    "price": 29.99,
+    "wasPrice": 55.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15081941270877-default-title",
     "price": 14.99,
     "wasPrice": 29.99,
@@ -18212,21 +29825,609 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416750043273-45147132690569",
+    "price": 89.49,
+    "wasPrice": 166.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338413027465-44927391531145",
+    "price": 177.99,
+    "wasPrice": 195,
+    "percentOff": 8,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338376818825-44927303843977",
+    "price": 15.29,
+    "wasPrice": 20.99,
+    "percentOff": 27,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338376851593-44927303876745",
+    "price": 24.49,
+    "wasPrice": 38.99,
+    "percentOff": 37,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338376032393-44927303254153",
+    "price": 26.49,
+    "wasPrice": 29.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338375999625-44927303221385",
+    "price": 21.99,
+    "wasPrice": 39.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338376097929-44927303319689",
+    "price": 18.49,
+    "wasPrice": 21.99,
+    "percentOff": 15,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338375803017-44927303024777",
+    "price": 26.99,
+    "wasPrice": 34.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338384289929-44927316557961",
+    "price": 19.49,
+    "wasPrice": 48.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338375966857-44927303188617",
+    "price": 18.49,
+    "wasPrice": 29.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338379604105-44927309086857",
+    "price": 26.49,
+    "wasPrice": 39.99,
+    "percentOff": 33,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338384355465-44927316623497",
+    "price": 20.99,
+    "wasPrice": 25.99,
+    "percentOff": 19,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338376491145-44927303516297",
+    "price": 25.99,
+    "wasPrice": 44.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338376523913-44927303549065",
+    "price": 35.49,
+    "wasPrice": 44.99,
+    "percentOff": 21,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338270683273-44927139938441",
+    "price": 10.19,
+    "wasPrice": 19.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338351161481-44927266947209",
+    "price": 27.99,
+    "wasPrice": 74.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338403262601-44927362039945",
+    "price": 237.49,
+    "wasPrice": 306.89,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338270912649-44927140167817",
+    "price": 9.79,
+    "wasPrice": 16.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338270879881-44927140135049",
+    "price": 30.99,
+    "wasPrice": 49.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416750469257-45147133116553",
+    "price": 14.19,
+    "wasPrice": 24.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416750436489-45147133083785",
+    "price": 18.49,
+    "wasPrice": 33.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338271174793-44927140528265",
+    "price": 12.29,
+    "wasPrice": 28.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338271273097-44927140823177",
+    "price": 15.29,
+    "wasPrice": 35.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338271338633-44927140888713",
+    "price": 15.29,
+    "wasPrice": 34.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338271404169-44927140954249",
+    "price": 12.19,
+    "wasPrice": 35.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338271535241-44927141085321",
+    "price": 12.19,
+    "wasPrice": 34.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338271600777-44927141150857",
+    "price": 17.49,
+    "wasPrice": 44.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338271764617-44927141347465",
+    "price": 13.29,
+    "wasPrice": 35.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338271797385-44927141380233",
+    "price": 12.69,
+    "wasPrice": 34.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338271895689-44927141478537",
+    "price": 12.19,
+    "wasPrice": 34.99,
+    "percentOff": 65,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338271830153-44927141413001",
+    "price": 19.99,
+    "wasPrice": 54.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338342674569-44927255347337",
+    "price": 20.49,
+    "wasPrice": 45.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338272190601-44927141576841",
+    "price": 15.29,
+    "wasPrice": 34.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338271993993-44927141544073",
+    "price": 24.49,
+    "wasPrice": 39.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338272354441-44927142035593",
+    "price": 14.29,
+    "wasPrice": 34.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338272321673-44927142002825",
+    "price": 22.99,
+    "wasPrice": 39.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338272419977-44927142101129",
+    "price": 19.99,
+    "wasPrice": 39.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338272583817-44927142264969",
+    "price": 12.29,
+    "wasPrice": 19.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338272616585-44927142297737",
+    "price": 21.49,
+    "wasPrice": 29.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338272551049-44927142232201",
+    "price": 19.49,
+    "wasPrice": 39.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416750698633-45147133378697",
+    "price": 12.19,
+    "wasPrice": 22.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416750895241-45147133575305",
+    "price": 17.49,
+    "wasPrice": 31.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416750600329-45147133247625",
+    "price": 19.99,
+    "wasPrice": 37.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416751419529-45147134197897",
+    "price": 12.19,
+    "wasPrice": 22.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416750993545-45147133673609",
+    "price": 17.49,
+    "wasPrice": 31.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416751124617-45147133902985",
+    "price": 19.99,
+    "wasPrice": 37.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338273304713-44927143215241",
+    "price": 16.99,
+    "wasPrice": 44.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338272682121-44927142363273",
+    "price": 9.19,
+    "wasPrice": 29.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338272780425-44927142461577",
+    "price": 16.49,
+    "wasPrice": 38.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338272747657-44927142428809",
+    "price": 14.19,
+    "wasPrice": 48.99,
+    "percentOff": 71,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416750567561-45147133214857",
+    "price": 12.69,
+    "wasPrice": 22.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338272813193-44927142494345",
+    "price": 16.99,
+    "wasPrice": 46.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338272911497-44927142658185",
+    "price": 19.49,
+    "wasPrice": 29.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338273009801-44927142756489",
+    "price": 13.79,
+    "wasPrice": 24.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338273075337-44927142822025",
+    "price": 14.69,
+    "wasPrice": 29.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338272944265-44927142690953",
+    "price": 19.49,
+    "wasPrice": 48.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338273108105-44927142887561",
+    "price": 11.69,
+    "wasPrice": 24.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338273042569-44927142789257",
+    "price": 20.49,
+    "wasPrice": 48.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338273140873-44927142920329",
+    "price": 16.99,
+    "wasPrice": 43.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338273173641-44927142953097",
+    "price": 13.29,
+    "wasPrice": 14.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338273206409-44927142985865",
+    "price": 16.99,
+    "wasPrice": 43.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416750502025-45147133149321",
+    "price": 11.19,
+    "wasPrice": 22.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338273337481-44927143248009",
+    "price": 20.49,
+    "wasPrice": 43.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338273370249-44927143313545",
+    "price": 21.49,
+    "wasPrice": 43.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338268586121-44927136759945",
+    "price": 16.99,
+    "wasPrice": 45.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338268717193-44927136891017",
+    "price": 14.19,
+    "wasPrice": 48.99,
+    "percentOff": 71,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338268618889-44927136792713",
+    "price": 12.69,
+    "wasPrice": 29.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338268684425-44927136858249",
+    "price": 9.19,
+    "wasPrice": 24.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338268815497-44927136989321",
+    "price": 12.19,
+    "wasPrice": 24.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338268881033-44927137054857",
+    "price": 13.19,
+    "wasPrice": 29.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338268782729-44927136956553",
+    "price": 21.49,
+    "wasPrice": 48.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338268848265-44927137022089",
+    "price": 21.99,
+    "wasPrice": 48.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338268913801-44927137087625",
+    "price": 9.19,
+    "wasPrice": 22.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338268979337-44927137317001",
+    "price": 12.29,
+    "wasPrice": 29.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338269012105-44927137349769",
+    "price": 12.29,
+    "wasPrice": 28.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338269274249-44927137677449",
+    "price": 10.79,
+    "wasPrice": 21.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338269208713-44927137611913",
+    "price": 21.49,
+    "wasPrice": 38.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338269372553-44927137775753",
+    "price": 16.99,
+    "wasPrice": 46.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338269503625-44927138660489",
+    "price": 18.49,
+    "wasPrice": 44.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338269536393-44927138693257",
+    "price": 16.99,
+    "wasPrice": 37.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338269569161-44927138726025",
+    "price": 20.49,
+    "wasPrice": 43.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338269601929-44927138758793",
+    "price": 16.99,
+    "wasPrice": 46.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338269667465-44927138824329",
+    "price": 12.79,
+    "wasPrice": 26.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416751550601-45147134328969",
+    "price": 31.99,
+    "wasPrice": 58.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416751517833-45147134296201",
+    "price": 39.99,
+    "wasPrice": 73.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-pradaamande002",
-    "price": 160,
+    "price": 155,
     "wasPrice": 215,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-pradafigue002",
-    "price": 160,
-    "wasPrice": 215,
-    "percentOff": 25,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "escentual-pradagingembre001",
     "price": 160,
     "wasPrice": 215,
     "percentOff": 25,
@@ -18241,23 +30442,23 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-pradarhubarb001",
-    "price": 160,
+    "price": 155,
     "wasPrice": 215,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-pradarose002",
-    "price": 160,
+    "price": 130,
     "wasPrice": 215,
-    "percentOff": 25,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-pradasantalchai001",
-    "price": 160,
+    "price": 155,
     "wasPrice": 215,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
@@ -18282,11 +30483,151 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416752173193-45147135049865",
+    "price": 76.49,
+    "wasPrice": 143.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-8435137737819",
     "price": 59.95,
     "wasPrice": 97,
     "percentOff": 38,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416751878281-45147134656649",
+    "price": 109.99,
+    "wasPrice": 231.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416751616137-45147134394505",
+    "price": 156.49,
+    "wasPrice": 310.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338407620745-44927376326793",
+    "price": 11.29,
+    "wasPrice": 14.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338417942665-44927408013449",
+    "price": 11.29,
+    "wasPrice": 14.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338411421833-44927389728905",
+    "price": 11.29,
+    "wasPrice": 14.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338405720201-44927369412745",
+    "price": 11.29,
+    "wasPrice": 14.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338408276105-44927378391177",
+    "price": 11.29,
+    "wasPrice": 14.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338416599177-44927406506121",
+    "price": 11.29,
+    "wasPrice": 14.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338411192457-44927388844169",
+    "price": 11.29,
+    "wasPrice": 14.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338416500873-44927406407817",
+    "price": 11.29,
+    "wasPrice": 14.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338416042121-44927404966025",
+    "price": 11.29,
+    "wasPrice": 14.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338404606089-44927366332553",
+    "price": 11.29,
+    "wasPrice": 14.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338417090697-44927407030409",
+    "price": 11.29,
+    "wasPrice": 14.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338413944969-44927392776329",
+    "price": 11.29,
+    "wasPrice": 14.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338414207113-44927393104009",
+    "price": 11.29,
+    "wasPrice": 14.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338417877129-44927407947913",
+    "price": 11.29,
+    "wasPrice": 14.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338408308873-44927378423945",
+    "price": 11.29,
+    "wasPrice": 14.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416752533641-45147135443081",
+    "price": 9.19,
+    "wasPrice": 17.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416752468105-45147135410313",
+    "price": 9.19,
+    "wasPrice": 17.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-9020965716317-default-title",
@@ -18366,6 +30707,34 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338269995145-44927139184777",
+    "price": 33.49,
+    "wasPrice": 109.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338270027913-44927139217545",
+    "price": 9.79,
+    "wasPrice": 32.99,
+    "percentOff": 70,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338363285641-44927284052105",
+    "price": 11.19,
+    "wasPrice": 29.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-7633288102025-42358299558025",
+    "price": 13.19,
+    "wasPrice": 30.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3349666007891",
     "price": 50.95,
     "wasPrice": 66,
@@ -18373,10 +30742,17 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338264686729-44927130697865",
+    "price": 59.49,
+    "wasPrice": 65.99,
+    "percentOff": 9,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-pr-onemillion001",
-    "price": 95,
+    "price": 91,
     "wasPrice": 130,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
@@ -18394,6 +30770,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338264555657-44927130501257",
+    "price": 79.99,
+    "wasPrice": 89.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3349668625284",
     "price": 59.95,
     "wasPrice": 98,
@@ -18409,10 +30792,31 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-pr-onemillion018",
-    "price": 84,
+    "price": 80,
     "wasPrice": 115,
-    "percentOff": 26,
+    "percentOff": 30,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416748372105-45147130757257",
+    "price": 54.99,
+    "wasPrice": 111.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338264883337-44927130894473",
+    "price": 79.49,
+    "wasPrice": 101.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416747782281-45147130298505",
+    "price": 79.49,
+    "wasPrice": 148.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3349668617067",
@@ -18429,6 +30833,20 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416748404873-45147130790025",
+    "price": 44.49,
+    "wasPrice": 82.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338265112713-44927131156617",
+    "price": 58.49,
+    "wasPrice": 76.99,
+    "percentOff": 24,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3349666005330",
     "price": 48.95,
     "wasPrice": 83.5,
@@ -18436,10 +30854,17 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338265079945-44927131123849",
+    "price": 79.49,
+    "wasPrice": 96.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-blackxsforher001",
-    "price": 99,
+    "price": 79,
     "wasPrice": 135,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
@@ -18464,11 +30889,32 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416747552905-45147130134665",
+    "price": 78.99,
+    "wasPrice": 157.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-pr-invictus029",
-    "price": 170,
+    "price": 165,
     "wasPrice": 225,
-    "percentOff": 24,
+    "percentOff": 26,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416748175497-45147130560649",
+    "price": 67.49,
+    "wasPrice": 123.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416747356297-45147129872521",
+    "price": 84.99,
+    "wasPrice": 157.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-pacoladymillion003",
@@ -18485,6 +30931,20 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338265768073-44927131877513",
+    "price": 47.99,
+    "wasPrice": 60.99,
+    "percentOff": 21,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338265833609-44927131943049",
+    "price": 67.49,
+    "wasPrice": 85.99,
+    "percentOff": 21,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3349668624621",
     "price": 79.95,
     "wasPrice": 96,
@@ -18493,9 +30953,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-pacoladymillion036",
-    "price": 93,
+    "price": 74,
     "wasPrice": 125,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
@@ -18506,6 +30966,20 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338430165129-44927428198537",
+    "price": 58.49,
+    "wasPrice": 67,
+    "percentOff": 12,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338413748361-44927392448649",
+    "price": 78.49,
+    "wasPrice": 94.99,
+    "percentOff": 17,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3349668630356",
     "price": 96.95,
     "wasPrice": 140,
@@ -18513,25 +30987,39 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338266325129-44927132467337",
+    "price": 20.49,
+    "wasPrice": 24.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-pr-olympea035",
-    "price": 71,
+    "price": 57,
     "wasPrice": 95,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-pr-olympea036",
-    "price": 105,
+    "price": 83,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-pr-olympea037",
-    "price": 130,
+    "price": 105,
     "wasPrice": 175,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338266488969-44927132663945",
+    "price": 79.99,
+    "wasPrice": 102.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3349668565856",
@@ -18542,24 +31030,52 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-pr-olympea040",
-    "price": 74,
+    "price": 59,
     "wasPrice": 99,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338266259593-44927132401801",
+    "price": 41.99,
+    "wasPrice": 83.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338264195209-44927130042505",
+    "price": 63.99,
+    "wasPrice": 82.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-pr-olympea043",
-    "price": 68,
+    "price": 65,
     "wasPrice": 90,
-    "percentOff": 24,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-pr-olympea044",
-    "price": 98,
-    "wasPrice": 135,
+    "price": 94,
+    "wasPrice": 130,
     "percentOff": 27,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416748503177-45147130888329",
+    "price": 44.49,
+    "wasPrice": 98.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338264522889-44927130468489",
+    "price": 72.49,
+    "wasPrice": 84.99,
+    "percentOff": 14,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3349668675432",
@@ -18576,6 +31092,27 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338266914953-44927133646985",
+    "price": 43.99,
+    "wasPrice": 75.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338266816649-44927133548681",
+    "price": 57.49,
+    "wasPrice": 81.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416748961929-45147131379849",
+    "price": 21.99,
+    "wasPrice": 40.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3349668582297",
     "price": 64.95,
     "wasPrice": 98,
@@ -18583,11 +31120,74 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338267144329-44927133876361",
+    "price": 78.49,
+    "wasPrice": 96.99,
+    "percentOff": 19,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3349668642670",
     "price": 66.95,
     "wasPrice": 108,
     "percentOff": 38,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416747159689-45147129675913",
+    "price": 116.49,
+    "wasPrice": 228.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416748339337-45147130691721",
+    "price": 58.49,
+    "wasPrice": 123.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416747225225-45147129741449",
+    "price": 103.99,
+    "wasPrice": 219.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416748699785-45147131117705",
+    "price": 31.99,
+    "wasPrice": 57.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338267603081-44927134433417",
+    "price": 49.49,
+    "wasPrice": 78.99,
+    "percentOff": 37,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338270257289-44927139446921",
+    "price": 32.99,
+    "wasPrice": 79.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338270290057-44927139512457",
+    "price": 28.99,
+    "wasPrice": 59.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416753385609-45147136327817",
+    "price": 27.49,
+    "wasPrice": 49.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3605975062502",
@@ -18598,10 +31198,17 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-poloblue25",
-    "price": 64,
+    "price": 51,
     "wasPrice": 85,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338270421129-44927139676297",
+    "price": 48.99,
+    "wasPrice": 62.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3605972793713",
@@ -18612,10 +31219,24 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-polored002",
-    "price": 50,
+    "price": 40,
     "wasPrice": 67,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338270584969-44927139840137",
+    "price": 28.99,
+    "wasPrice": 62.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338270519433-44927139774601",
+    "price": 31.49,
+    "wasPrice": 63.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3605972831071",
@@ -18623,6 +31244,48 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 89,
     "percentOff": 44,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416753418377-45147136360585",
+    "price": 37.49,
+    "wasPrice": 67.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338273665161-44927143903369",
+    "price": 19.49,
+    "wasPrice": 48.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416753549449-45147136491657",
+    "price": 150.49,
+    "wasPrice": 282.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416753451145-45147136393353",
+    "price": 265.99,
+    "wasPrice": 496.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416754139273-45147137147017",
+    "price": 62.99,
+    "wasPrice": 118.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416754532489-45147137540233",
+    "price": 12.19,
+    "wasPrice": 22.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15520069321053-default-title",
@@ -18651,6 +31314,20 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 40,
     "percentOff": 37,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416754368649-45147137376393",
+    "price": 25.99,
+    "wasPrice": 58.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416754434185-45147137441929",
+    "price": 34.49,
+    "wasPrice": 69.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-9439081496925-default-title",
@@ -18707,6 +31384,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 40,
     "percentOff": 37,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416754270345-45147137278089",
+    "price": 27.49,
+    "wasPrice": 49.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15728837624157-default-title",
@@ -18828,6 +31512,27 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338376654985-44927303680137",
+    "price": 9.79,
+    "wasPrice": 16.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338376589449-44927303614601",
+    "price": 9.79,
+    "wasPrice": 16.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338376556681-44927303581833",
+    "price": 9.79,
+    "wasPrice": 16.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15695835332957-default-title",
     "price": 44.99,
     "wasPrice": 70,
@@ -18850,9 +31555,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "emirates-oud-15963121254749-default-title",
-    "price": 34.99,
+    "price": 44.99,
     "wasPrice": 70,
-    "percentOff": 50,
+    "percentOff": 35,
     "retailerId": "emirates-oud"
   },
   {
@@ -18906,9 +31611,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "emirates-oud-big-bottle---reef-33",
-    "price": 44.99,
+    "price": 48.99,
     "wasPrice": 70,
-    "percentOff": 35,
+    "percentOff": 30,
     "retailerId": "emirates-oud"
   },
   {
@@ -18945,6 +31650,62 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 70,
     "percentOff": 35,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338273992841-44927144263817",
+    "price": 11.29,
+    "wasPrice": 29.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338274058377-44927144329353",
+    "price": 6.29,
+    "wasPrice": 26.99,
+    "percentOff": 76,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338274386057-44927144853641",
+    "price": 3.19,
+    "wasPrice": 20.99,
+    "percentOff": 84,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338274779273-44927145574537",
+    "price": 16.99,
+    "wasPrice": 27.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338274812041-44927145607305",
+    "price": 6.79,
+    "wasPrice": 27.99,
+    "percentOff": 75,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416756072585-45147139211401",
+    "price": 5.19,
+    "wasPrice": 10.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416755875977-45147139014793",
+    "price": 12.19,
+    "wasPrice": 22.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338274975881-44927145803913",
+    "price": 5.19,
+    "wasPrice": 20.99,
+    "percentOff": 75,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15808425099613-default-title",
@@ -19171,13 +31932,6 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
-    "fragranceId": "emirates-oud-15470209958237-default-title",
-    "price": 16.99,
-    "wasPrice": 24.99,
-    "percentOff": 32,
-    "retailerId": "emirates-oud"
-  },
-  {
     "fragranceId": "emirates-oud-15573380464989-default-title",
     "price": 17.99,
     "wasPrice": 24.99,
@@ -19227,10 +31981,31 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416759349385-45147143209097",
+    "price": 12.69,
+    "wasPrice": 22.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338275369097-44927146229897",
+    "price": 16.49,
+    "wasPrice": 18.49,
+    "percentOff": 10,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416759677065-45147143536777",
+    "price": 24.99,
+    "wasPrice": 48.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-cavalliserpentine002",
-    "price": 79,
+    "price": 64,
     "wasPrice": 110,
-    "percentOff": 28,
+    "percentOff": 41,
     "retailerId": "escentual"
   },
   {
@@ -19241,18 +32016,277 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416759578761-45147143438473",
+    "price": 34.49,
+    "wasPrice": 62.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338342903945-44927255675017",
+    "price": 35.49,
+    "wasPrice": 38.99,
+    "percentOff": 8,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-cavalliuomo002",
-    "price": 47,
+    "price": 45,
     "wasPrice": 63,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-cavalli009",
-    "price": 47,
+    "price": 45,
     "wasPrice": 63,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338275664009-44927146655881",
+    "price": 25.49,
+    "wasPrice": 42.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338275762313-44927146754185",
+    "price": 25.99,
+    "wasPrice": 65.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338216353929-44927056674953",
+    "price": 32.99,
+    "wasPrice": 80.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338275893385-44927146852489",
+    "price": 21.99,
+    "wasPrice": 22.99,
+    "percentOff": 4,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338275926153-44927146918025",
+    "price": 29.49,
+    "wasPrice": 37.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338351325321-44927267143817",
+    "price": 46.99,
+    "wasPrice": 64.99,
+    "percentOff": 27,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338276089993-44927147081865",
+    "price": 23.49,
+    "wasPrice": 28.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338276155529-44927147147401",
+    "price": 47.99,
+    "wasPrice": 119.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338276548745-44927149441161",
+    "price": 16.49,
+    "wasPrice": 34.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338276286601-44927148359817",
+    "price": 28.99,
+    "wasPrice": 41.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338276679817-44927151407241",
+    "price": 26.99,
+    "wasPrice": 29.99,
+    "percentOff": 10,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338276712585-44927151440009",
+    "price": 38.49,
+    "wasPrice": 80.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338276778121-44927151505545",
+    "price": 25.99,
+    "wasPrice": 38.99,
+    "percentOff": 33,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338277007497-44927154454665",
+    "price": 31.49,
+    "wasPrice": 35.99,
+    "percentOff": 12,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338277073033-44927155372169",
+    "price": 39.99,
+    "wasPrice": 94.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338277138569-44927155437705",
+    "price": 31.49,
+    "wasPrice": 54.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416760070281-45147143929993",
+    "price": 38.49,
+    "wasPrice": 67.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416760135817-45147143995529",
+    "price": 32.49,
+    "wasPrice": 66.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416762003593-45147146027145",
+    "price": 14.69,
+    "wasPrice": 26.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416762036361-45147146059913",
+    "price": 806.49,
+    "wasPrice": 1506.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416762298505-45147146322057",
+    "price": 189.49,
+    "wasPrice": 354.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416762855561-45147146911881",
+    "price": 19.99,
+    "wasPrice": 33.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416762822793-45147146879113",
+    "price": 19.49,
+    "wasPrice": 33.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416762626185-45147146682505",
+    "price": 18.99,
+    "wasPrice": 31.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416762757257-45147146813577",
+    "price": 18.49,
+    "wasPrice": 31.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338351390857-44927267209353",
+    "price": 23.99,
+    "wasPrice": 33.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338277990537-44927164350601",
+    "price": 31.99,
+    "wasPrice": 53.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338278056073-44927164743817",
+    "price": 20.49,
+    "wasPrice": 24.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338278154377-44927165005961",
+    "price": 24.49,
+    "wasPrice": 63.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416764362889-45147148484745",
+    "price": 22.49,
+    "wasPrice": 40.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338278252681-44927165431945",
+    "price": 14.29,
+    "wasPrice": 51.99,
+    "percentOff": 72,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416764002441-45147148124297",
+    "price": 99.99,
+    "wasPrice": 186.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416763838601-45147147927689",
+    "price": 104.49,
+    "wasPrice": 195.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416763969673-45147148091529",
+    "price": 99.99,
+    "wasPrice": 186.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338351423625-44927267242121",
+    "price": 34.49,
+    "wasPrice": 45.99,
+    "percentOff": 25,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-8034097959721",
@@ -19262,39 +32296,172 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416764559497-45147149107337",
+    "price": 18.49,
+    "wasPrice": 33.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338278842505-44927167987849",
+    "price": 19.99,
+    "wasPrice": 54.99,
+    "percentOff": 63,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416765214857-45147150221449",
+    "price": 11.69,
+    "wasPrice": 21.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416765149321-45147150155913",
+    "price": 15.99,
+    "wasPrice": 30.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338279071881-44927168905353",
+    "price": 13.19,
+    "wasPrice": 49.99,
+    "percentOff": 73,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338279202953-44927169560713",
+    "price": 14.69,
+    "wasPrice": 33.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338279137417-44927169233033",
+    "price": 18.99,
+    "wasPrice": 44.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416765051017-45147150057609",
+    "price": 20.99,
+    "wasPrice": 37.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338279465097-44927170478217",
+    "price": 11.29,
+    "wasPrice": 24.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338279497865-44927170510985",
+    "price": 15.49,
+    "wasPrice": 19.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416764919945-45147149762697",
+    "price": 23.49,
+    "wasPrice": 42.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338279628937-44927171035273",
+    "price": 7.19,
+    "wasPrice": 16.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338279661705-44927171330185",
+    "price": 12.29,
+    "wasPrice": 27.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416765345929-45147150418057",
+    "price": 24.99,
+    "wasPrice": 46.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416765313161-45147150385289",
+    "price": 24.99,
+    "wasPrice": 46.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338393366665-44927335366793",
+    "price": 28.49,
+    "wasPrice": 34.99,
+    "percentOff": 18,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416765247625-45147150254217",
+    "price": 24.99,
+    "wasPrice": 46.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-sergelutens55",
-    "price": 225,
+    "price": 190,
     "wasPrice": 310,
-    "percentOff": 27,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-sergelutens25",
-    "price": 160,
+    "price": 135,
     "wasPrice": 220,
-    "percentOff": 27,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-sergelutens031",
-    "price": 160,
+    "price": 135,
     "wasPrice": 220,
-    "percentOff": 27,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-sergelutens61",
-    "price": 225,
+    "price": 190,
     "wasPrice": 310,
-    "percentOff": 27,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-santalmajuscule001",
-    "price": 160,
+    "price": 135,
     "wasPrice": 220,
-    "percentOff": 27,
+    "percentOff": 38,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416768655497-45147155038345",
+    "price": 10.19,
+    "wasPrice": 19.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338380161161-44927310332041",
+    "price": 18.49,
+    "wasPrice": 59.99,
+    "percentOff": 69,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3473311986009",
@@ -19302,6 +32469,27 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 232,
     "percentOff": 46,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338388091017-44927323701385",
+    "price": 13.69,
+    "wasPrice": 24.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416770424969-45147157266569",
+    "price": 33.49,
+    "wasPrice": 66.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416770621577-45147157528713",
+    "price": 36.99,
+    "wasPrice": 66.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-810912032576",
@@ -19323,6 +32511,62 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 39,
     "percentOff": 18,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-7822969700489-42880204767369",
+    "price": 36.99,
+    "wasPrice": 38,
+    "percentOff": 2,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416770719881-45147157627017",
+    "price": 37.49,
+    "wasPrice": 66.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416771375241-45147158577289",
+    "price": 6.69,
+    "wasPrice": 12.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338283593865-44927182635145",
+    "price": 12.29,
+    "wasPrice": 24.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338283692169-44927182864521",
+    "price": 12.29,
+    "wasPrice": 24.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338283724937-44927183159433",
+    "price": 27.49,
+    "wasPrice": 44.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338161467529-44926978490505",
+    "price": 41.99,
+    "wasPrice": 64.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416773144713-45147160739977",
+    "price": 31.49,
+    "wasPrice": 57.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15721315533149-default-title",
@@ -19353,6 +32597,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416772751497-45147160117385",
+    "price": 50.49,
+    "wasPrice": 93.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15856747675997-default-title",
     "price": 54.99,
     "wasPrice": 80,
@@ -19372,6 +32623,20 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 55,
     "percentOff": 18,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416773013641-45147160608905",
+    "price": 54.49,
+    "wasPrice": 87.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416772685961-45147160051849",
+    "price": 17.99,
+    "wasPrice": 28.99,
+    "percentOff": 37,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15721311076701-default-title",
@@ -19409,11 +32674,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416773079177-45147160674441",
+    "price": 45.49,
+    "wasPrice": 89.99,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-15493616795997-default-title",
     "price": 39.99,
     "wasPrice": 55,
     "percentOff": 27,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416772915337-45147160510601",
+    "price": 33.49,
+    "wasPrice": 89.99,
+    "percentOff": 62,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-9466087309661-default-title",
@@ -19465,73 +32744,297 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338283856009-44927183880329",
+    "price": 23.99,
+    "wasPrice": 51.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338283921545-44927184076937",
+    "price": 23.99,
+    "wasPrice": 51.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416773177481-45147160772745",
+    "price": 20.99,
+    "wasPrice": 39.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338284183689-44927185092745",
+    "price": 15.29,
+    "wasPrice": 24.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338284347529-44927185518729",
+    "price": 9.29,
+    "wasPrice": 14.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338284478601-44927185911945",
+    "price": 15.29,
+    "wasPrice": 24.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338284675209-44927187419273",
+    "price": 9.29,
+    "wasPrice": 14.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338284642441-44927186763913",
+    "price": 15.29,
+    "wasPrice": 19.99,
+    "percentOff": 23,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416773505161-45147161100425",
+    "price": 14.19,
+    "wasPrice": 26.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338343166089-44927256723593",
+    "price": 10.69,
+    "wasPrice": 19.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416773472393-45147161067657",
+    "price": 14.19,
+    "wasPrice": 26.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416774619273-45147162968201",
+    "price": 30.49,
+    "wasPrice": 55.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416773767305-45147161362569",
+    "price": 31.49,
+    "wasPrice": 55.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338285166729-44927189844105",
+    "price": 14.69,
+    "wasPrice": 31.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416773603465-45147161198729",
+    "price": 12.19,
+    "wasPrice": 22.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416774717577-45147163066505",
+    "price": 31.49,
+    "wasPrice": 60.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416773669001-45147161264265",
+    "price": 30.49,
+    "wasPrice": 60.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338280808585-44927175491721",
+    "price": 13.09,
+    "wasPrice": 31.99,
+    "percentOff": 59,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416773537929-45147161133193",
+    "price": 15.19,
+    "wasPrice": 28.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338280874121-44927175590025",
+    "price": 15.19,
+    "wasPrice": 36.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416775012489-45147163295881",
+    "price": 18.99,
+    "wasPrice": 35.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416775635081-45147163721865",
+    "price": 157.49,
+    "wasPrice": 301.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416775536777-45147163623561",
+    "price": 162.49,
+    "wasPrice": 291.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-themerchantofvenice043",
-    "price": 230,
+    "price": 185,
     "wasPrice": 305,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-themerchantofvenice030",
-    "price": 185,
+    "price": 150,
     "wasPrice": 245,
-    "percentOff": 24,
+    "percentOff": 38,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338247286921-44927108776073",
+    "price": 125.49,
+    "wasPrice": 262.99,
+    "percentOff": 52,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-themerchantofvenice045",
-    "price": 215,
+    "price": 205,
     "wasPrice": 285,
-    "percentOff": 24,
+    "percentOff": 28,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-themerchantofvenice022",
-    "price": 160,
+    "price": 125,
     "wasPrice": 210,
-    "percentOff": 23,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-themerchantofvenice024",
-    "price": 160,
+    "price": 125,
     "wasPrice": 210,
-    "percentOff": 23,
+    "percentOff": 40,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338391367817-44927330615433",
+    "price": 36.99,
+    "wasPrice": 69.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338281201801-44927176016009",
+    "price": 41.49,
+    "wasPrice": 64.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338281234569-44927176048777",
+    "price": 65.49,
+    "wasPrice": 94.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338281300105-44927176147081",
+    "price": 53.49,
+    "wasPrice": 66.99,
+    "percentOff": 20,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338281365641-44927176212617",
+    "price": 64.49,
+    "wasPrice": 91.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338281431177-44927176278153",
+    "price": 31.49,
+    "wasPrice": 54.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338281496713-44927176343689",
+    "price": 7.19,
+    "wasPrice": 16.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338281562249-44927176409225",
+    "price": 107.49,
+    "wasPrice": 149.99,
+    "percentOff": 28,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-tiffany011",
+    "price": 125,
+    "wasPrice": 205,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-tiffany017",
-    "price": 145,
+    "price": 115,
     "wasPrice": 190,
-    "percentOff": 23,
-    "retailerId": "escentual"
-  },
-  {
-    "fragranceId": "escentual-tiffany011",
-    "price": 155,
-    "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-tiffany032",
-    "price": 86,
+    "price": 69,
     "wasPrice": 115,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-tiffany033",
-    "price": 125,
+    "price": 98,
     "wasPrice": 165,
-    "percentOff": 24,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-tiffany034",
-    "price": 155,
+    "price": 150,
     "wasPrice": 205,
-    "percentOff": 24,
+    "percentOff": 26,
     "retailerId": "escentual"
   },
   {
@@ -19542,25 +33045,25 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-888066112734",
-    "price": 92.95,
-    "wasPrice": 135,
-    "percentOff": 31,
-    "retailerId": "fragrance-click"
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338417451145-44927407423625",
+    "price": 177.99,
+    "wasPrice": 353,
+    "percentOff": 49,
+    "retailerId": "mybeauty-boutique"
   },
   {
-    "fragranceId": "ean-888066000079",
-    "price": 101.95,
-    "wasPrice": 150,
-    "percentOff": 32,
-    "retailerId": "fragrance-click"
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338281824393-44927176704137",
+    "price": 105.49,
+    "wasPrice": 174.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
   },
   {
-    "fragranceId": "ean-888066124287",
-    "price": 125.95,
-    "wasPrice": 195,
-    "percentOff": 35,
-    "retailerId": "fragrance-click"
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338414141577-44927393038473",
+    "price": 79.99,
+    "wasPrice": 159.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-888066138734",
@@ -19575,6 +33078,20 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 222,
     "percentOff": 33,
     "retailerId": "fragrance-click"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416781598857-45147170275465",
+    "price": 107.99,
+    "wasPrice": 197.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416781336713-45147170013321",
+    "price": 145.99,
+    "wasPrice": 273.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-888066117470",
@@ -19598,6 +33115,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416780877961-45147169325193",
+    "price": 287.99,
+    "wasPrice": 530.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-888066094153",
     "price": 252.95,
     "wasPrice": 370,
@@ -19612,53 +33136,207 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "fragrance-click"
   },
   {
-    "fragranceId": "ean-888066035392",
-    "price": 109.95,
-    "wasPrice": 155,
-    "percentOff": 29,
-    "retailerId": "fragrance-click"
-  },
-  {
-    "fragranceId": "ean-888066050685",
-    "price": 117.75,
-    "wasPrice": 222,
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416781893769-45147170570377",
+    "price": 153.49,
+    "wasPrice": 287.99,
     "percentOff": 46,
-    "retailerId": "fragrance-click"
+    "retailerId": "mybeauty-boutique"
   },
   {
-    "fragranceId": "ean-888066117135",
-    "price": 125.95,
-    "wasPrice": 180,
-    "percentOff": 30,
-    "retailerId": "fragrance-click"
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338285527177-44927190663305",
+    "price": 138.99,
+    "wasPrice": 149.99,
+    "percentOff": 7,
+    "retailerId": "mybeauty-boutique"
   },
   {
-    "fragranceId": "ean-888066000161",
-    "price": 139.95,
-    "wasPrice": 164,
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416781795465-45147170472073",
+    "price": 43.99,
+    "wasPrice": 89.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338426462345-44927424299145",
+    "price": 36.99,
+    "wasPrice": 40,
+    "percentOff": 7,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338285592713-44927190794377",
+    "price": 98.99,
+    "wasPrice": 105.99,
+    "percentOff": 6,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416781566089-45147170242697",
+    "price": 117.49,
+    "wasPrice": 190.99,
+    "percentOff": 38,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338285822089-44927191023753",
+    "price": 119.99,
+    "wasPrice": 144.99,
+    "percentOff": 17,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338285789321-44927190990985",
+    "price": 260.49,
+    "wasPrice": 293.99,
+    "percentOff": 11,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338285920393-44927191122057",
+    "price": 119.99,
+    "wasPrice": 144.99,
+    "percentOff": 17,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338285953161-44927191154825",
+    "price": 187.49,
+    "wasPrice": 219.99,
     "percentOff": 14,
-    "retailerId": "fragrance-click"
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416781009033-45147169456265",
+    "price": 190.49,
+    "wasPrice": 352.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416781140105-45147169587337",
+    "price": 125.99,
+    "wasPrice": 235.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338370691209-44927293751433",
+    "price": 199.49,
+    "wasPrice": 219.99,
+    "percentOff": 9,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338285756553-44927190958217",
+    "price": 142.99,
+    "wasPrice": 151.99,
+    "percentOff": 5,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416780910729-45147169357961",
+    "price": 272.49,
+    "wasPrice": 508.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-thimpact014",
-    "price": 49,
-    "wasPrice": 66,
-    "percentOff": 25,
+    "price": 39,
+    "wasPrice": 65,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-thimpact015",
-    "price": 67,
+    "price": 54,
     "wasPrice": 89,
-    "percentOff": 24,
+    "percentOff": 39,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338286346377-44927191875721",
+    "price": 23.99,
+    "wasPrice": 57.99,
+    "percentOff": 58,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338286510217-44927192072329",
+    "price": 18.49,
+    "wasPrice": 43.99,
+    "percentOff": 57,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416782385289-45147171029129",
+    "price": 34.49,
+    "wasPrice": 62.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-tommynow002",
-    "price": 27,
+    "price": 26,
     "wasPrice": 36,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338286411913-44927191974025",
+    "price": 16.49,
+    "wasPrice": 30.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338248859785-44927110545545",
+    "price": 10.69,
+    "wasPrice": 23.99,
+    "percentOff": 55,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416782516361-45147171225737",
+    "price": 70.49,
+    "wasPrice": 132.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416782975113-45147171684489",
+    "price": 21.99,
+    "wasPrice": 46.99,
+    "percentOff": 53,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338286968969-44927192662153",
+    "price": 21.99,
+    "wasPrice": 39.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416782942345-45147171651721",
+    "price": 35.99,
+    "wasPrice": 66.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338406801545-44927373017225",
+    "price": 97.99,
+    "wasPrice": 166,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338286936201-44927192629385",
+    "price": 28.49,
+    "wasPrice": 46.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15511764631901-default-title",
@@ -19696,6 +33374,55 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416783073417-45147171782793",
+    "price": 59.49,
+    "wasPrice": 114.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416783204489-45147171913865",
+    "price": 44.49,
+    "wasPrice": 80.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416783597705-45147172339849",
+    "price": 151.99,
+    "wasPrice": 283.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416783630473-45147172503689",
+    "price": 122.49,
+    "wasPrice": 283.99,
+    "percentOff": 56,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416783892617-45147172765833",
+    "price": 137.49,
+    "wasPrice": 256.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416783663241-45147172536457",
+    "price": 95.49,
+    "wasPrice": 208.99,
+    "percentOff": 54,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416783564937-45147172307081",
+    "price": 151.99,
+    "wasPrice": 283.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "ean-3614272732308",
     "price": 74.95,
     "wasPrice": 140,
@@ -19704,17 +33431,178 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-valentinouomo036",
-    "price": 125,
+    "price": 120,
     "wasPrice": 170,
-    "percentOff": 26,
+    "percentOff": 29,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416784285833-45147173650569",
+    "price": 112.99,
+    "wasPrice": 210.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416784416905-45147173781641",
+    "price": 79.99,
+    "wasPrice": 152.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416784547977-45147173912713",
+    "price": 7.69,
+    "wasPrice": 15.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338288083081-44927194792073",
+    "price": 19.49,
+    "wasPrice": 83.99,
+    "percentOff": 76,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338288050313-44927194759305",
+    "price": 19.49,
+    "wasPrice": 81.99,
+    "percentOff": 76,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338288279689-44927195021449",
+    "price": 53.99,
+    "wasPrice": 77.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338412339337-44927390711945",
+    "price": 85.49,
+    "wasPrice": 120.99,
+    "percentOff": 29,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338413781129-44927392481417",
+    "price": 88.99,
+    "wasPrice": 151.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338292768905-44927199707273",
+    "price": 45.49,
+    "wasPrice": 64.99,
+    "percentOff": 30,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338293260425-44927200297097",
+    "price": 94.49,
+    "wasPrice": 109.99,
+    "percentOff": 14,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-versaceerospourfemme008",
-    "price": 110,
+    "price": 88,
     "wasPrice": 150,
-    "percentOff": 26,
+    "percentOff": 41,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338293424265-44927200395401",
+    "price": 69.99,
+    "wasPrice": 94.99,
+    "percentOff": 26,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416785629321-45147174797449",
+    "price": 31.99,
+    "wasPrice": 46.99,
+    "percentOff": 31,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416785596553-45147174764681",
+    "price": 47.49,
+    "wasPrice": 87.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338296307849-44927203475593",
+    "price": 56.99,
+    "wasPrice": 77.99,
+    "percentOff": 26,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416785006729-45147174371465",
+    "price": 77.49,
+    "wasPrice": 132.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338296340617-44927203573897",
+    "price": 47.99,
+    "wasPrice": 73.99,
+    "percentOff": 35,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338297716873-44927205638281",
+    "price": 76.49,
+    "wasPrice": 99.99,
+    "percentOff": 23,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338362663049-44927283396745",
+    "price": 21.99,
+    "wasPrice": 55.99,
+    "percentOff": 60,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416785465481-45147174633609",
+    "price": 54.99,
+    "wasPrice": 93.99,
+    "percentOff": 41,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416785203337-45147174469769",
+    "price": 77.49,
+    "wasPrice": 141.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338303680649-44927211995273",
+    "price": 21.49,
+    "wasPrice": 64.99,
+    "percentOff": 66,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416787431561-45147176730761",
+    "price": 20.99,
+    "wasPrice": 39.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338303844489-44927212159113",
+    "price": 50.49,
+    "wasPrice": 79.99,
+    "percentOff": 36,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "ean-3614272872387",
@@ -19725,52 +33613,332 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "escentual-vrflowerbomb053",
-    "price": 150,
+    "price": 145,
     "wasPrice": 200,
-    "percentOff": 25,
+    "percentOff": 27,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-vrflowerbomb039",
-    "price": 75,
+    "price": 60,
     "wasPrice": 100,
-    "percentOff": 25,
+    "percentOff": 40,
     "retailerId": "escentual"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338390319241-44927327764617",
+    "price": 30.99,
+    "wasPrice": 80.99,
+    "percentOff": 61,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416790839433-45147180957833",
+    "price": 13.19,
+    "wasPrice": 24.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416790806665-45147180925065",
+    "price": 12.69,
+    "wasPrice": 22.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416790741129-45147180859529",
+    "price": 12.69,
+    "wasPrice": 22.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416791756937-45147182071945",
+    "price": 68.99,
+    "wasPrice": 129.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338305155209-44927213305993",
+    "price": 68.99,
+    "wasPrice": 79.99,
+    "percentOff": 13,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416791396489-45147181678729",
+    "price": 147.49,
+    "wasPrice": 278.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416791134345-45147181318281",
+    "price": 180.99,
+    "wasPrice": 339.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416791593097-45147181875337",
+    "price": 132.49,
+    "wasPrice": 247.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416791625865-45147181908105",
+    "price": 138.99,
+    "wasPrice": 260.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416791330953-45147181514889",
+    "price": 180.99,
+    "wasPrice": 339.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416791822473-45147182137481",
+    "price": 73.99,
+    "wasPrice": 129.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416791789705-45147182104713",
+    "price": 67.49,
+    "wasPrice": 129.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338327240841-44927236505737",
+    "price": 15.29,
+    "wasPrice": 15.99,
+    "percentOff": 4,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338327634057-44927237095561",
+    "price": 11.19,
+    "wasPrice": 14.99,
+    "percentOff": 25,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416791953545-45147182268553",
+    "price": 19.99,
+    "wasPrice": 37.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-7779293200521-42739151536265",
+    "price": 10.29,
+    "wasPrice": 12,
+    "percentOff": 14,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416792477833-45147182792841",
+    "price": 10.69,
+    "wasPrice": 19.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338330222729-44927239520393",
+    "price": 19.49,
+    "wasPrice": 19.99,
+    "percentOff": 2,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338363220105-44927283986569",
+    "price": 18.49,
+    "wasPrice": 19.99,
+    "percentOff": 7,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338331107465-44927240437897",
+    "price": 18.49,
+    "wasPrice": 19.99,
+    "percentOff": 7,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338324947081-44927234310281",
+    "price": 14.29,
+    "wasPrice": 14.99,
+    "percentOff": 4,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338331140233-44927240470665",
+    "price": 15.49,
+    "wasPrice": 19.99,
+    "percentOff": 22,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "escentual-yslcinema04",
-    "price": 125,
+    "price": 100,
     "wasPrice": 170,
+    "percentOff": 41,
+    "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338223890569-44927066505353",
+    "price": 79.49,
+    "wasPrice": 88.99,
+    "percentOff": 10,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416793198729-45147183743113",
+    "price": 109.49,
+    "wasPrice": 210.99,
+    "percentOff": 48,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416793395337-45147183939721",
+    "price": 93.99,
+    "wasPrice": 170.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416792805513-45147183120521",
+    "price": 120.49,
+    "wasPrice": 226.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416793362569-45147183906953",
+    "price": 90.49,
+    "wasPrice": 172.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "escentual-ysllibre029",
+    "price": 110,
+    "wasPrice": 150,
     "percentOff": 26,
     "retailerId": "escentual"
   },
   {
-    "fragranceId": "escentual-ysllibre029",
-    "price": 115,
-    "wasPrice": 150,
-    "percentOff": 23,
+    "fragranceId": "escentual-ysllibre030",
+    "price": 150,
+    "wasPrice": 205,
+    "percentOff": 26,
     "retailerId": "escentual"
   },
   {
-    "fragranceId": "escentual-ysllibre030",
-    "price": 155,
-    "wasPrice": 205,
-    "percentOff": 24,
-    "retailerId": "escentual"
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416794280073-45147186167945",
+    "price": 79.99,
+    "wasPrice": 159.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "escentual-ysly029",
-    "price": 79,
+    "price": 76,
     "wasPrice": 110,
-    "percentOff": 28,
+    "percentOff": 30,
     "retailerId": "escentual"
   },
   {
     "fragranceId": "escentual-ysly030",
-    "price": 105,
+    "price": 100,
     "wasPrice": 140,
-    "percentOff": 25,
+    "percentOff": 28,
     "retailerId": "escentual"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416793297033-45147183841417",
+    "price": 124.99,
+    "wasPrice": 228.99,
+    "percentOff": 45,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338355290249-44927274877065",
+    "price": 30.99,
+    "wasPrice": 54.99,
+    "percentOff": 43,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338366365833-44927287099529",
+    "price": 46.99,
+    "wasPrice": 84.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338366398601-44927287132297",
+    "price": 60.49,
+    "wasPrice": 114.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338343985289-44927257837705",
+    "price": 40.49,
+    "wasPrice": 74.99,
+    "percentOff": 46,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338355323017-44927274909833",
+    "price": 34.99,
+    "wasPrice": 69.99,
+    "percentOff": 50,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338353913993-44927270584457",
+    "price": 24.99,
+    "wasPrice": 51.99,
+    "percentOff": 51,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338355224713-44927274811529",
+    "price": 39.49,
+    "wasPrice": 68.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416794378377-45147186266249",
+    "price": 32.99,
+    "wasPrice": 62.99,
+    "percentOff": 47,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8338314756233-44927223300233",
+    "price": 25.99,
+    "wasPrice": 46.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416794902665-45147187052681",
+    "price": 19.49,
+    "wasPrice": 33.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-16155861188957-default-title",
@@ -19829,11 +33997,32 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "emirates-oud"
   },
   {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416794968201-45147187347593",
+    "price": 25.99,
+    "wasPrice": 42.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416794869897-45147187019913",
+    "price": 25.99,
+    "wasPrice": 42.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "emirates-oud-9066348839261-default-title",
     "price": 16.99,
     "wasPrice": 24.99,
     "percentOff": 32,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416794509449-45147186397321",
+    "price": 20.49,
+    "wasPrice": 33.99,
+    "percentOff": 39,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-8961560379741-default-title",
@@ -19869,6 +34058,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 35,
     "percentOff": 20,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416794607753-45147186528393",
+    "price": 21.49,
+    "wasPrice": 35.99,
+    "percentOff": 40,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-15468638175581-default-title",
