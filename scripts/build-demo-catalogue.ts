@@ -26,7 +26,13 @@ import type { Retailer } from '../src/types/retailer.js';
 import { HOUSES } from '../src/config/houses.js';
 import { buildBrandCanon } from '../src/catalogue/brandName.js';
 import { findDuplicateGroups } from '../src/catalogue/productMatch.js';
-import { isFragrance, sizeMl, fragranceId, repairMojibake } from '../src/catalogue/fragranceId.js';
+import {
+  isFragrance,
+  sizeMl,
+  fragranceId,
+  repairMojibake,
+  NOT_A_FRAGRANCE,
+} from '../src/catalogue/fragranceId.js';
 
 /**
  * Retailers whose product photos may be displayed, and on what grounds.
@@ -87,22 +93,6 @@ const CONCENTRATION_GENERIC_PATTERNS: Record<string, RegExp> = Object.fromEntrie
 );
 
 /**
- * Things that live near perfume in a sitemap but are not perfume.
- *
- * "hair" was added after "Balmain Hair Silk Perfume 200ml" and "Sachajuan
- * Protective Hair Perfume 50ml" both passed as fragrance: real products,
- * genuinely named with the word "Perfume", but a scented hair treatment
- * rather than something worn as one. No genuine fine fragrance is titled
- * "[house] Hair [anything]", so the word alone is safe to exclude — the
- * surrounding \b...\b only matches it as a whole word, so this stays
- * exactly as safe as the existing "reed" entry already is against "Creed"
- * (no word boundary between the C and the r, so it is never touched).
- * Checked against the live catalogue before being added: no collision.
- */
-const NOT_A_FRAGRANCE =
-  /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|body cream|shampoo|conditioner|deodorant|shower gel|body wash|candle|diffuser|reed|gift ?set|set of|bundle|tester|sample|refill|travel spray|decant|hand wash|moisturis|lotion|balm|scrub|talc|hair)\b/i;
-
-/**
  * The same question asked of a fragrance house's own storefront.
  *
  * The concentration and size tests above exist to pick perfume out of a
@@ -115,7 +105,15 @@ const NOT_A_FRAGRANCE =
  * houses we went to the trouble of sourcing.
  *
  * The exclusion list still applies, because a house does also sell body
- * lotion and deodorant.
+ * lotion and deodorant. That list is imported from fragranceId.ts rather than
+ * kept as a second copy here. It used to be a copy, byte-identical to the
+ * original, which is exactly how a copy starts: adding "air freshener" and
+ * "body mist" to the retailer catalogue left this one silently unchanged and
+ * still publishing 70 of them under the houses — Al Wataniah's air fresheners
+ * and 28 of its perfumed body mists, Maison Asrar's room sprays, Surrati's and
+ * The Body Shop's body mists. The same question deserves the same answer
+ * wherever it is asked; see the header of fragranceId.ts, which makes this
+ * point about isFragrance for the identical reason.
  */
 function isHouseFragrance(l: StoredListing): boolean {
   if (NOT_A_FRAGRANCE.test(l.rawTitle)) return false;
