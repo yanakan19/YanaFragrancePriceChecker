@@ -33,13 +33,17 @@ on:
     - cron: '0 */2 * * *'
   workflow_dispatch:
     inputs:
+      crawl:
+        description: 'Run the legacy section-URL crawl. Off by default — see the Crawl step for why, and read it before ticking this.'
+        type: boolean
+        default: false
       source:
-        description: 'live crawls the shops, fixtures replays saved pages'
+        description: 'Applies to the legacy crawl above only: live crawls the shops, fixtures replays saved pages.'
         type: choice
         options: [live, fixtures]
         default: live
       dry_run:
-        description: 'Fetch and report without writing. Use this the first time.'
+        description: 'Applies to the legacy crawl above only. Fetch and report without writing.'
         type: boolean
         default: false
       probe:
@@ -394,9 +398,15 @@ jobs:
 
       # The route the probe proved works: ask the sitemap instead of guessing.
       # This is now what runs every night, not just on request. The plain
-      # `catalogue` crawl below has never once succeeded live against these
-      # shops — every listing this project has ever shown came from the
+      # `catalogue` crawl below has never returned a single listing from these
+      # shops live — every listing this project has ever shown came from the
       # sitemap route, so the schedule has to use it, not the older path.
+      #
+      # "Never returned a listing" rather than the "never once succeeded" this
+      # comment used to claim: the step itself has exited 0 seven times, and
+      # the distinction turns out to matter. See the Crawl step's own comment
+      # below for the seven runs, what they actually wrote, and why that is not
+      # a reason to keep dispatching it.
       #
       # --allow-metered is harmless to pass even with no secret configured:
       # the harvest script checks for APIFY_PROXY_PASSWORD itself and simply
@@ -510,25 +520,69 @@ jobs:
             "Image links: $(date -u +%Y-%m-%d)" \
             data/image-link-report.json
 
-      # Kept for manual comparison against the old guessed-URL approach and
-      # for --source=fixtures testing. Deliberately never runs on schedule:
-      # it has a 0% success rate against the live shops (see
-      # docs/SPIKE-RESULTS.md) and would just fail the job every night.
+      # Kept for manual comparison against the old guessed-URL approach and for
+      # --source=fixtures testing. Deliberately never runs on schedule.
+      #
+      # Now behind its own `crawl` input rather than "nothing else was picked".
+      # That fall-through is what made every bare dispatch end red: this step's
+      # condition used to be satisfied by *not* asking for a probe or a
+      # harvest, so a dispatch sent purely to run the Awin feed diagnostic, or
+      # a shipping discover, or a one-off deals refresh, fell through to a live
+      # crawl it had never asked for and failed on it. Runs #166 and #167
+      # (2026-08-12 22:19Z and 22:22Z) are both exactly that: "Awin feed
+      # diagnostic" succeeded, every other step skipped, and step 21 "Crawl"
+      # failed and took the run down with it. Scheduled runs never hit it —
+      # `github.event_name != 'schedule'` excluded them — so the whole thing
+      # was invisible unless you dispatched. A red run that means nothing is
+      # worse than no run: it trains everyone to ignore the red.
+      #
+      # Why this is gated rather than deleted. The comment here used to say the
+      # crawl "has a 0% success rate against the live shops" and the one above
+      # the harvest said it "has never once succeeded live". The first is true,
+      # the second is not, and the difference is the reason the step stays:
+      #
+      #   - It has exited 0 seven times, all live dispatches between
+      #     2026-08-05 and 2026-08-11 (runs #30, #31, #34, #44, #129, #138,
+      #     #142 — #142's step conclusion read straight off the jobs API is
+      #     "success"). Each produced a real commit; `git log --grep='^Catalogue: '`
+      #     lists all seven.
+      #   - It has never returned a listing. Every one of those seven runs is
+      #     recorded in data/catalogue/{escentual,scentstore}.json as
+      #     `"status": "ok", "listingsSeen": 0` — HTTP 200 carrying no product
+      #     markup. The other 16 shops failed outright every time. So the
+      #     commits are empty bookkeeping, and docs/SPIKE-RESULTS.md's 0% is
+      #     the accurate figure.
+      #   - Those seven exit-0s were an artefact, not a capability. A shop
+      #     returning nothing counts as ok only while it holds nothing:
+      #     COLLAPSE_FLOOR in src/catalogue/crawl.ts refuses a write that drops
+      #     below half the held listings and marks the run failed. escentual
+      #     and scentstore were the only two shops still holding an empty
+      #     snapshot. Once the sitemap harvest filled them the guard started
+      #     firing on them too, which is why #167 logs "0 shops crawled, 18
+      #     failed" and catalogue-run.ts's `if (ok === 0)` exits 1.
+      #
+      # So against live shops this can now only fail, and gating it on an
+      # explicit tick is what stops that failure landing on people who did not
+      # ask for it. It is not dead code: --source=fixtures still replays the
+      # eight snapshots under data/catalogue that carry real fixture listings
+      # (boots, notino-uk, john-lewis and five others, 7-9 listings each), and
+      # that is the path that exercises crawl.ts end to end. Deleting the step
+      # would take that with it. Untick-by-default, keep the code.
       - name: Crawl
-        if: ${{ !inputs.probe && !inputs.harvest && github.event_name != 'schedule' }}
+        if: ${{ inputs.crawl }}
         run: |
           npm run catalogue -- \
             --source=${{ inputs.source || 'live' }} \
             ${{ inputs.dry_run && '--dry-run' || '' }}
 
       - name: Rebuild the app from the new snapshots
-        if: ${{ !inputs.dry_run && !inputs.probe && !inputs.harvest && github.event_name != 'schedule' }}
+        if: ${{ inputs.crawl && !inputs.dry_run }}
         run: |
           npm run catalogue:demo
           npm run demo
 
       - name: Commit what changed
-        if: ${{ !inputs.dry_run && !inputs.probe && !inputs.harvest && github.event_name != 'schedule' }}
+        if: ${{ inputs.crawl && !inputs.dry_run }}
         run: |
           ./scripts/commit-and-push.sh \
             "Catalogue: $(date -u +%Y-%m-%d)" \
