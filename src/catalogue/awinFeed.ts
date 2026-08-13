@@ -20,7 +20,10 @@ import { parsePrice } from './jsonld.js';
  * Columns this reads, all optional except where noted:
  *
  *   aw_deep_link          the affiliate tracking URL (required — this is
- *                         the only URL a row carries)
+ *                         the URL the app links to, and how this site earns)
+ *   merchant_deep_link    the merchant's own product page, carried as
+ *                         `merchantUrl` for verification only — never as the
+ *                         link destination
  *   product_name          the listing title (required)
  *   search_price          the current selling price (required, must parse
  *                         to a positive number or the row is skipped)
@@ -43,19 +46,35 @@ import { parsePrice } from './jsonld.js';
  * what is and isn't a fragrance is scripts/build-demo-catalogue.ts's job,
  * uniformly across every retailer, not this parser's.
  *
- * `merchant_deep_link` is also unmapped, and that one is a known gap rather
- * than a decision. It is the merchant's own product URL, and `RawListing` has
- * nowhere to put a second URL, so a feed listing reaches the catalogue with an
- * `awin1.com/pclick` tracking link as the only address it has. That is the
- * exact reason Fragrance Click's 907 listings — 784 live offers — cannot be
- * price-verified at all: scripts/price-verify.ts will not fetch a deeplink
- * (an unearned click reported to the merchant), the shop serves no
- * `/products.json`, and no other address exists. Carrying
- * `merchant_deep_link` alongside the tracking link would make every
- * affiliate-feed retailer verifiable by the ordinary product-page route, and
- * would give the app a fallback destination if a deeplink ever breaks. It
- * needs a field on `RawListing` and a pass through reconcile, so it is
- * recorded here rather than done in passing.
+ * ── `merchant_deep_link`: two URLs, and which one is which ─────────────────
+ * Closed 2026-08-13. It used to be unmapped, and that left an entire retailer
+ * outside price verification by construction: a feed row's only address was
+ * its `awin1.com/pclick` tracking link, scripts/price-verify.ts will not fetch
+ * one of those (an unearned click reported to the merchant), and Fragrance
+ * Click serves no `/products.json` — so its 907 active listings, 784 live
+ * offers, could not be checked by any route at all.
+ *
+ * A row now carries both. `aw_deep_link` stays `url`: it is the link the app
+ * sends readers to and the only reason this project earns anything, and it
+ * must not be replaced by the one below. `merchant_deep_link` becomes
+ * `merchantUrl`, which exists so the verifier has an ordinary product page to
+ * read, and so the app has a fallback destination if a deeplink ever breaks.
+ * The distinction is load-bearing enough that the verifier resolves it through
+ * a single helper rather than picking a URL inline — see `verificationTarget`
+ * in scripts/price-verify.ts, which also refuses any host that is not the
+ * retailer's own, so a tracking link can never be fetched even by accident.
+ *
+ * What this does *not* do is make every feed retailer newly verifiable, and
+ * the honest scope is worth stating. Measured against
+ * data/price-verification-report.json (run of 2026-08-12T23:06Z):
+ * MyBeauty.Boutique (8,902 of 8,908 compared) and Nicchia Luxury UK (6,844 of
+ * 6,845) already had a working `/products.json` route and gain only a second,
+ * independent one; The Beauty Store UK has never had a feed land at all, so it
+ * has no listings to verify either way. Fragrance Click is the retailer this
+ * actually unblocks. Whether its own feed populates the column has not been
+ * confirmed off the wire from this sandbox — reproduce with
+ * `npm run awin:feed-diag -- --shop=fragrance-click` from CI before treating
+ * its coverage as known.
  *
  * `rrp_price` becomes `wasPriceGbp`, but only where it is genuinely above the
  * selling price. It is the merchant's stated recommended retail price, which
@@ -247,9 +266,20 @@ export function parseAwinFeed(csvText: string): RawListing[] {
     const rrp = parsePrice(col(row, 'rrp_price'));
     const wasPriceGbp = rrp !== null && priceGbp !== null && rrp > priceGbp ? rrp : null;
 
+    // The merchant's own product page, where the feed publishes one. Kept
+    // strictly beside `url` rather than instead of it: `url` is the tracking
+    // link the app monetises, this is the address a verifier may honestly
+    // fetch. Only accepted as an absolute http(s) URL — some feeds leave the
+    // column empty, and a relative or malformed value is no address at all.
+    const merchantDeepLink = trimmedOrNull(col(row, 'merchant_deep_link'));
+    const merchantUrl = merchantDeepLink && /^https?:\/\//i.test(merchantDeepLink)
+      ? merchantDeepLink
+      : null;
+
     listings.push({
       retailerSku,
       url,
+      merchantUrl,
       rawTitle,
       rawBrand,
       ean: digitsOnly(col(row, 'ean')),

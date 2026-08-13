@@ -79,6 +79,14 @@ export function reconcile(options: ReconcileOptions): ReconcileResult {
 
     result.push({
       // Refresh the retailer's own fields: titles, prices and images change.
+      //
+      // Spread, deliberately, rather than an enumerated field list. Every
+      // field a source publishes is the source's to change, so a new one on
+      // `RawListing` reaches storage without needing an edit here — that is
+      // how `merchantUrl` arrives for affiliate-feed listings. Replacing this
+      // with a hand-written copy would silently drop whatever it forgot, and
+      // the only fields that must *not* come from the crawl are the identity
+      // and history ones re-asserted immediately below.
       ...raw,
       retailerId,
       // Identity and history are ours and survive the refresh.

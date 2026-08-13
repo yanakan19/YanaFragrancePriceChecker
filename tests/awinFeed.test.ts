@@ -11,13 +11,14 @@ import { parseAwinFeed } from '../src/catalogue/awinFeed.js';
  */
 
 const STANDARD_HEADER =
-  'aw_deep_link,product_name,aw_product_id,merchant_product_id,merchant_image_url,' +
+  'aw_deep_link,merchant_deep_link,product_name,aw_product_id,merchant_product_id,merchant_image_url,' +
   'description,merchant_category,search_price,rrp_price,merchant_name,merchant_id,category_name,' +
   'category_id,currency,in_stock,stock_quantity,ean,delivery_cost,product_short_description';
 
 function standardRow(over: Partial<Record<string, string>> = {}): string {
   const fields: Record<string, string> = {
     aw_deep_link: 'https://www.awin1.com/cread.php?awinmid=999999&p=test-fragrance-edp-100ml',
+    merchant_deep_link: 'https://shop.example.test/products/test-fragrance-edp-100ml',
     product_name: 'Test Fragrance EDP 100ml',
     aw_product_id: 'AW1001',
     merchant_product_id: 'MP-1001',
@@ -57,6 +58,7 @@ describe('parseAwinFeed — header-driven column mapping', () => {
     expect(l).toMatchObject({
       retailerSku: 'MP-1001',
       url: 'https://www.awin1.com/cread.php?awinmid=999999&p=test-fragrance-edp-100ml',
+      merchantUrl: 'https://shop.example.test/products/test-fragrance-edp-100ml',
       rawTitle: 'Test Fragrance EDP 100ml',
       ean: '5012345678901',
       imageUrl: 'https://img.example.test/test-fragrance-100ml.jpg',
@@ -119,6 +121,80 @@ describe('parseAwinFeed — header-driven column mapping', () => {
     expect(parseAwinFeed(csv)[0]?.imageUrl).toBe(
       'https://img.example.test/fallback-100ml.jpg',
     );
+  });
+});
+
+describe('parseAwinFeed — merchant_deep_link is carried beside the tracking link', () => {
+  // The whole point of this field is that it is a *second* URL. If it ever
+  // displaces `url`, the site stops earning on every affiliate-feed click, so
+  // the first assertion below matters at least as much as the second.
+  it('keeps aw_deep_link as url and merchant_deep_link as merchantUrl, never swapped', () => {
+    const csv = `${STANDARD_HEADER}\n${standardRow()}\n`;
+    const [l] = parseAwinFeed(csv);
+
+    expect(l!.url).toBe(
+      'https://www.awin1.com/cread.php?awinmid=999999&p=test-fragrance-edp-100ml',
+    );
+    expect(l!.merchantUrl).toBe('https://shop.example.test/products/test-fragrance-edp-100ml');
+    expect(l!.url).not.toBe(l!.merchantUrl);
+  });
+
+  it('reads the column by name, not position', () => {
+    const header = 'merchant_deep_link,search_price,product_name,aw_deep_link,merchant_product_id';
+    const row = [
+      'https://shop.example.test/products/reordered',
+      '12.00',
+      csvField('Test Fragrance Reordered EDT 30ml'),
+      'https://www.awin1.com/cread.php?awinmid=999999&p=reordered',
+      'MP-3003',
+    ].join(',');
+
+    const [l] = parseAwinFeed(`${header}\n${row}\n`);
+    expect(l!.merchantUrl).toBe('https://shop.example.test/products/reordered');
+    expect(l!.url).toBe('https://www.awin1.com/cread.php?awinmid=999999&p=reordered');
+  });
+
+  it('is null when the feed omits the column entirely', () => {
+    // Fragrance Click's own feed has not been read off the wire from a sandbox
+    // with no network, so a feed without the column must stay a supported
+    // shape rather than an assumption.
+    const header = 'aw_deep_link,product_name,search_price,merchant_product_id,currency';
+    const row = [
+      'https://www.awin1.com/cread.php?awinmid=999999&p=no-merchant-link',
+      csvField('Test Fragrance No Merchant Link EDP 100ml'),
+      '19.99',
+      'MP-4004',
+      'GBP',
+    ].join(',');
+
+    const [l] = parseAwinFeed(`${header}\n${row}\n`);
+    expect(l!.merchantUrl).toBeNull();
+    expect(l!.url).toBe('https://www.awin1.com/cread.php?awinmid=999999&p=no-merchant-link');
+  });
+
+  it('is null when the column is present but blank for this row', () => {
+    const csv = `${STANDARD_HEADER}\n${standardRow({ merchant_deep_link: '' })}\n`;
+    const [l] = parseAwinFeed(csv);
+    expect(l!.merchantUrl).toBeNull();
+  });
+
+  it('rejects a non-absolute value rather than storing an unfetchable address', () => {
+    const csv = `${STANDARD_HEADER}\n${standardRow({ merchant_deep_link: '/products/relative-path' })}\n`;
+    const [l] = parseAwinFeed(csv);
+    expect(l!.merchantUrl).toBeNull();
+  });
+
+  it('rejects a non-http scheme', () => {
+    const csv = `${STANDARD_HEADER}\n${standardRow({ merchant_deep_link: 'javascript:alert(1)' })}\n`;
+    const [l] = parseAwinFeed(csv);
+    expect(l!.merchantUrl).toBeNull();
+  });
+
+  it('still requires aw_deep_link: a merchant link alone does not make a listing', () => {
+    // A row with no tracking link is a row we cannot monetise or even link to.
+    // merchantUrl must not become a back door around that existing rule.
+    const csv = `${STANDARD_HEADER}\n${standardRow({ aw_deep_link: '' })}\n`;
+    expect(parseAwinFeed(csv)).toHaveLength(0);
   });
 });
 

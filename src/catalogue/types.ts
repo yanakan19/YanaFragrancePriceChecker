@@ -11,10 +11,44 @@
 export interface RawListing {
   /** The retailer's own product identifier, taken from the page or its URL. */
   retailerSku: string;
-  /** Canonical product URL at the retailer. */
+  /**
+   * Canonical product URL at the retailer, and the address the app links to.
+   *
+   * For an affiliate-feed retailer this is the network's tracking link (an
+   * `awin1.com/pclick` URL), which is how the site is monetised. It stays the
+   * link the app sends a reader to. See `merchantUrl` below before reaching
+   * for the other one.
+   */
   url: string;
   /** Title exactly as the retailer wrote it. Never cleaned in place. */
   rawTitle: string;
+  /**
+   * The merchant's own product page, where a source publishes one *alongside*
+   * a different `url`. Verification address only — never a link destination.
+   *
+   * This exists for one reason. An affiliate feed's only URL is the network's
+   * tracking link, and scripts/price-verify.ts will not fetch one of those: an
+   * `awin1.com/pclick` request is reported to the merchant as a customer click
+   * that nobody made. So a feed retailer whose storefront serves no
+   * `/products.json` had no address that could honestly be read, and sat
+   * permanently outside price verification — Fragrance Click's 907 active
+   * listings, 784 live offers, measured from data/catalogue/fragrance-click.json
+   * and demo/catalogue.generated.ts on 2026-08-13.
+   *
+   * Awin's `merchant_deep_link` column is that address, published by the
+   * merchant in the same row. Carrying it gives the verifier an ordinary
+   * product page to read, and gives the app a fallback destination if a
+   * deeplink ever breaks.
+   *
+   * **Do not swap this into `url`.** The tracking link is the revenue; this is
+   * the evidence. Getting the two the wrong way round costs real money and is
+   * the mistake this field is most likely to invite, which is why the verifier
+   * reads it through one helper (`verificationTarget`) rather than inline.
+   *
+   * Null or absent wherever `url` is already the merchant's own page — every
+   * scraped route, where the stored URL *is* the product page.
+   */
+  merchantUrl?: string | null;
   rawBrand: string | null;
   /** EAN or GTIN where the page exposes one. The best matching key we can get. */
   ean: string | null;
