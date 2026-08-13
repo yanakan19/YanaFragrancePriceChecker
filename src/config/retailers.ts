@@ -1173,8 +1173,14 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: 50,
       estimatedDays: [2, 5],
-      verifiedAt: '2026-08-05',
-      confidence: 'unverified',
+      verifiedAt: '2026-08-13',
+      confidence: 'confirmed',
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://alharamainperfumes.co.uk/en-us/pages/delivery-information',
+        quote: 'FREE UK Delivery on orders over £50 (Royal Mail Standard Service)',
+        readAt: '2026-08-13',
+      },
       notes:
         'freeOverGbp is their own stated figure (free UK delivery over £50, half-price over ' +
         '£150). The standard cost below £50 was not found — read alharamainperfumes.co.uk/' +
@@ -1307,8 +1313,14 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: 50,
       estimatedDays: [2, 4],
-      verifiedAt: '2026-08-12',
-      confidence: 'unverified',
+      verifiedAt: '2026-08-13',
+      confidence: 'confirmed',
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://manchesterouds.com/pages/shipping-policy',
+        quote: 'Free shipping on orders over £50',
+        readAt: '2026-08-13',
+      },
       notes:
         'THE FLAT STANDARD RATE IS UNCONFIRMED, so this shop is shown with delivery not ' +
         'stated: no delivered price is computed for it and it can never rank as cheapest. ' +
