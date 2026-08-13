@@ -1336,6 +1336,16 @@
   .price-box-label { margin: 0; color: var(--accent-ink); }
   .price-box-amount { margin: 6px 0 0; color: var(--accent-ink); }
   .price-box-from { margin: 5px 0 0; color: var(--ink-2); }
+  /* The "too close to call" line, when an unconfirmed delivery charge is what
+     separates first place from second. Inside the box, under the number it
+     qualifies, and divided from it by a rule so it reads as a condition on
+     that figure rather than as more detail about the shop. Quiet ink, because
+     it is a qualification and not a warning. */
+  .price-box-caveat {
+    margin: 9px 0 0; padding-top: 9px; text-align: left;
+    border-top: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+    color: var(--ink-2);
+  }
 
   .hero-price.none { font-size: 19px; font-weight: 600; color: var(--ink-2); letter-spacing: -.01em; margin: 18px 0 0; }
   .hero-at { display: block; font-size: 12.5px; font-weight: 500; color: var(--ink-2); margin-top: 4px; letter-spacing: 0; }
@@ -1371,6 +1381,12 @@
   /* NEW marks a listing this shop added inside the last week. It is deliberately
      a different colour from the accent so it never reads as "cheapest". */
   .tag.new { background: color-mix(in srgb, var(--ok) 16%, transparent); color: var(--ok); }
+  /* "Lowest total" / "Lowest item price": the leading row, on figures that do
+     not settle the question. Neutral ink on a plain surface, so it cannot be
+     mistaken at a glance for the accent-coloured "Cheapest" it replaces —
+     that swap is the entire point, and a tag that looked the same would undo
+     it. */
+  .tag.unsure { background: var(--surface-2); color: var(--ink-2); }
   .price { display: flex; align-items: baseline; gap: 8px; white-space: nowrap; }
   .was { font-size: 12.5px; color: var(--faint); text-decoration: line-through; font-variant-numeric: tabular-nums; }
   .now.sale { color: var(--ok); }
@@ -1447,6 +1463,16 @@
      the bottom of this file, which strips all animation outright. */
   .history-dot-last { width: 11px; height: 11px; background: var(--accent); }
   .history-dot-live { animation: history-pulse 1.8s ease-in-out infinite; }
+  /* A day with no price at all. Grey rather than accent, and smaller, so a
+     run of them reads as the absence it is and never competes with the real
+     line — the colour is the whole signal here, so it also says "No price
+     recorded" in its tooltip and its aria-label rather than relying on hue
+     alone, which a colour-blind or monochrome reader would lose. Sits on the
+     chart floor; that is a position, not a price of zero. */
+  .history-dot-nodata { width: 7px; height: 7px; border-color: var(--faint); opacity: .55; }
+  .history-dot-nodata:hover, .history-dot-nodata:focus-visible {
+    width: 11px; height: 11px; background: var(--faint); opacity: 1;
+  }
   @keyframes history-pulse {
     0%, 100% { width: 11px; height: 11px; opacity: 1; }
     50% { width: 15px; height: 15px; opacity: .65; }
