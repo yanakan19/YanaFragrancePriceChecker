@@ -66,6 +66,38 @@ looks wrong.
    "Ranking responses anonymously…", "Here we go") while this happens, via
    Server-Sent Events.
 
+## Price questions skip the council entirely
+
+Step 2 above is the path for `'suggest'` and `'general'` questions only.
+`'price'` questions ("how much is X", "cheapest X") never reach the 28-model
+fan-out: `server/council.js`'s `runCouncil` answers them directly from
+`server/siteData.js`'s `resolvePriceQuery`, the same deterministic
+brand+name+concentration matcher the SITE DATA block itself is built from,
+extended to group a product's sizes together and to detect a tie across
+*distinct* products (a bare brand name must ask which product, not silently
+pick one). No model is called, so no model can invent a price, deny a
+fragrance the catalogue actually has, or use a stale brand name from its own
+training — see the "One Million Elixir" case in
+`test/priceLookup.test.js` for the regression this exists to catch.
+
+"How much is X" has one factual answer already sitting in the catalogue;
+running 28 LLMs and ranking their prose to relay that fact adds latency
+without adding accuracy, and — measured against the reported bug — is
+exactly how a *wrong* answer got produced. `npm run bench` measures the
+deterministic path's own wall-clock time against the live catalogue
+(no network, safe to run anywhere this repo's tests run); on this
+machine, warm, it answers in single-digit-to-low-20s of milliseconds per
+question. What that number does not include, and cannot from a sandbox
+with no outbound network: the old path's real latency, which needs a
+live run behind the deployed backend to measure.
+
+A `'price'`-classified question that names no fragrance at all (`intent.js`'s
+classifier fires on the bare word "price", so "how does your price
+comparison work" arrives labelled `'price'`) is not answered by this path —
+it falls through to the full council as a general question when SITE DATA
+has a real policy/FAQ match for it, rather than a direct-lookup answer
+denying a fragrance that was never named.
+
 ## Why not literally 28 *raw* API integrations written from scratch?
 
 FreeLLMAPI already solves that problem well (key rotation, rate-limit
