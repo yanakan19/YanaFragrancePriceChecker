@@ -36,7 +36,7 @@ import { createHttp } from '../src/catalogue/httpFetch.js';
 import { BROWSER_HEADERS } from '../src/catalogue/attempt.js';
 import { parseRobots, isAllowed, NO_RESTRICTIONS, UNREACHABLE_ROBOTS } from '../src/catalogue/robots.js';
 import { emptyPriceIndex, indexShopifyPage, type ShopifyPriceIndex } from '../src/catalogue/shopifyPriceIndex.js';
-import { parseShopCurrency } from '../src/catalogue/shopifyJson.js';
+import { fetchStorefrontCurrency } from '../src/catalogue/shopCurrency.js';
 import { repairFeedPrices } from '../src/catalogue/feedPriceRepair.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -112,15 +112,19 @@ async function buildIndex(
   // may compare a shop whose currency is unpublished and say so, because being
   // wrong there costs a misleading report. Being wrong here costs a wrong
   // price in front of a customer.
-  const meta = await http(`${origin}/meta.json`, BROWSER_HEADERS);
-  const home = await http(`${origin}/`, BROWSER_HEADERS);
-  const currency = parseShopCurrency(meta.ok ? meta.body : null, home.ok ? home.body : null);
-  if (currency !== null && currency !== 'GBP') {
+  // Resolved through the shared reader rather than `parseShopCurrency` alone,
+  // because a shop's settlement currency and the currency it is quoting *this
+  // client* are different facts and only the second one describes the numbers
+  // about to be written. That distinction is what Escentual's £57-against-a-
+  // real-£40.25 turned out to be — see src/catalogue/shopCurrency.ts.
+  const resolved = await fetchStorefrontCurrency(origin, http, BROWSER_HEADERS);
+  const currency = resolved.presented;
+  if (currency !== null && !resolved.isSterling) {
     return {
       index: emptyPriceIndex(),
       products: 0,
       currency,
-      error: `storefront publishes prices in ${currency}, not GBP — refusing to write them as pounds`,
+      error: `${resolved.reason} — refusing to write those figures as pounds`,
     };
   }
   // A storefront that publishes no currency at all is not settled here — see

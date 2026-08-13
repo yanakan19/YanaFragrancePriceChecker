@@ -104,8 +104,19 @@ for (const [i, { sha, at }] of commits.entries()) {
 
     for (const l of snapshot.listings) {
       if (l.status !== 'active' || !isFragrance(l)) continue;
+      // A listing with no price is not a price point. This was an unguarded
+      // `l.priceGbp!`, and the comparison below reads a null as smaller than
+      // every real figure — so an unpriced listing would win "cheapest" and
+      // be plotted as a £0 low that no shop ever charged, on a chart whose
+      // whole claim is that every point was genuinely live. That is not
+      // hypothetical: clearing a shop's prices is now how this project
+      // records "we cannot stand behind these figures" (see
+      // src/catalogue/priceQuarantine.ts), so nulls arrive here by design.
+      // build-demo-catalogue.ts already guards the same way, for the same
+      // reason.
+      if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) continue;
       const id = fragranceId(l);
-      const price = l.priceGbp!;
+      const price = l.priceGbp;
       const current = cheapestThisCommit.get(id);
       // Retailer id as the tiebreaker keeps this deterministic run to run —
       // an arbitrary object-iteration-order pick would make the recorded

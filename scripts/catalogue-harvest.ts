@@ -25,6 +25,7 @@ import { CatalogueStore } from '../src/catalogue/store.js';
 import { reconcile } from '../src/catalogue/reconcile.js';
 import { crawlViaSitemap, type SitemapCrawlResult } from '../src/catalogue/sitemapCrawl.js';
 import { crawlViaShopifyProducts } from '../src/catalogue/shopifyProductsCrawl.js';
+import { quarantinePrices } from '../src/catalogue/priceQuarantine.js';
 import { loadRobots, BROWSER_HEADERS, type Http } from '../src/catalogue/attempt.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import {
@@ -167,6 +168,56 @@ for (const retailer of shops) {
     const shopifyResult = await crawlViaShopifyProducts({
       retailer, http, robots, headers: BROWSER_HEADERS, maxPages, gapMs, onProgress: heartbeat,
     });
+
+    // A storefront that is not established as quoting sterling is a different
+    // outcome from a shop that yielded nothing, and it must not be allowed to
+    // look like one. "Nothing this run" leaves the snapshot alone, which for a
+    // currency refusal would mean the prices we have just refused to trust
+    // stay on the site indefinitely. So this branch clears them and stops,
+    // rather than falling through to the sitemap walk — that route reads the
+    // same storefront and would put the same figures back through a different
+    // parser.
+    if (shopifyResult.isShopify && !shopifyResult.currency.isSterling) {
+      // Clearing what we already hold needs evidence, not just an absence of
+      // it. A shop that *named* a currency and it was not sterling, or named a
+      // conversion, has told us the prices on file are the wrong unit, and
+      // those have to come down. A shop that named nothing may simply have
+      // failed to serve its homepage for a minute, and wiping thousands of
+      // prices on a bad network minute is a self-inflicted outage — so that
+      // case withholds the new read and leaves the snapshot for the next pass,
+      // with the build-time scale audit (src/catalogue/priceScale.ts) as the
+      // backstop for a shop that never names one and is genuinely foreign.
+      const named = shopifyResult.currency.presented !== null;
+      const quarantined = named
+        ? quarantinePrices(
+            prior.source === 'live' ? prior.listings : [],
+            shopifyResult.currency.presented,
+          )
+        : { listings: [], cleared: 0 };
+      console.log(
+        `  ${retailer.name.padEnd(20)} ${String(shopifyResult.pagesFetched).padStart(5)} pages  ` +
+          `no prices published — ${shopifyResult.currency.reason}`,
+      );
+      console.log(
+        `::warning::${retailer.id}: ${shopifyResult.currency.reason}. ` +
+          `${shopifyResult.listings.length} listings read, none priced; ` +
+          (named
+            ? `${quarantined.cleared} stored prices cleared.`
+            : 'stored prices left in place pending a run that can establish the currency.'),
+      );
+      if (!dryRun && quarantined.cleared > 0) {
+        store.write({
+          retailerId: retailer.id,
+          updatedAt: now,
+          source: 'live',
+          listings: quarantined.listings,
+          runs: prior.source === 'live' ? prior.runs : [],
+        });
+      }
+      zeroThisRun.push(retailer.id);
+      continue;
+    }
+
     if (shopifyResult.isShopify && shopifyResult.listings.length > 0) {
       result = {
         listings: shopifyResult.listings,

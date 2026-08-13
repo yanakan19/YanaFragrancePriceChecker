@@ -3,6 +3,7 @@ import type { RawListing } from './types.js';
 import type { Http } from './attempt.js';
 import { isAllowed, type RobotsRules } from './robots.js';
 import { parseShopifyProducts, isShopifyProductsPayload } from './shopifyJson.js';
+import { fetchStorefrontCurrency, type StorefrontCurrency } from './shopCurrency.js';
 
 /**
  * Shopify's own public product catalogue for a UK retailer, not a house.
@@ -17,10 +18,16 @@ import { parseShopifyProducts, isShopifyProductsPayload } from './shopifyJson.js
  * fragrance — a real, more reliable route for any retailer confirmed to run
  * on Shopify, Emirates Oud (2026-08-10) among them.
  *
- * Currency is always passed as `'GBP'` by the caller, never resolved here the
- * way houses-harvest.ts resolves it — every entry in the RETAILERS registry
- * is GBP by that type's own constraint (`currency: 'GBP'`), unlike a house
- * that can genuinely price in AED or USD, so there is nothing to detect.
+ * ── Currency ────────────────────────────────────────────────────────────────
+ * This used to hardcode `'GBP'`, on the reasoning that every entry in the
+ * RETAILERS registry is a UK shop and so there was nothing to detect. That
+ * reasoning was wrong, and Escentual is where it showed: a registry entry's
+ * `currency: 'GBP'` describes the shop, not the response in front of us, and a
+ * storefront can quote a different market's converted price list to whoever is
+ * asking. So the currency is now resolved from what the storefront publishes
+ * about itself, exactly as the house route already does, and a payload that is
+ * not positively established as sterling yields listings with no `priceGbp` at
+ * all. See src/catalogue/shopCurrency.ts for the measurements behind that.
  */
 
 export interface ShopifyProductsCrawlResult {
@@ -34,6 +41,13 @@ export interface ShopifyProductsCrawlResult {
    * a real Shopify store that simply had nothing new past page one.
    */
   isShopify: boolean;
+  /**
+   * What the storefront said it was quoting in, and whether that settles the
+   * figures as sterling. `isSterling: false` means every listing above carries
+   * `priceGbp: null` — the caller must treat the shop as unpriced this run
+   * rather than as having nothing for sale.
+   */
+  currency: StorefrontCurrency;
 }
 
 export interface ShopifyProductsCrawlOptions {
@@ -47,6 +61,12 @@ export interface ShopifyProductsCrawlOptions {
   gapMs: number;
   sleep?: (ms: number) => Promise<void>;
   onProgress?: (fetched: number, found: number) => void;
+  /**
+   * An already-resolved storefront currency, for a caller that has one (and
+   * for tests, which have no network). Omitted, the crawl asks the storefront
+   * itself before reading a single product.
+   */
+  currency?: StorefrontCurrency;
 }
 
 export async function crawlViaShopifyProducts(
@@ -61,6 +81,19 @@ export async function crawlViaShopifyProducts(
   const errors: string[] = [];
   let pagesFetched = 0;
   let isShopify = true;
+
+  // Asked before the catalogue is read, not after, so there is never a moment
+  // where a converted price list has been parsed as pounds and is waiting to
+  // be thrown away by a later check.
+  const currency = options.currency ?? (await fetchStorefrontCurrency(origin, http, headers));
+  if (!currency.isSterling) errors.push(`currency: ${currency.reason}`);
+
+  // What the parser is told. Sterling only when it was established as such;
+  // otherwise the presented currency where the shop named one, so the figure
+  // is still carried as `nativePrice` and recorded rather than lost, and null
+  // where it named nothing, which parseShopifyProducts records as 'unknown'.
+  // Either way `priceGbp` stays null and no offer reaches the site.
+  const parseCurrency = currency.isSterling ? 'GBP' : currency.presented === 'GBP' ? null : currency.presented;
 
   // Shopify signals the end of the catalogue by returning fewer products
   // than asked for, but the page count is still capped independently — a
@@ -97,7 +130,7 @@ export async function crawlViaShopifyProducts(
     const batch = parseShopifyProducts(res.body, {
       origin,
       sectionId: 'shopify-products-json',
-      currency: 'GBP',
+      currency: parseCurrency,
     });
     if (batch.length === 0) break;
     listings.push(...batch);
@@ -105,5 +138,5 @@ export async function crawlViaShopifyProducts(
     if (options.gapMs > 0) await sleep(options.gapMs);
   }
 
-  return { listings, pagesFetched, errors, isShopify };
+  return { listings, pagesFetched, errors, isShopify, currency };
 }
