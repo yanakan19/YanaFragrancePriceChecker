@@ -87,13 +87,30 @@ export interface ShippingClaim {
  * text with no sentence break between them. On a real page that meant a header
  * basket total sat in the same "sentence" as the actual delivery rate, and
  * discarding the chrome discarded the answer with it.
+ *
+ * ── Why cells are not block boundaries ───────────────────────────────────────
+ * `</td>`, `</th>` and `<br>` used to end a chunk the same way `</p>` does, and
+ * that quietly made the commonest layout in the entire problem domain
+ * unreadable. A delivery table is
+ *
+ *     <tr><td>Standard Delivery</td><td>3-5 days</td><td>£3.95</td></tr>
+ *
+ * and splitting on the cell put "Standard Delivery" in one chunk and "£3.95" in
+ * another. Every chunk has to name delivery before its numbers count, so the
+ * chunk holding the rate no longer did, and the page parsed to nothing at all —
+ * not an ambiguous reading, not a caveat, nothing. Cells now join with a soft
+ * separator that keeps the row intact as one sentence, while the row itself
+ * still ends at `</tr>` so two services never merge into one claim.
  */
 export function textFromHtml(html: string): string {
   return html
     .replace(/<(script|style|noscript)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
-    .replace(/<br\s*\/?>/gi, ' | ')
+    // Soft separators: still visible as a break to a reader, but they do not
+    // end a sentence, so a row or a wrapped line stays one claim.
+    .replace(/<br\s*\/?>/gi, ' ~ ')
+    .replace(/<\/(td|th)\s*>/gi, ' ~ ')
     .replace(
-      /<\/(p|div|li|tr|td|th|h[1-6]|section|article|header|footer|nav|ul|ol|table|dt|dd|blockquote)\s*>/gi,
+      /<\/(p|div|li|tr|h[1-6]|section|article|header|footer|nav|ul|ol|table|dt|dd|blockquote)\s*>/gi,
       ' | ',
     )
     .replace(/<[^>]+>/g, ' ')
@@ -107,17 +124,22 @@ export function textFromHtml(html: string): string {
     .replace(/\s+/g, ' ')
     // Collapse runs of the separator left by nested blocks, and drop the ones
     // that end up at either end with nothing to separate.
-    .replace(/(?:\s*\|\s*)+/g, ' | ')
-    .replace(/^\s*\|\s*|\s*\|\s*$/g, '')
+    .replace(/(?:\s*~\s*)+/g, ' ~ ')
+    .replace(/(?:\s*\|\s*(?:~\s*)?)+/g, ' | ')
+    .replace(/^\s*[|~]\s*|\s*[|~]\s*$/g, '')
     .trim();
 }
 
 /** Sentence-ish chunks. Delivery tables often have no full stops, so bullets
- *  and pipes split too, otherwise one 400-word blob matches everything. */
+ *  and pipes split too, otherwise one 400-word blob matches everything. The
+ *  soft `~` left by cells and line breaks deliberately does not split: it is
+ *  what holds a table row together as one claim. */
 function sentences(text: string): string[] {
   return text
     .split(/(?<=[.!?])\s+|\s*[•|]\s*|\s{2,}/)
-    .map((s) => s.trim())
+    // A trailing cell separator is an artefact of the last empty cell in a row,
+    // and it would otherwise be quoted back at a human as part of the evidence.
+    .map((s) => s.replace(/^\s*~\s*|\s*~\s*$/g, '').trim())
     .filter((s) => s.length > 0 && s.length < 400);
 }
 
@@ -168,13 +190,35 @@ function toNumber(raw: string): number {
  * labels `standard-cost`: a caller showing a human three candidates with their
  * sentences is useful, whereas one confidently-wrong number is not.
  */
-export function extractShippingClaims(html: string): ShippingClaim[] {
+export interface ExtractOptions {
+  /**
+   * The URL this HTML came from named delivery or shipping in its own path —
+   * `/policies/shipping-policy`, `/pages/delivery`, and so on.
+   *
+   * It relaxes exactly one rule and no others. Ordinarily a sentence must name
+   * delivery before any number in it counts, which is what keeps a price list
+   * or a discount banner out of the reading. On a page whose own address says
+   * delivery, a bare "Free on orders over £25." is a delivery threshold and
+   * nothing else, and requiring the word again inside the sentence loses it —
+   * that phrasing is extremely common, because the heading above it already
+   * said the word.
+   *
+   * The relaxation admits *thresholds* only, never a standard-cost candidate.
+   * A threshold that turns out to be wrong makes the delivered price too high,
+   * which is visible and conservative; a wrong flat rate can make a shop win
+   * the sort it should have lost, and no relaxation is worth that.
+   */
+  deliveryPage?: boolean;
+}
+
+export function extractShippingClaims(html: string, opts: ExtractOptions = {}): ShippingClaim[] {
   const text = textFromHtml(html);
   const claims: ShippingClaim[] = [];
 
   for (const sentence of sentences(text)) {
     // A sentence has to be about delivery at all before any number in it counts.
-    if (!/\b(deliver\w*|shipping|postage|dispatch\w*|p&p)\b/i.test(sentence)) continue;
+    const namesDelivery = /\b(deliver\w*|shipping|postage|dispatch\w*|p&p)\b/i.test(sentence);
+    if (!namesDelivery && !opts.deliveryPage) continue;
     if (NOT_SHIPPING_CONTEXT.test(sentence)) continue;
     // Whatever the basket currently says is not a statement of terms.
     if (CART_WIDGET.test(sentence)) continue;
@@ -205,15 +249,23 @@ export function extractShippingClaims(html: string): ShippingClaim[] {
       });
       // A "free over £50" sentence frequently also names the rate below it —
       // "£3.95, free over £50" — so keep looking at the other amounts here
-      // rather than moving on.
-      const others = [...sentence.matchAll(AMOUNT_G)]
-        .map((m) => toNumber(m[1]!))
-        .filter((n) => n !== toNumber(freeOver[1]!));
-      for (const amount of others) {
-        claims.push({ kind: 'standard-cost', amountGbp: amount, evidence: sentence, isUpgradeTier });
+      // rather than moving on. Only where the sentence itself names delivery:
+      // on a relaxed match the sentence never said the word, so a second number
+      // in it is not established to be a delivery charge.
+      if (namesDelivery) {
+        const others = [...sentence.matchAll(AMOUNT_G)]
+          .map((m) => toNumber(m[1]!))
+          .filter((n) => n !== toNumber(freeOver[1]!));
+        for (const amount of others) {
+          claims.push({ kind: 'standard-cost', amountGbp: amount, evidence: sentence, isUpgradeTier });
+        }
       }
       continue;
     }
+
+    // Past this point a sentence that never named delivery has nothing left to
+    // offer: the relaxation covers thresholds only.
+    if (!namesDelivery) continue;
 
     // "Free UK delivery" / "we offer free shipping", with no threshold in sight.
     if (/\bfree\b/i.test(sentence) && !AMOUNT.test(sentence)) {
@@ -251,6 +303,30 @@ export interface ShippingReading {
    */
   caveats: string[];
   claims: ShippingClaim[];
+  /**
+   * The page states delivery terms in detail and does not name a flat standard
+   * charge anywhere in them.
+   *
+   * This is a finding, not a failure. A shop that advertises "free over £50"
+   * and never prints what it charges below that has told you something true
+   * about itself, and until this existed there was no way to record the
+   * difference between that shop and one whose page we simply could not read.
+   * The two look identical in the registry — `standardGbp: null` — and they are
+   * not the same fact.
+   *
+   * Deliberately conservative about what counts. It requires the page to have
+   * produced real delivery claims (so a 404 body or a cookie wall cannot
+   * qualify), at least one of which is a threshold or an explicit free claim,
+   * and none of which is a usable standard rate. A page that named a rate this
+   * parser merely could not attribute produces a caveat instead, and is never
+   * recorded as a shop that publishes nothing.
+   */
+  standardRateNotStated: boolean;
+  /**
+   * The sentences behind `standardRateNotStated`, so the claim that a shop
+   * publishes no rate can itself be checked against the shop's own words.
+   */
+  thresholdEvidence: string[];
 }
 
 /**
@@ -263,8 +339,11 @@ export interface ShippingReading {
  * reviewer notices — a suspiciously low delivery charge invites checking,
  * whereas a plausible high one gets waved through.
  */
-export function readShippingTerms(html: string, opts?: { includeRawText?: boolean }): ShippingReading {
-  const claims = extractShippingClaims(html);
+export function readShippingTerms(
+  html: string,
+  opts?: { includeRawText?: boolean; deliveryPage?: boolean },
+): ShippingReading {
+  const claims = extractShippingClaims(html, opts?.deliveryPage ? { deliveryPage: true } : {});
   const caveats: string[] = [];
 
   const standardCandidates = claims.filter(
@@ -311,11 +390,26 @@ export function readShippingTerms(html: string, opts?: { includeRawText?: boolea
     );
   }
 
+  // "This shop publishes no standard rate" is only sayable when the page did
+  // talk about delivery terms, said something concrete about them, and still
+  // named no charge. An upgrade-only page does not qualify: naming next-day at
+  // £5.95 and nothing else usually means the standard rate is somewhere we did
+  // not look, which is a gap in the reading rather than a fact about the shop.
+  const freeClaims = claims.filter(
+    (c) => (c.kind === 'free-threshold' || c.kind === 'free-unconditional') && !c.isUpgradeTier,
+  );
+  const standardRateNotStated =
+    standardCandidates.length === 0 &&
+    freeClaims.length > 0 &&
+    !claims.some((c) => c.kind === 'standard-cost' && c.isUpgradeTier);
+
   return {
     standardGbp: distinctStandard.length ? Math.min(...distinctStandard) : null,
     freeOverGbp: distinctThreshold.length ? Math.min(...distinctThreshold) : null,
     caveats,
     claims,
+    standardRateNotStated,
+    thresholdEvidence: standardRateNotStated ? [...new Set(freeClaims.map((c) => c.evidence))] : [],
     ...(opts?.includeRawText ? { rawText: textFromHtml(html) } : {}),
   };
 }

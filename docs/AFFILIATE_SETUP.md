@@ -296,6 +296,17 @@ is labelled as such and sits outside the sorted table.
 
 - `npm run affiliate:status` — what is outstanding and the next step for each.
 - `npm run shipping:staleness` — which delivery rules still need confirming.
+- `npm run shipping:confidence` — what those unconfirmed rules are costing:
+  how many live listings rest on one, and how often the gap between first and
+  second place is smaller than a delivery figure nobody has checked.
+- `npm run shipping:discover` — reads each shop's own delivery page and reports
+  what it says. Add `--write` (which CI passes) to promote `confidence` to
+  `confirmed` where the page agrees with the figure the registry already holds,
+  and to record `standardRateNotPublished` for a shop whose page states its
+  delivery terms and names no flat rate. It will not introduce a figure the
+  registry does not hold, and it will not choose between a page and a registry
+  that disagree — both come out as lines for a human, with the sentence and the
+  URL.
 
-Both are plain scripts with no dependencies, so they can be wired into CI or a
+All are plain scripts with no dependencies, so they can be wired into CI or a
 pre-deploy check later.

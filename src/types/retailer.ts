@@ -235,7 +235,57 @@ export interface ShippingRule {
    *   and surface a caveat in the UI.
    */
   confidence: 'confirmed' | 'unverified';
+  /**
+   * Where a `confirmed` figure was read, and the sentence it was read from.
+   *
+   * Every number in this block changes what the site tells a shopper to pay, so
+   * `confidence: 'confirmed'` is only worth anything if the thing that
+   * confirmed it can be re-read by whoever doubts it. This holds that: the URL
+   * fetched, the sentence on it, and the date. Written by
+   * `scripts/shipping-discover.ts` when it promotes a rule, and equally fine to
+   * fill in by hand after reading a page yourself.
+   *
+   * Absent on a rule that has never been confirmed, and absent on the older
+   * hand-confirmed entries that predate this field — absence means "no
+   * recorded source", never "no source exists".
+   */
+  source?: ShippingSource;
+  /**
+   * Set only when this shop's own delivery page has been read and genuinely
+   * publishes no flat standard rate.
+   *
+   * `standardGbp: null` alone cannot say this. It is the value the field takes
+   * both for a shop nobody has looked at yet and for a shop that has been
+   * looked at carefully and does not publish a rate, and those are completely
+   * different facts about the world. Several shops here advertise "free over
+   * £50" and simply never print what they charge below it — that is a real
+   * category, not a parsing failure, and until now the registry could not
+   * distinguish it from an unfinished job.
+   *
+   * Requires `standardGbp: null`, and requires `source` to hold the page that
+   * was read: this is a claim about what a shop does not publish, which is a
+   * claim, so it carries evidence like every other one.
+   *
+   * Changes nothing about the delivered price. Such a shop still resolves to a
+   * null delivery cost, still shows as delivery not stated, and still cannot
+   * rank as cheapest. What it changes is what the site is entitled to say about
+   * why.
+   */
+  standardRateNotPublished?: boolean;
   notes?: string;
+}
+
+/** The page a shipping figure was read off, and the wording it was read from. */
+export interface ShippingSource {
+  /** The exact URL fetched. */
+  url: string;
+  /**
+   * The sentence on that page the figure came from, quoted rather than
+   * summarised, so a reader can search the page for it.
+   */
+  quote: string;
+  /** ISO-8601 date the page was read. */
+  readAt: string;
 }
 
 /**

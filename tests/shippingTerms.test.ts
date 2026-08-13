@@ -139,6 +139,85 @@ describe('shipping terms extraction', () => {
     });
   });
 
+  describe('delivery tables', () => {
+    // The commonest layout in the whole problem domain, and the parser could
+    // not read a single one of them: cells ended a sentence, so the row's
+    // service name and its price landed in different chunks and the chunk with
+    // the money in it no longer mentioned delivery.
+    const TABLE = `<h1>Delivery</h1><table>
+      <tr><th>Service</th><th>Time</th><th>Cost</th></tr>
+      <tr><td>Standard Delivery</td><td>3-5 working days</td><td>&pound;3.95</td></tr>
+      <tr><td>Next Day Delivery</td><td>1 working day</td><td>&pound;5.95</td></tr>
+    </table>`;
+
+    it('reads the standard row of a delivery table', () => {
+      const r = readShippingTerms(TABLE);
+      expect(r.standardGbp).toBe(3.95);
+      expect(r.caveats).toEqual([]);
+    });
+
+    it('does not let the express row become the standard rate', () => {
+      expect(readShippingTerms(TABLE).standardGbp).not.toBe(5.95);
+    });
+
+    it('keeps a row whole but still separates one row from the next', () => {
+      const claims = extractShippingClaims(TABLE);
+      expect(claims.some((c) => /Standard Delivery/.test(c.evidence) && /5\.95/.test(c.evidence))).toBe(false);
+    });
+
+    it('reads a rate broken across a line break inside one cell', () => {
+      const r = readShippingTerms('<td>Standard delivery<br>&pound;2.95</td>');
+      expect(r.standardGbp).toBe(2.95);
+    });
+  });
+
+  describe('shops that publish no standard rate', () => {
+    it('says so plainly when the page states terms and names no charge', () => {
+      // Manchester Ouds' own wording, from data/shipping-discovery-report.json.
+      const r = readShippingTerms(
+        '<p>Standard shipping is free on orders over £50, while a nominal fee applies to orders below £50.</p>',
+      );
+      expect(r.standardGbp).toBeNull();
+      expect(r.freeOverGbp).toBe(50);
+      expect(r.standardRateNotStated).toBe(true);
+      expect(r.thresholdEvidence.join(' ')).toContain('nominal fee');
+    });
+
+    it('does not claim a shop publishes nothing when it published a rate', () => {
+      const r = readShippingTerms('<p>Standard delivery £3.95, free over £25.</p>');
+      expect(r.standardRateNotStated).toBe(false);
+    });
+
+    it('does not claim it of a page that only priced an express service', () => {
+      // The standard rate is probably somewhere we did not look. That is a gap
+      // in the reading, not a fact about the shop.
+      const r = readShippingTerms('<p>Next day delivery is £5.95.</p>');
+      expect(r.standardRateNotStated).toBe(false);
+    });
+
+    it('does not claim it of a page that said nothing about delivery at all', () => {
+      expect(readShippingTerms('<p>Our story began in 1994.</p>').standardRateNotStated).toBe(false);
+    });
+  });
+
+  describe('on a page whose address already says delivery', () => {
+    it('reads a threshold stated without repeating the word', () => {
+      // "Free on orders over £25." under a "Delivery" heading is the single
+      // most common phrasing there is, and the sentence itself never says
+      // delivery.
+      const html = '<h2>Delivery</h2><p>Free on all orders over £25.</p>';
+      expect(readShippingTerms(html).freeOverGbp).toBeNull();
+      expect(readShippingTerms(html, { deliveryPage: true }).freeOverGbp).toBe(25);
+    });
+
+    it('still refuses to take a bare number as a delivery charge', () => {
+      // The relaxation admits thresholds and nothing else: a price list on a
+      // delivery page is still a price list.
+      const r = readShippingTerms('<h2>Delivery</h2><p>Gift boxes cost £4.50.</p>', { deliveryPage: true });
+      expect(r.standardGbp).toBeNull();
+    });
+  });
+
   describe('candidate paths', () => {
     it("leads with Shopify's canonical policy URL", () => {
       expect(SHIPPING_PAGE_PATHS[0]).toBe('/policies/shipping-policy');
