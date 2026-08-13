@@ -16,9 +16,12 @@ name: Catalogue crawl
 # service. It also leaves ~40 minutes of slack between the end of one run and
 # the start of the next, which is what stops a slow run stacking at all.
 #
-# Every hour this workflow keys behaviour off (00, 06, 12 and 18 UTC for the
-# Awin sync and Top Deals, 06 and 18 for shipping discovery) is even, so all
-# of them still land on a tick.
+# The three periodic steps below (Awin sync, Top Deals, shipping discovery) no
+# longer key off the clock reading a particular hour. They did, and it broke:
+# a scheduled run starts when a runner is free, not when the cron said, and
+# once the drift settled on odd hours those steps skipped every cycle in
+# silence. They now gate on time elapsed since they last ran, so the cadence
+# holds however late a run starts. See each step for its own threshold.
 #
 # --allow-metered below is a no op unless the APIFY_PROXY_PASSWORD secret is
 # set, which it currently is not. If that secret is ever added, every tick
@@ -92,7 +95,7 @@ on:
         type: string
         default: ''
       deals_refresh:
-        description: 'Force a Top Deals Today snapshot outside its normal 00/06/12/18 UTC schedule.'
+        description: 'Force a Top Deals Today snapshot without waiting for its normal ~6 hourly cadence.'
         type: boolean
         default: false
 
@@ -232,7 +235,7 @@ jobs:
       # src/config/retailers.ts — Fragrance Click UK, MyBeauty.Boutique and The
       # Beauty Store UK today) against the Awin Feed List Download URL.
       #
-      # On the same 6-hourly cadence as Top Deals below (00/06/12/18 UTC), and
+      # On the same roughly 6-hourly cadence as Top Deals below, and
       # deliberately ordered *before* it. Those three shops hold 9,820 of the
       # catalogue's 14,857 listings — 66% — and a feed sync refreshes every one
       # of them in a single download rather than page by page. So this step is
