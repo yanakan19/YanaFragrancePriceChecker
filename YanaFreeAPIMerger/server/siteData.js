@@ -344,6 +344,192 @@ async function priceContextFor(question) {
   );
 }
 
+/** `<brand>|<name>|<concentration>`, lowercased: every size of one perfume
+ *  shares this key (mirrors `variantGroup` in demo/data.ts). */
+function groupKeyFor(f) {
+  return `${f.brand}|${f.name}|${f.concentration}`.toLowerCase();
+}
+
+/**
+ * Deterministic, LLM-free resolution of a price question against the live
+ * catalogue — no model call, so it cannot hallucinate a denial, a price, a
+ * size or a retailer the way the reported "One Million Elixir" bug did. See
+ * `formatPriceAnswer` below for turning this into the words a reader sees,
+ * and `runCouncil` in council.js for why intent `'price'` answers from this
+ * alone rather than fanning the question out to the model council at all.
+ *
+ * Reuses `findFragranceMatch`'s exact scoring (same word-overlap, same 0.34
+ * threshold, same stopword filter) — the whole point is that this can never
+ * disagree with what the SITE DATA block already told a model, it just also
+ * gets to act on the answer directly instead of asking an LLM to relay it.
+ *
+ * Goes one step further findFragranceMatch does not: `findFragranceMatch`
+ * returns a single best-scoring *row*, silently picking whichever happens to
+ * sit first in the catalogue when several score identically. That is fine
+ * for grounding a prompt (the LLM sees the whole SITE DATA block, sizes
+ * included), but wrong for a reply written with no LLM in the loop at all — a
+ * bare brand name like "Rabanne" scores 1/1 against every Rabanne fragrance
+ * equally, and confidently naming one of them as "the" answer would be a
+ * fluent, well-formed, wrong answer, exactly the failure mode this whole fix
+ * exists to remove. So this checks for a tie across *distinct products*
+ * (different brand+name+concentration, not just different sizes of the same
+ * one) at the top score, and reports `ambiguous` rather than guessing.
+ */
+export async function resolvePriceQuery(question) {
+  const { data, catalogue, priceService } = await loadSite();
+  const qWords = normalize(question).split(' ').filter((w) => w && !QUERY_STOPWORDS.has(w));
+  if (qWords.length === 0) return { status: 'no_match' };
+
+  let bestScore = 0;
+  const scored = [];
+  for (const frag of data.DEMO_FRAGRANCES) {
+    const concentrationLower = (frag.concentration ?? '').toLowerCase();
+    const abbr = CONCENTRATION_ABBR[concentrationLower] ?? '';
+    const haystack = normalize(`${frag.brand} ${frag.name} ${frag.concentration} ${abbr}`);
+    const hits = qWords.filter((w) => haystack.includes(w)).length;
+    const score = hits / qWords.length;
+    if (score > bestScore) bestScore = score;
+    if (score > 0) scored.push({ frag, score });
+  }
+  if (bestScore < 0.34) return { status: 'no_match' };
+
+  const top = scored.filter((s) => s.score === bestScore);
+  const topGroupKeys = new Set(top.map((s) => groupKeyFor(s.frag)));
+  const matchConfidence = Math.round(bestScore * 100);
+
+  if (topGroupKeys.size > 1) {
+    const seen = new Set();
+    const candidates = [];
+    for (const s of top) {
+      const key = groupKeyFor(s.frag);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      candidates.push(s.frag);
+      if (candidates.length >= 8) break; // Enough to ask a real question, not a wall of names.
+    }
+    return { status: 'ambiguous', matchConfidence, candidates };
+  }
+
+  const anchor = top[0].frag;
+
+  // A single top-scoring product, but only a weak one: `findFragranceMatch`
+  // (and the SITE DATA block it grounds the council with) already accepts
+  // anything at or above 0.34, which is deliberately loose so a natural
+  // question full of filler still matches. That is fine when an LLM sees
+  // the whole picture and can use its own judgement about whether the
+  // "closest" thing found is worth mentioning; it is not fine for a reply
+  // with no judgement in the loop, which would otherwise state a specific
+  // price for what might be entirely the wrong product — measured case: "how
+  // cheap is the fragrance you've ever heard of philosophically" scores 40%
+  // against Mexx Whenever Wherever For Him on word overlap alone. Below 0.5
+  // this hedges on identity instead of asserting a price for a guess.
+  if (bestScore < 0.5) {
+    return {
+      status: 'low_confidence',
+      matchConfidence,
+      brand: anchor.brand,
+      name: anchor.name,
+      concentration: anchor.concentration,
+    };
+  }
+
+  const key = groupKeyFor(anchor);
+  const variants = data.DEMO_FRAGRANCES
+    .filter((f) => groupKeyFor(f) === key)
+    .sort((a, b) => a.sizeMl - b.sizeMl)
+    .map((f) => {
+      const offers = catalogue.offersFor(f.id);
+      const rows = priceService.buildComparison(offers, { sortBy: 'delivered', tier: f.tier });
+      const best = priceService.bestOffer(rows);
+      return {
+        sizeMl: f.sizeMl,
+        purchasableCount: rows.filter((r) => r.isPurchasable).length,
+        best: best ? { deliveredPriceGbp: best.deliveredPriceGbp, retailerName: best.retailer.name } : null,
+      };
+    });
+
+  return {
+    status: 'matched',
+    matchConfidence,
+    brand: anchor.brand,
+    name: anchor.name,
+    concentration: anchor.concentration,
+    variants,
+  };
+}
+
+const ANSWER_SIZE_RE = /(\d+(?:\.\d+)?)\s?ml\b/i;
+const ANSWER_CHEAPEST_RE = /\b(cheapest|lowest|all sizes|every size|each size|full list)\b/i;
+
+/**
+ * The deterministic reply text for a `resolvePriceQuery` result — the only
+ * place user-facing words get attached to that data. Every price, size and
+ * retailer here is read straight off `result`; nothing is composed from the
+ * question or invented to sound complete. Three shapes, per the reported
+ * request for what a price answer should actually do: name the product, say
+ * which sizes are tracked, and either answer the one the reader asked about
+ * or offer the two real next steps (a specific size, or the full cheapest
+ * list) rather than dumping every row of a bulleted, hedge-heavy wall of text.
+ */
+export function formatPriceAnswer(question, result) {
+  const gbp = (pence) => `£${pence.toFixed(2)}`;
+  const priceLine = (v) =>
+    v.best
+      ? `${v.sizeMl}ml: ${gbp(v.best.deliveredPriceGbp)} delivered from ${v.best.retailerName}.`
+      : `${v.sizeMl}ml: currently out of stock everywhere this site tracks.`;
+
+  if (result.status === 'no_match') {
+    return (
+      "I don't have a fragrance matching that in the current catalogue. Try the brand and product name — " +
+      'for example "Dior Sauvage EDT".'
+    );
+  }
+
+  if (result.status === 'ambiguous') {
+    const names = result.candidates.map((f) => `${f.brand} ${f.name} (${f.concentration})`);
+    return `A few products match that (${result.matchConfidence}% confidence): ${names.join(', ')}. Which one did you mean?`;
+  }
+
+  if (result.status === 'low_confidence') {
+    return (
+      `The closest match I can find (${result.matchConfidence}% confidence) is ${result.brand} ${result.name} ` +
+      `(${result.concentration}). Is that what you meant? If not, try the exact brand and product name.`
+    );
+  }
+
+  const { brand, name, concentration, variants } = result;
+  const label = `${brand} ${name} (${concentration})`;
+
+  // Checked before the single-variant shortcut below, deliberately: a
+  // question that names a size this product does NOT carry must say so even
+  // when the product only has one tracked size at all — answering with that
+  // one size's price regardless of what was asked would silently substitute
+  // a different bottle for the one the reader named.
+  const sizeMatch = question.match(ANSWER_SIZE_RE);
+  if (sizeMatch) {
+    const wantedSize = Number(sizeMatch[1]);
+    const exact = variants.find((v) => v.sizeMl === wantedSize);
+    if (exact) return `${label}, ${exact.sizeMl}ml. ${priceLine(exact).replace(/^\d+ml: /, 'Cheapest right now: ')}`;
+    const tracked = variants.map((v) => `${v.sizeMl}ml`).join(', ');
+    return `${label} is on file, but not in ${sizeMatch[1]}ml. Sizes tracked: ${tracked}.`;
+  }
+
+  if (variants.length === 1) {
+    return `${label}, ${variants[0].sizeMl}ml. Cheapest right now: ${
+      variants[0].best
+        ? `${gbp(variants[0].best.deliveredPriceGbp)} delivered from ${variants[0].best.retailerName}.`
+        : 'currently out of stock everywhere this site tracks.'
+    }`;
+  }
+
+  if (ANSWER_CHEAPEST_RE.test(question)) {
+    return `${label} — cheapest per size:\n${variants.map(priceLine).join('\n')}`;
+  }
+
+  const tracked = variants.map((v) => `${v.sizeMl}ml`).join(', ');
+  return `${label} is tracked in ${variants.length} sizes: ${tracked}. Want the price for one size, or the cheapest across all of them?`;
+}
+
 /**
  * Real note-matched candidates, from whichever fragrances this site's own
  * feeds actually published notes for — never a guessed or generic note list.
@@ -385,8 +571,15 @@ async function suggestContextFor(question) {
 
 /** Simple keyword overlap against the site's own policy/FAQ pages — the only
  *  source for anything about how the site works, delivery methodology,
- *  affiliate disclosure, privacy or contact details. */
-async function policyContextFor(question) {
+ *  affiliate disclosure, privacy or contact details.
+ *
+ *  Exported (not just used internally by buildSiteDataBlock) so council.js's
+ *  price bypass can tell a genuine "no such fragrance" from a question that
+ *  merely contains a price-ish word — "how does your price comparison
+ *  work" trips classifyIntent's 'price' regex on the word "price" alone,
+ *  but it is a policy question, not a lookup, and resolvePriceQuery finding
+ *  no fragrance in it should not be read as "the fragrance does not exist". */
+export async function policyContextFor(question) {
   const { legal } = await loadSite();
   const qWords = normalize(question).split(' ').filter((w) => w.length > 3);
   if (qWords.length === 0) return null;
