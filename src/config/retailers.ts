@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 55 retailers, 28 of them `enabled: true`. Every one of them is a legitimate
+ * 55 retailers, 27 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -824,7 +824,19 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'escentual.com',
     homepage: 'https://www.escentual.com',
     tiers: ['designer'],
-    enabled: true,
+    // Off since 2026-08-13: its prices are on a foreign scale, roughly 1.44×
+    // two UK shops that agree with each other to three decimal places. See
+    // CURRENCY_UNCONFIRMED at the foot of this file for the measurements and
+    // for what was NOT established (which currency it actually quotes).
+    //
+    // 86c4660 fixed the ingest that caused this — shopifyProductsCrawl.ts now
+    // asks the storefront rather than stamping GBP from this registry — and
+    // 8,104 stored prices were cleared. This flag is the second lock, not a
+    // duplicate of the first: if the storefront answers GBP at rate 1 to a CI
+    // runner, the ingest guard passes and only the price-scale audit would
+    // stand between those figures and the site. Two independent things then
+    // have to fail rather than one.
+    enabled: false,
     // No Awin approval yet, so this is a direct scrape rather than a feed —
     // the requested route for this retailer. No live spike was possible from
     // this environment (network egress to arbitrary hosts is blocked here,
@@ -2253,6 +2265,23 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'rate was not established, and nothing measured suggests this shop takes sterling at ' +
       'all. It ran enabled with 4,032 offer rows live on that unproven declaration until ' +
       '2026-08-13.',
+  ],
+  [
+    'escentual',
+    'Its published figures sit on a foreign scale, measured offline on 2026-08-13 (commit ' +
+      '86c4660). A reference price is a manufacturer fact, so two honest UK shops quoting the ' +
+      "same bottle agree: fragrance-click against mybeauty-boutique gives a median `was` ratio " +
+      'of 1.000 over 188 products. Escentual agrees with neither — 1.452 against fragrance-click ' +
+      '(132 products, p25 1.400, p75 1.513, none within 5% of parity) and 1.443 against ' +
+      'mybeauty-boutique (213 products). A hand check of Calvin Klein Obsession For Men 125ml ' +
+      'EDT on 2026-08-13 found the storefront showing £40.25 against our £57.00, a ratio of ' +
+      '1.416, inside that band. Its selling and compare-at prices move together, so both sit on ' +
+      'the same scale. The cause was src/catalogue/shopifyProductsCrawl.ts stamping GBP onto ' +
+      'every price it read, on the registry\'s authority rather than the response\'s; that is ' +
+      'fixed, and this entry records that the shop\'s own currency is still not established. ' +
+      'Which currency it actually quotes was NOT determined — no network reached it from where ' +
+      'this was measured, and 1.44 is not asserted to be any exchange rate. It ran enabled with ' +
+      '2,542 offer rows live until 2026-08-13.',
   ],
 ]);
 
