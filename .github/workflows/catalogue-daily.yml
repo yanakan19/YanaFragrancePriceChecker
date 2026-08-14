@@ -86,6 +86,10 @@ on:
         description: 'Sync every affiliate-feed retailer against the Awin Feed List Download URL. Requires the AWIN_FEED_LIST_URL secret.'
         type: boolean
         default: false
+      awin_memberships:
+        description: 'Report which Awin advertisers this account has actually been accepted onto, and which of those are missing from the registry. Reads only; writes and commits nothing.'
+        type: boolean
+        default: false
       awin_feed_diag_shop:
         description: 'Debug: print the column headers and price-ish column values for one product in one Awin retailer feed (e.g. mybeauty-boutique). Never writes anything, never prints the feed URL or a full row. Empty runs no diagnostic.'
         type: string
@@ -421,6 +425,17 @@ jobs:
       # column names and one product's price-ish values — see
       # scripts/awin-feed-diag.ts's own header comment for what it withholds
       # and why (never the feed URL, never a full row).
+      # Answers "which programmes have accepted me" from the feed list's own
+      # membershipStatus column, rather than from the feed *count*, which is
+      # the thing that reads like an answer and is not one: the sync logs "N
+      # feed(s) visible on this Awin account", and visible is not joined.
+      # Reads only — writes nothing, commits nothing, prints no feed URL.
+      - name: Awin memberships
+        if: ${{ inputs.awin_memberships }}
+        env:
+          AWIN_FEED_LIST_URL: ${{ secrets.AWIN_FEED_LIST_URL }}
+        run: npm run awin:memberships
+
       - name: Awin feed diagnostic
         if: ${{ inputs.awin_feed_diag_shop != '' }}
         env:
