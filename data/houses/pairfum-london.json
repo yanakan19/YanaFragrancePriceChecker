@@ -1,6 +1,6 @@
 {
   "retailerId": "pairfum-london",
-  "updatedAt": "2026-08-14T08:08:19.390Z",
+  "updatedAt": "2026-08-14T15:41:13.888Z",
   "source": "live",
   "listings": [
     {
@@ -17,7 +17,7 @@
       "sectionId": "house-direct",
       "retailerId": "pairfum-london",
       "firstSeenAt": "2026-08-05T08:57:05.601Z",
-      "lastSeenAt": "2026-08-14T08:08:19.390Z",
+      "lastSeenAt": "2026-08-14T15:41:13.888Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,

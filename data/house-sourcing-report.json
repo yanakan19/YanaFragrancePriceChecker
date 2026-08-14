@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-14T13:51:09.337Z",
+  "checkedAt": "2026-08-14T15:48:40.369Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -57,21 +57,19 @@
       "houseId": "pairfum-london",
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
-      "routeUsed": null,
+      "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 0,
+      "listings": 1,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
-        "https://www.pairfum.com/products.json?limit=250&page=1: HTTP 500",
-        "https://www.pairfum.com/sitemap_index.xml: HTTP 500"
+        "stopped early: the house began refusing requests"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
-        "no listings retrieved from the storefront on this run"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
       ]
     },
     {
@@ -195,9 +193,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 96,
-      "pricedInGbp": 96,
-      "withPhoto": 96,
+      "listings": 104,
+      "pricedInGbp": 104,
+      "withPhoto": 104,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -418,9 +416,9 @@
       "origin": "https://www.reef-parfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 31,
-      "pricedInGbp": 31,
-      "withPhoto": 31,
+      "listings": 32,
+      "pricedInGbp": 32,
+      "withPhoto": 32,
       "errors": [
         "storefront currency could not be established — no sterling price recorded"
       ],
