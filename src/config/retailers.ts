@@ -1173,13 +1173,13 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: 50,
       estimatedDays: [2, 5],
-      verifiedAt: '2026-08-13',
+      verifiedAt: '2026-08-14',
       confidence: 'confirmed',
       standardRateNotPublished: true,
       source: {
         url: 'https://alharamainperfumes.co.uk/en-us/pages/delivery-information',
         quote: 'FREE UK Delivery on orders over £50 (Royal Mail Standard Service)',
-        readAt: '2026-08-13',
+        readAt: '2026-08-14',
       },
       notes:
         'freeOverGbp is their own stated figure (free UK delivery over £50, half-price over ' +
