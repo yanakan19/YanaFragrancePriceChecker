@@ -418,14 +418,32 @@ export function findFragranceMatch(query, fragrances) {
   return bestScore >= 0.34 ? { fragrance: best, matchConfidence: Math.round(bestScore * 100) } : null;
 }
 
+/** Where a "no <this>" exclusion starts, and what it excludes. Free text on
+ *  the exclusion side deliberately: an exclusion is matched by substring
+ *  against candidates' own notes below, so "no florals" usefully rules out
+ *  "Floral Notes" and "White Floral" without either being a catalogue note
+ *  name in its own right. */
+const NOTE_EXCLUSION_RE = /no\s+([a-z, ]+)/;
+
+function splitOnExclusion(lower) {
+  const m = lower.match(NOTE_EXCLUSION_RE);
+  return m
+    ? { wantedText: lower.slice(0, m.index), unwanted: m[1].split(/[, ]+/).filter(Boolean) }
+    : { wantedText: lower, unwanted: [] };
+}
+
 /** Mirrors YanaFreeAPIMerger's original note-request parser exactly — pure
  *  text parsing, nothing about where the notes data itself comes from, so
- *  swapping the data source underneath it did not need to touch this. */
+ *  swapping the data source underneath it did not need to touch this.
+ *
+ *  Kept, and still the source of the *exclusion* side, but no longer the
+ *  source of the wanted side: see `extractNotes` below for why splitting a
+ *  sentence on commas and calling each fragment a note does not survive
+ *  contact with a real question. */
 export function parseNoteRequest(text) {
   const lower = text.toLowerCase();
-  const unwantedMatch = lower.match(/no\s+([a-z, ]+)/);
-  const unwanted = new Set(unwantedMatch ? unwantedMatch[1].split(/[, ]+/).filter(Boolean) : []);
-  const wantedText = unwantedMatch ? lower.slice(0, unwantedMatch.index) : lower;
+  const { wantedText, unwanted: unwantedList } = splitOnExclusion(lower);
+  const unwanted = new Set(unwantedList);
   const wanted = new Set(
     wantedText
       .split(/[,;]| and /)
@@ -435,6 +453,87 @@ export function parseNoteRequest(text) {
   );
   return { wanted: [...wanted], unwanted: [...unwanted] };
 }
+
+/**
+ * The note names this catalogue actually uses, for reading notes out of a
+ * sentence.
+ *
+ * `parseNoteRequest` above splits the question on commas and " and " and
+ * treats every fragment as a note name, which `fragrancesWithNote` then
+ * matches *exactly*. That works for "vanilla, amber" and fails for every
+ * sentence a person actually types: "suggest something with vanilla and
+ * amber, no florals" yields the fragment "suggest something with vanilla",
+ * which matches no note at all, so half the request is silently dropped
+ * before the council ever sees it. The council then gets a SITE DATA block
+ * saying nothing matched, for a request the catalogue could have answered —
+ * and a model given nothing to work from is exactly the situation that
+ * produced this project's original invented-answer bug.
+ *
+ * So the wanted side is read against the catalogue's own note vocabulary
+ * (`NOTE_INDEX`, 1,576 distinct names) rather than guessed from punctuation.
+ *
+ * Two filters on the vocabulary, both because the index is harvested text
+ * and not a curated list: names shorter than three characters and names used
+ * by fewer than three fragrances are dropped. Without them the index's own
+ * junk entries — measured, in the live catalogue: "An" (1 fragrance), "Mr"
+ * (1), "Min" (1), "Tob" (1), "Deepening the experience" (1) — would match
+ * ordinary English words in the question and invent a note request nobody
+ * made.
+ */
+/**
+ * Vocabulary entries that are listing metadata, not notes.
+ *
+ * `Notes` is populated from whatever a retailer labelled as notes, and some
+ * feeds put a season or an audience in that field. Measured in the live
+ * catalogue: Versace Pour Homme Dylan Blue's note list reads "Summer,
+ * Autumn, Summer, Autumn, Summer, Autumn". Left in the query vocabulary,
+ * "recommend me a summer fragrance" reads "summer" as a note request and
+ * grounds the council with four products that share a season tag — a
+ * confident-looking answer to a question about weather, built on metadata.
+ *
+ * Only the fragrances' stored notes are left untouched; this list governs
+ * what may be read *out of a question* as a request.
+ */
+const NON_NOTE_VOCABULARY = new Set([
+  'summer', 'autumn', 'winter', 'spring', 'fall',
+  'women', 'men', 'unisex', 'ladies', 'gents', 'him', 'her',
+]);
+
+let noteVocabulary = null;
+async function noteVocab() {
+  if (noteVocabulary) return noteVocabulary;
+  const { data } = await loadSite();
+  noteVocabulary = data.NOTE_INDEX
+    .filter((n) => n.count >= 3 && !NON_NOTE_VOCABULARY.has(normalize(n.name)))
+    .map((n) => ({ name: n.name, needle: normalize(n.name) }))
+    .filter((n) => n.needle.length >= 3)
+    // Longest first, so "Dark Chocolate" is read as one note rather than
+    // consumed as "Chocolate" with a stray "dark" left over.
+    .sort((a, b) => b.needle.length - a.needle.length);
+  return noteVocabulary;
+}
+
+/** Every catalogue note named in a piece of text, longest match first, each
+ *  consumed so it cannot also match as part of a shorter one. Exported so
+ *  the vocabulary claims above are testable. */
+export async function extractNotes(text) {
+  const vocab = await noteVocab();
+  let haystack = ` ${normalize(text)} `;
+  const found = [];
+  for (const note of vocab) {
+    const padded = ` ${note.needle} `;
+    if (!haystack.includes(padded)) continue;
+    found.push(note.name);
+    haystack = haystack.split(padded).join('  ');
+  }
+  return found;
+}
+
+/** "what smells like Aventus", "any dupes for Baccarat Rouge" — the phrases
+ *  that name a *reference fragrance* rather than a note. Deliberately
+ *  specific: a bare "like" is far too common in ordinary phrasing to treat
+ *  as a product reference. */
+const SIMILAR_TO_RE = /\b(?:similar to|smells? like|smelling like|dupes? (?:for|of)|alternatives? to|clones? of|something like|reminds me of|in the style of)\s+(.{2,60})$/i;
 
 /**
  * The real, delivery-inclusive price for a fragrance — built from the exact
@@ -804,9 +903,87 @@ export function formatPriceAnswer(question, result) {
  */
 export async function suggestContextFor(question) {
   const { data } = await loadSite();
-  const { wanted, unwanted } = parseNoteRequest(question);
+  const { wantedText, unwanted } = splitOnExclusion(String(question ?? '').toLowerCase());
+
+  // "What smells like Aventus" names no note at all, and the honest way to
+  // ground it is not to give the council nothing: it is to look the
+  // reference fragrance up, take the notes the catalogue holds *for it*, and
+  // find real products that share them. The council still writes the answer
+  // — whether two perfumes actually smell alike is a judgement no note list
+  // settles — but it now writes it from this site's own data rather than
+  // from a model's memory of what Aventus smells like.
+  let reference = null;
+  let referenceUnresolved = null;
+  const similar = wantedText.match(SIMILAR_TO_RE);
+  if (similar) {
+    const resolved = await resolveProductQuery(similar[1], 'suggest');
+    let group = resolved.status === 'matched' ? resolved.group : null;
+    let anchor = resolved.anchor ?? null;
+
+    // "What smells like Tom Ford Black Orchid" ties the EDP, the EDT and the
+    // Parfum, and `resolveProductQuery` is right to refuse to pick one for a
+    // price. Here it does not have to: the question is about what something
+    // smells like, and the concentrations of one perfume are the one kind of
+    // ambiguity that question does not care about. So when the tie is
+    // *only* across concentrations of a single brand+name, all of them are
+    // taken as the reference and their notes merged. Any wider ambiguity is
+    // still refused.
+    if (!group && resolved.status === 'ambiguous' && resolved.exact === true) {
+      // Tightest fit first, the same containment argument
+      // `resolveProductQuery` uses: "Tom Ford Black Orchid" ties its EDP,
+      // EDT and Parfum with "Tom Ford Black Orchid Reserve", which is a
+      // different perfume with an extra word. Dropping the longer titles
+      // leaves only the concentrations, which is the ambiguity this branch
+      // is allowed to collapse.
+      const words = (c) => normalize(`${c.brand} ${c.name}`).split(' ').length;
+      const fewest = Math.min(...resolved.candidates.map(words));
+      const tightest = resolved.candidates.filter((c) => words(c) === fewest);
+      const names = new Set(tightest.map((c) => `${c.brand}|${c.name}`.toLowerCase()));
+      if (names.size === 1) {
+        const [brand, name] = [tightest[0].brand, tightest[0].name];
+        group = data.DEMO_FRAGRANCES.filter((f) => f.brand === brand && f.name === name);
+        anchor = { brand, name, concentration: 'all concentrations' };
+      }
+    }
+
+    if (!group) referenceUnresolved = similar[1].trim();
+    else {
+      const notes = new Set();
+      for (const frag of group) {
+        for (const layer of ['top', 'middle', 'base']) {
+          for (const n of frag.notes?.[layer] ?? []) if (n.trim()) notes.add(n.trim());
+        }
+      }
+      reference = {
+        label: `${anchor.brand} ${anchor.name} (${anchor.concentration})`,
+        key: groupKeyFor(anchor),
+        brandName: `${anchor.brand}|${anchor.name}`.toLowerCase(),
+        notes: [...notes],
+      };
+    }
+  }
+
+  // When the question names a reference fragrance, notes are read from that
+  // fragrance and never from the rest of the sentence.
+  //
+  // The fallback that used to sit here read the whole question instead, and
+  // the question contains the reference's own *name*: "any dupes for Tom
+  // Ford Black Orchid" extracted the note "Orchid" straight out of the
+  // product title and grounded the council with five unrelated florals that
+  // happen to list orchid. The words the reader typed to identify a bottle
+  // are not a description of what they want it to smell like.
+  const wanted = similar
+    ? (reference?.notes ?? [])
+    : await extractNotes(wantedText);
+
   if (wanted.length === 0) {
-    return 'NOTE MATCHED CANDIDATES: none requested. The question did not name any notes to match against.';
+    let why = ' The question did not name any notes to match against.';
+    if (reference) {
+      why = ` The reference fragrance ${reference.label} is in the catalogue but has no published notes, so there is nothing to match it against.`;
+    } else if (referenceUnresolved) {
+      why = ` The question asks for something like "${referenceUnresolved}", which does not resolve to a single product in the catalogue, so there are no notes to match it against.`;
+    }
+    return `NOTE MATCHED CANDIDATES: none requested.${why}`;
   }
 
   // Grouped by product (brand+name+concentration), not by row id: the same
@@ -826,18 +1003,34 @@ export async function suggestContextFor(question) {
       const key = groupKeyFor(frag);
       let entry = groups.get(key);
       if (!entry) {
-        entry = { frag, notes: { top: new Set(), middle: new Set(), base: new Set() } };
+        entry = { frag, matched: new Set(), notes: { top: new Set(), middle: new Set(), base: new Set() } };
         groups.set(key, entry);
       }
+      entry.matched.add(note);
       for (const layer of ['top', 'middle', 'base']) {
         for (const n of frag.notes?.[layer] ?? []) entry.notes[layer].add(n);
       }
     }
   }
 
+  // The reference fragrance is never its own recommendation — nor is any
+  // other concentration of it, which is why this drops by brand+name rather
+  // than by the full group key.
+  if (reference) {
+    for (const [key, entry] of groups) {
+      if (`${entry.frag.brand}|${entry.frag.name}`.toLowerCase() === reference.brandName) groups.delete(key);
+    }
+  }
+
   let candidates = [...groups.values()].map((entry) => ({
     frag: entry.frag,
-    notes: [...entry.notes.top, ...entry.notes.middle, ...entry.notes.base],
+    matchedCount: entry.matched.size,
+    matched: [...entry.matched],
+    // Deduplicated across layers, not just within them. A note listed in
+    // both a fragrance's top and base rendered twice, which reads as broken
+    // data rather than as a note appearing in two layers — measured case,
+    // Versace Dylan Blue: "Summer, Autumn, Summer, Autumn, Summer, Autumn".
+    notes: [...new Set([...entry.notes.top, ...entry.notes.middle, ...entry.notes.base])],
   }));
   if (unwanted.length > 0) {
     candidates = candidates.filter(({ notes }) => {
@@ -845,16 +1038,33 @@ export async function suggestContextFor(question) {
       return !unwanted.some((u) => noteWords.some((n) => n.includes(u) || u.includes(n)));
     });
   }
+  // Most of the request satisfied first. The previous order was whatever
+  // BY_POPULARITY happened to yield for the *first* requested note, so a
+  // three-note request could be answered with five products sharing only the
+  // first note while products matching all three sat below the cut.
+  candidates.sort((a, b) => b.matchedCount - a.matchedCount);
   candidates = candidates.slice(0, 5);
 
   if (candidates.length === 0) {
     return `NOTE MATCHED CANDIDATES: none. No fragrance in the current catalogue has a published note match for [${wanted.join(', ')}].`;
   }
 
-  const lines = candidates.map(({ frag, notes }) =>
-    `${frag.brand} ${frag.name} (${frag.concentration}) — notes on file: ${notes.join(', ') || 'none published'}`,
+  const lines = candidates.map(({ frag, notes, matched }) =>
+    `${frag.brand} ${frag.name} (${frag.concentration}) — shares: ${matched.join(', ')} — notes on file: ${
+      notes.join(', ') || 'none published'
+    }`,
   );
-  return `NOTE MATCHED CANDIDATES (requested: ${wanted.join(', ')}${unwanted.length ? `; excluding: ${unwanted.join(', ')}` : ''}):\n${lines.join('\n')}`;
+  // The reference line is appended rather than prepended so that the block
+  // still opens with "NOTE MATCHED CANDIDATES", which is what the rest of
+  // this file and the council prompt's rule 1b both key off.
+  const referenceLine = reference
+    ? `\nREFERENCE FRAGRANCE: ${reference.label} — its own notes on file: ${reference.notes.join(', ')}. ` +
+      'The candidates above were found by sharing those notes; whether they actually smell alike is not something this data settles.'
+    : '';
+  return (
+    `NOTE MATCHED CANDIDATES (requested: ${wanted.join(', ')}${unwanted.length ? `; excluding: ${unwanted.join(', ')}` : ''}):\n` +
+    `${lines.join('\n')}${referenceLine}`
+  );
 }
 
 /** Simple keyword overlap against the site's own policy/FAQ pages — the only
