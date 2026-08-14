@@ -8,6 +8,18 @@ import {
   formatNotesAnswer,
   resolveSizeQuery,
   formatSizeAnswer,
+  resolveDeliveryQuery,
+  formatDeliveryAnswer,
+  resolveDealsQuery,
+  formatDealsAnswer,
+  resolveBudgetQuery,
+  formatBudgetAnswer,
+  resolveCompareQuery,
+  formatCompareAnswer,
+  resolveBrandQuery,
+  formatBrandAnswer,
+  resolveMetaQuery,
+  formatMetaAnswer,
 } from './lookups.js';
 
 /**
@@ -120,12 +132,24 @@ function buildSystemPrompt() {
  *
  * `format` takes the question as well as the result because the price
  * formatter reads a size back out of it; the others ignore it.
+ *
+ * A resolver may return `null`, which means "this is not a question I can
+ * answer from the data" and hands the question to the council untouched.
+ * That is how "how do you make money" (meta, but prose the site has already
+ * written on its own legal pages) and "is anything nice under a tenner"
+ * (budget-shaped, no threshold named) reach a model instead of a table.
  */
 const DETERMINISTIC_INTENTS = {
   price: { resolve: resolvePriceQuery, format: (question, result) => formatPriceAnswer(question, result) },
   availability: { resolve: resolveAvailabilityQuery, format: (_q, result) => formatAvailabilityAnswer(result) },
   notes: { resolve: resolveNotesQuery, format: (_q, result) => formatNotesAnswer(result) },
   size: { resolve: resolveSizeQuery, format: (_q, result) => formatSizeAnswer(result) },
+  delivery: { resolve: resolveDeliveryQuery, format: (_q, result) => formatDeliveryAnswer(result) },
+  deals: { resolve: resolveDealsQuery, format: (_q, result) => formatDealsAnswer(result) },
+  budget: { resolve: resolveBudgetQuery, format: (_q, result) => formatBudgetAnswer(result) },
+  compare: { resolve: resolveCompareQuery, format: (_q, result) => formatCompareAnswer(result) },
+  brand: { resolve: resolveBrandQuery, format: (_q, result) => formatBrandAnswer(result) },
+  meta: { resolve: resolveMetaQuery, format: (_q, result) => formatMetaAnswer(result) },
 };
 
 /**
@@ -136,9 +160,10 @@ const DETERMINISTIC_INTENTS = {
  * with splash / progress events as they happen so the caller can stream them
  * (SSE).
  *
- * Intent `'price'` never reaches the council at all — see
- * `answerPriceDirectly` above for why answering it from site data alone,
- * with no model call, is more accurate as well as faster.
+ * The intents in `DETERMINISTIC_INTENTS` above normally never reach the
+ * council at all — see that table for why answering them from site data
+ * alone, with no model call, is more accurate as well as faster, and for the
+ * two cases where they hand the question back.
  */
 export async function runCouncil({ question, intent, config, onEvent }) {
   const { baseUrl, apiKey, models } = config;
@@ -150,18 +175,32 @@ export async function runCouncil({ question, intent, config, onEvent }) {
   const deterministic = DETERMINISTIC_INTENTS[intent];
   if (deterministic) {
     const result = await deterministic.resolve(question);
-    // A question can carry an intent's vocabulary without naming a product
-    // at all: "how does your price comparison work" is labelled 'price' by
-    // nothing more than the word "price" (intent.js now calls that one
-    // 'meta', but a direct API caller can still send 'price', and the same
-    // shape exists for every intent here). The resolver finding no product
-    // is not, on its own, "this fragrance does not exist" in that case — it
-    // is evidence the question was never about a specific fragrance. Only
-    // fall through to the full council (as a 'general' question) when there
-    // is a real policy/FAQ match to ground it in; a plain "no match" with no
-    // such signal is answered directly, the normal case for a genuine lookup
-    // gone unmatched.
-    if (result.status !== 'no_match' || !(await policyContextFor(question))) {
+
+    // Two ways a deterministic path hands the question back to the council,
+    // and both are deliberate:
+    //
+    //   1. The resolver returned `null` — it recognised the intent but not
+    //      as something the data settles. "How do you make money" is meta;
+    //      the answer is prose on the site's own affiliate disclosure page,
+    //      not a number.
+    //   2. It found no product AND the question matches a real policy/FAQ
+    //      page. A question can carry an intent's vocabulary without naming
+    //      a product at all: "how does your price comparison work" is
+    //      labelled 'price' by nothing more than the word "price" (intent.js
+    //      now calls that one 'meta', but a direct API caller can still send
+    //      'price', and the same shape exists for every intent here).
+    //      Finding no product is not, on its own, "this fragrance does not
+    //      exist" in that case — it is evidence the question was never about
+    //      a specific fragrance. A plain "no match" with no policy signal is
+    //      still answered directly, which is the normal case for a genuine
+    //      lookup gone unmatched.
+    const declined = result === null;
+    const policyInDisguise =
+      !declined && result.status === 'no_match' && Boolean(await policyContextFor(question));
+
+    if (declined || policyInDisguise) {
+      effectiveIntent = 'general';
+    } else {
       const content = deterministic.format(question, result);
       emit('status', { message: 'Here we go.' });
       return {
@@ -171,7 +210,6 @@ export async function runCouncil({ question, intent, config, onEvent }) {
         priceMatchStatus: result.status,
       };
     }
-    effectiveIntent = 'general';
   }
 
   const siteData = await buildSiteDataBlock(question, effectiveIntent);

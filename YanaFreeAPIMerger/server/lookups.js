@@ -94,6 +94,23 @@ export function formatIdentityRefusal(result, subject) {
   );
 }
 
+/**
+ * Whether a `resolveProductQuery` refusal is too weak to even be worth
+ * asking the reader about.
+ *
+ * An `ambiguous` result with `exact: true` is a real tie between products
+ * that genuinely match — worth a "which did you mean". An `ambiguous` result
+ * with `exact: false`, or a `low_confidence` one, means the question's words
+ * were only partly found anywhere; for question shapes that do not require
+ * a named product ("do you have anything nice", "any bargains today") that
+ * is not evidence a product was named at all, and listing four unrelated
+ * perfumes as "the closest I have" answers a question nobody asked. Those
+ * go to the council instead.
+ */
+function weakIdentity(result) {
+  return result.status === 'low_confidence' || (result.status === 'ambiguous' && result.exact === false);
+}
+
 /** Every comparison row for one catalogue entry, built exactly the way the
  *  site's own detail page builds it (same buildComparison, same tier
  *  filter), so nothing said here can disagree with the page. */
@@ -311,4 +328,655 @@ export function formatSizeAnswer(result) {
   return `${label} is tracked in ${result.sizes.length} sizes:\n${result.sizes
     .map((s) => `${s.sizeMl}ml: ${priceOf(s)}.`)
     .join('\n')}`;
+}
+
+/* ── retailers and delivery ────────────────────────────────────────────── */
+
+/**
+ * Which retailer, if any, a question names.
+ *
+ * Matched against the registry's own `name`, `id` and `domain` rather than a
+ * hand-kept list of aliases, so a retailer added to `src/config/retailers.ts`
+ * is answerable here the moment it lands. Longest match wins, which is what
+ * keeps "The Fragrance Shop" from resolving to "The Fragrance Counter" or
+ * vice versa: both share two words, and only the full name settles it.
+ */
+export async function findRetailerInQuestion(question) {
+  const { retailers } = await loadSite();
+  const haystack = ` ${question.toLowerCase().replace(/[^a-z0-9. ]/g, ' ').replace(/\s+/g, ' ').trim()} `;
+  let best = null;
+  for (const r of retailers.RETAILERS) {
+    if (r.enabled === false) continue;
+    const forms = [r.name, r.id.replace(/-/g, ' '), r.domain?.replace(/\.(com|co\.uk|uk|net|shop)$/, '')]
+      .filter(Boolean)
+      .map((f) => f.toLowerCase().replace(/[^a-z0-9. ]/g, ' ').replace(/\s+/g, ' ').trim())
+      .filter(Boolean);
+    for (const form of forms) {
+      if (haystack.includes(` ${form} `) && (!best || form.length > best.matchedLength)) {
+        best = { retailer: r, matchedLength: form.length };
+      }
+    }
+  }
+  return best?.retailer ?? null;
+}
+
+const FREE_DELIVERY_RE = /\bfree (delivery|shipping|postage|p ?& ?p)\b|\bdeliver(s|y)? (for )?free\b/i;
+
+/**
+ * Delivery terms, from `src/config/retailers.ts` and nothing else.
+ *
+ * Three shapes, in the order a question resolves them:
+ *
+ *   `retailer`  the question named a shop — its own standard rate, free-over
+ *               threshold and estimated days, verbatim.
+ *   `free`      "who does free delivery" — the shops whose `standardGbp` is
+ *               a real, sourced 0, kept strictly apart from the shops that
+ *               are free only above a spend, and from the shops that state
+ *               no rate at all. src/services/shipping.ts makes exactly this
+ *               distinction ("`0` is a real claim that this shop ships free;
+ *               `null` is the absence of one") and collapsing it here would
+ *               undo it in prose.
+ *   `overview`  no shop named — what delivery costs across the registry.
+ *
+ * A question that names a *fragrance* rather than a shop is not handled
+ * here: the price path already quotes delivered prices, so council.js sends
+ * it there instead of answering it twice in two voices.
+ */
+export async function resolveDeliveryQuery(question) {
+  const site = await loadSite();
+  const enabled = site.retailers.RETAILERS.filter((r) => r.enabled !== false);
+  const terms = (r) => ({
+    name: r.name,
+    standardGbp: r.shipping.standardGbp,
+    freeOverGbp: r.shipping.freeOverGbp,
+    estimatedDays: r.shipping.estimatedDays ?? null,
+    confirmed: r.shipping.confidence === 'confirmed',
+    membershipPerk: r.shipping.membershipPerk?.description ?? null,
+  });
+
+  const named = await findRetailerInQuestion(question);
+  if (named) return { kind: 'retailer', retailer: terms(named) };
+
+  if (FREE_DELIVERY_RE.test(question)) {
+    return {
+      kind: 'free',
+      alwaysFree: enabled.filter((r) => r.shipping.standardGbp === 0).map(terms),
+      freeOverSpend: enabled
+        .filter((r) => r.shipping.standardGbp !== null && r.shipping.standardGbp > 0 && r.shipping.freeOverGbp !== null)
+        .map(terms)
+        .sort((a, b) => a.freeOverGbp - b.freeOverGbp)
+        .slice(0, 5),
+      notStated: enabled.filter((r) => r.shipping.standardGbp === null).map((r) => r.name),
+    };
+  }
+
+  const stated = enabled.filter((r) => r.shipping.standardGbp !== null);
+  const rates = stated.map((r) => r.shipping.standardGbp).sort((a, b) => a - b);
+  return {
+    kind: 'overview',
+    retailerCount: enabled.length,
+    statedCount: stated.length,
+    lowestGbp: rates[0] ?? null,
+    highestGbp: rates[rates.length - 1] ?? null,
+    alwaysFree: enabled.filter((r) => r.shipping.standardGbp === 0).map((r) => r.name),
+    notStated: enabled.filter((r) => r.shipping.standardGbp === null).map((r) => r.name),
+  };
+}
+
+export function formatDeliveryAnswer(result) {
+  const days = (d) => (Array.isArray(d) && d.length === 2 ? `${d[0]}-${d[1]} days` : null);
+
+  if (result.kind === 'retailer') {
+    const r = result.retailer;
+    // A shop that publishes no standard rate is the one case where there is
+    // no number to give, and inventing one is precisely what the registry's
+    // own `standardGbp: null` exists to prevent.
+    if (r.standardGbp === null) {
+      return (
+        `${r.name} does not publish a standard delivery cost, so its listings show as ` +
+        '"delivery not stated" and are never ranked as the cheapest option here.' +
+        (r.freeOverGbp !== null ? ` It does state free delivery over ${gbp(r.freeOverGbp)}.` : '')
+      );
+    }
+    const parts = [
+      r.standardGbp === 0
+        ? `${r.name} delivers free on any order`
+        : `${r.name} charges ${gbp(r.standardGbp)} standard delivery`,
+    ];
+    if (r.standardGbp > 0 && r.freeOverGbp !== null) parts.push(`free over ${gbp(r.freeOverGbp)}`);
+    if (r.standardGbp > 0 && r.freeOverGbp === null) parts.push('with no spend-based free delivery');
+    const d = days(r.estimatedDays);
+    if (d) parts.push(`estimated ${d}`);
+    // Stated rather than buried: the registry marks entries whose shipping
+    // figures were sourced indirectly, and a delivered price built on one is
+    // exactly as reliable as that source.
+    const caveat = r.confirmed ? '' : ' That figure has not been re-confirmed against their own delivery page recently.';
+    return `${parts.join(', ')}.${caveat}`;
+  }
+
+  if (result.kind === 'free') {
+    const lines = [];
+    lines.push(
+      result.alwaysFree.length
+        ? `Free on any order: ${nameList(result.alwaysFree.map((r) => r.name))}.`
+        : 'No shop this site tracks delivers free on any order.',
+    );
+    if (result.freeOverSpend.length) {
+      lines.push(
+        `Free above a spend: ${result.freeOverSpend.map((r) => `${r.name} over ${gbp(r.freeOverGbp)}`).join(', ')}.`,
+      );
+    }
+    if (result.notStated.length) {
+      lines.push(`${nameList(result.notStated)} state no delivery cost at all, which is not the same as free.`);
+    }
+    return lines.join(' ');
+  }
+
+  const bits = [
+    `Delivery is per shop, not per site. Of the ${result.retailerCount} shops tracked, ` +
+      `${result.statedCount} publish a standard rate, from ${gbp(result.lowestGbp)} to ${gbp(result.highestGbp)}.`,
+  ];
+  if (result.alwaysFree.length) bits.push(`${nameList(result.alwaysFree)} deliver free on any order.`);
+  if (result.notStated.length) {
+    bits.push(
+      `${nameList(result.notStated)} publish no rate, so their listings show as "delivery not stated" and never rank as cheapest.`,
+    );
+  }
+  bits.push('Prices quoted here are delivered prices unless said otherwise.');
+  return bits.join(' ');
+}
+
+/* ── deals ─────────────────────────────────────────────────────────────── */
+
+/**
+ * The site's own "Top Deals Today" list, which is a fixed snapshot rebuilt
+ * on a schedule rather than recomputed per question (see demo/data.ts's own
+ * note on DEALS). Every was/now pair here is the retailer's own published
+ * reference price — `RawOffer.wasPrice` is only ever populated when the shop
+ * published one, never inferred from this site's price history, because
+ * presenting a derived figure as a retailer's "was" price is a UK pricing-
+ * claims problem and not merely a modelling one (see src/types/offer.ts).
+ *
+ * Deal prices are *item* prices. That is said in the answer rather than
+ * quietly compared against the delivered prices the rest of this file
+ * quotes.
+ */
+export async function resolveDealsQuery(question) {
+  const site = await loadSite();
+  const named = await resolveProductQuery(question, 'deals');
+
+  const present = (d) => ({
+    brand: d.fragrance.brand,
+    name: d.fragrance.name,
+    concentration: d.fragrance.concentration,
+    sizeMl: d.fragrance.sizeMl,
+    nowGbp: d.price,
+    wasGbp: d.wasPrice,
+    percentOff: d.percentOff,
+    retailerName: site.index.getRetailer(d.retailerId)?.name ?? null,
+  });
+
+  const ranked = [...site.data.DEALS].sort((a, b) => b.percentOff - a.percentOff || a.price - b.price);
+  const generatedOn = String(site.data.DEALS_GENERATED_AT ?? '').slice(0, 10);
+
+  if (named.status === 'matched') {
+    const ids = new Set(named.group.map((f) => f.id));
+    const forProduct = ranked.filter((d) => ids.has(d.fragrance.id));
+    return {
+      kind: 'product',
+      brand: named.anchor.brand,
+      name: named.anchor.name,
+      concentration: named.anchor.concentration,
+      deals: forProduct.map(present),
+      generatedOn,
+    };
+  }
+  // An identity the matcher *nearly* settled is refused rather than silently
+  // widened into "here are today's top deals", which would answer a question
+  // nobody asked while looking like an answer to the one they did. A merely
+  // partial match is different: it is not evidence a product was named at
+  // all, so those go to the council rather than producing a "did you mean"
+  // list of unrelated perfumes.
+  if (named.status !== 'no_match') return weakIdentity(named) ? null : named;
+
+  return { kind: 'top', total: ranked.length, deals: ranked.slice(0, 5).map(present), generatedOn };
+}
+
+export function formatDealsAnswer(result) {
+  if (result.kind === undefined) return formatIdentityRefusal(result, 'a discount');
+
+  const line = (d) =>
+    `${d.brand} ${d.name} ${d.sizeMl}ml — ${gbp(d.nowGbp)}, was ${gbp(d.wasGbp)} (${d.percentOff}% off)` +
+    (d.retailerName ? ` at ${d.retailerName}` : '') + '.';
+
+  if (result.kind === 'product') {
+    const label = `${result.brand} ${result.name} (${result.concentration})`;
+    if (result.deals.length === 0) {
+      return `${label} is not in the current deals list (built ${result.generatedOn}). That does not mean it is full price everywhere — ask me for its price and I'll give the cheapest delivered.`;
+    }
+    return `${label}:\n${result.deals.map(line).join('\n')}\nThose are item prices before delivery. Deals list built ${result.generatedOn}.`;
+  }
+
+  return (
+    `Biggest reductions in the current deals list (${result.total} deals, built ${result.generatedOn}):\n` +
+    `${result.deals.map(line).join('\n')}\n` +
+    'Those are item prices before delivery, and the was-prices are each retailer\'s own.'
+  );
+}
+
+/* ── budget ────────────────────────────────────────────────────────────── */
+
+/**
+ * Cheapest delivered price per catalogue entry, computed once per process.
+ *
+ * Safe to memoise for exactly the reason siteData.js's header gives for
+ * importing the site modules once: the snapshot this reads from cannot
+ * change while the process runs, so a cached derivation of it cannot go
+ * stale relative to the answers built beside it. Measured on the live
+ * catalogue (10,321 entries, 12,281 offers): 47ms to build, once.
+ *
+ * Entries with no comparable delivered price are omitted rather than
+ * defaulted. A shop that states no delivery cost has no delivered price at
+ * all — never a zero — and an out-of-stock listing is not something a
+ * "under £50" answer may quote (see `bestOffer`'s own doc comment on why
+ * headlining a price nobody can pay is the classic comparison-site lie).
+ */
+let deliveredIndex = null;
+async function deliveredPriceIndex() {
+  if (deliveredIndex) return deliveredIndex;
+  const site = await loadSite();
+  const rows = [];
+  for (const frag of site.data.DEMO_FRAGRANCES) {
+    const best = site.priceService.bestOffer(rowsFor(site, frag));
+    if (!best || best.deliveredPriceGbp === null) continue;
+    rows.push({
+      frag,
+      deliveredPriceGbp: best.deliveredPriceGbp,
+      retailerName: best.retailer.name,
+    });
+  }
+  deliveredIndex = rows;
+  return rows;
+}
+
+const BUDGET_AMOUNT_RES = [
+  /\b(?:under|below|less than|no more than|up to|within|max(?:imum)?|around|about)\s*£?\s*(\d+(?:\.\d{1,2})?)/i,
+  /£\s*(\d+(?:\.\d{1,2})?)\s*(?:or less|budget|max|maximum)\b/i,
+  /\bfor\s*£\s*(\d+(?:\.\d{1,2})?)/i,
+  /\b(\d+(?:\.\d{1,2})?)\s*(?:quid|pounds?)\b/i,
+];
+
+const TIER_WORDS = [
+  ['niche', /\bniche\b/i],
+  ['designer', /\bdesigner\b/i],
+  ['mideast', /\b(mid ?east(ern)?|middle eastern|arabian|arabic)\b/i],
+];
+
+/**
+ * "What can I get under £50", "cheapest niche fragrance you list".
+ *
+ * A filter over the delivered-price index, not a recommendation: the
+ * question asks what the catalogue holds below a number, and that has an
+ * exact answer. Which five of the matches are shown is ordered by how many
+ * shops carry each one (`popularity`, the site's own ordering signal for
+ * every unsorted list — see BY_POPULARITY in demo/data.ts), then by price,
+ * so the sample is the same one the site itself would lead with rather than
+ * five arbitrary rows.
+ */
+export async function resolveBudgetQuery(question) {
+  const index = await deliveredPriceIndex();
+  let maxGbp = null;
+  for (const re of BUDGET_AMOUNT_RES) {
+    const m = question.match(re);
+    if (m) { maxGbp = Number(m[1]); break; }
+  }
+  const tier = TIER_WORDS.find(([, re]) => re.test(question))?.[0] ?? null;
+
+  // No amount and no "cheapest" framing is not a budget question this can
+  // answer — hand it back so the council gets it rather than inventing a
+  // threshold nobody named.
+  const cheapestFraming = /\bcheap(est)?\b/i.test(question);
+  if (maxGbp === null && !cheapestFraming) return null;
+
+  let matches = index;
+  if (tier) matches = matches.filter((r) => r.frag.tier === tier);
+  if (maxGbp !== null) matches = matches.filter((r) => r.deliveredPriceGbp <= maxGbp);
+
+  const items = [...matches]
+    .sort((a, b) =>
+      maxGbp === null
+        ? a.deliveredPriceGbp - b.deliveredPriceGbp
+        : b.frag.popularity - a.frag.popularity || a.deliveredPriceGbp - b.deliveredPriceGbp)
+    .slice(0, 5)
+    .map((r) => ({
+      brand: r.frag.brand,
+      name: r.frag.name,
+      concentration: r.frag.concentration,
+      sizeMl: r.frag.sizeMl,
+      deliveredPriceGbp: r.deliveredPriceGbp,
+      retailerName: r.retailerName,
+    }));
+
+  return {
+    kind: maxGbp === null ? 'cheapest' : 'under',
+    maxGbp,
+    tier,
+    totalMatching: matches.length,
+    pricedTotal: index.length,
+    items,
+  };
+}
+
+export function formatBudgetAnswer(result) {
+  const line = (i) =>
+    `${i.brand} ${i.name} (${i.concentration}) ${i.sizeMl}ml — ${gbp(i.deliveredPriceGbp)} delivered from ${i.retailerName}.`;
+  const tierWord = result.tier ? `${result.tier === 'mideast' ? 'Middle Eastern' : result.tier} ` : '';
+
+  if (result.items.length === 0) {
+    return (
+      `Nothing ${tierWord}comes in at ${gbp(result.maxGbp)} delivered right now, out of the ` +
+      `${result.pricedTotal.toLocaleString('en-GB')} entries with a buyable, delivery-priced listing.`
+    );
+  }
+
+  if (result.kind === 'cheapest') {
+    return (
+      `Cheapest ${tierWord}entries by delivered price:\n${result.items.map(line).join('\n')}\n` +
+      'Delivered prices, cheapest buyable listing per bottle.'
+    );
+  }
+
+  return (
+    `${result.totalMatching.toLocaleString('en-GB')} ${tierWord}bottles come in at ${gbp(result.maxGbp)} or under delivered. ` +
+    `The most widely stocked of them:\n${result.items.map(line).join('\n')}\n` +
+    'Delivered prices, cheapest buyable listing per bottle.'
+  );
+}
+
+/* ── comparison ────────────────────────────────────────────────────────── */
+
+const COMPARE_SPLIT_RE = /\s+(?:cheaper than|dearer than|more expensive than|less expensive than|compared to|compared with|versus|vs\.?|or)\s+/i;
+
+/**
+ * "Is X cheaper than Y", "X or Y, which is better value".
+ *
+ * Both sides go through the same `resolveProductQuery` every other lookup
+ * uses, and both must come back `matched` before a comparison is stated. If
+ * either side is unsettled the answer names *which* side could not be
+ * identified rather than quietly comparing the one it did find against
+ * something it guessed — a comparison built on one confident half is worse
+ * than no comparison, because the reader cannot see which half was invented.
+ *
+ * "Better value" is deliberately not answered as an opinion. What is
+ * compared is the cheapest delivered price of each, and when those are for
+ * different bottle sizes the answer says so: £70 for 100ml and £55 for 50ml
+ * is not the cheaper bottle winning on value, and presenting it as though it
+ * were would be the most easily missed wrong answer in this whole file.
+ */
+export async function resolveCompareQuery(question) {
+  const site = await loadSite();
+  const parts = question.split(COMPARE_SPLIT_RE);
+  if (parts.length < 2) return null;
+
+  const cheapestOf = async (text) => {
+    const resolved = await resolveProductQuery(text, 'compare');
+    if (resolved.status !== 'matched') return { side: text.trim(), resolved };
+    let best = null;
+    for (const frag of resolved.group) {
+      const b = site.priceService.bestOffer(rowsFor(site, frag));
+      if (!b || b.deliveredPriceGbp === null) continue;
+      if (!best || b.deliveredPriceGbp < best.deliveredPriceGbp) {
+        best = { deliveredPriceGbp: b.deliveredPriceGbp, retailerName: b.retailer.name, sizeMl: frag.sizeMl };
+      }
+    }
+    return {
+      side: text.trim(),
+      resolved,
+      brand: resolved.anchor.brand,
+      name: resolved.anchor.name,
+      concentration: resolved.anchor.concentration,
+      best,
+    };
+  };
+
+  const [left, right] = await Promise.all([cheapestOf(parts[0]), cheapestOf(parts[1])]);
+  if (left.resolved.status !== 'matched' || right.resolved.status !== 'matched') {
+    return { kind: 'unresolved', left, right };
+  }
+  return { kind: 'compared', left, right };
+}
+
+export function formatCompareAnswer(result) {
+  const label = (s) => `${s.brand} ${s.name} (${s.concentration})`;
+
+  if (result.kind === 'unresolved') {
+    const bad = result.left.resolved.status !== 'matched' ? result.left : result.right;
+    return `I can't pin down "${bad.side}", so I can't compare them. ${formatIdentityRefusal(bad.resolved, 'a comparison')}`;
+  }
+
+  const { left, right } = result;
+  const priced = [left, right].filter((s) => s.best);
+  if (priced.length < 2) {
+    // Both sides get named even though only one has a figure. Reporting only
+    // the missing half reads as though the other was never asked about, and
+    // the price that *is* known is the useful part of the answer.
+    const missing = left.best ? right : left;
+    const known = left.best ? left : right;
+    const knownLine = known.best
+      ? ` ${label(known)} is ${gbp(known.best.deliveredPriceGbp)} delivered from ${known.best.retailerName} for the ${known.best.sizeMl}ml.`
+      : ` ${label(known)} has no such listing either.`;
+    return `${label(missing)} has no buyable listing with a stated delivery cost right now, so there is nothing to compare it against.${knownLine}`;
+  }
+
+  const cheaper = left.best.deliveredPriceGbp <= right.best.deliveredPriceGbp ? left : right;
+  const dearer = cheaper === left ? right : left;
+  const sizeNote =
+    left.best.sizeMl === right.best.sizeMl
+      ? ` Both figures are for the ${left.best.sizeMl}ml.`
+      : ` Different bottles though — ${left.best.sizeMl}ml against ${right.best.sizeMl}ml — so that is not a like-for-like price.`;
+
+  return (
+    `${label(cheaper)} is cheaper: ${gbp(cheaper.best.deliveredPriceGbp)} delivered from ` +
+    `${cheaper.best.retailerName}, against ${gbp(dearer.best.deliveredPriceGbp)} from ` +
+    `${dearer.best.retailerName} for ${label(dearer)}.${sizeNote}`
+  );
+}
+
+/* ── brand browsing ────────────────────────────────────────────────────── */
+
+let brandIndex = null;
+/** Every brand in the catalogue with its product count, longest name first
+ *  so "Maison Francis Kurkdjian" is preferred over a shorter brand whose
+ *  name happens to be a substring of the question too. */
+async function brands() {
+  if (brandIndex) return brandIndex;
+  const site = await loadSite();
+  const counts = new Map();
+  for (const f of site.data.DEMO_FRAGRANCES) {
+    const entry = counts.get(f.brand) ?? { brand: f.brand, products: [] };
+    entry.products.push(f);
+    counts.set(f.brand, entry);
+  }
+  brandIndex = [...counts.values()]
+    .map((e) => ({ ...e, needle: ` ${e.brand.toLowerCase().replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim()} ` }))
+    .sort((a, b) => b.needle.length - a.needle.length);
+  return brandIndex;
+}
+
+/**
+ * "What Creed do you have", "do you list Amouage".
+ *
+ * A brand either is or is not in the catalogue, and how many bottles of it
+ * are there is a count — nothing here is a judgement. Returns `null` when
+ * the question names no brand this site carries *and* no product either, so
+ * the council can take it: "do you have anything nice" is a brand-shaped
+ * question with no brand in it, and answering it from a table would be worse
+ * than answering it in words.
+ */
+export async function resolveBrandQuery(question) {
+  const site = await loadSite();
+  const haystack = ` ${question.toLowerCase().replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim()} `;
+  const hit = (await brands()).find((b) => haystack.includes(b.needle));
+
+  if (!hit) {
+    // No brand named. It may still name a product ("do you have Aventus"),
+    // which the product resolver answers; anything else goes to the council.
+    const named = await resolveProductQuery(question, 'brand');
+    if (named.status === 'no_match' || weakIdentity(named)) return null;
+    if (named.status !== 'matched') return named;
+    const sizes = named.group.map((f) => {
+      const best = site.priceService.bestOffer(rowsFor(site, f));
+      return {
+        sizeMl: f.sizeMl,
+        best: best?.deliveredPriceGbp != null
+          ? { deliveredPriceGbp: best.deliveredPriceGbp, retailerName: best.retailer.name }
+          : null,
+      };
+    });
+    return {
+      kind: 'product',
+      brand: named.anchor.brand,
+      name: named.anchor.name,
+      concentration: named.anchor.concentration,
+      sizes,
+    };
+  }
+
+  const withPrice = hit.products
+    .map((f) => {
+      const best = site.priceService.bestOffer(rowsFor(site, f));
+      return {
+        brand: f.brand,
+        name: f.name,
+        concentration: f.concentration,
+        sizeMl: f.sizeMl,
+        popularity: f.popularity,
+        best: best?.deliveredPriceGbp != null
+          ? { deliveredPriceGbp: best.deliveredPriceGbp, retailerName: best.retailer.name }
+          : null,
+      };
+    })
+    .sort((a, b) => b.popularity - a.popularity || (a.best?.deliveredPriceGbp ?? Infinity) - (b.best?.deliveredPriceGbp ?? Infinity));
+
+  return {
+    kind: 'brand',
+    brand: hit.brand,
+    productCount: hit.products.length,
+    buyableCount: withPrice.filter((p) => p.best).length,
+    examples: withPrice.slice(0, 5),
+  };
+}
+
+export function formatBrandAnswer(result) {
+  if (result.kind === undefined) return formatIdentityRefusal(result, 'what is listed');
+
+  if (result.kind === 'product') {
+    const label = `${result.brand} ${result.name} (${result.concentration})`;
+    const lines = result.sizes.map((s) =>
+      s.best
+        ? `${s.sizeMl}ml: ${gbp(s.best.deliveredPriceGbp)} delivered from ${s.best.retailerName}.`
+        : `${s.sizeMl}ml: nothing buyable with a stated delivery cost right now.`);
+    return `Yes — ${label}.\n${lines.join('\n')}`;
+  }
+
+  const line = (p) =>
+    `${p.brand} ${p.name} (${p.concentration}) ${p.sizeMl}ml` +
+    (p.best ? ` — ${gbp(p.best.deliveredPriceGbp)} delivered from ${p.best.retailerName}.` : ' — nothing buyable with a stated delivery cost right now.');
+
+  const head =
+    result.productCount === 1
+      ? `One ${result.brand} bottle is tracked`
+      : `${result.productCount} ${result.brand} bottles are tracked`;
+  const buyable =
+    result.buyableCount === result.productCount
+      ? ''
+      : ` ${result.buyableCount} of them have a buyable listing with a stated delivery cost right now.`;
+
+  return `${head} (that count is per bottle size, not per perfume).${buyable}\nMost widely stocked:\n${result.examples.map(line).join('\n')}`;
+}
+
+/* ── meta: facts about the service itself ──────────────────────────────── */
+
+const META_FRESHNESS_RE = /\b(how (fresh|old|current|recent|up.to.date)|last (updated|refreshed|checked)|when (was|were|did) .{0,40}(updated|refreshed|crawled|checked|harvested))\b/i;
+const META_COVERAGE_RE = /\b((which|what|how many) (shops?|retailers?|stores?|sites?|merchants?)|do you (cover|track|include|check)|shops? do you|retailers? do you)\b/i;
+const META_SIZE_RE = /\bhow many (fragrances?|perfumes?|products?|brands?|scents?|bottles?)\b/i;
+
+/**
+ * The countable facts about this service, and only those.
+ *
+ * "How fresh are these prices", "which shops do you cover", "how many
+ * fragrances do you have" are questions with numeric answers that go stale
+ * hourly, which is exactly the kind a model should never be asked to recall.
+ * Every figure below is computed from the loaded snapshot at answer time.
+ *
+ * Everything else meta — "how do you make money", the affiliate disclosure,
+ * privacy, terms — returns `null` and goes to the council. Those answers are
+ * prose the site has already written on its own legal pages, `policyContextFor`
+ * already puts the relevant page in the SITE DATA block, and truncating a
+ * legal page into a one-line template is a worse answer than letting a model
+ * summarise the page it is being shown.
+ */
+export async function resolveMetaQuery(question) {
+  const site = await loadSite();
+
+  if (META_FRESHNESS_RE.test(question)) {
+    return {
+      kind: 'freshness',
+      crawledAt: site.catalogue.CRAWLED_AT ?? null,
+      dealsGeneratedAt: site.data.DEALS_GENERATED_AT ?? null,
+    };
+  }
+
+  if (META_COVERAGE_RE.test(question)) {
+    const enabled = site.retailers.RETAILERS.filter((r) => r.enabled !== false);
+    return {
+      kind: 'coverage',
+      names: enabled.map((r) => r.name),
+      notStated: enabled.filter((r) => r.shipping.standardGbp === null).map((r) => r.name),
+    };
+  }
+
+  if (META_SIZE_RE.test(question)) {
+    const frags = site.data.DEMO_FRAGRANCES;
+    let offers = 0;
+    for (const f of frags) offers += site.catalogue.offersFor(f.id).length;
+    return {
+      kind: 'size',
+      fragranceCount: frags.length,
+      brandCount: new Set(frags.map((f) => f.brand)).size,
+      offerCount: offers,
+      retailerCount: site.retailers.RETAILERS.filter((r) => r.enabled !== false).length,
+      withNotesCount: frags.filter((f) => f.notes).length,
+    };
+  }
+
+  return null;
+}
+
+export function formatMetaAnswer(result) {
+  const n = (x) => x.toLocaleString('en-GB');
+
+  if (result.kind === 'freshness') {
+    return (
+      `Prices come from the last catalogue harvest, ${String(result.crawledAt).replace('T', ' ').slice(0, 16)} UTC. ` +
+      `The deals list is rebuilt on its own slower schedule, last ${String(result.dealsGeneratedAt).replace('T', ' ').slice(0, 16)} UTC. ` +
+      'Shops can change a price or sell out between harvests, so check the shop before you buy.'
+    );
+  }
+
+  if (result.kind === 'coverage') {
+    return (
+      `${result.names.length} shops: ${result.names.join(', ')}.` +
+      (result.notStated.length
+        ? ` ${nameList(result.notStated)} publish no standard delivery cost, so they show as "delivery not stated" and never rank as cheapest.`
+        : '') +
+      ' None of them pays for placement.'
+    );
+  }
+
+  return (
+    `${n(result.fragranceCount)} bottles across ${n(result.brandCount)} brands, ` +
+    `${n(result.offerCount)} live listings from ${result.retailerCount} shops. ` +
+    `${n(result.withNotesCount)} of the bottles carry notes, which are only stored where a retailer published them.`
+  );
 }

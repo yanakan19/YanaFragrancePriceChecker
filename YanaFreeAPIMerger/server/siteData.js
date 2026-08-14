@@ -289,6 +289,16 @@ const GENERIC_LOOKUP_STOPWORDS = [
   'which', 'who', 'whos', 'where', 'wheres', 'when', 'why', 'be', 'been', 'was', 'were',
   'your', 'yours', 'all', 'about', 'more', 'most', 'many', 'much', 'also', 'just',
   'really', 'ever', 'then', 'so', 'if', 'but', 'not', 'im', 'ive', 'am',
+  // Bare prepositions and conjunctions. These do appear inside real product
+  // names ("Game On", "Diamonds And Rubies", "Stronger With You"), which is
+  // why they are only ever *removed from the query* and never from the
+  // haystack — a query still matches those products on their distinctive
+  // words. Left in, they are actively harmful: "what's on sale" reduces to
+  // the single word "on" once the deals vocabulary is stripped, and that
+  // scores 1.0 against every product with "on" anywhere in its title,
+  // turning a question about the deals list into a clarifying question about
+  // eight unrelated perfumes. Measured, before this line existed.
+  'on', 'at', 'in', 'into', 'onto', 'with', 'and', 'or', 'as', 'per', 'via',
 ];
 
 const INTENT_LOOKUP_STOPWORDS = {
@@ -315,9 +325,14 @@ const INTENT_LOOKUP_STOPWORDS = {
     'reduction', 'offer', 'offers', 'off', 'percent', 'bargain', 'bargains', 'clearance',
     'saving', 'savings', 'biggest', 'best', 'drop', 'drops',
   ],
+  // "one" is deliberately absent, despite "which one is better" being the
+  // phrasing that suggested it: stripping it turned "One Million Elixir" into
+  // "Million Elixir", which ties every Rabanne Elixir in the catalogue and
+  // made a perfectly clear comparison unanswerable. "which" is already
+  // generic filler, which is enough.
   compare: [
     'vs', 'versus', 'compare', 'compared', 'comparison', 'better', 'value', 'worth',
-    'than', 'one', 'less', 'expensive', 'dearer', 'cheaper', 'cheap', 'or',
+    'than', 'less', 'expensive', 'dearer', 'cheaper', 'cheap',
   ],
   brand: ['list', 'lists', 'listed', 'stock', 'carry', 'sell', 'sells', 'do', 'by'],
   budget: [
@@ -351,6 +366,14 @@ export function productWords(question, intent) {
     .split(' ')
     .filter((w) => {
       if (!w || stop.has(w)) return false;
+      // A lone letter is apostrophe debris, not a product word: `normalize`
+      // turns "what's on sale" into "what s on sale", and that stray "s"
+      // survived every stopword list and then matched 1.0 against any
+      // product whose title contains an s — which is most of them. Measured:
+      // it turned "what's on sale" into a clarifying question about eight
+      // unrelated perfumes. Single *digits* are kept, because "1 Million" is
+      // a real product name.
+      if (/^[a-z]$/.test(w)) return false;
       // A bare size is part of the question, never part of a product's name:
       // "is there a 30ml of Aventus" is about Aventus, and leaving "30ml" in
       // the word list drags a perfect match down to 0.5 (it appears in no

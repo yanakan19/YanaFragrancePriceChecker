@@ -9,7 +9,7 @@
     "start": "tsx server/index.js",
     "dev": "tsx watch server/index.js",
     "test": "node --import tsx --test",
-    "bench": "tsx scripts/bench-price-lookup.mjs"
+    "bench": "tsx scripts/bench-deterministic.mjs"
   },
   "engines": {
     "node": ">=20"
