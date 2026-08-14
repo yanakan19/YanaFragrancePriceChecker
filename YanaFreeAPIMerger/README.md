@@ -66,37 +66,82 @@ looks wrong.
    "Ranking responses anonymously…", "Here we go") while this happens, via
    Server-Sent Events.
 
-## Price questions skip the council entirely
+## Most questions skip the council entirely
 
-Step 2 above is the path for `'suggest'` and `'general'` questions only.
-`'price'` questions ("how much is X", "cheapest X") never reach the 28-model
-fan-out: `server/council.js`'s `runCouncil` answers them directly from
-`server/siteData.js`'s `resolvePriceQuery`, the same deterministic
-brand+name+concentration matcher the SITE DATA block itself is built from,
-extended to group a product's sizes together and to detect a tie across
-*distinct* products (a bare brand name must ask which product, not silently
-pick one). No model is called, so no model can invent a price, deny a
-fragrance the catalogue actually has, or use a stale brand name from its own
-training — see the "One Million Elixir" case in
-`test/priceLookup.test.js` for the regression this exists to catch.
+Step 2 above is the path for `'suggest'` and `'general'` questions only. Ten
+of the twelve intents `server/intent.js` can classify are answered directly
+from `server/siteData.js` and `server/lookups.js`, with no model called at
+all:
 
-"How much is X" has one factual answer already sitting in the catalogue;
-running 28 LLMs and ranking their prose to relay that fact adds latency
-without adding accuracy, and — measured against the reported bug — is
-exactly how a *wrong* answer got produced. `npm run bench` measures the
-deterministic path's own wall-clock time against the live catalogue
-(no network, safe to run anywhere this repo's tests run); on this
-machine, warm, it answers in single-digit-to-low-20s of milliseconds per
-question. What that number does not include, and cannot from a sandbox
-with no outbound network: the old path's real latency, which needs a
-live run behind the deployed backend to measure.
+| intent | shape | answered from |
+| --- | --- | --- |
+| `price` | "how much is X", "cheapest X" | catalogue + `buildComparison` |
+| `availability` | "is X in stock", "who has X" | per-offer stock state |
+| `notes` | "what does X smell like" | `DemoFragrance.notes`, or a plain "none published" |
+| `size` | "what sizes of X", "do you have the 200ml" | the product's variant group |
+| `delivery` | "delivery from Boots", "who does free delivery" | `src/config/retailers.ts` |
+| `deals` | "what's on sale", "biggest discount" | `demo/deals.generated.ts` |
+| `budget` | "what can I get under £50" | delivered-price index |
+| `compare` | "is X cheaper than Y" | both sides' cheapest delivered |
+| `brand` | "what Creed do you have", "do you list Amouage" | brand index |
+| `meta` | "how fresh are these prices", "which shops do you cover" | crawl time, registry, counts |
 
-A `'price'`-classified question that names no fragrance at all (`intent.js`'s
-classifier fires on the bare word "price", so "how does your price
-comparison work" arrives labelled `'price'`) is not answered by this path —
-it falls through to the full council as a general question when SITE DATA
-has a real policy/FAQ match for it, rather than a direct-lookup answer
-denying a fragrance that was never named.
+Each of these has one factual answer already sitting in the catalogue.
+Running 28 LLMs and ranking their prose to relay that fact adds latency
+without adding accuracy, and — measured against the reported "One Million
+Elixir" bug — is exactly how a *wrong* answer got produced: nothing stopped a
+model from confidently denying a fragrance the data underneath it named
+outright, and that denial won the ranking. A template with no model in the
+loop cannot do that. It can only repeat a price, size, retailer, note or
+stock state that is genuinely there, or say plainly that nothing matched.
+See the "One Million Elixir" case in `test/priceLookup.test.js` for the
+regression this exists to catch, and the traceability test at the top of
+`test/lookups.test.js` for the invariant it is checked against: every pound
+figure in a deterministic answer must be a value that was read, and every
+shop named must exist in the registry.
+
+Product identity is the one thing these paths can get wrong, so it is shared:
+`resolveProductQuery` is the single place a question becomes a product, and
+every product-anchored path answers **only** on its `matched` branch. Its
+other three outcomes are refusals — nothing found, a tie between distinct
+products (which asks which was meant), and a single weak match (which says
+it is not certain). Nothing is guessed.
+
+`npm run bench` measures every deterministic intent's own wall-clock time
+against the live catalogue, routed through `classifyIntent` so what is timed
+is the whole path a real message takes (no network, safe to run anywhere this
+repo's tests run). What that number does not include, and cannot from a
+sandbox with no outbound network: the council path's real latency, which
+needs a live run behind the deployed backend to measure.
+
+Two things send a question back to the council anyway:
+
+- **The resolver declines.** "How do you make money" is `meta`, but the
+  answer is prose the site has already written on its own affiliate
+  disclosure page, not a number; `resolveMetaQuery` returns `null` and the
+  council answers it with that page in its SITE DATA block. Same for a
+  budget-shaped question naming no threshold, and a brand-shaped question
+  naming no brand.
+- **The intent's vocabulary appeared without a product.** A question can be
+  labelled `'price'` by the bare word "price" and name no fragrance at all.
+  When SITE DATA has a real policy/FAQ match for such a question it falls
+  through to the council rather than answering with a direct-lookup denial of
+  a fragrance that was never named.
+
+## What deliberately stays with the council
+
+Taste. "What's similar to X", "recommend me something for summer", "what
+should I wear to a wedding" have no single right answer in the data, and a
+model's phrasing is the actual product rather than a relay for a number.
+
+What changed for those is the grounding, not the routing.
+`suggestContextFor` used to split the question on commas and call each
+fragment a note, which quietly dropped most of a real sentence; it now reads
+notes against the catalogue's own note vocabulary, and for "what smells like
+X" it resolves X and matches on the notes stored for *that* fragrance,
+quoting them back so the council can say what the match is based on. Whether
+two perfumes actually smell alike is still left to the answer, plainly
+labelled as something the note data does not settle.
 
 ## Why not literally 28 *raw* API integrations written from scratch?
 
