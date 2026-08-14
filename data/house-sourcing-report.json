@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-14T11:53:44.224Z",
+  "checkedAt": "2026-08-14T13:51:09.337Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -64,8 +64,8 @@
       "withPhoto": 0,
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
-        "https://www.pairfum.com/products.json?limit=250&page=1: HTTP 0 AbortError: This operation was aborted",
-        "https://www.pairfum.com/sitemap_index.xml: HTTP 0 AbortError: This operation was aborted"
+        "https://www.pairfum.com/products.json?limit=250&page=1: HTTP 500",
+        "https://www.pairfum.com/sitemap_index.xml: HTTP 500"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -195,9 +195,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 100,
-      "pricedInGbp": 100,
-      "withPhoto": 100,
+      "listings": 96,
+      "pricedInGbp": 96,
+      "withPhoto": 96,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -418,9 +418,9 @@
       "origin": "https://www.reef-parfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 32,
-      "pricedInGbp": 32,
-      "withPhoto": 32,
+      "listings": 31,
+      "pricedInGbp": 31,
+      "withPhoto": 31,
       "errors": [
         "storefront currency could not be established — no sterling price recorded"
       ],
@@ -538,9 +538,9 @@
       "origin": "https://www.joloves.com",
       "routeUsed": "shopify-products-json",
       "currency": "GBP",
-      "listings": 218,
-      "pricedInGbp": 218,
-      "withPhoto": 216,
+      "listings": 217,
+      "pricedInGbp": 217,
+      "withPhoto": 215,
       "errors": [],
       "blockers": [
         "UK delivery terms not yet established (currency now is: confirmed 2026-08-12, joloves.com carts in GBP)",
