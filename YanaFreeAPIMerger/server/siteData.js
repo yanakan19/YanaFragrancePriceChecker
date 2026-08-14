@@ -250,6 +250,124 @@ const QUERY_STOPWORDS = new Set([
 const CONCENTRATION_ABBR = { 'eau de parfum': 'edp', 'eau de toilette': 'edt', 'eau de cologne': 'edc' };
 
 /**
+ * Extra filler to strip when resolving a *named product* out of a question
+ * that is not a price question.
+ *
+ * QUERY_STOPWORDS above is tuned for "how much is X": it strips price
+ * vocabulary and the filler that surrounds it, and it is deliberately left
+ * exactly as it was, because the price path's behaviour is pinned by tests
+ * against the live catalogue and widening its stopword list would move every
+ * one of those match scores.
+ *
+ * The other intents need a different set, for a mechanical reason. The
+ * matcher scores `hits / qWords.length`, so every query word that cannot
+ * possibly appear in a brand or product name still sits in the denominator
+ * and drags a real match below the 0.34 floor. Measured: "who sells Layton"
+ * scores 1/3 = 0.33 under QUERY_STOPWORDS alone and resolves to *no match*
+ * at all, for a fragrance the catalogue definitely holds.
+ *
+ * ── Why this is split per intent rather than one big list ────────────────
+ * Common English words really are product names here. Checked against the
+ * live catalogue: "Blue Note" (Bujairami), "Real Deal" (Bujairami), "Rumour
+ * Has It" (Bujairami), "Where's The Party?" (Mr. Wonderful), "Girl of Now"
+ * (Elie Saab), "Pleats Please" (Issey Miyake), "Under The Lemon Trees"
+ * (Maison Margiela), "More Than Words" (Xerjoff) — a single flat stopword
+ * list containing note/deal/size/stock vocabulary would strip the only
+ * distinguishing word out of a genuine query for one of them.
+ *
+ * So each intent strips only its own trigger vocabulary, which by
+ * construction is the vocabulary that is *about the question* rather than
+ * about the product: an availability question strips "stock", a notes
+ * question strips "notes", and neither strips the other's. "is Blue Note in
+ * stock" keeps both "blue" and "note"; "what are the notes in Blue Note"
+ * strips the plural "notes" and keeps the singular that names the bottle.
+ */
+const GENERIC_LOOKUP_STOPWORDS = [
+  'it', 'its', 'they', 'them', 'their', 'there', 'here', 'this', 'that', 'these', 'those',
+  'any', 'some', 'can', 'could', 'would', 'should', 'will', 'have', 'has', 'had', 'got',
+  'tell', 'show', 'know', 'please', 'right', 'now', 'today', 'still', 'currently',
+  'which', 'who', 'whos', 'where', 'wheres', 'when', 'why', 'be', 'been', 'was', 'were',
+  'your', 'yours', 'all', 'about', 'more', 'most', 'many', 'much', 'also', 'just',
+  'really', 'ever', 'then', 'so', 'if', 'but', 'not', 'im', 'ive', 'am',
+];
+
+const INTENT_LOOKUP_STOPWORDS = {
+  availability: [
+    'stock', 'stocks', 'stocked', 'stocking', 'stockist', 'stockists', 'sold', 'sell',
+    'sells', 'selling', 'available', 'availability', 'anywhere', 'everywhere', 'carry',
+    'carries', 'order', 'out', 'in',
+  ],
+  delivery: [
+    'delivery', 'deliveries', 'deliver', 'delivers', 'delivered', 'shipping', 'ship',
+    'ships', 'shipped', 'postage', 'post', 'posted', 'free', 'from', 'including',
+  ],
+  notes: [
+    'smell', 'smells', 'smelling', 'smelt', 'note', 'notes', 'accord', 'accords',
+    'profile', 'top', 'base', 'middle', 'heart', 'kind', 'sort', 'contain', 'contains',
+    'like', 'of',
+  ],
+  size: [
+    'size', 'sizes', 'bottle', 'bottles', 'ml', 'come', 'comes', 'other', 'another',
+    'bigger', 'smaller', 'larger', 'travel', 'mini',
+  ],
+  deals: [
+    'sale', 'sales', 'deal', 'deals', 'discount', 'discounts', 'discounted', 'reduced',
+    'reduction', 'offer', 'offers', 'off', 'percent', 'bargain', 'bargains', 'clearance',
+    'saving', 'savings', 'biggest', 'best', 'drop', 'drops',
+  ],
+  compare: [
+    'vs', 'versus', 'compare', 'compared', 'comparison', 'better', 'value', 'worth',
+    'than', 'one', 'less', 'expensive', 'dearer', 'cheaper', 'cheap', 'or',
+  ],
+  brand: ['list', 'lists', 'listed', 'stock', 'carry', 'sell', 'sells', 'do', 'by'],
+  budget: [
+    'under', 'below', 'less', 'than', 'more', 'max', 'maximum', 'up', 'around', 'budget',
+    'spend', 'quid', 'pounds', 'pound', 'anything', 'something', 'fragrance', 'fragrances',
+    'perfume', 'perfumes',
+  ],
+};
+
+/** The stopword set to strip for a given intent. 'price' keeps exactly the
+ *  list it always had, so nothing about the pinned price path moves. */
+function stopwordsFor(intent) {
+  if (intent === 'price' || !intent) return QUERY_STOPWORDS;
+  return new Set([
+    ...QUERY_STOPWORDS,
+    ...GENERIC_LOOKUP_STOPWORDS,
+    ...(INTENT_LOOKUP_STOPWORDS[intent] ?? []),
+  ]);
+}
+
+/** A bare bottle size written as one token, e.g. "100ml". Survives
+ *  `normalize` intact because that keeps digits and letters. */
+const SIZE_TOKEN_RE = /^\d+(?:\.\d+)?ml$/;
+
+/** The words of a question that could plausibly name a product, for a given
+ *  intent. Exported for tests, which is the only way to check the claims in
+ *  the comment above rather than trust them. */
+export function productWords(question, intent) {
+  const stop = stopwordsFor(intent);
+  return normalize(question)
+    .split(' ')
+    .filter((w) => {
+      if (!w || stop.has(w)) return false;
+      // A bare size is part of the question, never part of a product's name:
+      // "is there a 30ml of Aventus" is about Aventus, and leaving "30ml" in
+      // the word list drags a perfect match down to 0.5 (it appears in no
+      // brand or product name) and turns an answerable question into a
+      // clarifying one. The size itself is not discarded — every caller that
+      // cares reads it back off the raw question with its own regex.
+      //
+      // Not applied to 'price', whose word list is pinned by tests against
+      // the live catalogue: there "how much is Dior Sauvage 100ml" scores
+      // 2/3 today, and removing the size would take it to 3/3, tying the
+      // EDT, EDP and Parfum and turning a working answer into a question.
+      if (intent !== 'price' && SIZE_TOKEN_RE.test(w)) return false;
+      return true;
+    });
+}
+
+/**
  * Same shape of fuzzy match the mock version used (fraction of query words
  * found in brand+name), now run against every real fragrance the site
  * currently carries rather than a 6 row fixture, with two fixes a natural
@@ -376,8 +494,63 @@ function groupKeyFor(f) {
  * one) at the top score, and reports `ambiguous` rather than guessing.
  */
 export async function resolvePriceQuery(question) {
-  const { data, catalogue, priceService } = await loadSite();
-  const qWords = normalize(question).split(' ').filter((w) => w && !QUERY_STOPWORDS.has(w));
+  const { catalogue, priceService } = await loadSite();
+  const resolved = await resolveProductQuery(question, 'price');
+  if (resolved.status !== 'matched') return resolved;
+
+  const { anchor, group, matchConfidence } = resolved;
+  const variants = group.map((f) => {
+    const offers = catalogue.offersFor(f.id);
+    const rows = priceService.buildComparison(offers, { sortBy: 'delivered', tier: f.tier });
+    const best = priceService.bestOffer(rows);
+    return {
+      sizeMl: f.sizeMl,
+      purchasableCount: rows.filter((r) => r.isPurchasable).length,
+      best: best ? { deliveredPriceGbp: best.deliveredPriceGbp, retailerName: best.retailer.name } : null,
+    };
+  });
+
+  return {
+    status: 'matched',
+    matchConfidence,
+    brand: anchor.brand,
+    name: anchor.name,
+    concentration: anchor.concentration,
+    variants,
+  };
+}
+
+/**
+ * Which product a question names, if any — the single identity step every
+ * deterministic lookup shares.
+ *
+ * This is `resolvePriceQuery`'s own matching, lifted out unchanged so that
+ * "is X in stock", "what does X smell like", "what sizes of X" and "how much
+ * is X" can never disagree about what X is. The only thing parameterised is
+ * which stopwords get stripped first (see `stopwordsFor`); with
+ * `intent: 'price'` the behaviour is byte-for-byte what it was, which is why
+ * the price tests pinned against the live catalogue still pass.
+ *
+ * Four outcomes, and three of them are refusals:
+ *   - `no_match`      nothing in the catalogue scored above the 0.34 floor.
+ *   - `ambiguous`     several *distinct products* (not merely several sizes
+ *                     of one) tied at the top score. Returns up to 8 of them
+ *                     so the caller can ask which was meant rather than
+ *                     picking one, which would be a fluent wrong answer.
+ *   - `low_confidence` one product, but scoring under 0.5 — loose enough
+ *                     that stating facts about it as though it were the
+ *                     product asked for would be a guess.
+ *   - `matched`       one product, at or above 0.5. `group` is every size of
+ *                     it in the catalogue, smallest first.
+ *
+ * The three refusals are the whole safety argument for every caller: a
+ * deterministic answer is only ever written when the identity of the product
+ * is settled, and the words for the other three cases say plainly that it is
+ * not.
+ */
+export async function resolveProductQuery(question, intent = 'price') {
+  const { data } = await loadSite();
+  const qWords = productWords(question, intent);
   if (qWords.length === 0) return { status: 'no_match' };
 
   let bestScore = 0;
@@ -389,7 +562,7 @@ export async function resolvePriceQuery(question) {
     const hits = qWords.filter((w) => haystack.includes(w)).length;
     const score = hits / qWords.length;
     if (score > bestScore) bestScore = score;
-    if (score > 0) scored.push({ frag, score });
+    if (score > 0) scored.push({ frag, score, titleWords: normalize(`${frag.brand} ${frag.name}`).split(' ').length });
   }
   if (bestScore < 0.34) return { status: 'no_match' };
 
@@ -397,20 +570,82 @@ export async function resolvePriceQuery(question) {
   const topGroupKeys = new Set(top.map((s) => groupKeyFor(s.frag)));
   const matchConfidence = Math.round(bestScore * 100);
 
+  let resolvedTop = top;
   if (topGroupKeys.size > 1) {
+    /**
+     * Tightest fit, and only when the fit is total.
+     *
+     * Word-overlap scoring gives every product *containing* the query the
+     * same 1.0, so "who has Aventus" tied Creed Aventus with Creed Aventus
+     * Cologne, Creed Absolu Aventus Limited Edition, Creed Aventus For Her
+     * and Assaf Frankel Aventus Assaf, and the only available answer was to
+     * ask which was meant. Measured across the shapes in
+     * test/lookups.test.js, that was almost every single-word product
+     * question — a clarifying question in place of an answer the data
+     * plainly has.
+     *
+     * When every query word is found (bestScore === 1) the products are
+     * ordered by how little else is in their title: the query fully
+     * describes "Creed Aventus" and only partly describes "Creed Aventus
+     * Cologne", so the former is the tighter fit and, if it is uniquely the
+     * tightest, it is the answer. This is a containment argument, not a
+     * popularity guess: nothing outside the title is consulted.
+     *
+     * Two guards keep it from ever manufacturing confidence:
+     *
+     *   - It requires bestScore === 1. Below that the query is only
+     *     partially matched and a tie is genuine ignorance — "bleu de
+     *     chanel" hits 0.5 against Guy Laroche Drakkar Bleu, Armaf Voyage
+     *     Bleu and Chanel Allure Homme Sport alike (the site does not carry
+     *     Chanel's Bleu de Chanel), and picking the shortest of those would
+     *     be a confident wrong answer of exactly the kind this work exists
+     *     to remove.
+     *   - It refuses when the query names only a brand. Every word of "how
+     *     much is Rabanne" sits inside the brand, which identifies a house
+     *     and not a bottle, so no title length can settle which bottle was
+     *     meant.
+     *
+     * If the tightest fit is not unique, nothing is picked and the caller
+     * asks. "Dior Sauvage" ties the EDT, EDP and Parfum at two words each
+     * and stays a question, which is right — those are three products.
+     */
+    const brandOnly = top.some((s) => {
+      const brand = normalize(s.frag.brand);
+      return qWords.every((w) => brand.includes(w));
+    });
+    if (bestScore === 1 && !brandOnly) {
+      const fewest = Math.min(...top.map((s) => s.titleWords));
+      const tightest = top.filter((s) => s.titleWords === fewest);
+      if (new Set(tightest.map((s) => groupKeyFor(s.frag))).size === 1) resolvedTop = tightest;
+    }
+  }
+
+  if (new Set(resolvedTop.map((s) => groupKeyFor(s.frag))).size > 1) {
     const seen = new Set();
     const candidates = [];
-    for (const s of top) {
+    // Tightest fit first. The list is capped at 8, so which 8 survive
+    // matters: catalogue order put "Creed Neroli Sauvage" and "Privee
+    // Couture Collection Sauvage Perfume Privee Couture Collection" ahead of
+    // plain "Dior Sauvage" for the query "Sauvage", which makes the
+    // clarifying question harder to answer than it needs to be. Ordering by
+    // title length puts the products the query describes most completely at
+    // the front without dropping any of the others.
+    for (const s of [...resolvedTop].sort((a, b) => a.titleWords - b.titleWords)) {
       const key = groupKeyFor(s.frag);
       if (seen.has(key)) continue;
       seen.add(key);
       candidates.push(s.frag);
       if (candidates.length >= 8) break; // Enough to ask a real question, not a wall of names.
     }
-    return { status: 'ambiguous', matchConfidence, candidates };
+    // `exact` tells the caller whether these tied on a *complete* match of
+    // the question's words or only a partial one. The words for those two
+    // cases are different and must be: "a few products match that" is true
+    // of the first and misleading about the second, where the honest line is
+    // that nothing matched exactly and these are merely the closest.
+    return { status: 'ambiguous', matchConfidence, exact: bestScore === 1, candidates };
   }
 
-  const anchor = top[0].frag;
+  const anchor = resolvedTop[0].frag;
 
   // A single top-scoring product, but only a weak one: `findFragranceMatch`
   // (and the SITE DATA block it grounds the council with) already accepts
@@ -427,6 +662,7 @@ export async function resolvePriceQuery(question) {
     return {
       status: 'low_confidence',
       matchConfidence,
+      anchor,
       brand: anchor.brand,
       name: anchor.name,
       concentration: anchor.concentration,
@@ -434,28 +670,11 @@ export async function resolvePriceQuery(question) {
   }
 
   const key = groupKeyFor(anchor);
-  const variants = data.DEMO_FRAGRANCES
+  const group = data.DEMO_FRAGRANCES
     .filter((f) => groupKeyFor(f) === key)
-    .sort((a, b) => a.sizeMl - b.sizeMl)
-    .map((f) => {
-      const offers = catalogue.offersFor(f.id);
-      const rows = priceService.buildComparison(offers, { sortBy: 'delivered', tier: f.tier });
-      const best = priceService.bestOffer(rows);
-      return {
-        sizeMl: f.sizeMl,
-        purchasableCount: rows.filter((r) => r.isPurchasable).length,
-        best: best ? { deliveredPriceGbp: best.deliveredPriceGbp, retailerName: best.retailer.name } : null,
-      };
-    });
+    .sort((a, b) => a.sizeMl - b.sizeMl);
 
-  return {
-    status: 'matched',
-    matchConfidence,
-    brand: anchor.brand,
-    name: anchor.name,
-    concentration: anchor.concentration,
-    variants,
-  };
+  return { status: 'matched', matchConfidence, anchor, group };
 }
 
 const ANSWER_SIZE_RE = /(\d+(?:\.\d+)?)\s?ml\b/i;
@@ -493,6 +712,17 @@ export function formatPriceAnswer(question, result) {
     // claim about the answer when it is really "all eight matched your
     // words equally well", which is the opposite of confident. The
     // question already says everything the reader needs.
+    //
+    // `exact` splits two cases that used to share this one sentence. When
+    // every word of the question was found, "a few products match that" is
+    // literally true. When only some were, it is not: "bleu de chanel" ties
+    // Guy Laroche Drakkar Bleu with Armaf Voyage Bleu at half the words
+    // each, and calling those a match overstates what happened. The site
+    // does not carry Chanel's Bleu de Chanel, and the reader is better
+    // served by being told that nothing matched exactly.
+    if (result.exact === false) {
+      return `Nothing in the catalogue matches that exactly. The closest I have: ${names.join(', ')}. Did you mean one of those?`;
+    }
     return `A few products match that: ${names.join(', ')}. Which one did you mean?`;
   }
 

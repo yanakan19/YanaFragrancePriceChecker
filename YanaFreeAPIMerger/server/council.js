@@ -1,6 +1,14 @@
 import { callAgentModel } from './freellmapiClient.js';
 import { scoreAndRank } from './scoring.js';
 import { buildSiteDataBlock, resolvePriceQuery, formatPriceAnswer, policyContextFor } from './siteData.js';
+import {
+  resolveAvailabilityQuery,
+  formatAvailabilityAnswer,
+  resolveNotesQuery,
+  formatNotesAnswer,
+  resolveSizeQuery,
+  formatSizeAnswer,
+} from './lookups.js';
 
 /**
  * Site-grounded only. Every agent gets the same instruction: the SITE DATA
@@ -85,6 +93,8 @@ function buildSystemPrompt() {
 }
 
 /**
+ * The intents answered from site data alone, with no model in the loop.
+ *
  * "How much is X" is a database question, not an opinion one: the exact fact
  * a price answer needs (does this fragrance exist, what sizes, what does
  * each cost, from where) is already sitting in this repo's own catalogue,
@@ -98,20 +108,25 @@ function buildSystemPrompt() {
  * can only ever repeat a price, size or retailer that is genuinely there, or
  * say plainly that nothing matched.
  *
+ * That argument is not special to price, and every entry below is a
+ * question shape it applies to unchanged — "is X in stock", "what does X
+ * smell like", "what sizes of X". See lookups.js's header for each one's own
+ * safety argument.
+ *
  * This is not a shortcut taken because the council is slow; it is the
- * correct tool for this question shape. The council still runs, unchanged,
- * for 'suggest' and 'general' — questions with no single right database
- * answer, where a model's phrasing is the actual product.
+ * correct tool for these question shapes. The council still runs, unchanged,
+ * for the intents absent from this table — questions with no single right
+ * database answer, where a model's phrasing is the actual product.
+ *
+ * `format` takes the question as well as the result because the price
+ * formatter reads a size back out of it; the others ignore it.
  */
-async function answerPriceDirectly(result, question) {
-  const content = formatPriceAnswer(question, result);
-  return {
-    ok: true,
-    winner: { agentNumber: 0, content, totalScore: 100, criteriaScores: {}, rank: 1 },
-    source: 'site-data-direct',
-    priceMatchStatus: result.status,
-  };
-}
+const DETERMINISTIC_INTENTS = {
+  price: { resolve: resolvePriceQuery, format: (question, result) => formatPriceAnswer(question, result) },
+  availability: { resolve: resolveAvailabilityQuery, format: (_q, result) => formatAvailabilityAnswer(result) },
+  notes: { resolve: resolveNotesQuery, format: (_q, result) => formatNotesAnswer(result) },
+  size: { resolve: resolveSizeQuery, format: (_q, result) => formatSizeAnswer(result) },
+};
 
 /**
  * Runs the full council: fetches the site-grounded data for this question,
@@ -132,21 +147,29 @@ export async function runCouncil({ question, intent, config, onEvent }) {
   emit('status', { message: 'Looking up what pricesniffs.space actually has on this…' });
 
   let effectiveIntent = intent;
-  if (intent === 'price') {
-    const result = await resolvePriceQuery(question);
-    // `classifyIntent` (intent.js) fires 'price' on the bare word "price" or
-    // "cost" anywhere in the message, so "how does your price comparison
-    // work" arrives labelled 'price' despite naming no fragrance at all.
-    // resolvePriceQuery finding nothing is not, on its own, "this fragrance
-    // does not exist" in that case — it is evidence the question was never
-    // about a specific fragrance. Only fall through to the full council
-    // (as a 'general' question) when there is a real policy/FAQ match to
-    // ground it in; a plain "no match" with no such signal is answered
-    // directly, the normal case for a genuine price lookup gone unmatched.
+  const deterministic = DETERMINISTIC_INTENTS[intent];
+  if (deterministic) {
+    const result = await deterministic.resolve(question);
+    // A question can carry an intent's vocabulary without naming a product
+    // at all: "how does your price comparison work" is labelled 'price' by
+    // nothing more than the word "price" (intent.js now calls that one
+    // 'meta', but a direct API caller can still send 'price', and the same
+    // shape exists for every intent here). The resolver finding no product
+    // is not, on its own, "this fragrance does not exist" in that case — it
+    // is evidence the question was never about a specific fragrance. Only
+    // fall through to the full council (as a 'general' question) when there
+    // is a real policy/FAQ match to ground it in; a plain "no match" with no
+    // such signal is answered directly, the normal case for a genuine lookup
+    // gone unmatched.
     if (result.status !== 'no_match' || !(await policyContextFor(question))) {
-      const answer = await answerPriceDirectly(result, question);
+      const content = deterministic.format(question, result);
       emit('status', { message: 'Here we go.' });
-      return answer;
+      return {
+        ok: true,
+        winner: { agentNumber: 0, content, totalScore: 100, criteriaScores: {}, rank: 1 },
+        source: 'site-data-direct',
+        priceMatchStatus: result.status,
+      };
     }
     effectiveIntent = 'general';
   }
