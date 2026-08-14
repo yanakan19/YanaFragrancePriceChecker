@@ -5,7 +5,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFile } from 'node:fs/promises';
 import { runCouncil } from './council.js';
-import { classifyIntent } from './intent.js';
+import { classifyIntent, INTENTS } from './intent.js';
 import { siteDataFreshness } from './siteData.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -178,7 +178,15 @@ app.post('/api/chat', async (req, res) => {
     res.write(`data: ${JSON.stringify(event)}\n\n`);
   };
 
-  const intent = explicitIntent && ['price', 'suggest', 'general'].includes(explicitIntent)
+  // The widget no longer sends an intent at all (its three intent buttons
+  // were removed; demo/virtualYanny.ts posts `intent: null`), so in practice
+  // every real question is classified here. The explicit branch is kept for
+  // direct API callers, validated against intent.js's own INTENTS list
+  // rather than a hardcoded copy of it — the previous hardcoded
+  // ['price','suggest','general'] would have silently ignored any of the
+  // nine intents added since, falling back to classification, which is safe
+  // but confusing.
+  const intent = typeof explicitIntent === 'string' && INTENTS.includes(explicitIntent)
     ? explicitIntent
     : classifyIntent(message);
 

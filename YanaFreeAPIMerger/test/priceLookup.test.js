@@ -231,18 +231,22 @@ test('classifyIntent: a genuinely out-of-scope question is not misread as a pric
   assert.equal(classifyIntent('what is your favourite film'), 'general');
 });
 
-test('classifyIntent: "how does your price comparison work" trips the price regex on the bare word "price" — a known false positive this task\'s council.js fix works around, not a fix inside intent.js itself', () => {
-  // Documented, not silently relied on: see council.js's runCouncil, which
-  // treats a 'price' intent with no fragrance match and a real SITE POLICY
-  // match as a policy question in disguise rather than denying a fragrance
-  // that was never named.
-  assert.equal(classifyIntent('how does your price comparison work'), 'price');
+test('classifyIntent: "how does your price comparison work" is a question about the service, not a price lookup — the old three-regex classifier called it \'price\' on the bare word "price"', () => {
+  // This used to assert 'price' and describe the misrouting as a known
+  // false positive that council.js worked around downstream. intent.js now
+  // classifies it correctly at source (see its header and
+  // test/intent.test.js for the whole corpus). The council.js workaround —
+  // a 'price' intent with no fragrance match but a real SITE POLICY match
+  // falling through to the council rather than denying a fragrance nobody
+  // named — is deliberately kept as defence in depth, and is still
+  // exercised by the test below.
+  assert.equal(classifyIntent('how does your price comparison work'), 'meta');
 });
 
-test('runCouncil: that same misclassified policy question is NOT answered as a flat "no fragrance" denial — it falls through to the full council', async () => {
+test('runCouncil: a price-intent question that names no fragrance but does match a site policy page is NOT answered as a flat "no fragrance" denial — council.js\'s fallback still holds independently of intent.js', async () => {
   const result = await runCouncil({
     question: 'how does your price comparison work',
-    intent: classifyIntent('how does your price comparison work'),
+    intent: 'price', // forced, to exercise the fallback rather than the fixed classifier
     config: emptyModels, // no agents configured, so the council path fails loudly...
     onEvent: noopEmit,
   });
