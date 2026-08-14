@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-14T10:12:41.622Z",
+  "checkedAt": "2026-08-14T11:53:44.224Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -63,7 +63,9 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded"
+        "storefront currency could not be established — no sterling price recorded",
+        "https://www.pairfum.com/products.json?limit=250&page=1: HTTP 0 AbortError: This operation was aborted",
+        "https://www.pairfum.com/sitemap_index.xml: HTTP 0 AbortError: This operation was aborted"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -193,9 +195,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 90,
-      "pricedInGbp": 90,
-      "withPhoto": 90,
+      "listings": 100,
+      "pricedInGbp": 100,
+      "withPhoto": 100,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -267,8 +269,7 @@
       "withPhoto": 0,
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
-        "https://maisonalhambra.co/products.json?limit=250&page=1: HTTP 403",
-        "https://maisonalhambra.co/sitemap.xml: HTTP 403"
+        "https://maisonalhambra.co/sitemap_index.xml: HTTP 404"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
