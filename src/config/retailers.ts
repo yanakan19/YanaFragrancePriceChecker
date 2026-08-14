@@ -2104,8 +2104,30 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'perfume-click.co.uk',
     homepage: 'https://www.perfume-click.co.uk',
     tiers: ['designer'],
+    // Accepted onto the Awin programme, and nobody noticed for three days.
+    //
+    // The application went in on 2026-08-11 and this entry sat at 'pending'
+    // because nothing in the project ever checked back. What surfaced it was
+    // scripts/awin-memberships.ts on 2026-08-14: advertiser 6561 reads
+    // membershipStatus 'active' in the account's own feed list. Before that
+    // script the only signal was the feed sync's "910 feed(s) visible" line,
+    // which counts feeds rather than memberships and so said nothing at all
+    // about approvals.
+    //
+    // Still `enabled: false`, deliberately, and not as an oversight. Enabling
+    // needs two things this entry does not have: a feed that has actually
+    // landed (adapter below now routes it to the sync, but no feed has been
+    // fetched from this merchant yet, so there are zero listings — an enabled
+    // shop with nothing in it is worse than an absent one), and a standard
+    // delivery cost, which nobody has read from their site. Flip it once
+    // data/catalogue/perfume-click.json exists with real rows.
     enabled: false,
-    adapter: 'unknown',
+    // Routes this merchant into scripts/awin-feed-sync.ts, which selects on
+    // exactly this: adapter 'affiliate-feed', network 'awin', and a merchant
+    // id recoverable from the signup URL. Nothing else has to change for the
+    // next sync to try it. If the merchant publishes no feed the sync reports
+    // that and moves on, the same way it already does for The Beauty Store UK.
+    adapter: 'affiliate-feed',
     currency: 'GBP',
     shipping: {
       standardGbp: null,
@@ -2113,10 +2135,15 @@ export const RETAILERS: readonly Retailer[] = [
       estimatedDays: [3, 5],
       verifiedAt: '2026-08-11',
       confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+      notes:
+        'Awin programme accepted — advertiser 6561 reads membershipStatus "active" in the ' +
+        "account's own feed list, read by npm run awin:memberships on 2026-08-14. Delivery " +
+        'terms still not read from their site, which is why standardGbp stays null and this ' +
+        'retailer stays disabled: an unknown delivery cost is sayable here, but a shop with ' +
+        'no listings is not worth showing. shipping:discover covers the delivery half.',
     },
     catalogue: null,
-    affiliate: { ...awinRequested() },
+    affiliate: { ...awinActive('6561', '3017443') },
   },
   {
     id: 'beauty-bay',
