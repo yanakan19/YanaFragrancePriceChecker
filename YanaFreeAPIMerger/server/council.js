@@ -71,6 +71,15 @@ function buildSystemPrompt() {
       'recognise it when SITE DATA is quoting it to you directly underneath this ' +
       'prompt — read the match before answering, do not pattern-match the question ' +
       'against your own memory of what this house sells.',
+    '1c. NONE MEANS NONE. The reverse of 1b, and just as strict. When SITE DATA says ' +
+      '"NOTE MATCHED CANDIDATES: none" or "none requested", the catalogue found nothing ' +
+      'for this request — say so and ask for a note, a fragrance name or a budget you can ' +
+      'work from. Do not fall back on fragrances you happen to know, and do not treat the ' +
+      'ABOUT THIS SITE line as a licence to recommend something that is not listed above. ' +
+      'Where SITE DATA gives a REFERENCE FRAGRANCE line, the candidates under it were ' +
+      'found by sharing that fragrance\'s published notes and nothing else: say that is ' +
+      'what the match is based on, and do not claim two things smell alike on the strength ' +
+      'of a shared note list.',
     '2. DELIVERY. Some retailers in SITE DATA do not publish a standard delivery cost ' +
       'and are marked "delivery not stated". Never present one of these as the ' +
       'cheapest option, and never guess, estimate, or round a delivery figure that ' +
