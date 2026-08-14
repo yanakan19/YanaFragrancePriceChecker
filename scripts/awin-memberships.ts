@@ -137,15 +137,29 @@ async function main(): Promise<void> {
   });
   if (listedNotAccepted.length > 0) {
     console.log(
-      `\n${listedNotAccepted.length} retailer(s) in the registry whose Awin membership is NOT accepted:`,
+      `\n${listedNotAccepted.length} registry retailer(s) not showing as accepted in the feed list:`,
     );
     for (const [id, retailerId] of listedNotAccepted) {
       const a = byAdvertiser.get(id);
-      console.log(`  ${id.padStart(7)}  ${retailerId} — ${a ? a.status : 'not visible on this account'}`);
+      console.log(`  ${id.padStart(7)}  ${retailerId} — ${a ? a.status : 'not in the feed list'}`);
     }
+    // The distinction in that last column is the whole point, and the first
+    // version of this script got it wrong — it printed both cases under
+    // "membership is NOT accepted", which overstates the second one badly.
+    //
+    // A row carrying an explicit status ("Not Joined") is Awin stating the
+    // membership, and a registry entry claiming 'active' against it is a real
+    // contradiction.
+    //
+    // A row reading "not in the feed list" proves far less. This is a list of
+    // FEEDS: an advertiser that has accepted us but publishes no product feed
+    // does not appear in it at all, and is indistinguishable here from one
+    // that never accepted us. Treat it as a prompt to open the dashboard,
+    // never as evidence on its own that a programme is dead.
     console.log(
-      'A retailer listed here with affiliate.status: \'active\' is a contradiction\n' +
-        'worth resolving: either the programme lapsed, or the registry is wrong.',
+      "  'Not Joined' against a registry status of 'active' is a real contradiction.\n" +
+        "  'not in the feed list' is not: an accepted advertiser publishing no feed\n" +
+        '  is absent here too. Check the Awin dashboard before concluding anything.',
     );
   }
 }
