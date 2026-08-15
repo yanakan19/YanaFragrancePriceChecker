@@ -3,7 +3,12 @@ import {
   probeMarkets,
   summariseMarketProbe,
   readJsonLdOffers,
+  subfolderCandidates,
+  requestShapeCandidates,
+  ukMarketCandidates,
+  candidateUrl,
   UK_MARKET_PREFIXES,
+  type MarketCandidate,
   type MarketReading,
 } from '../src/catalogue/marketProbe.js';
 import { readStorefrontCurrency } from '../src/catalogue/shopCurrency.js';
@@ -18,90 +23,140 @@ import type { Http } from '../src/catalogue/attempt.js';
  * currency dropdown is worse than none — it would read GBP off a page that
  * charges dollars and hand back the word "proven".
  *
- * So every test here is about the difference between a shop *offering* a
- * currency and a shop *quoting* one.
+ * So every test here is about one of two distinctions: a shop *offering* a
+ * currency versus *quoting* one, and a shop having no sterling price list
+ * versus us not having found the request that reaches it.
  */
 
-function reading(prefix: string, meta: string | null, home: string | null): MarketReading {
+function candidate(label: string, over: Partial<MarketCandidate> = {}): MarketCandidate {
   return {
-    prefix,
-    base: `https://shop.example${prefix}`,
+    label,
+    base: 'https://shop.example',
+    query: '',
+    headers: {},
+    why: 'a test',
+    ...over,
+  };
+}
+
+function reading(c: MarketCandidate, meta: string | null, home: string | null): MarketReading {
+  return {
+    candidate: c,
     metaStatus: meta === null ? 404 : 200,
     homeStatus: home === null ? 404 : 200,
     currency: readStorefrontCurrency(meta, home),
   };
 }
 
-describe('which addresses a UK price list might live at', () => {
+describe('the ways a UK price list might be asked for', () => {
   it('always tries the bare origin first, because a single-market UK shop is there', () => {
     expect(UK_MARKET_PREFIXES[0]).toBe('');
+    expect(subfolderCandidates('https://shop.example')[0]!.label).toBe('origin');
   });
 
   it('tries Shopify Markets subfolder conventions after it', () => {
-    expect([...UK_MARKET_PREFIXES]).toEqual(['', '/en-gb', '/gb', '/uk', '/en-uk']);
+    expect(subfolderCandidates('https://shop.example').map((c) => c.label)).toEqual([
+      'origin',
+      '/en-gb',
+      '/gb',
+      '/uk',
+      '/en-uk',
+    ]);
+  });
+
+  // Escentual's shape: every subfolder 404s and the one domain answers in the
+  // market it geolocates the caller into. A prefix-only probe can only ever
+  // report "no sterling list" there, which is not what it found.
+  it('also tries request shapes, for a storefront that has one domain and many markets', () => {
+    const labels = requestShapeCandidates('https://shop.example').map((c) => c.label);
+    expect(labels).toContain('?country=GB');
+    expect(labels).toContain('cookie localization=GB');
+    expect(labels).toContain('Accept-Language en-GB');
+  });
+
+  it('carries a candidate’s query and headers onto every URL it reads', () => {
+    const c = candidate('?country=GB', { query: '?country=GB' });
+    expect(candidateUrl(c, '/meta.json')).toBe('https://shop.example/meta.json?country=GB');
+  });
+
+  it('offers subfolders and request shapes together, subfolders first', () => {
+    const all = ukMarketCandidates('https://shop.example');
+    expect(all).toHaveLength(10);
+    expect(all[0]!.label).toBe('origin');
+    expect(all[5]!.label).toBe('?country=GB');
   });
 });
 
 describe('reading a probe', () => {
   it('proves sterling where the theme quotes GBP at no conversion', () => {
     const verdict = summariseMarketProbe([
-      reading('', '{"currency":"GBP"}', 'Shopify.currency = {"active":"GBP","rate":"1.0"};'),
+      reading(candidate('origin'), '{"currency":"GBP"}', 'Shopify.currency = {"active":"GBP","rate":"1.0"};'),
     ]);
-    expect(verdict.sterlingBase).toBe('https://shop.example');
-    expect(verdict.reading).toContain('a sterling price list is published');
+    expect(verdict.sterling?.label).toBe('origin');
+    expect(verdict.reading).toContain('a sterling price list is served');
   });
 
-  it('takes the first address that proves sterling, not the last', () => {
+  it('takes the first way of asking that proves sterling, not the last', () => {
     const verdict = summariseMarketProbe([
-      reading('', '{"currency":"USD"}', 'Shopify.currency = {"active":"USD","rate":"1.0"};'),
-      reading('/en-gb', null, 'Shopify.currency = {"active":"GBP","rate":"1.0"};'),
-      reading('/gb', null, 'Shopify.currency = {"active":"GBP","rate":"1.0"};'),
+      reading(candidate('origin'), '{"currency":"GBP"}', 'Shopify.currency = {"active":"USD","rate":"1.38605"};'),
+      reading(candidate('?country=GB'), null, 'Shopify.currency = {"active":"GBP","rate":"1.0"};'),
+      reading(candidate('both cookies'), null, 'Shopify.currency = {"active":"GBP","rate":"1.0"};'),
     ]);
-    expect(verdict.sterlingBase).toBe('https://shop.example/en-gb');
+    expect(verdict.sterling?.label).toBe('?country=GB');
   });
 
-  // The defect that made the old probe unsafe. A multi-market storefront lists
-  // every currency it offers in a selector on every market, so "the page
-  // mentions GBP" is true of the dollar market too.
+  // The defect that made the old prefix probe unsafe. A multi-market
+  // storefront lists every currency it offers in a selector on every market,
+  // so "the page mentions GBP" is true of the dollar market too.
   it('is not fooled by a currency selector listing GBP on a dollar market', () => {
     const home =
-      'Shopify.currency = {"active":"USD","rate":"1.4161"};' +
+      'Shopify.currency = {"active":"USD","rate":"1.38605"};' +
       '<select name="currency"><option value="GBP">£ GBP</option></select>' +
       '{"currency":"GBP"}';
-    const verdict = summariseMarketProbe([reading('/en-gb', null, home)]);
-    expect(verdict.sterlingBase).toBeNull();
+    const verdict = summariseMarketProbe([reading(candidate('/en-gb'), null, home)]);
+    expect(verdict.sterling).toBeNull();
     expect(verdict.currenciesSeen).toEqual(['USD']);
   });
 
   it('refuses a GBP quote that carries a conversion rate', () => {
     const verdict = summariseMarketProbe([
-      reading('/uk', '{"currency":"USD"}', 'Shopify.currency = {"active":"GBP","rate":"0.706"};'),
+      reading(candidate('/uk'), '{"currency":"USD"}', 'Shopify.currency = {"active":"GBP","rate":"0.706"};'),
     ]);
-    expect(verdict.sterlingBase).toBeNull();
+    expect(verdict.sterling).toBeNull();
   });
 
   it('reads silence as unknown, never as sterling', () => {
-    const verdict = summariseMarketProbe([reading('', null, '<html>a shop</html>')]);
-    expect(verdict.sterlingBase).toBeNull();
+    const verdict = summariseMarketProbe([reading(candidate('origin'), null, '<html>a shop</html>')]);
+    expect(verdict.sterling).toBeNull();
     expect(verdict.currenciesSeen).toEqual([]);
     expect(verdict.reading).toContain('never as sterling');
   });
 
-  // The distinction the whole exercise turns on: a Shopify market is chosen by
-  // where the visitor is, so a CI runner's reading settles what *we* harvest
-  // and settles nothing about what a shopper in Cardiff is charged.
-  it('says plainly that a foreign answer is about this machine, not the shop', () => {
+  // Escentual, exactly: settles GBP, quotes USD to a US runner. The shop has a
+  // sterling price list; we did not reach it. Saying "this shop publishes no
+  // GBP prices" there would be false, and saying "so divide by the rate" would
+  // be the catastrophe.
+  it('separates "no sterling list" from "we did not find the request that gets it"', () => {
     const verdict = summariseMarketProbe([
-      reading('', '{"currency":"GBP"}', 'Shopify.currency = {"active":"USD","rate":"1.4161"};'),
+      reading(candidate('origin'), '{"currency":"GBP"}', 'Shopify.currency = {"active":"USD","rate":"1.38605"};'),
     ]);
-    expect(verdict.sterlingBase).toBeNull();
+    expect(verdict.sterling).toBeNull();
+    expect(verdict.settles).toBe('GBP');
+    expect(verdict.reading).toContain('SETTLES in GBP');
+    expect(verdict.reading).toContain('must not be published as pounds');
+  });
+
+  it('says a foreign answer from a shop that settles abroad is about this machine', () => {
+    const verdict = summariseMarketProbe([
+      reading(candidate('origin'), '{"currency":"EUR"}', 'Shopify.currency = {"active":"EUR","rate":"1.0"};'),
+    ]);
     expect(verdict.reading).toContain('settles nothing about the shop');
   });
 
-  it('gives one log line per address', () => {
+  it('gives one log line per way of asking', () => {
     const verdict = summariseMarketProbe([
-      reading('', null, null),
-      reading('/en-gb', null, null),
+      reading(candidate('origin'), null, null),
+      reading(candidate('/en-gb'), null, null),
     ]);
     expect(verdict.lines).toHaveLength(2);
     expect(verdict.lines[0]).toContain('origin');
@@ -144,10 +199,13 @@ describe('what a product page labels its own price', () => {
 });
 
 describe('probing a storefront', () => {
-  function serving(pages: Record<string, string>): { http: Http; asked: string[] } {
-    const asked: string[] = [];
-    const http: Http = async (url) => {
-      asked.push(url);
+  function serving(pages: Record<string, string>): {
+    http: Http;
+    asked: Array<{ url: string; headers: Record<string, string> }>;
+  } {
+    const asked: Array<{ url: string; headers: Record<string, string> }> = [];
+    const http: Http = async (url, headers) => {
+      asked.push({ url, headers });
       const body = pages[url];
       return body === undefined
         ? { status: 404, body: '', ok: false }
@@ -156,10 +214,10 @@ describe('probing a storefront', () => {
     return { http, asked };
   }
 
-  it('reads meta.json and the homepage at every address', async () => {
+  it('reads meta.json and the homepage under every candidate', async () => {
     const { http, asked } = serving({});
-    await probeMarkets('https://shop.example', http, {}, { prefixes: ['', '/en-gb'] });
-    expect(asked).toEqual([
+    await probeMarkets(subfolderCandidates('https://shop.example').slice(0, 2), http, {});
+    expect(asked.map((a) => a.url)).toEqual([
       'https://shop.example/meta.json',
       'https://shop.example/',
       'https://shop.example/en-gb/meta.json',
@@ -167,37 +225,48 @@ describe('probing a storefront', () => {
     ]);
   });
 
-  it('skips an address robots.txt disallows rather than fetching it', async () => {
+  it('sends a candidate’s headers with its requests', async () => {
     const { http, asked } = serving({});
-    await probeMarkets('https://shop.example', http, {}, {
-      prefixes: ['', '/uk'],
-      allow: (url) => !url.includes('/uk'),
-    });
-    expect(asked.every((u) => !u.includes('/uk'))).toBe(true);
-    expect(asked).toHaveLength(2);
+    await probeMarkets(
+      [candidate('cookie', { headers: { Cookie: 'localization=GB' } })],
+      http,
+      { 'User-Agent': 'test' },
+    );
+    expect(asked[0]!.headers).toEqual({ 'User-Agent': 'test', Cookie: 'localization=GB' });
   });
 
-  it('carries each address’s own verdict back', async () => {
+  it('skips an address robots.txt disallows rather than fetching it', async () => {
+    const { http, asked } = serving({});
+    await probeMarkets(subfolderCandidates('https://shop.example'), http, {}, {
+      allow: (url) => !url.includes('/uk'),
+    });
+    expect(asked.every((a) => !a.url.includes('/uk'))).toBe(true);
+  });
+
+  it('carries each candidate’s own verdict back', async () => {
     const { http } = serving({
-      'https://shop.example/': 'Shopify.currency = {"active":"USD","rate":"1.4161"};',
+      'https://shop.example/': 'Shopify.currency = {"active":"USD","rate":"1.38605"};',
       'https://shop.example/en-gb/': 'Shopify.currency = {"active":"GBP","rate":"1.0"};',
     });
-    const readings = await probeMarkets('https://shop.example', http, {}, {
-      prefixes: ['', '/en-gb'],
-    });
+    const readings = await probeMarkets(
+      subfolderCandidates('https://shop.example').slice(0, 2),
+      http,
+      {},
+    );
     expect(readings[0]!.currency.presented).toBe('USD');
     expect(readings[0]!.currency.isSterling).toBe(false);
     expect(readings[1]!.currency.isSterling).toBe(true);
-    expect(summariseMarketProbe(readings).sterlingBase).toBe('https://shop.example/en-gb');
+    expect(summariseMarketProbe(readings).sterling?.label).toBe('/en-gb');
   });
 
   it('waits between requests, so a probe cannot outrun the shop’s own limit', async () => {
     const { http } = serving({});
     const waits: number[] = [];
-    await probeMarkets('https://shop.example', http, {}, {
-      prefixes: ['', '/gb'],
+    await probeMarkets(subfolderCandidates('https://shop.example').slice(0, 2), http, {}, {
       gapMs: 1500,
-      sleep: async (ms) => { waits.push(ms); },
+      sleep: async (ms) => {
+        waits.push(ms);
+      },
     });
     expect(waits).toEqual([1500, 1500, 1500, 1500]);
   });

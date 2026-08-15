@@ -72,6 +72,7 @@ import {
 } from '../src/catalogue/robots.js';
 import { BROWSER_HEADERS, type Http } from '../src/catalogue/attempt.js';
 import { parseShopCurrency } from '../src/catalogue/shopifyJson.js';
+import { probeMarkets, subfolderCandidates } from '../src/catalogue/marketProbe.js';
 import {
   emptyPriceIndex,
   indexShopifyPage,
@@ -257,7 +258,20 @@ function gapFor(retailer: Retailer, robots: RobotsRules): number {
  * Guessed prefixes are checked, never assumed: each candidate is fetched and
  * kept only if the storefront it returns says GBP itself.
  */
-const UK_MARKET_PREFIXES = ['/en-gb', '/gb', '/uk', '/en-uk'] as const;
+/**
+ * The subfolder markets, minus the bare origin.
+ *
+ * The list itself lives in src/catalogue/marketProbe.ts, shared with
+ * scripts/currency-probe.ts on purpose: an investigation that finds a shop's
+ * sterling market and a verification that reads prices from it must be looking
+ * at the same set of addresses, or the second cannot confirm the first.
+ *
+ * The origin is dropped here because this is only reached once the origin has
+ * been read and found not to be sterling — re-asking it would be a request
+ * spent confirming what the caller has just measured.
+ */
+const marketPrefixCandidates = (origin: string) =>
+  subfolderCandidates(origin).filter((c) => c.label !== 'origin');
 
 /**
  * Find the storefront's sterling market, if it publishes one.
@@ -266,15 +280,29 @@ const UK_MARKET_PREFIXES = ['/en-gb', '/gb', '/uk', '/en-uk'] as const;
  * single-market UK shop pays nothing for this. Returns the base to read prices
  * from and the currency that base reports.
  *
- * The currency here is read out of the market's HTML, not `/meta.json`, which
- * describes the shop rather than the market and so answers the same whichever
- * prefix it is asked under. HTML is the weaker of the two sources — the
- * fallback pattern in `parseShopCurrency` will match a `"currency"` key
- * anywhere in the page, including one belonging to a currency *selector*
- * rather than the active market — so a positive result here is treated as
- * grounds to compare prices, never on its own as proof of what a checkout
- * charges. A negative result, which is what Nicchia Luxury returned at every
- * prefix, is the stronger direction: nothing claimed sterling.
+ * ── Why the reading here is `readStorefrontCurrency`, not `parseShopCurrency` ─
+ * It used to be the latter, applied to the market's HTML alone, and the
+ * comment that stood here admitted the weakness rather than fixing it: that
+ * parser's last resort matches a `"currency"` key *anywhere* in the page,
+ * including one belonging to a currency **selector** — the dropdown listing
+ * every currency the shop offers, which on a multi-market store lists GBP on
+ * every market including the ones that do not charge in it. A probe whose
+ * positive result can be produced by a dropdown finds sterling markets that
+ * are not there, and it was feeding `base`, which decides which numbers get
+ * compared against ours as pounds.
+ *
+ * `readStorefrontCurrency` (src/catalogue/shopCurrency.ts) takes the theme's
+ * own `Shopify.currency = {"active":…,"rate":…}` as the authority, falls back
+ * to the loose match only when the theme is silent, and then refuses two
+ * further ways of being not-quite-sterling: a shop that settles in another
+ * currency while quoting GBP, and a quote carrying a conversion rate away from
+ * 1, are both converted price lists rather than prices as charged. Every
+ * ambiguity resolves to "not established", and "not established" is treated
+ * here exactly as a foreign answer is.
+ *
+ * A positive result is still grounds to compare prices, never on its own proof
+ * of what a checkout charges. A negative result — what Nicchia Luxury returned
+ * at every prefix — remains the stronger direction: nothing claimed sterling.
  */
 async function resolveSterlingMarket(
   origin: string,
@@ -282,22 +310,37 @@ async function resolveSterlingMarket(
   gap: number,
   notes: string[],
 ): Promise<{ base: string; currency: string } | null> {
-  for (const prefix of UK_MARKET_PREFIXES) {
-    const url = `${origin}${prefix}/`;
-    if (!isAllowed(robots, url)) continue;
-    const res = await http(url, BROWSER_HEADERS);
-    await sleep(gap);
-    if (!res.ok) continue;
-    const currency = parseShopCurrency(null, res.body);
-    if (currency === 'GBP') {
-      notes.push(`sterling market found at ${prefix} — reading prices from there`);
-      return { base: `${origin}${prefix}`, currency };
+  const candidates = marketPrefixCandidates(origin);
+  const readings = await probeMarkets(candidates, http, BROWSER_HEADERS, {
+    allow: (url) => isAllowed(robots, url),
+    gapMs: gap,
+    sleep,
+  });
+
+  for (const reading of readings) {
+    if (reading.currency.isSterling) {
+      notes.push(`sterling market found at ${reading.candidate.label} — reading prices from there`);
+      return { base: reading.candidate.base, currency: 'GBP' };
     }
-    if (currency) notes.push(`${prefix} answers in ${currency}`);
+    if (reading.currency.presented) {
+      notes.push(
+        `${reading.candidate.label} answers in ${reading.currency.presented} — ${reading.currency.reason}`,
+      );
+    }
   }
+
+  // Deliberately not "this shop has no sterling prices". A storefront on one
+  // domain can serve a different market to every visitor and publish no
+  // prefix at all — escentual.com does exactly that, settling in GBP while
+  // quoting a US runner USD (currency probe, run 31880073037, job
+  // 95001301639) — and for that shape a path-based search can only ever
+  // return this line. What it has established is that nothing here found the
+  // sterling list, which is a fact about the search.
   notes.push(
-    `no sterling market found under ${UK_MARKET_PREFIXES.join(', ')} — ` +
-      'this storefront publishes no GBP price list at any address tried',
+    `no sterling market found under ${candidates.map((c) => c.label).join(', ')} — ` +
+      'no GBP price list at any of those addresses. A single-domain storefront can still ' +
+      'hold one behind a request shape rather than a path: npm run currency:probe -- ' +
+      '--shop=<id> tries those too',
   );
   return null;
 }
