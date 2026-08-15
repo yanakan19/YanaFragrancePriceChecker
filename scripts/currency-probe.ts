@@ -110,8 +110,21 @@ async function robotsFor(base: string): Promise<RobotsRules> {
 
 const robots = await robotsFor(origin);
 if (robots.unavailable) {
+  // Two failures share one exit code here, and the log has to tell them apart
+  // because they call for opposite responses. "The shop served no sterling
+  // price list" is a finding. "We could not ask" is not a finding at all — and
+  // under --require-gbp it still exits non-zero, because a gate that passes
+  // when it could not check is worse than no gate.
+  //
+  // Seen for real: five probes of escentual.com inside half an hour on
+  // 2026-08-15 and the sixth (run 31881032645) got no robots.txt. Nothing had
+  // changed about the shop's prices; the right response was to stop asking,
+  // not to retry until it answered.
   console.log(
-    `robots.txt could not be read at ${origin} — holding off rather than assuming we are welcome`,
+    `COULD NOT ASK: robots.txt did not answer at ${origin}, so nothing was requested — ` +
+      'holding off rather than assuming we are welcome. This is not a result about the shop ' +
+      "and says nothing about its currency; if this repeats, the shop may be rate-limiting us " +
+      'and the answer is to leave it alone for a while rather than to probe harder.',
   );
   process.exit(requireGbp ? 1 : 0);
 }
