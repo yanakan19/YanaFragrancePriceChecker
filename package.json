@@ -31,6 +31,7 @@
     "awin:feed-diag": "tsx scripts/awin-feed-diag.ts",
     "awin:memberships": "tsx scripts/awin-memberships.ts",
     "price:verify": "tsx scripts/price-verify.ts",
+    "currency:probe": "tsx scripts/currency-probe.ts",
     "storefront:reprice": "tsx scripts/storefront-reprice.ts",
     "images:check": "tsx scripts/image-link-check.ts",
     "icons": "tsx scripts/generate-icons.ts",
