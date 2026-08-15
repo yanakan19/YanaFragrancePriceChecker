@@ -15,7 +15,7 @@ export interface RawDeal {
 }
 
 /** When this snapshot was last taken. */
-export const DEALS_GENERATED_AT = "2026-08-15T14:19:27.243Z";
+export const DEALS_GENERATED_AT = "2026-08-15T20:27:03.146Z";
 
 export const DEALS_RAW: RawDeal[] = [
   {
@@ -643,9 +643,9 @@ export const DEALS_RAW: RawDeal[] = [
   },
   {
     "fragranceId": "justmylook-arm0076",
-    "price": 11.79,
-    "wasPrice": 17.99,
-    "percentOff": 34,
+    "price": 9.29,
+    "wasPrice": 12.99,
+    "percentOff": 28,
     "retailerId": "mybeauty-boutique"
   },
   {
@@ -3407,6 +3407,13 @@ export const DEALS_RAW: RawDeal[] = [
     "retailerId": "mybeauty-boutique"
   },
   {
+    "fragranceId": "justmylook-creed0026",
+    "price": 258.99,
+    "wasPrice": 451.99,
+    "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
     "fragranceId": "justmylook-creed0042",
     "price": 264.49,
     "wasPrice": 508.99,
@@ -3425,6 +3432,13 @@ export const DEALS_RAW: RawDeal[] = [
     "price": 240.99,
     "wasPrice": 418.99,
     "percentOff": 42,
+    "retailerId": "mybeauty-boutique"
+  },
+  {
+    "fragranceId": "justmylook-creed0012",
+    "price": 195.49,
+    "wasPrice": 411.99,
+    "percentOff": 52,
     "retailerId": "mybeauty-boutique"
   },
   {
@@ -6863,6 +6877,13 @@ export const DEALS_RAW: RawDeal[] = [
     "wasPrice": 55,
     "percentOff": 18,
     "retailerId": "emirates-oud"
+  },
+  {
+    "fragranceId": "mybeauty-boutique-shopify-gb-8416625524873-45146953482377",
+    "price": 37.49,
+    "wasPrice": 67.99,
+    "percentOff": 44,
+    "retailerId": "mybeauty-boutique"
   },
   {
     "fragranceId": "emirates-oud-9930309599581-default-title",
