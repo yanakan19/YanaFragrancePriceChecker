@@ -659,6 +659,24 @@ async function verifyShop(retailer: Retailer): Promise<ShopOutcome> {
       base = sterling.base;
       outcome.storefrontCurrency = sterling.currency;
     }
+  } else if (outcome.storefrontCurrency === null) {
+    // Silence is not sterling, and this pass has no way to make it so.
+    //
+    // A shop that publishes no currency at its origin gets compared anyway —
+    // that is deliberate and unchanged, because the alternative is to stop
+    // verifying most of the fleet over a missing field. But the note matters:
+    // every figure below is being compared as pounds on the strength of the
+    // registry saying so, and nothing here has checked it.
+    //
+    // The market probe is *not* run for this case. It would be four more
+    // addresses at every silent shop on every sweep, and a prefix proving
+    // sterling would say nothing about the origin's own numbers, which are
+    // the ones being compared — adopting it would be an inference dressed as
+    // a measurement. The deliberate act belongs in its own tool.
+    outcome.notes.push(
+      'storefront published no currency — its numbers are compared as pounds on the registry\'s ' +
+        `word alone. To settle it: npm run currency:probe -- --shop=${retailer.id} --products=3`,
+    );
   }
 
   const foreignStorefront =

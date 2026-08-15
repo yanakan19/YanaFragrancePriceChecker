@@ -56,6 +56,22 @@ on:
         description: 'Instead of verifying, dry-run the storefront re-price and report what it would change. Writes no price and commits nothing.'
         type: boolean
         default: false
+      currency_probe:
+        description: 'Instead of verifying, ask the shop named in "shop" what currency it quotes, at its origin and at each UK market address. Writes nothing.'
+        type: boolean
+        default: false
+      currency_probe_products:
+        description: 'Products.json rows to print per address during the currency probe. 0 skips it.'
+        type: string
+        default: '3'
+      currency_probe_product_url:
+        description: "Optional product page on the shop's own domain, to read its schema.org priceCurrency. Never an affiliate link — the script refuses any host that is not the retailer's."
+        type: string
+        default: ''
+      currency_probe_require_gbp:
+        description: 'Fail the run unless the shop published a sterling price list. Turn this on when the run is meant to BE the evidence; leave it off to look.'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -101,8 +117,27 @@ jobs:
           npm run storefront:reprice -- --dry-run \
             ${{ inputs.shop && format('--shop={0}', inputs.shop) || '' }}
 
+      # The evidence step for src/config/retailers.ts's CURRENCY_UNCONFIRMED
+      # list. Six retailers sit off the site waiting on one fact each — what
+      # the shop charges in — and the environment those entries were written
+      # in has no outbound network, so nobody there can find out. This runner
+      # can. It writes nothing and commits nothing; its whole product is its
+      # log and, with currency_probe_require_gbp on, its exit code.
+      #
+      # Deliberately NOT continue-on-error, unlike the verification step
+      # below. A probe that is meant to stand as proof has to be able to fail:
+      # a green tick on a step that cannot go red proves nothing at all.
+      - name: Probe what currency a storefront quotes
+        if: ${{ inputs.currency_probe }}
+        run: |
+          npm run currency:probe -- \
+            --shop=${{ inputs.shop }} \
+            --products=${{ inputs.currency_probe_products || '3' }} \
+            ${{ inputs.currency_probe_product_url && format('--product={0}', inputs.currency_probe_product_url) || '' }} \
+            ${{ inputs.currency_probe_require_gbp && '--require-gbp' || '' }}
+
       - name: Verify prices against live storefronts
-        if: ${{ !inputs.reprice_dry_run }}
+        if: ${{ !inputs.reprice_dry_run && !inputs.currency_probe }}
         continue-on-error: true
         run: |
           npm run price:verify -- \
@@ -112,7 +147,7 @@ jobs:
             --budget-ms=${{ inputs.budget_ms || '240000' }}
 
       - name: Commit the drift report
-        if: ${{ inputs.commit_report && !inputs.reprice_dry_run }}
+        if: ${{ inputs.commit_report && !inputs.reprice_dry_run && !inputs.currency_probe }}
         run: |
           ./scripts/commit-and-push.sh \
             "Price verification: measured drift $(date -u +%Y-%m-%dT%H:%MZ)" \
