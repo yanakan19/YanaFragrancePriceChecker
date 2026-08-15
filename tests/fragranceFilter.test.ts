@@ -260,16 +260,26 @@ describe('repairMojibake', () => {
     }
   });
 
-  // The conservative guard. A title carrying BOTH correct UTF-8 and mojibake
-  // cannot be round-tripped without corrupting the correct half, so it is left
-  // exactly as it is rather than made worse.
+  // The repair runs per `[ÃÂ][\s\S]` cluster, not on the whole string, so a
+  // title carrying BOTH a correct UTF-8 accent and a mojibake sequence gets
+  // only the broken half fixed — the correct half is never even examined,
+  // because it never starts with "Ã" or "Â" to begin with.
   it.each([
-    'Lancôme Ã”ff Now',
-    'Lancôme La Vie Est Belle IntensÃ©ment Eau de Parfum 50ml Spray',
-    "Hermès Terre d'Hermès Eau GivrÃ©e Eau de Parfum 175ml Spray",
-    "L'Oréal Professionnel SÃ©rie Expert Blondifier Conditioner 200ml",
-  ])('declines a mixed-encoding title rather than corrupting the good half: %s', (mixed) => {
-    expect(repairMojibake(mixed)).toBe(mixed);
+    ['Lancôme Ã”ff Now', 'Lancôme Ôff Now'],
+    [
+      'Lancôme La Vie Est Belle IntensÃ©ment Eau de Parfum 50ml Spray',
+      'Lancôme La Vie Est Belle Intensément Eau de Parfum 50ml Spray',
+    ],
+    [
+      "Hermès Terre d'Hermès Eau GivrÃ©e Eau de Parfum 175ml Spray",
+      "Hermès Terre d'Hermès Eau Givrée Eau de Parfum 175ml Spray",
+    ],
+    [
+      "L'Oréal Professionnel SÃ©rie Expert Blondifier Conditioner 200ml",
+      "L'Oréal Professionnel Série Expert Blondifier Conditioner 200ml",
+    ],
+  ])('repairs only the broken half of a mixed-encoding title: %s', (mixed, fixed) => {
+    expect(repairMojibake(mixed)).toBe(fixed);
   });
 
   // The reversal has to be CP1252, not Latin-1, because the decoder that broke
@@ -296,15 +306,31 @@ describe('repairMojibake', () => {
     expect(repairMojibake('Maison Francis Kurkdjian Ã€ la Rose')).toBe('Maison Francis Kurkdjian À la Rose');
   });
 
-  // Left broken on purpose, and the honest reason for each.
-  it('declines a title whose identifying byte was destroyed upstream', () => {
-    // That "Ã" should be followed by 0xA0, the second byte of "à". Something
-    // normalised the non-breaking space to an ordinary one, and 0xC3 0x20 is
-    // not valid UTF-8. Reading it as "à" would be inferring the character from
-    // the product name rather than from the encoding.
-    for (const t of ['Coty PrÃªt Ã Porter', 'Gloria Vanderbilt Minuit Ã New York']) {
-      expect(repairMojibake(t)).toBe(t);
-    }
+  // "Ã" standing alone as its own word repairs to "à": 0xA0, the byte that
+  // would make it a two-byte cluster like every other repaired case here, is
+  // the one CP1252-mapped continuation byte that is itself whitespace, so a
+  // later normaliser collapsing it into an ordinary space is the only way to
+  // reach a bare "Ã" with nothing following it — no other accented letter's
+  // mojibake form disappears into whitespace that way. The same feed carries
+  // the same corruption with that byte still intact ("Balade Ã  Paris",
+  // "Masque Ã  l'OrchidÃ©e", both below), and ordinary cluster reversal
+  // already turns *those* into "à" — this is the one case that needed a
+  // second, narrower rule to reach the same answer.
+  it.each([
+    ['Coty PrÃªt Ã Porter', 'Coty Prêt à Porter'],
+    ['Gloria Vanderbilt Minuit Ã New York', 'Gloria Vanderbilt Minuit à New York'],
+    ['Gloria Vanderbilt Jardin Ã New York Fraiche', 'Gloria Vanderbilt Jardin à New York Fraiche'],
+  ])('recovers the standalone-word case the byte reversal alone cannot: %s', (broken, fixed) => {
+    expect(repairMojibake(broken)).toBe(fixed);
+  });
+
+  it('repairs the same corruption where the non-breaking space survived', () => {
+    // The byte that the standalone-word cases above lost: 0xA0, U+00A0
+    // non-breaking space, spelled out here rather than typed literally so it
+    // cannot be silently collapsed by an editor the way it was upstream.
+    const nbsp = '\u00A0';
+    expect(repairMojibake(`Jeanne Arthes Balade Ã${nbsp} Paris`)).toBe('Jeanne Arthes Balade à Paris');
+    expect(repairMojibake(`Leonor Greyl Masque Ã${nbsp} l'OrchidÃ©e`)).toBe("Leonor Greyl Masque à l'Orchidée");
   });
 
   it('leaves correct French that merely trips the marker', () => {
@@ -317,5 +343,58 @@ describe('repairMojibake', () => {
 
   it('recovers a fragrance whose title was only mojibake-encoded', () => {
     expect(isFragrance(listing('mybeauty-boutique', 'Roger & Gallet VÃ©tyver Eau ParfumÃ©e 100ml Splash'))).toBe(true);
+  });
+
+  // A naive "fix mojibake" pass is exactly the kind of thing that corrupts
+  // real accented names — every one of these must reach repairMojibake and
+  // come back byte-for-byte identical.
+  it('never touches correctly-encoded names carrying real diacritics or symbols', () => {
+    for (const t of [
+      'Hermès',
+      "Guerlain L'Heure Bleue",
+      'N°5',
+      'Eau de Cologne Impériale',
+      'Lancôme',
+      'Estée Lauder',
+    ]) {
+      expect(repairMojibake(t)).toBe(t);
+    }
+  });
+
+  // Running the repair twice must never change a second time — neither on
+  // titles that needed fixing nor on ones that never did.
+  it('is idempotent', () => {
+    for (const t of [
+      'Coty PrÃªt Ã Porter Eau de Toilette 100ml Spray',
+      'Gloria Vanderbilt Jardin Ã New York Eau de Parfum Fraiche 100ml Spray',
+      'Gloria Vanderbilt Minuit Ã New York Eau de Parfum 100ml Spray',
+      "Hermès Terre d'Hermès Eau GivrÃ©e Eau de Parfum 175ml Spray",
+      'Lancôme Ã”ff Now Eau de Parfum 50ml Spray',
+      'Lancôme Ã”ver The Top Eau de Parfum 50ml Spray',
+      'Lancôme La Vie Est Belle IntensÃ©ment Eau de Parfum 50ml Spray',
+      'Hermès',
+      "Guerlain L'Heure Bleue",
+      'N°5',
+      'Eau de Cologne Impériale',
+      'Liquides Imaginaires Âme de Fleur',
+    ]) {
+      const once = repairMojibake(t);
+      const twice = repairMojibake(once);
+      expect(twice).toBe(once);
+    }
+  });
+
+  // The seven names this fix was written for, verified against the actual
+  // mojibake byte sequences rather than assumed from how they look.
+  it.each([
+    ['PrÃªt Ã Porter', 'Prêt à Porter'],
+    ['Jardin Ã New York Fraiche', 'Jardin à New York Fraiche'],
+    ['Minuit Ã New York', 'Minuit à New York'],
+    ["Terre d'Hermès Eau GivrÃ©e", "Terre d'Hermès Eau Givrée"],
+    ['Ã”ff Now', 'Ôff Now'],
+    ['Ã”ver The Top', 'Ôver The Top'],
+    ['La Vie Est Belle IntensÃ©ment', 'La Vie Est Belle Intensément'],
+  ])('recovers the demo catalogue mojibake name: %s', (broken, fixed) => {
+    expect(repairMojibake(broken)).toBe(fixed);
   });
 });
