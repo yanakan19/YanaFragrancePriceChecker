@@ -149,6 +149,34 @@ function answered(all: readonly MarketReading[]): MarketReading[] {
   return all.filter((r) => r.homeStatus !== null && r.homeStatus < 400);
 }
 
+/**
+ * Products whose first variant carries a price that is not zero.
+ *
+ * A free gift is 0.00 in every currency there has ever been, so a sample made
+ * of them cannot tell one price list from another — and escentual.com's
+ * products.json opens with two of them, which is how the first run of this
+ * probe spent six requests proving nothing.
+ */
+function priced(
+  products: readonly Record<string, unknown>[],
+): Array<{ handle: string; price: string; compareAt: string }> {
+  const out: Array<{ handle: string; price: string; compareAt: string }> = [];
+  for (const product of products) {
+    const variants = Array.isArray(product['variants'])
+      ? (product['variants'] as Array<Record<string, unknown>>)
+      : [];
+    const first = variants[0];
+    const price = Number.parseFloat(String(first?.['price'] ?? ''));
+    if (!Number.isFinite(price) || price <= 0) continue;
+    out.push({
+      handle: String(product['handle']),
+      price: String(first?.['price']),
+      compareAt: String(first?.['compare_at_price'] ?? '—'),
+    });
+  }
+  return out;
+}
+
 // ── The numbers themselves ───────────────────────────────────────────────────
 // A currency code is a claim about a price list. Printing a few of that list's
 // actual figures beside it is what turns the claim into something checkable by
@@ -184,15 +212,12 @@ if (productSample > 0) {
       `  ${candidate.label.padEnd(24)} quotes ${reading.currency.presented ?? 'nothing'} — ` +
         `${payload.products.length} products`,
     );
-    for (const product of payload.products.slice(0, productSample)) {
-      const variants = Array.isArray(product['variants'])
-        ? (product['variants'] as Array<Record<string, unknown>>)
-        : [];
-      const first = variants[0];
+    const rows = priced(payload.products).slice(0, productSample);
+    if (rows.length === 0) console.log('      no priced product in this page');
+    for (const row of rows) {
       console.log(
-        `      ${String(product['handle']).slice(0, 52).padEnd(52)} ` +
-          `price ${String(first?.['price'] ?? '—').padStart(9)}  ` +
-          `compare_at ${String(first?.['compare_at_price'] ?? '—').padStart(9)}`,
+        `      ${row.handle.slice(0, 52).padEnd(52)} ` +
+          `price ${row.price.padStart(9)}  compare_at ${row.compareAt.padStart(9)}`,
       );
     }
   }
@@ -233,15 +258,43 @@ if (productUrl) {
         continue;
       }
       const offers = readJsonLdOffers(res.body);
-      if (offers.length === 0) {
-        console.log(`  ${candidate.label.padEnd(24)} publishes no JSON-LD priceCurrency`);
-        continue;
+      const shown =
+        offers.length === 0
+          ? 'no JSON-LD priceCurrency'
+          : offers
+              .slice(0, 4)
+              .map((o) => `${o.price ?? '—'} ${o.currency ?? '—'}`)
+              .join(', ');
+
+      // And the same product through `/products/<handle>.json` — the endpoint
+      // crawlViaShopifyProducts actually reads. The HTML page and the JSON
+      // beside it are different documents and need not agree; finding that out
+      // after wiring the harvest rather than before is exactly the mistake
+      // this whole exercise is a correction of.
+      const jsonUrl = candidateUrl(candidate, `${path}.json`);
+      let variantPrices = 'not read';
+      if (isAllowed(robots, jsonUrl)) {
+        const jsonRes = await http(jsonUrl, { ...BROWSER_HEADERS, ...candidate.headers });
+        await sleep(gap);
+        if (!jsonRes.ok) {
+          variantPrices = `HTTP ${jsonRes.status}`;
+        } else {
+          try {
+            const parsed = JSON.parse(jsonRes.body) as {
+              product?: { variants?: Array<Record<string, unknown>> };
+            };
+            const variants = parsed.product?.variants ?? [];
+            variantPrices =
+              variants
+                .slice(0, 4)
+                .map((v) => `${String(v['title'])} ${String(v['price'])}`)
+                .join(' | ') || 'no variants';
+          } catch {
+            variantPrices = 'not JSON';
+          }
+        }
       }
-      const shown = offers
-        .slice(0, 4)
-        .map((o) => `${o.price ?? '—'} ${o.currency ?? '—'}`)
-        .join(', ');
-      console.log(`  ${candidate.label.padEnd(24)} ${shown}`);
+      console.log(`  ${candidate.label.padEnd(24)} page ${shown.padEnd(18)} .json ${variantPrices}`);
     }
     console.log('');
   }
