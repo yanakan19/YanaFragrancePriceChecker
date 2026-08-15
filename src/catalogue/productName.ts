@@ -11,6 +11,7 @@
  * Nothing here decides whether a listing is a fragrance at all; that lives in
  * fragranceId.ts, which is a different question with a different failure mode.
  */
+import { ML_SIZE_RE, OZ_SIZE_RE, OZ_TO_ML } from './fragranceId.js';
 
 /**
  * Concentrations, split into two tiers so a match can be tried by
@@ -240,4 +241,106 @@ export function displayName(title: string, brand: string | null, displayedBrand:
   // unbranded listing whose title is nothing but a concentration and a size
   // would, and an empty name is not something the app can render.
   return s || displayedBrand || brand || title;
+}
+
+/**
+ * One *standalone* size mention in a title — a size a reader would point to
+ * and call the size, as opposed to one fused into a multi-vial count like
+ * "2x90ml".
+ *
+ * Built from ML_SIZE_RE and OZ_SIZE_RE rather than its own patterns, so a
+ * token this finds is guaranteed to be one sizeMl() also reads — see the
+ * comment on those two in fragranceId.ts for why a second hand-written copy
+ * would be a bug waiting to happen. Two things are added on top of them:
+ *
+ *  - A leading `\b` neither of those two patterns has. sizeMl() does not
+ *    need one — it only ever wants *a* value, and "2x90 ml" reading as 90 is
+ *    a value worth having. This function needs to know whether the size is
+ *    its own token before deciding to touch it, and "2x90 ml" is not: there
+ *    is no boundary between the "x" and the "9" that follows it, so the
+ *    added `\b` refuses to match there at all, and the name falls through to
+ *    the same "no standalone mention" branch a genuine zero-mention name
+ *    does — see stripRedundantSize below.
+ *
+ *  - An optional trailing clause: sizeMl() stops at the first ml match and
+ *    never looks further, but a handful of house titles state the same
+ *    volume twice, once in ml and once as its fl oz conversion — "30 ml /
+ *    1.0 fl oz". Matching that whole clause here, even though only the ml
+ *    part is ever used as the value, is what keeps a stray "/ 1.0 fl oz"
+ *    from being left behind once the ml part is gone.
+ */
+const SIZE_TOKEN_RE = new RegExp(
+  `\\b${ML_SIZE_RE.source}(?:\\s*/\\s*\\d+(?:\\.\\d+)?\\s*fl\\.?\\s*oz\\b)?|\\b${OZ_SIZE_RE.source}`,
+  'gi',
+);
+
+/** The millilitre value a single SIZE_TOKEN_RE match states, by the same reading sizeMl() would give it. */
+function sizeTokenValueMl(token: string): number {
+  const ml = token.match(ML_SIZE_RE);
+  if (ml) return Math.round(Number.parseFloat(ml[1]!));
+  const oz = token.match(OZ_SIZE_RE)!;
+  return Math.round(Number.parseFloat(oz[1]!) * OZ_TO_ML);
+}
+
+/**
+ * Drop a size mention from a house product's name when it only repeats what
+ * `sizeMl` already says as its own field — "Ashore 100ml" beside a 100ml
+ * badge states the one fact twice. This is a house-products-only problem:
+ * displayName above already strips every ml mention unconditionally for
+ * retailer products (line 213), but a house listing's title passes straight
+ * through as `rawTitle` with no brand or concentration stripping either,
+ * because a house's own titles rarely repeat the brand or spell out a
+ * concentration the way a general retailer's do — so nothing upstream ever
+ * touches its size. Measured against the live house catalogue: 1,356 of
+ * 2,514 names carried one.
+ *
+ * Deliberately narrower than displayName's blanket strip in three ways,
+ * because a mangled product name is a worse failure than a verbose one:
+ *
+ *  - Exactly one size mention, no more. A name with two or more —
+ *    "ALEX ENABLE 150ML 150 ML" (the same size stated twice), "Molecule 01
+ *    8.5ml + Escentric 01 8.5ml" (two different bottles bundled, each with
+ *    its own size), "SHAGHAF AMBER INFUSION 75 ML + SHAGHAF OUD ROYALE 25
+ *    ML" (two different products at two different sizes) — is left exactly
+ *    as it is. Telling "the size is stated twice by accident" apart from
+ *    "the size is part of what is being sold, twice, on purpose" is not a
+ *    call this function can make from the text alone, and a wrong guess
+ *    mangles a real product name. Measured: 95 house names carry more than
+ *    one size mention.
+ *
+ *  - Multi-vial notation — "5x2ml", "(2x7ml)", "2x90 ml" — is identity, not
+ *    packaging noise: a discovery set's size *is* "5x2ml", not a single 2ml
+ *    bottle repeating a badge that would read "5x2ml" beside it. SIZE_TOKEN_RE's
+ *    own leading `\b` is what keeps this function out of that decision
+ *    rather than needing a separate rule for it — see that comment. sizeMl()
+ *    still assigns these a value (it reads "90" straight out of "2x90 ml"
+ *    with no boundary check of its own), so the two stay in step: a size the
+ *    app can show as a badge, in a name this function leaves alone. Checked:
+ *    17 house names are multi-vial notation this way, all left untouched.
+ *
+ *  - The mention must agree with `sizeMl`. A title reading one size beside a
+ *    `sizeMl` field reading another is not redundancy, it is two facts in
+ *    conflict, and silently deleting the text one would hide a real
+ *    disagreement a reader might otherwise have caught. Left untouched
+ *    rather than guessed at — measured: 0 of the live house catalogue's
+ *    single-mention names disagree with their own `sizeMl` today, but the
+ *    check stays because a future harvest is not guaranteed to.
+ *
+ * A name that is only ever a size — "100ml" and nothing else — is also left
+ * alone rather than emptied. None exist in the catalogue today, but an empty
+ * product name is not something the app can render if one ever does.
+ */
+export function stripRedundantSize(name: string, sizeMl: number | null): string {
+  if (sizeMl == null) return name;
+  const tokens = [...name.matchAll(SIZE_TOKEN_RE)];
+  if (tokens.length !== 1) return name;
+  const token = tokens[0]!;
+  if (sizeTokenValueMl(token[0]) !== sizeMl) return name;
+  const stripped = (name.slice(0, token.index) + name.slice(token.index! + token[0].length))
+    .replace(/\(\s*\)/g, ' ')
+    .replace(/\[\s*\]/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/^[\s,\-&|]+|[\s,\-|]+$/g, '')
+    .trim();
+  return stripped || name;
 }
