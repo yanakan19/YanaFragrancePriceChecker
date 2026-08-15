@@ -200,10 +200,9 @@ function fold(title: string): string {
  * So the repair belongs here, ahead of folding, rather than only at display
  * time: the same text has to drive both the decision and the label.
  *
- * Deliberately conservative. The round trip only replaces the title when the
- * result is strictly better — no U+FFFD replacement characters, and the
- * tell-tale sequences actually present — so a title containing a legitimate
- * "Ã" is left exactly as it is.
+ * Deliberately conservative. Only a substring that is actually, provably a
+ * CP1252 misreading of valid UTF-8 is ever replaced — a legitimate "Ã" or
+ * "Â" is left exactly as it is.
  *
  * ── Why the reverse step is CP1252 and not Latin-1 ──────────────────────────
  * The upstream decoder was a Windows one, and Windows-1252 is not Latin-1 in
@@ -211,37 +210,64 @@ function fold(title: string): string {
  * typography. So the UTF-8 byte 0x89 — the second byte of "É" — came back as
  * "‰" (U+2030), not as a control character, and `Buffer.from(s, 'latin1')`
  * cannot put it back: it truncates U+2030 to 0x30, the digit "0". "Ã‰clat"
- * became "�0clat", the guard saw the U+FFFD and correctly refused, and
- * eleven real titles stayed broken on the site because the reversal was using
+ * became "�0clat", a whole-string guard would see the U+FFFD and refuse the
+ * entire title, and real titles stayed broken because the reversal was using
  * the wrong table rather than because they were unrepairable.
  *
  * Mapping those 27 characters back to the bytes they came from is not a
  * guess — it is the exact inverse of the decoding that broke them. It
  * recovers "Atelier Cologne Éclat De Tubéreuse", "Caron Rose Ébène", "Miller
- * Harris Étui Noir", "Giorgio Armani SÌ" and "Benetton TRIBÙ, and it changes
- * no title that does not carry a mojibake marker (measured across all 32,920
- * active listings: 0).
+ * Harris Étui Noir", "Giorgio Armani SÌ" and "Benetton TRIBÙ".
  *
- * ── What is still left broken, on purpose ───────────────────────────────────
- * The U+FFFD guard stays, and 27 titles still fail it. Three distinct reasons,
- * all measured, none of them fixable by trying harder:
+ * ── Why the repair runs per two-character cluster, not on the whole string ──
+ * A first version of this function round-tripped the *entire* title through
+ * CP1252 at once, and that broke on exactly the titles that most needed
+ * fixing: "Hermès Terre d'Hermès Eau GivrÃ©e" carries one *correct* UTF-8
+ * accent ("Hermès", byte 0xC3 0xA8) sitting right next to one *broken* one
+ * ("GivrÃ©e"). A whole-string reversal has no way to treat those two
+ * differently — reading "è" back as a CP1252 byte and continuing into "s"
+ * (not a valid continuation byte) invalidates the decode, and the guard then
+ * refuses the *entire* title, "Hermès" included, leaving the one part that
+ * needed fixing untouched along with the part that never did.
  *
- *   1. **Mixed encoding.** One correct UTF-8 accent and one mojibake sequence
- *      in the same string — "Lancôme Ã”ff Now", "Hermès Terre d'Hermès Eau
- *      GivrÃ©e", "L'Oréal Professionnel SÃ©rie Expert". The correct half has
- *      no valid reverse: "ô" is byte 0xF4, a UTF-8 lead byte with nothing
- *      following it, so any round trip corrupts the half that is already
- *      right. Refusing is the only honest answer.
- *   2. **The identifying byte is gone.** "Coty PrÃªt Ã Porter", "Gloria
- *      Vanderbilt Minuit Ã New York": that "Ã" should be followed by 0xA0
- *      (the second byte of "à"), and something upstream normalised the
- *      non-breaking space to an ordinary one. 0xC3 0x20 is not valid UTF-8 and
- *      never was. Reading it as "à" would be inferring the character from the
- *      product name rather than from the encoding, which is the one thing this
- *      function must not start doing.
- *   3. **It was never mojibake.** "Liquides Imaginaires Âme de Fleur" is
- *      correct French — âme, soul — and only trips the `Â.` marker. The guard
- *      declining it is the guard working, not failing.
+ * Repairing `/[ÃÂ][\s\S]/` clusters one at a time instead means each
+ * candidate mojibake pair stands or falls on its own two characters. "GivrÃ©e"
+ * repairs to "Givrée" while the neighbouring "Hermès" is never even examined,
+ * because it does not start with "Ã" or "Â" in the first place. This is what
+ * recovers "Lancôme Ã”ff Now" → "Lancôme Ôff Now", "Lancôme La Vie Est Belle
+ * IntensÃ©ment" → "...Intensément", and the Hermès title above — all three
+ * previously left broken by the whole-string version — without touching a
+ * single correctly-encoded character anywhere else in the same title.
+ *
+ * ── The one case handled by pattern, not by byte reversal ──────────────────
+ * "Coty PrÃªt Ã Porter", "Gloria Vanderbilt Minuit Ã New York", "...Jardin Ã
+ * New York": the "êt" in each of these repairs by ordinary cluster reversal
+ * ("Ãª" → "ê"), but the bare "Ã" that follows does not — it should be
+ * followed by 0xA0, the second byte of "à", and something upstream collapsed
+ * that non-breaking space into an ordinary one, so 0xC3 0x20 is left, which
+ * is not valid UTF-8 and never was: there is no byte sequence to reverse.
+ *
+ * A bare "Ã" standing as its own whitespace-delimited word is nonetheless
+ * repaired to "à", and this is evidence, not a guess dressed up as one: 0xA0
+ * is the *only* byte a two-byte UTF-8 sequence starting 0xC3 can end in that
+ * CP1252 maps to something whitespace — every other continuation byte in that
+ * lead byte's range (0x80-0xBF) becomes a visible character (€, ª, ©, ¨...),
+ * which would still be sitting right there if that were what had happened. So
+ * a lone "Ã" between spaces cannot have come from any other accented letter —
+ * the same corpus confirms it directly: "Jeanne Arthes Balade Ã  Paris"
+ * and "Leonor Greyl Masque Ã  l'Orchidée" carry the identical corruption
+ * with the non-breaking space still intact, and ordinary cluster reversal
+ * already turns those into "à" with zero special-casing. The isolated-word
+ * rule below only supplies the byte that a whitespace normaliser deleted
+ * elsewhere in the very same feed — it names no character this function
+ * cannot already prove.
+ *
+ * ── What is still left alone, on purpose ────────────────────────────────────
+ * "Liquides Imaginaires Âme de Fleur" is correct French — âme, soul — and
+ * only trips the `Â.` marker that decides whether to look at all. "Â" is
+ * followed by "m", 0x6D is not a valid UTF-8 continuation byte for lead byte
+ * 0xC2, the per-cluster decode is invalid, and the cluster is left exactly as
+ * written. Declining it is this function working, not failing.
  */
 
 /**
@@ -279,17 +305,28 @@ function cp1252Bytes(s: string): Buffer | null {
   return Buffer.from(bytes);
 }
 
+/**
+ * The one correct character a two-character `[ÃÂ][\s\S]` cluster stands for,
+ * or null if this specific pairing could not have come from a CP1252
+ * misreading of valid UTF-8 — in which case there is nothing to undo and the
+ * two characters are left exactly as they are.
+ */
+function cp1252Pair(pair: string): string | null {
+  const bytes = cp1252Bytes(pair);
+  if (bytes === null || bytes.length !== 2) return null;
+  const repaired = bytes.toString('utf8');
+  if (repaired.length !== 1 || repaired.includes('�')) return null;
+  return repaired;
+}
+
 export function repairMojibake(title: string): string {
   if (!/Ã.|â€|Â./.test(title)) return title;
-  try {
-    const bytes = cp1252Bytes(title);
-    if (bytes === null) return title;
-    const repaired = bytes.toString('utf8');
-    if (repaired.includes('�')) return title;
-    return repaired;
-  } catch {
-    return title;
-  }
+  let out = title.replace(/[ÃÂ][\s\S]/g, (pair) => cp1252Pair(pair) ?? pair);
+  // See "The one case handled by pattern, not by byte reversal" above: the
+  // only whitespace-delimited word a bare "Ã" can be is "à" losing its
+  // non-breaking-space second byte to a later normaliser.
+  out = out.replace(/(^|\s)Ã(?=\s|$)/g, (_match, lead: string) => `${lead}à`);
+  return out;
 }
 
 export function isFragrance(l: StoredListing): boolean {
