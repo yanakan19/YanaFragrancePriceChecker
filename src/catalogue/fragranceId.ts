@@ -81,12 +81,27 @@ const CONCENTRATION =
 export const NOT_A_FRAGRANCE =
   /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|body cream|shampoo|conditioner|deodorant|shower gel|body wash|candle|diffuser|reed|gift ?set|set of|bundle|tester|sample|refill|travel spray|decant|hand wash|moisturis|lotion|balm|scrub|talc|hair|air ?freshener|room spray|lamp fragrance|home spray|body spray|body mist)\b/i;
 
+/**
+ * The size phrases sizeMl() reads, exported so a caller that needs to find
+ * rather than merely measure a size — productName.ts's stripRedundantSize,
+ * which has to locate the exact substring stating the size before it can
+ * remove it — matches precisely what this function matches. A second,
+ * independently written copy of these two patterns would drift the moment
+ * either one changed, and the failure mode is exactly the header comment
+ * above: a title sizeMl() reads a size out of, that the other pattern reads
+ * differently or not at all.
+ */
+export const ML_SIZE_RE = /(\d{1,4}(?:\.\d)?)\s*ml\b/i;
+export const OZ_SIZE_RE = /(\d{1,2}(?:\.\d)?)\s*(?:fl\.?\s*)?oz\b/i;
+/** 1 fl oz in millilitres — the imperial fluid ounce, which is what every oz size in the catalogue means. */
+export const OZ_TO_ML = 29.5735;
+
 /** Size in millilitres, needed before two listings can be compared at all. */
 export function sizeMl(title: string): number | null {
-  const ml = title.match(/(\d{1,4}(?:\.\d)?)\s*ml\b/i);
+  const ml = title.match(ML_SIZE_RE);
   if (ml) return Math.round(Number.parseFloat(ml[1]!));
-  const oz = title.match(/(\d{1,2}(?:\.\d)?)\s*(?:fl\.?\s*)?oz\b/i);
-  if (oz) return Math.round(Number.parseFloat(oz[1]!) * 29.5735);
+  const oz = title.match(OZ_SIZE_RE);
+  if (oz) return Math.round(Number.parseFloat(oz[1]!) * OZ_TO_ML);
   return null;
 }
 

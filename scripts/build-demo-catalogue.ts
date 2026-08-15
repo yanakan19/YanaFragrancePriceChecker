@@ -34,7 +34,7 @@ import {
   repairMojibake,
   NOT_A_FRAGRANCE,
 } from '../src/catalogue/fragranceId.js';
-import { concentration, displayName } from '../src/catalogue/productName.js';
+import { concentration, displayName, stripRedundantSize } from '../src/catalogue/productName.js';
 
 /**
  * Retailers whose product photos may be displayed, and on what grounds.
@@ -672,12 +672,19 @@ if (existsSync(housesDir)) {
       if (l.status !== 'active') continue;
       if (!isHouseFragrance(l)) continue;
 
+      // A house's own title is used as-is, unlike a retailer listing's (see
+      // displayName above) — so the size sizeMl already carries as its own
+      // field is otherwise still sitting in the name too, doubling up on the
+      // card as both "Ashore 100ml" and a 100ml badge. stripRedundantSize
+      // only removes it where the two plainly agree; see its own comment for
+      // the cases it deliberately leaves alone.
+      const size = sizeMl(l.rawTitle);
       houseProducts.push({
         id: `${id}-${l.retailerSku}`.replace(/[^a-z0-9-]/gi, '-').toLowerCase(),
         house: houseName,
         brand: canonBrand(l.rawBrand) ?? houseName,
-        name: l.rawTitle,
-        sizeMl: sizeMl(l.rawTitle),
+        name: stripRedundantSize(l.rawTitle, size),
+        sizeMl: size,
         url: l.url,
         // A house's own photography of its own bottle, hot-linked exactly like
         // every other image here — nothing is downloaded or rehosted.

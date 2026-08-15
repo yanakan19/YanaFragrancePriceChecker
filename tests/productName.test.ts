@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { brandTitleOpens, concentration, displayName } from '../src/catalogue/productName.js';
+import { brandTitleOpens, concentration, displayName, stripRedundantSize } from '../src/catalogue/productName.js';
 
 /**
  * What a reader sees under a product photo: the name, with the brand, size and
@@ -131,5 +131,102 @@ describe('displayName: what it deliberately leaves in the name', () => {
   it('does not mistake a leading "Oud" for the concentration', () => {
     expect(concentration('Oud & Roses Perfume 60ml EDP')).toBe('Eau de Parfum');
     expect(displayName('Oud & Roses Perfume 60ml EDP', null, null)).toBe('Oud & Roses Perfume');
+  });
+});
+
+describe('stripRedundantSize: a house product name does not repeat its own sizeMl badge', () => {
+  it('strips a plain trailing size', () => {
+    expect(stripRedundantSize('Ashore 100ml', 100)).toBe('Ashore');
+  });
+
+  // The punctuation forms a house's own storefront actually writes. Each
+  // must come back clean — no trailing dash, comma, bracket or double space.
+  it.each([
+    ['Ashore - 100ml', 'Ashore'],
+    ['Ashore (100ml)', 'Ashore'],
+    ['Ashore, 100 ml', 'Ashore'],
+    ['Ashore [100ml]', 'Ashore'],
+  ])('%s -> %s', (name, expected) => {
+    expect(stripRedundantSize(name, 100)).toBe(expected);
+  });
+
+  it('strips a size sitting in the middle of the name, not just at the end', () => {
+    expect(stripRedundantSize('Boundless EDP 100ml (2025)', 100)).toBe('Boundless EDP (2025)');
+  });
+
+  it('reads mL and ML the same as ml', () => {
+    expect(stripRedundantSize('Baruch V 100ML', 100)).toBe('Baruch V');
+    expect(stripRedundantSize('Baruch V 100mL', 100)).toBe('Baruch V');
+  });
+
+  // sizeMl() itself falls back to a fl oz reading when a title has no ml
+  // number at all, and a handful of house titles state the same volume
+  // twice this way: once in ml, once as its fl oz conversion. The whole
+  // "30 ml / 1.0 fl oz" clause is one size mention, not two, and comes out
+  // together rather than leaving a stray "/ 1.0 fl oz" behind.
+  it('strips a compound ml/fl oz size as one mention', () => {
+    expect(stripRedundantSize('Absinth 30 ml / 1.0 fl oz Extrait de Parfum', 30)).toBe(
+      'Absinth Extrait de Parfum',
+    );
+    expect(stripRedundantSize('Absinth 4 ml / 0.135 fl.oz Perfume Oil', 4)).toBe('Absinth Perfume Oil');
+  });
+
+  // A year is not a size, and nothing here should ever touch one — but this
+  // is really just displayName's own coverage restated: neither function
+  // strips a bare number, only one immediately followed by a size unit.
+  it('leaves a year-like number alone', () => {
+    expect(stripRedundantSize('Dior Homme 2020', 100)).toBe('Dior Homme 2020');
+    expect(stripRedundantSize('Acqua di Parma Colonia 1916', 100)).toBe('Acqua di Parma Colonia 1916');
+    expect(stripRedundantSize('Chanel No 5', 100)).toBe('Chanel No 5');
+    expect(stripRedundantSize('4711', 100)).toBe('4711');
+  });
+
+  it('does nothing when sizeMl is null', () => {
+    expect(stripRedundantSize('Ashore 100ml', null)).toBe('Ashore 100ml');
+  });
+
+  it('does nothing when the name has no size mention at all', () => {
+    expect(stripRedundantSize('Ashore', 100)).toBe('Ashore');
+  });
+
+  // A name that is only ever a size must not become empty.
+  it('leaves a name that is nothing but a size alone rather than emptying it', () => {
+    expect(stripRedundantSize('100ml', 100)).toBe('100ml');
+    expect(stripRedundantSize('(100ml)', 100)).toBe('(100ml)');
+  });
+
+  // A data conflict, not redundancy: the name and sizeMl disagree, so
+  // neither is quietly hidden by deleting the text.
+  it('leaves a name alone when its stated size disagrees with sizeMl', () => {
+    expect(stripRedundantSize('Ashore 100ml', 50)).toBe('Ashore 100ml');
+  });
+
+  // Multi-vial notation is the product's identity, not a repeated badge —
+  // "Discovery Set 5x2ml" is a 5x2ml set, not a single 2ml bottle. This
+  // falls out of the same word-boundary quirk sizeMl() and displayName's own
+  // strip both already rely on: there is no boundary between the "x" and the
+  // digit that follows it, so "x2ml" is never read as a standalone mention.
+  it.each([
+    ['Discovery Set 5x2ml', 10],
+    ['Legend Of Valleys-2x90 ml', 90],
+    ['Fragrance Paintbrush (2x7ml)', 7],
+    ['With Love from Italy A Fragrance Trio (3x10ml)', 10],
+  ])('leaves a multi-vial set untouched: %s', (name, size) => {
+    expect(stripRedundantSize(name, size)).toBe(name);
+  });
+
+  // More than one *standalone* size mention is left alone too — whether it
+  // is the same size stated twice ("150ML 150 ML"), two different bundled
+  // products each with their own size ("A 8.5ml + B 8.5ml"), or two
+  // genuinely different sizes ("75 ML + ... 25 ML"). None of these is a
+  // single fact repeated on the card; guessing which case is which from the
+  // text alone risks mangling a real product name.
+  it.each([
+    ['ALEX ENABLE 150ML 150 ML', 150],
+    ['Molecule 01 8.5ml + Escentric 01 8.5ml', 9],
+    ['SHAGHAF AMBER INFUSION 75 ML + SHAGHAF OUD ROYALE 25 ML', 75],
+    ['BAKHUR PEGASUS 100ML 150 ML', 100],
+  ])('leaves a name with more than one size mention untouched: %s', (name, size) => {
+    expect(stripRedundantSize(name, size)).toBe(name);
   });
 });
