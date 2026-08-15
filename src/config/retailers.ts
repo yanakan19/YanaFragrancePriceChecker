@@ -824,18 +824,46 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'escentual.com',
     homepage: 'https://www.escentual.com',
     tiers: ['designer'],
-    // Off since 2026-08-13: its prices are on a foreign scale, roughly 1.44×
-    // two UK shops that agree with each other to three decimal places. See
-    // CURRENCY_UNCONFIRMED at the foot of this file for the measurements and
-    // for what was NOT established (which currency it actually quotes).
+    // Off since 2026-08-13, and the reason is now known rather than suspected.
     //
-    // 86c4660 fixed the ingest that caused this — shopifyProductsCrawl.ts now
-    // asks the storefront rather than stamping GBP from this registry — and
-    // 8,104 stored prices were cleared. This flag is the second lock, not a
-    // duplicate of the first: if the storefront answers GBP at rate 1 to a CI
-    // runner, the ingest guard passes and only the price-scale audit would
-    // stand between those figures and the site. Two independent things then
-    // have to fail rather than one.
+    // What was said on 13 Aug: its prices sat on a foreign scale, roughly 1.44x
+    // two UK shops that agreed with each other, and which currency it actually
+    // quoted was NOT established because nothing here could reach the shop.
+    //
+    // What was measured on 15 Aug, from a GitHub Actions runner, which can
+    // (currency probe, run 31880556596, job 95002418010, commit a735ef6):
+    // escentual.com is a UK shop that SETTLES in GBP and quotes whoever asks
+    // in the currency of wherever they are asking from. To that runner it
+    // quoted USD at its own published rate of 1.38605, and served 57.00 for
+    // the Calvin Klein Obsession 125ml this repo had published as "£57.00".
+    // Asked with ?country=GB the same shop, the same endpoint, the same
+    // product came back 40.95 GBP at rate 1. So the 8,104 figures were dollars
+    // — not a mislabelled foreign price list, but this project standing in
+    // Virginia and writing down what it was shown.
+    //
+    // Note what 40.95 is not: 57 / 1.38605 is 41.12. A Shopify market applies
+    // its own rounding, so the shop's GBP list is not its USD list converted
+    // back, and nobody may ever "recover" one from the other.
+    //
+    // src/catalogue/shopifyProductsCrawl.ts can now find that market by
+    // itself: where the origin is not established as sterling it tries the
+    // ways a UK price list can be addressed and reads the catalogue from the
+    // first that proves itself GBP, settling GBP, at no conversion. So this
+    // shop is now harvestable in pounds — which is a different thing from
+    // being provably safe to publish, and the switch below is still off.
+    //
+    // What is still not established is what a *checkout* charges, which is the
+    // bar CURRENCY_UNCONFIRMED at the foot of this file sets for leaving it.
+    // Nothing here has put anything in a basket, and a storefront price list
+    // is very strong evidence for that and is not that. Turning this on is a
+    // human's call: read the entry at the foot of this file first, and if you
+    // make it, harvest before you enable — data/catalogue/escentual.json holds
+    // no sterling price today, on purpose.
+    //
+    // This flag is the second lock, not a duplicate of the first: if the
+    // storefront answers GBP at rate 1 to a CI runner, the ingest guard passes
+    // and only the price-scale audit would stand between those figures and the
+    // site. Two independent things then have to fail rather than one.
     enabled: false,
     // No Awin approval yet, so this is a direct scrape rather than a feed —
     // the requested route for this retailer. No live spike was possible from
@@ -869,19 +897,30 @@ export const RETAILERS: readonly Retailer[] = [
     shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
-      standardGbp: 2.45,
+      // £2.45 until 2026-08-15, and £2.45 was wrong.
+      //
+      // That figure came from search-engine cached copies of the delivery page
+      // rather than the page, because the environment it was written in cannot
+      // reach escentual.com. A runner that can was pointed at it — shipping
+      // probe, run 31880775379, job 95002922730, commit 05e2263 — and the page
+      // itself says £3.50. The registry was 45% under the real cost on a site
+      // whose default sort key is delivered price, which is exactly how a shop
+      // gets shown as cheapest when it is not; the same class of error as a
+      // wrong price, and quieter.
+      //
+      // The threshold survived the check unchanged. The window did not: the
+      // page says 3-5 working days, so the 2-5 span recorded to reconcile two
+      // disagreeing cached copies can go.
+      standardGbp: 3.5,
       freeOverGbp: 30,
-      // Two independently found copies of their delivery page disagreed on
-      // the window (2-5 vs 3-5 working days) — the wider span is recorded so
-      // neither reading is contradicted.
-      estimatedDays: [2, 5],
-      verifiedAt: '2026-08-05',
-      // Not read directly off escentual.com/pages/delivery-information — that
-      // host is unreachable from this environment. Sourced instead from
-      // search-engine cached copies of that page's own text, the same
-      // indirect-but-real-number standard already applied to Fragrance Click
-      // above. Unverified until someone opens the page in a real browser.
-      confidence: 'unverified',
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-15',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.escentual.com/pages/delivery-information',
+        quote: 'Standard Delivery ~ £3.50 / free on orders over £30 ~ 3-5 working days*',
+        readAt: '2026-08-15',
+      },
       notes:
         'A paid annual "Delivery Pass" (£9.95) gives free next-day delivery on orders over ' +
         '£20 — a membership perk, not modelled in the headline price. 2-Day (£3.50, order by ' +
@@ -2364,20 +2403,29 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
   ],
   [
     'escentual',
-    'Its published figures sit on a foreign scale, measured offline on 2026-08-13 (commit ' +
-      '86c4660). A reference price is a manufacturer fact, so two honest UK shops quoting the ' +
-      "same bottle agree: fragrance-click against mybeauty-boutique gives a median `was` ratio " +
-      'of 1.000 over 188 products. Escentual agrees with neither — 1.452 against fragrance-click ' +
-      '(132 products, p25 1.400, p75 1.513, none within 5% of parity) and 1.443 against ' +
-      'mybeauty-boutique (213 products). A hand check of Calvin Klein Obsession For Men 125ml ' +
-      'EDT on 2026-08-13 found the storefront showing £40.25 against our £57.00, a ratio of ' +
-      '1.416, inside that band. Its selling and compare-at prices move together, so both sit on ' +
-      'the same scale. The cause was src/catalogue/shopifyProductsCrawl.ts stamping GBP onto ' +
-      'every price it read, on the registry\'s authority rather than the response\'s; that is ' +
-      'fixed, and this entry records that the shop\'s own currency is still not established. ' +
-      'Which currency it actually quotes was NOT determined — no network reached it from where ' +
-      'this was measured, and 1.44 is not asserted to be any exchange rate. It ran enabled with ' +
-      '2,542 offer rows live until 2026-08-13.',
+    'The shop is a UK shop and it charges in pounds; what was published here was dollars. ' +
+      'Measured 2026-08-15 from a GitHub Actions runner (currency probe, run 31880556596, job ' +
+      '95002418010, commit a735ef6): escentual.com/meta.json says it SETTLES in GBP, while its ' +
+      'theme quoted that runner USD at its own published rate of 1.38605. Asked ?country=GB — ' +
+      'or holding the localization=GB cookie a country selector sets — the same storefront ' +
+      'quotes GBP at rate 1. The difference is not cosmetic: /products.json served 39.00 for ' +
+      'nuxe-reve-de-miel-ultra-comforting-body-cream at the origin and 28.00 under ?country=GB, ' +
+      'and the Calvin Klein Obsession 125ml this repo held at "£57.00" came back 40.95 GBP. ' +
+      'That is what the offline measurement of 2026-08-13 (commit 86c4660) was seeing when it ' +
+      'found this shop 1.452x fragrance-click over 132 products and 1.443x mybeauty-boutique ' +
+      'over 213, where those two agree with each other at 1.000, and when a hand check from the ' +
+      'UK read £40.25 against our £57.00. Nothing in this repo ever applied a rate; the shop ' +
+      'applied one and we wrote the result down as pounds. Nor may anyone undo it that way: 57 ' +
+      '/ 1.38605 is 41.12 and the GBP list says 40.95, because a Shopify market rounds its own ' +
+      'prices. It ran enabled with 2,542 offer rows live until 2026-08-13. ' +
+      'WHAT WOULD TAKE IT OFF THIS LIST: the bar above is a checkout, and a checkout is exactly ' +
+      'what has not been reached — no basket has been made at this shop and none should be made ' +
+      'casually. What is held instead is a storefront price list the shop labels GBP, settling ' +
+      'GBP, at no conversion, in two independent documents (the theme and the product page\'s ' +
+      'schema.org priceCurrency), reproducible in a minute by dispatching price-verify.yml with ' +
+      'currency_probe and currency_probe_require_gbp. A human may decide that clears the bar. ' +
+      'This id stays here until one does, and the deciding is the point: it is not a thing to ' +
+      'infer from a green tick.',
   ],
 ]);
 
