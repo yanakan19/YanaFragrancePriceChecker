@@ -374,6 +374,37 @@ describe('parseAwinFeed — description passthrough', () => {
   });
 });
 
+describe('parseAwinFeed — repairs mojibake at the point of entry', () => {
+  // MyBeauty.Boutique's own feed hands over `product_name` already UTF-8
+  // decoded as CP1252 for a subset of rows — confirmed against
+  // data/catalogue/mybeauty-boutique.json, which stored "RosÃ©" for "Rosé"
+  // long before this project's build step ever saw it. Repairing it here,
+  // where every RawListing field is built, means every caller of this
+  // parser gets a clean row, not just the one that happened to call
+  // repairMojibake itself.
+  it('repairs a mojibake product_name', () => {
+    const csv = `${STANDARD_HEADER}\n${standardRow({ product_name: '212 VIP RosÃ© Eau de Parfum 100ml Spray' })}\n`;
+    expect(parseAwinFeed(csv)[0]?.rawTitle).toBe('212 VIP Rosé Eau de Parfum 100ml Spray');
+  });
+
+  it('repairs a mojibake brand_name', () => {
+    const header = `brand_name,${STANDARD_HEADER}`;
+    const row = `${csvField('LancÃ´me')},${standardRow()}`;
+    const csv = `${header}\n${row}\n`;
+    expect(parseAwinFeed(csv)[0]?.rawBrand).toBe('Lancôme');
+  });
+
+  it('repairs a mojibake description', () => {
+    const csv = `${STANDARD_HEADER}\n${standardRow({ description: 'A ChÃ¢teau-inspired scent, invented for testing only' })}\n`;
+    expect(parseAwinFeed(csv)[0]?.description).toBe('A Château-inspired scent, invented for testing only');
+  });
+
+  it('leaves a correctly-encoded product_name untouched', () => {
+    const csv = `${STANDARD_HEADER}\n${standardRow({ product_name: 'Hermès Eau de Parfum 100ml' })}\n`;
+    expect(parseAwinFeed(csv)[0]?.rawTitle).toBe('Hermès Eau de Parfum 100ml');
+  });
+});
+
 describe('parseAwinFeed — empty input', () => {
   it('returns an empty array for an empty file', () => {
     expect(parseAwinFeed('')).toEqual([]);
