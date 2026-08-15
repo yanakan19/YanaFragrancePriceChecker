@@ -9,17 +9,17 @@
  *
  * ── Why this exists as its own script ────────────────────────────────────────
  * Six retailers sit in `CURRENCY_UNCONFIRMED` in src/config/retailers.ts, off
- * the site, each waiting on the same single fact: what does the shop actually
- * charge in. Nothing in this repo could go and find out. `price:verify` gets
+ * the site, each waiting on the same single fact: what the shop actually
+ * charges in. Nothing in this repo could go and find out. `price:verify` gets
  * close — it reads a storefront's currency on the way past — but its answer is
  * a by-product of a drift measurement it can only make when there are stored
  * prices to compare, it needs a per-shop time budget in the minutes, and when
  * the currency turns out to be foreign it stops, which is the exact moment the
  * question gets interesting.
  *
- * This asks the currency question on its own: five addresses, two documents
- * each, a few seconds, no snapshot required, and it runs against a retailer
- * whose `enabled` is false, which every one of the six is.
+ * This asks the currency question on its own: ten ways of asking, a few
+ * documents each, under a minute, no snapshot required, and it runs against a
+ * retailer whose `enabled` is false, which every one of the six is.
  *
  * ── Why it must run in CI, not here ──────────────────────────────────────────
  * The environment this script was written in has no outbound network — every
@@ -27,13 +27,23 @@
  * guessed from here would be a number someone made up applied to thousands of
  * listings in front of shoppers, which is the one thing this repo must never
  * do. So the script is built to be run by .github/workflows/price-verify.yml,
- * on a runner that does have network, and `--require-gbp` makes that run's
- * own green tick the evidence: the step fails unless the storefront published
- * sterling at an address we can read prices from.
+ * on a runner that does have network, and `--require-gbp` makes that run's own
+ * green tick the evidence: the step fails unless the storefront served
+ * sterling to a request we know how to make.
  *
  * That is the same standard demo/virtualYanny.ts already records for the
  * chatbot's backend URL — a CI job's check, cited by job id, standing in for a
  * request this machine cannot make.
+ *
+ * ── The catch a runner introduces, and why the script says it out loud ───────
+ * A GitHub runner is not in the UK. Under Shopify Markets the market — and so
+ * the price list — is chosen by where the visitor is, so "quotes GBP" from
+ * Virginia and "quotes USD" from Virginia mean quite different things, and
+ * only the first transfers. That is why every line below names the request
+ * that produced it, and why the summary distinguishes "this shop has no
+ * sterling list" from "no request we know how to make reached it". Escentual
+ * is the second case: run 31880073037 found it settling in GBP while quoting
+ * this runner USD at 1.38605.
  *
  * ── What it does not do ──────────────────────────────────────────────────────
  * Writes nothing. Commits nothing. Converts nothing. It cannot re-enable a
@@ -54,7 +64,9 @@ import {
   probeMarkets,
   summariseMarketProbe,
   readJsonLdOffers,
-  UK_MARKET_PREFIXES,
+  ukMarketCandidates,
+  candidateUrl,
+  type MarketReading,
 } from '../src/catalogue/marketProbe.js';
 import { isShopifyProductsPayload } from '../src/catalogue/shopifyJson.js';
 
@@ -69,7 +81,9 @@ const productUrl = arg('product');
 const requireGbp = process.argv.includes('--require-gbp');
 
 if (!shopId) {
-  console.error('usage: npm run currency:probe -- --shop=<retailer id> [--products=N] [--product=URL] [--require-gbp]');
+  console.error(
+    'usage: npm run currency:probe -- --shop=<retailer id> [--products=N] [--product=URL] [--require-gbp]',
+  );
   process.exit(2);
 }
 
@@ -85,7 +99,8 @@ if (!retailer) {
 const http: Http = createHttp({ timeoutMs: 20_000 });
 const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
-const origin = `https://${retailer.domain.replace(/^www\./, '')}`;
+const domain = retailer.domain.replace(/^www\./, '');
+const origin = `https://${domain}`;
 
 async function robotsFor(base: string): Promise<RobotsRules> {
   const res = await http(`${base}/robots.txt`, BROWSER_HEADERS);
@@ -95,21 +110,27 @@ async function robotsFor(base: string): Promise<RobotsRules> {
 
 const robots = await robotsFor(origin);
 if (robots.unavailable) {
-  console.log(`robots.txt could not be read at ${origin} — holding off rather than assuming we are welcome`);
+  console.log(
+    `robots.txt could not be read at ${origin} — holding off rather than assuming we are welcome`,
+  );
   process.exit(requireGbp ? 1 : 0);
 }
 
-const gap = Math.max(retailer.catalogue?.minRequestGapMs ?? 0, (robots.crawlDelaySeconds ?? 0) * 1000);
+const gap = Math.max(
+  retailer.catalogue?.minRequestGapMs ?? 0,
+  (robots.crawlDelaySeconds ?? 0) * 1000,
+);
 
 console.log('');
 console.log(`Currency probe: ${retailer.name} (${retailer.id})`);
 console.log(`origin    ${origin}`);
 console.log(`enabled   ${retailer.enabled}`);
-console.log(`gap       ${gap}ms (registry ${retailer.catalogue?.minRequestGapMs ?? 0}, robots ${robots.crawlDelaySeconds ?? 0}s)`);
+console.log(
+  `gap       ${gap}ms (registry ${retailer.catalogue?.minRequestGapMs ?? 0}, robots ${robots.crawlDelaySeconds ?? 0}s)`,
+);
 console.log('');
 
-const readings = await probeMarkets(origin, http, BROWSER_HEADERS, {
-  prefixes: UK_MARKET_PREFIXES,
+const readings = await probeMarkets(ukMarketCandidates(origin), http, BROWSER_HEADERS, {
   allow: (url) => isAllowed(robots, url),
   gapMs: gap,
   sleep,
@@ -117,43 +138,56 @@ const readings = await probeMarkets(origin, http, BROWSER_HEADERS, {
 
 const verdict = summariseMarketProbe(readings);
 
-console.log('──────── what each address published ────────');
+console.log('──────── what each way of asking published ────────');
 for (const line of verdict.lines) console.log(`  ${line}`);
 console.log('');
 console.log(`  ${verdict.reading}`);
 console.log('');
 
+/** Candidates worth spending product requests on: the ones that answered. */
+function answered(all: readonly MarketReading[]): MarketReading[] {
+  return all.filter((r) => r.homeStatus !== null && r.homeStatus < 400);
+}
+
 // ── The numbers themselves ───────────────────────────────────────────────────
 // A currency code is a claim about a price list. Printing a few of that list's
 // actual figures beside it is what turns the claim into something checkable by
-// a person who knows what the shop charges: if /products.json and
-// /en-gb/products.json return the same numbers, there is one price list behind
-// both addresses whatever their themes say, and if they differ there are two.
+// a person who knows what the shop charges: if two ways of asking return the
+// same numbers there is one price list behind both, whatever their themes say,
+// and if they differ there are two.
 if (productSample > 0) {
-  console.log('──────── prices served at each address ────────');
-  for (const reading of readings) {
-    const url = `${reading.base}/products.json?limit=${Math.max(1, Math.min(productSample, 250))}`;
+  console.log('──────── prices served to each way of asking ────────');
+  for (const reading of answered(readings)) {
+    const limit = Math.max(1, Math.min(productSample, 250));
+    const candidate = reading.candidate;
+    const url = candidate.query
+      ? `${candidate.base}/products.json${candidate.query}&limit=${limit}`
+      : `${candidate.base}/products.json?limit=${limit}`;
     if (!isAllowed(robots, url)) {
-      console.log(`  ${(reading.prefix || 'origin').padEnd(8)} robots.txt disallows ${url}`);
+      console.log(`  ${candidate.label.padEnd(24)} robots.txt disallows ${url}`);
       continue;
     }
-    const res = await http(url, BROWSER_HEADERS);
+    const res = await http(url, { ...BROWSER_HEADERS, ...candidate.headers });
     await sleep(gap);
     if (!res.ok) {
-      console.log(`  ${(reading.prefix || 'origin').padEnd(8)} HTTP ${res.status}${res.error ? ` ${res.error}` : ''}`);
+      console.log(
+        `  ${candidate.label.padEnd(24)} HTTP ${res.status}${res.error ? ` ${res.error}` : ''}`,
+      );
       continue;
     }
     if (!isShopifyProductsPayload(res.body)) {
-      console.log(`  ${(reading.prefix || 'origin').padEnd(8)} not a Shopify products payload`);
+      console.log(`  ${candidate.label.padEnd(24)} not a Shopify products payload`);
       continue;
     }
     const payload = JSON.parse(res.body) as { products: Array<Record<string, unknown>> };
     console.log(
-      `  ${(reading.prefix || 'origin').padEnd(8)} quotes ${reading.currency.presented ?? 'nothing'} — ` +
+      `  ${candidate.label.padEnd(24)} quotes ${reading.currency.presented ?? 'nothing'} — ` +
         `${payload.products.length} products`,
     );
     for (const product of payload.products.slice(0, productSample)) {
-      const variants = Array.isArray(product['variants']) ? (product['variants'] as Array<Record<string, unknown>>) : [];
+      const variants = Array.isArray(product['variants'])
+        ? (product['variants'] as Array<Record<string, unknown>>)
+        : [];
       const first = variants[0];
       console.log(
         `      ${String(product['handle']).slice(0, 52).padEnd(52)} ` +
@@ -169,45 +203,64 @@ if (productSample > 0) {
 // `/products.json` carries a bare price string and no unit. A product page's
 // schema.org block carries `priceCurrency`, written by the shop, in a
 // vocabulary with a published meaning — so where a shop serves JSON-LD this is
-// the strongest single signal available without a checkout.
+// the strongest single signal available without a checkout, and reading the
+// *same* product under every way of asking puts the candidate price lists side
+// by side with their own labels on.
 if (productUrl) {
   const host = new URL(productUrl).hostname.replace(/^www\./, '');
-  if (host !== retailer.domain.replace(/^www\./, '')) {
+  if (host !== domain) {
     // Never fetch an address that is not the shop's own. An affiliate
     // deeplink is a click reported to the merchant as a real customer, and
     // this script must not be a way to fire one.
     console.log(`refusing --product: ${host} is not ${retailer.domain}`);
-  } else if (!isAllowed(robots, productUrl)) {
-    console.log(`robots.txt disallows ${productUrl}`);
   } else {
-    const res = await http(productUrl, BROWSER_HEADERS);
-    console.log('──────── what the product page labels its price ────────');
-    if (!res.ok) {
-      console.log(`  HTTP ${res.status}${res.error ? ` ${res.error}` : ''}`);
-    } else {
-      const offers = readJsonLdOffers(res.body);
-      if (offers.length === 0) console.log('  the page publishes no JSON-LD priceCurrency');
-      for (const offer of offers.slice(0, 12)) {
-        console.log(`  price ${offer.price ?? '—'} labelled ${offer.currency ?? '—'}`);
+    console.log('──────── what one product page labels its price ────────');
+    console.log(`  ${productUrl}`);
+    const path = new URL(productUrl).pathname;
+    for (const reading of answered(readings)) {
+      const candidate = reading.candidate;
+      const url = candidateUrl(candidate, path);
+      if (!isAllowed(robots, url)) {
+        console.log(`  ${candidate.label.padEnd(24)} robots.txt disallows it`);
+        continue;
       }
+      const res = await http(url, { ...BROWSER_HEADERS, ...candidate.headers });
+      await sleep(gap);
+      if (!res.ok) {
+        console.log(
+          `  ${candidate.label.padEnd(24)} HTTP ${res.status}${res.error ? ` ${res.error}` : ''}`,
+        );
+        continue;
+      }
+      const offers = readJsonLdOffers(res.body);
+      if (offers.length === 0) {
+        console.log(`  ${candidate.label.padEnd(24)} publishes no JSON-LD priceCurrency`);
+        continue;
+      }
+      const shown = offers
+        .slice(0, 4)
+        .map((o) => `${o.price ?? '—'} ${o.currency ?? '—'}`)
+        .join(', ');
+      console.log(`  ${candidate.label.padEnd(24)} ${shown}`);
     }
     console.log('');
   }
 }
 
-if (requireGbp && verdict.sterlingBase === null) {
+if (verdict.sterling) {
+  console.log(
+    `PASS: sterling price list served to "${verdict.sterling.label}" at ${verdict.sterling.base}`,
+  );
+  console.log(
+    'This proves what the storefront quotes THIS machine when asked that way. Before removing ' +
+      'the id from CURRENCY_UNCONFIRMED, record the run and job id in the registry, the way ' +
+      'demo/virtualYanny.ts records its own CI-sourced fact — and make the harvest ask the same ' +
+      'way, or it will go on reading whichever market a runner is geolocated into.',
+  );
+} else if (requireGbp) {
   console.error(
-    `FAIL: ${retailer.id} did not publish a sterling price list at any address tried. ` +
+    `FAIL: ${retailer.id} served no sterling price list to any request tried. ` +
       'Its prices must not be published as pounds, and its id must stay in CURRENCY_UNCONFIRMED.',
   );
   process.exit(1);
-}
-
-if (verdict.sterlingBase) {
-  console.log(`PASS: sterling price list at ${verdict.sterlingBase}`);
-  console.log(
-    'This proves what the storefront quotes THIS machine. Before removing the id from ' +
-      'CURRENCY_UNCONFIRMED, note the run and job id here and in the registry, the way ' +
-      'demo/virtualYanny.ts records its own CI-sourced fact.',
-  );
 }
