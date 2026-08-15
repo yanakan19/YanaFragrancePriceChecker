@@ -218,6 +218,20 @@ for (const retailer of shops) {
       continue;
     }
 
+    // Which market produced these numbers, when it was not the obvious one.
+    // A shop whose prices only appear under a particular request is a shop
+    // whose prices can silently stop appearing — the day the storefront stops
+    // honouring `?country=GB` it goes back to quoting a runner in dollars, the
+    // currency guard withholds every price, and the run reports "no prices"
+    // with nothing in the log to say what changed. This line is that
+    // something.
+    if (shopifyResult.market.label !== 'origin') {
+      console.log(
+        `  ${retailer.name.padEnd(20)} sterling market: ${shopifyResult.market.label} ` +
+          `(${shopifyResult.market.why}) — the origin quotes this runner something else`,
+      );
+    }
+
     if (shopifyResult.isShopify && shopifyResult.listings.length > 0) {
       result = {
         listings: shopifyResult.listings,
