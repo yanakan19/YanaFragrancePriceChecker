@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-15T05:24:42.988Z",
+  "checkedAt": "2026-08-15T07:27:03.857Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,7 +59,7 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 14,
+      "listings": 19,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
@@ -193,9 +193,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 108,
-      "pricedInGbp": 108,
-      "withPhoto": 108,
+      "listings": 106,
+      "pricedInGbp": 106,
+      "withPhoto": 106,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -398,16 +398,17 @@
       "houseId": "gissah",
       "name": "Gissah",
       "origin": "https://gissahuae.com",
-      "routeUsed": "shopify-products-json",
-      "currency": "AED",
-      "listings": 79,
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
       "pricedInGbp": 0,
-      "withPhoto": 78,
-      "errors": [],
+      "withPhoto": 0,
+      "errors": [
+        "robots.txt unreachable at https://gissahuae.com and https://www.gissahuae.com — holding off rather than guessing we are welcome"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "Kuwait-founded (2010) niche house, UAE storefront. A UK stockist exists (arabianfragranceshop.co.uk) if a comparison point is wanted sooner than this harvest can provide one",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "Kuwait-founded (2010) niche house, UAE storefront. A UK stockist exists (arabianfragranceshop.co.uk) if a comparison point is wanted sooner than this harvest can provide one"
       ]
     },
     {
