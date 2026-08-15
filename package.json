@@ -26,6 +26,7 @@
     "harvest": "tsx scripts/catalogue-harvest.ts",
     "houses": "tsx scripts/houses-harvest.ts",
     "repair:delist": "tsx scripts/repair-mass-delist.ts",
+    "repair:mojibake": "tsx scripts/repair-mojibake-at-rest.ts",
     "catalogue:feed": "tsx scripts/catalogue-feed.ts",
     "awin:feed-sync": "tsx scripts/awin-feed-sync.ts",
     "awin:feed-diag": "tsx scripts/awin-feed-diag.ts",
