@@ -4,6 +4,12 @@ import type { Http } from './attempt.js';
 import { isAllowed, type RobotsRules } from './robots.js';
 import { parseShopifyProducts, isShopifyProductsPayload } from './shopifyJson.js';
 import { fetchStorefrontCurrency, type StorefrontCurrency } from './shopCurrency.js';
+import {
+  probeMarkets,
+  summariseMarketProbe,
+  ukMarketCandidates,
+  type MarketCandidate,
+} from './marketProbe.js';
 
 /**
  * Shopify's own public product catalogue for a UK retailer, not a house.
@@ -28,6 +34,40 @@ import { fetchStorefrontCurrency, type StorefrontCurrency } from './shopCurrency
  * about itself, exactly as the house route already does, and a payload that is
  * not positively established as sterling yields listings with no `priceGbp` at
  * all. See src/catalogue/shopCurrency.ts for the measurements behind that.
+ *
+ * ── Which market, which is a different question from which currency ─────────
+ * Detecting the currency stopped this repo publishing dollars as pounds. It
+ * did not get the pounds. A UK shop on Shopify Markets serves a different
+ * price list to every country, chooses which by where the caller is, and every
+ * harvest this project has ever run has run from a GitHub Actions runner in
+ * the United States — so "the storefront is quoting USD" was a true statement
+ * about our vantage point being reported as a fact about the shop.
+ *
+ * Measured, on escentual.com, from a runner (currency probe, run 31880556596,
+ * job 95002418010, commit a735ef6, 2026-08-15T10:52Z):
+ *
+ *   how we asked            /meta.json  theme quotes  a real product
+ *   origin                  GBP         USD @1.38605  39.00, and 57.00 for the
+ *                                                     Calvin Klein Obsession
+ *                                                     125ml this repo held
+ *   ?country=GB             GBP         GBP  @1       28.00, and 40.95
+ *   cookie localization=GB  GBP         GBP  @1       28.00, and 40.95
+ *   both cookies            GBP         GBP  @1       28.00, and 40.95
+ *   cookie cart_currency    GBP         USD @1.38605  39.00
+ *   Accept-Language en-GB   GBP         USD @1.38605  39.00
+ *
+ * So this now asks the second question when the first one answers badly: if
+ * the origin is not established as sterling, try the ways a UK price list can
+ * be asked for and read prices from the first that proves itself. `base`,
+ * `query` and `headers` come from that candidate; `origin` still builds the
+ * stored product URLs, because the address we send a shopper to should be the
+ * shop's own plain URL — their own browser will land them in their own market.
+ *
+ * Nothing about this loosens the guard. A candidate that does not publish GBP,
+ * settling in GBP, at no conversion, is not adopted, and if none does the
+ * crawl proceeds exactly as before with `priceGbp` null on every row. The
+ * search can only ever turn "no prices" into "prices the shop itself labelled
+ * sterling"; it can never turn a foreign figure into a pound.
  */
 
 export interface ShopifyProductsCrawlResult {
@@ -48,6 +88,13 @@ export interface ShopifyProductsCrawlResult {
    * rather than as having nothing for sale.
    */
   currency: StorefrontCurrency;
+  /**
+   * How the catalogue was asked for. `label: 'origin'` is the ordinary case;
+   * anything else means the origin did not publish sterling and this candidate
+   * did, and is worth putting in a log — a shop whose prices only appear under
+   * a particular request is a shop whose prices can silently stop appearing.
+   */
+  market: MarketCandidate;
 }
 
 export interface ShopifyProductsCrawlOptions {
@@ -67,6 +114,24 @@ export interface ShopifyProductsCrawlOptions {
    * itself before reading a single product.
    */
   currency?: StorefrontCurrency;
+  /**
+   * Set false to skip the UK-market search when the origin is not sterling.
+   * Default is to search: the cost is a handful of requests at a shop we were
+   * about to walk anyway, and the alternative is a shop that has a sterling
+   * price list going unpriced forever.
+   */
+  resolveUkMarket?: boolean;
+}
+
+/** The shop as any visitor first meets it. */
+function originMarket(origin: string): MarketCandidate {
+  return {
+    label: 'origin',
+    base: origin,
+    query: '',
+    headers: {},
+    why: 'the shop as any visitor first meets it',
+  };
 }
 
 export async function crawlViaShopifyProducts(
@@ -85,7 +150,34 @@ export async function crawlViaShopifyProducts(
   // Asked before the catalogue is read, not after, so there is never a moment
   // where a converted price list has been parsed as pounds and is waiting to
   // be thrown away by a later check.
-  const currency = options.currency ?? (await fetchStorefrontCurrency(origin, http, headers));
+  let currency = options.currency ?? (await fetchStorefrontCurrency(origin, http, headers));
+  let market = originMarket(origin);
+
+  // The origin answered in something other than pounds — which may be a fact
+  // about this shop or a fact about where this machine is standing. Ask the
+  // other way round before concluding the first.
+  if (!currency.isSterling && options.resolveUkMarket !== false) {
+    const readings = await probeMarkets(
+      // The origin is dropped: it has just been read, and re-reading it would
+      // spend two requests confirming the measurement that got us here.
+      ukMarketCandidates(origin).filter((c) => c.label !== 'origin'),
+      http,
+      headers,
+      { allow: (url) => isAllowed(robots, url), gapMs: options.gapMs, sleep },
+    );
+    const won = readings.find((r) => r.currency.isSterling);
+    if (won) {
+      market = won.candidate;
+      currency = won.currency;
+    } else {
+      // Recorded even though nothing changed, because the two failures it
+      // distinguishes want different responses from a human: a shop with no
+      // sterling list is a shop to drop, and a shop with one we cannot reach
+      // is a request shape to go and find.
+      errors.push(`market: ${summariseMarketProbe(readings).reading}`);
+    }
+  }
+
   if (!currency.isSterling) errors.push(`currency: ${currency.reason}`);
 
   // What the parser is told. Sterling only when it was established as such;
@@ -95,18 +187,25 @@ export async function crawlViaShopifyProducts(
   // Either way `priceGbp` stays null and no offer reaches the site.
   const parseCurrency = currency.isSterling ? 'GBP' : currency.presented === 'GBP' ? null : currency.presented;
 
+  // A candidate's query has to merge with this endpoint's own parameters
+  // rather than replace them: `?country=GB` and `?limit=250&page=3` are both
+  // needed, and appending a second `?` would silently drop the pagination and
+  // re-read page one until maxPages ran out.
+  const marketParams = market.query ? `${market.query.replace(/^\?/, '')}&` : '';
+  const marketHeaders = { ...headers, ...market.headers };
+
   // Shopify signals the end of the catalogue by returning fewer products
   // than asked for, but the page count is still capped independently — a
   // storefront that never shrinks its last page (some themes pad) must not
   // be able to turn maxPages into an unbounded walk.
   for (let page = 1; pagesFetched < maxPages && page <= 100; page++) {
-    const url = `${origin}/products.json?limit=${perPage}&page=${page}`;
+    const url = `${market.base}/products.json?${marketParams}limit=${perPage}&page=${page}`;
     if (!isAllowed(robots, url)) {
       errors.push(`robots.txt disallows ${url}`);
       break;
     }
 
-    const res = await http(url, headers);
+    const res = await http(url, marketHeaders);
     pagesFetched++;
     options.onProgress?.(pagesFetched, listings.length);
 
@@ -128,6 +227,9 @@ export async function crawlViaShopifyProducts(
     }
 
     const batch = parseShopifyProducts(res.body, {
+      // The plain origin, not the market's base: a stored URL is the address a
+      // shopper is sent to, and they should get their own market by being
+      // themselves, not ours by being handed our query string.
       origin,
       sectionId: 'shopify-products-json',
       currency: parseCurrency,
@@ -138,5 +240,5 @@ export async function crawlViaShopifyProducts(
     if (options.gapMs > 0) await sleep(options.gapMs);
   }
 
-  return { listings, pagesFetched, errors, isShopify, currency };
+  return { listings, pagesFetched, errors, isShopify, currency, market };
 }

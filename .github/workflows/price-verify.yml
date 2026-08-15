@@ -72,6 +72,10 @@ on:
         description: 'Fail the run unless the shop published a sterling price list. Turn this on when the run is meant to BE the evidence; leave it off to look.'
         type: boolean
         default: false
+      shipping_probe:
+        description: "Instead of verifying, read the shop named in \"shop\" its own delivery page and report what it states. Proposes nothing and writes no registry change."
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -112,7 +116,7 @@ jobs:
       # keys every listing and reports exactly what it would change, without
       # touching a snapshot or committing anything.
       - name: Dry-run the storefront re-price
-        if: ${{ inputs.reprice_dry_run }}
+        if: ${{ inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe }}
         run: |
           npm run storefront:reprice -- --dry-run \
             ${{ inputs.shop && format('--shop={0}', inputs.shop) || '' }}
@@ -136,8 +140,23 @@ jobs:
             ${{ inputs.currency_probe_product_url && format('--product={0}', inputs.currency_probe_product_url) || '' }} \
             ${{ inputs.currency_probe_require_gbp && '--require-gbp' || '' }}
 
+      # The other half of bringing a shop back. A recovered retailer with an
+      # invented delivery cost is worse than one left off: delivered price is
+      # the site's default sort key, so a delivery figure that is too low
+      # sorts the shop to the top as falsely cheapest, which is the same harm
+      # as a wrong price wearing a different hat.
+      #
+      # scripts/shipping-discover.ts already knows how to find and read a
+      # shop's own delivery page, and `--shop=` is never rationed and never
+      # filtered by `enabled` — so it works for exactly the switched-off shops
+      # whose figures nobody can check. Run without --write, so it reports
+      # what the page says and changes nothing.
+      - name: Read a shop's own delivery page
+        if: ${{ inputs.shipping_probe }}
+        run: npm run shipping:discover -- --shop=${{ inputs.shop }}
+
       - name: Verify prices against live storefronts
-        if: ${{ !inputs.reprice_dry_run && !inputs.currency_probe }}
+        if: ${{ !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe }}
         continue-on-error: true
         run: |
           npm run price:verify -- \
@@ -147,7 +166,7 @@ jobs:
             --budget-ms=${{ inputs.budget_ms || '240000' }}
 
       - name: Commit the drift report
-        if: ${{ inputs.commit_report && !inputs.reprice_dry_run && !inputs.currency_probe }}
+        if: ${{ inputs.commit_report && !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe }}
         run: |
           ./scripts/commit-and-push.sh \
             "Price verification: measured drift $(date -u +%Y-%m-%dT%H:%MZ)" \
