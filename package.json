@@ -34,7 +34,8 @@
     "storefront:reprice": "tsx scripts/storefront-reprice.ts",
     "images:check": "tsx scripts/image-link-check.ts",
     "icons": "tsx scripts/generate-icons.ts",
-    "og:preview": "tsx scripts/generate-og-preview.ts"
+    "og:preview": "tsx scripts/generate-og-preview.ts",
+    "changelog:suggest": "tsx scripts/changelog-suggest.ts"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",
