@@ -1,5 +1,6 @@
 import type { RawListing } from './types.js';
 import { parsePrice } from './jsonld.js';
+import { repairMojibake } from './fragranceId.js';
 
 /**
  * Parser for Awin's standard "generic" datafeed format.
@@ -195,6 +196,11 @@ function trimmedOrNull(value: string | undefined): string | null {
   return v || null;
 }
 
+/** repairMojibake, but tolerant of the `undefined` a missing column reads as. */
+function repairMojibakeIfPresent(value: string | undefined): string | undefined {
+  return value === undefined ? undefined : repairMojibake(value);
+}
+
 /**
  * Parse an Awin generic datafeed export into `RawListing`s.
  *
@@ -227,7 +233,16 @@ export function parseAwinFeed(csvText: string): RawListing[] {
     const row = rows[r]!;
 
     const url = trimmedOrNull(col(row, 'aw_deep_link'));
-    const rawTitle = trimmedOrNull(col(row, 'product_name'));
+    // Some publishers' own systems hand Awin a `product_name` that is already
+    // UTF-8 decoded as CP1252 upstream of anything this project touches —
+    // confirmed against MyBeauty.Boutique's feed, where it reaches here as
+    // "RosÃ©" for "Rosé". Repairing it at the point every field of every row
+    // is built, rather than only where a title is later displayed, means a
+    // row this parser hands back is never in a worse state than what the
+    // merchant actually meant, regardless of which caller reads it next. See
+    // repairMojibake's own comment for why this is a byte-verified reversal
+    // and not a guess, and why it leaves correctly-encoded text alone.
+    const rawTitle = trimmedOrNull(repairMojibakeIfPresent(col(row, 'product_name')));
     if (!url || !rawTitle) continue;
 
     const currency = trimmedOrNull(col(row, 'currency'));
@@ -254,7 +269,9 @@ export function parseAwinFeed(csvText: string): RawListing[] {
           ? Number.parseInt(stockQuantity, 10) > 0
           : null;
 
-    const rawBrand = trimmedOrNull(col(row, 'brand_name')) ?? trimmedOrNull(col(row, 'brand'));
+    const rawBrand =
+      trimmedOrNull(repairMojibakeIfPresent(col(row, 'brand_name'))) ??
+      trimmedOrNull(repairMojibakeIfPresent(col(row, 'brand')));
 
     // `rrp_price` is the merchant's own stated recommended retail price. It is
     // real, supplied data rather than anything computed here, so it is worth
@@ -291,7 +308,7 @@ export function parseAwinFeed(csvText: string): RawListing[] {
       promoEndsAt: null,
       inStock,
       sectionId: 'awin-feed',
-      description: trimmedOrNull(col(row, 'description')),
+      description: trimmedOrNull(repairMojibakeIfPresent(col(row, 'description'))),
     });
   }
 
