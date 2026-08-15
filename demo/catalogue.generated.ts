@@ -51945,7 +51945,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416661504137-45147020525705",
     "brand": "Coty",
-    "name": "PrÃªt Ã Porter",
+    "name": "Prêt à Porter",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": null,
@@ -51998,8 +51998,19 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-7633285415049-42358295298185",
+    "brand": "Courreges",
+    "name": "Blanc De Courreges Spr",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 90,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "mybeauty-boutique-shopify-gb-8416662028425-45147021115529",
-    "brand": "CourrÃ¨ges",
+    "brand": "Courrèges",
     "name": "C",
     "concentration": "Eau de Parfum",
     "sizeMl": 30,
@@ -52010,7 +52021,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416661733513-45147020787849",
-    "brand": "CourrÃ¨ges",
+    "brand": "Courrèges",
     "name": "C",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
@@ -52021,7 +52032,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416661897353-45147020984457",
-    "brand": "CourrÃ¨ges",
+    "brand": "Courrèges",
     "name": "L'Eau de Liesse",
     "concentration": "Eau de Parfum",
     "sizeMl": 30,
@@ -52043,7 +52054,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416661766281-45147020820617",
-    "brand": "CourrÃ¨ges",
+    "brand": "Courrèges",
     "name": "L'Eau de Liesse",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
@@ -52066,7 +52077,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416661930121-45147021017225",
-    "brand": "CourrÃ¨ges",
+    "brand": "Courrèges",
     "name": "L'Empreinte",
     "concentration": "Eau de Parfum",
     "sizeMl": 30,
@@ -52077,7 +52088,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416661667977-45147020722313",
-    "brand": "CourrÃ¨ges",
+    "brand": "Courrèges",
     "name": "L'Empreinte",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
@@ -52088,7 +52099,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416661569673-45147020591241",
-    "brand": "CourrÃ¨ges",
+    "brand": "Courrèges",
     "name": "L'Empreinte",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
@@ -52099,7 +52110,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416661962889-45147021049993",
-    "brand": "CourrÃ¨ges",
+    "brand": "Courrèges",
     "name": "La Fille de L'Air",
     "concentration": "Eau de Parfum",
     "sizeMl": 30,
@@ -52118,7 +52129,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416661831817-45147020918921",
-    "brand": "CourrÃ¨ges",
+    "brand": "Courrèges",
     "name": "Rose de Courrèges",
     "concentration": "Eau de Parfum",
     "sizeMl": 90,
@@ -52129,7 +52140,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416661995657-45147021082761",
-    "brand": "CourrÃ¨ges",
+    "brand": "Courrèges",
     "name": "Seconde Peau",
     "concentration": "Eau de Parfum",
     "sizeMl": 30,
@@ -52140,7 +52151,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416661635209-45147020689545",
-    "brand": "CourrÃ¨ges",
+    "brand": "Courrèges",
     "name": "Seconde Peau",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
@@ -52151,7 +52162,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416661700745-45147020755081",
-    "brand": "CourrÃ¨ges",
+    "brand": "Courrèges",
     "name": "Slogan",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
@@ -52162,21 +52173,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416661536905-45147020558473",
-    "brand": "CourrÃ¨ges",
+    "brand": "Courrèges",
     "name": "Slogan",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-7633285415049-42358295298185",
-    "brand": "Courreges",
-    "name": "Blanc De Courreges Spr",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 90,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -80761,7 +80761,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416690077833-45147055521929",
     "brand": "Gloria Vanderbilt",
-    "name": "Jardin Ã New York Fraiche",
+    "name": "Jardin à New York Fraiche",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -80772,7 +80772,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416690045065-45147055489161",
     "brand": "Gloria Vanderbilt",
-    "name": "Minuit Ã New York",
+    "name": "Minuit à New York",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -84278,7 +84278,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416694370441-45147061256329",
     "brand": "Hermès",
-    "name": "Terre d'Hermès Eau GivrÃ©e",
+    "name": "Terre d'Hermès Eau Givrée",
     "concentration": "Eau de Parfum",
     "sizeMl": 175,
     "ean": null,
@@ -93240,7 +93240,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416703643785-45147073413257",
-    "brand": "KanÃ¸n",
+    "brand": "Kanøn",
     "name": "Nordic Elements Air",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
@@ -99546,28 +99546,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416709345417-45147080589449",
-    "brand": "Lancôme",
-    "name": "Ã”ff Now",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416709312649-45147080556681",
-    "brand": "Lancôme",
-    "name": "Ã”ver The Top",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "justmylook-lanc0034",
     "brand": "Lancôme",
     "name": "Hypnose",
@@ -99901,27 +99879,13 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1699981494-86160000.jpg?v=1763393963&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416709673097-45147081965705",
     "brand": "Lancôme",
     "name": "La Vie Est Belle Happiness Drops",
     "concentration": "Eau de Parfum",
     "sizeMl": 15,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338250334345-44927112315017",
-    "brand": "Lancôme",
-    "name": "La Vie Est Belle IntensÃ©ment",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -99936,6 +99900,20 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "ean": "3614272964679",
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_la_vie_est_belle_intensement_eau_de_parfum_50ml_spray_.jpg",
+    "notes": null
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338250334345-44927112315017",
+    "brand": "Lancôme",
+    "name": "La Vie Est Belle Intensément",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -100213,6 +100191,28 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "id": "mybeauty-boutique-shopify-gb-8416709279881-45147080523913",
     "brand": "Lancôme",
     "name": "Ô Zenith",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416709345417-45147080589449",
+    "brand": "Lancôme",
+    "name": "Ôff Now",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416709312649-45147080556681",
+    "brand": "Lancôme",
+    "name": "Ôver The Top",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": null,
@@ -231649,6 +231649,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1664814360-58736200.jpg?v=1763392805&width=1920"
     }
   ],
+  "mybeauty-boutique-shopify-gb-7633285415049-42358295298185": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 18.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661689593&a=3026001&m=106925",
+      "fetchedAt": "2026-08-14T14:46:16.059Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "mybeauty-boutique-shopify-gb-8416662028425-45147021115529": [
     {
       "retailerId": "mybeauty-boutique",
@@ -231825,20 +231839,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686759&a=3026001&m=106925",
-      "fetchedAt": "2026-08-14T14:46:16.059Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-7633285415049-42358295298185": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 18.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661689593&a=3026001&m=106925",
       "fetchedAt": "2026-08-14T14:46:16.059Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -275021,34 +275021,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/147_a0dd00f5-80cb-4ef9-b3bb-d6e480769956.jpg?v=1782313316&width=1920"
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416709345417-45147080589449": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 61.49,
-      "wasPrice": 114.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687807&a=3026001&m=106925",
-      "fetchedAt": "2026-08-14T14:46:16.059Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416709312649-45147080556681": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 61.49,
-      "wasPrice": 114.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687806&a=3026001&m=106925",
-      "fetchedAt": "2026-08-14T14:46:16.059Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "justmylook-lanc0034": [
     {
       "retailerId": "justmylook",
@@ -275427,20 +275399,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338250334345-44927112315017": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 79.99,
-      "wasPrice": 85.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157929630&a=3026001&m=106925",
-      "fetchedAt": "2026-08-14T14:46:16.059Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3614272964679": [
     {
       "retailerId": "fragrance-click",
@@ -275453,6 +275411,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_la_vie_est_belle_intensement_eau_de_parfum_50ml_spray_.jpg"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338250334345-44927112315017": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 79.99,
+      "wasPrice": 85.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157929630&a=3026001&m=106925",
+      "fetchedAt": "2026-08-14T14:46:16.059Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "mybeauty-boutique-shopify-gb-8338250301577-44927112282249": [
@@ -275785,6 +275757,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687805&a=3026001&m=106925",
+      "fetchedAt": "2026-08-14T14:46:16.059Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416709345417-45147080589449": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 61.49,
+      "wasPrice": 114.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687807&a=3026001&m=106925",
+      "fetchedAt": "2026-08-14T14:46:16.059Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416709312649-45147080556681": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 61.49,
+      "wasPrice": 114.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687806&a=3026001&m=106925",
       "fetchedAt": "2026-08-14T14:46:16.059Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
