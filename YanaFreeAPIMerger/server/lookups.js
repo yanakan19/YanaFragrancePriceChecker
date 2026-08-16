@@ -95,9 +95,17 @@ export function formatIdentityRefusal(result, subject) {
       `Is that what you meant? If not, try the exact brand and product name.`
     );
   }
+  // A follow-up shape ("what about the 50ml", "is it in stock") failed for a
+  // different reason than a misspelt name did, and the honest refusal names
+  // it: no conversation is kept, so there is no "it" to resolve. Saying
+  // "try the brand and product name" alone reads as if the bot forgot
+  // something it was just told.
+  const followUpNote = result.followUp
+    ? 'Each message here stands alone — I don\'t carry the previous question over, so I can\'t tell what "it" refers to. '
+    : '';
   return (
-    "I don't have a fragrance matching that in the current catalogue. Try the brand and " +
-    'product name — for example "Dior Sauvage EDT".'
+    `${followUpNote}I don't have a fragrance matching that in the current catalogue. Try the brand and ` +
+    'product name together — for example "Dior Sauvage EDT 100ml".'
   );
 }
 
