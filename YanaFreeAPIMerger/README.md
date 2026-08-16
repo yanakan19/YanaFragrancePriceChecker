@@ -68,10 +68,10 @@ looks wrong.
 
 ## Most questions skip the council entirely
 
-Step 2 above is the path for `'suggest'` and `'general'` questions only. Ten
-of the twelve intents `server/intent.js` can classify are answered directly
-from `server/siteData.js` and `server/lookups.js`, with no model called at
-all:
+Step 2 above is the path for `'general'` questions and most `'suggest'`
+ones. Ten of the twelve intents `server/intent.js` can classify are answered
+directly from `server/siteData.js` and `server/lookups.js`, with no model
+called at all:
 
 | intent | shape | answered from |
 | --- | --- | --- |
@@ -81,7 +81,7 @@ all:
 | `size` | "what sizes of X", "do you have the 200ml" | the product's variant group |
 | `delivery` | "delivery from Boots", "who does free delivery" | `src/config/retailers.ts` |
 | `deals` | "what's on sale", "biggest discount" | `demo/deals.generated.ts` |
-| `budget` | "what can I get under £50" | delivered-price index |
+| `budget` | "what can I get under £50", "something sweet under £30" | delivered-price index, filtered by note |
 | `compare` | "is X cheaper than Y" | both sides' cheapest delivered |
 | `brand` | "what Creed do you have", "do you list Amouage" | brand index |
 | `meta` | "how fresh are these prices", "which shops do you cover" | crawl time, registry, counts |
@@ -142,6 +142,77 @@ X" it resolves X and matches on the notes stored for *that* fragrance,
 quoting them back so the council can say what the match is based on. Whether
 two perfumes actually smell alike is still left to the answer, plainly
 labelled as something the note data does not settle.
+
+## The questions people actually type
+
+The intents above describe well-formed questions. A real one arrives
+lowercase, unpunctuated, ungrammatical and carrying three constraints at
+once — the site owner's own two examples being "what perfume you recommend
+for a smelly man" and "find a woman a perfume under £30 that smells sweet".
+`server/requestPhrases.js` is the text layer that reads those: budget
+phrases, everyday scent words, and the two constraints the catalogue cannot
+serve. It is shared by `intent.js` and by the resolvers, so a phrase the
+classifier routes somewhere is by construction a phrase that place can read.
+
+Three things it does, and one it refuses to.
+
+- **Money as people write it.** "under £30", "30 quid", "£30ish", "for 30
+  pounds", "under fifty quid", "under a tenner", "£40 to spend" all read as
+  one ceiling. A bare unframed "£30" deliberately does not: "is Sauvage
+  still £30" is a price check, and budget outranks price.
+- **Scent words, expanded against the catalogue's own notes.** "Something
+  sweet" used to match the literal note `Sweet`, which 8 of 10,379
+  fragrances carry. It now also reads as the notes the catalogue really
+  holds a sweet request in — Vanilla (1,213), Tonka Bean (379), Caramel
+  (206) and the rest. The candidate names live in `requestPhrases.js` but
+  every one is checked against the live `NOTE_INDEX` before use, so a family
+  can never name a note the catalogue does not carry. Every answer built on
+  one says which notes it read the word as: that reading is this site's, and
+  a reader is entitled to disagree with it. The products themselves come
+  back only because they genuinely list those notes.
+- **Constraints combined, not taken one at a time.** A budget question now
+  applies its price filter and its note filter together and ranks by how
+  much of the scent request each bottle satisfies. Before, "find a woman a
+  perfume under £30 that smells sweet" returned the five most widely stocked
+  bottles under £30 — real prices, chosen for popularity rather than
+  sweetness, the second of them a men's fragrance, with nothing in the
+  answer admitting two of the three constraints had been dropped. A wrong
+  answer that looks like a right one is worse than a refusal.
+
+**Gender is the one it refuses.** There is no honest way to filter by it.
+`DemoFragrance` has no gender or audience field, and the two things that
+look like substitutes are far too thin: 705 of 10,379 titles say something
+masculine and 465 something feminine, leaving 9,209 saying nothing at all,
+so filtering on titles would hide most of the catalogue and reclassify every
+unisex bottle as unavailable; and exactly 1 of the 3,430 fragrances that
+have notes carries an audience word in them. Inferring one from a note
+list — "florals are for women" — would be this codebase inventing a fact
+about a product, which is the single thing it must never do. So an answer
+says the catalogue does not record it and gets on with the constraints it
+can meet. Longevity and projection are refused on the same grounds: nothing
+measures either, and concentration is not a stand-in for them. Both
+measurements are asserted against the live catalogue in
+`test/messyQuestions.test.js`, so if a gender field is ever added the test
+fails and the refusal gets revisited rather than quietly rotting.
+
+Where a question rests entirely on one of those two — "what perfume you
+recommend for a smelly man" names no note, no fragrance and no budget —
+`resolveSuggestQuery` answers it deterministically rather than sending 28
+models a SITE DATA block with no fragrance data in it and trusting rule 1c
+to hold. The refusal names what it cannot do and offers the three things it
+can, and it is written flatly: "smelly man" is a request for something
+long-lasting, not something to be corrected. Open taste questions
+("recommend me a summer fragrance", "do you have anything nice") still go
+to the council, because nothing in the data contradicts them.
+
+`test/messyQuestions.test.js` is the regression suite for all of this, and
+its header is explicit that every question in it is **invented**. There is
+no history of real user questions to draw on: this backend persists nothing,
+`/api/chat` keeps no conversation, and the site carries no analytics (see
+`demo/legal.ts`). Two questions are the owner's, verbatim; the rest are
+variations along the axes those demand. Treat it as a hypothesis about how
+people type, pinned so a later edit cannot silently revert it — not as
+evidence of how they do.
 
 ## How long the council waits
 
