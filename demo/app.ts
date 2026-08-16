@@ -32,6 +32,7 @@ import {
   cannotCarryBrand,
   type CheapestVerdict,
 } from '../src/index.js';
+import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
 import type { PresentedOffer, StockState } from '../src/types/offer.js';
 import type { Retailer, RetailerTier } from '../src/types/retailer.js';
 import {
@@ -451,9 +452,18 @@ function facetGroups(list: DemoFragrance[]) {
       .sort((a, b) => (typeof a[0] === 'number' ? (a[0] as number) - (b[0] as number) : String(a[0]).localeCompare(String(b[0]))))
       .map(([value, count]) => ({ value: String(value), label: label(value), count }));
 
+  // "Not stated" is an option like any other, and it goes last, where a
+  // reader expects the bucket that means "none of the above". Everything
+  // else stays alphabetical. It is not a concentration and does not get to
+  // sit among them as though it were one — see CONCENTRATION_NOT_STATED in
+  // src/catalogue/productName.ts for what it means and why it is separate
+  // from "Parfum".
+  const concentrationOptions = toOptions(concentration, (v) => shortConcentration(v));
+  const notStated = concentrationOptions.filter((o) => o.value === CONCENTRATION_NOT_STATED);
+
   return {
     volume: toOptions(volume, (v) => `${v}ml`),
-    concentration: toOptions(concentration, (v) => shortConcentration(v)),
+    concentration: [...concentrationOptions.filter((o) => o.value !== CONCENTRATION_NOT_STATED), ...notStated],
     // Fixed order rather than alphabetical or by count, so "Not stated" is
     // always the last option and the three stated readings always sit in the
     // same place. Same "only offer what would return something" rule as every
@@ -707,11 +717,17 @@ function countdown(iso: string): string {
   return h >= 24 ? `${Math.floor(h / 24)}d left` : `${h}h left`;
 }
 
-/** "Eau de Toilette" to "EDT". Falls through for anything already short. */
+/** "Eau de Toilette" to "EDT". Falls through for anything already short.
+ *
+ *  Extrait de Parfum is here for the same reason the other three are: it is
+ *  the fourth of the long "X de Y" names and was the only one still printing
+ *  in full beside a 100ml on a card narrow enough that the size wrapped. Its
+ *  short form is the word people actually use for it. */
 const CONCENTRATION_ABBR: Record<string, string> = {
   'Eau de Parfum': 'EDP',
   'Eau de Toilette': 'EDT',
   'Eau de Cologne': 'EDC',
+  'Extrait de Parfum': 'Extrait',
 };
 const shortConcentration = (c: string): string => CONCENTRATION_ABBR[c] ?? c;
 
