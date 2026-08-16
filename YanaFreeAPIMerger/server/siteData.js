@@ -1,6 +1,13 @@
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
 import fs from 'node:fs/promises';
+import {
+  NOTE_FAMILY_CANDIDATES,
+  descriptorsIn,
+  detectAudience,
+  detectPerformanceRequest,
+  parseBudget,
+} from './requestPhrases.js';
 
 /**
  * The only place this app touches pricesniffs.space's actual data.
@@ -529,6 +536,78 @@ export async function extractNotes(text) {
   return found;
 }
 
+/**
+ * The descriptor families, with every candidate note checked against the
+ * live catalogue before it is allowed to be part of one.
+ *
+ * `requestPhrases.js` proposes the note names for "sweet", "fresh", "woody"
+ * and the rest; this is where a proposal becomes usable, and the check is
+ * the entire safety argument for the feature. A name is kept only if
+ * NOTE_INDEX carries it with the same `count >= 3` floor `noteVocab` uses
+ * (harvested text, so a name used once is as likely to be junk as a real
+ * note). Anything else is dropped silently and the family is simply
+ * smaller. That means this code cannot name a note the catalogue does not
+ * use even if the table over there goes stale — measured today, "Marine
+ * Notes", "Sea Notes", "Green Notes" and "Woody Notes" all resolve to 0 in
+ * the live index, which is why they are not in the table at all.
+ *
+ * A family with nothing left is dropped entirely rather than answered as an
+ * empty match, so a descriptor whose notes have all fallen out of the index
+ * degrades to "I can't match that" instead of quietly matching everything.
+ */
+let noteFamilyCache = null;
+export async function noteFamilies() {
+  if (noteFamilyCache) return noteFamilyCache;
+  const { data } = await loadSite();
+  const counts = new Map(data.NOTE_INDEX.map((n) => [n.name.toLowerCase(), n]));
+  const families = new Map();
+  for (const [family, { notes }] of Object.entries(NOTE_FAMILY_CANDIDATES)) {
+    const kept = notes
+      .map((name) => counts.get(name.toLowerCase()))
+      .filter((entry) => entry && entry.count >= 3)
+      .map((entry) => entry.name);
+    if (kept.length > 0) families.set(family, kept);
+  }
+  noteFamilyCache = families;
+  return families;
+}
+
+/**
+ * Everything a question asks for on the scent side: the notes it names
+ * outright, plus the notes each descriptor word is read as.
+ *
+ * One function, because the two used to be one call and the gap was
+ * invisible to a reader. "Something sweet under £30" named the literal
+ * catalogue note "Sweet" — used by 8 fragrances out of 10,379 — and nothing
+ * else, so the answer looked like the catalogue held almost nothing sweet.
+ * Expanding the descriptor puts the request where the data actually is
+ * (Vanilla 1,213, Tonka Bean 379, Caramel 206, …) without any answer ever
+ * claiming a note a bottle does not list.
+ *
+ * `families` comes back beside the flat note list precisely so callers can
+ * *show their working*: an answer built on a descriptor names the notes it
+ * read the word as, which is the difference between a reading a reader can
+ * disagree with and a fact this site invented.
+ *
+ * @returns {Promise<{ notes: string[], literal: string[], families: {family: string, word: string, notes: string[]}[], unmatchedDescriptors: string[] }>}
+ */
+export async function requestedNotes(text) {
+  const literal = await extractNotes(text);
+  const available = await noteFamilies();
+  const families = [];
+  const unmatchedDescriptors = [];
+  for (const { word, family } of descriptorsIn(text)) {
+    const notes = available.get(family);
+    if (notes) families.push({ family, word, notes });
+    else unmatchedDescriptors.push(word);
+  }
+  // Literal first: a note the reader typed by name outranks one this code
+  // inferred from an adjective, and the candidate ranking below is by how
+  // many requested notes a product carries.
+  const notes = [...new Set([...literal, ...families.flatMap((f) => f.notes)])];
+  return { notes, literal, families, unmatchedDescriptors };
+}
+
 /** "what smells like Aventus", "any dupes for Baccarat Rouge" — the phrases
  *  that name a *reference fragrance* rather than a note. Deliberately
  *  specific: a bare "like" is far too common in ordinary phrasing to treat
@@ -894,16 +973,29 @@ export function formatPriceAnswer(question, result) {
 }
 
 /**
- * Real note-matched candidates, from whichever fragrances this site's own
- * feeds actually published notes for — never a guessed or generic note list.
+ * Everything one messy sentence asks for, read once.
  *
- * Exported so the product-level dedup (see the comment inside) is directly
- * testable against a known live-catalogue case, the same reason
- * `policyContextFor` above is exported.
+ * Split out of `suggestContextFor` so the *decision* about whether a
+ * question can be answered from the catalogue at all is available before
+ * any answer is written — `resolveSuggestQuery` in lookups.js needs exactly
+ * this reading in order to refuse deterministically, rather than handing an
+ * ungroundable question to a model and trusting the prompt to hold. One
+ * parse, two consumers, so the refusal and the grounding cannot disagree
+ * about what was asked.
+ *
+ * Reading four things off the same sentence is the other half of the point.
+ * A real question carries several constraints at once — "find a woman a
+ * perfume under £30 that smells sweet" is an audience, a price ceiling and
+ * a scent — and honouring one while silently dropping the rest is how an
+ * answer ends up fluent, confident and off-target. Measured before this
+ * existed, that exact question was classified `budget` and answered with
+ * the five most widely stocked bottles under £30, none of them selected for
+ * sweetness, the second of them Calvin Klein Obsession For Men.
  */
-export async function suggestContextFor(question) {
+export async function parseSuggestRequest(question) {
+  const raw = String(question ?? '');
   const { data } = await loadSite();
-  const { wantedText, unwanted } = splitOnExclusion(String(question ?? '').toLowerCase());
+  const { wantedText, unwanted } = splitOnExclusion(raw.toLowerCase());
 
   // "What smells like Aventus" names no note at all, and the honest way to
   // ground it is not to give the council nothing: it is to look the
@@ -972,9 +1064,83 @@ export async function suggestContextFor(question) {
   // product title and grounded the council with five unrelated florals that
   // happen to list orchid. The words the reader typed to identify a bottle
   // are not a description of what they want it to smell like.
-  const wanted = similar
-    ? (reference?.notes ?? [])
-    : await extractNotes(wantedText);
+  const scent = similar
+    ? { notes: reference?.notes ?? [], literal: reference?.notes ?? [], families: [], unmatchedDescriptors: [] }
+    : await requestedNotes(wantedText);
+
+  return {
+    wantedText,
+    unwanted,
+    reference,
+    referenceUnresolved,
+    wanted: scent.notes,
+    literal: scent.literal,
+    families: scent.families,
+    unmatchedDescriptors: scent.unmatchedDescriptors,
+    // Read off the raw question rather than `wantedText`: an exclusion
+    // clause truncates wantedText, and "for my wife" can sit after it.
+    audience: detectAudience(raw),
+    performance: detectPerformanceRequest(raw),
+    budget: parseBudget(raw),
+  };
+}
+
+/**
+ * The two constraints this catalogue holds no data for, written out for
+ * whoever is going to answer.
+ *
+ * Both are things people really ask for and neither is in the data (see
+ * `detectAudience` and `detectPerformanceRequest` in requestPhrases.js for
+ * the measurements). Naming them explicitly in the SITE DATA block matters
+ * more than it looks: rule 1 of the council prompt lets a model state only
+ * what SITE DATA contains, and a block that is merely *silent* about gender
+ * leaves the model free to read "for a woman" out of the question and
+ * quietly filter on its own idea of what that means. A block that says the
+ * catalogue has no such field turns that into a rule violation.
+ */
+export function unsupportedConstraintLines(request) {
+  const lines = [];
+  if (request.audience) {
+    lines.push(
+      'WHO IT IS FOR: not recorded. The catalogue has no gender or audience field — a fragrance ' +
+        'record is brand, name, concentration, size, EAN, tier, popularity, photo and notes. Do not ' +
+        'filter by who a fragrance is for, and do not infer it from a name or from a note list.',
+    );
+  }
+  if (request.performance) {
+    lines.push(
+      'STRENGTH AND LONGEVITY: not recorded. Nothing in the catalogue measures how strong a fragrance ' +
+        'is, how long it lasts or how far it projects. Say so plainly rather than ranking anything by ' +
+        'it, and do not use concentration as a stand-in for it.',
+    );
+  }
+  return lines;
+}
+
+/** The descriptor words this catalogue can genuinely filter on right now,
+ *  for offering a reader something real when their question named nothing
+ *  matchable. Built from the validated families, so it never offers a word
+ *  whose notes have all fallen out of the index. */
+export async function offerableDescriptors() {
+  return [...(await noteFamilies()).keys()];
+}
+
+/**
+ * Real note-matched candidates, from whichever fragrances this site's own
+ * feeds actually published notes for — never a guessed or generic note list.
+ *
+ * Exported so the product-level dedup (see the comment inside) is directly
+ * testable against a known live-catalogue case, the same reason
+ * `policyContextFor` above is exported.
+ */
+export async function suggestContextFor(question) {
+  const { data } = await loadSite();
+  const request = await parseSuggestRequest(question);
+  const { unwanted, reference, referenceUnresolved, wanted, literal, families } = request;
+  const unsupported = unsupportedConstraintLines(request);
+  const unsupportedBlock = unsupported.length
+    ? `\nCONSTRAINTS THIS DATA CANNOT MEET:\n${unsupported.join('\n')}`
+    : '';
 
   if (wanted.length === 0) {
     let why = ' The question did not name any notes to match against.';
@@ -983,7 +1149,11 @@ export async function suggestContextFor(question) {
     } else if (referenceUnresolved) {
       why = ` The question asks for something like "${referenceUnresolved}", which does not resolve to a single product in the catalogue, so there are no notes to match it against.`;
     }
-    return `NOTE MATCHED CANDIDATES: none requested.${why}`;
+    const offer =
+      `\nWHAT CAN BE FILTERED ON INSTEAD: scent words — ${(await offerableDescriptors()).join(', ')} — ` +
+      'a delivered price ceiling, or the published notes of a fragrance named by name. Offer those. ' +
+      'Do not name a fragrance.';
+    return `NOTE MATCHED CANDIDATES: none requested.${why}${unsupportedBlock}${offer}`;
   }
 
   // Grouped by product (brand+name+concentration), not by row id: the same
@@ -1045,8 +1215,42 @@ export async function suggestContextFor(question) {
   candidates.sort((a, b) => b.matchedCount - a.matchedCount);
   candidates = candidates.slice(0, 5);
 
+  // What the *reader* asked for, not the expansion of it. Printing all
+  // fourteen notes "sweet" resolves to as the request would misreport the
+  // question back to the model: it asked for one word.
+  // A literal note that *is* the descriptor word is dropped from the label
+  // rather than printed beside it: the catalogue really does have a note
+  // called "Sweet", so `requested: Sweet, "sweet"` was accurate and read
+  // like a bug.
+  const descriptorWords = new Set(families.map(({ word }) => word.toLowerCase()));
+  const requestedLabel = [
+    ...literal.filter((n) => !descriptorWords.has(n.toLowerCase())),
+    ...families.map(({ word }) => `"${word}"`),
+  ].join(', ') || wanted.join(', ');
+
+  // How each descriptor was read, stated as a reading rather than as a
+  // fact. Every note named here exists in the catalogue (noteFamilies drops
+  // any that does not) and every candidate above genuinely lists at least
+  // one of them — but "sweet means vanilla" is this site's interpretation
+  // of an English word, and an answer that hides that is passing off an
+  // editorial choice as data.
+  const familyLines = families.length
+    ? `\nHOW THE SCENT WORDS WERE READ: ${families
+        .map(({ word, notes }) => `"${word}" -> catalogue notes ${notes.join(', ')}`)
+        .join('; ')}. That is this site's reading of the word, not a claim about any bottle; ` +
+      'say which notes the match was made on so the reader can disagree with it.'
+    : '';
+
+  const unmatchedLine = request.unmatchedDescriptors.length
+    ? `\nSCENT WORDS WITH NO MATCH: ${request.unmatchedDescriptors.join(', ')} — the catalogue has no ` +
+      'notes on file for these, so nothing above was chosen for them.'
+    : '';
+
   if (candidates.length === 0) {
-    return `NOTE MATCHED CANDIDATES: none. No fragrance in the current catalogue has a published note match for [${wanted.join(', ')}].`;
+    return (
+      `NOTE MATCHED CANDIDATES: none. No fragrance in the current catalogue has a published note ` +
+      `match for [${requestedLabel}].${familyLines}${unmatchedLine}${unsupportedBlock}`
+    );
   }
 
   const lines = candidates.map(({ frag, notes, matched }) =>
@@ -1062,8 +1266,8 @@ export async function suggestContextFor(question) {
       'The candidates above were found by sharing those notes; whether they actually smell alike is not something this data settles.'
     : '';
   return (
-    `NOTE MATCHED CANDIDATES (requested: ${wanted.join(', ')}${unwanted.length ? `; excluding: ${unwanted.join(', ')}` : ''}):\n` +
-    `${lines.join('\n')}${referenceLine}`
+    `NOTE MATCHED CANDIDATES (requested: ${requestedLabel}${unwanted.length ? `; excluding: ${unwanted.join(', ')}` : ''}):\n` +
+    `${lines.join('\n')}${referenceLine}${familyLines}${unmatchedLine}${unsupportedBlock}`
   );
 }
 
