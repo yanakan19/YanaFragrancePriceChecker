@@ -297,6 +297,13 @@ const GENERIC_LOOKUP_STOPWORDS = [
   'which', 'who', 'whos', 'where', 'wheres', 'when', 'why', 'be', 'been', 'was', 'were',
   'your', 'yours', 'all', 'about', 'more', 'most', 'many', 'much', 'also', 'just',
   'really', 'ever', 'then', 'so', 'if', 'but', 'not', 'im', 'ive', 'am',
+  // Texting shorthand. "best deals rn" left "rn" as the only product word
+  // once the deals vocabulary was stripped, and `haystack.includes('rn')`
+  // scored 1.0 against Inferno, Eternia and every other title containing
+  // the letter pair — turning a browse of the deals list into a clarifying
+  // question about eight unrelated perfumes. Measured; pinned in
+  // test/corpus.test.js.
+  'rn', 'atm', 'pls', 'plz', 'thx', 'asap', 'lol', 'tbh', 'btw',
   // Bare prepositions and conjunctions. These do appear inside real product
   // names ("Game On", "Diamonds And Rubies", "Stronger With You"), which is
   // why they are only ever *removed from the query* and never from the
@@ -1345,9 +1352,32 @@ export async function suggestContextFor(question) {
  *  work" trips classifyIntent's 'price' regex on the word "price" alone,
  *  but it is a policy question, not a lookup, and resolvePriceQuery finding
  *  no fragrance in it should not be read as "the fragrance does not exist". */
+/** Interrogative and filler words that appear in every legal page's prose
+ *  and carry no topic at all. Before this filter, "guess what zorblax
+ *  nebula costs" matched the about page on "what" + "costs" alone, and a
+ *  plain no-such-product refusal got re-routed to the council as a policy
+ *  question in disguise. (Measured; pinned in test/corpus.test.js.) */
+const POLICY_FILLER = new Set([
+  'what', 'whats', 'when', 'where', 'which', 'your', 'yours', 'this', 'that',
+  'these', 'those', 'does', 'have', 'much', 'many', 'want', 'know', 'tell',
+  'just', 'guess', 'please', 'could', 'would', 'should', 'will', 'they',
+  'them', 'then', 'than', 'some', 'about', 'really', 'actually',
+]);
+
+/** The words people use for a policy topic that the pages themselves do not
+ *  use. Query expansion only — the *pages* remain the sole source of any
+ *  answer; this only lets "how do you make money" find the affiliate
+ *  disclosure, whose own vocabulary is "commission" and "affiliate". */
+const POLICY_QUERY_EXPANSIONS = [
+  [/\b(make|earn|making|earning) money\b|\bwho pays\b|\bpaid for\b|\bget paid\b/i, ['commission', 'affiliate']],
+];
+
 export async function policyContextFor(question) {
   const { legal } = await loadSite();
-  const qWords = normalize(question).split(' ').filter((w) => w.length > 3);
+  const qWords = normalize(question).split(' ').filter((w) => w.length > 3 && !POLICY_FILLER.has(w));
+  for (const [re, extra] of POLICY_QUERY_EXPANSIONS) {
+    if (re.test(question)) qWords.push(...extra);
+  }
   if (qWords.length === 0) return null;
 
   let best = null;
@@ -1360,7 +1390,10 @@ export async function policyContextFor(question) {
       best = page;
     }
   }
-  if (!best || bestHits < 2) return null;
+  // Two hits, except for a question whose entire substance is one strong
+  // word: "do you get commission" reduces to exactly ['commission'], and a
+  // hard floor of 2 made it unmatchable on principle.
+  if (!best || bestHits < Math.min(2, qWords.length)) return null;
 
   const text = stripHtml(best.body);
   return `SITE POLICY (${best.title}): ${text.slice(0, 1200)}${text.length > 1200 ? '…' : ''}`;

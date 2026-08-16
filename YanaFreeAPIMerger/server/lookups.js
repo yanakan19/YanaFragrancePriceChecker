@@ -1234,15 +1234,9 @@ export async function resolveMetaQuery(question) {
     };
   }
 
-  if (META_COVERAGE_RE.test(question)) {
-    const enabled = site.retailers.RETAILERS.filter((r) => r.enabled !== false);
-    return {
-      kind: 'coverage',
-      names: enabled.map((r) => r.name),
-      notStated: enabled.filter((r) => r.shipping.standardGbp === null).map((r) => r.name),
-    };
-  }
-
+  // Size before coverage, deliberately: "how many brands do you track"
+  // carries coverage vocabulary ("do you track") but asks for a count, and
+  // answering it with the shop list answers a question nobody asked.
   if (META_SIZE_RE.test(question)) {
     const frags = site.data.DEMO_FRAGRANCES;
     let offers = 0;
@@ -1254,6 +1248,15 @@ export async function resolveMetaQuery(question) {
       offerCount: offers,
       retailerCount: site.retailers.RETAILERS.filter((r) => r.enabled !== false).length,
       withNotesCount: frags.filter((f) => f.notes).length,
+    };
+  }
+
+  if (META_COVERAGE_RE.test(question)) {
+    const enabled = site.retailers.RETAILERS.filter((r) => r.enabled !== false);
+    return {
+      kind: 'coverage',
+      names: enabled.map((r) => r.name),
+      notStated: enabled.filter((r) => r.shipping.standardGbp === null).map((r) => r.name),
     };
   }
 

@@ -157,7 +157,7 @@ const RULES = [
   // the ranking. Both are answerable exactly from the retailer registry.
   [
     'delivery',
-    /\b(delivery|deliveries|shipping|postage|p ?& ?p|p and p|posted to|deliver (to|from|it)|ships? (to|from))\b/,
+    /\b(delivery|deliveries|shipping|postage|p ?& ?p|p and p|posted to|deliver (to|from|it)|deliver(s)? (for )?free|ships? (to|from))\b/,
   ],
 
   // ── availability ───────────────────────────────────────────────────────
