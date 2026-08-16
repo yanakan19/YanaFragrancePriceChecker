@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { parseAwinFeedList, awinMerchantIdFromSignupUrl } from '../src/catalogue/awinFeedList.js';
 
@@ -86,5 +87,28 @@ describe('awinMerchantIdFromSignupUrl', () => {
   it('returns null for a non-Awin or malformed URL', () => {
     expect(awinMerchantIdFromSignupUrl('https://example.com/not-awin')).toBeNull();
     expect(awinMerchantIdFromSignupUrl(null)).toBeNull();
+  });
+});
+
+describe('awin-feed-sync respects the currency quarantine', () => {
+  // Run 213 (2026-08-16): the sync downloaded Nicchia's feed, and
+  // CatalogueStore.write's quarantine guard — correctly — refused the 6,843
+  // sterling prices and crashed the whole crawl, every two hours. The sync
+  // must decline to ingest a quarantined shop's feed BEFORE reaching the
+  // store, because the feed's own currency column is exactly the claim
+  // nobody has verified. This asserts the guard sits in the sync's loop
+  // ahead of the ingest call, the same way the registry test asserts the
+  // header's prose: the script is not importable as a unit, so its source
+  // is the testable artifact.
+  it('skips a CURRENCY_UNCONFIRMED retailer before ingesting anything', () => {
+    const source = readFileSync(
+      new URL('../scripts/awin-feed-sync.ts', import.meta.url),
+      'utf8',
+    );
+    const guard = source.indexOf('CURRENCY_UNCONFIRMED.has(retailer.id)');
+    const ingest = source.indexOf('ingestAwinFeedCsv(store, retailer');
+    expect(guard).toBeGreaterThan(-1);
+    expect(ingest).toBeGreaterThan(-1);
+    expect(guard).toBeLessThan(ingest);
   });
 });

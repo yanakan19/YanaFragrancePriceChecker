@@ -31,7 +31,7 @@
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
-import { RETAILERS } from '../src/config/retailers.js';
+import { RETAILERS, CURRENCY_UNCONFIRMED } from '../src/config/retailers.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import { parseAwinFeedList, awinMerchantIdFromSignupUrl } from '../src/catalogue/awinFeedList.js';
@@ -77,6 +77,22 @@ const store = new CatalogueStore(resolve(root, 'data/catalogue'));
 let stateChanged = false;
 
 for (const retailer of feedRetailers) {
+  // A shop on the currency-unconfirmed list cannot be synced: its feed's
+  // "GBP" column is exactly the declaration nobody has verified, and
+  // CatalogueStore.write now throws rather than store sterling figures for
+  // such an id. Before this check existed, the sync downloaded Nicchia's
+  // feed, hit that guard, and took the whole crawl down with it — every two
+  // hours (run 213, 2026-08-16, the guard's first day). Skipping is the
+  // honest outcome: the feed stays unread until someone reaches the shop's
+  // checkout and settles what currency it actually charges.
+  if (CURRENCY_UNCONFIRMED.has(retailer.id)) {
+    console.log(
+      `  ${retailer.name.padEnd(20)} skipped: in CURRENCY_UNCONFIRMED — its feed's own currency ` +
+        `column is the unverified claim, so there is nothing safe to ingest`,
+    );
+    continue;
+  }
+
   const merchantId = awinMerchantIdFromSignupUrl(retailer.affiliate.signupUrl)!;
   const row = feedList.find((f) => f.advertiserId === merchantId);
 
