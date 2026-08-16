@@ -166,26 +166,56 @@ export type YannyIntent = 'price' | 'suggest' | 'general';
  * finally the ranked result all come through this one callback rather than
  * a single awaited response, so the UI can show real progress instead of a
  * blank wait.
+ *
+ * ── `signal`, and what aborting it actually stops ────────────────────────
+ * Passed straight to `fetch`, which is the only thing that makes the stop
+ * button in demo/app.ts mean anything: aborting a `fetch` errors the
+ * response body stream and closes the underlying connection, so the browser
+ * stops reading and the socket to the backend goes away. It is a real
+ * teardown, not a flag the UI checks. The `reader.cancel()` below is
+ * belt-and-braces for the case where the abort lands between two reads.
+ *
+ * What it does not do on its own is stop the *server* working. The council
+ * fans one question out to every configured agent model, and those calls
+ * would run to completion into a socket nobody is reading. The backend
+ * change that pairs with this — server/index.js aborting the council when
+ * the request closes — is what makes the far half true, and it only takes
+ * effect once that service is redeployed.
+ *
+ * Once aborted, nothing further is emitted: the caller already knows it
+ * stopped, so an `error` event on the way out would only be noise it has to
+ * filter back out. A promise that resolves with no terminal event having
+ * been delivered is the abort signature.
  */
 export async function askVirtualYanny(
   message: string,
   intent: YannyIntent | null,
   onEvent: (event: YannyEvent) => void,
+  signal?: AbortSignal,
 ): Promise<void> {
+  if (signal?.aborted) return;
+
   let res: Response;
   try {
     res = await fetch(apiUrl('/api/chat'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message, intent }),
+      // `?? null` rather than passing the optional straight through:
+      // tsconfig.demo.json runs exactOptionalPropertyTypes, under which
+      // RequestInit.signal accepts an AbortSignal or null but not an
+      // explicit undefined. null is what "no signal" means to fetch anyway.
+      signal: signal ?? null,
     });
   } catch {
+    if (signal?.aborted) return;
     onEvent({ type: 'error', message: 'Could not reach Virtual Yanny. Check your connection and try again.' });
     return;
   }
 
   if (!res.ok || !res.body) {
     const body = await res.json().catch(() => ({}) as { message?: string });
+    if (signal?.aborted) return;
     onEvent({ type: 'error', message: body.message ?? 'Something went wrong.' });
     return;
   }
@@ -194,23 +224,43 @@ export async function askVirtualYanny(
   const decoder = new TextDecoder();
   let buffer = '';
 
-  for (;;) {
-    const { value, done } = await reader.read();
-    if (done) break;
-    buffer += decoder.decode(value, { stream: true });
+  try {
+    for (;;) {
+      const { value, done } = await reader.read();
+      if (done) break;
+      if (signal?.aborted) return;
+      buffer += decoder.decode(value, { stream: true });
 
-    const events = buffer.split('\n\n');
-    buffer = events.pop() ?? '';
+      const events = buffer.split('\n\n');
+      buffer = events.pop() ?? '';
 
-    for (const raw of events) {
-      const line = raw.trim();
-      if (!line.startsWith('data:')) continue;
-      try {
-        onEvent(JSON.parse(line.slice(5).trim()) as YannyEvent);
-      } catch {
-        // A malformed chunk mid-stream is not worth surfacing as an error to
-        // a reader already partway through a conversation.
+      for (const raw of events) {
+        // Checked per event rather than per chunk: one read can carry
+        // several events, and a stop pressed part-way through that batch
+        // must not still push the remaining ones into a thread the reader
+        // has already been told is finished.
+        if (signal?.aborted) return;
+        const line = raw.trim();
+        if (!line.startsWith('data:')) continue;
+        try {
+          onEvent(JSON.parse(line.slice(5).trim()) as YannyEvent);
+        } catch {
+          // A malformed chunk mid-stream is not worth surfacing as an error to
+          // a reader already partway through a conversation.
+        }
       }
     }
+  } catch {
+    // An aborted fetch rejects here, and for the stop button that is the
+    // expected path rather than a fault: say nothing. A genuine mid-stream
+    // drop is a different thing and the reader does need telling, because
+    // the panel would otherwise sit on a spinner no event will ever clear.
+    if (signal?.aborted) return;
+    onEvent({ type: 'error', message: 'The connection to Virtual Yanny dropped part-way through. Try that again.' });
+  } finally {
+    // Releases the reader's lock and tears the body stream down on every
+    // exit path, the ordinary one included. Cancelling an already-cancelled
+    // stream rejects, which is not a fault worth reporting.
+    void reader.cancel().catch(() => {});
   }
 }

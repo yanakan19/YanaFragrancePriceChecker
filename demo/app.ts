@@ -80,6 +80,27 @@ type FacetGroup = 'volume' | 'concentration' | 'priceBand' | 'tier' | 'onSale' |
 const MODE_KEY = 'pricesniffs.display';
 const LAYOUT_KEY = 'pricesniffs.layout';
 const PER_ROW_KEY = 'pricesniffs.perrow';
+/**
+ * Where the Virtual Yanny transcript is kept across a page refresh, and the
+ * only thing about the chat that is written to storage at all.
+ *
+ * `sessionStorage`, deliberately, where every other preference above uses
+ * `localStorage`. Those three are settings a reader chose and expects to
+ * still hold next week; a chat is not. sessionStorage is scoped to this one
+ * tab and is dropped when the tab closes, which covers exactly what was
+ * asked for — a refresh, or an accidental reload, keeping the conversation —
+ * without leaving somebody's shopping questions sitting on a shared or
+ * borrowed computer indefinitely, and without two tabs writing into one
+ * shared transcript and interleaving each other's turns.
+ *
+ * What is stored is the visible conversation and nothing else: the reader's
+ * own messages, Virtual Yanny's replies, and a marker where an answer was
+ * stopped. The scoring matrix is not persisted — it is working detail for
+ * the answer in front of you, not part of the conversation, and it is by
+ * far the largest thing in the thread. Bounds and the failure behaviour are
+ * at saveYannyThread/loadYannyThread.
+ */
+const YANNY_THREAD_KEY = 'pricesniffs.yanny.thread';
 
 const PER_ROW_CHOICES = [3, 5, 8, 10] as const;
 const PER_ROW_DEFAULT = 5;
@@ -173,6 +194,10 @@ const state = {
   yannySplash: '',
   yannyAgentChips: [] as { agentNumber: number; ok: boolean }[],
   yannyLastResult: null as YannyResult | null,
+  // "Clear chat" asks once before it wipes anything — see clearYannyChat for
+  // why one extra press beats both a modal and no guard at all. False is the
+  // resting state; the button only reads "Clear chat?" while this is true.
+  yannyClearArmed: false,
   // Focus returns here on close — whatever had focus before the panel opened,
   // almost always the launcher button itself but not necessarily (a reader
   // could open it via keyboard from anywhere focus happens to be).
@@ -645,6 +670,14 @@ const ICON_EXTERNAL = icon('<path d="M14 4h6v6M20 4l-8.5 8.5M19 13.5V18a2 2 0 0 
 // language every other toggle in this app already uses (.seg-btn.on, etc).
 const ICON_HEART = icon('<path d="M12 20.5s-7.5-4.6-10-9.3C.5 7.8 2.6 4.5 6 4.5c2 0 3.4 1 6 3.6 2.6-2.6 4-3.6 6-3.6 3.4 0 5.5 3.3 4 6.7-2.5 4.7-10 9.3-10 9.3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>');
 const ICON_CLOSE = icon('<path d="M6 6l12 12M18 6 6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>');
+/* The one filled mark in this set, and the exception is the point: a stop
+   square drawn as a 1.7px outline at this size reads as an empty checkbox,
+   which is the opposite of a control that halts something. `currentColor`
+   rather than a colour of its own, so it takes --accent-on from the button
+   it sits in — near-black on the dark theme's red, white on the light
+   theme's — and stays correct under every value of data-mode, including the
+   default "match my device". */
+const ICON_STOP = icon('<rect x="7" y="7" width="10" height="10" rx="1.6" fill="currentColor"/>');
 
 /** A labelled dropdown with its icon, used for every sort and filter control. */
 function control(id: string, label: string, ico: string, options: { value: string; label: string }[], current: string): string {
@@ -2741,7 +2774,127 @@ function handleBack(): void {
 
 type YannyThreadItem =
   | { kind: 'msg'; who: 'user' | 'bot'; text: string }
-  | { kind: 'ranking'; result: YannyResult };
+  | { kind: 'ranking'; result: YannyResult }
+  // A turn the reader stopped before it finished. It is its own kind rather
+  // than a bot message so a truncated turn can never be mistaken for an
+  // answer Virtual Yanny actually gave — it renders as a note, not a bubble.
+  | { kind: 'stopped'; responded: number };
+
+/**
+ * The in-flight request, if there is one, and a sequence number that makes
+ * every callback from an older one a no-op.
+ *
+ * Both live outside `state` on purpose: nothing here is drawn, and putting a
+ * live AbortController in the render state invites somebody to serialise it.
+ * The sequence number is what settles the genuinely racy cases — stop
+ * pressed in the same tick the final event arrives, or a second question
+ * asked immediately after a stop — without any of them needing to know
+ * about each other. Whichever of the two paths runs first bumps `yannySeq`,
+ * and the loser finds its own number stale and does nothing.
+ */
+let yannyAbort: AbortController | null = null;
+let yannySeq = 0;
+/** Disarms "Clear chat?" if the reader walks away from it — see armYannyClear. */
+let yannyClearTimer: ReturnType<typeof setTimeout> | null = null;
+
+/**
+ * How much of the conversation survives a refresh.
+ *
+ * Bounded two ways because neither bound alone is enough: a cap on turns
+ * keeps an ordinary long chat from growing without limit, and a cap on
+ * bytes keeps one pathological turn — a pasted wall of text — from blowing
+ * the quota on its own. sessionStorage is typically ~5 MB, so 32 KB is not
+ * close to a limit; it is a limit on this widget's share of it.
+ */
+const YANNY_THREAD_MAX_ITEMS = 40;
+const YANNY_THREAD_MAX_CHARS = 32_000;
+/**
+ * Bumped whenever the stored shape changes. An entry written by an older
+ * version of the site is dropped rather than guessed at, so a reader who
+ * happens to have a stale tab open gets an empty chat instead of a widget
+ * that throws on load.
+ */
+const YANNY_THREAD_VERSION = 1;
+
+/**
+ * Writes the visible conversation to sessionStorage (see YANNY_THREAD_KEY).
+ *
+ * Never throws. Storage can be absent (a sandboxed frame), disabled
+ * (private mode on some browsers), or full, and none of those are worth
+ * breaking a working chat over — the conversation simply will not outlive
+ * the page, which is where it was before any of this.
+ *
+ * `ranking` items are dropped on the way out. The scoring matrix is working
+ * detail attached to a live answer rather than part of the conversation,
+ * and it is most of the bytes; keeping it would mean storing 28 rows of
+ * per-criterion scores per turn to redraw a collapsed <details> nobody
+ * opened.
+ */
+function saveYannyThread(): void {
+  try {
+    const keep = state.yannyThread.filter((item) => item.kind !== 'ranking');
+    let items = keep.slice(-YANNY_THREAD_MAX_ITEMS);
+    let payload = JSON.stringify({ v: YANNY_THREAD_VERSION, items });
+    // Oldest turns go first until it fits, rather than refusing to store
+    // anything: the end of a conversation is the part still being read.
+    while (payload.length > YANNY_THREAD_MAX_CHARS && items.length > 1) {
+      items = items.slice(1);
+      payload = JSON.stringify({ v: YANNY_THREAD_VERSION, items });
+    }
+    if (payload.length > YANNY_THREAD_MAX_CHARS) {
+      window.sessionStorage.removeItem(YANNY_THREAD_KEY);
+      return;
+    }
+    window.sessionStorage.setItem(YANNY_THREAD_KEY, payload);
+  } catch {
+    // The transcript will not survive a refresh. Nothing else changes.
+  }
+}
+
+/**
+ * Reads the conversation back, validating every field rather than trusting
+ * the entry — sessionStorage is writable by anything else running on this
+ * origin, and the values below are rendered. Anything that is not exactly
+ * the expected shape is dropped, so the worst case is an empty chat.
+ *
+ * `esc()` is what actually keeps stored text out of the DOM as markup (see
+ * yannyThreadHtml); the checks here are about not handing the renderer an
+ * object with the wrong fields in it.
+ */
+function loadYannyThread(): void {
+  let raw: string | null = null;
+  try {
+    raw = window.sessionStorage.getItem(YANNY_THREAD_KEY);
+  } catch {
+    return;
+  }
+  if (!raw) return;
+  try {
+    const parsed = JSON.parse(raw) as { v?: unknown; items?: unknown };
+    if (parsed.v !== YANNY_THREAD_VERSION || !Array.isArray(parsed.items)) {
+      window.sessionStorage.removeItem(YANNY_THREAD_KEY);
+      return;
+    }
+    const items: YannyThreadItem[] = [];
+    for (const entry of parsed.items as unknown[]) {
+      if (!entry || typeof entry !== 'object') continue;
+      const item = entry as Record<string, unknown>;
+      if (item.kind === 'msg' && typeof item.text === 'string' && (item.who === 'user' || item.who === 'bot')) {
+        items.push({ kind: 'msg', who: item.who, text: item.text });
+      } else if (item.kind === 'stopped' && typeof item.responded === 'number' && Number.isFinite(item.responded)) {
+        items.push({ kind: 'stopped', responded: Math.max(0, Math.trunc(item.responded)) });
+      }
+    }
+    state.yannyThread = items.slice(-YANNY_THREAD_MAX_ITEMS);
+  } catch {
+    // Corrupt or half-written entry: start clean rather than half-restored.
+    try {
+      window.sessionStorage.removeItem(YANNY_THREAD_KEY);
+    } catch {
+      /* nothing further to do */
+    }
+  }
+}
 
 /**
  * The opening state of an empty chat: what this thing can be asked, as a
@@ -2766,6 +2919,24 @@ const YANNY_EMPTY_PROMPTS = [
 ];
 const YANNY_PLACEHOLDER = 'Ask anything about this site…';
 
+/**
+ * "Clear chat" sits here and nowhere else, and only when there is something
+ * to clear — a control that wipes an empty conversation is a control that
+ * exists solely to be pressed by mistake. It is also absent while an answer
+ * is in flight: clearing the thread a pending response is about to append to
+ * is a state worth not having.
+ *
+ * Its accessible name says what it will do, which changes with the arm
+ * state, rather than staying on the resting label while the visible text
+ * asks a question.
+ */
+function yannyClearHtml(): string {
+  if (state.yannyThread.length === 0 || state.yannyBusy) return '';
+  return state.yannyClearArmed
+    ? `<button class="yanny-clear armed" id="yanny-clear" type="button" aria-label="Confirm clearing the chat history">Clear chat?</button>`
+    : `<button class="yanny-clear" id="yanny-clear" type="button" aria-label="Clear the chat history">Clear chat</button>`;
+}
+
 function yannyHeadHtml(): string {
   return `<div class="yanny-head">
     <span class="yanny-head-mark" aria-hidden="true">🤖</span>
@@ -2773,6 +2944,7 @@ function yannyHeadHtml(): string {
       <p class="yanny-head-name">Virtual Yanny</p>
       <p class="yanny-head-sub">Grounded only in what this site actually shows</p>
     </div>
+    ${yannyClearHtml()}
     <button class="yanny-close" id="yanny-close" aria-label="Close chat">${ICON_CLOSE}</button>
   </div>`;
 }
@@ -2814,7 +2986,20 @@ function yannyThreadHtml(): string {
   }
 
   const items = state.yannyThread
-    .map((item) => (item.kind === 'msg' ? `<div class="yanny-msg ${item.who}">${esc(item.text)}</div>` : yannyRankingHtml(item.result)))
+    .map((item) => {
+      if (item.kind === 'msg') return `<div class="yanny-msg ${item.who}">${esc(item.text)}</div>`;
+      if (item.kind === 'ranking') return yannyRankingHtml(item.result);
+      // A stopped turn. Deliberately not a bot bubble: the council sends its
+      // answer as one final event rather than token by token, so a stop
+      // genuinely leaves nothing of the answer behind, and saying that
+      // plainly is better than a bubble a reader could take for a short
+      // reply. The tally is the only thing that had actually arrived.
+      const tally =
+        item.responded > 0
+          ? ` ${item.responded} ${item.responded === 1 ? 'agent had' : 'agents had'} replied, but nothing had been ranked yet.`
+          : '';
+      return `<p class="yanny-stopped">You stopped this one, so there is no answer to it.${tally}</p>`;
+    })
     .join('');
 
   if (!state.yannyBusy) return items;
@@ -2847,31 +3032,76 @@ const YANNY_UNAVAILABLE_COPY: Record<YannyHealth['reason'], { mark: string; text
   },
 };
 
+/**
+ * The panel in each of its three states, and in all three the conversation
+ * stays on screen if there is one.
+ *
+ * That is the whole of what changed here, and it is the bug behind "it loses
+ * my history when I click on and off it". The transcript was never actually
+ * thrown away — `state.yannyThread` outlives a close, since closing only
+ * empties the host element — but the health check runs again on every open
+ * (deliberately; see openYanny), and both the states it passes through on
+ * the way replaced the entire panel body. So a reopen showed a spinner and
+ * then, if the backend happened to be asleep, an "unavailable" splash with
+ * the conversation nowhere in it. It came back on the next successful open,
+ * which is not a thing a reader can be expected to discover.
+ *
+ * Now the checking and unavailable states put what they have to say in a
+ * strip where the composer goes, and leave the body alone. The composer
+ * itself is still withheld until the backend has answered for itself —
+ * offering a text box that cannot send anything is worse than saying why.
+ */
 function yannyPanelHtml(): string {
+  const hasHistory = state.yannyThread.length > 0;
+  const transcript = `<div class="yanny-body" id="yanny-body">${yannyThreadHtml()}</div>`;
+
   if (state.yannyStatus === 'idle' || state.yannyStatus === 'checking') {
-    return `<div class="yanny-panel">${yannyHeadHtml()}<div class="yanny-checking"><span class="yanny-spinner" aria-hidden="true"></span></div></div>`;
+    // With nothing to show yet, the spinner keeps the whole body — there is
+    // no history for it to be sitting under.
+    const body = hasHistory ? transcript : `<div class="yanny-checking"><span class="yanny-spinner" aria-hidden="true"></span></div>`;
+    const foot = hasHistory
+      ? `<p class="yanny-foot" role="status"><span class="yanny-spinner" aria-hidden="true"></span>Reconnecting to Virtual Yanny…</p>`
+      : '';
+    return `<div class="yanny-panel">${yannyHeadHtml()}${body}${foot}</div>`;
   }
+
   if (state.yannyStatus === 'unavailable') {
     // Each line says what is actually true and what the reader can do about
     // it. "Try again" only appears where trying again could plausibly work:
     // a suspended machine wakes and a rate limit clears, whereas an
     // unconfigured or unbuilt backend will answer identically all day.
     const { mark, text } = YANNY_UNAVAILABLE_COPY[state.yannyReason] ?? YANNY_UNAVAILABLE_COPY['no-answer'];
-    return `<div class="yanny-panel">${yannyHeadHtml()}
-      <div class="yanny-unavailable">
-        <div class="yanny-unavailable-mark" aria-hidden="true">${mark}</div>
-        <p>${esc(text)}</p>
-      </div>
+    if (!hasHistory) {
+      return `<div class="yanny-panel">${yannyHeadHtml()}
+        <div class="yanny-unavailable">
+          <div class="yanny-unavailable-mark" aria-hidden="true">${mark}</div>
+          <p>${esc(text)}</p>
+        </div>
+      </div>`;
+    }
+    return `<div class="yanny-panel">${yannyHeadHtml()}${transcript}
+      <p class="yanny-foot" role="status"><span aria-hidden="true">${mark}</span>${esc(text)}</p>
     </div>`;
   }
 
+  // Send and stop are two different buttons rather than one relabelled one.
+  // A submit button that stops something is a trap: the moment a browser
+  // decides to submit the form for any other reason — an implicit submit
+  // from the text field, say — it would fire the stop path. `type="button"`
+  // on the stop control means the form cannot be submitted while an answer
+  // is in flight at all, which is the duplicate-request guard made
+  // structural rather than a check that has to be remembered.
+  const control = state.yannyBusy
+    ? `<button type="button" id="yanny-stop" class="yanny-stop" aria-label="Stop generating this answer">${ICON_STOP}</button>`
+    : `<button type="submit" id="yanny-send" aria-label="Send">&#10148;</button>`;
+
   return `<div class="yanny-panel">
     ${yannyHeadHtml()}
-    <div class="yanny-body" id="yanny-body">${yannyThreadHtml()}</div>
+    ${transcript}
     <form id="yanny-composer" class="yanny-composer">
       <label class="sr" for="yanny-input">Message Virtual Yanny</label>
       <input id="yanny-input" type="text" placeholder="${esc(YANNY_PLACEHOLDER)}" autocomplete="off" ${state.yannyBusy ? 'disabled' : ''} />
-      <button type="submit" aria-label="Send" ${state.yannyBusy ? 'disabled' : ''}>&#10148;</button>
+      ${control}
     </form>
   </div>`;
 }
@@ -2881,11 +3111,38 @@ function yannyPanelHtml(): string {
 function renderYanny(): void {
   const launcher = $('#yanny-launcher') as HTMLElement;
   const host = $('#yanny-panel-host') as HTMLElement;
+
+  // The panel is rebuilt wholesale on every event of a streaming answer, and
+  // replacing innerHTML destroys whatever had focus inside it. Left alone
+  // that drops a keyboard reader onto <body> several times a second while an
+  // answer comes in, and again at the exact moment send becomes stop — the
+  // one instant they are most likely to want that button. Remembering the id
+  // and handing focus on is the fix, and it only ever fires when focus was
+  // inside the panel to begin with, so it can never steal focus from the
+  // page behind it.
+  const active = document.activeElement as HTMLElement | null;
+  const focusedId = active && host.contains(active) ? active.id : '';
+
   launcher.toggleAttribute('data-open', state.yannyOpen);
   host.innerHTML = state.yannyOpen ? yannyPanelHtml() : '';
   if (state.yannyOpen && state.yannyStatus === 'ready') {
     const body = $('#yanny-body') as HTMLElement | null;
     if (body) body.scrollTop = body.scrollHeight;
+  }
+
+  if (focusedId && state.yannyOpen) {
+    // In order of preference: the same control, then whichever of the two
+    // composer controls is currently live, then close — which always exists.
+    // Sending from the text field with Enter lands on the second entry,
+    // because the field is disabled while an answer is coming and a disabled
+    // element cannot hold focus.
+    for (const id of [focusedId, 'yanny-stop', 'yanny-send', 'yanny-input', 'yanny-close']) {
+      const el = document.getElementById(id) as (HTMLElement & { disabled?: boolean }) | null;
+      if (el && !el.disabled) {
+        el.focus({ preventScroll: true });
+        break;
+      }
+    }
   }
 }
 
@@ -2917,40 +3174,172 @@ function openYanny(triggeredBy: HTMLElement): void {
 
 function closeYanny(): void {
   state.yannyOpen = false;
+  // An armed "Clear chat?" must not still be armed when the panel is opened
+  // again — a question asked minutes ago should not be answerable by the
+  // first press of a session.
+  disarmYannyClear();
   renderYanny();
   state.yannyOpenedFrom?.focus();
   state.yannyOpenedFrom = null;
 }
 
+/**
+ * The lifecycle of one question, and every way it can end.
+ *
+ * idle → sending on the way in; sending → idle on a `result` or an `error`;
+ * sending → stopped → idle when the reader presses stop. `yannySeq` is what
+ * makes those exclusive: it is bumped by whichever path gets there first,
+ * and both the event callback and the settle handler below check their own
+ * number against it before touching anything. So a stop pressed in the same
+ * tick the winning answer arrives resolves one way or the other and never
+ * both — either the answer is already in the thread and stopYanny declines
+ * (it also requires `yannyBusy`), or the stop landed first and the answer,
+ * along with any events still buffered behind it, is dropped.
+ *
+ * The settle handler is the backstop for the case no event covers: a stream
+ * that ends without a terminal event at all, which is what a backend crash
+ * or a proxy cutting the connection looks like from here. Without it the
+ * panel would sit on a spinner and a stop button with nothing behind it,
+ * forever. With it, "still busy once the request is over" is by definition
+ * a failed turn and is reported as one.
+ */
 function sendYannyMessage(text: string): void {
   const trimmed = text.trim();
   if (!trimmed || state.yannyBusy) return;
 
+  disarmYannyClear();
   state.yannyThread.push({ kind: 'msg', who: 'user', text: trimmed });
   state.yannyBusy = true;
   state.yannySplash = 'Thinking…';
   state.yannyAgentChips = [];
+  const controller = new AbortController();
+  yannyAbort = controller;
+  const seq = ++yannySeq;
+  saveYannyThread();
   renderYanny();
 
-  askVirtualYanny(trimmed, state.yannyIntent, (event: YannyEvent) => {
-    if (event.type === 'status') {
-      state.yannySplash = event.message;
-    } else if (event.type === 'agent') {
-      state.yannyAgentChips.push({ agentNumber: event.agentNumber, ok: event.ok });
-    } else if (event.type === 'result') {
-      state.yannyBusy = false;
-      if (event.result.ok && event.result.winner) {
-        state.yannyThread.push({ kind: 'msg', who: 'bot', text: event.result.winner.content });
-        state.yannyThread.push({ kind: 'ranking', result: event.result });
-      } else {
-        state.yannyThread.push({ kind: 'msg', who: 'bot', text: `The council could not answer that: ${event.result.error ?? 'unknown error'}.` });
+  void askVirtualYanny(
+    trimmed,
+    state.yannyIntent,
+    (event: YannyEvent) => {
+      if (seq !== yannySeq) return;
+      if (event.type === 'status') {
+        state.yannySplash = event.message;
+      } else if (event.type === 'agent') {
+        state.yannyAgentChips.push({ agentNumber: event.agentNumber, ok: event.ok });
+      } else if (event.type === 'result') {
+        state.yannyBusy = false;
+        if (event.result.ok && event.result.winner) {
+          state.yannyThread.push({ kind: 'msg', who: 'bot', text: event.result.winner.content });
+          state.yannyThread.push({ kind: 'ranking', result: event.result });
+        } else {
+          state.yannyThread.push({ kind: 'msg', who: 'bot', text: `The council could not answer that: ${event.result.error ?? 'unknown error'}.` });
+        }
+        saveYannyThread();
+      } else if (event.type === 'error') {
+        state.yannyBusy = false;
+        state.yannyThread.push({ kind: 'msg', who: 'bot', text: event.message });
+        saveYannyThread();
       }
-    } else if (event.type === 'error') {
-      state.yannyBusy = false;
-      state.yannyThread.push({ kind: 'msg', who: 'bot', text: event.message });
-    }
+      renderYanny();
+    },
+    controller.signal,
+  ).finally(() => {
+    if (seq !== yannySeq) return;
+    yannyAbort = null;
+    if (!state.yannyBusy) return;
+    state.yannyBusy = false;
+    state.yannyThread.push({
+      kind: 'msg',
+      who: 'bot',
+      text: 'Virtual Yanny stopped part-way through without answering. Ask that again and it should go through.',
+    });
+    saveYannyThread();
     renderYanny();
   });
+}
+
+/**
+ * Stop, and what it genuinely halts.
+ *
+ * Aborting the controller tears down the `fetch` this browser has open (see
+ * askVirtualYanny), so the connection closes and no further event can be
+ * delivered here. That much is real and takes effect immediately. Whether
+ * the *backend* also stops depends on a change to server/index.js that only
+ * takes effect when that service is redeployed; until then the council keeps
+ * calling its models into a socket nobody is reading. Nothing on screen
+ * claims otherwise — the note this leaves says the reader stopped it, not
+ * that the work stopped.
+ *
+ * Bumping `yannySeq` before anything else is what makes this safe against
+ * the in-flight callback: from this line on, every event and the settle
+ * handler for that request are stale and return without touching state.
+ */
+function stopYanny(): void {
+  // Not busy means the answer already landed between the button being drawn
+  // and being pressed. Nothing to stop, and appending a "you stopped this"
+  // note under a complete answer would be a lie about what happened.
+  if (!state.yannyBusy) return;
+  yannySeq++;
+  yannyAbort?.abort();
+  yannyAbort = null;
+  state.yannyBusy = false;
+  state.yannyThread.push({ kind: 'stopped', responded: state.yannyAgentChips.filter((c) => c.ok).length });
+  state.yannyAgentChips = [];
+  state.yannySplash = '';
+  saveYannyThread();
+  renderYanny();
+  (document.getElementById('yanny-input') as HTMLElement | null)?.focus({ preventScroll: true });
+}
+
+/**
+ * Clear asks once before it wipes anything, and that is the whole guard.
+ *
+ * A modal would be too much for a chat with a price bot, and no guard at all
+ * is one stray tap from losing a conversation somebody has been building up
+ * — the button sits next to Close, which is a tap people make on purpose all
+ * the time. Turning the button itself into the question costs one extra
+ * press, needs no new surface, is reachable by exactly the same keyboard
+ * path as the first press, and is announced because the accessible name
+ * changes with it. It disarms itself after a few seconds, and on close, and
+ * on sending anything, so it can never be sitting armed from a decision the
+ * reader has plainly moved on from.
+ */
+function armYannyClear(): void {
+  state.yannyClearArmed = true;
+  if (yannyClearTimer) clearTimeout(yannyClearTimer);
+  yannyClearTimer = setTimeout(() => {
+    yannyClearTimer = null;
+    if (!state.yannyClearArmed) return;
+    state.yannyClearArmed = false;
+    renderYanny();
+  }, 5000);
+  renderYanny();
+}
+
+function disarmYannyClear(): void {
+  if (yannyClearTimer) {
+    clearTimeout(yannyClearTimer);
+    yannyClearTimer = null;
+  }
+  state.yannyClearArmed = false;
+}
+
+/** Wipes the on-screen transcript and the stored copy together — leaving one
+ *  behind would resurrect the conversation on the next refresh. */
+function clearYannyChat(): void {
+  disarmYannyClear();
+  state.yannyThread = [];
+  state.yannyAgentChips = [];
+  state.yannySplash = '';
+  try {
+    window.sessionStorage.removeItem(YANNY_THREAD_KEY);
+  } catch {
+    // Nothing was ever stored, so there is nothing to remove. The on-screen
+    // thread is cleared either way.
+  }
+  renderYanny();
+  (document.getElementById('yanny-input') as HTMLElement | null)?.focus({ preventScroll: true });
 }
 
 /* ── chrome ──────────────────────────────────────────────────────────────── */
@@ -3120,6 +3509,12 @@ function init(): void {
   loadMode();
   loadLayout();
   loadPerRow();
+  // Restores the chat transcript this tab was holding before a refresh. Runs
+  // before the first render but draws nothing on its own — the panel is
+  // closed until the launcher is pressed, and the health check still runs
+  // fresh on that open, so a restored conversation never implies a backend
+  // that is still there.
+  loadYannyThread();
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && state.yannyOpen) closeYanny();
@@ -3314,6 +3709,15 @@ function init(): void {
     }
     if (t.closest('#yanny-close')) {
       closeYanny();
+      return;
+    }
+    if (t.closest('#yanny-stop')) {
+      stopYanny();
+      return;
+    }
+    if (t.closest('#yanny-clear')) {
+      if (state.yannyClearArmed) clearYannyChat();
+      else armYannyClear();
       return;
     }
     const authTabBtn = t.closest('[data-auth-tab]');

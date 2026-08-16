@@ -1908,7 +1908,39 @@
   .yanny-close:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
   .yanny-close .ico { width: 18px; height: 18px; }
 
+  /* Clear chat. The quiet pill this site already uses for a secondary
+     control — same tokens as .yanny-agent-chip, sized to sit level with the
+     close button beside it — because it is not the thing anyone came to the
+     panel to press. Armed, it borrows the accent the same way every other
+     "this one is live" state here does, so the change of colour and the
+     change of label say the same thing twice. */
+  .yanny-clear {
+    flex: none; font: inherit; font-size: 11.5px; font-weight: 700; cursor: pointer;
+    padding: 5px 10px; border-radius: 20px; white-space: nowrap;
+    background: var(--surface); border: 1px solid var(--line); color: var(--faint);
+  }
+  .yanny-clear:hover { color: var(--ink-2); border-color: var(--line-firm); }
+  .yanny-clear.armed { color: var(--accent-ink); border-color: var(--accent); }
+  .yanny-clear:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
   .yanny-body { flex: 1; min-height: 0; overflow-y: auto; padding: 14px 16px; }
+
+  /* The strip that stands in for the composer while the backend is being
+     checked or is not answering. It sits exactly where the composer would,
+     so the conversation above it never moves between states. */
+  .yanny-foot {
+    flex: none; display: flex; align-items: center; gap: 8px; margin: 0;
+    border-top: 1px solid var(--line); font-size: 12.5px; color: var(--faint);
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  }
+
+  /* A stopped turn, deliberately not a message bubble: it is a note about
+     the conversation rather than a turn in it, so a truncated answer can
+     never be read as a short one. */
+  .yanny-stopped {
+    margin: 0 0 10px; font-size: 12.5px; line-height: 1.45; color: var(--faint);
+    font-style: italic; padding-left: 2px;
+  }
 
   .yanny-unavailable {
     height: 100%; display: flex; flex-direction: column; align-items: center;
@@ -1984,6 +2016,22 @@
   }
   .yanny-composer button:disabled { opacity: .5; cursor: default; }
   .yanny-composer button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  /* The stop button is the same button in the same place, so it inherits
+     everything above — including `color: var(--accent-on)`, which is exactly
+     the colour asked for and is already defined once per theme state. On the
+     dark theme --accent-on is #0B0405, a near-black; on the light theme it
+     is #FFFFFF. Both are declared in all four blocks at the top of this file
+     (:root, [data-mode="light"], the prefers-color-scheme fallback for
+     [data-mode="system"], and the [data-theme] override the host can stamp),
+     so the square is right under every setting including the default "match
+     my device" with nothing stamped at all — and it will stay right if the
+     palette is ever re-tinted, which a hardcoded #000/#fff would not. The
+     square itself is fill: currentColor, so it just follows.
+
+     Centred with flex because the send glyph it replaces is text and was
+     centred by the button's own line box; an <svg> is not. */
+  .yanny-composer .yanny-stop { display: flex; align-items: center; justify-content: center; }
+  .yanny-composer .yanny-stop .ico { width: 15px; height: 15px; }
 </style>
 
 <div class="ambient" aria-hidden="true">
