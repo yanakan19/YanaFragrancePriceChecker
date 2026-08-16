@@ -45,6 +45,17 @@ const QUESTIONS = [
   'how fresh are these prices',
   'which shops do you cover',
   'how many fragrances do you have',
+  // the shapes added 2026-08-16 (keep the set above intact so runs stay
+  // comparable with the recorded baseline; these extend it)
+  'hello',                                  // greeting
+  'thanks',                                 // greeting
+  'who are you',                            // meta identity
+  'do you deliver to ireland',              // delivery geography
+  'recommend me a summer fragrance',        // season/occasion refusal
+  'what should i wear to a wedding',        // season/occasion refusal
+  'what about the 50ml',                    // follow-up refusal
+  'perfume for women',                      // audience refusal
+  'what perfume you recommend for a smelly man', // longevity refusal
 ];
 
 const emptyConfig = { baseUrl: 'https://unused.invalid', apiKey: 'unused', models: [] };

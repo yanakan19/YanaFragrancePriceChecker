@@ -68,10 +68,10 @@ looks wrong.
 
 ## Most questions skip the council entirely
 
-Step 2 above is the path for `'general'` questions and most `'suggest'`
-ones. Ten of the twelve intents `server/intent.js` can classify are answered
-directly from `server/siteData.js` and `server/lookups.js`, with no model
-called at all:
+Step 2 above is the path for `'general'` questions and some `'suggest'`
+ones. Eleven of the thirteen intents `server/intent.js` can classify are
+answered directly from `server/siteData.js` and `server/lookups.js`, with no
+model called at all:
 
 | intent | shape | answered from |
 | --- | --- | --- |
@@ -84,7 +84,16 @@ called at all:
 | `budget` | "what can I get under £50", "something sweet under £30" | delivered-price index, filtered by note |
 | `compare` | "is X cheaper than Y" | both sides' cheapest delivered |
 | `brand` | "what Creed do you have", "do you list Amouage" | brand index |
-| `meta` | "how fresh are these prices", "which shops do you cover" | crawl time, registry, counts |
+| `meta` | "how fresh are these prices", "who are you" | crawl time, registry, counts |
+| `greeting` | a message that is only "hello" or "thanks" | live counts, nothing else |
+
+`suggest` additionally answers deterministically — with an honest refusal,
+never a product — when a question rests entirely on one of the three
+constraints the catalogue provably lacks: who a fragrance is for, how strong
+or long-lasting it is, or what season/occasion suits it ("what should I wear
+to a wedding", "recommend me a summer fragrance"). A rule-1-bound council
+model could only ever refuse those too, so the refusal is written directly,
+naming what the data cannot do and offering the filters that are real.
 
 Each of these has one factual answer already sitting in the catalogue.
 Running 28 LLMs and ranking their prose to relay that fact adds latency
@@ -130,9 +139,13 @@ Two things send a question back to the council anyway:
 
 ## What deliberately stays with the council
 
-Taste. "What's similar to X", "recommend me something for summer", "what
-should I wear to a wedding" have no single right answer in the data, and a
-model's phrasing is the actual product rather than a relay for a number.
+Taste. "What's similar to X", "something sweet", "do you have anything
+nice" have no single right answer in the data, and a model's phrasing is
+the actual product rather than a relay for a number. (Season and occasion
+questions used to be listed here too; a grounded model could only ever
+refuse them — rule 1 forbids "summer means citrus" from training — so a
+question resting entirely on one is now refused deterministically instead
+of spending a 28-model round writing the same refusal.)
 
 What changed for those is the grounding, not the routing.
 `suggestContextFor` used to split the question on commas and call each
@@ -201,12 +214,15 @@ recommend for a smelly man" names no note, no fragrance and no budget —
 models a SITE DATA block with no fragrance data in it and trusting rule 1c
 to hold. The refusal names what it cannot do and offers the three things it
 can, and it is written flatly: "smelly man" is a request for something
-long-lasting, not something to be corrected. Open taste questions
-("recommend me a summer fragrance", "do you have anything nice") still go
-to the council, because nothing in the data contradicts them.
+long-lasting, not something to be corrected. Season and occasion requests
+("recommend me a summer fragrance", "what should I wear to a wedding") are
+refused the same way. Open taste questions ("do you have anything nice")
+still go to the council, because nothing in the data contradicts them.
 
-`test/messyQuestions.test.js` is the regression suite for all of this, and
-its header is explicit that every question in it is **invented**. There is
+`test/messyQuestions.test.js` and `test/corpus.test.js` (42 question types,
+each in 2-3 phrasings, every one asserting its path, its grounding and its
+latency class) are the regression suites for all of this, and their headers
+are explicit that every question in them is **invented**. There is
 no history of real user questions to draw on: this backend persists nothing,
 `/api/chat` keeps no conversation, and the site carries no analytics (see
 `demo/legal.ts`). Two questions are the owner's, verbatim; the rest are
