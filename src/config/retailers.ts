@@ -2459,7 +2459,13 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       '/en-gb answered USD; /gb, /uk, /en-uk none). Whether 1.3490 was ever a real exchange ' +
       'rate was not established, and nothing measured suggests this shop takes sterling at ' +
       'all. It ran enabled with 4,032 offer rows live on that unproven declaration until ' +
-      '2026-08-13.',
+      '2026-08-13. Its stored snapshot went on holding all 6,843 of those figures in priceGbp ' +
+      'for three days after that — disabling a shop stops it being published, it does not touch ' +
+      'the file — and they were cleared on 2026-08-16 by npm run quarantine:prices, each amount ' +
+      "kept as nativePrice under currency 'unknown', the only label the measurements above " +
+      'support: not the euros the storefront quotes, not pounds, and not a converted anything. ' +
+      'CatalogueStore.write now refuses to store a sterling figure against any id on this list, ' +
+      'so no routine run can put them back.',
   ],
   [
     'carethy',
@@ -2499,7 +2505,7 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
 
 // Runs once, at import, which is the only moment early enough to matter: by
 // the time a price reaches a snapshot the currency has already been assumed.
-// Cannot fire today — all four are `enabled: false` — and that is the point.
+// Cannot fire today — all six are `enabled: false` — and that is the point.
 // It exists for the edit that flips one of them without reading the note.
 //
 // It did not catch Nicchia Luxury, because Nicchia Luxury was never on this
@@ -2508,6 +2514,16 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
 // guards ids that are already in it. A check over a hand-maintained list
 // cannot fire for the case nobody thought to add, which is the case that
 // needs it. What it does do is make the next flip of any listed id loud.
+//
+// This check guards the registry. It does not guard the snapshots on disk,
+// and until 2026-08-16 nothing did: an id could sit here, disabled, while its
+// data/catalogue file went on holding thousands of prices in priceGbp, and a
+// routine run could refresh them — which is what happened to Escentual on
+// 2026-08-13 (86c4660 cleared 8,104, harvest 5c32130 restored all 8,104
+// ninety minutes later) and what Nicchia Luxury's 6,843 rows were still doing
+// three days on. assertNoQuarantinedGbpPrices, called from
+// CatalogueStore.write, is the other half: while an id is on this list, no
+// writer of any snapshot can put a sterling figure against it.
 const enabledWithoutConfirmedCurrency = RETAILERS.filter(
   (r) => r.enabled && CURRENCY_UNCONFIRMED.has(r.id),
 );

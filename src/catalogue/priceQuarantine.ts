@@ -43,10 +43,34 @@ export function quarantinePrices(
   let cleared = 0;
 
   for (const listing of listings) {
-    if (listing.status !== 'active' || listing.priceGbp === null) {
+    if (listing.status !== 'active') {
       out.push(listing);
       continue;
     }
+
+    // An out-of-stock row can hold a was-price with no current price beside
+    // it. That figure is in the same unit as the one next door and shown the
+    // same way, so leaving it behind would quarantine a shop's prices and keep
+    // publishing its prices — and it is the shape assertNoQuarantinedGbpPrices
+    // refuses to write, so anything not cleared here could not be stored at
+    // all. Counted separately from a real price so `cleared` keeps meaning
+    // "listings that had a sterling price".
+    if (listing.priceGbp === null) {
+      if (listing.wasPriceGbp === null || listing.wasPriceGbp === undefined) {
+        out.push(listing);
+      } else {
+        out.push({
+          ...listing,
+          wasPriceGbp: null,
+          nativePrice: listing.nativePrice ?? {
+            amount: listing.wasPriceGbp,
+            currency: presentedCurrency ?? 'unknown',
+          },
+        });
+      }
+      continue;
+    }
+
     cleared++;
     out.push({
       ...listing,
