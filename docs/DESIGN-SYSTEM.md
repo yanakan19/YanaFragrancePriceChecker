@@ -1,7 +1,23 @@
 # Design system
 
-What is actually built in `demo/template.html` and `demo/app.ts`, as of
-branch `claude/scentday-retailer-registry-h92tth`, commit `9e43083`. Every
+> **The tokens and the type scale now live on the site itself, at
+> [/design](https://pricesniffs.space/design).** That page reads every value
+> out of the live stylesheet as it renders: the swatches are painted with the
+> tokens rather than with copies of them, the type samples are real elements
+> carrying the real classes, and the contrast ratios are computed in the
+> browser for whichever theme is showing. It cannot disagree with the
+> stylesheet, because it has no copy of it to disagree with.
+>
+> **Where this document and that page differ, the page is right.** This file
+> is a transcription, and a transcription is only true on the day it is made.
+> Sections 1.1 to 1.6 below were refreshed against the real CSS on
+> 2026-08-16; everything from section 2 onward is still the component audit
+> taken at commit `9e43083`, and parts of it have aged — §1.5's `--card` /
+> `--muted` bug, for one, no longer exists (`grep -c 'var(--card)'
+> demo/template.html` returns 0). Read those sections as a record of what was
+> found then, not as a claim about today.
+
+What is actually built in `demo/template.html` and `demo/app.ts`. Every
 token, component and animation below is transcribed from the real CSS, not
 proposed. Where something is missing, wrong, or duplicated, it is called out
 explicitly rather than silently fixed — this document does not implement
@@ -20,86 +36,105 @@ in `index.html` directly.
 
 Colour is entirely custom-property driven, set on `:root` and switched by an
 attribute the app writes at runtime: `data-mode="dark" | "light" | "system"`
-(`demo/app.ts:137-159`, `applyMode`/`loadMode`/`setMode`). `system` mode adds
-a second layer: it follows `prefers-color-scheme` when nothing else has
-opinions, and separately follows `data-theme` if a *host* page stamps that
-attribute on `<html>` (comment at `template.html:61-62` — this exists so an
-embedding shell's own theme toggle keeps working). That means there are
-**four** near-duplicate colour blocks in the file: `:root, :root[data-mode
-="dark"]` (10-36), `:root[data-mode="light"]` (38-59), `@media
-(prefers-color-scheme: light) { :root[data-mode="system"] }` (63-73), and
-`:root[data-mode="system"][data-theme="light"]` / `[data-theme="dark"]`
-(74-91). All four dark blocks agree and all three light blocks agree — no
-drift found — but this is 82 lines encoding two palettes. A `light-dark()`
-or a single palette block referenced by all four selectors would remove the
-duplication risk; flagging rather than changing it, per brief.
+(`demo/app.ts`, `applyMode`/`loadMode`/`setMode`). `system` mode adds a second
+layer: it follows `prefers-color-scheme` when nothing else has opinions, and
+separately follows `data-theme` if a *host* page stamps that attribute on
+`<html>`, so an embedding shell's own theme toggle keeps working.
+
+That means there are **five** near-duplicate colour blocks in the file, not
+four as this document previously said:
+
+| Selector | What it covers |
+|---|---|
+| `:root, :root[data-mode="dark"]` | The dark default |
+| `:root[data-mode="light"]` | The light theme, chosen in Settings |
+| `@media (prefers-color-scheme: light) { :root[data-mode="system"] }` | "Match my device", device prefers light |
+| `:root[data-mode="system"][data-theme="light"]` | A host page forcing light |
+| `:root[data-mode="system"][data-theme="dark"]` | A host page forcing dark |
+
+All the dark blocks agree and all the light blocks agree. That is no longer
+an observation: `tests/contrast.test.ts` asserts that **every one of the five
+blocks declares exactly the same set of token names** as the dark block, so a
+token added to one and forgotten in another fails the build rather than
+silently falling back to whatever it inherited. The duplication itself
+remains — a `light-dark()` or a single palette block referenced by all five
+selectors would remove it — but it can no longer drift unnoticed.
 
 Layout (`data-layout="mobile" | "desktop"`) is a **separate** attribute from
 colour mode on purpose — a fixed bug is recorded in the CSS history: an
-earlier build put layout and theme on the same attribute and `closest
-('[data-mode]')` click handling matched whichever came first. Keep them
-apart.
+earlier build put layout and theme on the same attribute and
+`closest('[data-mode]')` click handling matched whichever came first. Keep
+them apart.
 
-### 1.2 Colour tokens — dark (default)
+### 1.2 Colour tokens
 
-| Token | Value | Role |
-|---|---|---|
-| `--bg` | `#3A353C` | Page ground |
-| `--surface` | `#47414A` | Card/control ground one step up from `--bg` |
-| `--surface-2` | `#524B55` | A second step up (note chips, segmented control) |
-| `--ink` | `#F5F1F4` | Primary text |
-| `--ink-2` | `#CFC8CF` | Secondary text |
-| `--faint` | `#A79DA8` | Tertiary text, meta, placeholders |
-| `--line` | `#5A535D` | Default hairline border |
-| `--line-firm` | `#6B6370` | A firmer border (dividers, scrollbar thumb) |
-| `--accent` | `#E8434C` | Brand red — links, price, active states |
-| `--accent-on` | `#FFFFFF` | Text painted on `--accent` |
-| `--accent-sf` | `#3A1519` | Accent "soft" — tinted background under accent text |
-| `--ok` | `#4FB47B` | Positive (in stock, saving, new) |
-| `--warn` | `#D8A24C` | Caution (low stock, countdown text) |
-| `--shadow` | `0 1px 3px rgba(0,0,0,.4)` | The one elevation value in the system |
-| `--bg-glass` | `rgba(58,53,60,.86)` | Translucent nav ground |
-| `--orb-a` | `rgba(232,67,76,.20)` | Ambient orb 1 (crimson, brand) |
-| `--orb-b` | `rgba(126,87,194,.17)` | Ambient orb 2 (violet) |
-| `--orb-c` | `rgba(56,142,142,.13)` | Ambient orb 3 (teal) |
+Both palettes, as declared today. Read live, with contrast measured for the
+current theme, at [/design](https://pricesniffs.space/design).
 
-### 1.3 Colour tokens — light
+| Token | Dark (default) | Light | Role |
+|---|---|---|---|
+| `--bg` | `#0A0A0B` | `#FCFCFD` | The page itself |
+| `--surface` | `#121214` | `#FFFFFF` | A card or a control, one step up |
+| `--surface-2` | `#1A1A1D` | `#F2F2F4` | A second step up: chips, pills, segments |
+| `--ink` | `#F7F7F8` | `#0D0D0F` | Primary text |
+| `--ink-2` | `#C2C2C7` | `#4A4A52` | Secondary text |
+| `--faint` | `#8A8A92` | `#6B6B74` | Meta, captions, placeholders |
+| `--line` | `#26262A` | `#E6E6EA` | Default hairline |
+| `--line-firm` | `#3A3A40` | `#CFCFD6` | A firmer divider |
+| `--accent` | `#FF3B41` | `#C8102E` | The brand red, as a fill |
+| `--accent-on` | `#0B0405` | `#FFFFFF` | Text painted on that fill |
+| `--accent-sf` | `#1E0709` | `#FDECEE` | A tinted ground under accent text |
+| `--accent-ink` | `#FF6A6E` | `#A80C25` | The accent as text on the page ground |
+| `--accent-press` | `#D42B31` | `#9E0C22` | An accent fill, pressed |
+| `--focus` | `#FF3B41` | `#C8102E` | The focus ring, named apart from `--accent` |
+| `--chart-grid` | `#1F1F23` | `#EDEDF1` | Price history gridlines |
+| `--chart-band` | `rgba(255,59,65,.10)` | `rgba(200,16,46,.08)` | Fill under the live price line |
+| `--ok` | `#4FB47B` | `#17724B` | In stock, a saving, new |
+| `--warn` | `#D8A24C` | `#8A5A00` | Low stock, a countdown |
+| `--shadow` | `0 1px 3px rgba(0,0,0,.4)` | `0 1px 3px rgba(0,0,0,.18)` | The one drop shadow |
+| `--shadow-lift` | `0 1px 0 #26262A` | `0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05)` | Card lift |
+| `--bg-glass` | `rgba(10,10,11,.72)` | `rgba(252,252,253,.72)` | Translucent bar ground |
+| `--glow-1` | `rgba(255,59,65,.22)` | `rgba(200,16,46,.13)` | Ambient glow, nearer |
+| `--glow-2` | `rgba(255,59,65,.13)` | `rgba(200,16,46,.08)` | Ambient glow, further |
+| `--mono-bg-l` | `20%` | `93%` | Monogram ground lightness |
+| `--mono-fg-l` | `78%` | `30%` | Monogram ink lightness |
+| `--mono-border-l` | `42%` | `55%` | Monogram border lightness |
+| `--gender-women` | `#FF8FB3` | `#A81B5E` | Venus mark, unselected pill |
+| `--gender-women-on` | `#A81B5E` | `#FF8FB3` | Venus mark, selected pill |
+| `--gender-men` | `#7FBBFF` | `#17569E` | Mars mark, unselected pill |
+| `--gender-men-on` | `#17569E` | `#7FBBFF` | Mars mark, selected pill |
 
-| Token | Value | Role |
-|---|---|---|
-| `--bg` | `#F3F1F2` | |
-| `--surface` | `#F8F6F7` | |
-| `--surface-2` | `#F0EDEF` | |
-| `--ink` | `#17141A` | |
-| `--ink-2` | `#55505A` | |
-| `--faint` | `#8A838F` | |
-| `--line` | `#E7E3E7` | |
-| `--line-firm` | `#D3CDD3` | |
-| `--accent` | `#C62630` | |
-| `--accent-on` | `#FFFFFF` | |
-| `--accent-sf` | `#FCEDEE` | |
-| `--ok` | `#17724B` | |
-| `--warn` | `#8A5A00` | |
-| `--shadow` | `0 1px 3px rgba(0,0,0,.18)` | |
-| `--bg-glass` | `rgba(243,241,242,.86)` | |
-| `--orb-a` | `rgba(198,38,48,.10)` | |
-| `--orb-b` | `rgba(126,87,194,.09)` | |
-| `--orb-c` | `rgba(38,132,132,.07)` | |
+Theme-independent, declared once on a plain `:root`: `--sans` / `--font-sans`,
+`--font-num`, `--col`, `--sheet-col`, `--mono-sat`, `--gutter` (16px, 28px
+from 900px wide), `--bar-h`, `--dur-1` to `--dur-4`, `--ease-standard` and
+`--ease-exit`.
 
-Documented reasoning (`template.html:54-55`): light-theme orb alphas run at
-roughly **half** the dark-theme value — a wash that reads as ambient on a
-dark ground turns muddy on a light one. That ratio holds precisely across
-all three orbs (`.20→.10`, `.17→.09`, `.13→.07`), so it is a real, applied
-rule, not a rough guess — worth preserving as a stated constraint if a third
-theme is ever added: *new theme orb alpha = dark value × (light value ÷ dark
-value observed here), tuned per background, not copied flat.*
+### 1.3 What the colour rules actually are
 
-Colour is semantically constrained on purpose: the code comment at
-`template.html:6-9` states the accent red is reserved for brand/positive use
-and can never mean "bad", because it would then compete with itself for
-attention. Sold-out state uses grey (`--faint`, `.dot.gone`), never red. Keep
-this rule in mind for anything added later — a "price rise" or "error" state
-must not reach for `--accent`.
+**The accent is the brand colour, so it can never also mean "bad."** A sold
+out listing goes grey (`--faint`), never red; only positive states carry
+colour. A "price rise" or "error" state added later must not reach for
+`--accent` either.
+
+**Both ambient glows are the brand red and nothing else.** The violet and
+teal that used to sit either side of it (`--orb-b`, `--orb-c` in an earlier
+version of this document) were removed: on a site whose whole job is one red
+accent, three brands' worth of colour behind the greeting is a claim it
+should not be making. Light-theme alphas run at roughly half the dark
+value — a wash that reads as ambient on a dark ground turns muddy on a light
+one.
+
+**Two values for anything painted on an inverting ground.** `--accent-on`
+against `--accent`, and the four gender tokens against a facet pill that
+inverts to `--ink` when selected. The `-on` suffix is the convention.
+
+**Contrast is measured, not assumed.** `--mono-fg-l` sits at 30% in the light
+theme because that is the highest lightness clearing AA against `--mono-bg-l`
+at every one of the 360 hues the monogram tint can take; at 33% the worst hue
+came out 4.23:1. The eight gender-mark combinations are quoted in the
+stylesheet and asserted against the real token values by
+`tests/contrast.test.ts`, worst case 6.30:1. Live ratios for whichever theme
+you are in are on [/design](https://pricesniffs.space/design).
 
 ### 1.4 The un-themed second palette: `.tile` and its white-ground children
 
@@ -141,6 +176,10 @@ and the newer `.house-img`/white-ground contexts reference those names
 instead of repeating hex.
 
 ### 1.5 A second, unrelated colour bug: undefined tokens on `.house-card`
+
+> **Fixed since.** `grep -c 'var(--card)\|var(--muted)' demo/template.html`
+> returns 0 as of 2026-08-16. Kept below as the record of a real bug and how
+> it was reasoned about, not as a description of the file today.
 
 The Houses block (`template.html:977-1019`, added in commit `9e43083`) uses
 `var(--card)` and `var(--muted)` — **neither token is defined anywhere in
@@ -193,38 +232,36 @@ themes once changed — this doc does not implement it.
 
 ### 1.6 Type scale
 
-No `--font-size-*` tokens exist; every value is a literal `px` on the rule
-that uses it. Base body: `font-size: 16px; line-height: 1.5; letter-spacing:
--.006em` (`template.html:119-131`), system font stack only (`--sans`, no
-webfont, avoids a font-loading flash — comment at 94-95).
+There is still no `--font-size-*` scale: sizes are literal `px` on the rule
+that uses them. What there is, and what this section previously predated, is
+**eight named type roles**, one canonical size, weight and tracking each,
+declared together near the top of `template.html`. They are what collapsed
+the drift the table further down this section catalogued — three competing
+treatments for section headings, four weights at one size for card titles,
+eight letter-spacings for eyebrows.
 
-All distinct sizes found, smallest to largest, with representative uses:
+| Role | Font | Tracking | Colour | Used for |
+|---|---|---|---|---|
+| `.t-page` | 700 26px/1.15 (32px from 900px) | -.022em | `--ink` | The one title at the top of a view |
+| `.t-section` | 600 15px/1.25 | -.005em | `--ink` | A heading introducing a block |
+| `.t-title` | 600 15px/1.3 | -.01em | `--ink` | A card or row title |
+| `.t-body` | 400 14px/1.55 | — | `--ink-2` | Running text |
+| `.t-eyebrow` | 600 11px/1, uppercase | .08em | `--faint` | Small caps label |
+| `.t-caption` | 400 13px/1.4 | — | `--faint` | Caption, meta |
+| `.t-count` | 600 12px/1, tabular | .01em | `--ink-2` | A count in a column |
+| `.t-price` | 700 20px/1.1, tabular (`--price--hero`: 34px) | -.02em | `--ink` | A price |
 
-| Size | Used for |
-|---|---|
-| 9 / 9.5px | `.sold-by` badge, `.tag` |
-| 10 / 10.5px | `.phead-brand`, `.phead-meta`, `.price-box-label`, `.from` |
-| 11 / 11.5px | `.medal`, `.hero-blurb`, `.hero-by` letterform label, `.off`, `.ends`, `.house-caveat`, `.count` |
-| 12 / 12.5px | `.link-btn`, `.results-head`, `.settings-note`, `.house-count`, `.org-hero-domain`, `.panel-note` |
-| 13 / 13.5px | `.note-chip`, `.doc p/li`, `.house-name`, `.house-price`, `.foot-legal` |
-| 14 / 14.5px | `.dropdown`, `.tile-price` base, `.phead-name` (tile), `.empty-note`, `.doc h3` |
-| 15 / 15.5px | `input[search]`, `.navbtn`, `.brand-row`, `.shop-row-name` |
-| 16px | body base |
-| 17px | `.house-group h3`, `.offer-top .shop` |
-| 18px | `.social summary` icon-adjacent text (via inherited sizing) |
-| 19px | `.hero-price.none` |
-| 21px | `.brandmark`, `.org-hero-name` |
-| 22px | `.page-head h2`, `.hero .phead-name` |
-| 25px | `.doc h2` |
-| 34px | `.price-box-amount` |
-| 38px | `.hero-wordmark` (mobile) |
-| 46px | `.hero-wordmark` (desktop, `template.html:932`) |
+11px is the floor for `.t-eyebrow`: below it, uppercase tracking stops being
+readable at 360px wide. `.t-count` and `.t-price` are the two roles on
+`--font-num` with `font-variant-numeric: tabular-nums`, so a column of
+figures lines up.
 
-There is a real, followed rhythm here — most sizes step in ~0.5–1px
-increments rather than a round scale (13/13.5/14/14.5/15/15.5) — but it is a
-**de facto** rhythm, not a declared one. No token backs it, so a future
-change has nothing to grep for beyond the literal number. Worth a `--fs-*`
-scale if the system grows further; not proposing it here.
+Rendered at their real sizes, with the computed spec read off each sample,
+on [/design](https://pricesniffs.space/design).
+
+Sizes outside those eight roles are still literal `px` scattered across the
+stylesheet, and `docs/typography.md` holds the exhaustive per-selector
+inventory of them.
 
 ### 1.7 Spacing
 

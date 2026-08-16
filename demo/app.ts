@@ -41,6 +41,7 @@ import {
   type DemoFragrance, type NoteLayer,
 } from './data.js';
 import { productArt, type ArtSize } from './photo.js';
+import { AA_TEXT, contrastRatio, parseColour, type Rgba } from './contrast.js';
 import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './gender.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
@@ -59,7 +60,7 @@ import {
   type YannyIntent, type YannyResult, type YannyEvent, type YannyHealth,
 } from './virtualYanny.js';
 
-type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account';
+type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account' | 'design';
 type AuthTab = 'signIn' | 'signUp';
 type ExploreTab = 'brands' | 'deals' | 'retailers' | 'notes' | 'search';
 type DisplayMode = 'dark' | 'light' | 'system';
@@ -2740,6 +2741,7 @@ function currentRoute(): Route {
     case 'note': return { name: 'note', param: slugify(state.noteName), query: {} };
     case 'legal': return { name: 'legal', param: state.legalId, query: {} };
     case 'about': return { name: 'about', param: '', query: {} };
+    case 'design': return { name: 'design', param: '', query: {} };
     case 'settings': return { name: 'settings', param: '', query: {} };
     case 'account': return { name: 'account', param: '', query: {} };
     case 'explore':
@@ -2764,6 +2766,7 @@ function applyRoute(route: Route): boolean {
   switch (route.name) {
     case 'home': state.view = 'home'; return true;
     case 'about': state.view = 'about'; return true;
+    case 'design': state.view = 'design'; return true;
     case 'settings': state.view = 'settings'; return true;
     case 'account': state.view = 'account'; return true;
 
@@ -3491,6 +3494,391 @@ function clearYannyChat(): void {
   (document.getElementById('yanny-input') as HTMLElement | null)?.focus({ preventScroll: true });
 }
 
+/* ── the design system page ──────────────────────────────────────────────────
+   A page that documents the design system by rendering it, not by describing
+   it. Reachable at /design and linked once, quietly, from the footer.
+
+   The rule this whole section is built around: nothing on this page is a
+   transcription. A swatch is painted with `var(--token)` so it is the token,
+   and the hex printed beside it is read back out of the live stylesheet by
+   `mountDesignSpecs` after the page is in the DOM. A type sample is a real
+   element carrying the real class, and its size, weight and tracking are read
+   off that element with getComputedStyle. Change a value in template.html and
+   this page changes with it; it has no copy of anything to fall out of date.
+
+   That is the same discipline as the retailer registry's header counts being
+   asserted by tests/registry.test.ts, applied to a stylesheet: the way to stop
+   documentation lying is to make it impossible for it to disagree.
+
+   docs/DESIGN-SYSTEM.md was written this way too and drifted anyway — it still
+   describes a `--bg` of #3A353C, a palette this site has not had for weeks —
+   which is the argument for this page existing at all. Where the two disagree,
+   the tokens are right and the document is wrong.
+
+   Not in the top bar, deliberately. This is a shop for perfume. A fifth
+   primary nav item also breaks the phone layout at 375px, and a style guide
+   is not what that slot is for. */
+
+/** One documented colour token: the name, what it is for, and whether it is opaque. */
+interface TokenRow {
+  name: string;
+  role: string;
+  /** Alpha-bearing tokens are shown over a chequer so the transparency reads. */
+  translucent?: boolean;
+}
+
+const DS_COLOUR_GROUPS: { title: string; note: string; tokens: TokenRow[] }[] = [
+  {
+    title: 'Ground',
+    note: 'Three steps of background and the glass the bars sit on.',
+    tokens: [
+      { name: '--bg', role: 'The page itself' },
+      { name: '--surface', role: 'A card or a control, one step up' },
+      { name: '--surface-2', role: 'A second step up: chips, pills, segments' },
+      { name: '--bg-glass', role: 'The bar ground, translucent so the page reads through', translucent: true },
+    ],
+  },
+  {
+    title: 'Ink',
+    note: 'Three weights of text, and the two hairlines under them.',
+    tokens: [
+      { name: '--ink', role: 'Primary text' },
+      { name: '--ink-2', role: 'Secondary text' },
+      { name: '--faint', role: 'Meta, captions, placeholders' },
+      { name: '--line', role: 'Default hairline' },
+      { name: '--line-firm', role: 'A firmer divider' },
+    ],
+  },
+  {
+    title: 'Accent',
+    note: 'One red, five jobs. It is the brand colour, so it never also means "bad": a sold out listing goes grey instead.',
+    tokens: [
+      { name: '--accent', role: 'The fill: primary action, best price marker' },
+      { name: '--accent-on', role: 'Text painted on that fill' },
+      { name: '--accent-ink', role: 'The accent as text on the page ground' },
+      { name: '--accent-press', role: 'An accent fill, pressed' },
+      { name: '--accent-sf', role: 'A tinted ground under accent text' },
+      { name: '--focus', role: 'The focus ring, named apart so a retint cannot move it' },
+    ],
+  },
+  {
+    title: 'State',
+    note: 'Only positive and cautionary states carry colour, for the reason above.',
+    tokens: [
+      { name: '--ok', role: 'In stock, a saving, new' },
+      { name: '--warn', role: 'Low stock, a countdown' },
+    ],
+  },
+  {
+    title: 'Gender marks',
+    note: 'The Venus and Mars marks on the Gender filter. Two values each: the second is for a selected pill, whose ground inverts to --ink. Contrast for all eight is measured further down this page.',
+    tokens: [
+      { name: '--gender-women', role: 'On an unselected pill' },
+      { name: '--gender-women-on', role: 'On a selected pill' },
+      { name: '--gender-men', role: 'On an unselected pill' },
+      { name: '--gender-men-on', role: 'On a selected pill' },
+    ],
+  },
+  {
+    title: 'Chart and ambience',
+    note: 'The price history chart, and the two ambient glows behind the page. Both glows are the brand red and nothing else.',
+    tokens: [
+      { name: '--chart-grid', role: 'Gridlines, below --line so data reads above them' },
+      { name: '--chart-band', role: 'The fill under the live price line', translucent: true },
+      { name: '--glow-1', role: 'Ambient glow, nearer', translucent: true },
+      { name: '--glow-2', role: 'Ambient glow, further', translucent: true },
+    ],
+  },
+];
+
+/** Pairs whose contrast is measured live, and what each pair actually is. */
+const DS_CONTRAST_PAIRS: { fg: string; bg: string; use: string }[] = [
+  { fg: '--ink', bg: '--bg', use: 'Body text on the page' },
+  { fg: '--ink-2', bg: '--bg', use: 'Secondary text on the page' },
+  { fg: '--faint', bg: '--bg', use: 'Captions and meta' },
+  { fg: '--ink', bg: '--surface', use: 'Text on a card' },
+  { fg: '--accent-ink', bg: '--bg', use: 'A link, or a price' },
+  { fg: '--accent-on', bg: '--accent', use: 'Text on the primary button' },
+  { fg: '--ok', bg: '--surface', use: 'In stock, on a card' },
+  { fg: '--warn', bg: '--surface', use: 'Low stock, on a card' },
+  { fg: '--gender-women', bg: '--surface-2', use: 'Venus mark, unselected pill' },
+  { fg: '--gender-men', bg: '--surface-2', use: 'Mars mark, unselected pill' },
+  { fg: '--gender-women-on', bg: '--ink', use: 'Venus mark, selected pill' },
+  { fg: '--gender-men-on', bg: '--ink', use: 'Mars mark, selected pill' },
+];
+
+/** The eight type roles, in the order the stylesheet declares them. */
+const DS_TYPE_ROLES: { cls: string; sample: string; role: string }[] = [
+  { cls: 't-page', sample: 'Page title', role: 'One per view, at the top' },
+  { cls: 't-section', sample: 'Section heading', role: 'Separates blocks with space, not decoration' },
+  { cls: 't-title', sample: 'Card and row title', role: 'A fragrance, a brand and a shop are the same kind of object' },
+  { cls: 't-body', sample: 'Body copy, the paragraphs a reader actually reads.', role: 'Running text' },
+  { cls: 't-eyebrow', sample: 'Eyebrow', role: 'One size, one tracking. 11px is the floor at 360px wide' },
+  { cls: 't-caption', sample: 'Caption and meta text', role: 'Under a title, beside a figure' },
+  { cls: 't-count', sample: '1,419', role: 'Tabular numerals, so a column of counts lines up' },
+  { cls: 't-price', sample: '£82.50', role: 'Tabular numerals, the one thing this site exists to show' },
+];
+
+/** Everything in the icon set, by the name it is declared under. */
+const DS_ICONS: { name: string; svg: string }[] = [
+  { name: 'ICON_FILTER', svg: ICON_FILTER },
+  { name: 'ICON_SORT', svg: ICON_SORT },
+  { name: 'ICON_RANK', svg: ICON_RANK },
+  { name: 'ICON_CHEVRON', svg: ICON_CHEVRON },
+  { name: 'ICON_SEARCH', svg: ICON_SEARCH },
+  { name: 'ICON_GRID', svg: ICON_GRID },
+  { name: 'ICON_MOBILE', svg: ICON_MOBILE },
+  { name: 'ICON_DESKTOP', svg: ICON_DESKTOP },
+  { name: 'ICON_HEART', svg: ICON_HEART },
+  { name: 'ICON_EXTERNAL', svg: ICON_EXTERNAL },
+  { name: 'ICON_CLOSE', svg: ICON_CLOSE },
+  { name: 'ICON_STOP', svg: ICON_STOP },
+  { name: 'ICON_TIKTOK', svg: ICON_TIKTOK },
+  { name: 'ICON_INSTAGRAM', svg: ICON_INSTAGRAM },
+  { name: 'ICON_GENDER_WOMEN', svg: ICON_GENDER_WOMEN },
+  { name: 'ICON_GENDER_MEN', svg: ICON_GENDER_MEN },
+  { name: 'ICON_GENDER_UNISEX', svg: ICON_GENDER_UNISEX },
+  { name: 'ICON_GENDER_UNSTATED', svg: ICON_GENDER_UNSTATED },
+];
+
+/** Tokens that are one value for every theme, so they are listed once. */
+const DS_CONSTANTS: TokenRow[] = [
+  { name: '--gutter', role: 'The page gutter. 16px, and 28px from 900px wide' },
+  { name: '--bar-h', role: 'The top bar, which content clears' },
+  { name: '--col', role: 'The mobile column measure. Uncapped on desktop' },
+  { name: '--sheet-col', role: 'A dialog stays this wide in both layouts' },
+  { name: '--mono-sat', role: 'Saturation of the per brand monogram tint' },
+  { name: '--mono-bg-l', role: 'Monogram ground lightness, per theme' },
+  { name: '--mono-fg-l', role: 'Monogram ink lightness. 30% is the highest value that clears AA at every one of the 360 hues' },
+  { name: '--mono-border-l', role: 'Monogram border lightness, per theme' },
+];
+
+const DS_MOTION: TokenRow[] = [
+  { name: '--dur-1', role: 'Press and release, colour only swaps' },
+  { name: '--dur-2', role: 'Hover, chip select, toggle, tab underline' },
+  { name: '--dur-3', role: 'Content entering, sheets, list settle' },
+  { name: '--dur-4', role: 'Theme cross fade, the longest thing on the site' },
+  { name: '--ease-standard', role: 'Everything arriving or settling' },
+  { name: '--ease-exit', role: 'Everything leaving, and the press half of a tap' },
+];
+
+const DS_FONTS: TokenRow[] = [
+  { name: '--font-sans', role: 'The system stack. No webfont to fail loading' },
+  { name: '--font-num', role: 'Numerals that have to align down a column' },
+];
+
+const DS_ELEVATION: TokenRow[] = [
+  { name: '--shadow', role: 'The one drop shadow' },
+  { name: '--shadow-lift', role: 'Card lift. A hairline on dark, a real shadow on light, because a shadow does not read on a near black ground' },
+];
+
+/** A row in a token table: the live swatch, the name, the read back value. */
+function dsTokenRow(row: TokenRow, swatch: boolean): string {
+  return `<div class="ds-row">
+    ${swatch ? `<span class="ds-chip${row.translucent ? ' is-alpha' : ''}" style="background: var(${row.name})" aria-hidden="true"></span>` : ''}
+    <code class="ds-name">${esc(row.name)}</code>
+    <span class="ds-value t-count" data-ds-token="${esc(row.name)}"></span>
+    <span class="ds-role t-caption">${esc(row.role)}</span>
+  </div>`;
+}
+
+function dsTokenTable(rows: TokenRow[], swatch: boolean): string {
+  return `<div class="ds-table">${rows.map((r) => dsTokenRow(r, swatch)).join('')}</div>`;
+}
+
+function designView(): string {
+  const colour = DS_COLOUR_GROUPS.map(
+    (g) => `<div class="ds-group">
+      <h4 class="ds-group-title t-eyebrow">${esc(g.title)}</h4>
+      <p class="ds-group-note t-caption">${esc(g.note)}</p>
+      ${dsTokenTable(g.tokens, true)}
+    </div>`,
+  ).join('');
+
+  const contrast = DS_CONTRAST_PAIRS.map(
+    (p) => `<div class="ds-row ds-contrast" data-ds-contrast="${esc(p.fg)}|${esc(p.bg)}">
+      <span class="ds-contrast-demo" style="background: var(${p.bg}); color: var(${p.fg})" aria-hidden="true">Aa</span>
+      <code class="ds-name">${esc(p.fg)} on ${esc(p.bg)}</code>
+      <span class="ds-value t-count" data-ds-ratio></span>
+      <span class="ds-role t-caption"><span data-ds-verdict></span> ${esc(p.use)}</span>
+    </div>`,
+  ).join('');
+
+  const type = DS_TYPE_ROLES.map(
+    (t) => `<div class="ds-type">
+      <p class="${t.cls}" data-ds-sample=".${t.cls}">${esc(t.sample)}</p>
+      <code class="ds-name">.${esc(t.cls)}</code>
+      <span class="ds-value t-count" data-ds-computed=".${esc(t.cls)}"></span>
+      <span class="ds-role t-caption">${esc(t.role)}</span>
+    </div>`,
+  ).join('');
+
+  const icons = DS_ICONS.map(
+    (i) => `<figure class="ds-icon">${i.svg}<figcaption class="t-caption">${esc(i.name.replace('ICON_', '').toLowerCase().replace(/_/g, ' '))}</figcaption></figure>`,
+  ).join('');
+
+  return `
+    <button class="back" data-back>Back</button>
+    <article class="doc design-doc">
+      <h2 class="t-page">Design system</h2>
+      <p class="t-body">Every value on this page was read out of the live stylesheet at the
+        moment the page rendered. The swatches are painted with the tokens themselves and the
+        text samples are real elements carrying the real classes, so nothing here is a copy of
+        anything and nothing here can quietly stop being true. Change a value in
+        demo/template.html and this page changes with it.</p>
+
+      <section class="ds-section">
+        <h3 class="t-section">Theme</h3>
+        <p class="t-body">The palette is five near identical blocks of custom properties, one per
+          state the page can be in: the dark default, the light theme, the system theme following
+          the operating system, and the two a host page can force by stamping data-theme on the
+          root. Switch below and watch every value on this page move.</p>
+        <div class="seg" role="group" aria-label="Display theme">
+          ${MODE_OPTIONS.map(
+            (m) => `<button class="seg-btn ${state.mode === m.id ? 'on' : ''}" data-set-mode="${m.id}">${esc(m.label)}</button>`,
+          ).join('')}
+        </div>
+        <p class="ds-resolved t-caption" data-ds-resolved></p>
+      </section>
+
+      <section class="ds-section">
+        <h3 class="t-section">Colour</h3>
+        ${colour}
+      </section>
+
+      <section class="ds-section">
+        <h3 class="t-section">Contrast, measured now</h3>
+        <p class="t-body">Computed in the browser from the two tokens named on each row, in
+          whichever theme is showing. AA asks 4.5:1 of text and 3:1 of a graphic; every pair here
+          is held to the text bar. A row that fails says so rather than being left off the list.</p>
+        <div class="ds-table">${contrast}</div>
+      </section>
+
+      <section class="ds-section">
+        <h3 class="t-section">Type</h3>
+        <p class="t-body">Eight roles, one size, weight and tracking each. The specification
+          beside each sample is read off the sample itself.</p>
+        <div class="ds-table ds-type-table">${type}</div>
+        ${dsTokenTable(DS_FONTS, false)}
+      </section>
+
+      <section class="ds-section">
+        <h3 class="t-section">Space and layout</h3>
+        ${dsTokenTable(DS_CONSTANTS, false)}
+        <p class="t-caption ds-gap">There is no radius or spacing scale to read: corner radii and
+          gaps are written as literals where they are used. Naming that here rather than inventing
+          a scale nothing refers to, because a token no rule uses would be the same kind of
+          fiction this page exists to prevent.</p>
+      </section>
+
+      <section class="ds-section">
+        <h3 class="t-section">Elevation</h3>
+        <div class="ds-lift-demo"><span class="ds-lift">Card</span></div>
+        ${dsTokenTable(DS_ELEVATION, false)}
+      </section>
+
+      <section class="ds-section">
+        <h3 class="t-section">Motion</h3>
+        <p class="t-body">Four durations and two curves. Motion explains a change of state, never
+          arrival, and nothing animates a price.</p>
+        ${dsTokenTable(DS_MOTION, false)}
+      </section>
+
+      <section class="ds-section">
+        <h3 class="t-section">Icons</h3>
+        <p class="t-body">Line drawn, one 24 unit box, one weight, no fills, and inline in the
+          bundle so the page makes no request for a picture of anything. The four gender marks at
+          the end carry their own colour; every other icon takes the colour of the text around it.</p>
+        <div class="ds-icons">${icons}</div>
+      </section>
+    </article>`;
+}
+
+/* ── reading the live values back ────────────────────────────────────────────
+   Everything above renders placeholders; this fills them in, after the markup
+   is in the DOM and the cascade has actually resolved. Called from render().
+
+   Colours are read through a probe element rather than straight off the custom
+   property, because a token's declared text can be a hex, an rgba() or an
+   hsl(), and one of those three is not something a contrast calculation can
+   take. Assigning it to a real element's `color` and reading the computed
+   value back hands every one of them over as the same rgb() triple, resolved
+   by the browser exactly as it resolved it for the page. The arithmetic
+   itself lives in demo/contrast.ts, which tests/contrast.test.ts holds the
+   documented figures in template.html to. */
+
+function dsProbeColour(token: string, probe: HTMLElement): Rgba | null {
+  probe.style.color = '';
+  probe.style.color = `var(${token})`;
+  return parseColour(window.getComputedStyle(probe).color);
+}
+
+/**
+ * Fill in every read back value on the design page.
+ *
+ * A no-op on every other view, so render() can call it unconditionally.
+ */
+function mountDesignSpecs(): void {
+  const doc = document.querySelector('.design-doc');
+  if (!doc) return;
+
+  const root = document.documentElement;
+  const rootStyle = window.getComputedStyle(root);
+
+  for (const el of doc.querySelectorAll<HTMLElement>('[data-ds-token]')) {
+    const name = el.getAttribute('data-ds-token')!;
+    el.textContent = rootStyle.getPropertyValue(name).trim() || 'not set';
+  }
+
+  // One hidden probe, reused for every colour on the page.
+  const probe = document.createElement('span');
+  probe.setAttribute('aria-hidden', 'true');
+  probe.style.display = 'none';
+  doc.appendChild(probe);
+
+  for (const el of doc.querySelectorAll<HTMLElement>('[data-ds-contrast]')) {
+    const [fgToken, bgToken] = el.getAttribute('data-ds-contrast')!.split('|');
+    const fg = dsProbeColour(fgToken!, probe);
+    const bg = dsProbeColour(bgToken!, probe);
+    const ratioEl = el.querySelector('[data-ds-ratio]') as HTMLElement | null;
+    const verdictEl = el.querySelector('[data-ds-verdict]') as HTMLElement | null;
+    if (!fg || !bg || !ratioEl || !verdictEl) continue;
+    const ratio = contrastRatio(fg, bg);
+    ratioEl.textContent = `${ratio.toFixed(2)}:1`;
+    const passes = ratio >= AA_TEXT;
+    verdictEl.textContent = passes ? 'Passes AA.' : 'Below 4.5:1.';
+    verdictEl.className = passes ? 'ds-pass' : 'ds-fail';
+  }
+  probe.remove();
+
+  for (const el of doc.querySelectorAll<HTMLElement>('[data-ds-computed]')) {
+    const sample = doc.querySelector<HTMLElement>(`[data-ds-sample="${el.getAttribute('data-ds-computed')}"]`);
+    if (!sample) continue;
+    const s = window.getComputedStyle(sample);
+    const tracking = s.letterSpacing === 'normal' ? '0' : s.letterSpacing;
+    el.textContent = `${s.fontSize} / ${s.fontWeight} / ${s.lineHeight} / ${tracking}`;
+  }
+
+  const resolved = doc.querySelector('[data-ds-resolved]');
+  if (resolved) {
+    // What the page is actually painting, not what was clicked: "match my
+    // device" resolves through the OS preference and any theme a host has
+    // stamped, and the honest answer is the one the cascade settled on.
+    const chosen = root.getAttribute('data-mode') ?? 'dark';
+    const hostTheme = root.getAttribute('data-theme');
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    const showing =
+      chosen === 'system' ? (hostTheme ?? (prefersLight ? 'light' : 'dark')) : chosen;
+    const because =
+      chosen !== 'system'
+        ? 'because you chose it'
+        : hostTheme
+          ? `because the page around this one asked for ${hostTheme}`
+          : `because this device prefers ${prefersLight ? 'light' : 'dark'}`;
+    resolved.textContent = `Showing the ${showing} palette, ${because}.`;
+  }
+}
+
 /* ── chrome ──────────────────────────────────────────────────────────────── */
 
 function render(): void {
@@ -3512,11 +3900,13 @@ function render(): void {
                   ? noteView()
                   : state.view === 'about'
                     ? aboutView()
-                    : state.view === 'settings'
-                      ? settingsView()
-                      : state.view === 'account'
-                        ? accountView()
-                        : legalView();
+                    : state.view === 'design'
+                      ? designView()
+                      : state.view === 'settings'
+                        ? settingsView()
+                        : state.view === 'account'
+                          ? accountView()
+                          : legalView();
 
   // The wrapper is a fresh element on every render, so the rise it carries
   // just plays on insertion. No JS animation retriggering needed. It is the
@@ -3528,6 +3918,10 @@ function render(): void {
   // Any list that emitted a sentinel now gets its observer. Done here rather
   // than inside each view so no view has to remember to do it.
   mountChunkedList();
+
+  // The design page's read-back values, which can only be read once its
+  // markup is in the DOM. A no-op anywhere else.
+  mountDesignSpecs();
 
   // The sub nav belongs to Explore and its leaves, and appears nowhere else.
   const inExplore =
@@ -3797,6 +4191,17 @@ function init(): void {
       return;
     }
     if (pinnedHistoryDot && !t.closest('.history-tip')) hideHistoryTip();
+
+    // An internal link that carries a real href, so it can be copied and
+    // opened in a new tab, but navigates through the router when clicked
+    // normally. Modified clicks (new tab, new window, download) and any
+    // non-primary button are left to the browser.
+    const gotoLink = t.closest<HTMLElement>('[data-goto]');
+    if (gotoLink && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && e.button === 0) {
+      e.preventDefault();
+      go(gotoLink.getAttribute('data-goto') as View);
+      return;
+    }
 
     // Deliberately not `data-mode`: that attribute lives on <html> to drive the
     // palette, and closest() would match it for every click in the app.

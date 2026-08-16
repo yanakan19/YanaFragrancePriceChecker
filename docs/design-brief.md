@@ -1,9 +1,20 @@
 # PriceSniffs — design revamp brief
 
+> **Historical.** This brief was written to commission the revamp that has
+> since shipped. The "current palette" table below is the palette as it stood
+> *before* that work; it is not what the site holds today. For what the tokens
+> actually are right now, see [/design](https://pricesniffs.space/design),
+> which reads them out of the live stylesheet as it renders, or
+> `docs/DESIGN-SYSTEM.md` §1.2 for a dated transcription.
+>
+> Kept because the reasoning is still the reasoning: one red accent and no
+> second hue, near-black and near-white grounds, and eight type roles that may
+> be restyled but never added to, removed or merged.
+
 Paste the block below into a Claude Design design-system project. Everything in
-it is drawn from the live site, not invented: the palette values are the current
-CSS custom properties in `demo/template.html`, and the type roles are the eight
-roles inventoried in `docs/typography.md`.
+it is drawn from the live site, not invented: the palette values are the CSS
+custom properties `demo/template.html` held when the brief was written, and the
+type roles are the eight roles inventoried in `docs/typography.md`.
 
 Keep this file updated if the brief changes, so the design work and the repo
 never drift apart.
@@ -41,10 +52,12 @@ never drift apart.
 > - Red is the *only* accent. No secondary hue, no gradients between hues.
 >   Neutrals do all the other work.
 >
-> For reference, the current palette is warmer and greyer than this and should
-> move toward true black/white:
+> For reference, the palette at the time this was written was warmer and greyer
+> than what is asked for above, and should move toward true black/white. (It
+> since did: `--bg` is `#0A0A0B` on dark and `#FCFCFD` on light today. The table
+> below is the *before*, left as the brief stated it.)
 >
-> | Token | Current dark | Current light |
+> | Token | Palette then, dark | Palette then, light |
 > |---|---|---|
 > | `--bg` | `#3A353C` | `#F3F1F2` |
 > | `--surface` | `#47414A` | `#F8F6F7` |

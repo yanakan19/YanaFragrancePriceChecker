@@ -1914,13 +1914,19 @@
      Narrow and quiet on purpose: it is a credit line, not a navigation
      surface, so it takes as little vertical room as the two touch targets
      allow and stays out of the way of everything above it. */
+  /* Wraps rather than overflows: the footer carries three links and a credit
+     line, which is more than fits on one row at 375px. */
   .site-footer {
-    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 8px 12px;
     margin-top: 28px; padding: 12px 16px; border-top: 1px solid var(--line);
     font-size: 11.5px; color: var(--faint);
   }
   .footer-credit { white-space: nowrap; font-weight: 600; }
-  .footer-social { display: flex; align-items: center; gap: 16px; flex: none; }
+  .footer-social {
+    display: flex; align-items: center; flex-wrap: wrap; justify-content: flex-end;
+    gap: 8px 16px;
+  }
   .footer-link {
     display: inline-flex; align-items: center; gap: 5px;
     color: var(--faint); text-decoration: none; font-size: 11.5px; font-weight: 600;
@@ -2106,6 +2112,81 @@
      centred by the button's own line box; an <svg> is not. */
   .yanny-composer .yanny-stop { display: flex; align-items: center; justify-content: center; }
   .yanny-composer .yanny-stop .ico { width: 15px; height: 15px; }
+
+  /* ── the design system page ────────────────────────────────────────────────
+     Deliberately built out of the type roles, surfaces and lines this file
+     already defines, and introducing no colour, no size and no radius of its
+     own. A style guide that needed a private stylesheet to look right would be
+     evidence against the system it documents. Everything below is layout: a
+     grid for the token rows, a wrap for the icon set, and nothing else.
+
+     .ds-chip has no background of its own either — designView paints each one
+     inline with `var(--token)`, which is what makes a swatch the token rather
+     than a picture of it. */
+  .design-doc .ds-section { margin-top: 34px; }
+  .design-doc .ds-section > .t-body { margin: 8px 0 16px; max-width: 62ch; }
+  .design-doc .seg { margin-bottom: 10px; }
+  .ds-resolved { margin: 0; }
+  .ds-group { margin-top: 20px; }
+  .ds-group-title { margin: 0 0 4px; }
+  .ds-group-note { margin: 0 0 10px; max-width: 62ch; }
+  .ds-table {
+    display: flex; flex-direction: column; gap: 1px;
+    background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden;
+  }
+  .ds-row {
+    display: grid; grid-template-columns: 32px minmax(0, 1fr) auto; gap: 4px 12px;
+    align-items: center; padding: 10px 12px; background: var(--surface);
+  }
+  /* A row with no swatch keeps the same two text columns, so a name lines up
+     down the page whether or not it has a colour to show. */
+  .ds-row:not(:has(.ds-chip)) { grid-template-columns: minmax(0, 1fr) auto; }
+  .ds-row:not(:has(.ds-chip)) .ds-role { grid-column: 1 / -1; }
+  .ds-row .ds-role { grid-column: 2 / -1; }
+  .ds-chip {
+    grid-row: span 2; width: 32px; height: 32px; border-radius: 8px;
+    border: 1px solid var(--line-firm);
+  }
+  /* Alpha tokens sit over a chequer, so a translucent value reads as one
+     rather than as whatever happens to be behind it. */
+  .ds-chip.is-alpha {
+    background-image:
+      linear-gradient(45deg, var(--line-firm) 25%, transparent 25%, transparent 75%, var(--line-firm) 75%),
+      linear-gradient(45deg, var(--line-firm) 25%, transparent 25%, transparent 75%, var(--line-firm) 75%);
+    background-size: 10px 10px; background-position: 0 0, 5px 5px;
+  }
+  .ds-name {
+    font: 600 12.5px/1.3 var(--font-num); color: var(--ink);
+    overflow-wrap: anywhere; min-width: 0;
+  }
+  .ds-value { color: var(--ink-2); text-align: right; white-space: nowrap; }
+  .ds-role { margin: 0; }
+  .ds-contrast-demo {
+    grid-row: span 2; display: flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 8px; border: 1px solid var(--line-firm);
+    font: 700 14px/1 var(--font-sans);
+  }
+  .ds-pass { color: var(--ok); font-weight: 600; }
+  .ds-fail { color: var(--warn); font-weight: 600; }
+  .ds-type { display: grid; gap: 4px 12px; padding: 14px 12px; background: var(--surface); }
+  .ds-type > p { margin: 0; }
+  .ds-type .ds-value { text-align: left; white-space: normal; }
+  .ds-gap { margin: 12px 0 0; max-width: 62ch; }
+  .ds-lift-demo { padding: 18px 0 4px; }
+  .ds-lift {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 120px; padding: 18px 20px; border-radius: 12px;
+    background: var(--surface); box-shadow: var(--shadow-lift);
+    font: 600 15px/1.3 var(--font-sans); color: var(--ink);
+  }
+  .ds-icons { display: flex; flex-wrap: wrap; gap: 10px; }
+  .ds-icon {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    width: 92px; margin: 0; padding: 14px 6px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+  }
+  .ds-icon .ico { width: 22px; height: 22px; }
+  .ds-icon figcaption { text-align: center; overflow-wrap: anywhere; }
 </style>
 
 <div class="ambient" aria-hidden="true">
@@ -2131,6 +2212,14 @@
   <footer class="site-footer">
     <span class="footer-credit">Built by YannySniffs</span>
     <div class="footer-social">
+      <!-- The one route into the design system page. A real href so it can be
+           copied, opened in a new tab and linked to; the click handler in
+           app.ts intercepts it for the in-app router the same way every other
+           internal navigation works. Down here rather than in the top bar
+           because a shopper looking for cheap perfume should never have to
+           step over a style guide to find it, and because a fifth primary nav
+           item breaks the phone layout at 375px. -->
+      <a class="footer-link" href="/design" data-goto="design">Design system</a>
       <a class="footer-link" href="https://www.tiktok.com/@yannysniffs" target="_blank" rel="noopener">
         <svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
           <circle cx="8" cy="17" r="3" stroke="currentColor" stroke-width="1.7"/>
