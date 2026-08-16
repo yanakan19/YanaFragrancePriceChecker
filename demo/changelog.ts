@@ -30,6 +30,36 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.7.0',
+    date: '16 Aug 2026',
+    title: 'Virtual Yanny understands how people actually ask',
+    points: [
+      'Virtual Yanny now answers plainly typed requests like "whats a good perfume for a man" or "something sweet" from the real catalogue, instead of falling back on a general reply',
+      'Virtual Yanny now takes every part of a request into account at once, so asking for a perfume for a woman under £30 that smells sweet is answered on all three counts rather than on the price alone',
+      'Everyday scent words like "sweet" now match the notes the catalogue really uses, instead of turning up almost nothing',
+      'Virtual Yanny now works out who a fragrance is for even when you do not spell it out with the word "for"',
+      'Budget wording like "30 quid" or "something £30ish" is now understood',
+      'Added a stop button that genuinely cuts an answer off, in place of send while one is on its way',
+      'Your conversation now survives closing and reopening the chat and refreshing the page, with a Clear chat button for when you want it gone',
+      'Virtual Yanny no longer waits on its slowest source before replying, so one slow answer can no longer hold up the rest',
+      'Virtual Yanny starts waking up the moment you reach for the chat button, so there is less waiting after a quiet spell',
+      'Fixed suggestion questions being answered from the site\'s own pages instead of from real listings',
+    ],
+  },
+  {
+    version: 'v3.6.0',
+    date: '15 Aug 2026',
+    title: "Cleaner product names, and Escentual's real delivery cost",
+    points: [
+      'Fixed the garbled accented characters still left in some product names, including several Hermès and Lancôme fragrances',
+      'Product names no longer show the bottle size twice, once in the name and again on the label beside it',
+      'Accented and corrupted text is now cleaned the moment a shop\'s data arrives, and everything already stored has been repaired too',
+      'Price checking can now ask a shop for its UK price list, rather than accepting whatever currency it happens to be offered',
+      'Corrected Escentual\'s delivery charge, which was more than a pound below what the shop\'s own delivery page states',
+      'Cleared Escentual\'s wrong-currency prices from our stored data again, after an automatic price update had quietly put back the ones removed on 13 August',
+    ],
+  },
+  {
     version: 'v3.5.0',
     date: '14 Aug 2026',
     title: 'Virtual Yanny learns to answer almost anything',

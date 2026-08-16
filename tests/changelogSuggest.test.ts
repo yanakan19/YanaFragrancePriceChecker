@@ -181,9 +181,10 @@ describe('extractChangelogDates / changelogHasDate — the duplicate-entry guard
     // The real file's actual "4 to 5 Aug 2026" range, both ends.
     expect(changelogHasDate(dates, '4 Aug 2026')).toBe(true);
     expect(changelogHasDate(dates, '5 Aug 2026')).toBe(true);
-    // 15 Aug 2026 must not already be recorded — that is the whole premise
-    // of this task's backfill check.
-    expect(changelogHasDate(dates, '15 Aug 2026')).toBe(false);
+    // 15 and 16 Aug 2026 were skipped by the newest-commit-only bug and have
+    // since been backfilled; both must stay recorded.
+    expect(changelogHasDate(dates, '15 Aug 2026')).toBe(true);
+    expect(changelogHasDate(dates, '16 Aug 2026')).toBe(true);
   });
 });
 
