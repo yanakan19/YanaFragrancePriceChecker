@@ -173,6 +173,19 @@ export const RETAILERS: readonly Retailer[] = [
         description: '£9.90/year for unlimited free delivery on any service.',
       },
       verifiedAt: '2026-08-01',
+      // Read, and deliberately still unverified. A GitHub runner fetched
+      // allbeauty.com/pages/delivery-information (npm run shipping:discover,
+      // committed in 47c5356, checkedAt 2026-08-14T09:11:00Z) and it names six
+      // different rows all worded "Standard Delivery £X" — £3.95, £6.95,
+      // £7.95, £9.95, £11.95 and £14.95 — each paired with its own free-over
+      // threshold of £25, £75 or £125. That reads like a destination table,
+      // and the extracted text does not say which row is the UK. £3.95 is the
+      // only row paired with £25, and £25 is confirmed as the UK threshold
+      // twice over ("FREE UK Delivery over £25", and "Free standard delivery
+      // on UK orders over £25." on the shipping policy) — which makes £3.95
+      // very likely right and still an inference, and an inferred delivery
+      // cost is what this field exists to keep out of the "Cheapest" label.
+      // What it needs is the page's own UK row, read as a row.
       confidence: 'unverified',
     },
     catalogue: {
@@ -227,9 +240,28 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: 2.99,
       freeOverGbp: 25,
       estimatedDays: [2, 4],
-      verifiedAt: '2026-08-01',
-      confidence: 'unverified',
-      notes: 'Free next-day (RM24 Tracked) over £80; standard free tier is RM48 Tracked.',
+      // Both figures were held from 2026-08-01 with no recorded source. The
+      // shop's own shipping policy has since been read by a machine that can
+      // reach it and states them in one sentence, so they are the same two
+      // numbers with something behind them. npm run shipping:discover from a
+      // GitHub runner, committed in cbf2294 as
+      // data/shipping-discovery-report.json, checkedAt 2026-08-15T08:34:07Z.
+      // Page still reachable on 2026-08-16, run 31950919159 job 95174128232.
+      verifiedAt: '2026-08-15',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.justmylook.com/policies/shipping-policy',
+        quote:
+          'This service is free for orders over £25, orders under £25 will be subject to a £2.99 delivery charge.',
+        readAt: '2026-08-15',
+      },
+      notes:
+        'Free next-day (RM24 Tracked) over £80; standard free tier is RM48 Tracked. The same ' +
+        'page says both separately — "Justmylook offers free delivery on all UK orders over ' +
+        '£25 via Royal Mail 48 Tracked." and "We offer free next-day delivery on all orders ' +
+        'over £80 via Royal Mail 24 Tracked." The £80 tier is an upgrade, not the standard ' +
+        'rule, and is not modelled. The 2-4 day window is unchanged and still unsourced: only ' +
+        'the cost and the threshold were read off the page.',
     },
     catalogue: {
       searchUrlTemplate: 'https://www.justmylook.com/search?q={q}',
@@ -312,6 +344,15 @@ export const RETAILERS: readonly Retailer[] = [
       freeOverGbp: 25,
       estimatedDays: [3, 5],
       verifiedAt: '2026-08-01',
+      // Read, and deliberately still unverified. boots.com/delivery was
+      // fetched by a GitHub runner (npm run shipping:discover, committed in
+      // 25fd0a0, checkedAt 2026-08-14T20:33:04Z) and the discovery run itself
+      // returned AMBIGUOUS: the page names two delivery charges, £1.00 and
+      // £5.75, and two free thresholds, £15 and £25, without the extracted
+      // text saying which pairing is standard home delivery. Neither charge is
+      // the £3.95 held here. Rather than pick one, this stays unverified —
+      // the figure is wrong in a way that needs the page read properly, not a
+      // choice made between two numbers on its behalf.
       confidence: 'unverified',
       notes: 'Click & Collect £1.50, free over £15. Cloudflare-fronted — expect a hard scrape.',
     },
@@ -489,9 +530,27 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: 4.95,
       freeOverGbp: 45,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-01',
-      confidence: 'unverified',
-      notes: 'Up to 48h order processing before dispatch — the day window excludes that.',
+      // Held from 2026-08-01 with no recorded source, and now read off the
+      // shop's own page by npm run shipping:discover from a GitHub runner,
+      // committed in 47c5356 as data/shipping-discovery-report.json, checkedAt
+      // 2026-08-14T09:11:00Z. The quoted line is an exclusions heading rather
+      // than a rate table, and it is still the page naming its own standard
+      // UK delivery charge in words: £4.95, or free above the threshold.
+      verifiedAt: '2026-08-14',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.beautybase.com/policies/shipping-policy',
+        quote: '*EXCLUSIONS TO £4.95 OR FREE STANDARD UK DELIVERY CHARGE',
+        readAt: '2026-08-14',
+      },
+      notes:
+        'Up to 48h order processing before dispatch — the day window excludes that, and the ' +
+        '3-5 day span itself is unchanged and still unsourced. The £45 threshold comes off the ' +
+        'same page: "FREE on orders over £45 (please see exceptions below)." Those exceptions ' +
+        'are addresses, not products — "LOCATIONS EXCLUDED FROM STANDARD UK DELIVERY ~ These ' +
+        'locations carry a charge of £6.99, subject to the items ordered:" — so £6.99 is a ' +
+        'surcharge for particular postcodes rather than a second standard rate, and the ' +
+        'mainland figure is the one modelled here.',
     },
     catalogue: {
       searchUrlTemplate: 'https://www.beautybase.com/search?q={q}',
@@ -533,8 +592,23 @@ export const RETAILERS: readonly Retailer[] = [
         scheme: 'Premier Delivery',
         description: '£9.90/year for unlimited free delivery over £10 per order.',
       },
-      verifiedAt: '2026-08-01',
-      confidence: 'unverified',
+      // Held from 2026-08-01 with no recorded source, and now read off the
+      // shop's own delivery page by npm run shipping:discover from a GitHub
+      // runner, committed in cbf2294 as data/shipping-discovery-report.json,
+      // checkedAt 2026-08-15T08:34:07Z. One sentence carries both figures.
+      verifiedAt: '2026-08-15',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.lookfantastic.com/c/info/delivery/',
+        quote: 'Tracked Delivery - £3.95 or FREE on orders over £25',
+        readAt: '2026-08-15',
+      },
+      notes:
+        'Tracked Delivery is the cheapest UK option the page names, so it is the one modelled. ' +
+        'Everything else on it is an upgrade or a subscription and is out of scope: "Next Day ' +
+        'Delivery - £5.95", "Same Day Delivery £9.95", and Premier Delivery at £9.90 a year ' +
+        '(recorded above as a membership perk, not as the standard rate). The 2-3 day window ' +
+        'is unchanged and still unsourced — only the cost and the threshold were read.',
     },
     catalogue: {
       searchUrlTemplate: 'https://www.lookfantastic.com/elysium.search?search={q}',
@@ -715,20 +789,32 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: 0,
       freeOverGbp: 0,
       estimatedDays: [2, 3],
-      verifiedAt: '2026-08-03',
-      // Not read directly off fragranceclick.co.uk/delivery — that request
-      // returned HTTP 403, the same bot mitigation seen elsewhere in this
-      // registry. Sourced instead from a search-engine summary of that same
-      // page's own content (title: "Delivery Information | Free UK
-      // Shipping | Fragrance Click"), which is indirect enough to keep this
-      // unverified until someone opens the page in a real browser and
-      // confirms it by eye.
-      confidence: 'unverified',
+      // Was indirect until 2026-08-14: fragranceclick.co.uk/delivery answered
+      // HTTP 403 from the environment this entry was written in, so the figure
+      // came from a search-engine summary of that page's own content (title:
+      // "Delivery Information | Free UK Shipping | Fragrance Click"). A GitHub
+      // runner fetched the page itself — npm run shipping:discover, committed
+      // in 25fd0a0 as data/shipping-discovery-report.json, checkedAt
+      // 2026-08-14T20:33:04Z — and the page says it in as many words, on both
+      // /delivery and /shipping-policy independently.
+      //
+      // "on All Orders" is what makes 0 safe here rather than a guess at a fee
+      // nobody printed: this is the free-with-no-threshold case, which is why
+      // freeOverGbp is 0 and not null.
+      verifiedAt: '2026-08-14',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.fragranceclick.co.uk/delivery',
+        quote: 'Free Tracked 48 Delivery on All Orders',
+        readAt: '2026-08-14',
+      },
       notes:
         'Free UK delivery on every order via Royal Mail Tracked 48 (2-3 days), no minimum ' +
-        'spend — so standardGbp is genuinely 0, not a rounding of a small fee. Paid express ' +
+        'spend — so standardGbp is genuinely 0, not a rounding of a small fee. The same page ' +
+        'repeats it as "Free Royal Mail Tracked 48 Shipping on Every Order". Paid express ' +
         'tiers exist (Tracked 24 at £1.95, Special Delivery at £9.95) but are not modelled, ' +
-        'per this registry\'s standard-delivery-only rule.',
+        'per this registry\'s standard-delivery-only rule. The 2-3 day window is unchanged and ' +
+        'still unsourced.',
     },
     catalogue: null,
     affiliate: {
@@ -1027,19 +1113,34 @@ export const RETAILERS: readonly Retailer[] = [
     shipping: {
       standardGbp: 2.95,
       freeOverGbp: 30,
-      // One cached source describes standard delivery taking up to 10
-      // working days, which is unusually slow and sits oddly next to a
-      // same-named "24hr tracked" upgrade tier — plausibly two different
-      // named services rather than a contradiction, but not resolved from
-      // here. The wider span is recorded rather than picking a side.
+      // One cached source described standard delivery taking up to 10 working
+      // days, which read oddly next to a same-named "24hr tracked" upgrade
+      // tier, and the wider span was recorded rather than picking a side. The
+      // page itself settles it: they really are two named services, and the
+      // slow one really is that slow — "Please allow a full 10 working days
+      // for orders to arrive when Standard Free UK delivery is chosen
+      // (non-tracked)."
       estimatedDays: [3, 10],
-      verifiedAt: '2026-08-05',
-      confidence: 'unverified',
+      // Read off the shop's own page by npm run shipping:discover from a
+      // GitHub runner, committed in 431649e as
+      // data/shipping-discovery-report.json, checkedAt 2026-08-16T08:30:45Z.
+      // Both figures were already right; neither had anything behind it.
+      verifiedAt: '2026-08-16',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.scentstore.com/about/delivery-returns/',
+        quote: '£2.95 Free on Orders Over £30',
+        readAt: '2026-08-16',
+      },
       notes:
         'Independent UK perfumery trading since 1996 (Companies House: Scentstore Limited, ' +
-        '05917335). A paid 24hr Tracked upgrade also exists at £3.95. Their own site states ' +
-        'they run an Awin affiliate programme, but no merchant id could be found in this pass ' +
-        '— resolve that before applying for their programme rather than guessing an id.',
+        '05917335). The same page states the threshold on its own — "Standard UK delivery is ' +
+        'FREE over £30." — and names the paid upgrades separately: "24 Hour Tracked Delivery ' +
+        'is available at £3.95 on weekdays only (order cut off 3pm)" and "Next Day Delivery is ' +
+        'available at £6.95 Mon-Thur only (order cut off 3pm)." Neither is modelled. Their own ' +
+        'site states they run an Awin affiliate programme, but no merchant id could be found ' +
+        'in this pass — resolve that before applying for their programme rather than guessing ' +
+        'an id.',
     },
     catalogue: {
       searchUrlTemplate: 'https://www.scentstore.com/search?q={q}',
@@ -1317,16 +1418,39 @@ export const RETAILERS: readonly Retailer[] = [
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      standardGbp: 4.5,
-      freeOverGbp: 22,
+      // £4.50 free over £22 until 2026-08-16, and both were wrong.
+      //
+      // They came from a search-engine rendering of this shop's Shipping
+      // Policy page rather than the page, which is the same indirect route
+      // that put Escentual's delivery a pound under the truth. A GitHub runner
+      // fetched the page itself — npm run shipping:discover, committed in
+      // 47c5356 as data/shipping-discovery-report.json, checkedAt
+      // 2026-08-14T09:11:00Z — and it states one rule in one sentence: £3.99
+      // below £30, free above it. So the rate was 51p too high and the
+      // threshold £8 too low, which on a site sorted by delivered price moved
+      // this shop the safe way but by a figure nobody had read.
+      standardGbp: 3.99,
+      freeOverGbp: 30,
+      // Unchanged and still unsourced: the page read here says nothing about
+      // how long delivery takes.
       estimatedDays: [1, 3],
-      verifiedAt: '2026-08-05',
-      confidence: 'unverified',
+      verifiedAt: '2026-08-16',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://bellavitaluxury.uk/policies/shipping-policy',
+        quote: 'Free shipping on all orders above £30, below that a delivery fee of £3.99 will be charged',
+        readAt: '2026-08-14',
+      },
       notes:
-        "Both figures read off this site's own Shipping Policy page in search results: free " +
-        'over £22, flat £4.50 below that, 1-3 business days to hand-off. Not to be confused ' +
-        'with Bella Vita Organic (bellavitaorganic.com), an unrelated Indian skincare brand ' +
-        'that also trades as "Bellavita" — see the matching caution in demo/brandSites.ts.',
+        'The £30 threshold is corroborated on a second page of the same shop — ' +
+        'https://bellavitaluxury.uk/pages/shipping-policy-bellavita-luxury-united-kingdom, ' +
+        'read in the same pass: "Free shipping on all orders over 30 GBP." A promotional ' +
+        'banner elsewhere on the policy page reads "FREE Shipping Above £25"; the £30 figure ' +
+        'is taken because two pages state it and it is the one written as the rule rather than ' +
+        'as a banner, and because taking the higher threshold can only overstate a delivered ' +
+        'price, never understate it. Not to be confused with Bella Vita Organic ' +
+        '(bellavitaorganic.com), an unrelated Indian skincare brand that also trades as ' +
+        '"Bellavita" — see the matching caution in demo/brandSites.ts.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
