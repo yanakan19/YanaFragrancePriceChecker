@@ -26,7 +26,8 @@
 
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
-  | 'notes' | 'note' | 'fragrance' | 'about' | 'settings' | 'legal' | 'account';
+  | 'notes' | 'note' | 'fragrance' | 'about' | 'settings' | 'legal' | 'account'
+  | 'design';
 
 /** What a matched URL says about where we are. */
 export interface Route {
@@ -62,6 +63,11 @@ const LIST_ROUTES: Record<string, RouteName> = {
   about: 'about',
   settings: 'settings',
   account: 'account',
+  // Reachable by URL and from the footer, and deliberately nowhere in the top
+  // bar: this is a shop for perfume, and a shopper looking for a cheap bottle
+  // of Sauvage should never have to step over a swatch table to find it. See
+  // designView in demo/app.ts.
+  design: 'design',
 };
 
 const LEAF_ROUTES: Record<string, RouteName> = {
@@ -124,6 +130,7 @@ export function routeToPath(route: Route): string {
       case 'about': return '/about';
       case 'settings': return '/settings';
       case 'account': return '/account';
+      case 'design': return '/design';
       case 'legal': return `/legal/${encodeURIComponent(param)}`;
     }
   })();

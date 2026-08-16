@@ -11,6 +11,16 @@ This is a read-only audit. Nothing here changes any CSS — see
 "Inconsistencies found" at the bottom for a punch list of what to go fix,
 with a suggested unified value for each.
 
+> **Superseded in part.** The eight type roles this audit argued for now
+> exist as real classes (`.t-page`, `.t-section`, `.t-title`, `.t-body`,
+> `.t-eyebrow`, `.t-caption`, `.t-count`, `.t-price`), and the site renders
+> them at their real sizes, with each sample's computed specification read
+> off the sample itself, at [/design](https://pricesniffs.space/design).
+> Where a selector below has since been moved onto one of those roles, the
+> role is what it does now. This file remains the exhaustive per-selector
+> inventory, including everything still sitting on a literal `px` outside the
+> eight roles, which is why it is kept rather than deleted.
+
 All line numbers below refer to `demo/template.html` as it stood on
 2026-08-11. `--ink`, `--ink-2`, `--faint` etc. are the theme tokens defined at
 the top of the same file (`:root` / `[data-mode]` blocks); their actual
