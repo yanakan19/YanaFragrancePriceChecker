@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 57 retailers, 27 of them `enabled: true`. Every one of them is a legitimate
+ * 57 retailers, 28 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -2341,14 +2341,43 @@ export const RETAILERS: readonly Retailer[] = [
     // which counts feeds rather than memberships and so said nothing at all
     // about approvals.
     //
-    // Still `enabled: false`, deliberately, and not as an oversight. Enabling
-    // needs two things this entry does not have: a feed that has actually
-    // landed (adapter below now routes it to the sync, but no feed has been
-    // fetched from this merchant yet, so there are zero listings — an enabled
-    // shop with nothing in it is worse than an absent one), and a standard
-    // delivery cost, which nobody has read from their site. Flip it once
-    // data/catalogue/perfume-click.json exists with real rows.
-    enabled: false,
+    // Enabled 2026-08-16. This entry set its own two gates — a feed that had
+    // actually landed, and a standard delivery cost read off the shop's own
+    // site — and both were met days before anyone came back to look, while it
+    // still said "no feed has been fetched from this merchant yet". That
+    // sentence was true when written and stale by the time it was read again,
+    // which is the failure mode of a gate nothing goes back to check.
+    //
+    // THE FEED. data/catalogue/perfume-click.json holds 10,581 rows, 10,499 of
+    // them active and priced, snapshot source 'live', last imported
+    // 2026-08-15 21:07:56 per data/awin-feed-sync-state.json.
+    //
+    // THE CURRENCY, which is what Nicchia Luxury proves a .co.uk domain and a
+    // UK Awin programme do not settle. Four readings, and the third is the one
+    // that would have caught Nicchia:
+    //   - perfume-click.co.uk on a UK Awin programme, advertiser 6561,
+    //     membershipStatus 'active';
+    //   - the shop's own delivery page quotes sterling throughout — "Standard
+    //     Delivery (Collection also available) ~ £2.95" and "Free Delivery On
+    //     Orders Over £50" — where Nicchia's own shipping policy quoted "Free
+    //     express delivery over 140 USD";
+    //   - RRP against a confirmed-sterling UK shop. Over the 348 EANs this
+    //     feed shares with fragrance-click, wasPrice/wasPrice has median 1.012
+    //     and p25 exactly 1.000, spread rather than clustered. A reference
+    //     price is a manufacturer fact, so two honest UK shops agree on it,
+    //     and a shop on a foreign scale shows a CONSTANT factor instead —
+    //     Escentual 1.452, Nicchia 1.3490 across 99.9% of its rows. This is
+    //     inference from a sample and not a checkout, and is labelled as such;
+    //     what it rules out is the exact failure both those shops had;
+    //   - the id is not in CURRENCY_UNCONFIRMED, and prices run £2.10 to
+    //     £633.45 with a median of £20.75, which is a fragrance price list in
+    //     pounds.
+    // No feed currency column was trusted for any of this. A feed currency
+    // column is precisely what was trusted for Nicchia Luxury.
+    //
+    // THE DELIVERY COST is in the block below, read off their own page by CI
+    // and quoted there.
+    enabled: true,
     // Routes this merchant into scripts/awin-feed-sync.ts, which selects on
     // exactly this: adapter 'affiliate-feed', network 'awin', and a merchant
     // id recoverable from the signup URL. Nothing else has to change for the
@@ -2357,17 +2386,34 @@ export const RETAILERS: readonly Retailer[] = [
     adapter: 'affiliate-feed',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
-      freeOverGbp: null,
+      // First figure this entry has ever held, and it is not a first guess.
+      // perfume-click.co.uk answered HTTP 403 to every candidate path on six
+      // consecutive runs from 2026-08-11 to 2026-08-13. On 2026-08-15 a
+      // GitHub runner reached /Delivery-Information/ and read the rate off it
+      // — npm run shipping:discover, committed in 6a99c99 as
+      // data/shipping-discovery-report.json, checkedAt 2026-08-15T20:23:39Z.
+      // That run's own verdict was PROPOSE-RATE: the tool will not write a
+      // shop's first delivery figure itself and hands it to a human. This is
+      // that human act, on the sentence it quoted.
+      standardGbp: 2.95,
+      freeOverGbp: 50,
+      // Unchanged and unsourced — the page read here states costs, not
+      // timings.
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
+      verifiedAt: '2026-08-15',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.perfume-click.co.uk/Delivery-Information/',
+        quote: 'Standard Delivery (Collection also available) ~ £2.95',
+        readAt: '2026-08-15',
+      },
       notes:
         'Awin programme accepted — advertiser 6561 reads membershipStatus "active" in the ' +
-        "account's own feed list, read by npm run awin:memberships on 2026-08-14. Delivery " +
-        'terms still not read from their site, which is why standardGbp stays null and this ' +
-        'retailer stays disabled: an unknown delivery cost is sayable here, but a shop with ' +
-        'no listings is not worth showing. shipping:discover covers the delivery half.',
+        "account's own feed list, read by npm run awin:memberships on 2026-08-14. The £50 " +
+        'threshold comes off the same page, stated twice: "Free Delivery On Orders Over £50" ' +
+        'and, in its own country table, "United Kingdom ~ Orders over £50 : FREE". An Express ' +
+        'tier at £3.95 ("Express Delivery (Collection also available) ~ £3.95") is an upgrade ' +
+        'and is not modelled.',
     },
     catalogue: null,
     affiliate: { ...awinActive('6561', '3017443') },
