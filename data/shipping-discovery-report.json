@@ -1,17 +1,8 @@
 {
-  "checkedAt": "2026-08-15T20:23:39.449Z",
+  "checkedAt": "2026-08-16T08:30:45.832Z",
   "wrote": 0,
-  "eligible": 49,
+  "eligible": 50,
   "heldForLaterRuns": [
-    "scentstore",
-    "selfridges",
-    "superdrug",
-    "the-fragrance-shop",
-    "the-perfume-shop",
-    "very",
-    "wowcher",
-    "zara",
-    "zimaya",
     "al-haramain",
     "allbeauty",
     "armaf",
@@ -41,55 +32,43 @@
     "lookfantastic",
     "lush",
     "manchester-ouds",
-    "nicchia-luxury-uk"
+    "nicchia-luxury-uk",
+    "niche-beauty-uk",
+    "notino-uk",
+    "paco-perfumerias",
+    "parfumdreams-uk",
+    "perfume-click",
+    "perfume-market-uk",
+    "perfume-shopping",
+    "perfumeo",
+    "riiffs",
+    "scentsational"
   ],
   "outcomes": [
     {
-      "retailerId": "niche-beauty-uk",
-      "name": "Niche-Beauty UK",
-      "homepage": "https://www.niche-beauty.com",
+      "retailerId": "amazon-uk",
+      "name": "Amazon UK",
+      "homepage": "https://www.amazon.co.uk",
       "currentStandardGbp": null,
       "currentFreeOverGbp": null,
       "currentConfidence": "unverified",
       "enabled": false,
-      "pagesTried": 19,
+      "pagesTried": 20,
       "linksFound": [
         {
-          "url": "https://www.niche-beauty.com/en-us/info/versandkosten",
-          "linkText": "FREE SHIPPING from $ 200.00*"
+          "url": "https://www.amazon.co.uk/gp/help/customer/display.html?nodeId=201910060&ref_=footer_shiprates",
+          "linkText": "Delivery Rates & Policies"
         },
         {
-          "url": "https://www.niche-beauty.com/en-us/info/service-und-sicherheit",
-          "linkText": "Service & safety Fast delivery Free returns Buyer protection Privacy protection Money back guarantee for 14 days Safe payment with SSL"
-        }
-      ],
-      "findings": [
+          "url": "https://www.amazon.co.uk/auto-deliveries?ref_=nav_AccountFlyout_sns",
+          "linkText": "Your Subscribe & Save"
+        },
         {
-          "url": "https://www.niche-beauty.com/en-us/info/service-und-sicherheit",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": null,
-          "freeOverGbp": null,
-          "caveats": [
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Free shipping to US on all orders above $ 200.00",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "FREE SHIPPING",
-              "isUpgradeTier": false
-            }
-          ]
+          "url": "https://www.amazon.co.uk/auto-deliveries/landing?ref_=nav_cs_sns",
+          "linkText": "Subscribe & Save"
         }
       ],
+      "findings": [],
       "quote": {
         "ok": false,
         "postcode": "SW1A 1AA",
@@ -98,179 +77,333 @@
         "rates": [],
         "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
         "steps": [
-          "https://www.niche-beauty.com/products.json?limit=250"
+          "https://www.amazon.co.uk/products.json?limit=250"
         ]
       },
-      "errors": [],
-      "patch": null,
-      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
-    },
-    {
-      "retailerId": "notino-uk",
-      "name": "Notino UK",
-      "homepage": "https://www.notino.co.uk",
-      "currentStandardGbp": 2.99,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": true,
-      "pagesTried": 17,
-      "linksFound": [],
-      "findings": [],
-      "quote": null,
       "errors": [
-        "https://www.notino.co.uk/: HTTP 403",
-        "https://www.notino.co.uk/policies/shipping-policy: HTTP 403",
-        "https://www.notino.co.uk/pages/shipping-policy: HTTP 403",
-        "https://www.notino.co.uk/pages/shipping-details: HTTP 403",
-        "https://www.notino.co.uk/pages/delivery-information: HTTP 403",
-        "https://www.notino.co.uk/pages/shipping: HTTP 403",
-        "https://www.notino.co.uk/pages/delivery: HTTP 403",
-        "https://www.notino.co.uk/shipping-policy: HTTP 403",
-        "https://www.notino.co.uk/delivery: HTTP 403",
-        "https://www.notino.co.uk/shipping: HTTP 403",
-        "https://www.notino.co.uk/pages/faq: HTTP 403",
-        "https://www.notino.co.uk/pages/shipping-returns: HTTP 403",
-        "https://www.notino.co.uk/pages/delivery-returns: HTTP 403",
-        "https://www.notino.co.uk/pages/shipping-info: HTTP 403",
-        "https://www.notino.co.uk/pages/help: HTTP 403",
-        "https://www.notino.co.uk/policies/refund-policy: HTTP 403",
-        "https://www.notino.co.uk/pages/terms-of-service: HTTP 403",
-        "https://www.notino.co.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+        "https://www.amazon.co.uk/gp/help/customer/display.html?nodeId=201910060&ref_=footer_shiprates: HTTP 403",
+        "https://www.amazon.co.uk/pages/shipping-details: HTTP 503",
+        "https://www.amazon.co.uk/delivery: HTTP 403",
+        "https://www.amazon.co.uk/shipping: HTTP 503",
+        "https://www.amazon.co.uk/pages/shipping-info: HTTP 503"
       ],
       "patch": null,
       "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
     },
     {
-      "retailerId": "paco-perfumerias",
-      "name": "Paco Perfumerias",
-      "homepage": "https://www.pacoperfumerias.com",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
+      "retailerId": "scentstore",
+      "name": "ScentStore",
+      "homepage": "https://www.scentstore.com",
+      "currentStandardGbp": 2.95,
+      "currentFreeOverGbp": 30,
       "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 17,
-      "linksFound": [],
-      "findings": [],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
-        "steps": [
-          "https://www.pacoperfumerias.com/products.json?limit=250"
-        ]
-      },
-      "errors": [],
-      "patch": null,
-      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
-    },
-    {
-      "retailerId": "parfumdreams-uk",
-      "name": "Parfumdreams UK",
-      "homepage": "https://www.parfumdreams.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 18,
+      "enabled": true,
+      "pagesTried": 15,
       "linksFound": [
         {
-          "url": "https://www.parfumdreams.co.uk/Shipping-Costs",
-          "linkText": "Free shipping from £35"
+          "url": "https://www.scentstore.com/about/delivery-returns/",
+          "linkText": "Delivery & Returns"
+        },
+        {
+          "url": "https://www.scentstore.com/delivery-returns/",
+          "linkText": "Postage &#038; Delivery"
         }
       ],
       "findings": [
         {
-          "url": "https://www.parfumdreams.co.uk/Shipping-Costs",
+          "url": "https://www.scentstore.com/about/delivery-returns/",
           "status": 200,
           "foundBy": "link",
           "standardGbp": null,
-          "freeOverGbp": null,
+          "freeOverGbp": 30,
           "caveats": [
+            "only named express/upgraded services carried a price — standard rate not stated",
             "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
           ],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "United Kingdom , from &#xA3; 35.00 value of goods FREE SHIPPING",
-              "isUpgradeTier": false
-            }
-          ]
-        }
-      ],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
-        "steps": [
-          "https://www.parfumdreams.co.uk/products.json?limit=250"
-        ]
-      },
-      "errors": [],
-      "patch": null,
-      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
-    },
-    {
-      "retailerId": "perfume-click",
-      "name": "Perfume Click",
-      "homepage": "https://www.perfume-click.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 2,
-      "linksFound": [
-        {
-          "url": "https://www.perfume-click.co.uk/Delivery-Information/",
-          "linkText": "Next Day Delivery Available"
-        }
-      ],
-      "findings": [
-        {
-          "url": "https://www.perfume-click.co.uk/Delivery-Information/",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": 2.95,
-          "freeOverGbp": 50,
-          "caveats": [],
           "standardRateNotStated": false,
           "evidence": [
             {
               "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "Free Delivery On Orders Over £50",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Free parcel tracking is included with all delivery options.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 2.95,
-              "sentence": "Standard Delivery (Collection also available) ~ £2.95",
+              "amountGbp": 30,
+              "sentence": "Free UK Delivery Over £30",
               "isUpgradeTier": false
             },
             {
               "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "United Kingdom ~ Orders over £50 : FREE",
+              "amountGbp": 30,
+              "sentence": "Scentstore Enjoy Free Delivery When You Spend £30+",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "£2.95 Free on Orders Over £30",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Standard UK delivery is FREE over £30.",
               "isUpgradeTier": false
             },
             {
               "kind": "standard-cost",
               "amountGbp": 3.95,
-              "sentence": "Express Delivery (Collection also available) ~ £3.95",
+              "sentence": "24 Hour Tracked Delivery is available at £3.95 on weekdays only (order cut off 3pm) (this is not a next day guaranteed service but over 95% of orders reach customers next day)",
               "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Next Day Delivery is available at £6.95 Mon-Thur only (order cut off 3pm).",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Please allow a full 10 working days for orders to arrive when Standard Free UK delivery is chosen (non-tracked).",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://www.scentstore.com/delivery-returns/",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": null,
+          "freeOverGbp": 30,
+          "caveats": [
+            "only named express/upgraded services carried a price — standard rate not stated",
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "standardRateNotStated": false,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Free UK Delivery Over £30",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Scentstore Enjoy Free Delivery When You Spend £30+",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "£2.95 Free on Orders Over £30",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Standard UK delivery is FREE over £30.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 3.95,
+              "sentence": "24 Hour Tracked Delivery is available at £3.95 on weekdays only (order cut off 3pm) (this is not a next day guaranteed service but over 95% of orders reach customers next day)",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Next Day Delivery is available at £6.95 Mon-Thur only (order cut off 3pm).",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Please allow a full 10 working days for orders to arrive when Standard Free UK delivery is chosen (non-tracked).",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://www.scentstore.com/pages/delivery",
+          "status": 200,
+          "foundBy": "path",
+          "standardGbp": null,
+          "freeOverGbp": 30,
+          "caveats": [
+            "only named express/upgraded services carried a price — standard rate not stated",
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "standardRateNotStated": false,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Free UK Delivery Over £30",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Scentstore Enjoy Free Delivery When You Spend £30+",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "£2.95 Free on Orders Over £30",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Standard UK delivery is FREE over £30.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 3.95,
+              "sentence": "24 Hour Tracked Delivery is available at £3.95 on weekdays only (order cut off 3pm) (this is not a next day guaranteed service but over 95% of orders reach customers next day)",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Next Day Delivery is available at £6.95 Mon-Thur only (order cut off 3pm).",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Please allow a full 10 working days for orders to arrive when Standard Free UK delivery is chosen (non-tracked).",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://www.scentstore.com/delivery",
+          "status": 200,
+          "foundBy": "path",
+          "standardGbp": null,
+          "freeOverGbp": 30,
+          "caveats": [
+            "only named express/upgraded services carried a price — standard rate not stated",
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "standardRateNotStated": false,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Free UK Delivery Over £30",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Scentstore Enjoy Free Delivery When You Spend £30+",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "£2.95 Free on Orders Over £30",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Standard UK delivery is FREE over £30.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 3.95,
+              "sentence": "24 Hour Tracked Delivery is available at £3.95 on weekdays only (order cut off 3pm) (this is not a next day guaranteed service but over 95% of orders reach customers next day)",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Next Day Delivery is available at £6.95 Mon-Thur only (order cut off 3pm).",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Please allow a full 10 working days for orders to arrive when Standard Free UK delivery is chosen (non-tracked).",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://www.scentstore.com/pages/faq",
+          "status": 200,
+          "foundBy": "path",
+          "standardGbp": null,
+          "freeOverGbp": 30,
+          "caveats": [],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Scentstore UK Enjoy Free Delivery When You Spend £30+",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://www.scentstore.com/pages/delivery-returns",
+          "status": 200,
+          "foundBy": "path",
+          "standardGbp": null,
+          "freeOverGbp": 30,
+          "caveats": [
+            "only named express/upgraded services carried a price — standard rate not stated",
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "standardRateNotStated": false,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Free UK Delivery Over £30",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Scentstore Enjoy Free Delivery When You Spend £30+",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "£2.95 Free on Orders Over £30",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 30,
+              "sentence": "Standard UK delivery is FREE over £30.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 3.95,
+              "sentence": "24 Hour Tracked Delivery is available at £3.95 on weekdays only (order cut off 3pm) (this is not a next day guaranteed service but over 95% of orders reach customers next day)",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Next Day Delivery is available at £6.95 Mon-Thur only (order cut off 3pm).",
+              "isUpgradeTier": true
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Please allow a full 10 working days for orders to arrive when Standard Free UK delivery is chosen (non-tracked).",
+              "isUpgradeTier": false
             }
           ]
         }
@@ -278,50 +411,19 @@
       "quote": null,
       "errors": [],
       "patch": {
-        "retailerId": "perfume-click",
-        "action": "propose-rate",
-        "detail": "page states £2.95 and the registry holds no rate — a human sets a first figure, never this tool: \"Standard Delivery (Collection also available) ~ £2.95\" (https://www.perfume-click.co.uk/Delivery-Information/)",
+        "retailerId": "scentstore",
+        "action": "disagrees",
+        "detail": "registry holds £2.95 but this page states delivery terms and names no flat rate — the stored figure may have come from somewhere that no longer says it (https://www.scentstore.com/pages/faq)",
         "write": null
       },
-      "verdict": "PROPOSE-RATE: page states £2.95 and the registry holds no rate — a human sets a first figure, never this tool: \"Standard Delivery (Collection also available) ~ £2.95\" (https://www.perfume-click.co.uk/Delivery-Information/)"
+      "verdict": "DISAGREES: registry holds £2.95 but this page states delivery terms and names no flat rate — the stored figure may have come from somewhere that no longer says it (https://www.scentstore.com/pages/faq)"
     },
     {
-      "retailerId": "perfume-market-uk",
-      "name": "Perfume Market UK",
-      "homepage": "https://www.perfumemarketuk.com",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 18,
-      "linksFound": [
-        {
-          "url": "https://www.perfumemarketuk.com/delivery/",
-          "linkText": "Delivery"
-        }
-      ],
-      "findings": [],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
-        "steps": [
-          "https://www.perfumemarketuk.com/products.json?limit=250"
-        ]
-      },
-      "errors": [],
-      "patch": null,
-      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
-    },
-    {
-      "retailerId": "perfume-shopping",
-      "name": "Perfume Shopping",
-      "homepage": "https://www.perfumeshopping.com",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": 50,
+      "retailerId": "selfridges",
+      "name": "Selfridges",
+      "homepage": "https://www.selfridges.com",
+      "currentStandardGbp": 6.99,
+      "currentFreeOverGbp": 100,
       "currentConfidence": "unverified",
       "enabled": true,
       "pagesTried": 17,
@@ -335,214 +437,42 @@
         "rates": [],
         "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
         "steps": [
-          "https://www.perfumeshopping.com/products.json?limit=250"
+          "https://www.selfridges.com/products.json?limit=250"
         ]
       },
       "errors": [
-        "https://www.perfumeshopping.com/: HTTP 403",
-        "https://www.perfumeshopping.com/policies/shipping-policy: HTTP 403",
-        "https://www.perfumeshopping.com/pages/shipping-policy: HTTP 403",
-        "https://www.perfumeshopping.com/pages/shipping-details: HTTP 403",
-        "https://www.perfumeshopping.com/pages/delivery-information: HTTP 403",
-        "https://www.perfumeshopping.com/pages/shipping: HTTP 403",
-        "https://www.perfumeshopping.com/pages/delivery: HTTP 403",
-        "https://www.perfumeshopping.com/shipping-policy: HTTP 403",
-        "https://www.perfumeshopping.com/delivery: HTTP 403",
-        "https://www.perfumeshopping.com/shipping: HTTP 403",
-        "https://www.perfumeshopping.com/pages/faq: HTTP 403",
-        "https://www.perfumeshopping.com/pages/shipping-returns: HTTP 403",
-        "https://www.perfumeshopping.com/pages/delivery-returns: HTTP 403",
-        "https://www.perfumeshopping.com/pages/shipping-info: HTTP 403",
-        "https://www.perfumeshopping.com/pages/help: HTTP 403",
-        "https://www.perfumeshopping.com/policies/refund-policy: HTTP 403",
-        "https://www.perfumeshopping.com/pages/terms-of-service: HTTP 403"
+        "https://www.selfridges.com/: HTTP 403",
+        "https://www.selfridges.com/policies/shipping-policy: HTTP 403",
+        "https://www.selfridges.com/pages/shipping-policy: HTTP 403",
+        "https://www.selfridges.com/pages/shipping-details: HTTP 403",
+        "https://www.selfridges.com/pages/delivery-information: HTTP 403",
+        "https://www.selfridges.com/pages/shipping: HTTP 403",
+        "https://www.selfridges.com/pages/delivery: HTTP 403",
+        "https://www.selfridges.com/shipping-policy: HTTP 403",
+        "https://www.selfridges.com/delivery: HTTP 403",
+        "https://www.selfridges.com/shipping: HTTP 403",
+        "https://www.selfridges.com/pages/faq: HTTP 403",
+        "https://www.selfridges.com/pages/shipping-returns: HTTP 403",
+        "https://www.selfridges.com/pages/delivery-returns: HTTP 403",
+        "https://www.selfridges.com/pages/shipping-info: HTTP 403",
+        "https://www.selfridges.com/pages/help: HTTP 403",
+        "https://www.selfridges.com/policies/refund-policy: HTTP 403",
+        "https://www.selfridges.com/pages/terms-of-service: HTTP 403"
       ],
       "patch": null,
       "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
     },
     {
-      "retailerId": "perfumeo",
-      "name": "Perfumeo",
-      "homepage": "https://www.perfumeo.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
+      "retailerId": "superdrug",
+      "name": "Superdrug",
+      "homepage": "https://www.superdrug.com",
+      "currentStandardGbp": 4.5,
+      "currentFreeOverGbp": 25,
       "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 18,
-      "linksFound": [
-        {
-          "url": "https://www.perfumeo.co.uk/policies/shipping-policy/",
-          "linkText": "Delivery"
-        }
-      ],
-      "findings": [
-        {
-          "url": "https://www.perfumeo.co.uk/policies/shipping-policy/",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": null,
-          "freeOverGbp": null,
-          "caveats": [
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Delivery Information - Perfumeo Fast & Free UK Delivery &mdash; No Minimum Spend",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Fast + Free Tracked Delivery on All UK Orders 100% Genuine — Sealed & Batch-Coded Up to 40% Off Lattafa Best Sellers — While Stock Lasts",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "+ FREE Fast-Tracked Delivery No Minimum Spend",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "15% OFF + free fast-tracked delivery &middot; COPY CODE",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "100% Authentic Fragrances Fast UK Dispatch FREE Fast-Tracked Delivery",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://www.perfumeo.co.uk/policies/shipping-policy",
-          "status": 200,
-          "foundBy": "path",
-          "standardGbp": null,
-          "freeOverGbp": null,
-          "caveats": [
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Delivery Information - Perfumeo Fast & Free UK Delivery &mdash; No Minimum Spend",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Fast + Free Tracked Delivery on All UK Orders 100% Genuine — Sealed & Batch-Coded Up to 40% Off Lattafa Best Sellers — While Stock Lasts",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "+ FREE Fast-Tracked Delivery No Minimum Spend",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "15% OFF + free fast-tracked delivery &middot; COPY CODE",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "100% Authentic Fragrances Fast UK Dispatch FREE Fast-Tracked Delivery",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://www.perfumeo.co.uk/pages/faq",
-          "status": 200,
-          "foundBy": "path",
-          "standardGbp": null,
-          "freeOverGbp": null,
-          "caveats": [
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "FAQ - Perfumeo Fast & Free UK Delivery &mdash; No Minimum Spend",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Fast + Free Tracked Delivery on All UK Orders 100% Genuine — Sealed & Batch-Coded Up to 40% Off Lattafa Best Sellers — While Stock Lasts",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "+ FREE Fast-Tracked Delivery No Minimum Spend",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "15% OFF + free fast-tracked delivery &middot; COPY CODE",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "100% Authentic Fragrances Fast UK Dispatch FREE Fast-Tracked Delivery",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://www.perfumeo.co.uk/policies/refund-policy",
-          "status": 200,
-          "foundBy": "path",
-          "standardGbp": null,
-          "freeOverGbp": null,
-          "caveats": [
-            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
-          ],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Fast + Free Tracked Delivery on All UK Orders 100% Genuine — Sealed & Batch-Coded Up to 40% Off Lattafa Best Sellers — While Stock Lasts",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "+ FREE Fast-Tracked Delivery No Minimum Spend",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "15% OFF + free fast-tracked delivery &middot; COPY CODE",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "100% Authentic Fragrances Fast UK Dispatch FREE Fast-Tracked Delivery",
-              "isUpgradeTier": false
-            }
-          ]
-        }
-      ],
+      "enabled": true,
+      "pagesTried": 17,
+      "linksFound": [],
+      "findings": [],
       "quote": {
         "ok": false,
         "postcode": "SW1A 1AA",
@@ -551,109 +481,239 @@
         "rates": [],
         "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
         "steps": [
-          "https://www.perfumeo.co.uk/products.json?limit=250"
+          "https://www.superdrug.com/products.json?limit=250"
         ]
       },
-      "errors": [],
-      "patch": null,
-      "verdict": "NO RATE STATED: the delivery page was read but never names a flat standard charge"
-    },
-    {
-      "retailerId": "riiffs",
-      "name": "Riiffs Perfumes",
-      "homepage": "https://uk.riiffsperfumes.com",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": 100,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 0,
-      "linksFound": [],
-      "findings": [],
-      "quote": null,
       "errors": [
-        "https://uk.riiffsperfumes.com/: disallowed by robots.txt — footer links not read",
-        "https://uk.riiffsperfumes.com/policies/shipping-policy: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/pages/shipping-policy: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/pages/shipping-details: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/pages/delivery-information: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/pages/shipping: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/pages/delivery: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/shipping-policy: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/delivery: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/shipping: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/pages/faq: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/pages/shipping-returns: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/pages/delivery-returns: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/pages/shipping-info: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/pages/help: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/policies/refund-policy: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/pages/terms-of-service: disallowed by robots.txt — not fetched",
-        "https://uk.riiffsperfumes.com/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+        "https://www.superdrug.com/: HTTP 403",
+        "https://www.superdrug.com/policies/shipping-policy: HTTP 403",
+        "https://www.superdrug.com/pages/shipping-policy: HTTP 403",
+        "https://www.superdrug.com/pages/shipping-details: HTTP 403",
+        "https://www.superdrug.com/pages/delivery-information: HTTP 403",
+        "https://www.superdrug.com/pages/shipping: HTTP 403",
+        "https://www.superdrug.com/pages/delivery: HTTP 403",
+        "https://www.superdrug.com/shipping-policy: HTTP 403",
+        "https://www.superdrug.com/delivery: HTTP 403",
+        "https://www.superdrug.com/shipping: HTTP 403",
+        "https://www.superdrug.com/pages/faq: HTTP 403",
+        "https://www.superdrug.com/pages/shipping-returns: HTTP 403",
+        "https://www.superdrug.com/pages/delivery-returns: HTTP 403",
+        "https://www.superdrug.com/pages/shipping-info: HTTP 403",
+        "https://www.superdrug.com/pages/help: HTTP 403",
+        "https://www.superdrug.com/policies/refund-policy: HTTP 403",
+        "https://www.superdrug.com/pages/terms-of-service: HTTP 403"
       ],
       "patch": null,
       "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
     },
     {
-      "retailerId": "scentsational",
-      "name": "Scentsational",
-      "homepage": "https://www.scentsational.com",
+      "retailerId": "the-fragrance-shop",
+      "name": "The Fragrance Shop",
+      "homepage": "https://www.thefragranceshop.co.uk",
+      "currentStandardGbp": 3.49,
+      "currentFreeOverGbp": 40,
+      "currentConfidence": "unverified",
+      "enabled": true,
+      "pagesTried": 17,
+      "linksFound": [],
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
+        "steps": [
+          "https://www.thefragranceshop.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [
+        "https://www.thefragranceshop.co.uk/: HTTP 403",
+        "https://www.thefragranceshop.co.uk/policies/shipping-policy: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/shipping-policy: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/shipping-details: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/delivery-information: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/shipping: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/delivery: HTTP 403",
+        "https://www.thefragranceshop.co.uk/shipping-policy: HTTP 403",
+        "https://www.thefragranceshop.co.uk/delivery: HTTP 403",
+        "https://www.thefragranceshop.co.uk/shipping: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/faq: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/shipping-returns: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/delivery-returns: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/shipping-info: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/help: HTTP 403",
+        "https://www.thefragranceshop.co.uk/policies/refund-policy: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/terms-of-service: HTTP 403"
+      ],
+      "patch": null,
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "the-perfume-shop",
+      "name": "The Perfume Shop",
+      "homepage": "https://www.theperfumeshop.com",
+      "currentStandardGbp": 3.5,
+      "currentFreeOverGbp": 25,
+      "currentConfidence": "unverified",
+      "enabled": true,
+      "pagesTried": 17,
+      "linksFound": [],
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.theperfumeshop.com/products.json?limit=250"
+        ]
+      },
+      "errors": [
+        "https://www.theperfumeshop.com/: HTTP 403",
+        "https://www.theperfumeshop.com/policies/shipping-policy: HTTP 403",
+        "https://www.theperfumeshop.com/pages/shipping-policy: HTTP 403",
+        "https://www.theperfumeshop.com/pages/shipping-details: HTTP 403",
+        "https://www.theperfumeshop.com/pages/delivery-information: HTTP 403",
+        "https://www.theperfumeshop.com/pages/shipping: HTTP 403",
+        "https://www.theperfumeshop.com/pages/delivery: HTTP 403",
+        "https://www.theperfumeshop.com/shipping-policy: HTTP 403",
+        "https://www.theperfumeshop.com/delivery: HTTP 403",
+        "https://www.theperfumeshop.com/shipping: HTTP 403",
+        "https://www.theperfumeshop.com/pages/faq: HTTP 403",
+        "https://www.theperfumeshop.com/pages/shipping-returns: HTTP 403",
+        "https://www.theperfumeshop.com/pages/delivery-returns: HTTP 403",
+        "https://www.theperfumeshop.com/pages/shipping-info: HTTP 403",
+        "https://www.theperfumeshop.com/pages/help: HTTP 403",
+        "https://www.theperfumeshop.com/policies/refund-policy: HTTP 403",
+        "https://www.theperfumeshop.com/pages/terms-of-service: HTTP 403"
+      ],
+      "patch": null,
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "very",
+      "name": "very.co.uk",
+      "homepage": "https://www.very.co.uk",
       "currentStandardGbp": null,
       "currentFreeOverGbp": null,
       "currentConfidence": "unverified",
       "enabled": false,
-      "pagesTried": 2,
+      "pagesTried": 17,
+      "linksFound": [],
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.very.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [
+        "https://www.very.co.uk/: HTTP 403",
+        "https://www.very.co.uk/policies/shipping-policy: HTTP 403",
+        "https://www.very.co.uk/pages/shipping-policy: HTTP 403",
+        "https://www.very.co.uk/pages/shipping-details: HTTP 403",
+        "https://www.very.co.uk/pages/delivery-information: HTTP 403",
+        "https://www.very.co.uk/pages/shipping: HTTP 403",
+        "https://www.very.co.uk/pages/delivery: HTTP 403",
+        "https://www.very.co.uk/shipping-policy: HTTP 403",
+        "https://www.very.co.uk/delivery: HTTP 403",
+        "https://www.very.co.uk/shipping: HTTP 403",
+        "https://www.very.co.uk/pages/faq: HTTP 403",
+        "https://www.very.co.uk/pages/shipping-returns: HTTP 403",
+        "https://www.very.co.uk/pages/delivery-returns: HTTP 403",
+        "https://www.very.co.uk/pages/shipping-info: HTTP 403",
+        "https://www.very.co.uk/pages/help: HTTP 403",
+        "https://www.very.co.uk/policies/refund-policy: HTTP 403",
+        "https://www.very.co.uk/pages/terms-of-service: HTTP 403"
+      ],
+      "patch": null,
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "wowcher",
+      "name": "Wowcher",
+      "homepage": "https://www.wowcher.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "currentConfidence": "unverified",
+      "enabled": false,
+      "pagesTried": 17,
+      "linksFound": [],
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.wowcher.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "patch": null,
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "zara",
+      "name": "Zara",
+      "homepage": "https://www.zara.com/uk",
+      "currentStandardGbp": 3.95,
+      "currentFreeOverGbp": 50,
+      "currentConfidence": "unverified",
+      "enabled": true,
+      "pagesTried": 17,
+      "linksFound": [],
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.zara.com/uk/products.json?limit=250"
+        ]
+      },
+      "errors": [],
+      "patch": null,
+      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+    },
+    {
+      "retailerId": "zimaya",
+      "name": "Zimaya",
+      "homepage": "https://uk.zimayaperfumes.com",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "currentConfidence": "unverified",
+      "enabled": false,
+      "pagesTried": 15,
       "linksFound": [
         {
-          "url": "https://www.scentsational.com/delivery-returns-i5",
-          "linkText": "Delivery & Returns"
+          "url": "https://uk.zimayaperfumes.com/policies/shipping-policy",
+          "linkText": "Shipping Policy"
         }
       ],
-      "findings": [
-        {
-          "url": "https://www.scentsational.com/delivery-returns-i5",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": 80,
-          "freeOverGbp": 80,
-          "caveats": [],
-          "standardRateNotStated": false,
-          "evidence": [
-            {
-              "kind": "standard-cost",
-              "amountGbp": 80,
-              "sentence": "Shipping Costs – Orders under £80 incur a standard delivery charge of £2.95 .",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 80,
-              "sentence": "Orders over £80 qualify for free standard delivery .",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 4.95,
-              "sentence": "Next Day Delivery – Available with DPD for guaranteed next working day delivery at £4.95 (Monday–Friday).",
-              "isUpgradeTier": true
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 6.95,
-              "sentence": "Saturday delivery is also available for £6.95 .",
-              "isUpgradeTier": true
-            }
-          ]
-        }
-      ],
+      "findings": [],
       "quote": null,
-      "errors": [],
-      "patch": {
-        "retailerId": "scentsational",
-        "action": "propose-rate",
-        "detail": "page states £80.00 and the registry holds no rate — a human sets a first figure, never this tool: \"Shipping Costs – Orders under £80 incur a standard delivery charge of £2.95 .\" (https://www.scentsational.com/delivery-returns-i5)",
-        "write": null
-      },
-      "verdict": "PROPOSE-RATE: page states £80.00 and the registry holds no rate — a human sets a first figure, never this tool: \"Shipping Costs – Orders under £80 incur a standard delivery charge of £2.95 .\" (https://www.scentsational.com/delivery-returns-i5)"
+      "errors": [
+        "https://uk.zimayaperfumes.com/policies/shipping-policy: disallowed by robots.txt — not fetched",
+        "https://uk.zimayaperfumes.com/policies/refund-policy: disallowed by robots.txt — not fetched",
+        "https://uk.zimayaperfumes.com/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
+      "patch": null,
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
     }
   ]
 }
