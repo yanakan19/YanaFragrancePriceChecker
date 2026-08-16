@@ -125,12 +125,35 @@ export function parseBudget(text) {
 
 /* ── who it is for ─────────────────────────────────────────────────────── */
 
+/**
+ * Recipients, in two groups.
+ *
+ * The nouns are matched bare, because English does not reliably put "for"
+ * in front of one. The owner's own example is the case that proved it:
+ * "find **a woman** a perfume under £30" is an indirect object with no
+ * preposition anywhere, and a `for `-anchored pattern missed it entirely —
+ * so the answer honoured the price and the scent and said nothing at all
+ * about the constraint it had dropped. Caught by test/messyQuestions.test.js
+ * before this pattern was widened.
+ *
+ * The pronouns still need "for". A bare "her" or "him" is far too common in
+ * ordinary phrasing to read as a recipient.
+ *
+ * Matching loosely is the safe direction here, and only here: this feeds a
+ * sentence saying the constraint cannot be honoured, so a false positive
+ * costs one redundant true sentence. A false negative silently drops a
+ * constraint the reader stated, which is the failure that mattered.
+ *
+ * "aftershave" is deliberately absent. It reads as masculine in British
+ * usage, but that is an inference about a word, and inferring an audience
+ * is the exact move this module refuses to make.
+ */
+const MASC_NOUNS = 'man|men|guy|guys|bloke|blokes|lad|lads|boy|boys|boyfriend|husband|dad|father|son|brother|uncle|grandad';
+const FEM_NOUNS = 'woman|women|girl|girls|lady|ladies|girlfriend|wife|mum|mother|daughter|sister|auntie|aunt|nan|grandma';
+
 const AUDIENCE_PATTERNS = [
-  // "aftershave" is deliberately not here. It reads as masculine in British
-  // usage, but that is an inference about a word, and inferring an audience
-  // is the exact move this module refuses to make.
-  ['men', /\b(for (?:a |my |the |his )?(?:man|men|him|guy|guys|bloke|blokes|lad|lads|boy|boys|boyfriend|husband|dad|father|son|brother|uncle|grandad)|men'?s|mens|masculine|male)\b/i],
-  ['women', /\b(for (?:a |my |the |her )?(?:woman|women|her|girl|girls|lady|ladies|girlfriend|wife|mum|mother|daughter|sister|auntie|aunt|nan|grandma)|women'?s|womens|feminine|female)\b/i],
+  ['men', new RegExp(`\\b(?:${MASC_NOUNS}|men'?s|mens|masculine|male|for him)\\b`, 'i')],
+  ['women', new RegExp(`\\b(?:${FEM_NOUNS}|women'?s|womens|feminine|female|for her)\\b`, 'i')],
 ];
 
 /**

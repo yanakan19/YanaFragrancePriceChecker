@@ -739,13 +739,18 @@ export async function resolveBudgetQuery(question) {
  */
 export function unsupportedConstraintNotes(question) {
   const notes = [];
-  if (detectAudience(question)) {
-    notes.push("who it is for — the catalogue doesn't record that");
-  }
-  if (detectPerformanceRequest(question)) {
-    notes.push("how strong something is or how long it lasts — the catalogue doesn't measure either");
-  }
+  if (detectAudience(question)) notes.push('who it is for');
+  if (detectPerformanceRequest(question)) notes.push('how strong or long-lasting something is');
   return notes;
+}
+
+/** The one sentence that says which constraints went unhonoured. One
+ *  sentence and not one per constraint: two near-identical apologies in a
+ *  row is exactly the hedging prompt rule 8 rules out. */
+function unsupportedSentence(labels, opener) {
+  if (labels.length === 0) return '';
+  const tail = labels.length > 1 ? 'the catalogue records neither' : "the catalogue doesn't record that";
+  return `${opener} ${nameList(labels)} — ${tail}.`;
 }
 
 /**
@@ -802,7 +807,8 @@ export function formatSuggestAnswer(result) {
       `I can't pin down "${result.referenceUnresolved}" in the catalogue, so there are no notes of its to match against.`,
     );
   }
-  for (const note of result.unsupported) parts.push(`I can't filter by ${note}.`);
+  const unsupported = unsupportedSentence(result.unsupported, "I can't filter by");
+  if (unsupported) parts.push(unsupported);
   if (result.unmatchedDescriptors.length) {
     parts.push(`Nothing on file under ${nameList(result.unmatchedDescriptors)} either.`);
   }
@@ -836,7 +842,9 @@ export function formatBudgetAnswer(result) {
   const unmatchedLine = scent.unmatchedDescriptors.length
     ? ` No notes on file for ${nameList(scent.unmatchedDescriptors)}, so that part is not in the filter.`
     : '';
-  const caveat = result.unsupported?.length ? ` Can't filter by ${nameList(result.unsupported)}.` : '';
+  const caveat = result.unsupported?.length
+    ? ` ${unsupportedSentence(result.unsupported, "Can't filter by")}`
+    : '';
 
   if (result.items.length === 0) {
     // A scent filter that emptied a non-empty price list is a different
