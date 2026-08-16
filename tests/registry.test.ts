@@ -40,7 +40,14 @@ describe('retailer registry', () => {
     // same route that surfaced Cosmetify two days earlier. Disabled, and in
     // CURRENCY_UNCONFIRMED from the moment it was written: nothing has been
     // read from that shop.
-    expect(RETAILERS).toHaveLength(56);
+    //
+    // Amazon UK added 2026-08-16 as a deliberate placeholder. Disabled, and
+    // its entry records three blockers rather than a to-do: no legitimate
+    // price source without PA-API (whose keys require Associates sales
+    // first), a possible conflict between PA-API's retention terms and this
+    // repo's stored prices and price history, and a marketplace where "the
+    // price" is several sellers' prices. Nothing has been read from Amazon.
+    expect(RETAILERS).toHaveLength(57);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was

@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 56 retailers, 27 of them `enabled: true`. Every one of them is a legitimate
+ * 57 retailers, 27 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -2323,6 +2323,74 @@ export const RETAILERS: readonly Retailer[] = [
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
+  },
+
+  // ── Amazon UK: wanted, but gated behind things nobody here can do ───────────
+  {
+    id: 'amazon-uk',
+    name: 'Amazon UK',
+    domain: 'amazon.co.uk',
+    homepage: 'https://www.amazon.co.uk',
+    // Amazon sells across every tier. Claiming all of them would be true of
+    // the shop and useless as a signal, so this records the two the site
+    // actually compares on and leaves the rest unclaimed until a real
+    // catalogue exists to measure.
+    tiers: ['designer', 'niche'],
+    // Disabled, and unlike most entries here that is not merely "nobody has
+    // looked yet". Three separate things block it, and none of them is code:
+    //
+    //   1. There is no legitimate way to read Amazon's prices without the
+    //      Product Advertising API (PA-API 5.0), and PA-API keys are issued
+    //      only to an approved Associates account that has already made
+    //      qualifying sales. The API is how you would build the thing that
+    //      produces the sales, so the gate closes on itself. Scraping is the
+    //      other route and is not one: it breaches their terms, and a price
+    //      this project could not source or defend is the opposite of what
+    //      every other entry in this file is for.
+    //   2. PA-API's terms restrict how long a retrieved price may be retained
+    //      and displayed. This repo stores prices at rest in
+    //      data/catalogue/*.json and keeps demo/priceHistory.generated.ts
+    //      deliberately, so the storage model and the licence may be in
+    //      direct conflict. NOBODY HAS READ THE CURRENT OPERATING AGREEMENT —
+    //      that conflict is stated here as the thing to check first, not as a
+    //      finding. Check it before writing an adapter, not after.
+    //   3. Amazon fragrance is largely third-party marketplace, with a
+    //      documented grey-market and authenticity problem, and a listing
+    //      often carries several sellers at several prices. "The Amazon
+    //      price" is not one number the way every other retailer here quotes
+    //      one. Which seller a comparison would name is an editorial decision
+    //      that has not been made.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      // The neutral placeholder every unresearched entry here carries, not a
+      // reading of Amazon's delivery terms. Amazon's actual delivery cost
+      // depends on Prime membership, seller, and basket — a single standard
+      // rate may not be expressible for this retailer at all, which is itself
+      // something to establish before enabling.
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-16',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from Amazon. Delivery cost varies by Prime membership, ' +
+        'seller and basket, so whether a single standard rate can honestly represent this ' +
+        'retailer is an open question, not a figure waiting to be looked up.',
+    },
+    catalogue: null,
+    // Amazon Associates is Amazon's own in-house programme, not one of the
+    // networks this account already uses. `verified: false` because nobody
+    // has opened the programme's own page from here to confirm its terms —
+    // egress to arbitrary hosts is blocked in the environment this was
+    // written in (see docs/INGESTION.md).
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      network: 'direct',
+      status: 'not-applied',
+      signupUrl: 'https://affiliate-program.amazon.co.uk/',
+    },
   },
 ] as const;
 
