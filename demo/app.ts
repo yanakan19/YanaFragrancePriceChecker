@@ -3256,7 +3256,14 @@ function sendYannyMessage(text: string): void {
     });
     saveYannyThread();
     renderYanny();
-  });
+  })
+  // askVirtualYanny is written not to reject — every path it has ends in an
+  // event or a plain return. This is here for the day that stops being true:
+  // without it a rejection would escape as an unhandled promise rejection,
+  // and the handler above would still have done the right thing (the turn is
+  // reported as failed and the panel returns to idle) while the console
+  // claimed something worse had happened.
+  .catch(() => {});
 }
 
 /**
