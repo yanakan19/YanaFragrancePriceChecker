@@ -238,6 +238,44 @@ const COUNCIL_DEADLINE_DEFAULT_MS = 8000;
 const COUNCIL_QUORUM_DEFAULT = 8;
 
 /**
+ * Which intent a question is grounded as when a deterministic resolver
+ * hands it back to the council.
+ *
+ * This was the constant `'general'`, and it was right for as long as every
+ * intent that could decline was one whose grounding *is* the site's policy
+ * pages — "how do you make money" is meta, and the about/affiliate page is
+ * exactly what a model needs to answer it.
+ *
+ * Adding a resolver to `'suggest'` broke that assumption in a way worth
+ * being explicit about, because it went the wrong direction quietly.
+ * `resolveSuggestQuery` declines every suggestion question the catalogue
+ * *can* ground — "something sweet", "what smells like Aventus" — and those
+ * are precisely the questions whose SITE DATA block should carry real note
+ * candidates. Demoting them to `'general'` replaced those candidates with
+ * the about line and nothing else, so the questions the council most needs
+ * grounding for were the ones losing it. Measured while it was live:
+ * "something sweet" reached the council with `(about-site line only)`.
+ *
+ * So a declined resolver keeps its own intent when `buildSiteDataBlock`
+ * has grounding for it, and falls to `'general'` otherwise. A policy match
+ * in disguise still goes to `'general'`: that branch exists precisely
+ * because the question turned out to be about the site rather than about a
+ * product.
+ *
+ * Exported so the rule is testable on its own rather than only through a
+ * live council run — see test/messyQuestions.test.js.
+ */
+export function councilIntentFor(intent, { declined, policyInDisguise }) {
+  if (policyInDisguise) return 'general';
+  return declined && GROUNDED_COUNCIL_INTENTS.has(intent) ? intent : 'general';
+}
+
+/** The intents `buildSiteDataBlock` builds real catalogue grounding for.
+ *  Anything else gets the about/policy block, which is what `'general'`
+ *  means. Kept beside `councilIntentFor` so the two cannot drift. */
+const GROUNDED_COUNCIL_INTENTS = new Set(['price', 'suggest']);
+
+/**
  * Runs the full council: fetches the site-grounded data for this question,
  * fans the resulting prompt out to the configured agent models (pinned, in
  * parallel), scores+ranks whichever answered in time against that same data,
@@ -290,7 +328,7 @@ export async function runCouncil({ question, intent, config, onEvent, signal }) 
       !declined && result.status === 'no_match' && Boolean(await policyContextFor(question));
 
     if (declined || policyInDisguise) {
-      effectiveIntent = 'general';
+      effectiveIntent = councilIntentFor(intent, { declined, policyInDisguise });
     } else {
       const content = deterministic.format(question, result);
       emit('status', { message: 'Here we go.' });

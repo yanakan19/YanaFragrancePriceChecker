@@ -8,7 +8,9 @@ import {
   noteFamilies,
   parseSuggestRequest,
   suggestContextFor,
+  buildSiteDataBlock,
 } from '../server/siteData.js';
+import { councilIntentFor } from '../server/council.js';
 import {
   resolveBudgetQuery,
   formatBudgetAnswer,
@@ -541,6 +543,38 @@ test('the whole corpus: no answer claims a fragrance is for men or women, or ran
     for (const pattern of forbidden) {
       assert.doesNotMatch(answer, pattern, `"${question}" produced a claim the data cannot support:\n${answer}`);
     }
+  }
+});
+
+/**
+ * The regression that adding a resolver to 'suggest' introduced, caught by
+ * running the corpus through the real path rather than by reading the code.
+ *
+ * council.js demoted any declined resolver to 'general', which was right
+ * while only meta and budget could decline — their grounding *is* the
+ * policy pages. `resolveSuggestQuery` declines exactly the suggestion
+ * questions the catalogue can ground, so demoting those stripped the note
+ * candidates off the questions that needed them most: "something sweet"
+ * reached the council with the about line and nothing else.
+ */
+test('routing: a declined suggest resolver keeps its note grounding instead of falling back to the about page', async () => {
+  assert.equal(councilIntentFor('suggest', { declined: true, policyInDisguise: false }), 'suggest');
+  assert.equal(councilIntentFor('budget', { declined: true, policyInDisguise: false }), 'general');
+  assert.equal(councilIntentFor('meta', { declined: true, policyInDisguise: false }), 'general');
+  // A question that turned out to be about the site, not a product, still
+  // goes to 'general' — that is what that branch is for.
+  assert.equal(councilIntentFor('suggest', { declined: false, policyInDisguise: true }), 'general');
+
+  // And end to end: the block a declined suggest question actually gets.
+  for (const question of ['something sweet', 'i want something fresh and clean']) {
+    assert.equal(await resolveSuggestQuery(question), null, `"${question}" should decline to the council`);
+    const intent = councilIntentFor('suggest', { declined: true, policyInDisguise: false });
+    const block = await buildSiteDataBlock(question, intent);
+    assert.match(
+      block,
+      /NOTE MATCHED CANDIDATES \(requested:/,
+      `"${question}" reached the council with no note candidates:\n${block}`,
+    );
   }
 });
 
