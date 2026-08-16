@@ -45,6 +45,33 @@ import { ML_SIZE_RE, OZ_SIZE_RE, OZ_TO_ML } from './fragranceId.js';
  */
 export const CONCENTRATION_SPECIFIC =
   /\b(eau de parfum|eau de toilette|eau de cologne|eau fraiche|extrait de parfum|extrait de toilette)\b/i;
+/**
+ * Perfume oil, checked ahead of everything else because it is the one form
+ * whose own name contains a weaker phrase that would otherwise claim it.
+ *
+ * "Al Haramain Musk Concentrated Perfume Oil 12ml Roll-On" is not a perfume
+ * that happens to mention oil; the oil is what it is. But the generic tier
+ * below sees "perfume" sitting inside "perfume oil", matches it, and files a
+ * 12ml roll-on oil under the same label as a 100ml eau de parfum spray. That
+ * is how a whole product form went missing: 150 titles across the harvest
+ * name themselves an oil in so many words, from Al Haramain, Al Rehab, Ard Al
+ * Zaafaran, Surrati, Orientica, Lattafa, Afnan and Ahsan among others, and
+ * every one of them was filed as "Perfume".
+ *
+ *   npx tsx scripts/concentration-report.ts
+ *
+ * Only the explicit phrases, never a bare "oil". 643 harvested titles carry
+ * the bare word and they are body oil, face oil, lip oil, cleansing oil and
+ * hair oil; the word on its own says nothing about perfume. "attar" is
+ * deliberately not here either, even though an attar is a perfume oil: two of
+ * the houses in this catalogue are *called* Attar ("Attar & Co Arabian Oud
+ * Intense Parfum 100ml Spray", "Ahsan Attar Full Eau De Parfum 100ml Spray"),
+ * both of which are sprays, so the word is a brand at least as often as it is
+ * a form. It stays in the generic tier below, where every real concentration
+ * word beats it.
+ */
+const CONCENTRATION_OIL =
+  /\b(concentrated perfume oil|perfume oil|perfumed oil|fragrance oil)\b/i;
 const CONCENTRATION_GENERIC_PRIORITY = [
   'edp', 'edt', 'edc', 'parfum', 'perfume', 'aftershave', 'cologne', 'extrait', 'attar', 'oud',
 ] as const;
@@ -62,12 +89,81 @@ const CONCENTRATION_GENERIC_PATTERNS: Record<string, RegExp> = Object.fromEntrie
  * abbreviation table for the popular rail's compact size and concentration
  * label.
  */
+/**
+ * What the concentration field says when the title named no concentration at
+ * all, or named only a word that turns out to say nothing about strength.
+ *
+ * Its own value rather than a plausible-looking guess, and worded as what it
+ * is. A shop that wrote "Perfume" told us the thing is perfume, which we knew
+ * from the fact that it is in a perfume catalogue; it did not tell us whether
+ * the bottle is an eau de toilette or an extrait. Filing that under a real
+ * concentration would put a strength on a bottle on no evidence, and filing
+ * it under its own label lets a reader see how much of the catalogue nobody
+ * has actually described. Same reasoning, and the same words, as the "Not
+ * stated" option on the gender filter in demo/gender.ts.
+ */
+export const CONCENTRATION_NOT_STATED = 'Not stated';
+
+/**
+ * Canonical display form per CONCENTRATION alternative, so "EDT" and "Eau De
+ * Toilette" in two different retailers' titles both land on the identical
+ * string. Without this, a naive title case of whatever phrase the title used
+ * produced two different strings ("Eau de Toilette" from the abbreviation,
+ * "Eau De Toilette" from the spelled out phrase) for the same concentration,
+ * which then meant only one of the two ever matched the app's own
+ * abbreviation table for the popular rail's compact size and concentration
+ * label.
+ *
+ * Four decisions are recorded in this table, each about a value the facet was
+ * offering that a reader could not act on. Counts are products in the
+ * catalogue at d1d7099, from `npx tsx scripts/concentration-report.ts`.
+ *
+ * "Cologne" (46) and "Eau de Cologne" (136) are one value, not two. The
+ * clearest evidence is inside a single shop's own list: Beautybase publishes
+ * "4711 Cologne 300ml Bottle" and "4711 Original Eau de Cologne 200ml Splash",
+ * which is one house's one product line written both ways. The rest of the
+ * bare-Cologne set is the American drugstore spelling of the same form
+ * (Stetson, Jovan, Halston, Brut, Coty Exclamation), where "Cologne" on the
+ * bottle is the form's name. Splitting them left a reader picking between two
+ * pills for one thing and seeing neither shop's full stock under either.
+ *
+ * "Perfume" (241) is not a concentration and never was. It is the plain
+ * English word for the category, and it appears where a shop wrote no
+ * strength: it has to stay in the match tiers, because isFragrance leans on
+ * it to recognise a plain-English listing as perfume at all, but what it
+ * tells us about strength is nothing. It goes to CONCENTRATION_NOT_STATED
+ * rather than being merged into "Parfum", which is the error this whole note
+ * exists to avoid: a label meaning "the shop did not say" quietly becoming a
+ * label meaning "extrait strength".
+ *
+ * "Parfum" (306) stays exactly where it is, unmerged, for the mirror image of
+ * that reason. It reads like a real stated concentration in the shops that
+ * use it — Azzaro The Most Wanted Parfum, Le Male Elixir Parfum, Montblanc
+ * Explorer Extreme Parfum, all from mainstream UK retailers that also list
+ * the same lines as EDT and EDP — so calling it nothing would be as wrong as
+ * calling "Perfume" something. Whether it is identical to Extrait de Parfum
+ * is a real question with a real answer somewhere, and nobody here has
+ * established it, so the two stay separate and neither claims the other.
+ *
+ * "Oud" (1) is a material, not a strength, and reached the field only because
+ * it is last in the generic tier and one title had nothing else. Not stated.
+ *
+ * "Extrait De Parfum" (433) was the only value carrying its own capitalisation
+ * because it was the only specific phrase with no entry here, so it fell
+ * through to the blanket title-case at the foot of `concentration`. It is a
+ * real concentration and keeps its own value; it just spells it the way the
+ * other three "de" phrases already do.
+ */
 const CONCENTRATION_DISPLAY: Record<string, string> = {
   edp: 'Eau de Parfum', edt: 'Eau de Toilette', edc: 'Eau de Cologne',
   'eau de parfum': 'Eau de Parfum', 'eau de toilette': 'Eau de Toilette',
   'eau de cologne': 'Eau de Cologne', 'eau fraiche': 'Eau Fraiche',
-  parfum: 'Parfum', perfume: 'Perfume', aftershave: 'Aftershave',
-  cologne: 'Cologne', extrait: 'Extrait', attar: 'Attar', oud: 'Oud',
+  'extrait de parfum': 'Extrait de Parfum', 'extrait de toilette': 'Extrait de Toilette',
+  'concentrated perfume oil': 'Perfume Oil', 'perfume oil': 'Perfume Oil',
+  'perfumed oil': 'Perfume Oil', 'fragrance oil': 'Perfume Oil',
+  parfum: 'Parfum', aftershave: 'Aftershave',
+  cologne: 'Eau de Cologne', extrait: 'Extrait', attar: 'Attar',
+  perfume: CONCENTRATION_NOT_STATED, oud: CONCENTRATION_NOT_STATED,
 };
 
 /**
@@ -99,6 +195,11 @@ const CONCENTRATION_DISPLAY: Record<string, string> = {
  * most reliable.
  */
 export function concentrationMatch(title: string): string | null {
+  // Ahead of the specific tier, not inside it: see CONCENTRATION_OIL. A
+  // title that names an oil has named the form, and the only phrase that
+  // could outrank it is one naming a strength the oil does not have.
+  const oil = title.match(CONCENTRATION_OIL)?.[0];
+  if (oil) return oil;
   const specific = title.match(CONCENTRATION_SPECIFIC)?.[0];
   if (specific) return specific;
   for (const word of CONCENTRATION_GENERIC_PRIORITY) {
@@ -108,10 +209,21 @@ export function concentrationMatch(title: string): string | null {
   return null;
 }
 
-/** Concentration as a display string. */
+/**
+ * Concentration as a display string.
+ *
+ * A title naming nothing used to come back as "Fragrance", which reads like a
+ * category rather than an admission and sat in the filter beside real
+ * concentrations as though it were one. It is the same non-answer that
+ * "Perfume" and "Oud" turn out to be, so all three now give the same one, in
+ * words that say so. Only fragrance-only storefronts can reach the null case
+ * at all — everywhere else isFragrance requires a concentration word before a
+ * listing is published — which is why the whole of that bucket is one house's
+ * own shop.
+ */
 export function concentration(title: string): string {
   const raw = concentrationMatch(title);
-  if (!raw) return 'Fragrance';
+  if (!raw) return CONCENTRATION_NOT_STATED;
   const key = raw.toLowerCase();
   return CONCENTRATION_DISPLAY[key] ?? key.replace(/\b\w/g, (c) => c.toUpperCase());
 }

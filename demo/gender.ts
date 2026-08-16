@@ -13,8 +13,9 @@
  * reads it literally: a title that says "Pour Homme" is a shop stating an
  * audience, and a title that says nothing is a shop stating nothing. Those are
  * the only two things that can be established here, and the second one is by
- * far the more common: 8,959 of 10,378 products in the catalogue at d1d7099
- * say nothing at all. See the measurements at the foot of this comment.
+ * far the more common: 8,957 of the 10,376 products in the catalogue as it
+ * stands say nothing at all. See the measurements at the foot of this
+ * comment, and re-run the script named there rather than trusting them.
  *
  * ── The one rule that matters ────────────────────────────────────────────────
  * "Not stated" means not stated. It never means unisex.
@@ -62,15 +63,15 @@
  * "Pour Homme / Pour Femme" twin pack listing would, and silence is the right
  * answer to a question the title contradicts itself on.
  *
- * ── Measured, 10,378 products, catalogue at d1d7099 ──────────────────────────
+ * ── Measured, 10,376 products ────────────────────────────────────────────────
  *   npx tsx scripts/gender-coverage.ts
  *
  *   Women's       548    5.28%
  *   Men's         853    8.22%
  *   Unisex         18    0.17%
- *   Not stated  8,959   86.33%
+ *   Not stated  8,957   86.32%
  *
- * 13.67% classified, 1,419 products. The same rules over the 43,478 undelisted
+ * 13.68% classified, 1,419 products. The same rules over the 43,478 undelisted
  * raw listings read 8.53%, lower because a title one shop wrote is less likely
  * to name an audience than a product several shops stock and only one of them
  * had to label. Neither figure is going to climb much, so the filter panel

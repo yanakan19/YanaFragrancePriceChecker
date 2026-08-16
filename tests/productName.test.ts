@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { brandTitleOpens, concentration, displayName, stripRedundantSize } from '../src/catalogue/productName.js';
+import {
+  CONCENTRATION_NOT_STATED, brandTitleOpens, concentration, displayName, stripRedundantSize,
+} from '../src/catalogue/productName.js';
 
 /**
  * What a reader sees under a product photo: the name, with the brand, size and
@@ -228,5 +230,89 @@ describe('stripRedundantSize: a house product name does not repeat its own sizeM
     ['BAKHUR PEGASUS 100ML 150 ML', 100],
   ])('leaves a name with more than one size mention untouched: %s', (name, size) => {
     expect(stripRedundantSize(name, size)).toBe(name);
+  });
+});
+
+/**
+ * The Fragrance Type facet is whatever these rules produce, so a value nobody
+ * can act on is a bug in here rather than in the UI. The list it was offering
+ * had a "Cologne" beside an "Eau de Cologne", a "Perfume" that says nothing
+ * about strength, an "Oud" that is a material, and a whole product form —
+ * perfume oil — filed under the wrong label because "perfume oil" contains
+ * "perfume". Each of those is pinned below with a real catalogue title.
+ */
+describe('concentration: values a reader can act on', () => {
+  // 4711 is published by one shop under both spellings, which is as close to
+  // proof as this gets that they are one value and not two.
+  it('reads a bare "Cologne" as the Eau de Cologne it names', () => {
+    expect(concentration('4711 Cologne 300ml Bottle')).toBe('Eau de Cologne');
+    expect(concentration('4711 Original Eau de Cologne 200ml Splash')).toBe('Eau de Cologne');
+    expect(concentration('Stetson Original Cologne 103.5ml Spray')).toBe('Eau de Cologne');
+  });
+
+  // The important half of the cleanup: a label meaning "the shop did not say"
+  // must never become a label meaning a strength.
+  it('treats a word that states no strength as not stated', () => {
+    expect(concentration('Afnan Supremacy Not Only Intense 100ml')).toBe(CONCENTRATION_NOT_STATED);
+    expect(concentration('Lattafa Badee Al Sublime All Over Oud 150ml')).toBe(CONCENTRATION_NOT_STATED);
+    // A house storefront whose titles name no concentration at all. Same
+    // non-answer, same words.
+    expect(concentration('Escentric Molecules Escentric 01 100ml')).toBe(CONCENTRATION_NOT_STATED);
+  });
+
+  it('never folds a non-answer into a real concentration', () => {
+    expect(concentration('Some House Perfume 100ml')).not.toBe('Parfum');
+    expect(concentration('Some House Perfume 100ml')).not.toBe('Extrait de Parfum');
+    expect(concentration('Some House Perfume 100ml')).not.toBe('Eau de Parfum');
+  });
+
+  // "Parfum" is left alone in both directions: it is not merged into Extrait
+  // de Parfum, and it is not demoted to not stated. The shops using it also
+  // list the same lines as EDT and EDP, so it reads as a real stated strength.
+  it('leaves Parfum standing as its own value', () => {
+    expect(concentration('Azzaro The Most Wanted Parfum 100ml')).toBe('Parfum');
+    expect(concentration('Jean Paul Gaultier Le Male Elixir Parfum 125ml')).toBe('Parfum');
+    expect(concentration('Afnan 9PM Elixir Extrait de Parfum 100ml')).toBe('Extrait de Parfum');
+  });
+
+  it('spells Extrait de Parfum like the other "de" phrases', () => {
+    expect(concentration('Maison Asrar Cal Cologne Thriller Extrait De Parfum 100ml Spray')).toBe('Extrait de Parfum');
+  });
+});
+
+describe('concentration: perfume oil is a form the shops already name', () => {
+  // Nine Middle Eastern retailers are in the registry and oils are a staple,
+  // yet the facet offered no oil at all: every one of these was filed under
+  // "Perfume", because the generic tier matched the word sitting inside the
+  // phrase.
+  it.each([
+    'Al Haramain Musk Concentrated Perfume Oil 12ml Roll-On',
+    'Al-Rehab Sabaya Concentrated Perfume Oil 6.0ml Roll-On',
+    'Ard Al Zaafaran Hareem Al Sultan Concentrated Perfume Oil 10ml Roll-On',
+    'Tauer Attar Perfume Oil 5 ml',
+    'Ahsan Attar Full Perfumed Oil Roll-On',
+  ])('%s is a Perfume Oil', (title) => {
+    expect(concentration(title)).toBe('Perfume Oil');
+  });
+
+  // And the name stops carrying the form twice, the same way it does not
+  // carry "Eau de Parfum" twice.
+  it('takes the oil phrase out of the displayed name', () => {
+    expect(displayName('Al Haramain Musk Concentrated Perfume Oil 12ml Roll-On', 'Al Haramain', 'Al Haramain'))
+      .toBe('Musk Roll-On');
+  });
+
+  // A bare "oil" is body oil, face oil, lip oil and cleansing oil far more
+  // often than it is perfume, so it is never evidence on its own.
+  it('ignores a bare "oil"', () => {
+    expect(concentration('Jean Paul Gaultier La Favorite Body Oil 150ml')).toBe(CONCENTRATION_NOT_STATED);
+    expect(concentration('Elemis Superfood Facial Oil 15ml')).toBe(CONCENTRATION_NOT_STATED);
+  });
+
+  // "Attar" is a real form and also two houses' actual name, and both of
+  // those houses sell sprays. The word never outranks a real concentration.
+  it('does not let the word attar outrank a stated concentration', () => {
+    expect(concentration('Attar & Co Arabian Oud Intense Parfum 100ml Spray')).toBe('Parfum');
+    expect(concentration('Ahsan Attar Full Eau De Parfum 100ml Spray')).toBe('Eau de Parfum');
   });
 });
