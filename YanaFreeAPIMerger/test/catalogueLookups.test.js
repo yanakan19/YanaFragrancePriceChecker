@@ -270,9 +270,11 @@ test('routing: the catalogue-wide question shapes are answered with no model cal
 });
 
 test('routing: genuinely open questions still reach the council', async () => {
+  // "what should i wear to a wedding" and "recommend me a summer fragrance"
+  // were in this list; a season/occasion question that grounds on nothing
+  // else is now refused deterministically (a rule-1-bound council model
+  // could only ever refuse it anyway) — see messyQuestions.test.js.
   const questions = [
-    'what should i wear to a wedding',
-    'recommend me a summer fragrance',
     'what smells similar to Aventus',
     'how do you make money',
     'do you have anything nice',

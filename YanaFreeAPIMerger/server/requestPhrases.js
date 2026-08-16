@@ -218,6 +218,37 @@ export function detectPerformanceRequest(text) {
   return PERFORMANCE_RE.test(String(text ?? '').toLowerCase());
 }
 
+/* ── when and where it is meant to be worn ─────────────────────────────── */
+
+// Nouns only, deliberately: "summery" is a scent descriptor (it reads as the
+// fresh family above) and must keep doing that, so it is absent here. "date"
+// alone is far too common ("up to date", "crawl date") — only the phrases
+// that name an occasion count. "fall" is absent because "did the price fall"
+// is a deals question.
+const OCCASION_RE =
+  /\b(summer|winter|autumn|springtime|spring|rainy day|hot weather|cold weather|wedding|office|interview|date night|night out|first date|clubbing|christmas|valentine'?s|special occasion|for (?:a |the )?(?:beach|gym|work|party|club|evening)s?)\b/i;
+
+/**
+ * Whether a question asks for a season or an occasion — "a summer fragrance",
+ * "something for a wedding", "office safe".
+ *
+ * Same standing as `detectAudience` and `detectPerformanceRequest`: detected
+ * so it can be declined honestly. The catalogue records nothing about when
+ * or where a fragrance suits (a record is brand, name, concentration, size,
+ * EAN, tier, popularity, photo, notes). Season words do appear inside some
+ * harvested note lists ("Summer, Autumn, Summer, Autumn" — see
+ * NON_NOTE_VOCABULARY in siteData.js), which is listing metadata this code
+ * already refuses to read as a note; reading it as a season *filter* would
+ * be the same invention twice. And mapping a season to notes — "summer means
+ * citrus" — is general perfumery opinion, exactly what prompt rule 1 exists
+ * to keep out of answers. So the honest move is the one the audience and
+ * longevity constraints already make: say the data does not hold it, and
+ * offer the filters that are real.
+ */
+export function detectOccasionRequest(text) {
+  return OCCASION_RE.test(String(text ?? '').toLowerCase());
+}
+
 /* ── scent descriptors ─────────────────────────────────────────────────── */
 
 /**

@@ -134,10 +134,15 @@ test('messy questions: widening the classifier moved nothing that already had a 
     ['how fresh are these prices', 'meta'],
     ['which shops do you cover', 'meta'],
     ['how do you make money', 'meta'],
-    // Named in the README as the council's, and pinned in intent.test.js.
-    ['what should i wear to a wedding', 'general'],
     ["what's the weather in London today", 'general'],
-    ['hello', 'general'],
+    // Two deliberate moves since this list was first pinned, not accidents:
+    // a message that is only a greeting is answered in milliseconds rather
+    // than by 28 models, and a season/occasion question is read as the
+    // constraint it is so it can be declined honestly (the catalogue
+    // records no season, and a rule-1-bound council model could only ever
+    // refuse it anyway). See intent.js's own comments on both rules.
+    ['what should i wear to a wedding', 'suggest'],
+    ['hello', 'greeting'],
   ];
   for (const [question, expected] of unchanged) {
     assert.equal(classifyIntent(question), expected, `"${question}" must stay '${expected}'`);
@@ -440,14 +445,44 @@ test('graceful failure: an ungroundable question offers what the catalogue can d
 });
 
 test('graceful failure: open taste questions still go to the council, not to a deterministic refusal', async () => {
-  // The README's own list of what deliberately stays with the council.
-  for (const question of ['recommend me a summer fragrance', 'do you have anything nice', 'help me pick something']) {
+  // What deliberately stays with the council: questions that ground on
+  // nothing but that the data does not contradict either. ("recommend me a
+  // summer fragrance" used to be in this list; season is now read as a
+  // constraint the catalogue provably lacks, and a question resting
+  // entirely on it is refused deterministically — see the test below.)
+  for (const question of ['do you have anything nice', 'help me pick something', 'whats your favourite perfume']) {
     assert.equal(
       await resolveSuggestQuery(question),
       null,
       `"${question}" is open taste and must stay with the council`,
     );
   }
+});
+
+test('season/occasion: a question resting entirely on one is refused honestly, in process', async () => {
+  for (const question of [
+    'recommend me a summer fragrance',
+    'what should i wear to a wedding',
+    'anything for the office',
+  ]) {
+    assert.equal(classifyIntent(question), 'suggest', `"${question}" should route to suggest`);
+    const result = await resolveSuggestQuery(question);
+    assert.ok(result, `"${question}" should be refused deterministically, not sent to the council`);
+    const answer = formatSuggestAnswer(result);
+    assert.match(answer, /season or occasion/i, `must name the constraint:\n${answer}`);
+    assert.match(answer, /doesn't record that|records neither|records none/i, 'and say the data lacks it');
+    // A refusal must still not name or price a product.
+    assert.doesNotMatch(answer, /— £\d/, 'a refusal must not quote a product price');
+    assert.doesNotMatch(answer, /delivered from/, 'a refusal must not quote a listing');
+  }
+
+  // A question that also carries something real still grounds on the real
+  // part and reaches the council with the season named as unmeetable.
+  assert.equal(classifyIntent('something spicy for winter'), 'suggest');
+  assert.equal(await resolveSuggestQuery('something spicy for winter'), null);
+  const block = await suggestContextFor('something spicy for winter');
+  assert.match(block, /NOTE MATCHED CANDIDATES \(requested:/, block);
+  assert.match(block, /SEASON AND OCCASION: not recorded/, block);
 });
 
 /**

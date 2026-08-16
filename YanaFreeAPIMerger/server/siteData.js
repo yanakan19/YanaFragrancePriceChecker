@@ -6,6 +6,7 @@ import {
   descriptorsIn,
   detectAudience,
   detectPerformanceRequest,
+  detectOccasionRequest,
   parseBudget,
 } from './requestPhrases.js';
 
@@ -1136,6 +1137,7 @@ export async function parseSuggestRequest(question) {
     // clause truncates wantedText, and "for my wife" can sit after it.
     audience: detectAudience(raw),
     performance: detectPerformanceRequest(raw),
+    occasion: detectOccasionRequest(raw),
     budget: parseBudget(raw),
   };
 }
@@ -1167,6 +1169,13 @@ export function unsupportedConstraintLines(request) {
       'STRENGTH AND LONGEVITY: not recorded. Nothing in the catalogue measures how strong a fragrance ' +
         'is, how long it lasts or how far it projects. Say so plainly rather than ranking anything by ' +
         'it, and do not use concentration as a stand-in for it.',
+    );
+  }
+  if (request.occasion) {
+    lines.push(
+      'SEASON AND OCCASION: not recorded. The catalogue does not say when or where a fragrance suits ' +
+        '— season words inside harvested note lists are listing metadata, not data. Do not match a ' +
+        'season or occasion to notes from your own knowledge; say the data does not hold it.',
     );
   }
   return lines;
