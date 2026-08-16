@@ -447,35 +447,19 @@ function splitOnExclusion(lower) {
     : { wantedText: lower, unwanted: [] };
 }
 
-/** Mirrors YanaFreeAPIMerger's original note-request parser exactly — pure
- *  text parsing, nothing about where the notes data itself comes from, so
- *  swapping the data source underneath it did not need to touch this.
- *
- *  Kept, and still the source of the *exclusion* side, but no longer the
- *  source of the wanted side: see `extractNotes` below for why splitting a
- *  sentence on commas and calling each fragment a note does not survive
- *  contact with a real question. */
-export function parseNoteRequest(text) {
-  const lower = text.toLowerCase();
-  const { wantedText, unwanted: unwantedList } = splitOnExclusion(lower);
-  const unwanted = new Set(unwantedList);
-  const wanted = new Set(
-    wantedText
-      .split(/[,;]| and /)
-      .map((s) => s.trim())
-      .filter(Boolean)
-      .filter((s) => !unwanted.has(s)),
-  );
-  return { wanted: [...wanted], unwanted: [...unwanted] };
-}
+// (The original `parseNoteRequest` — split the sentence on commas and " and "
+// and call each fragment a note — lived here until it had no production
+// callers left: the wanted side moved to `extractNotes` below, the exclusion
+// side to `splitOnExclusion` above. Removed as dead code from the
+// pre-classifier era.)
 
 /**
  * The note names this catalogue actually uses, for reading notes out of a
  * sentence.
  *
- * `parseNoteRequest` above splits the question on commas and " and " and
- * treats every fragment as a note name, which `fragrancesWithNote` then
- * matches *exactly*. That works for "vanilla, amber" and fails for every
+ * The original parser split the question on commas and " and " and
+ * treated every fragment as a note name, which `fragrancesWithNote` then
+ * matched *exactly*. That works for "vanilla, amber" and fails for every
  * sentence a person actually types: "suggest something with vanilla and
  * amber, no florals" yields the fragment "suggest something with vanilla",
  * which matches no note at all, so half the request is silently dropped

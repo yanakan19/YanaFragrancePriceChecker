@@ -10,7 +10,6 @@ import {
   changedSince,
   findFragranceMatch,
   loadSite,
-  parseNoteRequest,
   siteDataFreshness,
 } from '../server/siteData.js';
 
@@ -65,14 +64,6 @@ test('findFragranceMatch: returns null rather than a weak guess when nothing is 
 
 test('findFragranceMatch: returns null for an empty or all-filler query rather than the first fragrance', () => {
   assert.equal(findFragranceMatch('how much is it', FRAGRANCES), null);
-});
-
-test('parseNoteRequest: splits wanted from unwanted', () => {
-  assert.deepEqual(parseNoteRequest('vanilla, oud, no florals'), { wanted: ['vanilla', 'oud'], unwanted: ['florals'] });
-});
-
-test('parseNoteRequest: no exclusions is fine', () => {
-  assert.deepEqual(parseNoteRequest('vanilla and amber'), { wanted: ['vanilla', 'amber'], unwanted: [] });
 });
 
 // ── The module-loading contract ─────────────────────────────────────────
