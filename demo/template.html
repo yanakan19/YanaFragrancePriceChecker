@@ -55,6 +55,38 @@
     --mono-bg-l: 20%;
     --mono-fg-l: 78%;
     --mono-border-l: 42%;
+    /* The Venus and Mars marks on the Gender filter pills — see .gender-ico
+       below, and demo/gender.ts for what the filter is actually reading.
+       Pink and blue because that is the convention the marks come with, and
+       never as the only signal: every pill prints its word too.
+
+       Two values each, for the two grounds a pill has. An unselected pill is
+       --surface-2; a selected one inverts to --ink, which is near-white here
+       and near-black on the light theme, so one colour cannot serve both. The
+       -on pair is for the inverted state, following the --accent/--accent-on
+       naming already in this file.
+
+       Measured with the same standard as --mono-fg-l above, and every one of
+       the eight combinations clears AA's 4.5:1 for text, which is well past
+       the 3:1 WCAG asks of a graphic:
+
+         dark  #FF8FB3 on --surface-2 #1A1A1D  8.13:1
+         dark  #7FBBFF on --surface-2 #1A1A1D  8.64:1
+         dark  #A81B5E on --ink       #F7F7F8  6.57:1
+         dark  #17569E on --ink       #F7F7F8  6.86:1
+         light #A81B5E on --surface-2 #F2F2F4  6.30:1
+         light #17569E on --surface-2 #F2F2F4  6.56:1
+         light #FF8FB3 on --ink       #0D0D0F  9.09:1
+         light #7FBBFF on --ink       #0D0D0F  9.67:1
+
+       The two themes hold the same four colours with the pairs swapped,
+       which is not a coincidence worth hiding: a mark that reads on a
+       near-black ground is the one that reads on a near-black selected pill
+       in the other theme. */
+    --gender-women:    #FF8FB3;
+    --gender-women-on: #A81B5E;
+    --gender-men:      #7FBBFF;
+    --gender-men-on:   #17569E;
   }
 
   :root[data-mode="light"] {
@@ -94,6 +126,14 @@
        sits at 6.82:1. */
     --mono-fg-l: 30%;
     --mono-border-l: 55%;
+    /* The same four colours as the dark theme with the pairs swapped — see
+       the contrast table there. An unselected pill is --surface-2 #F2F2F4, so
+       the darker pair reads; a selected one inverts to --ink #0D0D0F, so the
+       lighter pair does. */
+    --gender-women:    #A81B5E;
+    --gender-women-on: #FF8FB3;
+    --gender-men:      #17569E;
+    --gender-men-on:   #7FBBFF;
   }
 
   /* "Match my device" follows the OS preference, and also any theme the host
@@ -111,6 +151,8 @@
       --bg-glass: rgba(252,252,253,.72);
       --glow-1: rgba(200,16,46,.13); --glow-2: rgba(200,16,46,.08);
       --mono-bg-l: 93%; --mono-fg-l: 30%; --mono-border-l: 55%;
+      --gender-women: #A81B5E; --gender-women-on: #FF8FB3;
+      --gender-men: #17569E; --gender-men-on: #7FBBFF;
     }
   }
   :root[data-mode="system"][data-theme="light"] {
@@ -125,6 +167,8 @@
     --bg-glass: rgba(252,252,253,.72);
     --glow-1: rgba(200,16,46,.13); --glow-2: rgba(200,16,46,.08);
     --mono-bg-l: 93%; --mono-fg-l: 30%; --mono-border-l: 55%;
+    --gender-women: #A81B5E; --gender-women-on: #FF8FB3;
+    --gender-men: #17569E; --gender-men-on: #7FBBFF;
   }
   :root[data-mode="system"][data-theme="dark"] {
     --bg: #0A0A0B; --surface: #121214; --surface-2: #1A1A1D;
@@ -138,6 +182,8 @@
     --bg-glass: rgba(10,10,11,.72);
     --glow-1: rgba(255,59,65,.22); --glow-2: rgba(255,59,65,.13);
     --mono-bg-l: 20%; --mono-fg-l: 78%; --mono-border-l: 42%;
+    --gender-women: #FF8FB3; --gender-women-on: #A81B5E;
+    --gender-men: #7FBBFF; --gender-men-on: #17569E;
   }
 
   :root {
@@ -1259,6 +1305,34 @@
   }
   .facet-pill.is-active .facet-count { color: inherit; }
   .facets-clear { align-self: flex-start; }
+
+  /* ── the Gender group ──────────────────────────────────────────────────────
+     Same pills as every other group, with a mark and a sentence. The mark is
+     Venus, Mars, the two interlocked, or a broken ring for "Not stated"; see
+     the ICON_GENDER_* set in demo/app.ts. flex rather than inline so the mark
+     and the word sit on one baseline at any label length.
+
+     The colours come from --gender-women / --gender-men, defined in all five
+     palette blocks at the top of this file with their measured contrast. Only
+     the classed strokes take them: the unisex ring and the whole "Not stated"
+     mark are currentColor, so they follow the pill's own ink and stay right
+     when a selected pill inverts. That is deliberate as well as convenient —
+     "Not stated" is not a gender and does not get a gender's colour.
+
+     A selected pill's ground becomes --ink, so both colours swap to their
+     --on variant there. Nothing about the meaning depends on which one is
+     showing: the word beside the mark says it either way. */
+  .facet-pill.has-ico { display: inline-flex; align-items: center; gap: 6px; }
+  .facet-pill .gender-ico { width: 15px; height: 15px; flex: none; }
+  .gender-ico .g-women { stroke: var(--gender-women); }
+  .gender-ico .g-men   { stroke: var(--gender-men); }
+  .facet-pill.is-active .gender-ico .g-women { stroke: var(--gender-women-on); }
+  .facet-pill.is-active .gender-ico .g-men   { stroke: var(--gender-men-on); }
+  /* Why the group carries a sentence at all: the reading is derived from
+     wording in a product's title, and most titles say nothing, so the honest
+     shape of this filter is a large "Not stated" pile. Said plainly, in the
+     panel, with this list's own live counts. */
+  .facet-note { margin: 8px 0 0; max-width: 46ch; }
   .notes-source { margin: 10px 0 0; }
 
   /* ── full search ───────────────────────────────────────────────────────── */
