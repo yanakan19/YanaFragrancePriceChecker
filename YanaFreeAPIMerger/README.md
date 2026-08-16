@@ -143,6 +143,65 @@ quoting them back so the council can say what the match is based on. Whether
 two perfumes actually smell alike is still left to the answer, plainly
 labelled as something the note data does not settle.
 
+## How long the council waits
+
+The fan-out used to be `await Promise.allSettled(...)` over every model in
+`agents.json`. That is not "as slow as the average model", it is **as slow
+as the slowest one, every time** — nothing could be sent until the last of
+28 promises settled, so a single model having a bad minute pinned the whole
+question to `AGENT_TIMEOUT_SECONDS` (25s) and the 27 that came back promptly
+bought nothing.
+
+The wait now ends at whichever comes first:
+
+| | env var | default | what it means |
+|---|---|---|---|
+| enough answers | `COUNCIL_QUORUM` | `8` | successful answers that are enough to rank between |
+| enough waiting | `COUNCIL_DEADLINE_MS` | `8000` | how much longer to wait **after the first successful answer** |
+| everyone in | — | — | the old behaviour, and still the path a healthy router takes |
+
+The deadline runs from the first answer rather than from fan-out on purpose:
+it means "how long we wait for the rest once we know we have something to
+ship", so a router that is slow to its first answer gets the time it needs
+instead of being cut off holding none. Whatever is still in flight is then
+**aborted**, so abandoned calls stop consuming the pooled free-tier quota
+that the next question needs.
+
+Measured on a local stand-in router with 28 synthetic delays — 24 between
+400ms and 9s, two at 12s, two that never answer — the same question went
+from **25,618ms** (waiting for all 28; the two dead ones hit the 25s agent
+timeout) to **793ms** at the defaults. Those delays are inputs, not
+observations: nothing in this repo can reach FreeLLMAPI to time a real
+model. What the run demonstrates is the shape of the fan-out, not the
+router's speed. `test/councilWait.test.js` pins the behaviour itself against
+a real local HTTP router.
+
+**What it costs.** The winner is the best of however many answered in time,
+not the best of 28. That is a genuine reduction in the pool `scoreAndRank`
+chooses from. Two things make it the right trade here: the questions where a
+wrong answer costs a reader something — prices, stock, sizes, notes,
+delivery — never reach the council at all, and every answer is held to the
+same SITE DATA grounding by the prompt and by `groundednessScore`, so a
+smaller pool can only make an answer less well *put*, never less grounded.
+
+**Setting them from evidence.** Every council question now logs a line like
+
+```
+[council] intent=suggest models=28 ok=8 waited=quorum firstAnswerMs=612 totalMs=1840 outstanding=20 quorum=8 deadlineMs=8000 latencies=gemini-3.5-flash:604,compound-mini!:25001,...
+```
+
+to stdout, which is what `flyctl logs` shows. It carries no question text,
+no key and no URL — an intent label, the model ids already public in
+`agents.json`, and milliseconds. That is the real per-model distribution,
+and it is what the two defaults above should be set from once there is a
+week of traffic to read. The defaults are judgements, not measurements.
+
+**Stopping.** The site's widget has a stop button. Aborting its `fetch`
+closes the connection, `server/index.js` sees the response socket close and
+aborts the council with it, and that abort reaches every in-flight model
+call — so the work genuinely stops rather than running on into a socket
+nobody is reading.
+
 ## Why not literally 28 *raw* API integrations written from scratch?
 
 FreeLLMAPI already solves that problem well (key rotation, rate-limit

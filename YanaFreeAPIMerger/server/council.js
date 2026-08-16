@@ -162,19 +162,90 @@ const DETERMINISTIC_INTENTS = {
 };
 
 /**
+ * Reads a non-negative integer from the environment, falling back when it is
+ * absent, empty or not a number. `Number('')` is 0, which is a real value for
+ * both knobs below and would silently disable them, so an explicit check
+ * rather than `Number(x) || fallback`.
+ */
+function envInt(name, fallback) {
+  const raw = process.env[name];
+  if (raw === undefined || raw === '') return fallback;
+  const n = Number(raw);
+  return Number.isFinite(n) && n >= 0 ? n : fallback;
+}
+
+/**
+ * How long the council waits, and why it is a deadline rather than a smaller
+ * roster.
+ *
+ * The fan-out used to be `await Promise.allSettled(...)` over every model in
+ * `agents.json`, which is 28 of them. That is not "as slow as the average
+ * model": it is as slow as the *slowest* one, every single time, because
+ * nothing could be sent until the last promise settled. One model having a
+ * bad minute on a shared free tier — and the README's own note on pooled
+ * quota says that is normal, not exceptional — pinned every council answer
+ * to `AGENT_TIMEOUT_SECONDS`, currently 25 seconds. The 27 that came back in
+ * time bought nothing.
+ *
+ * So the wait now ends at whichever of these comes first:
+ *
+ *   - `COUNCIL_QUORUM` agents have answered successfully. Enough distinct
+ *     answers to rank between; more is diminishing.
+ *   - `COUNCIL_DEADLINE_MS` has passed *since the first successful answer*.
+ *     Deliberately not since fan-out: this is "how much longer we wait for
+ *     the rest once we know we have something to ship", so a router that is
+ *     slow to first token gets the time it needs and is not cut off holding
+ *     zero answers.
+ *   - Every agent has reported, which is the old behaviour and still the
+ *     path a healthy fast router takes.
+ *
+ * Whatever is still in flight is then aborted rather than left running, so
+ * abandoned calls stop consuming the shared quota that the next question
+ * needs.
+ *
+ * ── What this costs ─────────────────────────────────────────────────────
+ * Honestly: the winner is now the best of however many answered in time,
+ * not the best of 28. That is a real reduction in the pool `scoreAndRank`
+ * chooses from, and on a question where the 20th model would have written
+ * the best answer, this ships a worse one. Two things make that trade
+ * worth taking here. The questions where a wrong answer actually costs a
+ * reader something — prices, stock, sizes, notes, delivery — never reach
+ * the council at all (see DETERMINISTIC_INTENTS above); what is left is
+ * `suggest` and `general`, where the difference between the best of eight
+ * and the best of twenty-eight is phrasing. And every answer, whichever
+ * wins, is held to the same SITE DATA grounding by the prompt and by
+ * `groundednessScore`, so a smaller pool cannot make an answer less
+ * grounded, only less well put.
+ *
+ * Both numbers are judgements, not measurements — nothing in this repo can
+ * reach the router to measure real per-model latency (see the README). They
+ * are env-tunable for exactly that reason, and the `[council]` line logged
+ * at the end of every question is there so the owner can read the real
+ * distribution off `flyctl logs` and set them from evidence.
+ */
+const COUNCIL_DEADLINE_DEFAULT_MS = 8000;
+const COUNCIL_QUORUM_DEFAULT = 8;
+
+/**
  * Runs the full council: fetches the site-grounded data for this question,
- * fans the resulting prompt out to every configured agent model (pinned, in
- * parallel), scores+ranks the survivors against that same data, and returns
- * the winner plus the full anonymous scoring matrix. `onEvent` is called
- * with splash / progress events as they happen so the caller can stream them
- * (SSE).
+ * fans the resulting prompt out to the configured agent models (pinned, in
+ * parallel), scores+ranks whichever answered in time against that same data,
+ * and returns the winner plus the full anonymous scoring matrix. `onEvent`
+ * is called with splash / progress events as they happen so the caller can
+ * stream them (SSE).
  *
  * The intents in `DETERMINISTIC_INTENTS` above normally never reach the
  * council at all — see that table for why answering them from site data
  * alone, with no model call, is more accurate as well as faster, and for the
  * two cases where they hand the question back.
+ *
+ * `signal` is the reader going away: the stop button in the site's own
+ * widget, or simply closing the tab. server/index.js aborts it when the
+ * response socket closes, and it reaches every in-flight model call, so the
+ * work genuinely stops instead of running on into a socket nobody is
+ * reading.
  */
-export async function runCouncil({ question, intent, config, onEvent }) {
+export async function runCouncil({ question, intent, config, onEvent, signal }) {
   const { baseUrl, apiKey, models } = config;
   const emit = (type, data) => onEvent?.({ type, ...data });
 
@@ -231,26 +302,100 @@ export async function runCouncil({ question, intent, config, onEvent }) {
 
   emit('status', { message: `Consulting our ${models.length} agents…` });
 
-  const settled = await Promise.allSettled(
-    models.map((model, i) => {
-      const agentNumber = i + 1;
-      return callAgentModel({ baseUrl, apiKey, model, messages }).then((result) => {
-        emit('agent', {
-          agentNumber,
-          ok: result.ok,
-          message: result.ok ? `Agent ${agentNumber} has responded.` : `Agent ${agentNumber} could not respond.`,
-        });
-        return { agentNumber, ...result };
+  const deadlineMs = envInt('COUNCIL_DEADLINE_MS', COUNCIL_DEADLINE_DEFAULT_MS);
+  const quorum = Math.max(1, Math.min(envInt('COUNCIL_QUORUM', COUNCIL_QUORUM_DEFAULT), models.length));
+
+  // One controller for every agent call. It is aborted either because the
+  // reader went away (the caller's `signal`) or because the council has what
+  // it needs and the rest are stragglers.
+  const agentsAbort = new AbortController();
+  const onCallerAbort = () => agentsAbort.abort();
+  if (signal?.aborted) agentsAbort.abort();
+  else signal?.addEventListener('abort', onCallerAbort, { once: true });
+
+  const startedAt = Date.now();
+  const answers = [];
+  let succeeded = 0;
+  let firstAnswerMs = null;
+  let deadlineTimer = null;
+
+  // `stopWaiting` is idempotent and records only the first reason, so the
+  // three ways the wait can end cannot race each other into disagreeing
+  // about why it ended.
+  let stopReason = null;
+  let release = () => {};
+  const enough = new Promise((resolve) => {
+    release = resolve;
+  });
+  const stopWaiting = (why) => {
+    if (stopReason === null) stopReason = why;
+    release();
+  };
+  if (signal) signal.addEventListener('abort', () => stopWaiting('cancelled'), { once: true });
+
+  const tasks = models.map((model, i) => {
+    const agentNumber = i + 1;
+    return callAgentModel({ baseUrl, apiKey, model, messages, signal: agentsAbort.signal }).then((result) => {
+      answers.push({ agentNumber, ...result });
+      emit('agent', {
+        agentNumber,
+        ok: result.ok,
+        message: result.ok ? `Agent ${agentNumber} has responded.` : `Agent ${agentNumber} could not respond.`,
       });
-    }),
+      if (result.ok) {
+        succeeded += 1;
+        if (succeeded === 1) {
+          firstAnswerMs = Date.now() - startedAt;
+          // The clock starts here, not at fan-out. See the block comment on
+          // COUNCIL_DEADLINE_DEFAULT_MS: a router slow to its first answer
+          // must not be cut off holding nothing.
+          if (deadlineMs > 0) deadlineTimer = setTimeout(() => stopWaiting('deadline'), deadlineMs);
+        }
+        if (succeeded >= quorum) stopWaiting('quorum');
+      }
+      // Every agent reported. Note this is the only branch that can fire
+      // when nothing succeeded, which is why a total failure is still a
+      // total failure rather than an early deadline with an empty pool.
+      if (answers.length === models.length) stopWaiting('all');
+    });
+  });
+
+  try {
+    await Promise.race([Promise.all(tasks), enough]);
+  } finally {
+    if (deadlineTimer) clearTimeout(deadlineTimer);
+    signal?.removeEventListener('abort', onCallerAbort);
+  }
+
+  // Snapshot before aborting: stragglers resolve into `answers` afterwards
+  // with ok:false, and they are not part of this answer either way.
+  const collected = answers.slice();
+  const outstanding = models.length - collected.length;
+  if (outstanding > 0) agentsAbort.abort();
+
+  const totalMs = Date.now() - startedAt;
+  const successes = collected.filter((a) => a.ok);
+
+  // stderr/stdout is what `flyctl logs` shows, and it is the only place the
+  // council's real per-model latency can be seen from — nothing in this repo
+  // can reach the router to measure it (see the README). Deliberately
+  // carries no question text, no key and no URL: an intent label, the model
+  // ids that are already public in agents.json, and milliseconds.
+  console.log(
+    `[council] intent=${effectiveIntent} models=${models.length} ok=${successes.length} ` +
+      `waited=${stopReason ?? 'none'} firstAnswerMs=${firstAnswerMs ?? '-'} totalMs=${totalMs} ` +
+      `outstanding=${outstanding} quorum=${quorum} deadlineMs=${deadlineMs} ` +
+      `latencies=${collected.map((a) => `${a.model}${a.ok ? '' : '!'}:${a.latencyMs}`).join(',')}`,
   );
 
-  const answers = settled.map((s) => (s.status === 'fulfilled' ? s.value : { ok: false, error: String(s.reason) }));
-  const successes = answers.filter((a) => a.ok);
+  // The reader left. Nothing is written back — index.js's own socket is
+  // already gone — but returning rather than ranking means the scoring work
+  // is not done for an answer that has nowhere to go.
+  if (signal?.aborted) return { ok: false, error: 'cancelled' };
 
   if (successes.length === 0) {
     emit('status', { message: 'Every agent failed to respond — check your FreeLLMAPI router and keys.' });
-    return { ok: false, error: 'no_agents_responded', answers };
+    return { ok: false, error: 'no_agents_responded', answers: collected };
   }
 
   emit('status', { message: 'Ranking responses anonymously…' });
@@ -268,8 +413,15 @@ export async function runCouncil({ question, intent, config, onEvent }) {
     winner: matrix[0],
     criteria,
     matrix,
+    // `agentCount` stays the size of the roster, so "8/28 agents responded"
+    // in the widget's own scoring-matrix summary keeps meaning what it
+    // always meant. `outstandingCount` is the new part of that story: how
+    // many were still working when the council stopped waiting, as opposed
+    // to having actually failed.
     agentCount: models.length,
     respondedCount: successes.length,
-    failedCount: answers.length - successes.length,
+    failedCount: collected.length - successes.length,
+    outstandingCount: outstanding,
+    timings: { totalMs, firstAnswerMs, waited: stopReason ?? 'none' },
   };
 }

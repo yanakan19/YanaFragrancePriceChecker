@@ -174,7 +174,29 @@ app.post('/api/chat', async (req, res) => {
   res.setHeader('Connection', 'keep-alive');
   res.flushHeaders?.();
 
+  // The other half of the widget's stop button, and of a reader simply
+  // closing the tab.
+  //
+  // Aborting a `fetch` in the browser closes this connection, which is what
+  // fires 'close' here. Without this the council carried on calling every
+  // model in agents.json into a socket nobody was reading — the reader saw
+  // it stop, the free-tier quota did not, and the next question paid for it.
+  //
+  // 'close' on the *response* rather than the request: for a POST whose body
+  // has been fully read, the request stream can close early and normally,
+  // which would abort every question the instant its body arrived. And it
+  // fires on ordinary completion too, hence the writableEnded guard — by
+  // then the council has already returned and there is nothing to abort.
+  const aborter = new AbortController();
+  res.on('close', () => {
+    if (!res.writableEnded) aborter.abort();
+  });
+
   const send = (event) => {
+    // A cancelled question still has agent calls settling behind it, and each
+    // one emits. Writing to a response whose socket has gone is at best
+    // wasted and at worst an unhandled error on the stream.
+    if (res.writableEnded || res.destroyed) return;
     res.write(`data: ${JSON.stringify(event)}\n\n`);
   };
 
@@ -196,10 +218,14 @@ app.post('/api/chat', async (req, res) => {
       intent,
       config: { baseUrl, apiKey, models },
       onEvent: send,
+      signal: aborter.signal,
     });
-    send({ type: 'result', result });
+    // A cancelled council has nowhere to send anything: the socket that
+    // would carry it is what got cancelled. `send` would drop it anyway;
+    // not calling it keeps the intent explicit.
+    if (!aborter.signal.aborted) send({ type: 'result', result });
   } catch (err) {
-    send({ type: 'error', message: String(err?.message ?? err) });
+    if (!aborter.signal.aborted) send({ type: 'error', message: String(err?.message ?? err) });
   } finally {
     res.end();
   }
