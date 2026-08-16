@@ -34,6 +34,7 @@ import { writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isFragrance, fragranceId } from '../src/catalogue/fragranceId.js';
+import { CURRENCY_UNCONFIRMED } from '../src/config/retailers.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -104,6 +105,16 @@ for (const [i, { sha, at }] of commits.entries()) {
 
     for (const l of snapshot.listings) {
       if (l.status !== 'active' || !isFragrance(l)) continue;
+      // A shop whose currency was never established has no price history, and
+      // clearing its current snapshot cannot reach the past: this script
+      // replays old commits, so the pre-quarantine files are still right there
+      // holding the figures the quarantine took down. Before this line,
+      // 4,961 of 16,437 published points were nicchia-luxury-uk's (2,942) and
+      // escentual's (2,019) — the second set being exactly the ~1.44x-inflated
+      // list that 86c4660 found and cleared. A chart whose whole claim is that
+      // every point is a price that was really charged cannot plot a number
+      // nobody can say the unit of.
+      if (CURRENCY_UNCONFIRMED.has(l.retailerId)) continue;
       // A listing with no price is not a price point. This was an unguarded
       // `l.priceGbp!`, and the comparison below reads a null as smaller than
       // every real figure — so an unpriced listing would win "cheapest" and

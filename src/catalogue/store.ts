@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync, renameSync, unlinkSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import type { CatalogueRun, StoredListing } from './types.js';
+import { assertNoQuarantinedGbpPrices } from './currencyQuarantine.js';
 
 /**
  * A JSON file store for the catalogue.
@@ -82,8 +83,16 @@ export class CatalogueStore {
    * a directory is atomic, so a reader sees either the previous snapshot or the
    * new one, never a prefix of either. The temp file is removed on failure so a
    * killed run leaves no litter for the next one to commit.
+   *
+   * It is also the one place every writer of a snapshot passes through — the
+   * harvest, the Awin feed ingest, the feed catalogue run, the storefront
+   * reprice, price-verify, both repair scripts and the generic crawl — which
+   * is why the currency quarantine is enforced here rather than in any one of
+   * them. See src/catalogue/currencyQuarantine.ts for what a scheduled run
+   * silently undid before it was.
    */
   write(snapshot: CatalogueSnapshot): void {
+    assertNoQuarantinedGbpPrices(snapshot.retailerId, snapshot.listings);
     const file = this.path(snapshot.retailerId);
     mkdirSync(dirname(file), { recursive: true });
     // Keep only recent run history. The full record belongs in a database.

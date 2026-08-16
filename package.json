@@ -37,7 +37,8 @@
     "images:check": "tsx scripts/image-link-check.ts",
     "icons": "tsx scripts/generate-icons.ts",
     "og:preview": "tsx scripts/generate-og-preview.ts",
-    "changelog:suggest": "tsx scripts/changelog-suggest.ts"
+    "changelog:suggest": "tsx scripts/changelog-suggest.ts",
+    "quarantine:prices": "tsx scripts/quarantine-prices.ts"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",
