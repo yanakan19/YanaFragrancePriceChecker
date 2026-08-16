@@ -53,7 +53,7 @@ import {
 import type { User } from '@supabase/supabase-js';
 import { fetchWishlist, addToWishlist, removeFromWishlist, type WishlistEntry } from './wishlist.js';
 import {
-  VIRTUAL_YANNY_CONFIGURED, checkYannyHealth, askVirtualYanny,
+  VIRTUAL_YANNY_CONFIGURED, checkYannyHealth, askVirtualYanny, warmVirtualYanny,
   type YannyIntent, type YannyResult, type YannyEvent, type YannyHealth,
 } from './virtualYanny.js';
 
@@ -3519,6 +3519,18 @@ function init(): void {
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && state.yannyOpen) closeYanny();
   });
+
+  // Starts the backend waking as soon as somebody looks like they are headed
+  // for the chat, rather than after they have committed to it — see
+  // warmVirtualYanny for what this does and does not buy. `pointerenter`
+  // covers touch as well as mouse (the pointer enters the element as the
+  // finger lands, before the tap completes); `focus` covers arriving by
+  // keyboard. Both are passive: nothing on screen changes, and the health
+  // check on open is untouched and still the only thing that decides whether
+  // the panel is usable.
+  const yannyLauncher = $('#yanny-launcher') as HTMLElement;
+  yannyLauncher.addEventListener('pointerenter', warmVirtualYanny);
+  yannyLauncher.addEventListener('focus', warmVirtualYanny);
 
   // The very first render happens synchronously below, before either of
   // these callbacks can possibly fire — accountView's own `!state.authChecked`

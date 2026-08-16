@@ -130,6 +130,53 @@ export async function checkYannyHealth(): Promise<YannyHealth> {
   }
 }
 
+/**
+ * Wakes the backend before anybody has asked it anything.
+ *
+ * fly.toml runs `min_machines_running = 0` with `auto_stop_machines =
+ * "suspend"`, so a backend nobody has chatted with is suspended and the
+ * first reader after a quiet spell pays for it to come back. That resume is
+ * the same work whenever it happens; the only thing that can be changed for
+ * free is *when*. This starts it at the first sign the reader is heading for
+ * the chat — the pointer arriving over the launcher, or the launcher taking
+ * keyboard focus — rather than after they have clicked, so the resume
+ * overlaps with them deciding to press it instead of following it. On touch,
+ * `pointerenter` fires as the finger lands, which is still ahead of the tap.
+ *
+ * Be clear about what this is: it does not make the backend one millisecond
+ * faster. It moves an unavoidable wait behind something the reader is
+ * already doing. Actual backend latency is a different problem and lives in
+ * YanaFreeAPIMerger/.
+ *
+ * Deliberately inert: it ignores the response entirely and sets no state.
+ * The real check still runs on open, every open, and is still the only thing
+ * that decides whether the panel is usable — a warm request that happened to
+ * succeed a moment ago is not evidence the service is up now.
+ *
+ * Throttled to once a minute so that sweeping a pointer across the corner of
+ * the page cannot turn into a stream of requests. One consequence worth
+ * naming: a reader who keeps the pointer moving over the launcher will keep
+ * the machine from suspending. That is a request a minute at most, and it is
+ * only ever somebody who looks like they are about to use the thing.
+ */
+let lastWarmedAt = 0;
+const WARM_INTERVAL_MS = 60_000;
+
+export function warmVirtualYanny(): void {
+  if (!VIRTUAL_YANNY_CONFIGURED) return;
+  const now = Date.now();
+  if (now - lastWarmedAt < WARM_INTERVAL_MS) return;
+  lastWarmedAt = now;
+  try {
+    // No await, no signal, no timeout: nothing here reads the answer, and a
+    // warm request that fails has cost nothing and is not worth reporting.
+    void fetch(apiUrl('/api/health'), { cache: 'no-store' }).catch(() => {});
+  } catch {
+    // Some environments throw synchronously rather than rejecting. Same
+    // outcome either way: the reader waits exactly as long as before.
+  }
+}
+
 export interface YannyCriterion {
   key: string;
   weight: number;
