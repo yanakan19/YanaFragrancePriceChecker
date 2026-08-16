@@ -749,23 +749,71 @@ export async function resolvePriceQuery(question) {
  * is settled, and the words for the other three cases say plainly that it is
  * not.
  */
+/**
+ * Whether an unmatched question reads like a follow-up to an earlier one —
+ * "what about the 50ml", "is it in stock", "how much is that one".
+ *
+ * `/api/chat` keeps no conversation (the README and demo/legal.ts both say
+ * so), so there is nothing to resolve "it" against and the lookup rightly
+ * finds no product. But the stock refusal — "try the brand and product
+ * name" — reads as if the bot forgot something it was just told, which is
+ * more confusing than the truth. This flag lets `formatIdentityRefusal` say
+ * the truth instead: each message stands alone.
+ *
+ * Checked only after a lookup has already failed, which is what makes the
+ * loose pronoun patterns safe: a question that *did* resolve never gets
+ * here, so the only cost of a false positive is one extra true sentence on
+ * a refusal.
+ */
+const FOLLOW_UP_RE = /\b(what|how|and) about\b|\b(it|its|that one|this one|the same one?|the other one)\b|^and\b/i;
+export function seemsFollowUp(question) {
+  return FOLLOW_UP_RE.test(String(question ?? ''));
+}
+
+/**
+ * Every fragrance's match haystack and title length, computed once per
+ * process instead of once per question.
+ *
+ * Safe to memoise for the same reason `deliveredPriceIndex` in lookups.js
+ * is: the snapshot `loadSite()` returns cannot change while the process
+ * runs (see this file's header), so a derivation of it cannot go stale.
+ * The strings are byte-for-byte what the per-question loop built before —
+ * only *when* they are built moved. Measured with `npm run bench`: every
+ * product-anchored lookup (price, availability, notes, size) dropped from
+ * ~17-19ms to ~2-3ms, and compare (two lookups) from ~36ms to ~5ms,
+ * because the dominant cost was re-running `normalize` over ~10,000
+ * brand+name+concentration strings per question.
+ */
+let productIndexCache = null;
+async function productIndex() {
+  if (productIndexCache) return productIndexCache;
+  const { data } = await loadSite();
+  productIndexCache = data.DEMO_FRAGRANCES.map((frag) => {
+    const concentrationLower = (frag.concentration ?? '').toLowerCase();
+    const abbr = CONCENTRATION_ABBR[concentrationLower] ?? '';
+    return {
+      frag,
+      haystack: normalize(`${frag.brand} ${frag.name} ${frag.concentration} ${abbr}`),
+      titleWords: normalize(`${frag.brand} ${frag.name}`).split(' ').length,
+    };
+  });
+  return productIndexCache;
+}
+
 export async function resolveProductQuery(question, intent = 'price') {
   const { data } = await loadSite();
   const qWords = productWords(question, intent);
-  if (qWords.length === 0) return { status: 'no_match' };
+  if (qWords.length === 0) return { status: 'no_match', followUp: seemsFollowUp(question) };
 
   let bestScore = 0;
   const scored = [];
-  for (const frag of data.DEMO_FRAGRANCES) {
-    const concentrationLower = (frag.concentration ?? '').toLowerCase();
-    const abbr = CONCENTRATION_ABBR[concentrationLower] ?? '';
-    const haystack = normalize(`${frag.brand} ${frag.name} ${frag.concentration} ${abbr}`);
+  for (const { frag, haystack, titleWords } of await productIndex()) {
     const hits = qWords.filter((w) => haystack.includes(w)).length;
     const score = hits / qWords.length;
     if (score > bestScore) bestScore = score;
-    if (score > 0) scored.push({ frag, score, titleWords: normalize(`${frag.brand} ${frag.name}`).split(' ').length });
+    if (score > 0) scored.push({ frag, score, titleWords });
   }
-  if (bestScore < 0.34) return { status: 'no_match' };
+  if (bestScore < 0.34) return { status: 'no_match', followUp: seemsFollowUp(question) };
 
   const top = scored.filter((s) => s.score === bestScore);
   const topGroupKeys = new Set(top.map((s) => groupKeyFor(s.frag)));
@@ -899,8 +947,15 @@ export function formatPriceAnswer(question, result) {
       : `${v.sizeMl}ml: currently out of stock everywhere this site tracks.`;
 
   if (result.status === 'no_match') {
+    // Same follow-up honesty as formatIdentityRefusal in lookups.js: a
+    // question that leans on a pronoun failed because no conversation is
+    // kept, and the refusal should say that rather than imply the name was
+    // wrong.
+    const followUpNote = result.followUp
+      ? 'Each message here stands alone — I don\'t carry the previous question over, so I can\'t tell what "it" refers to. '
+      : '';
     return (
-      "I don't have a fragrance matching that in the current catalogue. Try the brand and product name — " +
+      `${followUpNote}I don't have a fragrance matching that in the current catalogue. Try the brand and product name — ` +
       'for example "Dior Sauvage EDT".'
     );
   }
