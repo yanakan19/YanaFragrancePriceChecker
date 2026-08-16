@@ -1,4 +1,9 @@
-import { parseBudget, mentionsDescriptor, detectPerformanceRequest } from './requestPhrases.js';
+import {
+  parseBudget,
+  mentionsDescriptor,
+  detectPerformanceRequest,
+  detectOccasionRequest,
+} from './requestPhrases.js';
 
 /**
  * What kind of question this is, decided from the text alone.
@@ -62,6 +67,7 @@ import { parseBudget, mentionsDescriptor, detectPerformanceRequest } from './req
  * assert the corpus covers all of them.
  */
 export const INTENTS = [
+  'greeting',
   'meta',
   'deals',
   'compare',
@@ -83,6 +89,21 @@ export const INTENTS = [
  * the exact thing the old pattern got wrong.
  */
 const RULES = [
+  // ── greeting ───────────────────────────────────────────────────────────
+  // Anchored to the *whole* message, which is what makes it safe at the top:
+  // "hello, how much is Sauvage" contains a real question and must not stop
+  // here, and cannot — the pattern only matches a message that is a greeting
+  // or a thanks and nothing else. Before this rule, "hello" was 'general'
+  // and cost a full council round (28 model calls, seconds of wall time) to
+  // say hello back; a greeting has no facts to look up, so it is the
+  // clearest possible case for a canned deterministic reply. See
+  // resolveGreetingQuery in lookups.js for what it says (only live counts
+  // from the catalogue snapshot — nothing invented).
+  [
+    'greeting',
+    /^\s*(?:hi+|hiya|hey+|hello+|heya|yo|howdy|good\s+(?:morning|afternoon|evening)|thanks|thank\s+you|thankyou|ta|cheers|nice\s+one)(?:\s+(?:yanny|there|mate|man|again|very\s+much|a\s+lot))?\s*[!.,?]*\s*$/i,
+  ],
+
   // ── meta ───────────────────────────────────────────────────────────────
   // First, deliberately. A question about the service itself is the one
   // shape most likely to be misread as a lookup: "how does your price
@@ -153,6 +174,12 @@ const RULES = [
     'size',
     /\b((what|which|how many|any other) sizes?|sizes? (do|does|are|is|you)|what size|(do|have) you (have|got|stock|list|sell|do) (a |an |the )?\d+(\.\d+)?\s?ml|is there (a|an) \d+(\.\d+)?\s?ml|come in \d+(\.\d+)?\s?ml|other bottle)\b/,
   ],
+  // The follow-up shape: "what about the 50ml", "and the 100ml?". No
+  // conversation is kept, so this cannot be answered — but routing it to
+  // 'size' means the refusal says the true reason (each message stands
+  // alone; see seemsFollowUp in siteData.js) instead of sending a
+  // council of models a question with no product in it.
+  ['size', /\b(what|how|and) about (the |a |an )?\d+(\.\d+)?\s?ml\b|^\s*and (the |a |an )?\d+(\.\d+)?\s?ml\b/],
 
   // ── budget ─────────────────────────────────────────────────────────────
   // Above 'price' because "what can I get under £50" is a catalogue filter,
@@ -255,11 +282,6 @@ const RULES = [
 
   // Asking to be helped rather than asking a question. "what should i buy",
   // "help me pick something", "u got anything nice", "a present for my mum".
-  //
-  // "what should i wear" is deliberately absent: "what should I wear to a
-  // wedding" is pinned to 'general' in test/intent.test.js and named in the
-  // README as a question that belongs to the council, and both routes reach
-  // the council anyway.
   [
     'suggest',
     /\b(help me (pick|choose|decide|find)|what should i (buy|get|try)|got anything (nice|good|decent)|anything (nice|good|decent)\b|(present|gift) for)\b/,
@@ -270,6 +292,19 @@ const RULES = [
   // catalogue records none of it, and 'suggest' is where that gets said
   // plainly; on 'general' it was answered with the site's terms of use.
   ['suggest', (c) => detectPerformanceRequest(c)],
+
+  // Season and occasion — "a summer fragrance", "what should I wear to a
+  // wedding", "anything for the office". The catalogue records neither, and
+  // 'suggest' is where that constraint is read and declined honestly (see
+  // detectOccasionRequest in requestPhrases.js and resolveSuggestQuery in
+  // lookups.js). These used to fall to 'general' and reach the council with
+  // the about page as their only grounding; a grounded model could then only
+  // ever refuse (rule 1 forbids "summer means citrus" from training), so the
+  // refusal is now written directly, in milliseconds, naming what the data
+  // cannot do and what it can. A question that also carries something real —
+  // "something spicy for winter" — still grounds on the real part and goes
+  // to the council with the season named as unmeetable.
+  ['suggest', (c) => detectOccasionRequest(c)],
 ];
 
 /**

@@ -22,6 +22,8 @@ import {
   formatMetaAnswer,
   resolveSuggestQuery,
   formatSuggestAnswer,
+  resolveGreetingQuery,
+  formatGreetingAnswer,
 } from './lookups.js';
 
 /**
@@ -151,6 +153,7 @@ function buildSystemPrompt() {
  * (budget-shaped, no threshold named) reach a model instead of a table.
  */
 const DETERMINISTIC_INTENTS = {
+  greeting: { resolve: resolveGreetingQuery, format: (_q, result) => formatGreetingAnswer(result) },
   price: { resolve: resolvePriceQuery, format: (question, result) => formatPriceAnswer(question, result) },
   availability: { resolve: resolveAvailabilityQuery, format: (_q, result) => formatAvailabilityAnswer(result) },
   notes: { resolve: resolveNotesQuery, format: (_q, result) => formatNotesAnswer(result) },
@@ -324,8 +327,14 @@ export async function runCouncil({ question, intent, config, onEvent, signal }) 
     //      still answered directly, which is the normal case for a genuine
     //      lookup gone unmatched.
     const declined = result === null;
+    // `followUp` bars the policy fallthrough: "what about the 50ml" is a
+    // follow-up to a conversation this server does not keep, not a policy
+    // question — but its filler words ("what", "about") overlap the legal
+    // pages enough to trip policyContextFor's loose keyword match, which
+    // would send it to the council with the terms of use attached. The
+    // honest answer is the follow-up refusal, and it is already written.
     const policyInDisguise =
-      !declined && result.status === 'no_match' && Boolean(await policyContextFor(question));
+      !declined && result.status === 'no_match' && !result.followUp && Boolean(await policyContextFor(question));
 
     if (declined || policyInDisguise) {
       effectiveIntent = councilIntentFor(intent, { declined, policyInDisguise });

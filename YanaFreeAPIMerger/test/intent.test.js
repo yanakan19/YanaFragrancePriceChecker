@@ -110,11 +110,28 @@ const CORPUS = [
   ['any dupes for Baccarat Rouge', 'suggest'],
   ['something with oud please', 'suggest'],
 
+  // ── suggest: season/occasion, declined honestly rather than modelled ──
+  // These were 'general' — grounded by the about page only, and a council
+  // model bound by rule 1 could only ever refuse them. 'suggest' is where
+  // the occasion constraint is read and, when the question grounds on
+  // nothing else, refused deterministically (see resolveSuggestQuery).
+  ['what should i wear to a wedding', 'suggest'],
+  ['anything for summer', 'suggest'],
+  ['perfume for the office', 'suggest'],
+
+  // ── greeting: the whole message is a hello or a thanks ────────────────
+  ['hello', 'greeting'],
+  ['hi', 'greeting'],
+  ['hey yanny', 'greeting'],
+  ['good morning', 'greeting'],
+  ['thanks', 'greeting'],
+  ['thank you!', 'greeting'],
+
   // ── general: out of scope or unclassifiable ───────────────────────────
   ["what's the weather in London today", 'general'],
   ['what is your favourite film', 'general'],
-  ['what should i wear to a wedding', 'general'],
-  ['hello', 'general'],
+  // A greeting with a question in it is not a greeting.
+  ['hello, how does this site work', 'meta'],
 ];
 
 test('classifyIntent: the whole corpus routes as specified', () => {

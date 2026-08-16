@@ -5,7 +5,12 @@ import {
   parseSuggestRequest,
   offerableDescriptors,
 } from './siteData.js';
-import { parseBudget, detectAudience, detectPerformanceRequest } from './requestPhrases.js';
+import {
+  parseBudget,
+  detectAudience,
+  detectPerformanceRequest,
+  detectOccasionRequest,
+} from './requestPhrases.js';
 
 /**
  * Deterministic answers for the question shapes that have exact answers.
@@ -377,6 +382,12 @@ export async function findRetailerInQuestion(question) {
 
 const FREE_DELIVERY_RE = /\bfree (delivery|shipping|postage|p ?& ?p)\b|\bdeliver(s|y)? (for )?free\b/i;
 
+/** "Do you deliver to Ireland", "who ships abroad", "international
+ *  shipping?" — a question about *where* shops deliver, which is the one
+ *  delivery fact the registry does not record. */
+const GEO_DELIVERY_RE =
+  /\b(?:deliver|delivery|deliveries|ship|ships|shipping|post|posted|send)\s+(?:to|outside|abroad|internationally|overseas)\b|\b(?:international|overseas)\s+(?:delivery|shipping|postage)\b|\bship\s+abroad\b/i;
+
 /**
  * Delivery terms, from `src/config/retailers.ts` and nothing else.
  *
@@ -410,6 +421,17 @@ export async function resolveDeliveryQuery(question) {
   });
 
   const named = await findRetailerInQuestion(question);
+
+  // Destination questions come first, shop named or not: "does Boots
+  // deliver to Ireland" is about the destination, and answering it with
+  // Boots's standard rate would look like a yes. The registry records each
+  // shop's standard rate, free-over threshold and estimated days — nothing
+  // about where it ships — so the honest answer says exactly that, plus the
+  // named shop's stated terms where there is one.
+  if (GEO_DELIVERY_RE.test(question)) {
+    return { kind: 'geography', retailer: named ? terms(named) : null };
+  }
+
   if (named) return { kind: 'retailer', retailer: terms(named) };
 
   if (FREE_DELIVERY_RE.test(question)) {
@@ -440,6 +462,23 @@ export async function resolveDeliveryQuery(question) {
 
 export function formatDeliveryAnswer(result) {
   const days = (d) => (Array.isArray(d) && d.length === 2 ? `${d[0]}-${d[1]} days` : null);
+
+  if (result.kind === 'geography') {
+    const base =
+      'Where each shop delivers to is not something this site records — the retailer registry ' +
+      'holds each shop\'s standard delivery cost, any free-over threshold and estimated days, ' +
+      'nothing about destinations. For a specific country, check the shop\'s own delivery page.';
+    const r = result.retailer;
+    if (!r) return base;
+    const stated =
+      r.standardGbp === null
+        ? `${r.name} does not publish a standard delivery cost at all.`
+        : r.standardGbp === 0
+          ? `What ${r.name} does state: free standard delivery.`
+          : `What ${r.name} does state: ${gbp(r.standardGbp)} standard delivery` +
+            (r.freeOverGbp !== null ? `, free over ${gbp(r.freeOverGbp)}.` : '.');
+    return `${base} ${stated}`;
+  }
 
   if (result.kind === 'retailer') {
     const r = result.retailer;
@@ -749,6 +788,7 @@ export function unsupportedConstraintNotes(question) {
   const notes = [];
   if (detectAudience(question)) notes.push('who it is for');
   if (detectPerformanceRequest(question)) notes.push('how strong or long-lasting something is');
+  if (detectOccasionRequest(question)) notes.push('what season or occasion suits it');
   return notes;
 }
 
@@ -757,7 +797,12 @@ export function unsupportedConstraintNotes(question) {
  *  row is exactly the hedging prompt rule 8 rules out. */
 function unsupportedSentence(labels, opener) {
   if (labels.length === 0) return '';
-  const tail = labels.length > 1 ? 'the catalogue records neither' : "the catalogue doesn't record that";
+  const tail =
+    labels.length > 2
+      ? 'the catalogue records none of those'
+      : labels.length === 2
+        ? 'the catalogue records neither'
+        : "the catalogue doesn't record that";
   return `${opener} ${nameList(labels)} — ${tail}.`;
 }
 
@@ -770,16 +815,27 @@ function unsupportedSentence(labels, opener) {
  *
  *   1. The question grounds on nothing. No note, no descriptor the
  *      catalogue carries, no resolvable reference fragrance, no budget.
- *   2. It asks for one of the two things the catalogue provably does not
- *      hold: who a fragrance is for, or how strong and long-lasting it is
- *      (see `detectAudience` and `detectPerformanceRequest` in
+ *   2. It asks for one of the three things the catalogue provably does not
+ *      hold: who a fragrance is for, how strong and long-lasting it is, or
+ *      what season or occasion suits it (see `detectAudience`,
+ *      `detectPerformanceRequest` and `detectOccasionRequest` in
  *      requestPhrases.js for the measurements behind "provably").
  *
  * Condition 1 alone is not enough, and that is the point of splitting them.
- * "Recommend me a summer fragrance" and "do you have anything nice" also
- * ground on nothing, but nothing in the data *contradicts* them either —
- * they are open taste questions, they are what the council is for, and the
- * README says so. They keep going there.
+ * "Do you have anything nice" also grounds on nothing, but nothing in the
+ * data *contradicts* it either — it is an open taste question, it is what
+ * the council is for, and the README says so. It keeps going there.
+ *
+ * "Recommend me a summer fragrance" used to be in that open-taste group and
+ * deliberately is not any more. A grounded council answer to it could only
+ * ever be a refusal — the SITE DATA block carries no candidates (season
+ * words are listing metadata, see NON_NOTE_VOCABULARY), and rule 1 forbids
+ * "summer means citrus" from training — so 28 model calls were being spent
+ * writing a refusal no model could be talked out of, the same argument that
+ * moved the audience and longevity shapes here. The deterministic refusal
+ * names the constraint and offers the real filters instead, in
+ * milliseconds. What that costs: a model might have phrased the refusal
+ * more conversationally; it could not, within the rules, have said more.
  *
  * What is caught is the question whose central constraint the data cannot
  * serve at all: the owner's own "what perfume you recommend for a smelly
@@ -1095,8 +1151,44 @@ export function formatBrandAnswer(result) {
   return `${head} (that count is per bottle size, not per perfume).${buyable}\nMost widely stocked:\n${result.examples.map(line).join('\n')}`;
 }
 
+/* ── greetings ─────────────────────────────────────────────────────────── */
+
+const THANKS_RE = /\b(thanks|thank\s+you|thankyou|ta|cheers|nice\s+one)\b/i;
+
+/**
+ * "hello" / "thanks", answered in milliseconds instead of by 28 models.
+ *
+ * intent.js only routes here when the whole message is a greeting or a
+ * thanks and nothing else, so there is no question in it to answer and
+ * nothing a model could add but phrasing. The reply is a fixed offer of
+ * what this service can actually do, with the two live counts read off the
+ * snapshot — the same numbers `aboutContext` quotes — so even the hello
+ * cannot state a figure the catalogue does not hold.
+ */
+export async function resolveGreetingQuery(question) {
+  const site = await loadSite();
+  return {
+    kind: THANKS_RE.test(question) ? 'thanks' : 'hello',
+    fragranceCount: site.data.DEMO_FRAGRANCES.length,
+    retailerCount: site.retailers.RETAILERS.filter((r) => r.enabled !== false).length,
+  };
+}
+
+export function formatGreetingAnswer(result) {
+  if (result.kind === 'thanks') {
+    return 'No problem. Ask any time — prices, stock, sizes, deals and delivery for anything this site tracks.';
+  }
+  return (
+    `Hello. I answer from this site's own data: ${result.fragranceCount.toLocaleString('en-GB')} fragrances ` +
+    `across ${result.retailerCount} UK shops. Ask me a price ("how much is Dior Sauvage EDT"), what's on sale, ` +
+    'what you can get under a budget, or for something by scent — sweet, fresh, woody and so on.'
+  );
+}
+
 /* ── meta: facts about the service itself ──────────────────────────────── */
 
+const META_IDENTITY_RE =
+  /\b(who are you|what are you\b|are you (a |an )?(bot|robot|chatbot|human|ai|real)|what (is|are) (this site|this website|pricesniffs)|what does (this site|this website|pricesniffs) do)\b/i;
 const META_FRESHNESS_RE = /\b(how (fresh|old|current|recent|up.to.date)|last (updated|refreshed|checked)|when (was|were|did) .{0,40}(updated|refreshed|crawled|checked|harvested))\b/i;
 const META_COVERAGE_RE = /\b((which|what|how many) (shops?|retailers?|stores?|sites?|merchants?)|do you (cover|track|include|check)|shops? do you|retailers? do you)\b/i;
 const META_SIZE_RE = /\bhow many (fragrances?|perfumes?|products?|brands?|scents?|bottles?)\b/i;
@@ -1118,6 +1210,21 @@ const META_SIZE_RE = /\bhow many (fragrances?|perfumes?|products?|brands?|scents
  */
 export async function resolveMetaQuery(question) {
   const site = await loadSite();
+
+  // "Who are you", "are you a bot", "what is this site". The answer is a
+  // fact about the service, not prose from a legal page: what it is, that
+  // it is not a person, and the live counts. Everything else about the
+  // company (privacy, contact, money) still goes to the council with the
+  // real policy page attached — see the null return below.
+  if (META_IDENTITY_RE.test(question)) {
+    return {
+      kind: 'identity',
+      companyName: site.legal.COMPANY.name,
+      fragranceCount: site.data.DEMO_FRAGRANCES.length,
+      retailerCount: site.retailers.RETAILERS.filter((r) => r.enabled !== false).length,
+      crawledOn: crawledOn(site),
+    };
+  }
 
   if (META_FRESHNESS_RE.test(question)) {
     return {
@@ -1155,6 +1262,15 @@ export async function resolveMetaQuery(question) {
 
 export function formatMetaAnswer(result) {
   const n = (x) => x.toLocaleString('en-GB');
+
+  if (result.kind === 'identity') {
+    return (
+      `I'm Virtual Yanny, ${result.companyName}'s fragrance assistant — an automated price checker, ` +
+      `not a person. I answer only from this site's own data: ${n(result.fragranceCount)} fragrances ` +
+      `across ${result.retailerCount} UK shops, last refreshed ${result.crawledOn}. ` +
+      'Ask me prices, stock, sizes, deals, delivery, or for something by scent.'
+    );
+  }
 
   if (result.kind === 'freshness') {
     return (
