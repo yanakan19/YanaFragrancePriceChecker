@@ -1,3 +1,5 @@
+import { parseBudget, mentionsDescriptor, detectPerformanceRequest } from './requestPhrases.js';
+
 /**
  * What kind of question this is, decided from the text alone.
  *
@@ -155,11 +157,23 @@ const RULES = [
   // ── budget ─────────────────────────────────────────────────────────────
   // Above 'price' because "what can I get under £50" is a catalogue filter,
   // not a lookup: there is no named product to look up at all.
-  [
-    'budget',
-    /\b(under|below|less than|no more than|up to|within|max(imum)?|around|about)\s*£?\s*\d+/,
-  ],
-  ['budget', /£\s*\d+\s*(or less|budget|max|maximum)\b/],
+  //
+  // A predicate rather than a pattern, and it is `parseBudget` — the same
+  // function `resolveBudgetQuery` uses to read the amount back out. That
+  // matters more than tidiness. The two used to be separate lists that had
+  // already fallen out of step: the resolver could read "30 quid" and "for
+  // £30", the classifier could not, so a question the resolver would have
+  // answered never reached it. Measured against the modules before this:
+  //
+  //   "perfume for 30 pounds"            -> general
+  //   "something £30ish"                 -> general
+  //   "whats good for under fifty quid"  -> general
+  //
+  // Sharing the definition makes "the classifier routes it here" and "the
+  // resolver can read it" the same statement rather than two that have to
+  // be kept in agreement by hand. See requestPhrases.js for which phrases
+  // count, and for why a bare unframed "£30" deliberately does not.
+  ['budget', (c) => parseBudget(c) !== null],
   [
     'budget',
     /\b(cheapest|cheap)\b(?=.{0,60}\b(niche|designer|mideast|middle eastern|overall|thing|anything|fragrance you|perfume you|you (list|have|stock|track|sell|do|carry))\b)/,
@@ -195,23 +209,83 @@ const RULES = [
   ],
 
   // ── suggest ────────────────────────────────────────────────────────────
-  // Genuinely open taste questions: what to try, what resembles what. These
-  // are the council's job and stay there.
+  // Genuinely open taste questions: what to try, what resembles what.
   [
     'suggest',
     /\b(recommend|recommendation|suggest|suggestion|similar to|smells? like|something (with|like|for)|anything (with|like)|alternatives? to|dupes?|clones? of|notes?|accords?)\b/,
   ],
+
+  // The same question typed by someone not composing a search query. Every
+  // rule below is last-but-one on purpose: 'suggest' sits immediately above
+  // 'general', so these can only ever capture questions that were falling
+  // to 'general' anyway. Nothing above this point can be rerouted by them,
+  // which is what makes widening the door here safe.
+  //
+  // Why widen it at all: 'general' grounds a question with the site's about
+  // and policy pages and nothing else, so a real request for a fragrance
+  // reached the council with no fragrance data attached. Measured before
+  // this, every one of these was 'general':
+  //
+  //   "whats a good perfume for a man"
+  //   "perfume for women"
+  //   "something sweet"
+  //   "whats the best perfume you got"
+  //   "need something that lasts"
+  //
+  // On 'suggest' they get the note vocabulary, the descriptor families, and
+  // an explicit statement of the constraints the catalogue cannot meet —
+  // and, where the whole question rests on one of those, a deterministic
+  // refusal instead of a model's (see resolveSuggestQuery in lookups.js).
+
+  // A scent descriptor is a request for a smell, whatever else is in the
+  // sentence: "something sweet", "i want something fresh and clean".
+  ['suggest', (c) => mentionsDescriptor(c)],
+
+  // A fragrance word carrying a question or a recipient. "what perfume you
+  // recommend", "whats a good perfume for a man", "perfume for women",
+  // "a scent for my mum".
+  [
+    'suggest',
+    /\b(what|which|any|good|best|nice)\b.{0,30}\b(perfume|fragrance|scent|aftershave|cologne|eau de \w+)/,
+  ],
+  [
+    'suggest',
+    /\b(perfume|fragrance|scent|aftershave|cologne)s?\b\s+(for|to suit)\b/,
+  ],
+
+  // Asking to be helped rather than asking a question. "what should i buy",
+  // "help me pick something", "u got anything nice", "a present for my mum".
+  //
+  // "what should i wear" is deliberately absent: "what should I wear to a
+  // wedding" is pinned to 'general' in test/intent.test.js and named in the
+  // README as a question that belongs to the council, and both routes reach
+  // the council anyway.
+  [
+    'suggest',
+    /\b(help me (pick|choose|decide|find)|what should i (buy|get|try)|got anything (nice|good|decent)|anything (nice|good|decent)\b|(present|gift) for)\b/,
+  ],
+
+  // Strength and longevity — "something strong that lasts all day", "need
+  // something that lasts", and the owner's "for a smelly man". The
+  // catalogue records none of it, and 'suggest' is where that gets said
+  // plainly; on 'general' it was answered with the site's terms of use.
+  ['suggest', (c) => detectPerformanceRequest(c)],
 ];
 
 /**
  * Classify a free-typed message. Always returns a member of INTENTS;
  * 'general' is the honest fallback, not a failure mode — it routes to the
  * council with the site's own about/policy context attached.
+ *
+ * A rule's matcher is a RegExp or a predicate on the lowercased text. The
+ * predicate form exists so a rule can share a parser with the resolver that
+ * will answer it (see the budget rule above) rather than restate it as a
+ * pattern that then drifts.
  */
 export function classifyIntent(text) {
   const c = String(text ?? '').toLowerCase();
-  for (const [intent, pattern] of RULES) {
-    if (pattern.test(c)) return intent;
+  for (const [intent, matcher] of RULES) {
+    if (typeof matcher === 'function' ? matcher(c) : matcher.test(c)) return intent;
   }
   return 'general';
 }
