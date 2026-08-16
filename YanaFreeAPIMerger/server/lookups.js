@@ -1,4 +1,11 @@
-import { loadSite, resolveProductQuery } from './siteData.js';
+import {
+  loadSite,
+  resolveProductQuery,
+  requestedNotes,
+  parseSuggestRequest,
+  offerableDescriptors,
+} from './siteData.js';
+import { parseBudget, detectAudience, detectPerformanceRequest } from './requestPhrases.js';
 
 /**
  * Deterministic answers for the question shapes that have exact answers.
@@ -599,13 +606,6 @@ async function deliveredPriceIndex() {
   return rows;
 }
 
-const BUDGET_AMOUNT_RES = [
-  /\b(?:under|below|less than|no more than|up to|within|max(?:imum)?|around|about)\s*£?\s*(\d+(?:\.\d{1,2})?)/i,
-  /£\s*(\d+(?:\.\d{1,2})?)\s*(?:or less|budget|max|maximum)\b/i,
-  /\bfor\s*£\s*(\d+(?:\.\d{1,2})?)/i,
-  /\b(\d+(?:\.\d{1,2})?)\s*(?:quid|pounds?)\b/i,
-];
-
 const TIER_WORDS = [
   ['niche', /\bniche\b/i],
   ['designer', /\bdesigner\b/i],
@@ -613,7 +613,9 @@ const TIER_WORDS = [
 ];
 
 /**
- * "What can I get under £50", "cheapest niche fragrance you list".
+ * "What can I get under £50", "cheapest niche fragrance you list", and —
+ * since a real person puts everything in one sentence — "find a woman a
+ * perfume under £30 that smells sweet".
  *
  * A filter over the delivered-price index, not a recommendation: the
  * question asks what the catalogue holds below a number, and that has an
@@ -622,14 +624,29 @@ const TIER_WORDS = [
  * every unsorted list — see BY_POPULARITY in demo/data.ts), then by price,
  * so the sample is the same one the site itself would lead with rather than
  * five arbitrary rows.
+ *
+ * ── Why the scent side is read here, and not left to the council ─────────
+ * This used to read the amount and nothing else. Measured against the live
+ * catalogue before the change, the owner's own example question
+ *
+ *   "find a woman a perfume under £30 that smells sweet"
+ *
+ * classified as `budget` and came back with the five most widely stocked
+ * bottles under £30 — chosen for popularity, not for sweetness, the second
+ * of them Calvin Klein Obsession For Men. Two of the reader's three
+ * constraints were discarded and nothing in the answer said so, which is
+ * worse than a refusal: it looks like the question was addressed.
+ *
+ * So the same `requestedNotes` reading `suggestContextFor` uses runs here
+ * too, and its note filter applies *with* the price filter rather than
+ * instead of it. The third constraint, who it is for, has no data behind it
+ * at all (see `detectAudience` in requestPhrases.js for the counts) and is
+ * reported as unmet rather than quietly dropped.
  */
 export async function resolveBudgetQuery(question) {
   const index = await deliveredPriceIndex();
-  let maxGbp = null;
-  for (const re of BUDGET_AMOUNT_RES) {
-    const m = question.match(re);
-    if (m) { maxGbp = Number(m[1]); break; }
-  }
+  const budget = parseBudget(question);
+  const maxGbp = budget?.maxGbp ?? null;
   const tier = TIER_WORDS.find(([, re]) => re.test(question))?.[0] ?? null;
 
   // No amount and no "cheapest" framing is not a budget question this can
@@ -638,15 +655,46 @@ export async function resolveBudgetQuery(question) {
   const cheapestFraming = /\bcheap(est)?\b/i.test(question);
   if (maxGbp === null && !cheapestFraming) return null;
 
+  const scent = await requestedNotes(question);
+  // Lowercased note names in a Set, so the per-fragrance check below is a
+  // hash lookup rather than a scan of the request for each of ~10,000 rows.
+  // Same equality rule `fragrancesWithNote` uses in demo/data.ts: exact
+  // name, case-insensitive, any layer.
+  const wantedNotes = new Set(scent.notes.map((n) => n.toLowerCase()));
+  const notesOf = (frag) =>
+    frag.notes ? ['top', 'middle', 'base'].flatMap((l) => frag.notes[l] ?? []) : [];
+
   let matches = index;
   if (tier) matches = matches.filter((r) => r.frag.tier === tier);
   if (maxGbp !== null) matches = matches.filter((r) => r.deliveredPriceGbp <= maxGbp);
+  // How many survive price and tier *before* the scent filter, so an empty
+  // result can say what dropping the scent constraint would give back
+  // instead of reading as "the catalogue has nothing".
+  const pricedMatching = matches.length;
 
-  const items = [...matches]
-    .sort((a, b) =>
-      maxGbp === null
+  let scented = matches;
+  if (wantedNotes.size > 0) {
+    scented = matches
+      .map((r) => ({
+        ...r,
+        matched: [...new Set(notesOf(r.frag).filter((n) => wantedNotes.has(n.toLowerCase())))],
+      }))
+      .filter((r) => r.matched.length > 0);
+  }
+
+  const items = [...scented]
+    .sort((a, b) => {
+      // Most of the scent request satisfied first — the same ranking
+      // `suggestContextFor` uses and for the same reason: a bottle carrying
+      // four of the requested notes is a better answer than one carrying
+      // one of them, whatever their popularity.
+      if (wantedNotes.size > 0 && (a.matched?.length ?? 0) !== (b.matched?.length ?? 0)) {
+        return (b.matched?.length ?? 0) - (a.matched?.length ?? 0);
+      }
+      return maxGbp === null
         ? a.deliveredPriceGbp - b.deliveredPriceGbp
-        : b.frag.popularity - a.frag.popularity || a.deliveredPriceGbp - b.deliveredPriceGbp)
+        : b.frag.popularity - a.frag.popularity || a.deliveredPriceGbp - b.deliveredPriceGbp;
+    })
     .slice(0, 5)
     .map((r) => ({
       brand: r.frag.brand,
@@ -655,16 +703,117 @@ export async function resolveBudgetQuery(question) {
       sizeMl: r.frag.sizeMl,
       deliveredPriceGbp: r.deliveredPriceGbp,
       retailerName: r.retailerName,
+      matched: r.matched ?? [],
     }));
 
   return {
     kind: maxGbp === null ? 'cheapest' : 'under',
     maxGbp,
     tier,
-    totalMatching: matches.length,
+    totalMatching: scented.length,
+    pricedMatching,
     pricedTotal: index.length,
+    // Only fragrances a shop published notes for can ever pass a scent
+    // filter, so a count taken after one is out of that subset and not out
+    // of the catalogue. Reported rather than left implied.
+    withNotesTotal: wantedNotes.size > 0 ? index.filter((r) => r.frag.notes).length : null,
+    scent: {
+      families: scent.families,
+      literal: scent.literal,
+      unmatchedDescriptors: scent.unmatchedDescriptors,
+      any: wantedNotes.size > 0,
+    },
+    unsupported: unsupportedConstraintNotes(question),
     items,
   };
+}
+
+/**
+ * The constraints an answer was asked for and cannot honour, in the plain
+ * voice the rest of this file uses.
+ *
+ * Deliberately short and free of apology or correction. "A perfume for a
+ * smelly man" is a request for something long-lasting, put bluntly; the
+ * useful reply is that the data does not rank longevity, not a comment on
+ * how it was asked.
+ */
+export function unsupportedConstraintNotes(question) {
+  const notes = [];
+  if (detectAudience(question)) {
+    notes.push("who it is for — the catalogue doesn't record that");
+  }
+  if (detectPerformanceRequest(question)) {
+    notes.push("how strong something is or how long it lasts — the catalogue doesn't measure either");
+  }
+  return notes;
+}
+
+/**
+ * The suggestion questions that have nothing in the catalogue to stand on,
+ * answered here instead of by the council.
+ *
+ * Taste stays with the council, and the bar for taking a question off it is
+ * deliberately high — two conditions, both required:
+ *
+ *   1. The question grounds on nothing. No note, no descriptor the
+ *      catalogue carries, no resolvable reference fragrance, no budget.
+ *   2. It asks for one of the two things the catalogue provably does not
+ *      hold: who a fragrance is for, or how strong and long-lasting it is
+ *      (see `detectAudience` and `detectPerformanceRequest` in
+ *      requestPhrases.js for the measurements behind "provably").
+ *
+ * Condition 1 alone is not enough, and that is the point of splitting them.
+ * "Recommend me a summer fragrance" and "do you have anything nice" also
+ * ground on nothing, but nothing in the data *contradicts* them either —
+ * they are open taste questions, they are what the council is for, and the
+ * README says so. They keep going there.
+ *
+ * What is caught is the question whose central constraint the data cannot
+ * serve at all: the owner's own "what perfume you recommend for a smelly
+ * man", or "something for my girlfriend". Those used to reach the council
+ * with a SITE DATA block saying "NOTE MATCHED CANDIDATES: none requested"
+ * and nothing else — 28 models asked to write about fragrances with no
+ * fragrance data in front of them, held off naming one by prompt rule 1c
+ * alone. The answer at the end of that could only ever be a refusal, and a
+ * refusal is the one answer worth writing where no model can be talked out
+ * of it. This one says which part of the question the data cannot serve and
+ * offers the three things it genuinely can filter on. It names no
+ * fragrance, because it cannot.
+ */
+export async function resolveSuggestQuery(question) {
+  const request = await parseSuggestRequest(question);
+  const groundable = request.wanted.length > 0 || Boolean(request.reference) || Boolean(request.budget);
+  const unsupported = unsupportedConstraintNotes(question);
+  if (groundable || unsupported.length === 0) return null;
+
+  return {
+    kind: 'ungroundable',
+    referenceUnresolved: request.referenceUnresolved,
+    unmatchedDescriptors: request.unmatchedDescriptors,
+    unsupported,
+    descriptors: await offerableDescriptors(),
+  };
+}
+
+export function formatSuggestAnswer(result) {
+  const parts = [];
+  if (result.referenceUnresolved) {
+    parts.push(
+      `I can't pin down "${result.referenceUnresolved}" in the catalogue, so there are no notes of its to match against.`,
+    );
+  }
+  for (const note of result.unsupported) parts.push(`I can't filter by ${note}.`);
+  if (result.unmatchedDescriptors.length) {
+    parts.push(`Nothing on file under ${nameList(result.unmatchedDescriptors)} either.`);
+  }
+  if (parts.length === 0) {
+    parts.push("That doesn't give me enough to point at anything real.");
+  }
+  parts.push(
+    `What I can go on: a scent word — ${result.descriptors.join(', ')} — a delivered price ceiling ` +
+      'like "under £30", or the published notes of a fragrance you name. Any of those and I can give you actual listings.',
+  );
+  return parts.join(' ');
 }
 
 export function formatBudgetAnswer(result) {
@@ -672,24 +821,59 @@ export function formatBudgetAnswer(result) {
     `${i.brand} ${i.name} (${i.concentration}) ${i.sizeMl}ml — ${gbp(i.deliveredPriceGbp)} delivered from ${i.retailerName}.`;
   const tierWord = result.tier ? `${result.tier === 'mideast' ? 'Middle Eastern' : result.tier} ` : '';
 
+  // How the scent words were read, said out loud. Same rule as the council
+  // block: the notes are real catalogue notes and the bottles genuinely
+  // list them, but reading "sweet" as vanilla and tonka is this site's
+  // interpretation of an English word, and a reader is entitled to see it
+  // and disagree with it.
+  const scent = result.scent ?? { any: false, families: [], literal: [], unmatchedDescriptors: [] };
+  const descriptorWords = new Set(scent.families.map((f) => f.word.toLowerCase()));
+  const readingParts = [
+    ...scent.families.map(({ word, notes }) => `"${word}" as ${nameList(notes, 4)}`),
+    ...scent.literal.filter((n) => !descriptorWords.has(n.toLowerCase())),
+  ];
+  const reading = scent.any && readingParts.length ? ` Read ${readingParts.join(', ')}.` : '';
+  const unmatchedLine = scent.unmatchedDescriptors.length
+    ? ` No notes on file for ${nameList(scent.unmatchedDescriptors)}, so that part is not in the filter.`
+    : '';
+  const caveat = result.unsupported?.length ? ` Can't filter by ${nameList(result.unsupported)}.` : '';
+
   if (result.items.length === 0) {
+    // A scent filter that emptied a non-empty price list is a different
+    // fact from an empty price list, and saying which is which is the
+    // difference between a dead end and a next step.
+    if (scent.any && result.pricedMatching > 0) {
+      return (
+        `Nothing ${tierWord}with those notes on file comes in at ${gbp(result.maxGbp)} delivered. ` +
+        `${result.pricedMatching.toLocaleString('en-GB')} ${tierWord}bottles are under that without the scent filter, ` +
+        `and only ${result.withNotesTotal.toLocaleString('en-GB')} of the ${result.pricedTotal.toLocaleString('en-GB')} ` +
+        `priced entries have any notes published at all.${reading}${unmatchedLine}${caveat}`
+      );
+    }
     return (
       `Nothing ${tierWord}comes in at ${gbp(result.maxGbp)} delivered right now, out of the ` +
-      `${result.pricedTotal.toLocaleString('en-GB')} entries with a buyable, delivery-priced listing.`
+      `${result.pricedTotal.toLocaleString('en-GB')} entries with a buyable, delivery-priced listing.${caveat}`
     );
   }
+
+  const scentSource = scent.any
+    ? `\nMatched on notes the shops published; only ${result.withNotesTotal.toLocaleString('en-GB')} of the ` +
+      `${result.pricedTotal.toLocaleString('en-GB')} priced entries have notes on file.`
+    : '';
 
   if (result.kind === 'cheapest') {
     return (
-      `Cheapest ${tierWord}entries by delivered price:\n${result.items.map(line).join('\n')}\n` +
-      'Delivered prices, cheapest buyable listing per bottle.'
+      `Cheapest ${tierWord}entries by delivered price${scent.any ? ' with those notes on file' : ''}:\n` +
+      `${result.items.map(line).join('\n')}\n` +
+      `Delivered prices, cheapest buyable listing per bottle.${reading}${unmatchedLine}${caveat}${scentSource}`
     );
   }
 
+  const noun = scent.any ? 'bottles with those notes on file' : 'bottles';
   return (
-    `${result.totalMatching.toLocaleString('en-GB')} ${tierWord}bottles come in at ${gbp(result.maxGbp)} or under delivered. ` +
-    `The most widely stocked of them:\n${result.items.map(line).join('\n')}\n` +
-    'Delivered prices, cheapest buyable listing per bottle.'
+    `${result.totalMatching.toLocaleString('en-GB')} ${tierWord}${noun} come in at ${gbp(result.maxGbp)} or under delivered. ` +
+    `${scent.any ? 'The closest matches' : 'The most widely stocked of them'}:\n${result.items.map(line).join('\n')}\n` +
+    `Delivered prices, cheapest buyable listing per bottle.${reading}${unmatchedLine}${caveat}${scentSource}`
   );
 }
 
