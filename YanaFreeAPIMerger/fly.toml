@@ -61,7 +61,25 @@ swap_size_mb = 512
 [env]
   PORT = "8080"
   FREELLMAPI_BASE_URL = "https://yanny-freellmapi.fly.dev"
+  # The ceiling on a single agent call. Note what it is NOT: with the old
+  # fan-out — `Promise.allSettled` over all 28 models — it was also the
+  # ceiling on the whole question, because nothing could be sent until the
+  # last call settled. It no longer is; the two knobs below bound the wait.
   AGENT_TIMEOUT_SECONDS = "25"
+  # How the council decides it has waited long enough. See the block comment
+  # on COUNCIL_DEADLINE_DEFAULT_MS in server/council.js for what each one
+  # trades away — in short, the winner becomes the best of however many
+  # answered in time rather than the best of 28, which costs phrasing on the
+  # two intents that reach the council at all and cannot cost grounding.
+  #
+  # Both values are judgements, not measurements: nothing in this repo can
+  # reach the router to time a real model. Every question now logs a
+  # `[council]` line with its own per-model latencies, so `flyctl logs` is
+  # where these should be set from once there is a week of real traffic to
+  # read. Raise the quorum if answers read thin; lower the deadline if they
+  # read fine and the wait is still long.
+  COUNCIL_QUORUM = "8"
+  COUNCIL_DEADLINE_MS = "8000"
 
 [http_service]
   # Must match PORT above and ENV PORT in the Dockerfile.
@@ -79,10 +97,47 @@ swap_size_mb = 512
   # already paid for, where a full stop/start would pay it again on the
   # next reader's question.
   auto_stop_machines = "suspend"
-  # 0 lets the machine idle down when nobody is chatting. Set this to 1 if
-  # the widget's 6-second health-check timeout (demo/virtualYanny.ts) ever
-  # proves too tight on the first request after an idle period — that is
-  # the only symptom this would fix, and it costs a machine running 24/7.
+  # 0 lets the machine idle down when nobody is chatting.
+  #
+  # ── "it shouldn't go to sleep that fast", costed ────────────────────────
+  # Reported by the site's owner and deliberately NOT acted on here: this
+  # line is the only lever in this file for it, and moving it spends money,
+  # which is not a decision for whoever happens to be editing the config.
+  # What is true, and what the options are:
+  #
+  # This file configures no idle timeout, because there is no key here for
+  # one. `auto_stop_machines` and `min_machines_running` are the whole of
+  # what is set; how long Fly's proxy leaves an idle machine before
+  # suspending it is Fly's own behaviour, not something stated anywhere in
+  # this repo. Nobody has been able to check Fly's documentation from the
+  # environments this project is edited in (fly.io is blocked at the egress
+  # proxy there, as is *.fly.dev), so "is there a longer-idle-period setting"
+  # is genuinely open and worth one look at
+  # https://fly.io/docs/reference/configuration/ before assuming there is
+  # not. If such a key exists it is the cheapest of the options below by a
+  # wide margin: a longer nap is free, a machine that never naps is not.
+  #
+  #   1. Leave this at 0 and warm it earlier. Already done, and free: the
+  #      widget now pings /api/health the moment the pointer reaches the
+  #      chat launcher, so the resume overlaps with the reader deciding to
+  #      click rather than following it (demo/virtualYanny.ts,
+  #      warmVirtualYanny). This does not make anything faster — it moves an
+  #      unavoidable wait behind something the reader is already doing.
+  #   2. min_machines_running = 1. One shared-cpu-1x / 512 MB machine
+  #      running 24/7 in lhr, billed continuously instead of per resume.
+  #      The rate is on the owner's own Fly plan and is not written here
+  #      rather than guessed at; `flyctl` and the Fly dashboard state it
+  #      exactly. This removes the resume from the first question of the day
+  #      entirely. It does nothing at all for the rest of the latency, which
+  #      on a council question is the free-tier router, not this machine.
+  #   3. Both. If option 2 is taken, option 1 costs nothing extra and still
+  #      helps on the far more common case of a machine that is up but cold
+  #      in some other sense.
+  #
+  # The recommendation is 1 alone for now, and to revisit 2 once the
+  # `[council]` log lines (see [env] above) show how much of a real
+  # question's wall clock is actually the resume as opposed to the router.
+  # Spending money to remove a wait nobody has measured is the wrong order.
   min_machines_running = 0
 
   # Liveness only, and deliberately so. /api/health always answers HTTP 200
