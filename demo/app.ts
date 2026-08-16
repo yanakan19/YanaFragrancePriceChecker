@@ -40,6 +40,7 @@ import {
   type DemoFragrance, type NoteLayer,
 } from './data.js';
 import { productArt, type ArtSize } from './photo.js';
+import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './gender.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
@@ -75,7 +76,7 @@ type ListSort = 'az' | 'za' | 'price-low' | 'price-high';
 /** One of the price bands offered under the Price facet. */
 type PriceBand = '0-20' | '20-30' | '30-50' | '50-80' | '80-150' | '150-300' | '300+';
 /** Every facet a fragrance list can be narrowed by. Matches the state.facet* fields below 1:1. */
-type FacetGroup = 'volume' | 'concentration' | 'priceBand' | 'tier' | 'onSale' | 'inStock';
+type FacetGroup = 'volume' | 'concentration' | 'gender' | 'priceBand' | 'tier' | 'onSale' | 'inStock';
 
 const MODE_KEY = 'pricesniffs.display';
 const LAYOUT_KEY = 'pricesniffs.layout';
@@ -141,6 +142,7 @@ const state = {
   facetsOpen: false,
   facetVolume: new Set<number>(),
   facetConcentration: new Set<string>(),
+  facetGender: new Set<GenderReading>(),
   facetPriceBand: new Set<PriceBand>(),
   facetTier: new Set<RetailerTier>(),
   facetOnSale: false,
@@ -209,6 +211,7 @@ function clearFacets(): void {
   state.facetsOpen = false;
   state.facetVolume.clear();
   state.facetConcentration.clear();
+  state.facetGender.clear();
   state.facetPriceBand.clear();
   state.facetTier.clear();
   state.facetOnSale = false;
@@ -219,6 +222,7 @@ function activeFacetCount(): number {
   return (
     state.facetVolume.size +
     state.facetConcentration.size +
+    state.facetGender.size +
     state.facetPriceBand.size +
     state.facetTier.size +
     (state.facetOnSale ? 1 : 0) +
@@ -348,6 +352,27 @@ function priceBandFor(deliveredPriceGbp: number | null): PriceBand | null {
 }
 
 /**
+ * Who a fragrance is sold to, as read off its own title — see demo/gender.ts
+ * for what counts as evidence and for why silence gets its own reading rather
+ * than being folded into "unisex".
+ *
+ * Cached per product id because it is a handful of regexes and facetGroups
+ * asks the question of every candidate once per group on every render. The
+ * inputs are a build-time constant, so an entry can never go stale within a
+ * session.
+ */
+const genderCache = new Map<string, GenderReading>();
+function genderOf(f: DemoFragrance): GenderReading {
+  const cached = genderCache.get(f.id);
+  if (cached) return cached;
+  // The same string the card prints, so a reader can check the reading
+  // against what is on screen.
+  const reading = readGender(`${f.brand} ${f.name} ${f.concentration}`);
+  genderCache.set(f.id, reading);
+  return reading;
+}
+
+/**
  * Whether one fragrance survives every active facet except `exclude`. Passing
  * a group's own id when computing that same group's option counts is what
  * makes ticking a second option within a group additive rather than
@@ -356,6 +381,7 @@ function priceBandFor(deliveredPriceGbp: number | null): PriceBand | null {
 function passesFacets(f: DemoFragrance, exclude: FacetGroup | null): boolean {
   if (exclude !== 'volume' && state.facetVolume.size && !state.facetVolume.has(f.sizeMl)) return false;
   if (exclude !== 'concentration' && state.facetConcentration.size && !state.facetConcentration.has(f.concentration)) return false;
+  if (exclude !== 'gender' && state.facetGender.size && !state.facetGender.has(genderOf(f))) return false;
   if (exclude !== 'tier' && state.facetTier.size && !state.facetTier.has(f.tier)) return false;
 
   if (exclude !== 'priceBand' && state.facetPriceBand.size) {
@@ -391,6 +417,7 @@ interface FacetOption {
 function facetGroups(list: DemoFragrance[]) {
   const volume = new Map<number, number>();
   const concentration = new Map<string, number>();
+  const gender = new Map<GenderReading, number>();
   const priceBand = new Map<PriceBand, number>();
   const tier = new Map<RetailerTier, number>();
   let onSale = 0;
@@ -401,6 +428,10 @@ function facetGroups(list: DemoFragrance[]) {
     if (passesFacets(f, 'volume')) volume.set(f.sizeMl, (volume.get(f.sizeMl) ?? 0) + 1);
     if (passesFacets(f, 'concentration')) {
       concentration.set(f.concentration, (concentration.get(f.concentration) ?? 0) + 1);
+    }
+    if (passesFacets(f, 'gender')) {
+      const reading = genderOf(f);
+      gender.set(reading, (gender.get(reading) ?? 0) + 1);
     }
     if (passesFacets(f, 'tier')) tier.set(f.tier, (tier.get(f.tier) ?? 0) + 1);
     if (passesFacets(f, 'priceBand')) {
@@ -423,6 +454,13 @@ function facetGroups(list: DemoFragrance[]) {
   return {
     volume: toOptions(volume, (v) => `${v}ml`),
     concentration: toOptions(concentration, (v) => shortConcentration(v)),
+    // Fixed order rather than alphabetical or by count, so "Not stated" is
+    // always the last option and the three stated readings always sit in the
+    // same place. Same "only offer what would return something" rule as every
+    // other group: a reading nobody in this list has is left out.
+    gender: GENDER_ORDER.filter((g) => (gender.get(g) ?? 0) > 0).map((g) => ({
+      value: g, label: GENDER_LABEL[g], count: gender.get(g)!,
+    })),
     priceBand: PRICE_BANDS.filter((b) => (priceBand.get(b.id) ?? 0) > 0).map((b) => ({
       value: b.id, label: b.label, count: priceBand.get(b.id)!,
     })),
@@ -434,10 +472,15 @@ function facetGroups(list: DemoFragrance[]) {
 
 /** A single toggle pill within a facet group — a button, not a native
  *  checkbox, so it fits the rest of the app's delegated-click-handler
- *  pattern rather than needing a second kind of listener just for this. */
-function facetPill(group: FacetGroup, value: string, label: string, count: number, active: boolean): string {
-  return `<button type="button" class="facet-pill${active ? ' is-active' : ''}" data-facet-group="${group}" data-facet-value="${esc(value)}" aria-pressed="${active}">
-    ${esc(label)} <span class="facet-count t-count">${count}</span>
+ *  pattern rather than needing a second kind of listener just for this.
+ *
+ *  `ico` is optional and only the gender group passes one. Every mark from
+ *  icon() is aria-hidden, so the button's accessible name stays the label and
+ *  the count, word for word what is on screen: the mark is something extra
+ *  for a sighted reader, never the thing carrying the meaning. */
+function facetPill(group: FacetGroup, value: string, label: string, count: number, active: boolean, ico = ''): string {
+  return `<button type="button" class="facet-pill${ico ? ' has-ico' : ''}${active ? ' is-active' : ''}" data-facet-group="${group}" data-facet-value="${esc(value)}" aria-pressed="${active}">
+    ${ico}<span>${esc(label)}</span> <span class="facet-count t-count">${count}</span>
   </button>`;
 }
 
@@ -459,6 +502,34 @@ function facetsBlock(list: DemoFragrance[]): string {
     </fieldset>`;
   };
 
+  /**
+   * The gender group, which is the same pill group as every other one plus a
+   * sentence, because without the sentence it would mislead.
+   *
+   * Nothing in this project's data says who a fragrance is for. The reading
+   * comes off wording in the title and most titles have none, so the honest
+   * shape of this filter is a large "Not stated" pile beside three small
+   * stated ones. A reader who ticks Women's and sees a few hundred results
+   * out of ten thousand should be told why on the spot, rather than left to
+   * conclude the catalogue is thin or the filter is broken. The counts are
+   * the live ones for this list, so the sentence is arithmetic a reader can
+   * check against the pills right above it.
+   */
+  const genderGroup = (): string => {
+    if (g.gender.length < 2) return '';
+    const total = g.gender.reduce((n, o) => n + o.count, 0);
+    const stated = g.gender.filter((o) => o.value !== 'notStated').reduce((n, o) => n + o.count, 0);
+    return `<fieldset class="facet-group">
+      <legend>Gender</legend>
+      <div class="facet-pills">${g.gender
+        .map((o) => facetPill('gender', o.value, o.label, o.count, state.facetGender.has(o.value as GenderReading), GENDER_ICON[o.value as GenderReading]))
+        .join('')}</div>
+      <p class="facet-note t-caption">Read from wording in the title, such as Pour Homme or For Her.
+        ${stated.toLocaleString('en-GB')} of ${total.toLocaleString('en-GB')} here say who they are for.
+        The rest do not say, and not stated is not the same as unisex.</p>
+    </fieldset>`;
+  };
+
   const onSalePill = g.onSale > 0
     ? `<fieldset class="facet-group"><legend>Offers</legend><div class="facet-pills">
          ${facetPill('onSale', '1', 'On Sale', g.onSale, state.facetOnSale)}
@@ -472,6 +543,7 @@ function facetsBlock(list: DemoFragrance[]): string {
 
   const panel = `${group('Volume', 'volume', g.volume, (v) => state.facetVolume.has(Number(v)))}
     ${group('Concentration', 'concentration', g.concentration, (v) => state.facetConcentration.has(v))}
+    ${genderGroup()}
     ${group('Price', 'priceBand', g.priceBand, (v) => state.facetPriceBand.has(v as PriceBand))}
     ${group('Type', 'tier', g.tier, (v) => state.facetTier.has(v as RetailerTier))}
     ${onSalePill}
@@ -647,8 +719,8 @@ const shortConcentration = (c: string): string => CONCENTRATION_ABBR[c] ?? c;
    Line drawn, single weight, taking their colour from the surrounding text so
    they read as quiet controls rather than decoration. */
 
-const icon = (paths: string) =>
-  `<svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">${paths}</svg>`;
+const icon = (paths: string, extraClass = '') =>
+  `<svg class="ico${extraClass ? ` ${extraClass}` : ''}" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">${paths}</svg>`;
 
 const ICON_FILTER = icon('<path d="M3.5 5h17l-6.6 7.8V20l-3.8-2.2v-5L3.5 5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>');
 const ICON_SORT = icon('<path d="M4 7h16M6.5 12h11M10 17h4" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>');
@@ -678,6 +750,60 @@ const ICON_CLOSE = icon('<path d="M6 6l12 12M18 6 6 18" stroke="currentColor" st
    theme's — and stays correct under every value of data-mode, including the
    default "match my device". */
 const ICON_STOP = icon('<rect x="7" y="7" width="10" height="10" rx="1.6" fill="currentColor"/>');
+
+/* ── the gender marks ────────────────────────────────────────────────────────
+   Venus and Mars, drawn to this set's own rules: one 24 unit box, one 1.7px
+   line weight, round joins, no fills. Every one of them is inline SVG in the
+   bundle, like everything else here, so the page still makes no external
+   request for a picture of anything.
+
+   Colour is the one place these differ from the rest of the set. The other
+   icons take currentColor and are done; these carry pink and blue, which is
+   what was asked for and is also the convention a reader already knows. So
+   the coloured strokes are classed rather than hardcoded, and the class picks
+   up --gender-women / --gender-men from template.html, where both are defined
+   in all five palette blocks and both flip to their --on variant on a
+   selected pill, whose ground inverts to --ink. Measured contrast for every
+   one of those eight combinations is written out beside the tokens.
+
+   Colour is never the only signal: every pill prints the word too, so the
+   marks are decoration on a label rather than the label itself.
+
+   Unisex is the two glyphs interlocked into one: a single ring carrying both
+   the Venus cross below it and the Mars arrow off its shoulder, each stroke
+   in its own colour. Not stated is deliberately not a gender mark at all —
+   the bare ring both symbols share, drawn broken, in the pill's own ink with
+   no colour of its own. It says "nobody filled this in", which is exactly
+   what it means, and it could not be mistaken for the unisex glyph beside
+   it. */
+const ICON_GENDER_WOMEN = icon(
+  '<circle cx="12" cy="9" r="5.2" stroke-width="1.7" class="g-women"/>' +
+  '<path d="M12 14.2V21.4M8.8 18.4h6.4" stroke-width="1.7" stroke-linecap="round" class="g-women"/>',
+  'gender-ico',
+);
+const ICON_GENDER_MEN = icon(
+  '<circle cx="10" cy="14" r="5.2" stroke-width="1.7" class="g-men"/>' +
+  '<path d="m13.9 10.2 5.7-5.7M14.6 4.5h5v5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="g-men"/>',
+  'gender-ico',
+);
+const ICON_GENDER_UNISEX = icon(
+  '<circle cx="11" cy="12.6" r="5" stroke="currentColor" stroke-width="1.7"/>' +
+  '<path d="M11 17.6v4.2M8.6 19.9h4.8" stroke-width="1.7" stroke-linecap="round" class="g-women"/>' +
+  '<path d="m14.6 9 4.9-4.9M14.8 4.1h4.7v4.7" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="g-men"/>',
+  'gender-ico',
+);
+const ICON_GENDER_UNSTATED = icon(
+  '<circle cx="12" cy="12" r="6.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-dasharray="2.4 3"/>',
+  'gender-ico',
+);
+
+/** Which mark goes with which reading. Ordering lives in GENDER_ORDER. */
+const GENDER_ICON: Record<GenderReading, string> = {
+  womens: ICON_GENDER_WOMEN,
+  mens: ICON_GENDER_MEN,
+  unisex: ICON_GENDER_UNISEX,
+  notStated: ICON_GENDER_UNSTATED,
+};
 
 /** A labelled dropdown with its icon, used for every sort and filter control. */
 function control(id: string, label: string, ico: string, options: { value: string; label: string }[], current: string): string {
@@ -3875,6 +4001,7 @@ function init(): void {
       else if (group === 'inStock') state.facetInStock = !state.facetInStock;
       else if (group === 'volume') toggleInSet(state.facetVolume, Number(value));
       else if (group === 'concentration') toggleInSet(state.facetConcentration, value);
+      else if (group === 'gender') toggleInSet(state.facetGender, value as GenderReading);
       else if (group === 'priceBand') toggleInSet(state.facetPriceBand, value as PriceBand);
       else if (group === 'tier') toggleInSet(state.facetTier, value as RetailerTier);
       render();
