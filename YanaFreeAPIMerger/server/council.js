@@ -20,6 +20,8 @@ import {
   formatBrandAnswer,
   resolveMetaQuery,
   formatMetaAnswer,
+  resolveSuggestQuery,
+  formatSuggestAnswer,
 } from './lookups.js';
 
 /**
@@ -159,6 +161,15 @@ const DETERMINISTIC_INTENTS = {
   compare: { resolve: resolveCompareQuery, format: (_q, result) => formatCompareAnswer(result) },
   brand: { resolve: resolveBrandQuery, format: (_q, result) => formatBrandAnswer(result) },
   meta: { resolve: resolveMetaQuery, format: (_q, result) => formatMetaAnswer(result) },
+  // The odd one out, and only barely. `resolveSuggestQuery` returns `null`
+  // for every suggestion question the catalogue can ground — a note, a
+  // descriptor, a named reference fragrance, a budget — so taste still
+  // reaches the council exactly as before. It answers only the question
+  // that named nothing matchable at all ("what perfume you recommend for a
+  // smelly man"), where the council's own answer could only ever be a
+  // refusal and 28 models were being asked to write it with no fragrance
+  // data in front of them. See its doc comment in lookups.js.
+  suggest: { resolve: resolveSuggestQuery, format: (_q, result) => formatSuggestAnswer(result) },
 };
 
 /**
