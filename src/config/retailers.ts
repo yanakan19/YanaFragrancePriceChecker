@@ -474,6 +474,16 @@ export const RETAILERS: readonly Retailer[] = [
     // the snapshot would grow severalfold and the harvest's time budget would
     // shift with it. Worth doing deliberately, with a blast-radius diff, not
     // as a side effect of a price-accuracy fix.
+    //
+    // MARKETS. Checked ahead of that switch, since a Shopify shop that quotes
+    // a CI runner a foreign market's list is how Escentual came to publish
+    // dollars as pounds. Currency probe, run 31950521787 job 95173173389,
+    // 2026-08-16T13:42Z, commit a336322: the plain origin quotes a US GitHub
+    // runner GBP, settles GBP, at rate 1, and ?country=GB, both localisation
+    // cookies and Accept-Language en-GB return the same currency and the same
+    // three prices (40.00, 9.99, 40.00). Nothing here is market-dependent, so
+    // turning the flag on would not import that problem. /en-gb, /gb, /uk and
+    // /en-uk 404.
     currency: 'GBP',
     shipping: {
       standardGbp: 4.95,
@@ -784,6 +794,20 @@ export const RETAILERS: readonly Retailer[] = [
     //
     // See src/catalogue/feedPriceRepair.ts for what this flag does and
     // src/types/retailer.ts for what has to be true before setting it.
+    //
+    // MARKETS. Not exposed to what caught Escentual, which matters more here
+    // than for most: storefrontIsPriceAuthority means this shop's own
+    // /products.json overwrites its feed's prices, and scripts/storefront-
+    // reprice.ts reads the plain origin without resolving a UK market at all.
+    // Currency probe, run 31950525824 job 95173317905, 2026-08-16T13:42Z,
+    // commit a336322: the origin quotes a US GitHub runner GBP at rate 1, and
+    // ?country=GB, both cookies and Accept-Language en-GB return the same
+    // currency and the same prices (23.49, 14.29, 25.99). So the reprice reads
+    // the same list a UK shopper sees. Were that ever to change, that script
+    // refuses a non-sterling storefront outright rather than repricing from
+    // it, which fails safe — but it would stop repricing, not start resolving
+    // a market, and that is the thing to fix if this shop ever goes
+    // multi-market.
     shopifyStorefront: true,
     storefrontIsPriceAuthority: true,
     currency: 'GBP',
@@ -1407,6 +1431,16 @@ export const RETAILERS: readonly Retailer[] = [
     // note below) but confirmed enough by that convention alone to be worth
     // trying first: src/catalogue/shopifyProductsCrawl.ts's /products.json
     // walk, ahead of the generic sitemap route, once this retailer is enabled.
+    //
+    // MARKETS. Not exposed to what caught Escentual. Currency probe, run
+    // 31950479975 job 95173070180, 2026-08-16T13:40Z, commit a336322: the
+    // plain origin quotes a US GitHub runner GBP, settles GBP, at rate 1, and
+    // ?country=GB, both localisation cookies and Accept-Language en-GB all
+    // return the same currency and the same three prices (41.99, 41.99,
+    // 35.00). No market serves this shop's storefront anything but sterling
+    // by any route tried, so a runner-read price is the same price a shopper
+    // in the UK sees. /en-gb, /gb, /uk and /en-uk 404, which is expected of a
+    // single-market store.
     shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
@@ -1707,6 +1741,36 @@ export const RETAILERS: readonly Retailer[] = [
     // without carrying that route across would have sent it down the generic
     // sitemap walk instead — 70 page fetches and roughly three minutes to
     // rediscover what one request already answers.
+    //
+    // MARKETS. This shop does to a US runner exactly what Escentual did, and
+    // the only reason it is not a second Escentual is that its two lists carry
+    // the same numbers. Currency probe, run 31950486539 job 95173126194 and
+    // run 31950603105 job 95173370315, 2026-08-16T13:41Z and 13:43Z, commit
+    // a336322:
+    //
+    //   origin                   quotes USD  settles GBP  rate 1.3531
+    //   ?country=GB              quotes GBP  settles GBP  rate 1
+    //   localization=GB cookie   quotes USD  settles GBP  rate 1.3531
+    //   cart_currency=GBP cookie quotes USD  settles GBP  rate 1.3531
+    //   Accept-Language en-GB    quotes USD  settles GBP  rate 1.3531
+    //   /en-gb /gb /uk /en-uk    404
+    //
+    // Only `?country=GB` reaches the sterling list — the cookie a country
+    // selector sets does not, which is where this differs from Escentual.
+    // Across the 16 priced rows of a 25-product page the two lists are
+    // numerically identical (55.00, 135.00, 130.00, 135.00, 40.00, 30.00,
+    // 35.00, 35.00, 80.00 x5, 360.00, 230.00, 300.00), so no conversion is
+    // applied between the markets, and the figures this repo holds — read back
+    // on 2026-08-16 and equal to that GB list product for product — are sound
+    // as pounds. Nothing was converted to reach that, and nothing here rests
+    // on the rate.
+    //
+    // So it stays out of CURRENCY_UNCONFIRMED: the shop was measured
+    // publishing a sterling list and our stored figures match it. What it does
+    // rest on is crawlViaShopifyProducts continuing to resolve the GB market.
+    // The day escentric.com prices its US market separately, a run that read
+    // the origin would publish dollars as pounds and nothing in the numbers
+    // would look wrong.
     shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
