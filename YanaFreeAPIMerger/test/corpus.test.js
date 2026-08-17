@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { runCouncil } from '../server/council.js';
 import { classifyIntent } from '../server/intent.js';
-import { loadSite, buildSiteDataBlock, suggestContextFor } from '../server/siteData.js';
+import { loadSite, buildSiteDataBlock, productLabel, suggestContextFor } from '../server/siteData.js';
 import { parseBudget } from '../server/requestPhrases.js';
 
 /**
@@ -67,10 +67,14 @@ for (const d of site.data.DEALS) {
 
 const retailerNames = [...new Set(site.retailers.RETAILERS.map((r) => r.name))];
 // Two shapes of product line exist: budget/brand lines carry the
-// concentration in parentheses, deals lines are brand+name only.
+// concentration in parentheses, deals lines are brand+name only. The
+// parenthesised form is built with the backend's own `productLabel` rather
+// than by re-interpolating `f.concentration`: 208 products carry the literal
+// string "Not stated" there, which is the absence of a strength rather than
+// one, and `productLabel` is the single place that decides how that reads.
 const productTitles = new Set(
   site.data.DEMO_FRAGRANCES.flatMap((f) => [
-    `${f.brand} ${f.name} (${f.concentration})`.toLowerCase(),
+    productLabel(f).toLowerCase(),
     `${f.brand} ${f.name}`.toLowerCase(),
   ]),
 );

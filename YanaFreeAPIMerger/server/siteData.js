@@ -105,6 +105,19 @@ const SITE_MODULES = {
   brandSites: 'demo/brandSites.js',
   legal: 'demo/legal.js',
   retailers: 'src/config/retailers.js',
+  // The site's own reading of who a fragrance is sold to, imported rather
+  // than reimplemented. There is no gender field in the catalogue; the
+  // filter panel on pricesniffs.space reads it off the product title with
+  // `readGender`, and this backend has to give the *same* reading or the
+  // chatbot and the panel will disagree about a bottle in front of a
+  // reader. A second copy of those regexes here would drift on the first
+  // exclusion anyone adds ("Portrait Of A Lady" is not a women's fragrance —
+  // see demo/gender.ts), so there is one copy and both consumers import it.
+  // Nothing about the demo/ -> YanaFreeAPIMerger/ boundary makes this
+  // awkward: this file already imports six other `demo/*.ts` and `src/*.ts`
+  // modules through tsx, and the Dockerfile already does `COPY demo/*.ts`,
+  // so gender.ts arrives in the image with the rest of them.
+  gender: 'demo/gender.js',
 };
 
 /**
@@ -256,6 +269,43 @@ const QUERY_STOPWORDS = new Set([
 ]);
 
 const CONCENTRATION_ABBR = { 'eau de parfum': 'edp', 'eau de toilette': 'edt', 'eau de cologne': 'edc' };
+
+/* ── "Not stated" is not a concentration ───────────────────────────────── */
+
+/**
+ * A concentration as it may be printed, or null when no shop stated one.
+ *
+ * `concentration` is a required string on every catalogue entry, so there is
+ * no empty slot for "the shop did not say" and the harvest fills it with the
+ * literal string "Not stated" instead — 208 of the 12,666 products as
+ * measured with a count over DEMO_FRAGRANCES. That value is a statement
+ * about the *listing*, not a strength of perfume oil in alcohol, and it used
+ * to be interpolated into answers in exactly the slot every real strength
+ * occupies:
+ *
+ *   Sol de Janeiro Cheirosa '59 Mist (Not stated), 240ml. Cheapest right
+ *   now: £34.40 delivered from Perfume Click.
+ *
+ * which reads as a fourth concentration alongside Eau de Parfum and Extrait
+ * de Parfum rather than as the absence of one. Every label in this backend
+ * goes through here so that absence is spelled out instead.
+ */
+export function concentrationLabel(concentration) {
+  const c = String(concentration ?? '').trim();
+  return c && !/^not stated$/i.test(c) ? c : null;
+}
+
+/**
+ * "Brand Name (Eau de Parfum)", or "Brand Name (concentration not stated)".
+ *
+ * Deliberately explicit rather than simply dropping the bracket: a reader
+ * comparing two lines wants to know which of them the shop actually graded,
+ * and a silently missing parenthetical looks like a formatting bug.
+ */
+export function productLabel(f) {
+  const c = concentrationLabel(f.concentration);
+  return `${f.brand} ${f.name} (${c ?? 'concentration not stated'})`;
+}
 
 /**
  * Extra filler to strip when resolving a *named product* out of a question
@@ -628,7 +678,8 @@ async function priceContextFor(question) {
   if (!best) {
     return (
       `PRICE MATCH (${matchConfidence}% confidence): ${fragrance.brand} ${fragrance.name}, ` +
-      `${fragrance.concentration}, ${fragrance.sizeMl}ml. Currently out of stock everywhere this site tracks.`
+      `${concentrationLabel(fragrance.concentration) ?? 'concentration not stated'}, ` +
+      `${fragrance.sizeMl}ml. Currently out of stock everywhere this site tracks.`
     );
   }
 
@@ -649,7 +700,8 @@ async function priceContextFor(question) {
 
   return (
     `PRICE MATCH (${matchConfidence}% confidence): ${fragrance.brand} ${fragrance.name}, ` +
-    `${fragrance.concentration}, ${fragrance.sizeMl}ml. Cheapest right now: ${gbp(best.deliveredPriceGbp)} ` +
+    `${concentrationLabel(fragrance.concentration) ?? 'concentration not stated'}, ` +
+    `${fragrance.sizeMl}ml. Cheapest right now: ${gbp(best.deliveredPriceGbp)} ` +
     `delivered, from ${best.retailer.name}. Stocked by ${rows.filter((r) => r.isPurchasable).length} shop(s) ` +
     `this site tracks in total.${unstatedNote}`
   );
@@ -953,7 +1005,7 @@ export function formatPriceAnswer(question, result) {
   }
 
   if (result.status === 'ambiguous') {
-    const names = result.candidates.map((f) => `${f.brand} ${f.name} (${f.concentration})`);
+    const names = result.candidates.map((f) => productLabel(f));
     // matchConfidence is deliberately not printed here. It is a matcher
     // score, and on this branch it is a score for the *set* — "100%
     // confidence" beside a list of eight different perfumes reads as a
@@ -980,14 +1032,14 @@ export function formatPriceAnswer(question, result) {
     // reader to arbitrate a score they cannot see the basis for. Say the
     // uncertainty in words and let them correct it.
     return (
-      `The closest I can find is ${result.brand} ${result.name} ` +
-      `(${result.concentration}), though I'm not certain that's the one. ` +
+      `The closest I can find is ${productLabel(result)}, ` +
+      `though I'm not certain that's the one. ` +
       `Is that what you meant? If not, try the exact brand and product name.`
     );
   }
 
   const { brand, name, concentration, variants } = result;
-  const label = `${brand} ${name} (${concentration})`;
+  const label = productLabel({ brand, name, concentration });
 
   // Checked before the single-variant shortcut below, deliberately: a
   // question that names a size this product does NOT carry must say so even
@@ -1094,7 +1146,7 @@ export async function parseSuggestRequest(question) {
         }
       }
       reference = {
-        label: `${anchor.brand} ${anchor.name} (${anchor.concentration})`,
+        label: productLabel(anchor),
         key: groupKeyFor(anchor),
         brandName: `${anchor.brand}|${anchor.name}`.toLowerCase(),
         notes: [...notes],
@@ -1309,7 +1361,7 @@ export async function suggestContextFor(question) {
   }
 
   const lines = candidates.map(({ frag, notes, matched }) =>
-    `${frag.brand} ${frag.name} (${frag.concentration}) — shares: ${matched.join(', ')} — notes on file: ${
+    `${productLabel(frag)} — shares: ${matched.join(', ')} — notes on file: ${
       notes.join(', ') || 'none published'
     }`,
   );

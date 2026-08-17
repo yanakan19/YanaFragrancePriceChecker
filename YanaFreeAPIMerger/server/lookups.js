@@ -1,5 +1,7 @@
 import {
+  concentrationLabel,
   loadSite,
+  productLabel,
   resolveProductQuery,
   requestedNotes,
   parseSuggestRequest,
@@ -83,7 +85,7 @@ function nameList(names, max = 4) {
  */
 export function formatIdentityRefusal(result, subject) {
   if (result.status === 'ambiguous') {
-    const names = result.candidates.map((f) => `${f.brand} ${f.name} (${f.concentration})`);
+    const names = result.candidates.map((f) => productLabel(f));
     // See formatPriceAnswer's own note on `exact`: a tie on a complete match
     // and a tie on a partial one are different facts and get different
     // words. Saying "a few products match" about a partial tie overstates
@@ -95,7 +97,7 @@ export function formatIdentityRefusal(result, subject) {
   }
   if (result.status === 'low_confidence') {
     return (
-      `The closest I can find is ${result.brand} ${result.name} (${result.concentration}), ` +
+      `The closest I can find is ${productLabel(result)}, ` +
       `though I'm not certain that's the one, so I'd rather not state ${subject} for it. ` +
       `Is that what you meant? If not, try the exact brand and product name.`
     );
@@ -195,7 +197,7 @@ export async function resolveAvailabilityQuery(question) {
 export function formatAvailabilityAnswer(result) {
   if (result.status !== 'matched') return formatIdentityRefusal(result, 'stock');
 
-  const label = `${result.brand} ${result.name} (${result.concentration})`;
+  const label = productLabel(result);
   const lines = result.sizes.map((s) => {
     const parts = [];
     if (s.inStock.length) parts.push(`in stock at ${nameList(s.inStock)}`);
@@ -268,7 +270,7 @@ export async function resolveNotesQuery(question) {
 export function formatNotesAnswer(result) {
   if (result.status !== 'matched') return formatIdentityRefusal(result, 'its notes');
 
-  const label = `${result.brand} ${result.name} (${result.concentration})`;
+  const label = productLabel(result);
   if (!result.hasNotes) {
     return (
       `No notes are on file for ${label}. This site only stores notes a retailer actually ` +
@@ -325,7 +327,7 @@ export async function resolveSizeQuery(question) {
 export function formatSizeAnswer(result) {
   if (result.status !== 'matched') return formatIdentityRefusal(result, 'its sizes');
 
-  const label = `${result.brand} ${result.name} (${result.concentration})`;
+  const label = productLabel(result);
   const priceOf = (s) => {
     if (s.best?.deliveredPriceGbp != null) {
       return `${gbp(s.best.deliveredPriceGbp)} delivered from ${s.best.retailerName}`;
@@ -604,7 +606,7 @@ export function formatDealsAnswer(result) {
     (d.retailerName ? ` at ${d.retailerName}` : '') + '.';
 
   if (result.kind === 'product') {
-    const label = `${result.brand} ${result.name} (${result.concentration})`;
+    const label = productLabel(result);
     if (result.deals.length === 0) {
       return `${label} is not in the current deals list (built ${result.generatedOn}). That does not mean it is full price everywhere — ask me for its price and I'll give the cheapest delivered.`;
     }
@@ -888,7 +890,7 @@ export function formatSuggestAnswer(result) {
 
 export function formatBudgetAnswer(result) {
   const line = (i) =>
-    `${i.brand} ${i.name} (${i.concentration}) ${i.sizeMl}ml — ${gbp(i.deliveredPriceGbp)} delivered from ${i.retailerName}.`;
+    `${productLabel(i)} ${i.sizeMl}ml — ${gbp(i.deliveredPriceGbp)} delivered from ${i.retailerName}.`;
   const tierWord = result.tier ? `${result.tier === 'mideast' ? 'Middle Eastern' : result.tier} ` : '';
 
   // How the scent words were read, said out loud. Same rule as the council
@@ -1003,7 +1005,7 @@ export async function resolveCompareQuery(question) {
 }
 
 export function formatCompareAnswer(result) {
-  const label = (s) => `${s.brand} ${s.name} (${s.concentration})`;
+  const label = (s) => productLabel(s);
 
   if (result.kind === 'unresolved') {
     const bad = result.left.resolved.status !== 'matched' ? result.left : result.right;
@@ -1035,6 +1037,235 @@ export function formatCompareAnswer(result) {
     `${label(cheaper)} is cheaper: ${gbp(cheaper.best.deliveredPriceGbp)} delivered from ` +
     `${cheaper.best.retailerName}, against ${gbp(dearer.best.deliveredPriceGbp)} from ` +
     `${dearer.best.retailerName} for ${label(dearer)}.${sizeNote}`
+  );
+}
+
+/* ── concentration browsing ────────────────────────────────────────────── */
+
+/**
+ * The words a reader uses for a strength, and the catalogue values each one
+ * names.
+ *
+ * This table maps *requests* onto values; it never asserts a value exists.
+ * Every lookup below intersects it with the live catalogue and answers from
+ * the intersection, so a concentration that falls out of the data stops
+ * being offered instead of being claimed. Measured over DEMO_FRAGRANCES on
+ * the current harvest (`npx tsx` counting `f.concentration`):
+ *
+ *   Eau de Parfum 8,138 · Eau de Toilette 3,094 · Extrait de Parfum 465 ·
+ *   Parfum 344 · Eau de Cologne 247 · Not stated 208 · Perfume Oil 112 ·
+ *   Aftershave 34 · Eau Fraiche 23 · Extrait 1
+ *
+ * Three of those are recent and are the reason this table exists at all.
+ * `Perfume Oil` became a real value in its own right (112 products that had
+ * been mis-filed under "Perfume"), `Extrait de Parfum` was recapitalised,
+ * and the retailer shrugs — bare "Perfume", "Fragrance", "Oud" — became
+ * `Not stated`. Before this table a reader asking "do you have any perfume
+ * oils" got no deterministic answer at all and the question went to the
+ * council with no concentration data in front of it.
+ *
+ * Longest phrase first, and the reason is mechanical: "eau de parfum"
+ * contains "parfum", so a shorter-first scan would report 344 Parfums for a
+ * question about the 8,138 Eaux de Parfum.
+ */
+const CONCENTRATION_PHRASES = [
+  ['extrait de parfum', ['Extrait de Parfum', 'Extrait']],
+  ['eau de parfum', ['Eau de Parfum']],
+  ['eau de toilette', ['Eau de Toilette']],
+  ['eau de cologne', ['Eau de Cologne']],
+  ['eau fraiche', ['Eau Fraiche']],
+  ['perfume oil', ['Perfume Oil']],
+  ['fragrance oil', ['Perfume Oil']],
+  ['aftershave', ['Aftershave']],
+  ['aftershaves', ['Aftershave']],
+  ['perfume oils', ['Perfume Oil']],
+  ['extraits', ['Extrait de Parfum', 'Extrait']],
+  ['extrait', ['Extrait de Parfum', 'Extrait']],
+  ['colognes', ['Eau de Cologne']],
+  ['cologne', ['Eau de Cologne']],
+  ['edp', ['Eau de Parfum']],
+  ['edt', ['Eau de Toilette']],
+  ['edc', ['Eau de Cologne']],
+  ['parfum', ['Parfum']],
+].sort((a, b) => b[0].length - a[0].length);
+
+/**
+ * Strength words this catalogue does not grade on, and must not pretend to.
+ *
+ * "Attar" is the case that forced this. It is a real word for a real thing
+ * and readers do type it, but no product in this catalogue carries it as a
+ * concentration — checked at answer time by `resolveConcentrationQuery`
+ * rather than asserted here, so if a feed ever starts publishing it the
+ * refusal turns itself off. The nearest thing the catalogue holds is the
+ * brand "Attar & Co", which is a different claim and is not offered as a
+ * substitute: a reader asking for attars is asking about a kind of
+ * fragrance, not about one house.
+ *
+ * "Oud" is deliberately NOT here, even though it used to be a concentration
+ * value and the harvest has since reclassified it to `Not stated` as a
+ * retailer shrug. It is also a note the catalogue really carries, and "do
+ * you have any oud" is overwhelmingly a note question — answering it with a
+ * lecture about strengths would take a question this site can genuinely
+ * serve and route it to a refusal. The same reasoning keeps bare "perfume"
+ * out: it is the word half the corpus uses for "fragrance".
+ */
+const NON_CONCENTRATION_WORDS = new Map([
+  ['attar', 'Attar is not one of the strengths this catalogue records.'],
+  ['attars', 'Attar is not one of the strengths this catalogue records.'],
+  ['ittar', 'Ittar is not one of the strengths this catalogue records.'],
+  ['perfume oil concentrate', 'Not a value this catalogue records.'],
+]);
+
+let concentrationIndex = null;
+/** Every concentration the catalogue actually uses, with its products.
+ *  Keyed by the exact stored string, which is what `Not stated` is one of. */
+async function concentrations() {
+  if (concentrationIndex) return concentrationIndex;
+  const site = await loadSite();
+  const byValue = new Map();
+  for (const f of site.data.DEMO_FRAGRANCES) {
+    const entry = byValue.get(f.concentration) ?? { value: f.concentration, products: [] };
+    entry.products.push(f);
+    byValue.set(f.concentration, entry);
+  }
+  concentrationIndex = byValue;
+  return concentrationIndex;
+}
+
+/** The stated strengths, commonest first, never including `Not stated` —
+ *  which is the absence of one and is reported separately. */
+async function statedConcentrations() {
+  const byValue = await concentrations();
+  return [...byValue.values()]
+    .filter((e) => concentrationLabel(e.value) !== null)
+    .sort((a, b) => b.products.length - a.products.length);
+}
+
+/**
+ * "Do you have any perfume oils", "do you stock extrait de parfum", "what
+ * attars do you have".
+ *
+ * A count and a sample, both read off the catalogue. Returns `null` when the
+ * question names no strength at all, so nothing else routed here changes.
+ *
+ * The one judgement in it is the `Not stated` rule: a reader asking which
+ * concentrations the site covers is told the stated ones and then told, as a
+ * separate fact, how many products no shop graded. Listing "Not stated"
+ * among Eau de Parfum and Extrait de Parfum would present a missing answer
+ * as a kind of perfume.
+ */
+export async function resolveConcentrationQuery(question) {
+  const haystack = ` ${question.toLowerCase().replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim()} `;
+  const byValue = await concentrations();
+
+  const named = CONCENTRATION_PHRASES.find(([phrase]) => haystack.includes(` ${phrase} `));
+  if (named) {
+    const [phrase, values] = named;
+    const present = values.filter((v) => (byValue.get(v)?.products.length ?? 0) > 0);
+    if (present.length === 0) {
+      return { kind: 'concentration-absent', phrase, reason: null, stated: await statedSummary() };
+    }
+    const products = present.flatMap((v) => byValue.get(v).products);
+    const site = await loadSite();
+    // Buyable first, then popularity. Sorting on popularity alone filled the
+    // Perfume Oil sample with five bottles that read "nothing buyable with a
+    // stated delivery cost right now" — true of each of them, and useless as
+    // an answer to "do you have any". The count above is still the whole
+    // group, and the buyable count is stated beside it.
+    const priced = products.map((f) => ({ f, best: site.priceService.bestOffer(rowsFor(site, f)) }));
+    const examples = [...priced]
+      .sort((a, b) =>
+        Number(b.best?.deliveredPriceGbp != null) - Number(a.best?.deliveredPriceGbp != null) ||
+        b.f.popularity - a.f.popularity)
+      .slice(0, 5)
+      .map(({ f, best }) => {
+        return {
+          brand: f.brand,
+          name: f.name,
+          concentration: f.concentration,
+          sizeMl: f.sizeMl,
+          best: best?.deliveredPriceGbp != null
+            ? { deliveredPriceGbp: best.deliveredPriceGbp, retailerName: best.retailer.name }
+            : null,
+        };
+      });
+    return {
+      kind: 'concentration',
+      phrase,
+      values: present,
+      productCount: products.length,
+      buyableCount: priced.filter((p) => p.best?.deliveredPriceGbp != null).length,
+      catalogueTotal: site.data.DEMO_FRAGRANCES.length,
+      examples,
+    };
+  }
+
+  for (const [word, reason] of NON_CONCENTRATION_WORDS) {
+    if (!haystack.includes(` ${word} `)) continue;
+    // Checked against the live data rather than trusted: if any product ever
+    // carries this as its concentration, this is no longer a refusal to make.
+    if ((byValue.get(word)?.products.length ?? 0) > 0) continue;
+    const cased = [...byValue.keys()].find((v) => v.toLowerCase() === word);
+    if (cased && byValue.get(cased).products.length > 0) continue;
+    return { kind: 'concentration-absent', phrase: word, reason, stated: await statedSummary() };
+  }
+
+  return null;
+}
+
+/** The stated strengths with their counts, plus the ungraded pile, for the
+ *  two answers that have to name the whole vocabulary. */
+async function statedSummary() {
+  const byValue = await concentrations();
+  const site = await loadSite();
+  return {
+    values: (await statedConcentrations()).map((e) => ({ value: e.value, count: e.products.length })),
+    notStatedCount: [...byValue.values()]
+      .filter((e) => concentrationLabel(e.value) === null)
+      .reduce((n, e) => n + e.products.length, 0),
+    total: site.data.DEMO_FRAGRANCES.length,
+  };
+}
+
+/** The whole vocabulary as one clause, `Not stated` kept out of the list and
+ *  named afterwards as the absence it is. */
+function concentrationVocabularySentence(stated) {
+  const n = (x) => x.toLocaleString('en-GB');
+  return (
+    `${stated.values.map((v) => `${v.value} (${n(v.count)})`).join(', ')}. ` +
+    `A further ${n(stated.notStatedCount)} of the ${n(stated.total)} bottles have no strength stated — ` +
+    'the shop listing them did not say, so neither do I.'
+  );
+}
+
+export function formatConcentrationAnswer(result) {
+  const n = (x) => x.toLocaleString('en-GB');
+
+  if (result.kind === 'concentration-absent') {
+    return (
+      `Nothing is filed under "${result.phrase}" here. ` +
+      (result.reason ? `${result.reason} ` : '') +
+      `The strengths the catalogue does record: ${concentrationVocabularySentence(result.stated)}`
+    );
+  }
+
+  if (result.kind === 'concentration-vocabulary') {
+    return `The strengths shops stated on these listings: ${concentrationVocabularySentence(result.stated)}`;
+  }
+
+  const line = (p) =>
+    `${productLabel(p)} ${p.sizeMl}ml` +
+    (p.best ? ` — ${gbp(p.best.deliveredPriceGbp)} delivered from ${p.best.retailerName}.` : ' — nothing buyable with a stated delivery cost right now.');
+
+  const valueWords = result.values.length > 1 ? `${nameList(result.values)} between them` : result.values[0];
+  const buyable =
+    result.buyableCount === result.productCount
+      ? ''
+      : ` ${n(result.buyableCount)} of them have a buyable listing with a stated delivery cost right now.`;
+  return (
+    `${n(result.productCount)} of the ${n(result.catalogueTotal)} tracked bottles are filed as ${valueWords} ` +
+    `(that count is per bottle size, not per perfume).${buyable}\nMost widely stocked of the buyable ones:\n` +
+    `${result.examples.map(line).join('\n')}`
   );
 }
 
@@ -1075,6 +1306,15 @@ export async function resolveBrandQuery(question) {
   const hit = (await brands()).find((b) => haystack.includes(b.needle));
 
   if (!hit) {
+    // A strength, before a product. "Do you stock extrait de parfum" names
+    // no brand and no product, but `resolveProductQuery` matched it anyway
+    // — the concentration is part of every product's own match haystack, so
+    // it tied across eight unrelated Extraits and asked the reader "which
+    // one did you mean?", which answers a question nobody asked. A browse by
+    // strength is a count, and counts belong here.
+    const concentration = await resolveConcentrationQuery(question);
+    if (concentration) return concentration;
+
     // No brand named. It may still name a product ("do you have Aventus"),
     // which the product resolver answers; anything else goes to the council.
     const named = await resolveProductQuery(question, 'brand');
@@ -1125,9 +1365,10 @@ export async function resolveBrandQuery(question) {
 
 export function formatBrandAnswer(result) {
   if (result.kind === undefined) return formatIdentityRefusal(result, 'what is listed');
+  if (result.kind.startsWith('concentration')) return formatConcentrationAnswer(result);
 
   if (result.kind === 'product') {
-    const label = `${result.brand} ${result.name} (${result.concentration})`;
+    const label = productLabel(result);
     const lines = result.sizes.map((s) =>
       s.best
         ? `${s.sizeMl}ml: ${gbp(s.best.deliveredPriceGbp)} delivered from ${s.best.retailerName}.`
@@ -1136,7 +1377,7 @@ export function formatBrandAnswer(result) {
   }
 
   const line = (p) =>
-    `${p.brand} ${p.name} (${p.concentration}) ${p.sizeMl}ml` +
+    `${productLabel(p)} ${p.sizeMl}ml` +
     (p.best ? ` — ${gbp(p.best.deliveredPriceGbp)} delivered from ${p.best.retailerName}.` : ' — nothing buyable with a stated delivery cost right now.');
 
   const head =
@@ -1192,6 +1433,17 @@ const META_IDENTITY_RE =
 const META_FRESHNESS_RE = /\b(how (fresh|old|current|recent|up.to.date)|last (updated|refreshed|checked)|when (was|were|did) .{0,40}(updated|refreshed|crawled|checked|harvested))\b/i;
 const META_COVERAGE_RE = /\b((which|what|how many) (shops?|retailers?|stores?|sites?|merchants?)|do you (cover|track|include|check)|shops? do you|retailers? do you)\b/i;
 const META_SIZE_RE = /\bhow many (fragrances?|perfumes?|products?|brands?|scents?|bottles?)\b/i;
+/**
+ * "What concentrations do you cover", "which strengths do you list".
+ *
+ * Placed before META_COVERAGE_RE in `resolveMetaQuery` because it has to be:
+ * coverage matches on the bare phrase "do you cover", so before this rule
+ * existed "what concentrations do you cover" was answered with the list of
+ * 28 shops — a fluent, entirely correct sentence about something the reader
+ * had not asked about, which is the hardest kind of wrong answer to notice.
+ */
+const META_CONCENTRATION_RE =
+  /\b(concentrations?|strengths?)\b.{0,30}\b(do you|you (cover|have|list|track|stock)|are (there|available)|available)\b|\b(what|which|how many)\b.{0,20}\b(concentrations?|strengths?)\b/i;
 
 /**
  * The countable facts about this service, and only those.
@@ -1251,6 +1503,11 @@ export async function resolveMetaQuery(question) {
     };
   }
 
+  // Before coverage, deliberately — see META_CONCENTRATION_RE's own comment.
+  if (META_CONCENTRATION_RE.test(question)) {
+    return { kind: 'concentration-vocabulary', stated: await statedSummary() };
+  }
+
   if (META_COVERAGE_RE.test(question)) {
     const enabled = site.retailers.RETAILERS.filter((r) => r.enabled !== false);
     return {
@@ -1265,6 +1522,8 @@ export async function resolveMetaQuery(question) {
 
 export function formatMetaAnswer(result) {
   const n = (x) => x.toLocaleString('en-GB');
+
+  if (result.kind === 'concentration-vocabulary') return formatConcentrationAnswer(result);
 
   if (result.kind === 'identity') {
     return (
