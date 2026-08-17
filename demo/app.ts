@@ -2487,7 +2487,18 @@ function accountView(): string {
         </label>
         <label class="field">
           <span>Password</span>
-          <input type="password" id="auth-password" autocomplete="${signUpTab ? 'new-password' : 'current-password'}" required minlength="8" />
+          <!-- The reveal is a real button with a real word on it, not a bare
+               eye glyph: an eye alone never says whether it means "showing"
+               or "press to show", and the two readings are opposites. It
+               carries aria-pressed so a screen reader gets the state rather
+               than inferring it from a label that changed. It matters most on
+               the Sign up tab, where a typo in a password nobody can see is
+               invisible and unrecoverable. -->
+          <span class="pw-field">
+            <input type="password" id="auth-password" autocomplete="${signUpTab ? 'new-password' : 'current-password'}" required minlength="8" />
+            <button type="button" class="pw-reveal" id="auth-password-reveal"
+                    aria-pressed="false" aria-controls="auth-password">Show</button>
+          </span>
         </label>
         <button type="submit" class="contact-send" ${state.authBusy ? 'disabled' : ''}>
           ${signUpTab ? 'Create account' : 'Sign in'}
@@ -4451,6 +4462,24 @@ function init(): void {
       return;
     }
 
+    // Password reveal. Delegated like everything else, because the auth form
+    // is re-rendered on every tab switch and a bound listener would be lost.
+    const reveal = t.closest<HTMLElement>('#auth-password-reveal');
+    if (reveal) {
+      const input = $('#auth-password') as HTMLInputElement | null;
+      if (input) {
+        const showing = input.type === 'text';
+        input.type = showing ? 'password' : 'text';
+        reveal.setAttribute('aria-pressed', showing ? 'false' : 'true');
+        reveal.textContent = showing ? 'Show' : 'Hide';
+        // Typing should carry on where it left off, not from the start.
+        const at = input.value.length;
+        input.focus();
+        input.setSelectionRange(at, at);
+      }
+      return;
+    }
+
     if (t.closest('[data-go-account]')) {
       go('account');
       return;
@@ -4738,6 +4767,44 @@ function init(): void {
   // height) without touching state or triggering a re-render on its own, so
   // the update list's cap would otherwise go stale until the next navigation.
   let resizeTimer = 0;
+  // ── skip link ───────────────────────────────────────────────────────────
+  // The href alone scrolls the landmark into view but leaves focus on the
+  // link, so the next Tab resumes from the top bar and the reader is back
+  // where they started. Moving focus to <main> is the part that makes it work.
+  document.querySelector('.skip-link')?.addEventListener('click', () => {
+    ($('#view') as HTMLElement).focus();
+  });
+
+  // ── back to top ─────────────────────────────────────────────────────────
+  // Shown past two viewport heights: far enough that scrolling back is a real
+  // journey, not so eager that it appears on a page barely scrolled. The
+  // handler is passive and does its work in a frame callback, because this
+  // fires continuously down lists thousands of tiles long.
+  const toTop = $('#to-top') as HTMLElement;
+  let ticking = false;
+  const syncToTop = (): void => {
+    const past = window.scrollY > window.innerHeight * 2;
+    toTop.classList.toggle('on', past);
+    toTop.hidden = !past;
+    ticking = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(syncToTop);
+  }, { passive: true });
+  syncToTop();
+
+  toTop.addEventListener('click', () => {
+    // Smooth unless the reader has asked for less motion, in which case a
+    // long smooth scroll is exactly the thing they turned off.
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+    // Focus follows the scroll, or a keyboard reader is returned to the top
+    // of the page visually while their tab position stays at the bottom.
+    ($('#view') as HTMLElement).focus();
+  });
+
   window.addEventListener('resize', () => {
     window.clearTimeout(resizeTimer);
     resizeTimer = window.setTimeout(syncUpdatesHeight, 120);
@@ -4745,9 +4812,10 @@ function init(): void {
 
   // First paint comes from whatever URL we were opened at, so a deep link,
   // a bookmark or a shared link lands on the right view. replaceState then
-  // normalises the address bar without adding a history entry — an unmatched
-  // path served through 404.html becomes "/" rather than staying a URL that
-  // renders home while claiming to be something else.
+  // normalises the address bar without adding a history entry. An address
+  // that matched nothing keeps the path the reader actually typed, so they
+  // can see and correct it, and the not-found view says so; it used to be
+  // rewritten to "/" while the homepage rendered underneath.
   renderFromUrl();
   syncUrl('replace');
 }

@@ -2145,8 +2145,107 @@
   }
   .ds-icon .ico { width: 22px; height: 22px; }
   .ds-icon figcaption { text-align: center; overflow-wrap: anywhere; }
+
+  /* The reveal sits inside the field's own box rather than beside it, so the
+     input keeps the full width every other field has. */
+  .pw-field { position: relative; display: block; }
+  .pw-field input { width: 100%; padding-right: 62px; }
+  .pw-reveal {
+    position: absolute; right: 6px; top: 50%; transform: translateY(-50%);
+    padding: 6px 9px; border-radius: 7px;
+    background: var(--surface-2); color: var(--ink-2);
+    border: 1px solid var(--line-firm);
+    font: 600 12px/1 var(--font-sans); cursor: pointer;
+  }
+  .pw-reveal:hover { color: var(--ink); border-color: var(--accent); }
+  .pw-reveal:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  /* ── skip link ───────────────────────────────────────────────────────────
+     Parked above the viewport rather than hidden, so it keeps its place in
+     the tab order and drops into view the moment it takes focus. */
+  .skip-link {
+    position: fixed; top: 0; left: 50%; transform: translate(-50%, -140%);
+    z-index: 100; padding: 10px 16px;
+    background: var(--accent); color: var(--accent-on);
+    border-radius: 0 0 10px 10px; text-decoration: none;
+    font: 600 14px/1 var(--font-sans);
+  }
+  .skip-link:focus-visible {
+    transform: translate(-50%, 0);
+    outline: 2px solid var(--ink); outline-offset: 2px;
+  }
+  /* The landmark takes focus programmatically, so it must not draw a ring
+     around the whole page when it does. */
+  #view:focus { outline: none; }
+
+  /* ── back to top ─────────────────────────────────────────────────────────
+     The catalogue lists run to thousands of tiles, so the top of the page can
+     be a very long way up. Hidden until there is a meaningful distance to
+     travel, and it is a real button in the tab order rather than a decoration
+     that only a mouse can reach. Bottom-left: the chat launcher already owns
+     bottom-right. */
+  .to-top {
+    position: fixed; left: 18px; bottom: 18px; z-index: 30;
+    display: none; align-items: center; gap: 7px;
+    padding: 10px 13px; border-radius: 10px;
+    background: var(--surface-2); color: var(--ink);
+    border: 1px solid var(--line-firm);
+    font: 600 13px/1 var(--font-sans); cursor: pointer;
+  }
+  .to-top.on { display: inline-flex; }
+  .to-top:hover { border-color: var(--accent); color: var(--accent-ink); }
+  .to-top:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (max-width: 520px) {
+    /* Clear of the chat launcher and of a phone's own home indicator. */
+    .to-top { left: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
+  }
+
+  /* ── print ───────────────────────────────────────────────────────────────
+     Somebody printing a fragrance page wants the prices and where they came
+     from, on paper, in black. Everything that exists to navigate a screen is
+     noise once it cannot be clicked: the sticky bar, the filters, the chat
+     launcher, the back-to-top button, the skip link.
+
+     Link targets are printed after the link text, because a URL a reader
+     cannot see is the one thing paper genuinely loses. Only real http links,
+     so in-app buttons do not each sprout a useless "(#)" beside them. */
+  @media print {
+    :root {
+      --bg: #fff; --surface: #fff; --surface-2: #fff;
+      --ink: #000; --ink-2: #1a1a1a; --faint: #444;
+      --line: #bbb; --line-firm: #888;
+      --accent: #000; --accent-ink: #000; --accent-on: #fff; --accent-sf: #fff;
+    }
+    body { background: #fff; color: #000; }
+    .bar, .subnav, .site-footer, .to-top, .skip-link,
+    #yanny-launcher, #yanny-panel-host, .facet-pills, .controls-row,
+    .wishlist-toggle, .grid-more { display: none !important; }
+    .app { max-width: none; }
+    main { padding: 0; }
+    a[href^="http"]::after {
+      content: " (" attr(href) ")";
+      font-size: 11px; word-break: break-all;
+    }
+    /* A price and the shop it belongs to must never be split across a page
+       break, and a heading must never be the last thing on a sheet. */
+    .offer-row, .tile, .price-box, figure, table { break-inside: avoid; }
+    h1, h2, h3 { break-after: avoid; }
+    /* Ink is expensive and a product photo is not the point on paper. */
+    .art, .house-img, .hero-art { display: none; }
+  }
 </style>
 
+
+<!-- The first thing a keyboard reaches, and the first thing a screen reader
+     meets. Without it, getting to a fragrance list means tabbing through the
+     brandmark, four nav buttons and the search box on every single page. It
+     is off-screen until focused, which is the only correct way to do this:
+     display:none would take it out of the tab order and defeat the purpose. -->
+<a class="skip-link" href="#view">Skip to the main content</a>
+
+<button class="to-top" id="to-top" type="button" hidden>
+  <span aria-hidden="true">&uarr;</span> Back to top
+</button>
 
 <div class="app">
   <div class="bar">
@@ -2161,7 +2260,10 @@
     <nav class="subnav" id="subnav" hidden></nav>
   </div>
 
-  <main id="view"></main>
+  <!-- tabindex="-1" so the skip link can actually move focus here: without
+       it the browser scrolls to the landmark but leaves focus on the link,
+       and the next Tab carries on from the top bar as if nothing happened. -->
+  <main id="view" tabindex="-1"></main>
 
   <footer class="site-footer">
     <span class="footer-credit">Built by YannySniffs</span>
