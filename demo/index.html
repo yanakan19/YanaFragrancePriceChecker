@@ -654,8 +654,13 @@
      it has actually rendered; this is only the pre-JS/no-JS fallback so the
      list never runs unbounded before that. */
   :root[data-layout="desktop"] .updates-list { max-height: 480px; }
+  /* A neutral rail, not an accent-tinted one. Each entry already names its
+     own version in --accent; a coloured bar beside it was the same emphasis
+     twice, and an accent stripe down a list is decoration rather than
+     information. The rail stays because a run of releases genuinely is a
+     thread, and a hairline says so without competing. */
   .update-entry {
-    border-left: 3px solid var(--accent-sf); padding: 12px 0 12px 14px;
+    border-left: 2px solid var(--line); padding: 12px 0 12px 14px;
     position: relative;
   }
   .update-entry.prelaunch .update-version::before { content: '● '; font-size: 10px; color: var(--faint); }
@@ -1573,9 +1578,13 @@
   .doc a { color: var(--accent); }
   .doc strong { color: var(--ink); font-weight: 650; }
   .doc .meta { font-size: 12.5px; color: var(--faint); margin-top: 22px; }
+  /* Bordered all the way round rather than striped down one edge. A left bar
+     is the standard callout decoration and it also carries its meaning in
+     colour alone; a full border in the same colour states it once, on the
+     whole element, the way the box actually is a distinct thing. */
   .doc .draft {
-    background: var(--surface); border-left: 3px solid var(--warn);
-    padding: 12px 14px; border-radius: 0 9px 9px 0; font-size: 13px;
+    background: var(--surface); border: 1px solid var(--warn);
+    padding: 12px 14px; border-radius: 9px; font-size: 13px;
   }
   .doc .draft strong { color: var(--warn); }
 
