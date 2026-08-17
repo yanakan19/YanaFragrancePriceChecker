@@ -16,6 +16,19 @@
     --faint:     #8A8A92;
     --line:      #26262A;
     --line-firm: #3A3A40;
+    /* Rank badges on the deals list: first, second, third. Flat single
+       values, not the two-stop gradients and six loose hex codes these
+       replaced, and identical in every theme because a gold medal does not
+       change colour when the lights go down. Each `-on` is the text colour
+       for its own ground, measured rather than guessed:
+         #1A1405 on #C8A128  7.49:1
+         #23262B on #C3C8D0  9.03:1
+         #2A1A0B on #C08552  5.37:1
+       All three clear AA for text (4.5:1), double what WCAG asks of a
+       graphic. tests/contrast.test.ts holds them to these figures. */
+    --rank-1: #C8A128; --rank-1-on: #1A1405;
+    --rank-2: #C3C8D0; --rank-2-on: #23262B;
+    --rank-3: #C08552; --rank-3-on: #2A1A0B;
     --accent:    #FF3B41;
     /* Near-black, not white, and deliberately so: white on #FF3B41 is 3.5:1
        and fails AA. Near-black on that same red is 5.5:1. */
@@ -41,15 +54,6 @@
     --shadow-lift: 0 1px 0 #26262A;
     /* Translucent bar ground, so the drifting background reads through the
        chrome instead of stopping dead at it. */
-    --bg-glass:  rgba(10,10,11,.72);
-    /* The two ambient glows behind the page. Both are the brand red and
-       nothing else: the violet and teal that used to sit either side of it
-       made the greeting read as three brands' worth of colour, and on a
-       site whose whole job is one red accent that is a claim it should not
-       be making. Alphas stay low enough that text contrast never depends on
-       where a glow happens to be at the time. */
-    --glow-1:    rgba(255,59,65,.22);
-    --glow-2:    rgba(255,59,65,.13);
     /* Per-brand monogram tint, see .monogram below: fixed lightness for this
        theme, hue supplied per tile. */
     --mono-bg-l: 20%;
@@ -98,6 +102,9 @@
     --faint:     #6B6B74;
     --line:      #E6E6EA;
     --line-firm: #CFCFD6;
+    --rank-1: #C8A128; --rank-1-on: #1A1405;
+    --rank-2: #C3C8D0; --rank-2-on: #23262B;
+    --rank-3: #C08552; --rank-3-on: #2A1A0B;
     --accent:    #C8102E;
     --accent-on: #FFFFFF;
     --accent-sf: #FDECEE;
@@ -110,11 +117,8 @@
     --warn:      #8A5A00;
     --shadow:    0 1px 3px rgba(0,0,0,.18);
     --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
-    --bg-glass:  rgba(252,252,253,.72);
     /* Lower alpha than the dark theme: the same wash that reads as subtle
        on a dark ground turns muddy on a light one. */
-    --glow-1:    rgba(200,16,46,.13);
-    --glow-2:    rgba(200,16,46,.08);
     --mono-bg-l: 93%;
     /* 30%, not the 33% this used to carry: the monogram's hue is supplied
        per tile, so this lightness has to clear AA against --mono-bg-l for
@@ -143,13 +147,14 @@
       --bg: #FCFCFD; --surface: #FFFFFF; --surface-2: #F2F2F4;
       --ink: #0D0D0F; --ink-2: #4A4A52; --faint: #6B6B74;
       --line: #E6E6EA; --line-firm: #CFCFD6;
+    --rank-1: #C8A128; --rank-1-on: #1A1405;
+    --rank-2: #C3C8D0; --rank-2-on: #23262B;
+    --rank-3: #C08552; --rank-3-on: #2A1A0B;
       --accent: #C8102E; --accent-on: #FFFFFF; --accent-sf: #FDECEE;
       --accent-ink: #A80C25; --accent-press: #9E0C22; --focus: #C8102E;
       --chart-grid: #EDEDF1; --chart-band: rgba(200,16,46,.08);
       --ok: #17724B; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
       --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
-      --bg-glass: rgba(252,252,253,.72);
-      --glow-1: rgba(200,16,46,.13); --glow-2: rgba(200,16,46,.08);
       --mono-bg-l: 93%; --mono-fg-l: 30%; --mono-border-l: 55%;
       --gender-women: #A81B5E; --gender-women-on: #FF8FB3;
       --gender-men: #17569E; --gender-men-on: #7FBBFF;
@@ -159,13 +164,14 @@
     --bg: #FCFCFD; --surface: #FFFFFF; --surface-2: #F2F2F4;
     --ink: #0D0D0F; --ink-2: #4A4A52; --faint: #6B6B74;
     --line: #E6E6EA; --line-firm: #CFCFD6;
+    --rank-1: #C8A128; --rank-1-on: #1A1405;
+    --rank-2: #C3C8D0; --rank-2-on: #23262B;
+    --rank-3: #C08552; --rank-3-on: #2A1A0B;
     --accent: #C8102E; --accent-on: #FFFFFF; --accent-sf: #FDECEE;
     --accent-ink: #A80C25; --accent-press: #9E0C22; --focus: #C8102E;
     --chart-grid: #EDEDF1; --chart-band: rgba(200,16,46,.08);
     --ok: #17724B; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
     --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
-    --bg-glass: rgba(252,252,253,.72);
-    --glow-1: rgba(200,16,46,.13); --glow-2: rgba(200,16,46,.08);
     --mono-bg-l: 93%; --mono-fg-l: 30%; --mono-border-l: 55%;
     --gender-women: #A81B5E; --gender-women-on: #FF8FB3;
     --gender-men: #17569E; --gender-men-on: #7FBBFF;
@@ -174,13 +180,14 @@
     --bg: #0A0A0B; --surface: #121214; --surface-2: #1A1A1D;
     --ink: #F7F7F8; --ink-2: #C2C2C7; --faint: #8A8A92;
     --line: #26262A; --line-firm: #3A3A40;
+    --rank-1: #C8A128; --rank-1-on: #1A1405;
+    --rank-2: #C3C8D0; --rank-2-on: #23262B;
+    --rank-3: #C08552; --rank-3-on: #2A1A0B;
     --accent: #FF3B41; --accent-on: #0B0405; --accent-sf: #1E0709;
     --accent-ink: #FF6A6E; --accent-press: #D42B31; --focus: #FF3B41;
     --chart-grid: #1F1F23; --chart-band: rgba(255,59,65,.10);
     --ok: #4FB47B; --warn: #D8A24C; --shadow: 0 1px 3px rgba(0,0,0,.4);
     --shadow-lift: 0 1px 0 #26262A;
-    --bg-glass: rgba(10,10,11,.72);
-    --glow-1: rgba(255,59,65,.22); --glow-2: rgba(255,59,65,.13);
     --mono-bg-l: 20%; --mono-fg-l: 78%; --mono-border-l: 42%;
     --gender-women: #FF8FB3; --gender-women-on: #A81B5E;
     --gender-men: #7FBBFF; --gender-men-on: #17569E;
@@ -380,101 +387,44 @@
     font-feature-settings: "kern" 1;
   }
 
-  /* ── ambient background ────────────────────────────────────────────────────
-     Two very soft red fields drifting behind the page. This is the one place
-     on the site where anything moves without a reader having done something,
-     and it earns that by being the only thing that does: peripheral movement
-     the eye registers as alive without ever being asked to look at it.
+  /* ── the background behind the page ──────────────────────────────────────
+     Flat. It used to be two viewport-sized red radial-gradient fields
+     drifting on a 26s loop, which is the ambient glow every generated
+     landing page ships, and it was doing three things worth being rid of: it
+     put the brand colour behind price figures, where the accent is supposed
+     to mean "look here"; it animated forever without a reader having asked
+     for anything; and it kept two composited layers alive for decoration on
+     a page whose long lists are the thing that has to stay fast.
 
-     Was three orbs -- crimson, violet, teal -- on 41s, 59s and 47s. Two
-     reasons it is now two, both red. One is colour: a site whose entire
-     visual argument is a single red accent should not open on a wash of
-     three hues, and the violet in particular read as a second brand. The
-     other is that a glow you can name the colour of is a glow that is
-     asking to be looked at; both of these are the accent, so there is
-     nothing new on screen to identify.
+     What separates the surfaces now is what already separated them: a step
+     between --bg and --surface, and a hairline. Nothing moves unless
+     somebody did something. */
 
-     Built from radial-gradients rather than blurred solid shapes. A gradient
-     with a transparent falloff is already soft, so it needs no
-     filter: blur(), which on a viewport-sized element is one of the most
-     expensive things you can ask a compositor to redo every frame. Only
-     transform is animated, so each glow is a single composited layer and the
-     main thread does nothing once the animation starts.
-
-     Both centres sit outside the viewport, so only falloff is ever on
-     screen and no text is ever over the bright core.
-
-     26s, alternating, on ease-in-out. The two curves the motion section
-     names are for state changes measured in tenths of a second and would
-     read as a lurch at this length; this is the documented exception, the
-     same one the three orbs it replaces were. */
-  .ambient {
-    position: fixed; inset: 0; z-index: 0;
-    overflow: hidden; pointer-events: none;
-  }
-  .glow {
-    position: absolute; display: block; border-radius: 50%;
-    will-change: transform;
-  }
-  .glow-1 {
-    top: -40vmax; left: -30vmax; width: 70vmax; height: 70vmax;
-    background: radial-gradient(circle closest-side, var(--glow-1), transparent 70%);
-    animation: glow-drift-1 26s ease-in-out infinite alternate;
-  }
-  .glow-2 {
-    bottom: -46vmax; right: -34vmax; width: 74vmax; height: 74vmax;
-    background: radial-gradient(circle closest-side, var(--glow-2), transparent 70%);
-    animation: glow-drift-2 26s ease-in-out infinite alternate;
-  }
-  /* alternate rather than a loop back to the start: with one pass out and one
-     pass back there is no seam to hide, and the two glows travel opposite
-     ways so the pair never reads as one shape sliding. translate3d keeps both
-     on the GPU. */
-  @keyframes glow-drift-1 {
-    from { transform: translate3d(0, 0, 0) scale(1); }
-    to   { transform: translate3d(8vw, 6vh, 0) scale(1.12); }
-  }
-  @keyframes glow-drift-2 {
-    from { transform: translate3d(0, 0, 0) scale(1.08); }
-    to   { transform: translate3d(-7vw, -5vh, 0) scale(.94); }
-  }
-  /* Ambient motion is the first thing to go: the glows still sit where they
-     sit, they just stop moving. */
-  @media (prefers-reduced-motion: reduce) {
-    .glow { animation: none; }
-  }
-
-  /* Sits above .ambient. An explicit z-index rather than relying on source
-     order, because .ambient is positioned and would otherwise paint over
-     the page's own non-positioned content. */
   .app { max-width: var(--col); margin: 0 auto; min-height: 100vh; position: relative; z-index: 1; }
 
   /* ── top bar ───────────────────────────────────────────────────────────── */
   .bar {
     position: sticky; top: 0; z-index: 20;
-    /* Translucent rather than solid, so the drifting background carries
-       through the chrome instead of being cut off by a hard opaque band. */
-    background: var(--bg-glass);
-    backdrop-filter: blur(16px) saturate(150%);
-    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    /* Opaque. The translucent, blurred bar existed so the drifting
+       background could show through it; with that gone there is nothing to
+       see through to, and a frosted panel over a flat colour is cost without
+       a picture. backdrop-filter also makes the compositor re-blur a
+       viewport-wide strip on every scroll frame, and this bar sits over the
+       longest scrolling lists on the site. */
+    background: var(--bg);
     border-bottom: 1px solid var(--line);
     /* Trimmed from 17px/14px now that .navbtn carries a 44px target of its
        own: the padding used to be what gave the row its height, and keeping
        both would have made the sticky bar a fifth of a phone screen. */
     padding: 10px 18px 12px;
   }
-  /* Without the blur to separate bar text from whatever is scrolling under
-     it, translucency is just a legibility problem. Fall back to opaque. */
-  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-    .bar { background: var(--bg); }
-  }
   .bar-row { display: flex; align-items: center; gap: 20px; position: relative; }
   /* The 7s accent sweep that used to run along the bar's bottom edge is
      gone. The motion section above names seven behaviours and says nothing
      animates that is not one of them; a sweep that repeats forever and
-     reports nothing was an eighth, and the ambient layer behind the page is
-     the one place idle movement is allowed to live. The bar keeps its
-     --line border. */
+     reports nothing was an eighth. Nothing on the site animates on its own
+     any more: the drifting background that used to be the one exception was
+     removed with it. The bar keeps its --line border. */
   .brandmark {
     font-size: 21px; font-weight: 800; letter-spacing: -.03em;
     margin: 0; flex: 1; min-width: 0; white-space: nowrap;
@@ -572,11 +522,10 @@
   .intro { padding: 34px 0 8px; }
   .hero-logo { text-align: center; position: relative; }
   /* The wordmark used to sit on a wash of its own that breathed in and out
-     on a 9s cycle. Two things were wrong with it: it was a second piece of
-     ambient motion competing with the layer behind the page, and the
-     wordmark sat exactly on the brightest part of it, which is the one place
-     text must never go on a glow. The ambient layer now carries the greeting
-     on its own. */
+     on a 9s cycle. It went for two reasons: it was a second piece of idle
+     motion, and the wordmark sat on the brightest part of it, which is the
+     one place text must never go. The drifting background it competed with
+     has since gone too, so the greeting now sits on a flat ground. */
 
   /* ── hero entrance ─────────────────────────────────────────────────────────
      There isn't one any more, and that is the point. Each piece of the
@@ -824,11 +773,16 @@
     position: absolute; top: -2px; left: -4px; z-index: 2;
     width: 22px; height: 22px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 800; box-shadow: var(--shadow);
+    font-size: 11px; font-weight: 800;
   }
-  .medal.gold   { background: linear-gradient(150deg, #F8DE84, #C8A128); color: #3A2C05; }
-  .medal.silver { background: linear-gradient(150deg, #E6E9EE, #A2AAB5); color: #2E3238; }
-  .medal.bronze { background: linear-gradient(150deg, #E2AB7C, #A96A31); color: #34200E; }
+  /* Flat, and from tokens. These were three two-stop linear-gradients built
+     from six hardcoded hex values belonging to no palette and moving with no
+     theme: the one place in this stylesheet where a colour was invented at
+     the point of use. A rank badge is 22px across, so the gradient inside it
+     was never legible as a gradient in the first place. */
+  .medal.gold   { background: var(--rank-1); color: var(--rank-1-on); }
+  .medal.silver { background: var(--rank-2); color: var(--rank-2-on); }
+  .medal.bronze { background: var(--rank-3); color: var(--rank-3-on); }
 
   /* ── fragrance tile grid ───────────────────────────────────────────────────
      One tile shape, used everywhere a list of fragrances appears (browse,
@@ -864,7 +818,7 @@
   .tile {
     width: 100%; display: flex; flex-direction: column; gap: 6px;
     background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
-    padding: 12px 13px 14px; color: var(--ink); box-shadow: var(--shadow-lift);
+    padding: 12px 13px 14px; color: var(--ink);
     transition: border-color var(--dur-2) var(--ease-standard);
   }
   /* Behaviour 4, hover: the border moves --line to --line-firm and nothing
@@ -1244,7 +1198,7 @@
     width: 64px; height: 64px; border-radius: 50%;
     background: var(--accent); color: var(--accent-on);
     display: flex; align-items: center; justify-content: center;
-    font-size: 28px; font-weight: 800; box-shadow: var(--shadow);
+    font-size: 28px; font-weight: 800;
   }
   .note-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
   .note-chip {
@@ -1405,7 +1359,6 @@
     margin: 18px auto 0; max-width: 280px; padding: 16px 20px 17px;
     border-radius: 16px; border: 1px solid var(--accent);
     background: var(--accent-sf);
-    box-shadow: var(--shadow-lift);
   }
   .price-box-label { margin: 0; color: var(--accent-ink); }
   .price-box-amount { margin: 6px 0 0; color: var(--accent-ink); }
@@ -2194,10 +2147,6 @@
   .ds-icon figcaption { text-align: center; overflow-wrap: anywhere; }
 </style>
 
-<div class="ambient" aria-hidden="true">
-  <span class="glow glow-1"></span>
-  <span class="glow glow-2"></span>
-</div>
 
 <div class="app">
   <div class="bar">

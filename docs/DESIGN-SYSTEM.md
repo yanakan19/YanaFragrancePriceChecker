@@ -93,9 +93,9 @@ current theme, at [/design](https://pricesniffs.space/design).
 | `--warn` | `#D8A24C` | `#8A5A00` | Low stock, a countdown |
 | `--shadow` | `0 1px 3px rgba(0,0,0,.4)` | `0 1px 3px rgba(0,0,0,.18)` | The one drop shadow |
 | `--shadow-lift` | `0 1px 0 #26262A` | `0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05)` | Card lift |
-| `--bg-glass` | `rgba(10,10,11,.72)` | `rgba(252,252,253,.72)` | Translucent bar ground |
-| `--glow-1` | `rgba(255,59,65,.22)` | `rgba(200,16,46,.13)` | Ambient glow, nearer |
-| `--glow-2` | `rgba(255,59,65,.13)` | `rgba(200,16,46,.08)` | Ambient glow, further |
+| `--rank-1` / `--rank-1-on` | `#C8A128` / `#1A1405` | same | First place on the deals list, 7.49:1 |
+| `--rank-2` / `--rank-2-on` | `#C3C8D0` / `#23262B` | same | Second place, 9.03:1 |
+| `--rank-3` / `--rank-3-on` | `#C08552` / `#2A1A0B` | same | Third place, 5.37:1 |
 | `--mono-bg-l` | `20%` | `93%` | Monogram ground lightness |
 | `--mono-fg-l` | `78%` | `30%` | Monogram ink lightness |
 | `--mono-border-l` | `42%` | `55%` | Monogram border lightness |
@@ -116,13 +116,16 @@ out listing goes grey (`--faint`), never red; only positive states carry
 colour. A "price rise" or "error" state added later must not reach for
 `--accent` either.
 
-**Both ambient glows are the brand red and nothing else.** The violet and
-teal that used to sit either side of it (`--orb-b`, `--orb-c` in an earlier
-version of this document) were removed: on a site whose whole job is one red
-accent, three brands' worth of colour behind the greeting is a claim it
-should not be making. Light-theme alphas run at roughly half the dark
-value — a wash that reads as ambient on a dark ground turns muddy on a light
-one.
+**There is no ambient layer any more.** Three drifting orbs became two, both
+red, and on 17 Aug 2026 the last two went as well, taking `--glow-1`,
+`--glow-2` and `--bg-glass` with them. The reasoning is the same one that had
+already cut the violet and the teal, followed to its end: on a site whose
+whole job is one red accent meaning "look here", that colour should not also
+be the wallpaper behind every price. It animated forever without a reader
+asking for anything, and it kept two composited layers alive for decoration
+on pages whose long lists are what has to stay fast. The top bar lost its
+translucency and blur in the same pass, because a frosted panel over a flat
+colour is cost without a picture.
 
 **Two values for anything painted on an inverting ground.** `--accent-on`
 against `--accent`, and the four gender tokens against a facet pill that
@@ -294,12 +297,16 @@ No `--radius-*` tokens either. A rough tier does exist by eye (control-level
 
 ### 1.9 Elevation
 
-There is effectively **one** elevation value in the whole system:
-`--shadow`, and it is used exactly once, on `.medal`
-(`template.html:472`). Everything else that reads as "raised" — `.tile`,
-`.price-box`, `.house-card` — achieves it with a **border**, not a shadow
-(`.tile { border: 1px solid #E7E3E7 }`, `.price-box { border: 1px solid
-var(--accent) }`), plus in `.price-box`'s case a colour-tinted glow:
+**One level, and only for things that genuinely float.** As of 17 Aug 2026 a
+drop shadow appears in exactly four rules: the dialog and its scrim, the
+price-history tooltip, the focus ring on `.control` (which is a focus
+indicator, not elevation), and the `/design` page's own sample of the token.
+
+Everything else that reads as "raised" achieves it with a **border** or a
+ground of its own. `.medal`, `.tile`, `.price-box` and `.alpha-scrubber-bubble`
+each carried a shadow until that date and each already had one of those, so
+the shadow was the same separation drawn twice. The historical note below
+describes the state before that pass:
 
 ```css
 /* template.html:731 */
@@ -991,3 +998,38 @@ one value (whichever measured better) would remove a line of CSS with no
 visible cost. Not fixing it here, since it's genuinely marginal and not
 clearly a bug — just noting it for completeness since the brief asked for
 duplicated values to be flagged.
+
+---
+
+## Two things that are deliberately absent, and must stay absent
+
+A design or "ship-ready" pass will keep proposing these two, because on most
+sites their absence is a sign nobody finished the job. Here it is the
+opposite: adding either would make a page of this site false. Recorded so the
+next pass does not re-add them.
+
+### No cookie banner
+
+`demo/legal.ts` states, in the site's own words: *"We do not set any cookies
+ourselves. Your display preference is saved using local storage, not a cookie,
+and never leaves your device."*
+
+A consent banner exists to obtain permission for cookies that are being set.
+This site sets none, so a banner would be asking permission for something that
+is not happening, and the privacy page would immediately be describing a
+different site from the one the reader is on. The banner and the policy have
+to agree; they agree today by both saying nothing is collected.
+
+If tracking is ever added, the order is: change the privacy page first, then
+add the banner, then set the cookie. Never the other way round.
+
+### No analytics
+
+There is no analytics script, no tag manager, no pixel, and no first-party
+event collection. That is a commitment the site makes to readers on its own
+privacy page, not an unfinished task.
+
+"Install privacy-respecting analytics" is a reasonable default for a new
+product and a regression for this one. If the owner decides they want usage
+figures, that is a decision to change what the site promises, and it starts
+with rewriting the promise.

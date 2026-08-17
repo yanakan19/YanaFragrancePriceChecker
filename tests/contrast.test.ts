@@ -91,6 +91,34 @@ describe('the gender marks clear AA on every ground they are painted on', () => 
 });
 
 /**
+ * The rank badges on the deals list.
+ *
+ * These replaced three two-stop linear-gradients built from six hex values
+ * that belonged to no palette, moved with no theme, and had never been
+ * measured against anything. Their tokens now carry a table of three ratios
+ * in demo/template.html, and this is what stops that table describing
+ * colours the file no longer holds.
+ *
+ * Identical in every theme, so one block is checked: a gold medal does not
+ * change colour when the lights go down. Held to the 4.5:1 text bar because
+ * each badge has a digit sitting on it, which is text.
+ */
+describe('the rank badges clear AA for the digit on them', () => {
+  const cases: [string, string, string, number][] = [
+    ['first', '--rank-1-on', '--rank-1', 7.49],
+    ['second', '--rank-2-on', '--rank-2', 9.03],
+    ['third', '--rank-3-on', '--rank-3', 5.37],
+  ];
+
+  it.each(cases)('%s: %s on %s', (_label, fg, bg, documented) => {
+    const ratio = contrastBetween(tokenIn(DARK, fg), tokenIn(DARK, bg));
+    expect(ratio).not.toBeNull();
+    expect(ratio!).toBeGreaterThanOrEqual(AA_TEXT);
+    expect(Number(ratio!.toFixed(2))).toBe(documented);
+  });
+});
+
+/**
  * The same guard on the palette's own load-bearing pairs. These are not
  * quoted in a comment, so the assertion is the floor itself: text on a ground
  * has to clear AA in both themes, and a retint that breaks it should not be
