@@ -15,13 +15,16 @@
  * ── Slugs ────────────────────────────────────────────────────────────────────
  * Fragrance ids and retailer ids are already URL-safe and unique, so
  * they go in the path unchanged. Brands and notes are free text and need
- * slugifying, and brands specifically collide: the catalogue holds "Dolce &
- * Gabbana", "Dolce&Gabbana" and "DOLCE&GABBANA" as three separate rows, which
- * all slugify to the same string. That is a pre-existing data-quality problem —
- * those are already three separate entries in the Brands list today, routing
- * did not create it — so the lookup resolves a slug back by scanning for the
- * first brand whose slug matches, and the duplicates remain visible until the
- * catalogue normalises brand names at ingest. Recorded rather than papered over.
+ * slugifying. That used to matter for collisions too: the catalogue once held
+ * "Dolce & Gabbana", "Dolce&Gabbana" and "DOLCE&GABBANA" as three separate
+ * rows, all slugifying to the same string. src/catalogue/brandName.ts now
+ * canonicalises casing/punctuation variants at ingest, so as of 2026-08-17
+ * there are 0 slug collisions across the catalogue's 629 distinct brands —
+ * verified by slugifying every brand string and checking for duplicate keys.
+ * The lookup below still resolves a slug back by scanning for the first
+ * brand whose slug matches, which is why a future regression in the ingest
+ * canonicalisation would degrade silently rather than loudly: this comment
+ * is the record of why that scan exists, not evidence it is still needed.
  */
 
 export type RouteName =
