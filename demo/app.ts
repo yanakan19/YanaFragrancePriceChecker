@@ -49,6 +49,7 @@ import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.gene
 import { priceHistoryFor, PRICE_HISTORY } from './priceHistory.generated.js';
 import { officialSiteFor } from './brandSites.js';
 import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
+import { headFor, type HeadTags, type HeadInput } from './head.js';
 import { SUPABASE_CONFIGURED } from './supabase.js';
 import {
   signUp, signIn, signOut, resendVerification, requestPasswordReset, currentUser, isVerified, onAuthChange,
@@ -60,7 +61,7 @@ import {
   type YannyIntent, type YannyResult, type YannyEvent, type YannyHealth,
 } from './virtualYanny.js';
 
-type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account' | 'design';
+type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account' | 'design' | 'notFound';
 type AuthTab = 'signIn' | 'signUp';
 type ExploreTab = 'brands' | 'deals' | 'retailers' | 'notes' | 'search';
 type DisplayMode = 'dark' | 'light' | 'system';
@@ -116,6 +117,8 @@ const state = {
   brandProfile: '',
   noteName: '',
   legalId: '',
+  /** The address that matched nothing, shown back on the not-found view. */
+  notFoundPath: '',
   brand: null as string | null,
   query: '',
   mode: 'dark' as DisplayMode,
@@ -2507,6 +2510,36 @@ function accountView(): string {
  * text, but renders without a Back control: this is a nav destination reached
  * from the top bar, not a leaf you arrived at from somewhere else.
  */
+/**
+ * What a wrong address gets.
+ *
+ * Every in-app path is served by demo/404.html, which is this same document,
+ * so a genuinely missing page and a working one arrive by the identical
+ * route. Until 2026-08-17 the router answered both with the homepage, which
+ * left a reader with a broken link no way of telling their link was broken.
+ *
+ * This says so plainly and offers the three things someone with a dead link
+ * actually wants: the search box, the catalogue, and the way home. No
+ * apology, no illustration.
+ */
+function notFoundView(): string {
+  const path = state.notFoundPath.replace(/^\/+/, '/');
+  return `
+    <article class="doc">
+      <h2 class="t-page">Page not found</h2>
+      <p class="t-body">Nothing on this site answers to
+        ${path && path !== '/' ? `<code>${esc(path)}</code>` : 'that address'}.
+        It may have been a fragrance or a shop that has since been delisted.</p>
+      <p class="t-body">Search the catalogue, or start from one of these:</p>
+      <p class="notfound-links">
+        <button class="link-btn" data-goto="home">Home</button>
+        <button class="link-btn" data-goto="browse">Search ${DEMO_FRAGRANCES.length.toLocaleString('en-GB')} fragrances</button>
+        <button class="link-btn" data-tab="brands">Brands</button>
+        <button class="link-btn" data-tab="retailers">Shops</button>
+      </p>
+    </article>`;
+}
+
 function aboutView(): string {
   const page = legalPage('about');
   if (!page) return homeView();
@@ -2728,6 +2761,126 @@ function hideScrubberBubble(): void {
    reversible and rendering stays ignorant of it. */
 
 /** Where we currently are, as a route. */
+/**
+ * Write the tags into the live document.
+ *
+ * Updates in place rather than appending, so a reader who navigates twenty
+ * times does not accumulate twenty canonical tags — a mistake that turns one
+ * clear instruction to a crawler into twenty contradictory ones.
+ */
+export function applyHead(tags: HeadTags): void {
+  document.title = tags.title;
+
+  setMeta('name', 'description', tags.description);
+  setLink('canonical', tags.canonical);
+
+  // og:title and og:description are updated too. A scraper will not see it
+  // (see this file's header), but a browser extension, a reading-list tool or
+  // an in-page share that reads the live DOM will, and keeping them in step
+  // with the title costs nothing.
+  setMeta('property', 'og:title', tags.title);
+  setMeta('property', 'og:description', tags.description);
+  setMeta('property', 'og:url', tags.canonical);
+
+  if (tags.noindex) setMeta('name', 'robots', 'noindex, follow');
+  else document.head.querySelector('meta[name="robots"]')?.remove();
+}
+
+function setMeta(keyAttr: 'name' | 'property', key: string, value: string): void {
+  let el = document.head.querySelector<HTMLMetaElement>(`meta[${keyAttr}="${key}"]`);
+  if (!el) {
+    el = document.createElement('meta');
+    el.setAttribute(keyAttr, key);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', value);
+}
+
+function setLink(rel: string, href: string): void {
+  let el = document.head.querySelector<HTMLLinkElement>(`link[rel="${rel}"]`);
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', rel);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('href', href);
+}
+
+/**
+ * Resolve the facts head.ts needs to describe whatever is on screen.
+ *
+ * Every value handed over is read from the catalogue that is already
+ * rendered, never composed for the benefit of the description: if a fragrance
+ * has no priced offer, the detail is simply omitted rather than softened into
+ * a claim. head.ts does the wording; this does the looking up.
+ */
+function headInputForState(): HeadInput {
+  const route = currentRoute();
+
+  switch (state.view) {
+    case 'detail': {
+      const frag = fragranceById(state.fragranceId);
+      if (!frag) return { route };
+      const rows = rowsFor(frag);
+      const best = bestOffer(rows);
+      const shops = rows.length;
+      // Only a delivered price is quoted here. An item price without delivery
+      // would read as the same kind of figure in a search result while being
+      // a different one, which is the distinction the whole site turns on.
+      const detail =
+        best && best.deliveredPriceGbp !== null && shops > 0
+          ? `from ${formatGbp(best.deliveredPriceGbp)} delivered, across ${shops} ${shops === 1 ? 'shop' : 'shops'}`
+          : shops > 0
+            ? `stocked by ${shops} ${shops === 1 ? 'shop' : 'shops'} we track`
+            : undefined;
+      return {
+        route,
+        leafName: `${frag.brand} ${frag.name}${frag.sizeMl ? ` ${frag.sizeMl}ml` : ''}`,
+        leafDetail: detail,
+      };
+    }
+
+    case 'retailer': {
+      const r = getRetailer(state.retailerId);
+      if (!r) return { route };
+      const count = listingCountAt(r.id);
+      return {
+        route,
+        leafName: r.name,
+        leafDetail: count > 0 ? `${count.toLocaleString('en-GB')} bottles` : undefined,
+      };
+    }
+
+    case 'brand': {
+      const count = DEMO_FRAGRANCES.filter((f) => f.brand === state.brandProfile).length;
+      return {
+        route,
+        leafName: state.brandProfile,
+        leafDetail: count > 0 ? `${count} in the catalogue` : undefined,
+      };
+    }
+
+    case 'note': {
+      const count = fragrancesWithNote(state.noteName, 'any').length;
+      return {
+        route,
+        leafName: state.noteName,
+        leafDetail: count > 0 ? `${count.toLocaleString('en-GB')} of them` : undefined,
+      };
+    }
+
+    case 'legal':
+      return { route, leafName: legalPage(state.legalId)?.title };
+
+    default:
+      return {
+        route,
+        productCount: DEMO_FRAGRANCES.length,
+        retailerCount: SHOP_COUNT,
+      };
+  }
+}
+
 function currentRoute(): Route {
   const query: Record<string, string> = {};
   if (state.query) query.q = state.query;
@@ -2740,6 +2893,7 @@ function currentRoute(): Route {
     case 'brand': return { name: 'brand', param: slugify(state.brandProfile), query: {} };
     case 'note': return { name: 'note', param: slugify(state.noteName), query: {} };
     case 'legal': return { name: 'legal', param: state.legalId, query: {} };
+    case 'notFound': return { name: 'notFound', param: state.notFoundPath, query: {} };
     case 'about': return { name: 'about', param: '', query: {} };
     case 'design': return { name: 'design', param: '', query: {} };
     case 'settings': return { name: 'settings', param: '', query: {} };
@@ -2765,6 +2919,10 @@ function applyRoute(route: Route): boolean {
 
   switch (route.name) {
     case 'home': state.view = 'home'; return true;
+    case 'notFound':
+      state.notFoundPath = route.param;
+      state.view = 'notFound';
+      return true;
     case 'about': state.view = 'about'; return true;
     case 'design': state.view = 'design'; return true;
     case 'settings': state.view = 'settings'; return true;
@@ -3906,7 +4064,17 @@ function render(): void {
                         ? settingsView()
                         : state.view === 'account'
                           ? accountView()
-                          : legalView();
+                          : state.view === 'notFound'
+                            ? notFoundView()
+                            : legalView();
+
+  // What this page tells a search engine it is. Applied on every render
+  // because the site is one document: without this, /fragrance/ean-123 and
+  // /brands and every one of the 12,000-odd product pages carry the title,
+  // description and — worst — the canonical URL of the homepage, which is an
+  // instruction not to index them. See demo/head.ts for what this does and
+  // does not reach.
+  applyHead(headFor(headInputForState()));
 
   // The wrapper is a fresh element on every render, so the rise it carries
   // just plays on insertion. No JS animation retriggering needed. It is the
@@ -4039,7 +4207,12 @@ function renderFromUrl(): void {
     window.location.search,
   );
   if (!applyRoute(route)) {
-    state.view = 'home';
+    // applyRoute returns false when the address is well formed but names
+    // something that is not here any more: a bookmark to a fragrance that has
+    // since been delisted, a retailer that was switched off. That is a miss,
+    // not the homepage, and saying so beats silently showing something else.
+    state.notFoundPath = window.location.pathname;
+    state.view = 'notFound';
   }
   const box = $('#search') as HTMLInputElement | null;
   if (box) box.value = state.query;

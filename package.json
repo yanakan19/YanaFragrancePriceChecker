@@ -16,7 +16,7 @@
     "shipping:confidence": "tsx scripts/shipping-confidence-report.ts",
     "shipping:discover": "tsx scripts/shipping-discover.ts",
     "match:report": "tsx scripts/match-report.ts",
-    "demo": "tsc -p tsconfig.demo.json && esbuild dist-demo/demo/app.js --bundle --format=iife --minify --target=es2020 --outfile=dist-demo/bundle.js && tsx scripts/build-demo.ts",
+    "demo": "tsc -p tsconfig.demo.json && esbuild dist-demo/demo/app.js --bundle --format=iife --minify --target=es2020 --outfile=dist-demo/bundle.js && tsx scripts/build-demo.ts && tsx scripts/build-sitemap.ts",
     "catalogue": "tsx scripts/catalogue-run.ts",
     "catalogue:fixtures": "tsx scripts/catalogue-fixtures.ts",
     "catalogue:demo": "tsx scripts/build-demo-catalogue.ts",
@@ -38,7 +38,8 @@
     "icons": "tsx scripts/generate-icons.ts",
     "og:preview": "tsx scripts/generate-og-preview.ts",
     "changelog:suggest": "tsx scripts/changelog-suggest.ts",
-    "quarantine:prices": "tsx scripts/quarantine-prices.ts"
+    "quarantine:prices": "tsx scripts/quarantine-prices.ts",
+    "sitemap": "tsx scripts/build-sitemap.ts"
   },
   "devDependencies": {
     "@types/node": "^26.1.2",

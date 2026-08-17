@@ -6,6 +6,8 @@
 # other site. See docs/SCRAPING.md for the fuller picture, including what
 # this file cannot do.
 
+Sitemap: https://pricesniffs.space/sitemap.xml
+
 User-agent: *
 Allow: /
 

@@ -1575,6 +1575,11 @@
   }
 
   /* ── settings and documents ────────────────────────────────────────────── */
+  /* The not-found view's escape routes. A row that wraps rather than a
+     three-up grid, because there are four of them and the count is the count. */
+  .notfound-links {
+    display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 0;
+  }
   .doc { padding: 4px 0 8px; }
   .doc h2 { margin: 8px 0 16px; }
   .doc h3 { margin: 24px 0 7px; }
