@@ -24,9 +24,13 @@
  * below is a stated reading of an English word ("sweet" → the catalogue's
  * own Vanilla/Tonka Bean/Caramel notes), and every answer built on one says
  * so. It is not a claim that any product is sweet: the products come back
- * because the catalogue really lists those notes for them. Contrast the
- * gender case, which is why there is no gender family here — see
- * `detectAudience` below.
+ * because the catalogue really lists those notes for them.
+ *
+ * The audience reading in `demo/gender.ts` has exactly the same standing and
+ * is kept there rather than duplicated into a family here: it is a stated
+ * reading of published text (the product's own title), the answers built on
+ * it print the phrase that decided each one, and they disclose that most
+ * titles say nothing. See `detectAudience` below.
  */
 
 /* ── money ─────────────────────────────────────────────────────────────── */
@@ -159,29 +163,39 @@ const AUDIENCE_PATTERNS = [
 /**
  * Whether a question asks for a man's or a woman's fragrance.
  *
- * Detected only so an answer can say plainly that it cannot honour it. The
- * catalogue has no gender, audience or "for him/for her" field — measured
+ * ── This used to be detected only in order to refuse it ──────────────────
+ * "I can't filter by who it is for — the catalogue doesn't record that."
+ * That was the honest answer for as long as it was the whole truth, and it
+ * is not any more. `demo/gender.ts` reads an audience off the words a shop
+ * printed in its own product title, the site's filter panel offers it as a
+ * facet, and a chatbot refusing what the sidebar beside it answers is stale
+ * rather than careful. `resolveGenderQuery` in lookups.js answers it now,
+ * from the same module, and `genderCoverage` in siteData.js holds the
+ * reading.
+ *
+ * ── What has NOT changed ─────────────────────────────────────────────────
+ * There is still no gender, audience or "for him/for her" field: measured
  * against the live data, `Object.keys(DEMO_FRAGRANCES[0])` is
  * `id, brand, name, concentration, sizeMl, ean, tier, popularity, photoUrl,
- * notes` and nothing else. The two things that look like a substitute are
- * both far too thin to filter on:
+ * notes` and nothing else. So the reading covers a minority and every answer
+ * built on it says so. Measured with `npx tsx scripts/gender-coverage.ts`
+ * over 12,666 products: 657 women's, 1,040 men's, 18 unisex, 10,951 not
+ * stated — 13.54% classified.
  *
- *   - the product title. 705 of 10,379 entries say something masculine in
- *     the name, 465 something feminine, 9,209 say nothing at all — 11.3%
- *     coverage. Filtering "for a woman" on titles would hide 88.7% of the
- *     catalogue and silently reclassify every unisex bottle as unavailable.
- *   - the notes field, where some feeds put an audience word. Exactly 1 of
- *     the 3,430 fragrances that have notes carries one.
+ * Two rules survive the change untouched, and they are what keep this
+ * honest rather than merely wider:
  *
- * (Both figures produced by counting over `demo/data.ts`'s own
- * DEMO_FRAGRANCES; the count is reproduced as a test in
- * test/messyQuestions.test.js so it fails rather than rots if a gender
- * field is ever added.)
+ *   - "Not stated" is never quietly promoted to "unisex". Eighteen titles
+ *     say unisex; ten thousand nine hundred and fifty-one say nothing, and
+ *     those are different claims about a bottle.
+ *   - the notes field is still not a source. Exactly 1 of the 3,448
+ *     fragrances that have notes carries an audience word in them, and
+ *     inferring one from a note list — "florals are for women" — would be
+ *     this codebase inventing a fact about a product, which is the one
+ *     thing it must never do.
  *
- * So there is no honest gender filter to write, and inferring one from a
- * note list — "florals are for women" — would be this codebase inventing a
- * fact about a product, which is the one thing it must never do. The
- * answer says so instead.
+ * (Both counts are reproduced as tests in test/messyQuestions.test.js, so
+ * they fail rather than rot.)
  */
 export function detectAudience(text) {
   const c = String(text ?? '').toLowerCase();
@@ -202,8 +216,8 @@ const PERFORMANCE_RE =
  * that lasts all day", and the owner's own "a perfume for a smelly man",
  * which is a longevity request phrased bluntly.
  *
- * Same reason as `detectAudience`: detected in order to decline it
- * honestly. Nothing in the catalogue records longevity, projection or
+ * This is what `detectAudience` used to be and no longer is: detected in
+ * order to decline it honestly. Nothing in the catalogue records longevity, projection or
  * concentration strength as a measurement. Concentration (Eau de Toilette,
  * Eau de Parfum, Parfum) is a real field, but reading a ranking of how long
  * a bottle lasts out of its concentration label is general perfumery
@@ -232,8 +246,8 @@ const OCCASION_RE =
  * Whether a question asks for a season or an occasion — "a summer fragrance",
  * "something for a wedding", "office safe".
  *
- * Same standing as `detectAudience` and `detectPerformanceRequest`: detected
- * so it can be declined honestly. The catalogue records nothing about when
+ * Same standing as `detectPerformanceRequest`: detected so it can be
+ * declined honestly. The catalogue records nothing about when
  * or where a fragrance suits (a record is brand, name, concentration, size,
  * EAN, tier, popularity, photo, notes). Season words do appear inside some
  * harvested note lists ("Summer, Autumn, Summer, Autumn" — see
@@ -241,9 +255,9 @@ const OCCASION_RE =
  * already refuses to read as a note; reading it as a season *filter* would
  * be the same invention twice. And mapping a season to notes — "summer means
  * citrus" — is general perfumery opinion, exactly what prompt rule 1 exists
- * to keep out of answers. So the honest move is the one the audience and
- * longevity constraints already make: say the data does not hold it, and
- * offer the filters that are real.
+ * to keep out of answers. So the honest move is the one the longevity
+ * constraint already makes: say the data does not hold it, and offer the
+ * filters that are real.
  */
 export function detectOccasionRequest(text) {
   return OCCASION_RE.test(String(text ?? '').toLowerCase());
