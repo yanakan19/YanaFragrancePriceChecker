@@ -27,7 +27,7 @@
 export type RouteName =
   | 'home' | 'search' | 'brands' | 'brand' | 'deals' | 'retailers' | 'retailer'
   | 'notes' | 'note' | 'fragrance' | 'about' | 'settings' | 'legal' | 'account'
-  | 'design';
+  | 'design' | 'notFound';
 
 /** What a matched URL says about where we are. */
 export interface Route {
@@ -81,10 +81,10 @@ const LEAF_ROUTES: Record<string, RouteName> = {
 /**
  * Parse a path and query into a route.
  *
- * Anything unrecognised resolves to home rather than throwing: a stale
- * bookmark or a hand-typed URL should land somewhere sensible, and on static
+ * Anything unrecognised resolves to `notFound` rather than throwing. On static
  * hosting this function is also what runs for a path GitHub Pages served
- * through 404.html.
+ * through 404.html, so it is the only thing standing between a mistyped URL
+ * and a page that silently pretends to be the homepage.
  */
 export function matchRoute(pathname: string, search = ''): Route {
   const query: Record<string, string> = {};
@@ -98,7 +98,7 @@ export function matchRoute(pathname: string, search = ''): Route {
 
   if (segments.length === 1) {
     const name = LIST_ROUTES[head!];
-    return name ? { name, param: '', query } : { name: 'home', param: '', query };
+    return name ? { name, param: '', query } : { name: 'notFound', param: pathname, query };
   }
 
   const leaf = LEAF_ROUTES[head!];
@@ -106,7 +106,15 @@ export function matchRoute(pathname: string, search = ''): Route {
     return { name: leaf, param: decodeURIComponent(tail), query };
   }
 
-  return { name: 'home', param: '', query };
+  // An address that matches nothing is not the homepage.
+  //
+  // This returned `home` until 2026-08-17, which made every wrong URL a soft
+  // 404: the reader got a 200-shaped homepage with no hint their link was
+  // broken, and a crawler got what looked like thousands of duplicate
+  // homepages at made-up addresses. Naming the miss lets the app say so and
+  // lets head.ts mark it noindex. `param` carries the path that missed, so
+  // the view can show it back.
+  return { name: 'notFound', param: pathname, query };
 }
 
 /** Build the path for a route. The inverse of matchRoute. */
@@ -132,6 +140,11 @@ export function routeToPath(route: Route): string {
       case 'account': return '/account';
       case 'design': return '/design';
       case 'legal': return `/legal/${encodeURIComponent(param)}`;
+      // Not a destination anything navigates *to*: syncUrl never rewrites the
+      // address for a miss, so the wrong URL the reader typed stays in the bar
+      // where they can see and correct it. Present so this switch stays
+      // exhaustive and can never return undefined into a template literal.
+      case 'notFound': return param || '/404';
     }
   })();
 
@@ -146,7 +159,12 @@ export function routeToPath(route: Route): string {
  * from where the document actually loaded rather than hard-coded, so the same
  * bundle works from either.
  */
-export function basePath(pathname = window.location.pathname): string {
+export function basePath(
+  // Read through globalThis rather than the `window` global directly: this
+  // module is imported by tests that run under Node, where `window` is not
+  // declared at all. Identical in a browser.
+  pathname = (globalThis as { location?: { pathname?: string } }).location?.pathname ?? '/',
+): string {
   // The app is a single index.html; anything before it is the base.
   const idx = pathname.indexOf('/index.html');
   if (idx >= 0) return pathname.slice(0, idx + 1);
