@@ -4,7 +4,7 @@
  * There is no gender field anywhere in this project. A catalogue entry carries
  * id, brand, name, concentration, sizeMl, ean, shops, image and notes, and not
  * one of those says who a bottle is for. Nothing upstream supplies it either:
- * of the 3,431 products whose retailer spelled its scent notes out, exactly
+ * of the 3,448 products whose retailer spelled its scent notes out, exactly
  * one has an audience word anywhere in that list (Floris Platinum 22, whose
  * note list ends "Women | Woods | Spicy"), which is a labelling accident in
  * one shop's copy rather than a source worth reading.
@@ -13,7 +13,7 @@
  * reads it literally: a title that says "Pour Homme" is a shop stating an
  * audience, and a title that says nothing is a shop stating nothing. Those are
  * the only two things that can be established here, and the second one is by
- * far the more common: 8,957 of the 10,376 products in the catalogue as it
+ * far the more common: 10,949 of the 12,664 products in the catalogue as it
  * stands say nothing at all. See the measurements at the foot of this
  * comment, and re-run the script named there rather than trusting them.
  *
@@ -46,9 +46,10 @@
  * somewhere. Three exclusions, each from a real catalogue case:
  *
  *   "lady"     Portrait Of A Lady, Lady Vengeance, The Revenge Of Lady
- *              Blanche, Lady Emblem. 39 products, and in every one of them
+ *              Blanche, Lady Emblem. 45 products, and in every one of them
  *              "Lady" is a character in the fragrance's own story, not a
- *              counter it is sold from. Plural "ladies" is kept: "Armaf
+ *              counter it is sold from. Plural "ladies" is kept — 3
+ *              products, all of them a shelf rather than a character: "Armaf
  *              Ladies Club De Nuit" is a shop naming a shelf.
  *   "man's"    Byredo's Rose Of No Man's Land. The possessive is part of an
  *              idiom; the bare noun ("Jimmy Choo Man", "Ultraviolet Man") is
@@ -59,20 +60,24 @@
  *
  * Contradictory evidence — masculine and feminine phrases in one title, with
  * no explicit "unisex" — returns 'notStated' rather than a guess at which
- * word wins. No product in the catalogue at d1d7099 hits this, but a
+ * word wins. No product in the catalogue hits this today, but a
  * "Pour Homme / Pour Femme" twin pack listing would, and silence is the right
  * answer to a question the title contradicts itself on.
  *
- * ── Measured, 10,376 products ────────────────────────────────────────────────
+ * ── Measured, 12,664 products ────────────────────────────────────────────────
+ * Re-measured after Perfume Click went live and added ~5,127 listings; the
+ * shape did not move, which is the point of recording it rather than the
+ * individual figures.
+ *
  *   npx tsx scripts/gender-coverage.ts
  *
- *   Women's       548    5.28%
- *   Men's         853    8.22%
- *   Unisex         18    0.17%
- *   Not stated  8,957   86.32%
+ *   Women's       657    5.19%
+ *   Men's       1,040    8.21%
+ *   Unisex         18    0.14%
+ *   Not stated 10,949   86.46%
  *
- * 13.68% classified, 1,419 products. The same rules over the 43,478 undelisted
- * raw listings read 8.53%, lower because a title one shop wrote is less likely
+ * 13.54% classified, 1,715 products. The same rules over the 43,416 undelisted
+ * raw listings read 8.54%, lower because a title one shop wrote is less likely
  * to name an audience than a product several shops stock and only one of them
  * had to label. Neither figure is going to climb much, so the filter panel
  * states the split on screen rather than leaving a reader to conclude the
@@ -90,7 +95,7 @@ export type GenderReading = 'mens' | 'womens' | 'unisex' | 'notStated';
  *
  * Checked as whole words, so "men" never matches inside "women" and "male"
  * never matches inside "female" — there is no word boundary in either place.
- * Both the straight and the typographic apostrophe are accepted: 20 products
+ * Both the straight and the typographic apostrophe are accepted: 25 products
  * in the catalogue use the curly one somewhere in their name.
  */
 const MASCULINE = /\b(?:pour homme|homme|men[’']?s|men|man(?![’']s)|male|uomo|for him)\b/i;
