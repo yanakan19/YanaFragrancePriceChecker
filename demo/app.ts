@@ -1523,7 +1523,7 @@ function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): s
       <div class="history-tip" data-history-tip hidden></div>
     </div>
     <div class="history-xaxis">${xAxis}</div>
-    <p class="notes-source t-caption">One point for every day since ${esc(shortDate(`${HISTORY_SPAN.first}T00:00:00Z`))} — the cheapest live price recorded that day, or carried flat from the last day it changed. Grey points on the baseline are days with no price recorded at all, before this fragrance appeared on the site or after it stopped being available; they are not a price of zero. Tap or hover a point for the exact price, retailer and date.</p>
+    <p class="notes-source t-caption">One point for every day since ${esc(shortDate(`${HISTORY_SPAN.first}T00:00:00Z`))}: the cheapest live price recorded that day, or carried flat from the last day it changed. Grey points on the baseline are days with no price recorded at all, before this fragrance appeared on the site or after it stopped being available; they are not a price of zero. Tap or hover a point for the exact price, retailer and date.</p>
   </div>`;
 }
 
@@ -1850,8 +1850,8 @@ function deliveryLines(r: Retailer): string[] {
         // which is what standardRateNotPublished records. Without it all we
         // can say is that we do not have the figure.
         s.standardRateNotPublished
-        ? 'Delivery not stated — this shop publishes no standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest'
-        : 'Delivery not stated — we have not established this shop’s standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest'
+        ? 'Delivery not stated. This shop publishes no standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest'
+        : 'Delivery not stated. We have not established this shop’s standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest'
       : s.standardGbp === 0
         ? 'Free standard delivery on every order'
         : `Standard delivery ${formatGbp(s.standardGbp)}`,
@@ -1863,7 +1863,7 @@ function deliveryLines(r: Retailer): string[] {
       ? s.source
         ? `Read from this shop’s own delivery page on ${s.source.readAt}`
         : 'Confirmed against this shop’s own delivery page'
-      : 'Not yet confirmed with the shop — these delivery terms came from research, not from their own delivery page',
+      : 'Not yet confirmed with the shop. These delivery terms came from research, not from their own delivery page',
   );
   if (s.freeOverGbp !== null && s.freeOverGbp > 0) {
     lines.push(`Free once you spend ${formatGbp(s.freeOverGbp)}`);
@@ -3331,7 +3331,7 @@ const YANNY_UNAVAILABLE_COPY: Record<YannyHealth['reason'], { mark: string; text
   },
   'router-down': {
     mark: '🤖⏳',
-    text: "Virtual Yanny is up, but the free model service behind it is busy or rate-limited right now. It usually clears within a few minutes — try again shortly.",
+    text: "Virtual Yanny is up, but the free model service behind it is busy or rate-limited right now. It usually clears within a few minutes. Try again shortly.",
   },
 };
 
@@ -3693,7 +3693,6 @@ const DS_COLOUR_GROUPS: { title: string; note: string; tokens: TokenRow[] }[] = 
       { name: '--bg', role: 'The page itself' },
       { name: '--surface', role: 'A card or a control, one step up' },
       { name: '--surface-2', role: 'A second step up: chips, pills, segments' },
-      { name: '--bg-glass', role: 'The bar ground, translucent so the page reads through', translucent: true },
     ],
   },
   {
@@ -3738,13 +3737,23 @@ const DS_COLOUR_GROUPS: { title: string; note: string; tokens: TokenRow[] }[] = 
     ],
   },
   {
-    title: 'Chart and ambience',
-    note: 'The price history chart, and the two ambient glows behind the page. Both glows are the brand red and nothing else.',
+    title: 'Chart',
+    note: 'The price history chart. The two drifting red glows that used to sit behind every page were removed on 17 Aug 2026, along with their tokens: the accent means "look here", and it should not also be the wallpaper.',
     tokens: [
       { name: '--chart-grid', role: 'Gridlines, below --line so data reads above them' },
       { name: '--chart-band', role: 'The fill under the live price line', translucent: true },
-      { name: '--glow-1', role: 'Ambient glow, nearer', translucent: true },
-      { name: '--glow-2', role: 'Ambient glow, further', translucent: true },
+    ],
+  },
+  {
+    title: 'Rank badges',
+    note: 'First, second and third on the deals list. Flat values, the same in every theme, each with the text colour measured against its own ground rather than assumed.',
+    tokens: [
+      { name: '--rank-1', role: 'First place' },
+      { name: '--rank-1-on', role: 'The digit on first place' },
+      { name: '--rank-2', role: 'Second place' },
+      { name: '--rank-2-on', role: 'The digit on second place' },
+      { name: '--rank-3', role: 'Third place' },
+      { name: '--rank-3-on', role: 'The digit on third place' },
     ],
   },
 ];
@@ -3931,7 +3940,12 @@ function designView(): string {
 
       <section class="ds-section">
         <h3 class="t-section">Elevation</h3>
-        <div class="ds-lift-demo"><span class="ds-lift">Card</span></div>
+        <p class="t-body">One level, and it is for things that genuinely float: the dialog and the
+          chart's own tooltip. Cards, tiles, badges and the price box carried it too until
+          17 Aug 2026; each of them already had a border or a ground of its own doing the same
+          job, so the shadow was the separation drawn twice. The sample below is the token
+          itself, not a picture of it.</p>
+        <div class="ds-lift-demo"><span class="ds-lift">Dialog</span></div>
         ${dsTokenTable(DS_ELEVATION, false)}
       </section>
 

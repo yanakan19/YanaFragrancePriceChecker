@@ -46,6 +46,19 @@
     --faint:     #8A8A92;
     --line:      #26262A;
     --line-firm: #3A3A40;
+    /* Rank badges on the deals list: first, second, third. Flat single
+       values, not the two-stop gradients and six loose hex codes these
+       replaced, and identical in every theme because a gold medal does not
+       change colour when the lights go down. Each `-on` is the text colour
+       for its own ground, measured rather than guessed:
+         #1A1405 on #C8A128  7.49:1
+         #23262B on #C3C8D0  9.03:1
+         #2A1A0B on #C08552  5.37:1
+       All three clear AA for text (4.5:1), double what WCAG asks of a
+       graphic. tests/contrast.test.ts holds them to these figures. */
+    --rank-1: #C8A128; --rank-1-on: #1A1405;
+    --rank-2: #C3C8D0; --rank-2-on: #23262B;
+    --rank-3: #C08552; --rank-3-on: #2A1A0B;
     --accent:    #FF3B41;
     /* Near-black, not white, and deliberately so: white on #FF3B41 is 3.5:1
        and fails AA. Near-black on that same red is 5.5:1. */
@@ -71,15 +84,6 @@
     --shadow-lift: 0 1px 0 #26262A;
     /* Translucent bar ground, so the drifting background reads through the
        chrome instead of stopping dead at it. */
-    --bg-glass:  rgba(10,10,11,.72);
-    /* The two ambient glows behind the page. Both are the brand red and
-       nothing else: the violet and teal that used to sit either side of it
-       made the greeting read as three brands' worth of colour, and on a
-       site whose whole job is one red accent that is a claim it should not
-       be making. Alphas stay low enough that text contrast never depends on
-       where a glow happens to be at the time. */
-    --glow-1:    rgba(255,59,65,.22);
-    --glow-2:    rgba(255,59,65,.13);
     /* Per-brand monogram tint, see .monogram below: fixed lightness for this
        theme, hue supplied per tile. */
     --mono-bg-l: 20%;
@@ -128,6 +132,9 @@
     --faint:     #6B6B74;
     --line:      #E6E6EA;
     --line-firm: #CFCFD6;
+    --rank-1: #C8A128; --rank-1-on: #1A1405;
+    --rank-2: #C3C8D0; --rank-2-on: #23262B;
+    --rank-3: #C08552; --rank-3-on: #2A1A0B;
     --accent:    #C8102E;
     --accent-on: #FFFFFF;
     --accent-sf: #FDECEE;
@@ -140,11 +147,8 @@
     --warn:      #8A5A00;
     --shadow:    0 1px 3px rgba(0,0,0,.18);
     --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
-    --bg-glass:  rgba(252,252,253,.72);
     /* Lower alpha than the dark theme: the same wash that reads as subtle
        on a dark ground turns muddy on a light one. */
-    --glow-1:    rgba(200,16,46,.13);
-    --glow-2:    rgba(200,16,46,.08);
     --mono-bg-l: 93%;
     /* 30%, not the 33% this used to carry: the monogram's hue is supplied
        per tile, so this lightness has to clear AA against --mono-bg-l for
@@ -173,13 +177,14 @@
       --bg: #FCFCFD; --surface: #FFFFFF; --surface-2: #F2F2F4;
       --ink: #0D0D0F; --ink-2: #4A4A52; --faint: #6B6B74;
       --line: #E6E6EA; --line-firm: #CFCFD6;
+    --rank-1: #C8A128; --rank-1-on: #1A1405;
+    --rank-2: #C3C8D0; --rank-2-on: #23262B;
+    --rank-3: #C08552; --rank-3-on: #2A1A0B;
       --accent: #C8102E; --accent-on: #FFFFFF; --accent-sf: #FDECEE;
       --accent-ink: #A80C25; --accent-press: #9E0C22; --focus: #C8102E;
       --chart-grid: #EDEDF1; --chart-band: rgba(200,16,46,.08);
       --ok: #17724B; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
       --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
-      --bg-glass: rgba(252,252,253,.72);
-      --glow-1: rgba(200,16,46,.13); --glow-2: rgba(200,16,46,.08);
       --mono-bg-l: 93%; --mono-fg-l: 30%; --mono-border-l: 55%;
       --gender-women: #A81B5E; --gender-women-on: #FF8FB3;
       --gender-men: #17569E; --gender-men-on: #7FBBFF;
@@ -189,13 +194,14 @@
     --bg: #FCFCFD; --surface: #FFFFFF; --surface-2: #F2F2F4;
     --ink: #0D0D0F; --ink-2: #4A4A52; --faint: #6B6B74;
     --line: #E6E6EA; --line-firm: #CFCFD6;
+    --rank-1: #C8A128; --rank-1-on: #1A1405;
+    --rank-2: #C3C8D0; --rank-2-on: #23262B;
+    --rank-3: #C08552; --rank-3-on: #2A1A0B;
     --accent: #C8102E; --accent-on: #FFFFFF; --accent-sf: #FDECEE;
     --accent-ink: #A80C25; --accent-press: #9E0C22; --focus: #C8102E;
     --chart-grid: #EDEDF1; --chart-band: rgba(200,16,46,.08);
     --ok: #17724B; --warn: #8A5A00; --shadow: 0 1px 3px rgba(0,0,0,.18);
     --shadow-lift: 0 1px 2px rgba(13,13,15,.06), 0 8px 24px rgba(13,13,15,.05);
-    --bg-glass: rgba(252,252,253,.72);
-    --glow-1: rgba(200,16,46,.13); --glow-2: rgba(200,16,46,.08);
     --mono-bg-l: 93%; --mono-fg-l: 30%; --mono-border-l: 55%;
     --gender-women: #A81B5E; --gender-women-on: #FF8FB3;
     --gender-men: #17569E; --gender-men-on: #7FBBFF;
@@ -204,13 +210,14 @@
     --bg: #0A0A0B; --surface: #121214; --surface-2: #1A1A1D;
     --ink: #F7F7F8; --ink-2: #C2C2C7; --faint: #8A8A92;
     --line: #26262A; --line-firm: #3A3A40;
+    --rank-1: #C8A128; --rank-1-on: #1A1405;
+    --rank-2: #C3C8D0; --rank-2-on: #23262B;
+    --rank-3: #C08552; --rank-3-on: #2A1A0B;
     --accent: #FF3B41; --accent-on: #0B0405; --accent-sf: #1E0709;
     --accent-ink: #FF6A6E; --accent-press: #D42B31; --focus: #FF3B41;
     --chart-grid: #1F1F23; --chart-band: rgba(255,59,65,.10);
     --ok: #4FB47B; --warn: #D8A24C; --shadow: 0 1px 3px rgba(0,0,0,.4);
     --shadow-lift: 0 1px 0 #26262A;
-    --bg-glass: rgba(10,10,11,.72);
-    --glow-1: rgba(255,59,65,.22); --glow-2: rgba(255,59,65,.13);
     --mono-bg-l: 20%; --mono-fg-l: 78%; --mono-border-l: 42%;
     --gender-women: #FF8FB3; --gender-women-on: #A81B5E;
     --gender-men: #7FBBFF; --gender-men-on: #17569E;
@@ -410,101 +417,44 @@
     font-feature-settings: "kern" 1;
   }
 
-  /* ── ambient background ────────────────────────────────────────────────────
-     Two very soft red fields drifting behind the page. This is the one place
-     on the site where anything moves without a reader having done something,
-     and it earns that by being the only thing that does: peripheral movement
-     the eye registers as alive without ever being asked to look at it.
+  /* ── the background behind the page ──────────────────────────────────────
+     Flat. It used to be two viewport-sized red radial-gradient fields
+     drifting on a 26s loop, which is the ambient glow every generated
+     landing page ships, and it was doing three things worth being rid of: it
+     put the brand colour behind price figures, where the accent is supposed
+     to mean "look here"; it animated forever without a reader having asked
+     for anything; and it kept two composited layers alive for decoration on
+     a page whose long lists are the thing that has to stay fast.
 
-     Was three orbs -- crimson, violet, teal -- on 41s, 59s and 47s. Two
-     reasons it is now two, both red. One is colour: a site whose entire
-     visual argument is a single red accent should not open on a wash of
-     three hues, and the violet in particular read as a second brand. The
-     other is that a glow you can name the colour of is a glow that is
-     asking to be looked at; both of these are the accent, so there is
-     nothing new on screen to identify.
+     What separates the surfaces now is what already separated them: a step
+     between --bg and --surface, and a hairline. Nothing moves unless
+     somebody did something. */
 
-     Built from radial-gradients rather than blurred solid shapes. A gradient
-     with a transparent falloff is already soft, so it needs no
-     filter: blur(), which on a viewport-sized element is one of the most
-     expensive things you can ask a compositor to redo every frame. Only
-     transform is animated, so each glow is a single composited layer and the
-     main thread does nothing once the animation starts.
-
-     Both centres sit outside the viewport, so only falloff is ever on
-     screen and no text is ever over the bright core.
-
-     26s, alternating, on ease-in-out. The two curves the motion section
-     names are for state changes measured in tenths of a second and would
-     read as a lurch at this length; this is the documented exception, the
-     same one the three orbs it replaces were. */
-  .ambient {
-    position: fixed; inset: 0; z-index: 0;
-    overflow: hidden; pointer-events: none;
-  }
-  .glow {
-    position: absolute; display: block; border-radius: 50%;
-    will-change: transform;
-  }
-  .glow-1 {
-    top: -40vmax; left: -30vmax; width: 70vmax; height: 70vmax;
-    background: radial-gradient(circle closest-side, var(--glow-1), transparent 70%);
-    animation: glow-drift-1 26s ease-in-out infinite alternate;
-  }
-  .glow-2 {
-    bottom: -46vmax; right: -34vmax; width: 74vmax; height: 74vmax;
-    background: radial-gradient(circle closest-side, var(--glow-2), transparent 70%);
-    animation: glow-drift-2 26s ease-in-out infinite alternate;
-  }
-  /* alternate rather than a loop back to the start: with one pass out and one
-     pass back there is no seam to hide, and the two glows travel opposite
-     ways so the pair never reads as one shape sliding. translate3d keeps both
-     on the GPU. */
-  @keyframes glow-drift-1 {
-    from { transform: translate3d(0, 0, 0) scale(1); }
-    to   { transform: translate3d(8vw, 6vh, 0) scale(1.12); }
-  }
-  @keyframes glow-drift-2 {
-    from { transform: translate3d(0, 0, 0) scale(1.08); }
-    to   { transform: translate3d(-7vw, -5vh, 0) scale(.94); }
-  }
-  /* Ambient motion is the first thing to go: the glows still sit where they
-     sit, they just stop moving. */
-  @media (prefers-reduced-motion: reduce) {
-    .glow { animation: none; }
-  }
-
-  /* Sits above .ambient. An explicit z-index rather than relying on source
-     order, because .ambient is positioned and would otherwise paint over
-     the page's own non-positioned content. */
   .app { max-width: var(--col); margin: 0 auto; min-height: 100vh; position: relative; z-index: 1; }
 
   /* ── top bar ───────────────────────────────────────────────────────────── */
   .bar {
     position: sticky; top: 0; z-index: 20;
-    /* Translucent rather than solid, so the drifting background carries
-       through the chrome instead of being cut off by a hard opaque band. */
-    background: var(--bg-glass);
-    backdrop-filter: blur(16px) saturate(150%);
-    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    /* Opaque. The translucent, blurred bar existed so the drifting
+       background could show through it; with that gone there is nothing to
+       see through to, and a frosted panel over a flat colour is cost without
+       a picture. backdrop-filter also makes the compositor re-blur a
+       viewport-wide strip on every scroll frame, and this bar sits over the
+       longest scrolling lists on the site. */
+    background: var(--bg);
     border-bottom: 1px solid var(--line);
     /* Trimmed from 17px/14px now that .navbtn carries a 44px target of its
        own: the padding used to be what gave the row its height, and keeping
        both would have made the sticky bar a fifth of a phone screen. */
     padding: 10px 18px 12px;
   }
-  /* Without the blur to separate bar text from whatever is scrolling under
-     it, translucency is just a legibility problem. Fall back to opaque. */
-  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-    .bar { background: var(--bg); }
-  }
   .bar-row { display: flex; align-items: center; gap: 20px; position: relative; }
   /* The 7s accent sweep that used to run along the bar's bottom edge is
      gone. The motion section above names seven behaviours and says nothing
      animates that is not one of them; a sweep that repeats forever and
-     reports nothing was an eighth, and the ambient layer behind the page is
-     the one place idle movement is allowed to live. The bar keeps its
-     --line border. */
+     reports nothing was an eighth. Nothing on the site animates on its own
+     any more: the drifting background that used to be the one exception was
+     removed with it. The bar keeps its --line border. */
   .brandmark {
     font-size: 21px; font-weight: 800; letter-spacing: -.03em;
     margin: 0; flex: 1; min-width: 0; white-space: nowrap;
@@ -602,11 +552,10 @@
   .intro { padding: 34px 0 8px; }
   .hero-logo { text-align: center; position: relative; }
   /* The wordmark used to sit on a wash of its own that breathed in and out
-     on a 9s cycle. Two things were wrong with it: it was a second piece of
-     ambient motion competing with the layer behind the page, and the
-     wordmark sat exactly on the brightest part of it, which is the one place
-     text must never go on a glow. The ambient layer now carries the greeting
-     on its own. */
+     on a 9s cycle. It went for two reasons: it was a second piece of idle
+     motion, and the wordmark sat on the brightest part of it, which is the
+     one place text must never go. The drifting background it competed with
+     has since gone too, so the greeting now sits on a flat ground. */
 
   /* ── hero entrance ─────────────────────────────────────────────────────────
      There isn't one any more, and that is the point. Each piece of the
@@ -854,11 +803,16 @@
     position: absolute; top: -2px; left: -4px; z-index: 2;
     width: 22px; height: 22px; border-radius: 50%;
     display: flex; align-items: center; justify-content: center;
-    font-size: 11px; font-weight: 800; box-shadow: var(--shadow);
+    font-size: 11px; font-weight: 800;
   }
-  .medal.gold   { background: linear-gradient(150deg, #F8DE84, #C8A128); color: #3A2C05; }
-  .medal.silver { background: linear-gradient(150deg, #E6E9EE, #A2AAB5); color: #2E3238; }
-  .medal.bronze { background: linear-gradient(150deg, #E2AB7C, #A96A31); color: #34200E; }
+  /* Flat, and from tokens. These were three two-stop linear-gradients built
+     from six hardcoded hex values belonging to no palette and moving with no
+     theme: the one place in this stylesheet where a colour was invented at
+     the point of use. A rank badge is 22px across, so the gradient inside it
+     was never legible as a gradient in the first place. */
+  .medal.gold   { background: var(--rank-1); color: var(--rank-1-on); }
+  .medal.silver { background: var(--rank-2); color: var(--rank-2-on); }
+  .medal.bronze { background: var(--rank-3); color: var(--rank-3-on); }
 
   /* ── fragrance tile grid ───────────────────────────────────────────────────
      One tile shape, used everywhere a list of fragrances appears (browse,
@@ -894,7 +848,7 @@
   .tile {
     width: 100%; display: flex; flex-direction: column; gap: 6px;
     background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
-    padding: 12px 13px 14px; color: var(--ink); box-shadow: var(--shadow-lift);
+    padding: 12px 13px 14px; color: var(--ink);
     transition: border-color var(--dur-2) var(--ease-standard);
   }
   /* Behaviour 4, hover: the border moves --line to --line-firm and nothing
@@ -1274,7 +1228,7 @@
     width: 64px; height: 64px; border-radius: 50%;
     background: var(--accent); color: var(--accent-on);
     display: flex; align-items: center; justify-content: center;
-    font-size: 28px; font-weight: 800; box-shadow: var(--shadow);
+    font-size: 28px; font-weight: 800;
   }
   .note-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; }
   .note-chip {
@@ -1435,7 +1389,6 @@
     margin: 18px auto 0; max-width: 280px; padding: 16px 20px 17px;
     border-radius: 16px; border: 1px solid var(--accent);
     background: var(--accent-sf);
-    box-shadow: var(--shadow-lift);
   }
   .price-box-label { margin: 0; color: var(--accent-ink); }
   .price-box-amount { margin: 6px 0 0; color: var(--accent-ink); }
@@ -2224,10 +2177,6 @@
   .ds-icon figcaption { text-align: center; overflow-wrap: anywhere; }
 </style>
 
-<div class="ambient" aria-hidden="true">
-  <span class="glow glow-1"></span>
-  <span class="glow glow-2"></span>
-</div>
 
 <div class="app">
   <div class="bar">
@@ -2733,7 +2682,7 @@ ${A}`}var z=class extends Error{constructor({message:e,code:a,cause:i,name:r}){v
       <div class="history-tip" data-history-tip hidden></div>
     </div>
     <div class="history-xaxis">${Cl}</div>
-    <p class="notes-source t-caption">One point for every day since ${b(ft(`${Fa.first}T00:00:00Z`))} \u2014 the cheapest live price recorded that day, or carried flat from the last day it changed. Grey points on the baseline are days with no price recorded at all, before this fragrance appeared on the site or after it stopped being available; they are not a price of zero. Tap or hover a point for the exact price, retailer and date.</p>
+    <p class="notes-source t-caption">One point for every day since ${b(ft(`${Fa.first}T00:00:00Z`))}: the cheapest live price recorded that day, or carried flat from the last day it changed. Grey points on the baseline are days with no price recorded at all, before this fragrance appeared on the site or after it stopped being available; they are not a price of zero. Tap or hover a point for the exact price, retailer and date.</p>
   </div>`}function T2(t){if(!t.notes)return`<div class="notes-block">
       <p class="gone-head t-eyebrow">Notes</p>
       <p class="notes-none">Notes unavailable for this fragrance.</p>
@@ -2814,7 +2763,7 @@ ${A}`}var z=class extends Error{constructor({message:e,code:a,cause:i,name:r}){v
     <p class="panel-note t-body">Savings are against the shop's own published recommended retail price.</p>
     <ul class="tile-grid">${Ar(e,r=>gr(r.fragrance,{trailing:`<span class="off">${r.percentOff}% off</span>
         <span class="amt">${x(r.price)}</span>
-        <span class="was">RRP ${x(r.wasPrice)}</span>`}))}</ul>`}function v2(t){let e=5381;for(let a=0;a<t.length;a++)e=e*33+t.charCodeAt(a)|0;return Math.abs(e)%360}function ti(t){let e=t.replace(/[^A-Za-z ]/g,"").split(/\s+/).filter(Boolean).slice(0,2).map(a=>a[0].toUpperCase()).join("");return`<span class="monogram" style="--mh:${v2(t)}" aria-hidden="true">${b(e||"?")}</span>`}function M2(t){let e=t.shipping,a=[];a.push(e.standardGbp===null?e.standardRateNotPublished?"Delivery not stated \u2014 this shop publishes no standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest":"Delivery not stated \u2014 we have not established this shop\u2019s standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest":e.standardGbp===0?"Free standard delivery on every order":`Standard delivery ${x(e.standardGbp)}`),a.push(e.confidence==="confirmed"?e.source?`Read from this shop\u2019s own delivery page on ${e.source.readAt}`:"Confirmed against this shop\u2019s own delivery page":"Not yet confirmed with the shop \u2014 these delivery terms came from research, not from their own delivery page"),e.freeOverGbp!==null&&e.freeOverGbp>0?a.push(`Free once you spend ${x(e.freeOverGbp)}`):e.freeOverGbp===null&&a.push("No spend based free delivery");let[i,r]=e.estimatedDays;return a.push(i===r?`Arrives in about ${i} working days`:`Arrives in about ${i} to ${r} working days`),e.membershipPerk&&a.push(`${e.membershipPerk.scheme}: ${e.membershipPerk.description}`),a}function jl(t){let e=yi(t);return e>0?`(${e.toLocaleString("en-GB")})`:"(-)"}function j2(){return`<ul class="shop-list">
+        <span class="was">RRP ${x(r.wasPrice)}</span>`}))}</ul>`}function v2(t){let e=5381;for(let a=0;a<t.length;a++)e=e*33+t.charCodeAt(a)|0;return Math.abs(e)%360}function ti(t){let e=t.replace(/[^A-Za-z ]/g,"").split(/\s+/).filter(Boolean).slice(0,2).map(a=>a[0].toUpperCase()).join("");return`<span class="monogram" style="--mh:${v2(t)}" aria-hidden="true">${b(e||"?")}</span>`}function M2(t){let e=t.shipping,a=[];a.push(e.standardGbp===null?e.standardRateNotPublished?"Delivery not stated. This shop publishes no standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest":"Delivery not stated. We have not established this shop\u2019s standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest":e.standardGbp===0?"Free standard delivery on every order":`Standard delivery ${x(e.standardGbp)}`),a.push(e.confidence==="confirmed"?e.source?`Read from this shop\u2019s own delivery page on ${e.source.readAt}`:"Confirmed against this shop\u2019s own delivery page":"Not yet confirmed with the shop. These delivery terms came from research, not from their own delivery page"),e.freeOverGbp!==null&&e.freeOverGbp>0?a.push(`Free once you spend ${x(e.freeOverGbp)}`):e.freeOverGbp===null&&a.push("No spend based free delivery");let[i,r]=e.estimatedDays;return a.push(i===r?`Arrives in about ${i} working days`:`Arrives in about ${i} to ${r} working days`),e.membershipPerk&&a.push(`${e.membershipPerk.scheme}: ${e.membershipPerk.description}`),a}function jl(t){let e=yi(t);return e>0?`(${e.toLocaleString("en-GB")})`:"(-)"}function j2(){return`<ul class="shop-list">
     ${[...H].filter(e=>!e.singleBrandOnly).sort((e,a)=>e.name.localeCompare(a.name)).map(e=>`<li>
           <button class="shop-row" data-retailer="${b(e.id)}">
             ${ti(e.name)}
@@ -3090,7 +3039,7 @@ ${A}`}var z=class extends Error{constructor({message:e,code:a,cause:i,name:r}){v
       <ul class="yanny-empty-eg">
         ${sc.map(a=>`<li>\u201C${b(a)}\u201D</li>`).join("")}
       </ul>
-    </div>`;let t=u.yannyThread.map(a=>a.kind==="msg"?`<div class="yanny-msg ${a.who}">${b(a.text)}</div>`:a.kind==="ranking"?oc(a.result):`<p class="yanny-stopped">You stopped this one, so there is no answer to it.${a.responded>0?` ${a.responded} ${a.responded===1?"agent had":"agents had"} replied, but nothing had been ranked yet.`:""}</p>`).join("");if(!u.yannyBusy)return t;let e=u.yannyAgentChips.length?`<div class="yanny-agent-chips">${u.yannyAgentChips.map(a=>`<span class="yanny-agent-chip ${a.ok?"ok":"fail"}">Agent ${a.agentNumber} ${a.ok?"\u2713":"\u2717"}</span>`).join("")}</div>`:"";return`${t}<div class="yanny-splash"><span class="yanny-spinner" aria-hidden="true"></span><span>${b(u.yannySplash)}</span></div>${e}`}var Js={none:{mark:"\u{1F916}",text:"Virtual Yanny is available."},"not-built":{mark:"\u{1F916}\u{1F527}",text:"Virtual Yanny isn't switched on in this build of the site yet."},"no-answer":{mark:"\u{1F916}\u{1F4A4}",text:"Virtual Yanny didn't answer in time. It sleeps when nobody's chatting, so give it a few seconds and open this again."},"not-configured":{mark:"\u{1F916}\u{1F527}",text:"Virtual Yanny is running but hasn't been given its key, so it can't answer anything yet."},"router-down":{mark:"\u{1F916}\u23F3",text:"Virtual Yanny is up, but the free model service behind it is busy or rate-limited right now. It usually clears within a few minutes \u2014 try again shortly."}};function uc(){let t=u.yannyThread.length>0,e=`<div class="yanny-body" id="yanny-body">${cc()}</div>`;if(u.yannyStatus==="idle"||u.yannyStatus==="checking"){let i=t?e:'<div class="yanny-checking"><span class="yanny-spinner" aria-hidden="true"></span></div>',r=t?'<p class="yanny-foot" role="status"><span class="yanny-spinner" aria-hidden="true"></span>Reconnecting to Virtual Yanny\u2026</p>':"";return`<div class="yanny-panel">${Va()}${i}${r}</div>`}if(u.yannyStatus==="unavailable"){let{mark:i,text:r}=Js[u.yannyReason]??Js["no-answer"];return t?`<div class="yanny-panel">${Va()}${e}
+    </div>`;let t=u.yannyThread.map(a=>a.kind==="msg"?`<div class="yanny-msg ${a.who}">${b(a.text)}</div>`:a.kind==="ranking"?oc(a.result):`<p class="yanny-stopped">You stopped this one, so there is no answer to it.${a.responded>0?` ${a.responded} ${a.responded===1?"agent had":"agents had"} replied, but nothing had been ranked yet.`:""}</p>`).join("");if(!u.yannyBusy)return t;let e=u.yannyAgentChips.length?`<div class="yanny-agent-chips">${u.yannyAgentChips.map(a=>`<span class="yanny-agent-chip ${a.ok?"ok":"fail"}">Agent ${a.agentNumber} ${a.ok?"\u2713":"\u2717"}</span>`).join("")}</div>`:"";return`${t}<div class="yanny-splash"><span class="yanny-spinner" aria-hidden="true"></span><span>${b(u.yannySplash)}</span></div>${e}`}var Js={none:{mark:"\u{1F916}",text:"Virtual Yanny is available."},"not-built":{mark:"\u{1F916}\u{1F527}",text:"Virtual Yanny isn't switched on in this build of the site yet."},"no-answer":{mark:"\u{1F916}\u{1F4A4}",text:"Virtual Yanny didn't answer in time. It sleeps when nobody's chatting, so give it a few seconds and open this again."},"not-configured":{mark:"\u{1F916}\u{1F527}",text:"Virtual Yanny is running but hasn't been given its key, so it can't answer anything yet."},"router-down":{mark:"\u{1F916}\u23F3",text:"Virtual Yanny is up, but the free model service behind it is busy or rate-limited right now. It usually clears within a few minutes. Try again shortly."}};function uc(){let t=u.yannyThread.length>0,e=`<div class="yanny-body" id="yanny-body">${cc()}</div>`;if(u.yannyStatus==="idle"||u.yannyStatus==="checking"){let i=t?e:'<div class="yanny-checking"><span class="yanny-spinner" aria-hidden="true"></span></div>',r=t?'<p class="yanny-foot" role="status"><span class="yanny-spinner" aria-hidden="true"></span>Reconnecting to Virtual Yanny\u2026</p>':"";return`<div class="yanny-panel">${Va()}${i}${r}</div>`}if(u.yannyStatus==="unavailable"){let{mark:i,text:r}=Js[u.yannyReason]??Js["no-answer"];return t?`<div class="yanny-panel">${Va()}${e}
       <p class="yanny-foot" role="status"><span aria-hidden="true">${i}</span>${b(r)}</p>
     </div>`:`<div class="yanny-panel">${Va()}
         <div class="yanny-unavailable">
@@ -3105,7 +3054,7 @@ ${A}`}var z=class extends Error{constructor({message:e,code:a,cause:i,name:r}){v
       <input id="yanny-input" type="text" placeholder="${b(lc)}" autocomplete="off" ${u.yannyBusy?"disabled":""} />
       ${a}
     </form>
-  </div>`}function be(){let t=j("#yanny-launcher"),e=j("#yanny-panel-host"),a=document.activeElement,i=a&&e.contains(a)?a.id:"";if(t.toggleAttribute("data-open",u.yannyOpen),e.innerHTML=u.yannyOpen?uc():"",u.yannyOpen&&u.yannyStatus==="ready"){let r=j("#yanny-body");r&&(r.scrollTop=r.scrollHeight)}if(i&&u.yannyOpen)for(let r of[i,"yanny-stop","yanny-send","yanny-input","yanny-close"]){let s=document.getElementById(r);if(s&&!s.disabled){s.focus({preventScroll:!0});break}}}function pc(t){u.yannyOpen=!0,u.yannyOpenedFrom=t,u.yannyStatus="checking",be(),document.querySelector("#yanny-close")?.focus(),Ls().then(e=>{u.yannyStatus=e.ok?"ready":"unavailable",u.yannyReason=e.reason,be(),document.querySelector("#yanny-close")?.focus()})}function Ks(){u.yannyOpen=!1,Tr(),be(),u.yannyOpenedFrom?.focus(),u.yannyOpenedFrom=null}function mc(t){let e=t.trim();if(!e||u.yannyBusy)return;Tr(),u.yannyThread.push({kind:"msg",who:"user",text:e}),u.yannyBusy=!0,u.yannySplash="Thinking\u2026",u.yannyAgentChips=[];let a=new AbortController;$a=a;let i=++Ja;ia(),be(),Rs(e,u.yannyIntent,r=>{i===Ja&&(r.type==="status"?u.yannySplash=r.message:r.type==="agent"?u.yannyAgentChips.push({agentNumber:r.agentNumber,ok:r.ok}):r.type==="result"?(u.yannyBusy=!1,r.result.ok&&r.result.winner?(u.yannyThread.push({kind:"msg",who:"bot",text:r.result.winner.content}),u.yannyThread.push({kind:"ranking",result:r.result})):u.yannyThread.push({kind:"msg",who:"bot",text:`The council could not answer that: ${r.result.error??"unknown error"}.`}),ia()):r.type==="error"&&(u.yannyBusy=!1,u.yannyThread.push({kind:"msg",who:"bot",text:r.message}),ia()),be())},a.signal).finally(()=>{i===Ja&&($a=null,u.yannyBusy&&(u.yannyBusy=!1,u.yannyThread.push({kind:"msg",who:"bot",text:"Virtual Yanny stopped part-way through without answering. Ask that again and it should go through."}),ia(),be()))}).catch(()=>{})}function dc(){u.yannyBusy&&(Ja++,$a?.abort(),$a=null,u.yannyBusy=!1,u.yannyThread.push({kind:"stopped",responded:u.yannyAgentChips.filter(t=>t.ok).length}),u.yannyAgentChips=[],u.yannySplash="",ia(),be(),document.getElementById("yanny-input")?.focus({preventScroll:!0}))}function fc(){u.yannyClearArmed=!0,xe&&clearTimeout(xe),xe=setTimeout(()=>{xe=null,u.yannyClearArmed&&(u.yannyClearArmed=!1,be())},5e3),be()}function Tr(){xe&&(clearTimeout(xe),xe=null),u.yannyClearArmed=!1}function hc(){Tr(),u.yannyThread=[],u.yannyAgentChips=[],u.yannySplash="";try{window.sessionStorage.removeItem(bt)}catch{}be(),document.getElementById("yanny-input")?.focus({preventScroll:!0})}var wc=[{title:"Ground",note:"Three steps of background and the glass the bars sit on.",tokens:[{name:"--bg",role:"The page itself"},{name:"--surface",role:"A card or a control, one step up"},{name:"--surface-2",role:"A second step up: chips, pills, segments"},{name:"--bg-glass",role:"The bar ground, translucent so the page reads through",translucent:!0}]},{title:"Ink",note:"Three weights of text, and the two hairlines under them.",tokens:[{name:"--ink",role:"Primary text"},{name:"--ink-2",role:"Secondary text"},{name:"--faint",role:"Meta, captions, placeholders"},{name:"--line",role:"Default hairline"},{name:"--line-firm",role:"A firmer divider"}]},{title:"Accent",note:'One red, five jobs. It is the brand colour, so it never also means "bad": a sold out listing goes grey instead.',tokens:[{name:"--accent",role:"The fill: primary action, best price marker"},{name:"--accent-on",role:"Text painted on that fill"},{name:"--accent-ink",role:"The accent as text on the page ground"},{name:"--accent-press",role:"An accent fill, pressed"},{name:"--accent-sf",role:"A tinted ground under accent text"},{name:"--focus",role:"The focus ring, named apart so a retint cannot move it"}]},{title:"State",note:"Only positive and cautionary states carry colour, for the reason above.",tokens:[{name:"--ok",role:"In stock, a saving, new"},{name:"--warn",role:"Low stock, a countdown"}]},{title:"Gender marks",note:"The Venus and Mars marks on the Gender filter. Two values each: the second is for a selected pill, whose ground inverts to --ink. Contrast for all eight is measured further down this page.",tokens:[{name:"--gender-women",role:"On an unselected pill"},{name:"--gender-women-on",role:"On a selected pill"},{name:"--gender-men",role:"On an unselected pill"},{name:"--gender-men-on",role:"On a selected pill"}]},{title:"Chart and ambience",note:"The price history chart, and the two ambient glows behind the page. Both glows are the brand red and nothing else.",tokens:[{name:"--chart-grid",role:"Gridlines, below --line so data reads above them"},{name:"--chart-band",role:"The fill under the live price line",translucent:!0},{name:"--glow-1",role:"Ambient glow, nearer",translucent:!0},{name:"--glow-2",role:"Ambient glow, further",translucent:!0}]}],bc=[{fg:"--ink",bg:"--bg",use:"Body text on the page"},{fg:"--ink-2",bg:"--bg",use:"Secondary text on the page"},{fg:"--faint",bg:"--bg",use:"Captions and meta"},{fg:"--ink",bg:"--surface",use:"Text on a card"},{fg:"--accent-ink",bg:"--bg",use:"A link, or a price"},{fg:"--accent-on",bg:"--accent",use:"Text on the primary button"},{fg:"--ok",bg:"--surface",use:"In stock, on a card"},{fg:"--warn",bg:"--surface",use:"Low stock, on a card"},{fg:"--gender-women",bg:"--surface-2",use:"Venus mark, unselected pill"},{fg:"--gender-men",bg:"--surface-2",use:"Mars mark, unselected pill"},{fg:"--gender-women-on",bg:"--ink",use:"Venus mark, selected pill"},{fg:"--gender-men-on",bg:"--ink",use:"Mars mark, selected pill"}],yc=[{cls:"t-page",sample:"Page title",role:"One per view, at the top"},{cls:"t-section",sample:"Section heading",role:"Separates blocks with space, not decoration"},{cls:"t-title",sample:"Card and row title",role:"A fragrance, a brand and a shop are the same kind of object"},{cls:"t-body",sample:"Body copy, the paragraphs a reader actually reads.",role:"Running text"},{cls:"t-eyebrow",sample:"Eyebrow",role:"One size, one tracking. 11px is the floor at 360px wide"},{cls:"t-caption",sample:"Caption and meta text",role:"Under a title, beside a figure"},{cls:"t-count",sample:"1,419",role:"Tabular numerals, so a column of counts lines up"},{cls:"t-price",sample:"\xA382.50",role:"Tabular numerals, the one thing this site exists to show"}],gc=[{name:"ICON_FILTER",svg:la},{name:"ICON_SORT",svg:Xa},{name:"ICON_RANK",svg:ml},{name:"ICON_CHEVRON",svg:Qa},{name:"ICON_SEARCH",svg:dl},{name:"ICON_GRID",svg:fl},{name:"ICON_MOBILE",svg:hl},{name:"ICON_DESKTOP",svg:wl},{name:"ICON_HEART",svg:ur},{name:"ICON_EXTERNAL",svg:gl},{name:"ICON_CLOSE",svg:wr},{name:"ICON_STOP",svg:kl},{name:"ICON_TIKTOK",svg:bl},{name:"ICON_INSTAGRAM",svg:yl},{name:"ICON_GENDER_WOMEN",svg:Al},{name:"ICON_GENDER_MEN",svg:Tl},{name:"ICON_GENDER_UNISEX",svg:Pl},{name:"ICON_GENDER_UNSTATED",svg:Sl}],kc=[{name:"--gutter",role:"The page gutter. 16px, and 28px from 900px wide"},{name:"--bar-h",role:"The top bar, which content clears"},{name:"--col",role:"The mobile column measure. Uncapped on desktop"},{name:"--sheet-col",role:"A dialog stays this wide in both layouts"},{name:"--mono-sat",role:"Saturation of the per brand monogram tint"},{name:"--mono-bg-l",role:"Monogram ground lightness, per theme"},{name:"--mono-fg-l",role:"Monogram ink lightness. 30% is the highest value that clears AA at every one of the 360 hues"},{name:"--mono-border-l",role:"Monogram border lightness, per theme"}],Ac=[{name:"--dur-1",role:"Press and release, colour only swaps"},{name:"--dur-2",role:"Hover, chip select, toggle, tab underline"},{name:"--dur-3",role:"Content entering, sheets, list settle"},{name:"--dur-4",role:"Theme cross fade, the longest thing on the site"},{name:"--ease-standard",role:"Everything arriving or settling"},{name:"--ease-exit",role:"Everything leaving, and the press half of a tap"}],Tc=[{name:"--font-sans",role:"The system stack. No webfont to fail loading"},{name:"--font-num",role:"Numerals that have to align down a column"}],Pc=[{name:"--shadow",role:"The one drop shadow"},{name:"--shadow-lift",role:"Card lift. A hairline on dark, a real shadow on light, because a shadow does not read on a near black ground"}];function Sc(t,e){return`<div class="ds-row">
+  </div>`}function be(){let t=j("#yanny-launcher"),e=j("#yanny-panel-host"),a=document.activeElement,i=a&&e.contains(a)?a.id:"";if(t.toggleAttribute("data-open",u.yannyOpen),e.innerHTML=u.yannyOpen?uc():"",u.yannyOpen&&u.yannyStatus==="ready"){let r=j("#yanny-body");r&&(r.scrollTop=r.scrollHeight)}if(i&&u.yannyOpen)for(let r of[i,"yanny-stop","yanny-send","yanny-input","yanny-close"]){let s=document.getElementById(r);if(s&&!s.disabled){s.focus({preventScroll:!0});break}}}function pc(t){u.yannyOpen=!0,u.yannyOpenedFrom=t,u.yannyStatus="checking",be(),document.querySelector("#yanny-close")?.focus(),Ls().then(e=>{u.yannyStatus=e.ok?"ready":"unavailable",u.yannyReason=e.reason,be(),document.querySelector("#yanny-close")?.focus()})}function Ks(){u.yannyOpen=!1,Tr(),be(),u.yannyOpenedFrom?.focus(),u.yannyOpenedFrom=null}function mc(t){let e=t.trim();if(!e||u.yannyBusy)return;Tr(),u.yannyThread.push({kind:"msg",who:"user",text:e}),u.yannyBusy=!0,u.yannySplash="Thinking\u2026",u.yannyAgentChips=[];let a=new AbortController;$a=a;let i=++Ja;ia(),be(),Rs(e,u.yannyIntent,r=>{i===Ja&&(r.type==="status"?u.yannySplash=r.message:r.type==="agent"?u.yannyAgentChips.push({agentNumber:r.agentNumber,ok:r.ok}):r.type==="result"?(u.yannyBusy=!1,r.result.ok&&r.result.winner?(u.yannyThread.push({kind:"msg",who:"bot",text:r.result.winner.content}),u.yannyThread.push({kind:"ranking",result:r.result})):u.yannyThread.push({kind:"msg",who:"bot",text:`The council could not answer that: ${r.result.error??"unknown error"}.`}),ia()):r.type==="error"&&(u.yannyBusy=!1,u.yannyThread.push({kind:"msg",who:"bot",text:r.message}),ia()),be())},a.signal).finally(()=>{i===Ja&&($a=null,u.yannyBusy&&(u.yannyBusy=!1,u.yannyThread.push({kind:"msg",who:"bot",text:"Virtual Yanny stopped part-way through without answering. Ask that again and it should go through."}),ia(),be()))}).catch(()=>{})}function dc(){u.yannyBusy&&(Ja++,$a?.abort(),$a=null,u.yannyBusy=!1,u.yannyThread.push({kind:"stopped",responded:u.yannyAgentChips.filter(t=>t.ok).length}),u.yannyAgentChips=[],u.yannySplash="",ia(),be(),document.getElementById("yanny-input")?.focus({preventScroll:!0}))}function fc(){u.yannyClearArmed=!0,xe&&clearTimeout(xe),xe=setTimeout(()=>{xe=null,u.yannyClearArmed&&(u.yannyClearArmed=!1,be())},5e3),be()}function Tr(){xe&&(clearTimeout(xe),xe=null),u.yannyClearArmed=!1}function hc(){Tr(),u.yannyThread=[],u.yannyAgentChips=[],u.yannySplash="";try{window.sessionStorage.removeItem(bt)}catch{}be(),document.getElementById("yanny-input")?.focus({preventScroll:!0})}var wc=[{title:"Ground",note:"Three steps of background and the glass the bars sit on.",tokens:[{name:"--bg",role:"The page itself"},{name:"--surface",role:"A card or a control, one step up"},{name:"--surface-2",role:"A second step up: chips, pills, segments"}]},{title:"Ink",note:"Three weights of text, and the two hairlines under them.",tokens:[{name:"--ink",role:"Primary text"},{name:"--ink-2",role:"Secondary text"},{name:"--faint",role:"Meta, captions, placeholders"},{name:"--line",role:"Default hairline"},{name:"--line-firm",role:"A firmer divider"}]},{title:"Accent",note:'One red, five jobs. It is the brand colour, so it never also means "bad": a sold out listing goes grey instead.',tokens:[{name:"--accent",role:"The fill: primary action, best price marker"},{name:"--accent-on",role:"Text painted on that fill"},{name:"--accent-ink",role:"The accent as text on the page ground"},{name:"--accent-press",role:"An accent fill, pressed"},{name:"--accent-sf",role:"A tinted ground under accent text"},{name:"--focus",role:"The focus ring, named apart so a retint cannot move it"}]},{title:"State",note:"Only positive and cautionary states carry colour, for the reason above.",tokens:[{name:"--ok",role:"In stock, a saving, new"},{name:"--warn",role:"Low stock, a countdown"}]},{title:"Gender marks",note:"The Venus and Mars marks on the Gender filter. Two values each: the second is for a selected pill, whose ground inverts to --ink. Contrast for all eight is measured further down this page.",tokens:[{name:"--gender-women",role:"On an unselected pill"},{name:"--gender-women-on",role:"On a selected pill"},{name:"--gender-men",role:"On an unselected pill"},{name:"--gender-men-on",role:"On a selected pill"}]},{title:"Chart",note:'The price history chart. The two drifting red glows that used to sit behind every page were removed on 17 Aug 2026, along with their tokens: the accent means "look here", and it should not also be the wallpaper.',tokens:[{name:"--chart-grid",role:"Gridlines, below --line so data reads above them"},{name:"--chart-band",role:"The fill under the live price line",translucent:!0}]},{title:"Rank badges",note:"First, second and third on the deals list. Flat values, the same in every theme, each with the text colour measured against its own ground rather than assumed.",tokens:[{name:"--rank-1",role:"First place"},{name:"--rank-1-on",role:"The digit on first place"},{name:"--rank-2",role:"Second place"},{name:"--rank-2-on",role:"The digit on second place"},{name:"--rank-3",role:"Third place"},{name:"--rank-3-on",role:"The digit on third place"}]}],bc=[{fg:"--ink",bg:"--bg",use:"Body text on the page"},{fg:"--ink-2",bg:"--bg",use:"Secondary text on the page"},{fg:"--faint",bg:"--bg",use:"Captions and meta"},{fg:"--ink",bg:"--surface",use:"Text on a card"},{fg:"--accent-ink",bg:"--bg",use:"A link, or a price"},{fg:"--accent-on",bg:"--accent",use:"Text on the primary button"},{fg:"--ok",bg:"--surface",use:"In stock, on a card"},{fg:"--warn",bg:"--surface",use:"Low stock, on a card"},{fg:"--gender-women",bg:"--surface-2",use:"Venus mark, unselected pill"},{fg:"--gender-men",bg:"--surface-2",use:"Mars mark, unselected pill"},{fg:"--gender-women-on",bg:"--ink",use:"Venus mark, selected pill"},{fg:"--gender-men-on",bg:"--ink",use:"Mars mark, selected pill"}],yc=[{cls:"t-page",sample:"Page title",role:"One per view, at the top"},{cls:"t-section",sample:"Section heading",role:"Separates blocks with space, not decoration"},{cls:"t-title",sample:"Card and row title",role:"A fragrance, a brand and a shop are the same kind of object"},{cls:"t-body",sample:"Body copy, the paragraphs a reader actually reads.",role:"Running text"},{cls:"t-eyebrow",sample:"Eyebrow",role:"One size, one tracking. 11px is the floor at 360px wide"},{cls:"t-caption",sample:"Caption and meta text",role:"Under a title, beside a figure"},{cls:"t-count",sample:"1,419",role:"Tabular numerals, so a column of counts lines up"},{cls:"t-price",sample:"\xA382.50",role:"Tabular numerals, the one thing this site exists to show"}],gc=[{name:"ICON_FILTER",svg:la},{name:"ICON_SORT",svg:Xa},{name:"ICON_RANK",svg:ml},{name:"ICON_CHEVRON",svg:Qa},{name:"ICON_SEARCH",svg:dl},{name:"ICON_GRID",svg:fl},{name:"ICON_MOBILE",svg:hl},{name:"ICON_DESKTOP",svg:wl},{name:"ICON_HEART",svg:ur},{name:"ICON_EXTERNAL",svg:gl},{name:"ICON_CLOSE",svg:wr},{name:"ICON_STOP",svg:kl},{name:"ICON_TIKTOK",svg:bl},{name:"ICON_INSTAGRAM",svg:yl},{name:"ICON_GENDER_WOMEN",svg:Al},{name:"ICON_GENDER_MEN",svg:Tl},{name:"ICON_GENDER_UNISEX",svg:Pl},{name:"ICON_GENDER_UNSTATED",svg:Sl}],kc=[{name:"--gutter",role:"The page gutter. 16px, and 28px from 900px wide"},{name:"--bar-h",role:"The top bar, which content clears"},{name:"--col",role:"The mobile column measure. Uncapped on desktop"},{name:"--sheet-col",role:"A dialog stays this wide in both layouts"},{name:"--mono-sat",role:"Saturation of the per brand monogram tint"},{name:"--mono-bg-l",role:"Monogram ground lightness, per theme"},{name:"--mono-fg-l",role:"Monogram ink lightness. 30% is the highest value that clears AA at every one of the 360 hues"},{name:"--mono-border-l",role:"Monogram border lightness, per theme"}],Ac=[{name:"--dur-1",role:"Press and release, colour only swaps"},{name:"--dur-2",role:"Hover, chip select, toggle, tab underline"},{name:"--dur-3",role:"Content entering, sheets, list settle"},{name:"--dur-4",role:"Theme cross fade, the longest thing on the site"},{name:"--ease-standard",role:"Everything arriving or settling"},{name:"--ease-exit",role:"Everything leaving, and the press half of a tap"}],Tc=[{name:"--font-sans",role:"The system stack. No webfont to fail loading"},{name:"--font-num",role:"Numerals that have to align down a column"}],Pc=[{name:"--shadow",role:"The one drop shadow"},{name:"--shadow-lift",role:"Card lift. A hairline on dark, a real shadow on light, because a shadow does not read on a near black ground"}];function Sc(t,e){return`<div class="ds-row">
     ${e?`<span class="ds-chip${t.translucent?" is-alpha":""}" style="background: var(${t.name})" aria-hidden="true"></span>`:""}
     <code class="ds-name">${b(t.name)}</code>
     <span class="ds-value t-count" data-ds-token="${b(t.name)}"></span>
@@ -3178,7 +3127,12 @@ ${A}`}var z=class extends Error{constructor({message:e,code:a,cause:i,name:r}){v
 
       <section class="ds-section">
         <h3 class="t-section">Elevation</h3>
-        <div class="ds-lift-demo"><span class="ds-lift">Card</span></div>
+        <p class="t-body">One level, and it is for things that genuinely float: the dialog and the
+          chart's own tooltip. Cards, tiles, badges and the price box carried it too until
+          17 Aug 2026; each of them already had a border or a ground of its own doing the same
+          job, so the shadow was the separation drawn twice. The sample below is the token
+          itself, not a picture of it.</p>
+        <div class="ds-lift-demo"><span class="ds-lift">Dialog</span></div>
         ${aa(Pc,!1)}
       </section>
 
