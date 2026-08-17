@@ -200,6 +200,58 @@ const KNOWN_ALIASES: Record<string, string> = {
   [brandKey('Houbigant')]: 'Houbigant',
   [brandKey('Orlov Paris')]: 'Orlov',
   [brandKey('Orlov')]: 'Orlov',
+
+  // Found 2026-08-17 during a full audit of the 639 live brand strings,
+  // checking each single-product brand's product name against the rest of
+  // the catalogue rather than against the shape of the string (see the
+  // module doc's caution about "4711", "100 Bon" etc. — a pattern rule would
+  // have deleted those too). Each pair below has an in-catalogue fact behind
+  // it, not a guess:
+  //
+  // 'D&G' carried exactly one product, "Dolce & Gabbana Blue Eau intense" —
+  // the retailer's own product title names the house in full, so this is
+  // the abbreviation, not a different brand. Does not collide with "Dolce &
+  // Gabbana" on brandKey because '&' becomes nothing rather than 'and' here.
+  [brandKey('D&G')]: 'Dolce & Gabbana',
+  // 'Mon Guerlain' carried exactly one product, itself named "Mon Guerlain" —
+  // that is a Guerlain fragrance line (French for "My Guerlain"), not a
+  // second house; "Guerlain" already has 66 products in the catalogue.
+  [brandKey('Mon Guerlain')]: 'Guerlain',
+  // 'Aqua Kenzo' carried exactly one product, "Kenzo Pour Femme" — the
+  // retailer's title names the real house; "Kenzo" already has 67 products.
+  [brandKey('Aqua Kenzo')]: 'Kenzo',
+  // 'Cinnabar' carried exactly one product, itself named "Cinnabar" — a
+  // long-running Estée Lauder fragrance, not an independent house; "Estée
+  // Lauder" already has 50 products.
+  [brandKey('Cinnabar')]: 'Estée Lauder',
+  // 'Rance' (one product, "1795 Eau Duc de Berry") and 'Rance 1795' (two
+  // products, "Helene" and "Pres de Toi") are the same 18th-century French
+  // house — the lone 'Rance' product's own name repeats "1795", the year
+  // that is already part of the fuller spelling. Longer form kept as canon
+  // since it is the house's actual trading name (unlike the Lattafa-style
+  // pairs above, where the shorter form is what shops sell under).
+  [brandKey('Rance')]: 'Rance 1795',
+  [brandKey('Rance 1795')]: 'Rance 1795',
+  // 'Puig' (one product, "Antonio Puig Quorum") and 'Quorum' (one product,
+  // "Aqua Quorum") are both the same house feed-mangled two different ways;
+  // "Antonio Puig" already has 8 products under its full trading name.
+  [brandKey('Puig')]: 'Antonio Puig',
+  [brandKey('Quorum')]: 'Antonio Puig',
+  [brandKey('Antonio Puig')]: 'Antonio Puig',
+  // 'MyPerfumeShop' carried exactly one product, "Burberry Brit For Him" —
+  // a retailer's own storefront name landed in the brand field, not a
+  // fragrance house; "Burberry" already has 116 products.
+  [brandKey('MyPerfumeShop')]: 'Burberry',
+  // 'Health Pharm' carried exactly one product, "Jovan Musk" — again a
+  // retailer name in the brand field; "Jovan" already has 16 products.
+  [brandKey('Health Pharm')]: 'Jovan',
+  // 'Blue Stratos' and 'Parfums Bleu Limited' each carried exactly one
+  // product, both named identically "Blue Stratos" — the same bottle, one
+  // feed crediting the manufacturer's legal name instead of the product's
+  // own long-standing brand name. Shorter, market-facing form kept as canon,
+  // the same direction as the Lattafa/Rabanne pairs above.
+  [brandKey('Blue Stratos')]: 'Blue Stratos',
+  [brandKey('Parfums Bleu Limited')]: 'Blue Stratos',
 };
 
 /** True when a string uses ordinary mixed case rather than shouting or whispering. */

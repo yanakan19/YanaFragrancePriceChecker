@@ -15119,6 +15119,17 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-8411061934227",
+    "brand": "Antonio Puig",
+    "name": "Aqua Quorum",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "8411061934227",
+    "shops": 2,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-8411061582350",
     "brand": "Antonio Puig",
     "name": "Quorum Silver",
@@ -17857,6 +17868,17 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "concentration": "Parfum",
     "sizeMl": 40,
     "ean": "8012423503008",
+    "shops": 2,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-5026445000332",
+    "brand": "Blue Stratos",
+    "name": "Blue Stratos",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": "5026445000332",
     "shops": 2,
     "image": null,
     "notes": null
@@ -21669,7 +21691,10 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/CREED0002.png?v=1753445102&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-3508441001084",
     "brand": "Creed",
@@ -21699,10 +21724,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
       ],
       "base": []
     }
-  }
-];
-
-const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3508440505057",
     "brand": "Creed",
@@ -28205,7 +28227,10 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 2,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "ean-6290362162889",
     "brand": "Gulf Orchid",
@@ -28227,10 +28252,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 2,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-guyl0001",
     "brand": "Guy Laroche",
@@ -34795,7 +34817,10 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Cistus concrete"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "ean-6291108737323",
     "brand": "Lattafa",
@@ -34817,10 +34842,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1759334105-44292300.jpg?v=1763399124&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6290360592930",
     "brand": "Lattafa",
@@ -41446,7 +41468,10 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1369831370-87136900.jpg?v=1763392314&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   {
     "id": "ean-8435137727100",
     "brand": "Prada",
@@ -41468,10 +41493,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/prada-candy-eau-de-parfum-50ml-p27953-91182_image.jpg?v=1721322315&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8435137742226",
     "brand": "Prada",
@@ -47749,7 +47771,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1746087999-32112600.jpg?v=1763397832&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "ean-6290171072027",
     "brand": "Zimaya",
@@ -47771,10 +47796,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1733757398-81167200.jpg?v=1763396699&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6290171074168",
     "brand": "Zimaya",
@@ -55369,17 +55391,6 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-8411061934227",
-    "brand": "Antonio Puig",
-    "name": "Aqua Quorum",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "8411061934227",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-8411061411919",
     "brand": "Antonio Puig",
     "name": "Quorum",
@@ -55389,6 +55400,29 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1555578722-00252100.jpg?v=1763388794&width=1920",
     "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338363285641-44927284052105",
+    "brand": "Antonio Puig",
+    "name": "Quorum",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Cumin"
+      ],
+      "middle": [
+        "Jasmine"
+      ],
+      "base": [
+        "Musk",
+        "Leather",
+        "Tobacco"
+      ]
+    }
   },
   {
     "id": "ean-8411061923221",
@@ -55411,33 +55445,6 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338154225801-44926970921097",
-    "brand": "Aqua Kenzo",
-    "name": "Kenzo Pour Femme",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 30,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Mandarin Orange",
-        "Lemon"
-      ],
-      "middle": [
-        "Jasmine",
-        "Apple",
-        "Rose"
-      ],
-      "base": [
-        "Finally",
-        "Vanilla",
-        "Cashmere Wood",
-        "Sandalwood"
-      ]
-    }
   },
   {
     "id": "ean-8054609780551",
@@ -55784,7 +55791,10 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Patchouli"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16303758606685-default-title",
     "brand": "Arabiyat",
@@ -55809,10 +55819,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Ambergris"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-16425418916189-default-title",
     "brand": "Arabiyat",
@@ -64920,7 +64927,10 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338174345353-44926992121993",
     "brand": "Banana Republic",
@@ -64944,10 +64954,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
         "Incense"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416637845641-45146968621193",
     "brand": "Banana Republic",
@@ -66083,17 +66090,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Teak Wood"
       ]
     }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338176180361-44926995300489",
-    "brand": "Blue Stratos",
-    "name": "Blue Stratos",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338176213129-44926995333257",
@@ -71280,6 +71276,17 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338369740937-44927292735625",
+    "brand": "Burberry",
+    "name": "Brit For Him",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-5045411327037",
     "brand": "Burberry",
     "name": "Brit For Women",
@@ -72285,7 +72292,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/BVLG0013_d35930fe-d984-44c6-8124-48b855d1b699.png?v=1756720379&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416644628617-45146976944265",
     "brand": "Bvlgari",
@@ -72296,10 +72306,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
+  },
   {
     "id": "ean-0783320423734",
     "brand": "Bvlgari",
@@ -77980,17 +77987,6 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-7633278992521-42358285500553",
-    "brand": "Cinnabar",
-    "name": "Cinnabar",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8338195153033-44927031050377",
     "brand": "Clandestine Clara",
     "name": "Penhaligon's",
@@ -80587,17 +80583,6 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "ean": "3442151001234",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1639410461-97689800.jpg?v=1763391811&width=1920",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338202067081-44927039602825",
-    "brand": "D&G",
-    "name": "Dolce & Gabbana Blue Eau intense",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 25,
-    "ean": null,
-    "shops": 1,
-    "image": null,
     "notes": null
   },
   {
@@ -83963,6 +83948,17 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "ean": "85715950284",
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/326.jpg",
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338202067081-44927039602825",
+    "brand": "Dolce & Gabbana",
+    "name": "Blue Eau intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 25,
+    "ean": null,
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -89698,6 +89694,17 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-7633278992521-42358285500553",
+    "brand": "Estée Lauder",
+    "name": "Estée Lauder",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-0027131086864",
     "brand": "Estée Lauder",
     "name": "Estee Lauder Beautiful",
@@ -90874,7 +90881,10 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338216583305-44927056937097",
     "brand": "Floris London",
@@ -90885,10 +90895,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338216681609-44927057068169",
     "brand": "Floris London",
@@ -102258,7 +102265,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Vetiver"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15430669336925-default-title",
     "brand": "French Avenue",
@@ -102280,10 +102290,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15430668812637-default-title",
     "brand": "French Avenue",
@@ -109625,7 +109632,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "White Musk"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338223235209-44927065784457",
     "brand": "Guerlain",
@@ -109636,10 +109646,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3346470243989",
     "brand": "Guerlain",
@@ -109668,6 +109675,17 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "name": "Champs-Élysées 2021",
     "concentration": "Eau de Toilette",
     "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338257936521-44927121850505",
+    "brand": "Guerlain",
+    "name": "Guerlain",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -111825,17 +111843,6 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "name": "Classic",
     "concentration": "Aftershave",
     "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-7451790540937-41897136226441",
-    "brand": "Health Pharm",
-    "name": "Jovan Musk",
-    "concentration": "Eau de Cologne",
-    "sizeMl": 96,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -116014,7 +116021,10 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "ean-3423222048204",
     "brand": "Issey Miyake",
@@ -116025,10 +116035,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3423478974654",
     "brand": "Issey Miyake",
@@ -119821,6 +119828,17 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-7451790540937-41897136226441",
+    "brand": "Jovan",
+    "name": "Musk",
+    "concentration": "Eau de Cologne",
+    "sizeMl": 96,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-035017009944",
     "brand": "Jovan",
     "name": "Musk Concentrated",
@@ -121403,6 +121421,33 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "mybeauty-boutique-shopify-gb-8338154225801-44926970921097",
+    "brand": "Kenzo",
+    "name": "Kenzo Pour Femme",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 30,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": {
+      "top": [
+        "Mandarin Orange",
+        "Lemon"
+      ],
+      "middle": [
+        "Jasmine",
+        "Apple",
+        "Rose"
+      ],
+      "base": [
+        "Finally",
+        "Vanilla",
+        "Cashmere Wood",
+        "Sandalwood"
+      ]
+    }
+  },
+  {
     "id": "ean-3274872440982",
     "brand": "Kenzo",
     "name": "L'Eau Kenzo Pour Femme",
@@ -122705,7 +122750,10 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15666710184285-default-title",
     "brand": "Khadlaj",
@@ -122778,10 +122826,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "Moss"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15666710217053-default-title",
     "brand": "Khadlaj",
@@ -131279,7 +131324,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
         "Cedarwood"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15401473737053-default-title",
     "brand": "Lattafa",
@@ -131340,10 +131388,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1761817256-96620600.jpg?v=1763399360&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15668454981981-default-title",
     "brand": "Lattafa",
@@ -139780,7 +139825,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15612331229533-default-title",
     "brand": "Maison Alhambra",
@@ -139848,10 +139896,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15612331295069-default-title",
     "brand": "Maison Alhambra",
@@ -148446,7 +148491,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1718373371-91163200.jpg?v=1763395284&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "ean-850049716178",
     "brand": "Michael Kors",
@@ -148479,10 +148527,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1755178787-28515500.jpg?v=1763398716&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "ean-850069424626",
     "brand": "Michael Kors",
@@ -149483,17 +149528,6 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "5030805014884",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338257936521-44927121850505",
-    "brand": "Mon Guerlain",
-    "name": "Mon Guerlain",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 30,
-    "ean": null,
     "shops": 1,
     "image": null,
     "notes": null
@@ -151999,17 +152033,6 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "Orris Root"
       ]
     }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8338369740937-44927292735625",
-    "brand": "MyPerfumeShop",
-    "name": "Burberry Brit For Him",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338396545161-44927344181385",
@@ -154736,7 +154759,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1_328282c2-f764-4079-9b9d-2b3ee0f72ad0.jpg?v=1781259142&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "ean-6297001158852",
     "brand": "ORIENTICA",
@@ -154747,10 +154773,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/6_4285080f-1f22-4a6b-9eab-a80852e80bff.jpg?v=1781259722&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6291106811247",
     "brand": "ORIENTICA",
@@ -155395,17 +155418,6 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
       "middle": [],
       "base": []
     }
-  },
-  {
-    "id": "ean-5026445000332",
-    "brand": "Parfums Bleu Limited",
-    "name": "Blue Stratos",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "5026445000332",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "justmylook-pdm0001",
@@ -162514,40 +162526,6 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8338363285641-44927284052105",
-    "brand": "Puig",
-    "name": "Antonio Puig Quorum",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Cumin"
-      ],
-      "middle": [
-        "Jasmine"
-      ],
-      "base": [
-        "Musk",
-        "Leather",
-        "Tobacco"
-      ]
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-7633288102025-42358299558025",
-    "brand": "Quorum",
-    "name": "Aqua Quorum",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-3349668677405",
     "brand": "Rabanne",
     "name": "1 Million",
@@ -162798,10 +162776,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3349668576111",
     "brand": "Rabanne",
@@ -162823,7 +162798,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "ean-3349666005330",
     "brand": "Rabanne",
@@ -164908,8 +164886,8 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338273697929-44927143936137",
-    "brand": "Rance",
-    "name": "1795 Eau Duc de Berry",
+    "brand": "Rance 1795",
+    "name": "Eau Duc de Berry",
     "concentration": "Eau de Toilette",
     "sizeMl": 50,
     "ean": null,
@@ -171562,10 +171540,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/CAV0010.png?v=1770982477&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3607346596210",
     "brand": "Roberto Cavalli",
@@ -171587,7 +171562,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338275303561-44927146164361",
     "brand": "Roberto Cavalli",
@@ -178167,10 +178145,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338281595017-44927176441993",
     "brand": "Thomas Kosmala",
@@ -178201,7 +178176,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "justmylook-tif0002",
     "brand": "Tiffany & Co",
@@ -184583,10 +184561,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
         "Vetiver"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338329174153-44927238439049",
     "brand": "Yardley London",
@@ -184608,7 +184583,10 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338330812553-44927240142985",
     "brand": "Yardley London",
@@ -187306,7 +187284,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/calvin-klein-sheer-beauty-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-14T14:49:31.844Z",
       "firstSeenAt": "2026-08-10T14:21:50.324Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761825299-55467000.jpg?v=1763398921&width=1920"
     },
     {
@@ -204934,7 +204912,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/noa-eau-de-toilette-50ml-spray",
       "fetchedAt": "2026-08-14T14:49:31.844Z",
       "firstSeenAt": "2026-08-10T14:21:50.324Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761826566-65358100.jpg?v=1763399037&width=1920"
     },
     {
@@ -215004,7 +214982,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/lattafa-eclaire-banoffi-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-14T14:49:31.844Z",
       "firstSeenAt": "2026-08-10T14:21:50.324Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1758025728-35311500.jpg?v=1763399033&width=1920"
     },
     {
@@ -215650,7 +215628,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/lattafa-sherif-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-14T14:49:31.844Z",
       "firstSeenAt": "2026-08-10T14:21:50.324Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1758292436-94213200.jpg?v=1763398979&width=1920"
     },
     {
@@ -228588,6 +228566,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-8411061934227": [
+    {
+      "retailerId": "perfume-click",
+      "price": 13.2,
+      "wasPrice": 14.5,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=36353007249&a=3026001&m=6561",
+      "fetchedAt": "2026-08-17T12:31:59.862Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 13.19,
+      "wasPrice": 30.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=40549567431&a=3026001&m=106925",
+      "fetchedAt": "2026-08-17T12:31:59.862Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-8411061582350": [
     {
       "retailerId": "perfume-click",
@@ -233392,6 +233396,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928349&a=3026001&m=106925",
+      "fetchedAt": "2026-08-17T12:31:59.862Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-5026445000332": [
+    {
+      "retailerId": "perfume-click",
+      "price": 7.15,
+      "wasPrice": 9.95,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=33379065017&a=3026001&m=6561",
+      "fetchedAt": "2026-08-17T12:31:59.862Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 6.19,
+      "wasPrice": 9.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928348&a=3026001&m=106925",
       "fetchedAt": "2026-08-17T12:31:59.862Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -266272,7 +266302,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/lattafa-eclaire-pistache-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-14T14:49:31.844Z",
       "firstSeenAt": "2026-08-10T14:21:50.324Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1758026014-19962700.jpg?v=1763398977&width=1920"
     },
     {
@@ -299762,20 +299792,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-8411061934227": [
-    {
-      "retailerId": "perfume-click",
-      "price": 13.2,
-      "wasPrice": 14.5,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=36353007249&a=3026001&m=6561",
-      "fetchedAt": "2026-08-17T12:31:59.862Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-8411061411919": [
     {
       "retailerId": "beautybase",
@@ -299788,6 +299804,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-01T21:32:03.579Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1555578722-00252100.jpg?v=1763388794&width=1920"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338363285641-44927284052105": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 11.19,
+      "wasPrice": 29.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942311&a=3026001&m=106925",
+      "fetchedAt": "2026-08-17T12:31:59.862Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-8411061923221": [
@@ -299814,20 +299844,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45362353727&a=3026001&m=6561",
       "fetchedAt": "2026-08-17T12:31:59.862Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338154225801-44926970921097": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 26.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928948&a=3026001&m=106925",
-      "fetchedAt": "2026-08-17T12:31:59.862Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -300402,7 +300418,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/arabiyat-prestige-la-di-da-for-him-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-14T14:49:31.844Z",
       "firstSeenAt": "2026-08-10T14:21:50.324Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759854273-25365700.jpg?v=1763398968&width=1920"
     }
   ],
@@ -308414,20 +308430,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338176180361-44926995300489": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 6.19,
-      "wasPrice": 9.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928348&a=3026001&m=106925",
-      "fetchedAt": "2026-08-17T12:31:59.862Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8338176213129-44926995333257": [
     {
       "retailerId": "mybeauty-boutique",
@@ -312894,6 +312896,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338369740937-44927292735625": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 36.99,
+      "wasPrice": 76.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174942375&a=3026001&m=106925",
+      "fetchedAt": "2026-08-17T12:31:59.862Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5045411327037": [
     {
       "retailerId": "beautybase",
@@ -314836,7 +314852,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/aqua-eternity-for-men-eau-de-toilette-30ml-spray",
       "fetchedAt": "2026-08-14T14:49:31.844Z",
       "firstSeenAt": "2026-08-10T14:21:50.324Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761822283-24072200.jpg?v=1763398921&width=1920"
     }
   ],
@@ -320482,20 +320498,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-7633278992521-42358285500553": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 40.49,
-      "wasPrice": 49.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=40549567279&a=3026001&m=106925",
-      "fetchedAt": "2026-08-17T12:31:59.862Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8338195153033-44927031050377": [
     {
       "retailerId": "mybeauty-boutique",
@@ -323394,20 +323396,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1639410461-97689800.jpg?v=1763391811&width=1920"
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338202067081-44927039602825": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 26.49,
-      "wasPrice": 58.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157928565&a=3026001&m=106925",
-      "fetchedAt": "2026-08-17T12:31:59.862Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-0046447095001": [
     {
       "retailerId": "perfume-click",
@@ -323628,7 +323616,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/david-beckham-amber-breeze-eau-de-parfum-50ml-spray",
       "fetchedAt": "2026-08-14T14:49:31.844Z",
       "firstSeenAt": "2026-08-10T14:21:50.324Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761823053-63733800.jpg?v=1763398923&width=1920"
     }
   ],
@@ -323698,7 +323686,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/david-beckham-infinite-aqua-eau-de-parfum-50ml-spray",
       "fetchedAt": "2026-08-14T14:49:31.844Z",
       "firstSeenAt": "2026-08-10T14:21:50.324Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761823272-05512500.jpg?v=1763398926&width=1920"
     }
   ],
@@ -323740,7 +323728,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/david-beckham-refined-woods-eau-de-parfum-50ml-spray",
       "fetchedAt": "2026-08-14T14:49:31.844Z",
       "firstSeenAt": "2026-08-10T14:21:50.324Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1761823360-72652000.jpg?v=1763398927&width=1920"
     }
   ],
@@ -327102,6 +327090,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/326.jpg"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338202067081-44927039602825": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 26.49,
+      "wasPrice": 58.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928565&a=3026001&m=106925",
+      "fetchedAt": "2026-08-17T12:31:59.862Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-dandg0093": [
@@ -333610,6 +333612,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=45329651731&a=3026001&m=6561",
       "fetchedAt": "2026-08-17T12:31:59.862Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-7633278992521-42358285500553": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 40.49,
+      "wasPrice": 49.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=40549567279&a=3026001&m=106925",
+      "fetchedAt": "2026-08-17T12:31:59.862Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -349098,6 +349114,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "mybeauty-boutique-shopify-gb-8338257936521-44927121850505": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 46.99,
+      "wasPrice": 71.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157929759&a=3026001&m=106925",
+      "fetchedAt": "2026-08-17T12:31:59.862Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-3346470304987": [
     {
       "retailerId": "perfume-click",
@@ -351220,20 +351250,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=40549567229&a=3026001&m=106925",
-      "fetchedAt": "2026-08-17T12:31:59.862Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-7451790540937-41897136226441": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 6.69,
-      "wasPrice": 14.49,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=40549564176&a=3026001&m=106925",
       "fetchedAt": "2026-08-17T12:31:59.862Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
@@ -360284,6 +360300,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "mybeauty-boutique-shopify-gb-7451790540937-41897136226441": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 6.69,
+      "wasPrice": 14.49,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=40549564176&a=3026001&m=106925",
+      "fetchedAt": "2026-08-17T12:31:59.862Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-035017009944": [
     {
       "retailerId": "beautybase",
@@ -362170,6 +362200,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=44102318324&a=3026001&m=6561",
       "fetchedAt": "2026-08-17T12:31:59.862Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338154225801-44926970921097": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 26.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157928948&a=3026001&m=106925",
+      "fetchedAt": "2026-08-17T12:31:59.862Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -374308,7 +374352,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/legion-centurion-extrait-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-14T14:49:31.844Z",
       "firstSeenAt": "2026-08-10T14:21:50.324Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1757930036-70018200.jpg?v=1763399007&width=1920"
     }
   ],
@@ -385274,20 +385318,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338257936521-44927121850505": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 46.99,
-      "wasPrice": 71.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157929759&a=3026001&m=106925",
-      "fetchedAt": "2026-08-17T12:31:59.862Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-3386460153195": [
     {
       "retailerId": "perfume-click",
@@ -387708,20 +387738,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sorrento-50ml-Extrait-De-Parfum-Mykonos-191223987.png?v=1779539936"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338369740937-44927292735625": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 36.99,
-      "wasPrice": 76.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942375&a=3026001&m=106925",
-      "fetchedAt": "2026-08-17T12:31:59.862Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "mybeauty-boutique-shopify-gb-8338396545161-44927344181385": [
@@ -391822,20 +391838,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43157930024&a=3026001&m=106925",
       "fetchedAt": "2026-08-17T12:31:59.862Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-5026445000332": [
-    {
-      "retailerId": "perfume-click",
-      "price": 7.15,
-      "wasPrice": 9.95,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=33379065017&a=3026001&m=6561",
-      "fetchedAt": "2026-08-17T12:31:59.862Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -397730,34 +397732,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=28405067615&a=3026001&m=6561",
       "fetchedAt": "2026-08-17T12:31:59.862Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8338363285641-44927284052105": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 11.19,
-      "wasPrice": 29.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174942311&a=3026001&m=106925",
-      "fetchedAt": "2026-08-17T12:31:59.862Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-7633288102025-42358299558025": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 13.19,
-      "wasPrice": 30.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=40549567431&a=3026001&m=106925",
-      "fetchedAt": "2026-08-17T12:31:59.862Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": null
     }
