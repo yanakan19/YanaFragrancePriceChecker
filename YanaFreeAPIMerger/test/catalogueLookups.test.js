@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { runCouncil } from '../server/council.js';
 import { classifyIntent } from '../server/intent.js';
-import { loadSite } from '../server/siteData.js';
+import { loadSite, productLabel } from '../server/siteData.js';
 import {
   findRetailerInQuestion,
   resolveDeliveryQuery,
@@ -17,6 +17,8 @@ import {
   formatBrandAnswer,
   resolveMetaQuery,
   formatMetaAnswer,
+  resolveConcentrationQuery,
+  formatConcentrationAnswer,
 } from '../server/lookups.js';
 
 /**
@@ -289,4 +291,88 @@ test('routing: genuinely open questions still reach the council', async () => {
     assert.equal(result.ok, false, `"${question}" was answered deterministically: ${JSON.stringify(result)}`);
     assert.equal(result.error, 'no_agents_responded');
   }
+});
+
+/* ── concentration: the vocabulary that changed under Yanny ────────────── */
+
+/**
+ * `Not stated` is a statement about a listing, not a strength of perfume.
+ *
+ * It is a required string field on every catalogue entry, so the harvest
+ * fills the gap with the literal words "Not stated" — and those words used
+ * to be interpolated into the one slot every real strength occupies, giving
+ * "Sol de Janeiro Cheirosa '59 Mist (Not stated), 240ml". Recounted here
+ * rather than pinned: if the harvest ever grades all of them, the loop finds
+ * nothing and the test passes vacuously rather than failing on a stale
+ * number.
+ */
+test('concentration: a product no shop graded is never labelled as though "Not stated" were a strength', async () => {
+  const ungraded = site.data.DEMO_FRAGRANCES.filter((f) => /^not stated$/i.test(f.concentration.trim()));
+  for (const f of ungraded) {
+    const label = productLabel(f);
+    assert.doesNotMatch(label, /\(Not stated\)/i, `${f.brand} ${f.name} still reads as a strength: ${label}`);
+    assert.match(label, /\(concentration not stated\)$/, label);
+  }
+  const graded = site.data.DEMO_FRAGRANCES.find((f) => f.concentration === 'Eau de Parfum');
+  assert.equal(productLabel(graded), `${graded.brand} ${graded.name} (Eau de Parfum)`);
+});
+
+/**
+ * The three values that moved: `Perfume Oil` became real, `Extrait de
+ * Parfum` was recapitalised, and the shrugs became `Not stated`. Every
+ * count in the answer is recounted from the same catalogue here.
+ */
+test('concentration: a browse by strength states a count this test can reproduce, and quotes only real listings', async () => {
+  const result = await resolveConcentrationQuery('do you have any perfume oils');
+  assert.equal(result.kind, 'concentration');
+  const oils = site.data.DEMO_FRAGRANCES.filter((f) => f.concentration === 'Perfume Oil');
+  assert.ok(oils.length > 0, 'Perfume Oil is a live catalogue value; if it stops being one, revisit this answer');
+  assert.equal(result.productCount, oils.length);
+
+  const answer = formatConcentrationAnswer(result);
+  assert.match(answer, new RegExp(`${oils.length.toLocaleString('en-GB')} of the`), answer);
+  for (const line of answer.split('\n').slice(2)) {
+    assert.match(line, /\(Perfume Oil\) \d+ml/, `every quoted line is a real Perfume Oil listing:\n${line}`);
+  }
+});
+
+/**
+ * A word for a strength the catalogue does not grade on gets a refusal that
+ * names what it does grade on — never an empty result, and never the brand
+ * "Attar & Co" offered as though it answered the question.
+ */
+test('concentration: "attar" is refused as a strength, and the refusal is checked against the live values', async () => {
+  const values = new Set(site.data.DEMO_FRAGRANCES.map((f) => f.concentration.toLowerCase()));
+  assert.ok(!values.has('attar'), 'no product is filed as Attar — if one ever is, this refusal must go');
+
+  const result = await resolveConcentrationQuery('what attars do you have');
+  assert.equal(result.kind, 'concentration-absent');
+  const answer = formatConcentrationAnswer(result);
+  assert.match(answer, /Nothing is filed under "attars"/, answer);
+  assert.match(answer, /not one of the strengths this catalogue records/, answer);
+  assert.doesNotMatch(answer, /Attar & Co/, 'a brand is not an answer to a question about a strength');
+  // Only strengths the catalogue really uses are offered back.
+  for (const m of answer.matchAll(/([A-Z][A-Za-z ]+?) \(\d[\d,]*\)/g)) {
+    assert.ok(values.has(m[1].toLowerCase()), `offered "${m[1]}", which no product carries`);
+  }
+  assert.doesNotMatch(answer, /Not stated \(/, '"Not stated" is never offered as a strength to filter on');
+});
+
+/**
+ * "What concentrations do you cover" used to be answered with the list of
+ * 28 shops: META_COVERAGE_RE matches the bare phrase "do you cover", and
+ * nothing above it in `resolveMetaQuery` claimed the question first.
+ */
+test('meta: a question about concentrations is answered with concentrations, not with the shop list', async () => {
+  const result = await resolveMetaQuery('what concentrations do you cover');
+  assert.equal(result.kind, 'concentration-vocabulary');
+  const answer = formatMetaAnswer(result);
+  assert.doesNotMatch(answer, /shops:/, `still answering with the retailer list:\n${answer}`);
+  assert.match(answer, /Eau de Parfum \(/, answer);
+  const ungraded = site.data.DEMO_FRAGRANCES.filter((f) => /^not stated$/i.test(f.concentration.trim())).length;
+  assert.match(
+    answer,
+    new RegExp(`${ungraded.toLocaleString('en-GB')} of the .* have no strength stated`),
+    `the ungraded pile is reported as an absence, recounted here as ${ungraded}:\n${answer}`,
+  );
 });
