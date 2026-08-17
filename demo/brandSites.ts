@@ -8,11 +8,14 @@
  * this registry runs on (see the `blurb` field on Retailer for the same
  * discipline applied to retailers).
  *
- * The catalogue currently spans around 140 distinct brand strings raw from
- * retailer feeds (some of which are casing/punctuation duplicates of each
- * other, e.g. "Dolce & Gabbana" vs "DOLCE&GABBANA" — a normalisation gap
- * that predates this file and is tracked separately). This list is only the
- * highest-volume brands so far, not a finished set.
+ * The catalogue currently spans 629 distinct brand strings raw from retailer
+ * feeds (measured 2026-08-17: `grep -o '"brand": "[^"]*"'` over
+ * demo/catalogue.generated.ts's product section, deduplicated). Casing and
+ * punctuation duplicates such as "Dolce & Gabbana" vs "DOLCE&GABBANA" no
+ * longer occur — slugify()/brandKey() collapse those at ingest — so this
+ * file's coverage (112 of 629 brands resolve here as of 2026-08-17, 17.8%)
+ * is against real distinct houses, not inflated by spelling variants. This
+ * list is only the highest-volume brands so far, not a finished set.
  */
 export const BRAND_SITES: Record<string, string> = {
   'calvin klein': 'https://www.calvinklein.co.uk/',
@@ -44,6 +47,12 @@ export const BRAND_SITES: Record<string, string> = {
   bellavita: 'https://bellavitaluxury.uk/',
   // Same business, fuller feed string: "BellaVita Luxury (UK)".
   'bellavita luxury uk': 'https://bellavitaluxury.uk/',
+  // brandName.ts's own canon for this house is "Bellavita UK", which
+  // normalizes to this key — added 2026-08-17 after an audit found the two
+  // keys above no longer matched anything live: every current listing
+  // resolves to "Bellavita UK" now, so without this key the already-verified
+  // URL was silently unreachable.
+  'bellavita uk': 'https://bellavitaluxury.uk/',
   ibraq: 'https://ibraquk.com/',
   assaf: 'https://assaf.ae/',
   'gulf orchid': 'https://shop-gulforchid.com/',
@@ -159,6 +168,11 @@ export const BRAND_SITES: Record<string, string> = {
   // Casamorati is a Xerjoff sub-line, not a separate company — this is its
   // collection page on Xerjoff's own site, not an independent storefront.
   casamorati: 'https://www.xerjoff.com/en-us/collections/casamorati-perfumes',
+  // Live feeds now carry this house as "CASAMORATI DAL 1888" (normalizeBrand
+  // strips the digits, leaving "casamorati dal") rather than plain
+  // "Casamorati" — added 2026-08-17 after an audit found the key above no
+  // longer matched any live listing, orphaning the already-verified URL.
+  'casamorati dal': 'https://www.xerjoff.com/en-us/collections/casamorati-perfumes',
   chloe: 'https://www.chloe.com/en-gb/c/fragrances',
   'comme des garcons': 'https://comme-des-garcons-parfum.com/',
   'demeter fragrance': 'https://demeterfragrance.com/',
@@ -262,6 +276,60 @@ export const BRAND_SITES: Record<string, string> = {
   // on the brand's own site is still where it sells fragrance directly.
   'ted baker': 'https://www.tedbaker.com/collections/womens-fragrance',
 };
+
+/**
+ * ── Worklist: highest-product brands with no entry above ────────────────────
+ *
+ * Not code — a priority order for whoever runs the next confirmation pass,
+ * ranked by product count in the live catalogue (measured 2026-08-17 against
+ * demo/catalogue.generated.ts, 12,664 products / 629 brands). "cum" is what
+ * share of the whole catalogue's products would gain a website line if every
+ * brand up to that point were added. 517 of 629 brands (82.2%) have no entry
+ * yet, but they are mostly small: the 30 largest below already cover 12.7%
+ * of all products on their own, the top 100 would cover 24.6%.
+ *
+ * One entry is deliberately excluded from this ranking: "Unbranded" (61
+ * products, would rank 5th) is not a house at all — it is the literal string
+ * some retailer feeds send when they have no brand for a listing. Its
+ * products span dozens of real houses (4711, Acqua Di Parma, Aesop, Banana
+ * Republic, Calvin Klein, Diesel, DKNY, Dolce&Gabbana, ...), so there is no
+ * single URL that could ever belong there — see brandName.ts's own doc for
+ * why a catch-all like this can't be folded into any one brand.
+ *
+ *   Ard Al Zaafaran                    127 products  (cum  1.0%)
+ *   Police                             117 products  (cum  1.9%)
+ *   Louis Cardin                       114 products  (cum  2.8%)
+ *   Orchid                              82 products  (cum  3.5%)
+ *   Jenny Glow                          59 products  (cum  4.4%)  [Unbranded, 61, skipped]
+ *   Ibrahim Al Qurashi (IBRAQ)          59 products  (cum  4.9%)
+ *   Yardley London                      56 products  (cum  5.3%)
+ *   Mäurer & Wirtz                      56 products  (cum  5.8%)
+ *   Floris London                       56 products  (cum  6.2%)
+ *   Salvatore Ferragamo                 55 products  (cum  6.7%)
+ *   Guess                               51 products  (cum  7.1%)
+ *   Escentric Molecules                 48 products  (cum  7.4%)
+ *   Dunhill                             45 products  (cum  7.8%)
+ *   Maison Margiela                     44 products  (cum  8.1%)
+ *   Chloé                               44 products  (cum  8.5%)
+ *   Risala Elite                        42 products  (cum  8.8%)
+ *   Karl Lagerfeld                      42 products  (cum  9.1%)
+ *   Rochas                              41 products  (cum  9.5%)
+ *   Escada                              41 products  (cum  9.8%)
+ *   Roberto Cavalli                     39 products  (cum 10.1%)
+ *   Reef Perfumes                       39 products  (cum 10.4%)
+ *   Nina Ricci                          39 products  (cum 10.7%)
+ *   Laurent Mazzone                     37 products  (cum 11.0%)
+ *   Lanvin                              37 products  (cum 11.3%)
+ *   Street Origins                      36 products  (cum 11.6%)
+ *   Caron                               36 products  (cum 11.9%)
+ *   Tommy Hilfiger                      35 products  (cum 12.1%)
+ *   Milton Lloyd                        35 products  (cum 12.4%)
+ *   Cuba Paris                          34 products  (cum 12.7%)   <- 29 real brands here (Unbranded occupied would-be rank 5)
+ *
+ * (top 50 reaches 17.1% cumulative, top 100 reaches 24.6% — full ranked list
+ * is reproducible any time with the grep-and-tally in this comment's own
+ * measurement note above; nothing here is stored anywhere else.)
+ */
 
 /** Lowercase, strip everything but letters — so "Dolce & Gabbana", "Dolce&Gabbana"
  *  and "DOLCE&GABBANA" all resolve to the same lookup key regardless of which
