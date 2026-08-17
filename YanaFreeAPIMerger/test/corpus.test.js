@@ -278,7 +278,9 @@ const CORPUS = [
     type: "the owner's multi-constraint question",
     path: 'deterministic',
     variants: ['find a woman a perfume under £30 that smells sweet', 'sweet perfume for a woman under £40'],
-    expect: [/can't filter by who it is for/i],
+    // All three constraints honoured, and the audience reading disclosed
+    // rather than asserted. See the same question in messyQuestions.test.js.
+    expect: [/whose titles say Women's/, /Read from wording in the title/, /Not stated is not the same as unisex/],
   },
   {
     type: 'cheapest overall / cheapest of a tier',
@@ -368,11 +370,21 @@ const CORPUS = [
 
   // ── constraints the catalogue provably lacks ───────────────────────────
   {
-    type: 'gender/audience-only request (not recorded — must say so)',
+    // Was a refusal until demo/gender.ts existed. It is now an answer that
+    // states its own coverage: real listings whose titles name an audience,
+    // the phrase that classified each one, and the size of the pile that
+    // says nothing. See messyQuestions.test.js for the rule that silence is
+    // never rendered as unisex.
+    type: 'gender/audience-only request (title wording — must disclose coverage)',
     path: 'deterministic',
     variants: ['perfume for women', 'something for my girlfriend', 'i need a present for my mum'],
-    expect: [/can't filter by who it is for/i, /doesn't record that|records neither|records none/i],
-    reject: [/delivered from/], // a refusal quotes no listing
+    expect: [
+      /title saying they're Women's/,
+      /title says "/,
+      /Read from wording in the title/,
+      /Not stated is not the same as unisex/,
+    ],
+    reject: [/can't filter by who it is for/i],
   },
   {
     type: 'strength/longevity request (not recorded — must say so)',

@@ -1,5 +1,7 @@
 import {
   concentrationLabel,
+  genderCoverage,
+  genderDisclosure,
   loadSite,
   productLabel,
   resolveProductQuery,
@@ -688,9 +690,11 @@ const TIER_WORDS = [
  *
  * So the same `requestedNotes` reading `suggestContextFor` uses runs here
  * too, and its note filter applies *with* the price filter rather than
- * instead of it. The third constraint, who it is for, has no data behind it
- * at all (see `detectAudience` in requestPhrases.js for the counts) and is
- * reported as unmet rather than quietly dropped.
+ * instead of it. The third constraint, who it is for, was reported as unmet
+ * for as long as there was nothing to meet it with; it is now a real filter
+ * over `demo/gender.ts`'s reading of the title, disclosed in the answer
+ * rather than applied silently — see the audience block inside this
+ * function and `genderCoverage` in siteData.js.
  */
 export async function resolveBudgetQuery(question) {
   const index = await deliveredPriceIndex();
@@ -713,12 +717,27 @@ export async function resolveBudgetQuery(question) {
   const notesOf = (frag) =>
     frag.notes ? ['top', 'middle', 'base'].flatMap((l) => frag.notes[l] ?? []) : [];
 
+  // Who it is for, applied as a real filter rather than reported as unmet.
+  // The owner's own example, "find a woman a perfume under £30 that smells
+  // sweet", used to answer two of its three constraints and name the third
+  // as impossible; the second of the five bottles it returned was Calvin
+  // Klein Obsession For Men. The reading is the site's own (demo/gender.ts,
+  // imported — see `genderCoverage` in siteData.js), it covers 13.54% of the
+  // catalogue, and `genderDisclosure` states that inside the answer. The
+  // 10,951 bottles whose titles say nothing are excluded from the result and
+  // are NOT recorded as rejected on the merits: they were never candidates,
+  // because nobody said.
+  const who = detectAudience(question);
+  const genderReading = who ? AUDIENCE_READING[who] ?? null : null;
+  const coverage = genderReading ? await genderCoverage() : null;
+
   let matches = index;
   if (tier) matches = matches.filter((r) => r.frag.tier === tier);
   if (maxGbp !== null) matches = matches.filter((r) => r.deliveredPriceGbp <= maxGbp);
-  // How many survive price and tier *before* the scent filter, so an empty
-  // result can say what dropping the scent constraint would give back
-  // instead of reading as "the catalogue has nothing".
+  if (coverage) matches = matches.filter((r) => coverage.byId.get(r.frag.id)?.reading === genderReading);
+  // How many survive price, tier and audience *before* the scent filter, so
+  // an empty result can say what dropping the scent constraint would give
+  // back instead of reading as "the catalogue has nothing".
   const pricedMatching = matches.length;
 
   let scented = matches;
@@ -762,6 +781,16 @@ export async function resolveBudgetQuery(question) {
     totalMatching: scented.length,
     pricedMatching,
     pricedTotal: index.length,
+    // The audience filter, if one ran: which reading, and the disclosure
+    // that has to travel with any answer built on it.
+    gender: coverage
+      ? {
+          reading: genderReading,
+          label: coverage.label[genderReading],
+          readingTotal: coverage.counts[genderReading],
+          disclosure: await genderDisclosure(),
+        }
+      : null,
     // Only fragrances a shop published notes for can ever pass a scent
     // filter, so a count taken after one is out of that subset and not out
     // of the catalogue. Reported rather than left implied.
@@ -788,7 +817,11 @@ export async function resolveBudgetQuery(question) {
  */
 export function unsupportedConstraintNotes(question) {
   const notes = [];
-  if (detectAudience(question)) notes.push('who it is for');
+  // "Who it is for" used to head this list and deliberately no longer does.
+  // It is now partly answerable — from title wording, for 13.54% of the
+  // catalogue — and the answers that honour it disclose that coverage
+  // instead of refusing (see `resolveGenderQuery`). The two below have no
+  // data behind them at all and are still refusals.
   if (detectPerformanceRequest(question)) notes.push('how strong or long-lasting something is');
   if (detectOccasionRequest(question)) notes.push('what season or occasion suits it');
   return notes;
@@ -817,11 +850,14 @@ function unsupportedSentence(labels, opener) {
  *
  *   1. The question grounds on nothing. No note, no descriptor the
  *      catalogue carries, no resolvable reference fragrance, no budget.
- *   2. It asks for one of the three things the catalogue provably does not
- *      hold: who a fragrance is for, how strong and long-lasting it is, or
- *      what season or occasion suits it (see `detectAudience`,
- *      `detectPerformanceRequest` and `detectOccasionRequest` in
- *      requestPhrases.js for the measurements behind "provably").
+ *   2. It asks for one of the two things the catalogue provably does not
+ *      hold: how strong and long-lasting a fragrance is, or what season or
+ *      occasion suits it (see `detectPerformanceRequest` and
+ *      `detectOccasionRequest` in requestPhrases.js for the measurements
+ *      behind "provably"). Who it is for used to be the third and is not
+ *      any more — it is partly readable from title wording, and a question
+ *      resting entirely on it is answered above by `resolveGenderQuery`
+ *      rather than refused here.
  *
  * Condition 1 alone is not enough, and that is the point of splitting them.
  * "Do you have anything nice" also grounds on nothing, but nothing in the
@@ -834,7 +870,7 @@ function unsupportedSentence(labels, opener) {
  * words are listing metadata, see NON_NOTE_VOCABULARY), and rule 1 forbids
  * "summer means citrus" from training — so 28 model calls were being spent
  * writing a refusal no model could be talked out of, the same argument that
- * moved the audience and longevity shapes here. The deterministic refusal
+ * moved the longevity shape here. The deterministic refusal
  * names the constraint and offers the real filters instead, in
  * milliseconds. What that costs: a model might have phrased the refusal
  * more conversationally; it could not, within the rules, have said more.
@@ -855,6 +891,19 @@ export async function resolveSuggestQuery(question) {
   const request = await parseSuggestRequest(question);
   const groundable = request.wanted.length > 0 || Boolean(request.reference) || Boolean(request.budget);
   const unsupported = unsupportedConstraintNotes(question);
+
+  // "Something for my girlfriend" — the whole question is who it is for, and
+  // that is now partly answerable. Only when nothing *else* in it is
+  // unanswerable, though: "what perfume you recommend for a smelly man"
+  // names a man and a longevity requirement, the longevity is the actual
+  // request, and handing back five men's bottles would look like the
+  // question had been served when its central constraint was dropped. So an
+  // unmet constraint still wins, and the refusal below still names it.
+  if (!groundable && unsupported.length === 0) {
+    const gender = await resolveGenderQuery(question);
+    if (gender) return gender;
+  }
+
   if (groundable || unsupported.length === 0) return null;
 
   return {
@@ -866,7 +915,115 @@ export async function resolveSuggestQuery(question) {
   };
 }
 
+/* ── who it is for ─────────────────────────────────────────────────────── */
+
+/**
+ * What `detectAudience` found, as one of the four readings `demo/gender.ts`
+ * produces. Never a fourth mapping invented here: a question naming a man
+ * asks for the bottles whose own titles name a man.
+ *
+ * 'both' — a question naming a man *and* a woman, "a present for my mum and
+ * dad" — maps to 'unisex', because the bottles whose titles say they are for
+ * both are exactly the ones that say "unisex". That is a small answer (18
+ * products) and the disclosure says so; the alternative, quietly returning
+ * men's and women's bottles mixed together, would be answering a different
+ * question.
+ */
+const AUDIENCE_READING = { men: 'mens', women: 'womens', both: 'unisex' };
+
+/**
+ * "Perfume for women", "something for my girlfriend", "a gift for my dad".
+ *
+ * The one answer in this file built on a *reading* of the catalogue rather
+ * than a field of it, and the whole design is about keeping that visible.
+ *
+ * ── What it may state, and what it may not ───────────────────────────────
+ * It may state that a bottle's title says "Pour Homme", because the title
+ * does. Every item below carries the exact phrase that classified it, and
+ * the answer prints it, so a reader can check the classification against the
+ * words on the card and disagree with it. That is the same standing the
+ * scent-descriptor families have (see NOTE_FAMILY_CANDIDATES): a stated
+ * reading of real published text, never a claim about how a bottle smells or
+ * who should wear it.
+ *
+ * It may not state anything about the 10,951 bottles whose titles say
+ * nothing. They are not returned, they are not counted as unisex, and they
+ * are not counted as excluded-on-the-merits either. The answer discloses how
+ * many of them there are precisely so that "657 women's bottles out of
+ * 12,666" cannot be read as "the catalogue is thin on women's perfume". It
+ * is not; it is thin on shops that said.
+ *
+ * ── Why the listings come from the delivered-price index ─────────────────
+ * The same index the budget answers use, so a bottle quoted here is a bottle
+ * a reader can actually buy at the price stated, and the ordering (most
+ * widely stocked, then cheapest) is the site's own. A gender reading picks
+ * *which* rows; it never invents one.
+ */
+export async function resolveGenderQuery(question) {
+  const who = detectAudience(question);
+  if (!who) return null;
+  const reading = AUDIENCE_READING[who];
+  if (!reading) return null;
+
+  const coverage = await genderCoverage();
+  const index = await deliveredPriceIndex();
+
+  const matching = index.filter((r) => coverage.byId.get(r.frag.id)?.reading === reading);
+  const items = [...matching]
+    .sort((a, b) => b.frag.popularity - a.frag.popularity || a.deliveredPriceGbp - b.deliveredPriceGbp)
+    .slice(0, 5)
+    .map((r) => ({
+      brand: r.frag.brand,
+      name: r.frag.name,
+      concentration: r.frag.concentration,
+      sizeMl: r.frag.sizeMl,
+      deliveredPriceGbp: r.deliveredPriceGbp,
+      retailerName: r.retailerName,
+      // The words that classified it, straight out of the title.
+      phrase: coverage.byId.get(r.frag.id)?.phrase ?? null,
+    }));
+
+  return {
+    kind: 'gender',
+    who,
+    reading,
+    readingLabel: coverage.label[reading],
+    // Products carrying this reading anywhere in the catalogue, and the
+    // subset of those with a buyable, delivery-priced listing. Two different
+    // numbers and both are said, because "only 61 are buyable" is a fact
+    // about the shops today and "657 are women's" is a fact about the
+    // titles.
+    readingTotal: coverage.counts[reading],
+    buyableMatching: matching.length,
+    pricedTotal: index.length,
+    disclosure: await genderDisclosure(),
+    items,
+  };
+}
+
+export function formatGenderAnswer(result) {
+  const n = (x) => x.toLocaleString('en-GB');
+  const line = (i) =>
+    `${productLabel(i)} ${i.sizeMl}ml — ${gbp(i.deliveredPriceGbp)} delivered from ${i.retailerName}` +
+    (i.phrase ? ` — title says "${i.phrase}".` : '.');
+
+  if (result.items.length === 0) {
+    return (
+      `Nothing filed as ${result.readingLabel} has a buyable, delivery-priced listing right now, out of the ` +
+      `${n(result.readingTotal)} whose titles say so. ${result.disclosure}`
+    );
+  }
+
+  return (
+    `${n(result.readingTotal)} bottles have a title saying they're ${result.readingLabel}, ` +
+    `${n(result.buyableMatching)} of them buyable with a stated delivery cost. Most widely stocked:\n` +
+    `${result.items.map(line).join('\n')}\n` +
+    `${result.disclosure} So this is what the shops labelled, not everything that would suit.`
+  );
+}
+
 export function formatSuggestAnswer(result) {
+  if (result.kind === 'gender') return formatGenderAnswer(result);
   const parts = [];
   if (result.referenceUnresolved) {
     parts.push(
@@ -911,6 +1068,14 @@ export function formatBudgetAnswer(result) {
   const caveat = result.unsupported?.length
     ? ` ${unsupportedSentence(result.unsupported, "Can't filter by")}`
     : '';
+  // The audience filter has to be disclosed wherever it ran, including on
+  // the empty branches: "nothing under £30 for a woman" is a different fact
+  // from "nothing under £30", and a reader who is not told the filter was
+  // applied to 5.19% of the catalogue will read it as the stronger one.
+  const genderNote = result.gender
+    ? ` Filtered to the ${result.gender.readingTotal.toLocaleString('en-GB')} bottles whose titles say ` +
+      `${result.gender.label}. ${result.gender.disclosure}`
+    : '';
 
   if (result.items.length === 0) {
     // A scent filter that emptied a non-empty price list is a different
@@ -921,12 +1086,12 @@ export function formatBudgetAnswer(result) {
         `Nothing ${tierWord}with those notes on file comes in at ${gbp(result.maxGbp)} delivered. ` +
         `${result.pricedMatching.toLocaleString('en-GB')} ${tierWord}bottles are under that without the scent filter, ` +
         `and only ${result.withNotesTotal.toLocaleString('en-GB')} of the ${result.pricedTotal.toLocaleString('en-GB')} ` +
-        `priced entries have any notes published at all.${reading}${unmatchedLine}${caveat}`
+        `priced entries have any notes published at all.${reading}${unmatchedLine}${caveat}${genderNote}`
       );
     }
     return (
       `Nothing ${tierWord}comes in at ${gbp(result.maxGbp)} delivered right now, out of the ` +
-      `${result.pricedTotal.toLocaleString('en-GB')} entries with a buyable, delivery-priced listing.${caveat}`
+      `${result.pricedTotal.toLocaleString('en-GB')} entries with a buyable, delivery-priced listing.${caveat}${genderNote}`
     );
   }
 
@@ -939,7 +1104,7 @@ export function formatBudgetAnswer(result) {
     return (
       `Cheapest ${tierWord}entries by delivered price${scent.any ? ' with those notes on file' : ''}:\n` +
       `${result.items.map(line).join('\n')}\n` +
-      `Delivered prices, cheapest buyable listing per bottle.${reading}${unmatchedLine}${caveat}${scentSource}`
+      `Delivered prices, cheapest buyable listing per bottle.${reading}${unmatchedLine}${caveat}${genderNote}${scentSource}`
     );
   }
 
@@ -947,7 +1112,7 @@ export function formatBudgetAnswer(result) {
   return (
     `${result.totalMatching.toLocaleString('en-GB')} ${tierWord}${noun} come in at ${gbp(result.maxGbp)} or under delivered. ` +
     `${scent.any ? 'The closest matches' : 'The most widely stocked of them'}:\n${result.items.map(line).join('\n')}\n` +
-    `Delivered prices, cheapest buyable listing per bottle.${reading}${unmatchedLine}${caveat}${scentSource}`
+    `Delivered prices, cheapest buyable listing per bottle.${reading}${unmatchedLine}${caveat}${genderNote}${scentSource}`
   );
 }
 

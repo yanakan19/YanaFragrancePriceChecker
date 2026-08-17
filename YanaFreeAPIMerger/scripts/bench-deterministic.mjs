@@ -56,6 +56,15 @@ const QUESTIONS = [
   'what about the 50ml',                    // follow-up refusal
   'perfume for women',                      // audience refusal
   'what perfume you recommend for a smelly man', // longevity refusal
+  // added 2026-08-17 with the gender and concentration answers. Both are
+  // deterministic by design — a gender reading is a lookup over a
+  // precomputed index, not a question of taste, and must never cost a
+  // council round.
+  'something for my girlfriend',            // gender, answered from title wording
+  'whats a good perfume for a man',         // gender, the other direction
+  'do you have any perfume oils',           // concentration browse
+  'what attars do you have',                // strength this catalogue lacks
+  'what concentrations do you cover',       // concentration vocabulary
 ];
 
 const emptyConfig = { baseUrl: 'https://unused.invalid', apiKey: 'unused', models: [] };

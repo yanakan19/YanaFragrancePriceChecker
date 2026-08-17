@@ -707,6 +707,102 @@ async function priceContextFor(question) {
   );
 }
 
+/* ── who a fragrance is sold to ────────────────────────────────────────── */
+
+/**
+ * The site's own reading of who each bottle is for, and how much of the
+ * catalogue that reading actually covers.
+ *
+ * ── Why this exists now, having been a refusal before ────────────────────
+ * Virtual Yanny used to answer every gender question with "I can't filter by
+ * who it is for — the catalogue doesn't record that." That was correct when
+ * it was written and it is now half wrong. There is still no gender field
+ * anywhere in this project, and there never will be one upstream; what
+ * changed is that `demo/gender.ts` now exists, reads an audience off the
+ * words a shop printed in its own title, and the site's filter panel offers
+ * it. Refusing a question the site itself answers in a sidebar is no longer
+ * honesty, it is a stale answer.
+ *
+ * ── What is read, and what is emphatically not ───────────────────────────
+ * `readGenderEvidence` is imported, never reimplemented. Two readings of the
+ * same titles would drift on the first exclusion anyone adds — "Portrait Of
+ * A Lady" is not a women's fragrance, "Rose Of No Man's Land" is not a
+ * men's, "Donna Karan" is a person — and then the chatbot and the filter
+ * would classify the same bottle differently in front of the same reader.
+ *
+ * The rule that governs every answer built on this: **not stated never
+ * becomes unisex**. They are different claims and only one of them is ours.
+ * Measured on this snapshot (`npx tsx scripts/gender-coverage.ts`, 12,666
+ * products):
+ *
+ *   Women's       657    5.19%
+ *   Men's       1,040    8.21%
+ *   Unisex         18    0.14%
+ *   Not stated 10,951   86.46%
+ *
+ * 1,715 classified, 13.54%. Eighteen titles say unisex. Ten thousand nine
+ * hundred and fifty-one say nothing, and folding those into unisex would
+ * attach a marketing claim nobody made to the largest group in the
+ * catalogue. So a gender answer filters to exactly the reading asked for
+ * and discloses the split, the same way the filter panel does on screen.
+ * `genderCoverage()` computes those numbers rather than quoting them, so the
+ * disclosure is arithmetic a reader can check and not a comment that rots.
+ */
+let genderIndexPromise = null;
+
+async function buildGenderIndex() {
+  const { data, gender } = await loadSite();
+  const byId = new Map();
+  const counts = { mens: 0, womens: 0, unisex: 0, notStated: 0 };
+  for (const f of data.DEMO_FRAGRANCES) {
+    // Exactly the string demo/app.ts reads, so a classification the chatbot
+    // states can be checked against the card the reader is looking at.
+    const evidence = gender.readGenderEvidence(`${f.brand} ${f.name} ${f.concentration}`);
+    byId.set(f.id, evidence);
+    counts[evidence.reading] += 1;
+  }
+  const total = data.DEMO_FRAGRANCES.length;
+  return {
+    byId,
+    counts,
+    total,
+    stated: total - counts.notStated,
+    label: gender.GENDER_LABEL,
+  };
+}
+
+/** The reading for every product, plus the coverage split. Computed once per
+ *  process, like every other index here — the snapshot cannot change under
+ *  it (see this file's header). */
+export async function genderCoverage() {
+  if (!genderIndexPromise) {
+    genderIndexPromise = buildGenderIndex().catch((err) => {
+      genderIndexPromise = null;
+      throw err;
+    });
+  }
+  return genderIndexPromise;
+}
+
+/**
+ * The disclosure, in one sentence, written once and used by both the
+ * deterministic answer and the council's SITE DATA block.
+ *
+ * It says three things and none of them is optional: where the reading comes
+ * from, how much of the catalogue it covers, and that silence is not unisex.
+ * Drop any one of them and the answer starts implying the other 86% were
+ * considered and rejected.
+ */
+export async function genderDisclosure() {
+  const g = await genderCoverage();
+  const n = (x) => x.toLocaleString('en-GB');
+  return (
+    'Read from wording in the title, such as "Pour Homme" or "For Her" — ' +
+    `${n(g.stated)} of the ${n(g.total)} bottles say who they are for and ${n(g.counts.notStated)} do not say. ` +
+    `Not stated is not the same as unisex: only ${n(g.counts.unisex)} titles say unisex, and I don't read silence as one.`
+  );
+}
+
 /** `<brand>|<name>|<concentration>`, lowercased: every size of one perfume
  *  shares this key (mirrors `variantGroup` in demo/data.ts). */
 function groupKeyFor(f) {
@@ -1186,6 +1282,38 @@ export async function parseSuggestRequest(question) {
 }
 
 /**
+ * What the model is told when a question names who a fragrance is for.
+ *
+ * This block replaced a flat "not recorded" refusal, and the wording is
+ * doing more work than it looks. There is still no gender field anywhere in
+ * this project; what exists is a reading of the product's own title, and it
+ * covers 13.54% of the catalogue. A model shown only "the reader asked who
+ * it is for" fills that gap from its own training, so the block states the
+ * mechanism, the coverage, and the inferences that are forbidden — silence
+ * is not unisex, a note list is not an audience, a famous name is not an
+ * audience — rather than leaving any of them to be worked out.
+ *
+ * It is paired with the per-candidate readings `suggestContextFor` prints,
+ * so anything a model says about who a listed bottle is for is quoting SITE
+ * DATA under rule 1 rather than recalling it.
+ */
+export async function audienceContextLine(request) {
+  if (!request.audience) return '';
+  const g = await genderCoverage();
+  const n = (x) => x.toLocaleString('en-GB');
+  return (
+    'Read from title wording only. The catalogue has no gender or audience field — a fragrance record is ' +
+    'brand, name, concentration, size, EAN, tier, popularity, photo and notes — so the audience shown on ' +
+    `each candidate above comes from words in its own title. ${n(g.stated)} of the ${n(g.total)} bottles ` +
+    `say who they are for (${n(g.counts.womens)} women's, ${n(g.counts.mens)} men's, ${n(g.counts.unisex)} ` +
+    `unisex) and ${n(g.counts.notStated)} do not say. State that coverage whenever you use the reading. ` +
+    'Never treat "not stated" as unisex, never infer an audience from a note list or from your own ' +
+    'knowledge of a fragrance, and never say a bottle is for someone when its line above says the ' +
+    'audience is not stated.'
+  );
+}
+
+/**
  * The two constraints this catalogue holds no data for, written out for
  * whoever is going to answer.
  *
@@ -1200,13 +1328,10 @@ export async function parseSuggestRequest(question) {
  */
 export function unsupportedConstraintLines(request) {
   const lines = [];
-  if (request.audience) {
-    lines.push(
-      'WHO IT IS FOR: not recorded. The catalogue has no gender or audience field — a fragrance ' +
-        'record is brand, name, concentration, size, EAN, tier, popularity, photo and notes. Do not ' +
-        'filter by who a fragrance is for, and do not infer it from a name or from a note list.',
-    );
-  }
+  // Gender used to head this list and no longer appears in it at all. It is
+  // no longer a constraint the data cannot meet — it is one the data meets
+  // partly, from title wording, and saying "cannot" about it would now be
+  // the false statement. It has its own block; see `audienceContextLine`.
   if (request.performance) {
     lines.push(
       'STRENGTH AND LONGEVITY: not recorded. Nothing in the catalogue measures how strong a fragrance ' +
@@ -1245,9 +1370,10 @@ export async function suggestContextFor(question) {
   const request = await parseSuggestRequest(question);
   const { unwanted, reference, referenceUnresolved, wanted, literal, families } = request;
   const unsupported = unsupportedConstraintLines(request);
-  const unsupportedBlock = unsupported.length
-    ? `\nCONSTRAINTS THIS DATA CANNOT MEET:\n${unsupported.join('\n')}`
-    : '';
+  const audience = await audienceContextLine(request);
+  const unsupportedBlock =
+    (audience ? `\nWHO IT IS FOR:\n${audience}` : '') +
+    (unsupported.length ? `\nCONSTRAINTS THIS DATA CANNOT MEET:\n${unsupported.join('\n')}` : '');
 
   if (wanted.length === 0) {
     let why = ' The question did not name any notes to match against.';
@@ -1360,10 +1486,22 @@ export async function suggestContextFor(question) {
     );
   }
 
+  // Each candidate's own audience reading is attached only when the reader
+  // asked about one. Printing "audience: not stated" on every candidate of
+  // every scent question would be noise on 86% of lines; withholding it when
+  // the reader did ask would leave a model to supply the answer itself.
+  const genderIndex = request.audience ? await genderCoverage() : null;
+  const audienceOf = (frag) => {
+    if (!genderIndex) return '';
+    const e = genderIndex.byId.get(frag.id);
+    return e && e.reading !== 'notStated'
+      ? ` — audience: ${genderIndex.label[e.reading]}, from "${e.phrase}" in its title`
+      : ' — audience: not stated by any shop; do not assign one';
+  };
   const lines = candidates.map(({ frag, notes, matched }) =>
     `${productLabel(frag)} — shares: ${matched.join(', ')} — notes on file: ${
       notes.join(', ') || 'none published'
-    }`,
+    }${audienceOf(frag)}`,
   );
   // The reference line is appended rather than prepended so that the block
   // still opens with "NOTE MATCHED CANDIDATES", which is what the rest of

@@ -9,6 +9,7 @@ import {
   parseSuggestRequest,
   suggestContextFor,
   buildSiteDataBlock,
+  genderCoverage,
 } from '../server/siteData.js';
 import { councilIntentFor } from '../server/council.js';
 import {
@@ -16,6 +17,8 @@ import {
   formatBudgetAnswer,
   resolveSuggestQuery,
   formatSuggestAnswer,
+  resolveGenderQuery,
+  formatGenderAnswer,
 } from '../server/lookups.js';
 
 /**
@@ -257,37 +260,65 @@ test('scent words: a suggestion built on a descriptor says which notes it read t
 /* ── gender: the constraint with no data behind it ─────────────────────── */
 
 /**
- * The claim every gender refusal in this codebase rests on, asserted
- * against the live catalogue rather than trusted.
+ * The claim every gender answer in this codebase rests on, asserted against
+ * the live catalogue rather than trusted.
  *
- * If a gender or audience field is ever added to DemoFragrance, this fails
- * — which is the intent. It is a reminder to revisit the refusal, not a
- * rule that one must never exist.
+ * There is still no gender field, and that is the whole reason the answers
+ * disclose their coverage: what Yanny reads is the product's own title, via
+ * `demo/gender.ts`, and most titles say nothing. If a real gender or
+ * audience field is ever added upstream, this fails — which is the intent.
+ * It is a reminder that the disclosure would then be describing a mechanism
+ * the site had stopped needing.
  */
-test('gender: the catalogue has no field that could support filtering by who a fragrance is for', async () => {
+test('gender: there is still no gender field, so the reading comes off the title and covers a minority', async () => {
   const { data } = await loadSite();
   const fields = Object.keys(data.DEMO_FRAGRANCES[0]);
   const genderish = fields.filter((f) => /gender|sex|audience|target|for(him|her)/i.test(f));
   assert.deepEqual(
     genderish,
     [],
-    `DEMO_FRAGRANCES gained a gender-ish field (${genderish.join(', ')}) — the refusals in ` +
-      'requestPhrases.js and lookups.js were written on the assumption there is none, and should be revisited',
+    `DEMO_FRAGRANCES gained a gender-ish field (${genderish.join(', ')}) — every gender answer in ` +
+      'lookups.js says the reading comes from title wording, and that claim would need revisiting',
   );
 
-  // The two things that look like substitutes, measured rather than assumed.
-  const MASC = /\b(pour homme|for men|for him|homme|men'?s|man|masculine)\b/i;
-  const FEM = /\b(pour femme|for women|for her|femme|women'?s|woman|feminine)\b/i;
-  const titled = data.DEMO_FRAGRANCES.filter((f) => {
-    const t = `${f.brand} ${f.name}`;
-    return MASC.test(t) || FEM.test(t);
-  }).length;
-  const share = titled / data.DEMO_FRAGRANCES.length;
-  assert.ok(
-    share < 0.2,
-    `only ${(share * 100).toFixed(1)}% of titles state an audience — too few to filter on, which is ` +
-      'why the answer says so instead. If this ever passes 20% the argument deserves re-examining.',
+  // The coverage, recounted here through the same module the site's filter
+  // panel uses. Recomputed rather than pinned: the catalogue is rewritten
+  // roughly every two hours and these numbers move with it.
+  const coverage = await genderCoverage();
+  assert.equal(coverage.total, data.DEMO_FRAGRANCES.length);
+  assert.equal(
+    coverage.counts.mens + coverage.counts.womens + coverage.counts.unisex + coverage.counts.notStated,
+    coverage.total,
+    'every product falls into exactly one reading',
   );
+  assert.equal(coverage.stated, coverage.total - coverage.counts.notStated);
+
+  const share = coverage.stated / coverage.total;
+  assert.ok(
+    share > 0 && share < 0.5,
+    `${(share * 100).toFixed(2)}% of titles state an audience. The answers disclose that split ` +
+      'precisely because it is a minority; if it ever passed half, the wording deserves re-examining.',
+  );
+
+  // The rule the whole design rests on: silence is its own reading and is
+  // never folded into unisex. Unisex is only ever the word itself.
+  assert.ok(
+    coverage.counts.unisex < coverage.counts.notStated / 100,
+    `${coverage.counts.unisex} titles say unisex against ${coverage.counts.notStated} that say nothing — ` +
+      'if these were ever conflated, the smaller number would swallow the larger one silently',
+  );
+  const [id, evidence] = [...coverage.byId].find(([, e]) => e.reading === 'unisex');
+  const unisexProduct = data.DEMO_FRAGRANCES.find((f) => f.id === id);
+  assert.match(
+    `${unisexProduct.brand} ${unisexProduct.name} ${unisexProduct.concentration}`,
+    /unisex|for men and women|for him and her/i,
+    'a unisex reading is only ever the shop having written the word',
+  );
+  assert.ok(evidence.phrase, 'and the phrase that decided it is kept, so a reader can check it');
+  for (const [pid, e] of coverage.byId) {
+    if (e.reading !== 'notStated') continue;
+    assert.equal(e.phrase, null, `${pid} is not stated but carries a phrase, which cannot be right`);
+  }
 
   const withNotes = data.DEMO_FRAGRANCES.filter((f) => f.notes);
   const audienceInNotes = withNotes.filter((f) =>
@@ -298,11 +329,25 @@ test('gender: the catalogue has no field that could support filtering by who a f
   assert.ok(
     audienceInNotes < withNotes.length * 0.01,
     `${audienceInNotes} of ${withNotes.length} fragrances with notes carry an audience word in them — ` +
-      'still far too few to filter on',
+      'the note field is still not a source for this, and no answer reads it as one',
   );
 });
 
-test('gender: a question naming a recipient is detected, and answered by saying it cannot be honoured', async () => {
+/**
+ * This test used to assert the opposite, and the change is deliberate.
+ *
+ * Yanny refused every gender question — "I can't filter by who it is for —
+ * the catalogue doesn't record that" — and that was correct when it was
+ * written. `demo/gender.ts` now exists, the site's own filter panel offers a
+ * gender facet built on it, and a chatbot refusing what the sidebar beside
+ * it answers is not being careful, it is being stale.
+ *
+ * What the test pins now is the *disclosed* answer: real listings, the
+ * coverage stated in the same breath, and the two things that must never
+ * appear — a bottle whose title says nothing, and silence rendered as
+ * unisex.
+ */
+test('gender: a question naming a recipient is answered from title wording, with the coverage disclosed', async () => {
   for (const question of [
     'find a woman a perfume under £30 that smells sweet',
     'whats a good perfume for a man',
@@ -313,10 +358,82 @@ test('gender: a question naming a recipient is detected, and answered by saying 
     assert.ok(detectAudience(question), `"${question}" names a recipient`);
   }
 
+  const coverage = await genderCoverage();
+  const { data } = await loadSite();
+  const byId = new Map(data.DEMO_FRAGRANCES.map((f) => [`${f.brand} ${f.name}`, f]));
+
   const result = await resolveBudgetQuery('find a woman a perfume under £30 that smells sweet');
   const answer = formatBudgetAnswer(result);
-  assert.match(answer, /can't filter by who it is for/i, `the answer must say so:\n${answer}`);
-  assert.match(answer, /doesn't record that/i, 'and why');
+  assert.doesNotMatch(answer, /can't filter by who it is for/i, `the refusal is gone:\n${answer}`);
+  assert.match(answer, /Filtered to the .* whose titles say Women's/, answer);
+  assert.match(answer, /Read from wording in the title/, `the coverage must be disclosed:\n${answer}`);
+  assert.match(answer, /Not stated is not the same as unisex/, answer);
+  assert.match(
+    answer,
+    new RegExp(`${coverage.counts.notStated.toLocaleString('en-GB')} do not say`),
+    `and the size of the silent pile named, recounted here as ${coverage.counts.notStated}:\n${answer}`,
+  );
+
+  // Every bottle quoted really is one whose own title says so. Checked
+  // through the shared index rather than by re-reading the titles here: a
+  // second reading in the test would pass while the answer and the site's
+  // filter panel disagreed.
+  for (const item of result.items) {
+    const frag = byId.get(`${item.brand} ${item.name}`);
+    assert.equal(
+      coverage.byId.get(frag.id).reading,
+      'womens',
+      `${item.brand} ${item.name} was quoted for a women's request without a women's title`,
+    );
+  }
+
+  // The gender-only shape, answered by the suggest path.
+  const gender = await resolveGenderQuery('something for my girlfriend');
+  assert.equal(gender.reading, 'womens');
+  assert.equal(gender.readingTotal, coverage.counts.womens);
+  const genderAnswer = formatGenderAnswer(gender);
+  assert.match(genderAnswer, /Read from wording in the title/, genderAnswer);
+  assert.match(genderAnswer, /Not stated is not the same as unisex/, genderAnswer);
+  for (const item of gender.items) {
+    assert.ok(item.phrase, 'every quoted bottle carries the phrase that classified it');
+    assert.match(
+      `${item.brand} ${item.name} ${item.concentration}`,
+      new RegExp(item.phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'),
+      `the phrase must really be in the title: ${item.brand} ${item.name} / "${item.phrase}"`,
+    );
+  }
+});
+
+/**
+ * The one rule the whole design rests on, checked at the level a reader
+ * meets it: no answer to a gendered question may quote a bottle nobody
+ * labelled.
+ */
+test('gender: "not stated" is never quoted as an answer and never becomes unisex', async () => {
+  const coverage = await genderCoverage();
+  const { data } = await loadSite();
+  const byId = new Map(data.DEMO_FRAGRANCES.map((f) => [`${f.brand} ${f.name}`, f]));
+
+  for (const [question, expected] of [
+    ['perfume for women', 'womens'],
+    ['whats a good perfume for a man', 'mens'],
+    ['i need a present for my mum', 'womens'],
+  ]) {
+    const result = await resolveGenderQuery(question);
+    assert.equal(result.reading, expected, question);
+    for (const item of result.items) {
+      const frag = byId.get(`${item.brand} ${item.name}`);
+      const reading = coverage.byId.get(frag.id).reading;
+      assert.notEqual(reading, 'notStated', `"${question}" quoted an unlabelled bottle: ${item.name}`);
+      assert.equal(reading, expected, `"${question}" quoted a ${reading} bottle`);
+    }
+  }
+
+  // And the council's own block says it in words, for the questions that
+  // still reach a model.
+  const block = await suggestContextFor('something floral for my girlfriend');
+  assert.match(block, /Never treat "not stated" as unisex/, block);
+  assert.match(block, /audience: not stated by any shop; do not assign one/, block);
 });
 
 /* ── strength and longevity: the other constraint with no data ─────────── */
@@ -360,13 +477,21 @@ test('longevity: strength wording in any phrasing is detected', () => {
 /* ── several constraints in one sentence ───────────────────────────────── */
 
 /**
- * The failure this whole change exists to fix. Before it, this question was
- * answered with the five most widely stocked bottles under £30 — chosen for
- * popularity, not for sweetness, the second of them a men's fragrance —
- * with nothing in the answer admitting that two of the three constraints
- * had been dropped.
+ * The owner's own question, and the one that has now been fixed twice.
+ *
+ * It was first answered with the five most widely stocked bottles under £30
+ * — chosen for popularity, not for sweetness, the second of them Calvin
+ * Klein Obsession For Men — with nothing admitting that two of its three
+ * constraints had been dropped. The scent filter fixed one of those and the
+ * third was named as impossible, which it was at the time.
+ *
+ * All three are honoured now. "For a woman" filters on the site's own
+ * reading of the title, and the answer states the coverage of that reading
+ * in the same breath, because 657 women's bottles out of 12,666 must not be
+ * readable as "this site is thin on perfume for women". It is not; it is
+ * thin on shops that said.
  */
-test("the owner's example: price and scent are both honoured, and the constraint that cannot be is named", async () => {
+test("the owner's example: price, scent and audience are all honoured, and the audience reading is disclosed", async () => {
   const question = 'find a woman a perfume under £30 that smells sweet';
   const result = await resolveBudgetQuery(question);
 
@@ -382,9 +507,23 @@ test("the owner's example: price and scent are both honoured, and the constraint
     );
   }
 
+  const coverage = await genderCoverage();
+  const { data } = await loadSite();
+  const byId = new Map(data.DEMO_FRAGRANCES.map((f) => [`${f.brand} ${f.name}`, f]));
+  for (const item of result.items) {
+    const frag = byId.get(`${item.brand} ${item.name}`);
+    assert.equal(
+      coverage.byId.get(frag.id).reading,
+      'womens',
+      `${item.brand} ${item.name} was returned for "find a woman" without a women's title`,
+    );
+  }
+
   const answer = formatBudgetAnswer(result);
-  assert.match(answer, /Read "sweet" as/, `the reading must be shown:\n${answer}`);
-  assert.match(answer, /can't filter by who it is for/i, 'the unmet constraint must be named');
+  assert.match(answer, /Read "sweet" as/, `the scent reading must be shown:\n${answer}`);
+  assert.match(answer, /Filtered to the .* whose titles say Women's/, `and the audience filter:\n${answer}`);
+  assert.match(answer, /Read from wording in the title/, `and how that reading was made:\n${answer}`);
+  assert.match(answer, /Not stated is not the same as unisex/, `and the rule behind it:\n${answer}`);
   assert.match(answer, /notes the shops published/, 'and the note subset must be disclosed');
 });
 
@@ -431,7 +570,10 @@ test('multi-constraint: every matched note is genuinely on the fragrance it is c
 /* ── degrading gracefully ──────────────────────────────────────────────── */
 
 test('graceful failure: an ungroundable question offers what the catalogue can do instead, and names nothing', async () => {
-  for (const question of ['what perfume you recommend for a smelly man', 'something for my girlfriend']) {
+  // "something for my girlfriend" was the second question here and is now
+  // answered rather than refused — see the gender tests below. What remains
+  // is the shape with genuinely nothing behind it.
+  for (const question of ['what perfume you recommend for a smelly man', 'anything for the office']) {
     const result = await resolveSuggestQuery(question);
     assert.ok(result, `"${question}" should be answered deterministically`);
     const answer = formatSuggestAnswer(result);
@@ -643,13 +785,21 @@ test('the whole corpus: every council-bound question arrives with something real
  * just the deterministic answers — a block that is merely silent about
  * gender leaves a model free to invent a filter for it under rule 1.
  */
-test('the whole corpus: a council-bound question naming a recipient is told the catalogue has no such field', async () => {
-  const question = 'perfume for women';
+test('the whole corpus: a council-bound question naming a recipient is told how the reading works and what it covers', async () => {
+  const question = 'something floral for my girlfriend';
   const request = await parseSuggestRequest(question);
   assert.equal(request.audience, 'women');
 
   const block = await suggestContextFor(question);
-  assert.match(block, /CONSTRAINTS THIS DATA CANNOT MEET/, block);
+  const coverage = await genderCoverage();
+  assert.match(block, /WHO IT IS FOR:/, block);
   assert.match(block, /no gender or audience field/, block);
-  assert.match(block, /Do not filter by who a fragrance is for/, block);
+  assert.match(block, /read from title wording|Read from title wording/, block);
+  assert.match(
+    block,
+    new RegExp(`${coverage.stated.toLocaleString('en-GB')} of the ${coverage.total.toLocaleString('en-GB')} bottles`),
+    `the coverage must reach the model as a number, recounted here:\n${block}`,
+  );
+  assert.match(block, /Never treat "not stated" as unisex/, block);
+  assert.match(block, /never infer an audience from a note list/, block);
 });
