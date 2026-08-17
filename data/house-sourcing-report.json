@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-17T03:57:45.381Z",
+  "checkedAt": "2026-08-17T05:38:43.240Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -192,9 +192,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 110,
-      "pricedInGbp": 110,
-      "withPhoto": 110,
+      "listings": 104,
+      "pricedInGbp": 104,
+      "withPhoto": 104,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -482,9 +482,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 630,
+      "listings": 633,
       "pricedInGbp": 0,
-      "withPhoto": 630,
+      "withPhoto": 633,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
