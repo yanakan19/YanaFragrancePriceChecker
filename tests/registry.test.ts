@@ -47,7 +47,14 @@ describe('retailer registry', () => {
     // first), a possible conflict between PA-API's retention terms and this
     // repo's stored prices and price history, and a marketplace where "the
     // price" is several sellers' prices. Nothing has been read from Amazon.
-    expect(RETAILERS).toHaveLength(57);
+    //
+    // FragranceHub added 2026-08-18 as a candidate sourced entirely from
+    // WebSearch snippets of its own pages — WebFetch to fragrancehub.co.uk
+    // returns EGRESS_BLOCKED here, so nothing on the site has actually been
+    // read. Disabled, and in CURRENCY_UNCONFIRMED: the entry exists to give
+    // currency:probe, run from CI where the network reaches it, something to
+    // ask.
+    expect(RETAILERS).toHaveLength(58);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
