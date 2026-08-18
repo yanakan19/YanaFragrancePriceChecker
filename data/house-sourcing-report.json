@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-18T19:34:42.656Z",
+  "checkedAt": "2026-08-18T21:32:25.828Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,7 +59,7 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 9,
+      "listings": 12,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
@@ -144,10 +144,12 @@
       "origin": "https://lattafa.com",
       "routeUsed": "sitemap-jsonld",
       "currency": "USD",
-      "listings": 60,
-      "pricedInGbp": 60,
-      "withPhoto": 60,
-      "errors": [],
+      "listings": 56,
+      "pricedInGbp": 56,
+      "withPhoto": 56,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "lattafa.com reads as a catalogue/informational site in search results rather than a confirmed working checkout — worth confirming it actually sells direct before spending harvest budget on it",
