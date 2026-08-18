@@ -1,6 +1,6 @@
 {
   "retailerId": "pairfum-london",
-  "updatedAt": "2026-08-17T13:31:13.080Z",
+  "updatedAt": "2026-08-18T13:33:03.608Z",
   "source": "live",
   "listings": [
     {
@@ -17,7 +17,7 @@
       "sectionId": "house-direct",
       "retailerId": "pairfum-london",
       "firstSeenAt": "2026-08-05T08:57:05.601Z",
-      "lastSeenAt": "2026-08-17T13:31:13.080Z",
+      "lastSeenAt": "2026-08-18T13:33:03.608Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
@@ -38,7 +38,7 @@
       "sectionId": "house-direct",
       "retailerId": "pairfum-london",
       "firstSeenAt": "2026-08-05T13:30:41.483Z",
-      "lastSeenAt": "2026-08-17T13:31:13.080Z",
+      "lastSeenAt": "2026-08-18T13:33:03.608Z",
       "status": "active",
       "delistedAt": null,
       "relistedAt": null,
