@@ -58,7 +58,7 @@ const DELIVERY_CONFIRMED = ENABLED.filter((r) => r.shipping.confidence === 'conf
 const DELIVERY_UNCONFIRMED = ENABLED.filter((r) => r.shipping.confidence === 'unverified');
 
 /** Hand checked against `npm test` whenever this file is edited. */
-const TEST_COUNT = 467;
+const TEST_COUNT = 772;
 
 export const COMPANY = {
   name: 'PriceSniffs',
@@ -196,11 +196,11 @@ export const LEGAL_PAGES: LegalPage[] = [
       anything to do with your data.</p>
 
       <h3 class="t-section">What we collect</h3>
-      <p>Very little, because the site itself has no server or database of its
-      own. It runs entirely in your browser and reads a fixed catalogue of
-      prices, so there is no account to create and nothing you do inside the
-      app, including what you search for and which filters you use, is sent
-      anywhere or stored by us.</p>
+      <p>The site itself has no server or database of its own: it runs
+      entirely in your browser and reads a fixed catalogue of prices, and
+      nothing you do inside the app, including what you search for and which
+      filters you use, is sent anywhere or stored by us. Creating an account
+      is optional and is the one exception, described below.</p>
       <ul>
         <li><strong>Your display preference.</strong> Dark or light theme and
         mobile or desktop layout are saved on your own device only, using your
@@ -208,22 +208,35 @@ export const LEGAL_PAGES: LegalPage[] = [
         <li><strong>Anything you send us.</strong> If you email us, whether
         through the contact form or directly, we keep that message and your
         address so that we can reply, the same as any inbox.</li>
+        <li><strong>If you create an account.</strong> Signing up is optional
+        and takes your email address, which our account provider (Supabase,
+        see below) uses to create your login and send you a verification
+        email. Once verified, you can save fragrances to a wishlist, which
+        stores which fragrance you saved, when, and an optional target price
+        you typed in yourself — never one we set. You can use the site's price
+        comparison fully without ever creating an account.</li>
       </ul>
-      <p>We do not ask you to create an account and we never see your payment
-      details. Buying happens on the shop's own site, under their privacy policy
-      rather than ours.</p>
+      <p>We never see your payment details. Buying happens on the shop's own
+      site, under their privacy policy rather than ours.</p>
 
-      <h3 class="t-section">Hosting</h3>
+      <h3 class="t-section">Hosting and account storage</h3>
       <p>The site is hosted by GitHub Pages. Serving any website involves the
       host handling standard connection information, such as IP addresses, to
       deliver the page, and that is governed by GitHub's own privacy statement
       rather than ours, since we do not receive or store it.</p>
+      <p>If you create an account, your email address, login and wishlist are
+      held by Supabase, a hosted database and authentication provider, rather
+      than by us directly — we do not run a server of our own. Row-level
+      security on that database means only you, signed in as yourself, can
+      read or change your own account data; we cannot read your password, and
+      no PriceSniffs code path ever asks for one.</p>
 
       <h3 class="t-section">Our lawful basis</h3>
       <p>For replying to messages you send us we rely on legitimate interests,
-      namely being able to answer you. Where we use cookies that are not strictly
-      necessary we rely on your consent, and you can withdraw it whenever you
-      like.</p>
+      namely being able to answer you. For account data — your email, login
+      and wishlist — we rely on contract: creating and maintaining the account
+      you asked for. Where we use cookies that are not strictly necessary we
+      rely on your consent, and you can withdraw it whenever you like.</p>
 
       <h3 class="t-section">Cookies</h3>
       <p>We do not set any cookies ourselves. Your display preference is saved
@@ -235,12 +248,17 @@ export const LEGAL_PAGES: LegalPage[] = [
 
       <h3 class="t-section">Who else sees it</h3>
       <p>We do not sell personal data, and we do not share it with anyone except
-      where the law requires it.</p>
+      where the law requires it. If you create an account, Supabase (see
+      Hosting and account storage, above) processes your account data on our
+      behalf, to run the login and database this feature needs — it does not
+      use it for its own purposes.</p>
 
       <h3 class="t-section">How long we keep it</h3>
       <p>Emails are kept only as long as we need them to deal with what you have
       asked, then deleted. We do not keep search history, browsing history or
-      any other record of your visit, because we never receive one.</p>
+      any other record of your visit, because we never receive one. Account
+      data — your email, login and wishlist — is kept for as long as your
+      account exists, and deleted when you ask us to close it.</p>
 
       <h3 class="t-section">Your rights</h3>
       <p>You can ask for a copy of your data, ask us to correct or delete it,
@@ -253,7 +271,7 @@ export const LEGAL_PAGES: LegalPage[] = [
       <a href="https://ico.org.uk" rel="noopener" target="_blank">ico.org.uk</a>
       or by calling 0303 123 1113.</p>
 
-      <p class="meta">Last updated ${COMPANY.updated}.</p>`,
+      <p class="meta">Last updated 18 August 2026.</p>`,
   },
   {
     id: 'terms',
