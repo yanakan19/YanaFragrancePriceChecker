@@ -1768,7 +1768,17 @@ function brandsPanel(): string {
 /* ── explore: deals ──────────────────────────────────────────────────────── */
 
 function dealsPanel(): string {
-  const sorted = [...DEALS].sort((a, b) => {
+  // A deal tile leads with the bottle's photo, so a fragrance with none —
+  // photoUrl is only ever set for a retailer whose affiliate programme has
+  // confirmed image rights, see demo/data.ts's own header — read as broken
+  // on this page specifically, even though the discount itself is real.
+  // Restricted here rather than upstream in demo/data.ts's DEALS: the same
+  // fragrance still deserves its price shown everywhere else a listing
+  // appears (search, brand pages, its own detail page all fall back to a
+  // plain placeholder), only the deals rail's photo-led layout can't carry
+  // it. Cuts the page from 6,299 deals to 2,855, measured 2026-08-18.
+  const withPhoto = DEALS.filter((d) => d.fragrance.photoUrl !== null);
+  const sorted = [...withPhoto].sort((a, b) => {
     if (state.dealSort === 'lowest') return a.price - b.price;
     if (state.dealSort === 'highest') return b.price - a.price;
     return b.percentOff - a.percentOff;
@@ -1788,8 +1798,11 @@ function dealsPanel(): string {
     ${facetsBlock(sorted.map((d) => d.fragrance))}
   </div>`;
 
-  if (sorted.length === 0) {
+  if (DEALS.length === 0) {
     return `${controls}<p class="empty-note t-body">No shop is publishing a reference price right now.</p>`;
+  }
+  if (sorted.length === 0) {
+    return `${controls}<p class="empty-note t-body">No discounted fragrance has a shop-licensed photo right now.</p>`;
   }
   if (filtered.length === 0) {
     return `${controls}<p class="empty-note t-body">No deal matches that filter.</p>`;
