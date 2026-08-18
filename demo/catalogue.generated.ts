@@ -203,6 +203,25 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-8411061056752",
+    "brand": "Carolina Herrera",
+    "name": "Good Girl Blush",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": "8411061056752",
+    "shops": 5,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/164.jpg",
+    "notes": {
+      "top": [
+        "Mandarin Oil"
+      ],
+      "middle": [],
+      "base": [
+        "Tonka Beans"
+      ]
+    }
+  },
+  {
     "id": "ean-027131006534",
     "brand": "Estée Lauder",
     "name": "Knowing",
@@ -3182,6 +3201,39 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6290362349129",
+    "brand": "Lattafa",
+    "name": "Eclaire Pistache",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362349129",
+    "shops": 4,
+    "image": "https://www.beautybase.com/cdn/shop/files/1758026014-19962700.jpg?v=1763398977&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290362348054",
+    "brand": "Lattafa",
+    "name": "Nebras Elixir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362348054",
+    "shops": 4,
+    "image": "https://www.beautybase.com/cdn/shop/files/1759334105-44292300.jpg?v=1763399124&width=1920",
+    "notes": {
+      "top": [
+        "Whipped Cream",
+        "Heliotrope"
+      ],
+      "middle": [
+        "Heliotrope"
+      ],
+      "base": [
+        "Ambroxan"
+      ]
+    }
+  },
+  {
     "id": "ean-6291107455365",
     "brand": "Lattafa",
     "name": "Qaed Al Fursan",
@@ -5580,6 +5632,28 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-9362014000157",
+    "brand": "Bujairami",
+    "name": "Hectic",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000157",
+    "shops": 3,
+    "image": "https://www.beautybase.com/cdn/shop/files/1766511040-60500600.jpg?v=1774611897&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000829",
+    "brand": "Bujairami",
+    "name": "Wicked",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000829",
+    "shops": 3,
+    "image": "https://www.beautybase.com/cdn/shop/files/w1.jpg?v=1776435806&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-3616302020676",
     "brand": "Burberry",
     "name": "Goddess",
@@ -7520,6 +7594,17 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6298042001800",
+    "brand": "French Avenue",
+    "name": "Safari Breeze",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "6298042001800",
+    "shops": 3,
+    "image": "https://www.beautybase.com/cdn/shop/files/1771253888-26549500.jpg?v=1772624925&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-6290360377902",
     "brand": "French Avenue",
     "name": "Veneno",
@@ -7551,7 +7636,10 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/product_2025-389.png",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
   {
     "id": "ean-3614273734882",
     "brand": "Giorgio Armani",
@@ -7636,10 +7724,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://www.beautybase.com/cdn/shop/files/1498734864-42386300.jpg?v=1763398557&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614274219579",
     "brand": "Giorgio Armani",
@@ -9967,7 +10052,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-10118889275734",
+    "id": "emirates-oud-big-bottle---milky-way",
     "brand": "Maison Asrar",
     "name": "Milky Way Perfume Maison Asrar",
     "concentration": "Eau de Parfum",
@@ -11985,6 +12070,17 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       "middle": [],
       "base": []
     }
+  },
+  {
+    "id": "ean-6297001571262",
+    "brand": "Rayhaan",
+    "name": "Terra",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6297001571262",
+    "shops": 3,
+    "image": "https://www.beautybase.com/cdn/shop/files/1762336040-91122900.jpg?v=1763399391&width=1920",
+    "notes": null
   },
   {
     "id": "ean-5000386111838",
@@ -14636,7 +14732,10 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 2,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "ean-6291100137565",
     "brand": "Al Haramain",
@@ -14741,10 +14840,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
       ],
       "base": []
     }
-  }
-];
-
-const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6291100132829",
     "brand": "Al Haramain",
@@ -18188,18 +18284,139 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-9362014000157",
+    "id": "ean-9362014000621",
     "brand": "Bujairami",
-    "name": "Hectic",
-    "concentration": "Extrait de Parfum",
+    "name": "Boujee",
+    "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "9362014000157",
+    "ean": "9362014000621",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1766511040-60500600.jpg?v=1774611897&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/boujee1.jpg?v=1776435373&width=1920",
     "notes": null
   },
   {
-    "id": "ean-10280463499606",
+    "id": "ean-9362014001147",
+    "brand": "Bujairami",
+    "name": "Breathless",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014001147",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Breathless.jpg?v=1786705595&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000072",
+    "brand": "Bujairami",
+    "name": "Candy Crush",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000072",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairami_Candy_Crush1.jpg?v=1774612797&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014001079",
+    "brand": "Bujairami",
+    "name": "Chic Wood",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014001079",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Chicwood1.jpg?v=1784624307&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014001413",
+    "brand": "Bujairami",
+    "name": "Chubby",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014001413",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Chubby.jpg?v=1784623073&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014002083",
+    "brand": "Bujairami",
+    "name": "Daddy Issues",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014002083",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/DaddyIssues1.jpg?v=1782894472&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014011122",
+    "brand": "Bujairami",
+    "name": "Dirty Money",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014011122",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Dirtymoney.jpg?v=1786705957&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000478",
+    "brand": "Bujairami",
+    "name": "Emperor",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000478",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairami_Emperor1.jpg?v=1774613735&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014011610",
+    "brand": "Bujairami",
+    "name": "First Class",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014011610",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/FirstClass.jpg?v=1784625642&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014002168",
+    "brand": "Bujairami",
+    "name": "Freeze",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014002168",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/freeze1.jpg?v=1776435238&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014011801",
+    "brand": "Bujairami",
+    "name": "Full Throttle",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014011801",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Fullthrotle.jpg?v=1784627572&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014001826",
+    "brand": "Bujairami",
+    "name": "Ghost",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014001826",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Ghost.jpg?v=1784628582&width=1920",
+    "notes": null
+  },
+  {
+    "id": "emirates-oud-16027028324701-default-title",
     "brand": "Bujairami",
     "name": "Imperial Oud Bujairami Sydney",
     "concentration": "Extrait de Parfum",
@@ -18228,6 +18445,171 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-9362014000539",
+    "brand": "Bujairami",
+    "name": "Kingsman",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000539",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1766511054-30086700.jpg?v=1774612180&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000461",
+    "brand": "Bujairami",
+    "name": "Madness",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000461",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairamimadnes1.jpg?v=1778845139&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000690",
+    "brand": "Bujairami",
+    "name": "Marshmelt",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000690",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Marshmeltbujairami1.jpg?v=1778849003&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000645",
+    "brand": "Bujairami",
+    "name": "Miss Vanilla",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000645",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1770813347-85847300.jpg?v=1774613023&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000232",
+    "brand": "Bujairami",
+    "name": "New York",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000232",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Newyork2.jpg?v=1778850061&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000546",
+    "brand": "Bujairami",
+    "name": "Ocean Eyes",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000546",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/3dac9163e93a4cc4a1453b57a8ab5cf0_tplv-t5fjg24jzw-origin-jpeg.jpg?v=1776427358&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014007309",
+    "brand": "Bujairami",
+    "name": "Ozonic",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014007309",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Ozonicinspired1.jpg?v=1778845328&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014001482",
+    "brand": "Bujairami",
+    "name": "Powerful Lady",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014001482",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairamilady1.jpg?v=1778844398&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014011627",
+    "brand": "Bujairami",
+    "name": "Real Deal",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014011627",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/RealDeal.jpg?v=1784630858&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000577",
+    "brand": "Bujairami",
+    "name": "Red Static",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000577",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1769091814-98598800.jpg?v=1772624853&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014007958",
+    "brand": "Bujairami",
+    "name": "Resonance",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014007958",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairamib_g1.jpg?v=1778840584&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014001499",
+    "brand": "Bujairami",
+    "name": "Rizz",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014001499",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/BujairamiGreen2.jpg?v=1778840105&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-10486167404886",
+    "brand": "Bujairami",
+    "name": "Sacred Order",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "10486167404886",
+    "shops": 2,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "ean-9362014000737",
+    "brand": "Bujairami",
+    "name": "Safari Squeeze",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014000737",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/BujairamiSafariSqueezeEauDeParfum100mlSpray1.jpg?v=1778844050&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014002120",
+    "brand": "Bujairami",
+    "name": "Shadow Script",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014002120",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/ShadowScript.jpg?v=1784632125&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-9362014002052",
     "brand": "Bujairami",
     "name": "The Rock Powerfully",
@@ -18239,14 +18621,47 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-9362014000829",
+    "id": "ean-9362014001550",
     "brand": "Bujairami",
-    "name": "Wicked",
+    "name": "Too Damn Good",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014001550",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Burjairamitoodamngood.jpg?v=1778839283&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014001116",
+    "brand": "Bujairami",
+    "name": "V-Luxe",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "9362014000829",
+    "ean": "9362014001116",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/w1.jpg?v=1776435806&width=1920",
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairami_web_1.jpg?v=1779197702&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014002106",
+    "brand": "Bujairami",
+    "name": "Vanilla Static",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014002106",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/BujairamiVanilla1.jpg?v=1782894132&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-9362014012280",
+    "brand": "Bujairami",
+    "name": "Vibration",
+    "concentration": "Extrait de Parfum",
+    "sizeMl": 100,
+    "ean": "9362014012280",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/Bujairamivibration.jpg?v=1783936704&width=1920",
     "notes": null
   },
   {
@@ -20324,17 +20739,6 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-8411061056752",
-    "brand": "Carolina Herrera",
-    "name": "Good Girl Blush",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": "8411061056752",
-    "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1728462581-52271800.jpg?v=1763393271&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-8411061113851",
     "brand": "Carolina Herrera",
     "name": "Good Girl Bowtastic",
@@ -20764,7 +21168,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-0810023680445",
+    "id": "mybeauty-boutique-shopify-gb-8338364006537-44927284805769",
     "brand": "Cher",
     "name": "Eau de Couture",
     "concentration": "Eau de Parfum",
@@ -21212,7 +21616,10 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://allbeauty.com/cdn/shop/files/4006.jpg?v=1760534700&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-020714881429",
     "brand": "Clinique",
@@ -21636,10 +22043,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.justmylook.com/cdn/shop/files/CREED0020.png?v=1751897610&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-creed0035",
     "brand": "Creed",
@@ -25766,7 +26170,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-10063391752534",
+    "id": "emirates-oud-15719283327325-default-title",
     "brand": "French Avenue",
     "name": "Liquid Brun Limited Edition French Avenue",
     "concentration": "Extrait de Parfum",
@@ -25864,17 +26268,6 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "ean": "6290360379227",
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1748620453-89204700.jpg?v=1763398020&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-6298042001800",
-    "brand": "French Avenue",
-    "name": "Safari Breeze",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "6298042001800",
-    "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1771253888-26549500.jpg?v=1772624925&width=1920",
     "notes": null
   },
   {
@@ -27729,7 +28122,10 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
       "middle": [],
       "base": []
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "ean-3346470147393",
     "brand": "Guerlain",
@@ -28111,6 +28507,17 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6290362166245",
+    "brand": "Gulf Orchid",
+    "name": "Maestro",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362166245",
+    "shops": 2,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-6290362163572",
     "brand": "Gulf Orchid",
     "name": "Mango Heaven",
@@ -28175,10 +28582,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 2,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-guyl0001",
     "brand": "Guy Laroche",
@@ -31644,7 +32048,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-0350170089780",
+    "id": "mybeauty-boutique-shopify-gb-8338241192073-44927101567113",
     "brand": "Jovan",
     "name": "Musk for Woman",
     "concentration": "Eau de Cologne",
@@ -34259,7 +34663,10 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 2,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "ean-6290360598338",
     "brand": "Lattafa",
@@ -34433,17 +34840,6 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       "middle": [],
       "base": []
     }
-  },
-  {
-    "id": "ean-6290362349129",
-    "brand": "Lattafa",
-    "name": "Eclaire Pistache",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290362349129",
-    "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1758026014-19962700.jpg?v=1763398977&width=1920",
-    "notes": null
   },
   {
     "id": "ean-6290360591506",
@@ -34641,7 +35037,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-10241896186198",
+    "id": "emirates-oud-15933483483485-default-title",
     "brand": "Lattafa",
     "name": "Maitha Lattafa",
     "concentration": "Perfume Oil",
@@ -34745,17 +35141,6 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6290362348054",
-    "brand": "Lattafa",
-    "name": "Nebras Elixir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290362348054",
-    "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1759334105-44292300.jpg?v=1763399124&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-6290360592930",
     "brand": "Lattafa",
     "name": "Niche Emarati Hayaam",
@@ -34765,10 +35150,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 2,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6290360592107",
     "brand": "Lattafa",
@@ -36562,7 +36944,62 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-10128237855062",
+    "id": "ean-6290362163879",
+    "brand": "Maison Asrar",
+    "name": "DXB",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362163879",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1756291061-31543900.jpg?v=1763398849&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290362164494",
+    "brand": "Maison Asrar",
+    "name": "Faris Al Arab",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362164494",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1759419443-07550000.jpg?v=1763399132&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290362163107",
+    "brand": "Maison Asrar",
+    "name": "Legacy",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362163107",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1752066909-12400300.jpg?v=1763398269&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290362164487",
+    "brand": "Maison Asrar",
+    "name": "Muharib",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362164487",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1759418530-99274200.jpg?v=1763399139&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6290362164890",
+    "brand": "Maison Asrar",
+    "name": "Regent",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362164890",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/123_79f322ee-2686-4743-be9b-93c6df716b96.jpg?v=1780390774&width=1920",
+    "notes": null
+  },
+  {
+    "id": "emirates-oud-15850714661213-default-title",
     "brand": "Maison Asrar",
     "name": "Vanguard Perfume Maison Asrar",
     "concentration": "Eau de Parfum",
@@ -36593,6 +37030,17 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
         "Moss"
       ]
     }
+  },
+  {
+    "id": "ean-6290362164630",
+    "brand": "Maison Asrar",
+    "name": "Vanilla Seduction",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290362164630",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1762338587-87677200.jpg?v=1763399388&width=1920",
+    "notes": null
   },
   {
     "id": "justmylook-mfk0001",
@@ -40829,7 +41277,10 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
       "middle": [],
       "base": []
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   {
     "id": "ean-679602331104",
     "brand": "Police",
@@ -41429,10 +41880,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://allbeauty.com/cdn/shop/files/53453.jpg?v=1755874886&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8435137743896",
     "brand": "Prada",
@@ -42341,7 +42789,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-5555555555554",
+    "id": "mybeauty-boutique-shopify-gb-8416748699785-45147131117705",
     "brand": "Rabanne",
     "name": "Pour Homme",
     "concentration": "Aftershave",
@@ -42753,6 +43201,28 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6297001571392",
+    "brand": "Rayhaan",
+    "name": "Aloha",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6297001571392",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_53900b7e-21d0-47f5-99a4-f705ef761074.jpg?v=1781711429&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-6297001571415",
+    "brand": "Rayhaan",
+    "name": "Azul",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6297001571415",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/2_01773cb5-5ad8-47b7-af44-15fa96a52ab5.jpg?v=1781711126&width=1920",
+    "notes": null
+  },
+  {
     "id": "ean-6298044138603",
     "brand": "Rayhaan",
     "name": "Corium",
@@ -42786,7 +43256,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-10062888010070",
+    "id": "emirates-oud-15831633101149-default-title",
     "brand": "Rayhaan",
     "name": "Kiss Perfume by Rayhaan",
     "concentration": "Eau de Parfum",
@@ -42827,7 +43297,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-10145128972630",
+    "id": "emirates-oud-15858027594077-default-title",
     "brand": "Rayhaan",
     "name": "Pharaoh Perfume by Rayhaan",
     "concentration": "Eau de Parfum",
@@ -42856,17 +43326,6 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6297001571262",
-    "brand": "Rayhaan",
-    "name": "Terra",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6297001571262",
-    "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1762336040-91122900.jpg?v=1763399391&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-6297001571040",
     "brand": "Rayhaan",
     "name": "Tiger Cal Cologne",
@@ -42878,7 +43337,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-9639701905750",
+    "id": "mybeauty-boutique-shopify-gb-8416754630793-45147137638537",
     "brand": "Rayhaan",
     "name": "Tiger Cal Cologne Edition",
     "concentration": "Eau de Parfum",
@@ -47207,7 +47666,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/147_7b8b0e1c-895b-4423-9ae7-260d448d1b28.jpg?v=1773313752&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "ean-3614274151701",
     "brand": "Yves Saint Laurent",
@@ -47723,10 +48185,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1706636540-26172200.jpg?v=1763394016&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6290171072874",
     "brand": "Zimaya",
@@ -55076,7 +55535,10 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
   {
     "id": "ean-3552576000115",
     "brand": "Annayake",
@@ -55694,10 +56156,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
       ],
       "base": []
     }
-  }
-];
-
-const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15573121827165-default-title",
     "brand": "Arabiyat",
@@ -64385,7 +64844,10 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "ean-3351500020416",
     "brand": "Azzaro",
@@ -64881,10 +65343,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
+  },
   {
     "id": "ean-4011700908110",
     "brand": "BALDESSARINI",
@@ -67221,28 +67680,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-9362014000621",
-    "brand": "Bujairami",
-    "name": "Boujee",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014000621",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/boujee1.jpg?v=1776435373&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10324599832918",
-    "brand": "Bujairami",
-    "name": "Boujee",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10324599832918",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-16146932662621-default-title",
     "brand": "Bujairami",
     "name": "Boujee Perfume Bujairami Sydney",
@@ -67266,28 +67703,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Patchouli"
       ]
     }
-  },
-  {
-    "id": "ean-9362014001147",
-    "brand": "Bujairami",
-    "name": "Breathless",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014001147",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Breathless.jpg?v=1786705595&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10967526965590",
-    "brand": "Bujairami",
-    "name": "Breathless",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10967526965590",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-15938170749277-default-title",
@@ -67363,28 +67778,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-9362014000072",
-    "brand": "Bujairami",
-    "name": "Candy Crush",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014000072",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Bujairami_Candy_Crush1.jpg?v=1774612797&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10062068318550",
-    "brand": "Bujairami",
-    "name": "Candy Crush",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10062068318550",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-16269573128541-default-title",
     "brand": "Bujairami",
     "name": "Casanova Perfume Bujairami Sydney",
@@ -67451,28 +67844,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-9362014001079",
-    "brand": "Bujairami",
-    "name": "Chic Wood",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014001079",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Chicwood1.jpg?v=1784624307&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10464548454742",
-    "brand": "Bujairami",
-    "name": "Chic Wood",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10464548454742",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-16189515268445-default-title",
     "brand": "Bujairami",
     "name": "Chic Wood Perfume Bujairami Sydney",
@@ -67535,28 +67906,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Olibanum"
       ]
     }
-  },
-  {
-    "id": "ean-9362014001413",
-    "brand": "Bujairami",
-    "name": "Chubby",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014001413",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Chubby.jpg?v=1784623073&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10485679980886",
-    "brand": "Bujairami",
-    "name": "Chubby",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10485679980886",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-16189517857117-default-title",
@@ -67636,28 +67985,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-9362014002083",
-    "brand": "Bujairami",
-    "name": "Daddy Issues",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014002083",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/DaddyIssues1.jpg?v=1782894472&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-11145530900822",
-    "brand": "Bujairami",
-    "name": "Daddy Issues",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "11145530900822",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-15938156790109-default-title",
     "brand": "Bujairami",
     "name": "Date Night Perfume Bujairami Sydney",
@@ -67704,28 +68031,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": "10967461527894",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-9362014011122",
-    "brand": "Bujairami",
-    "name": "Dirty Money",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014011122",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Dirtymoney.jpg?v=1786705957&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10960046031190",
-    "brand": "Bujairami",
-    "name": "Dirty Money",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10960046031190",
     "shops": 1,
     "image": null,
     "notes": null
@@ -67908,28 +68213,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-9362014000478",
-    "brand": "Bujairami",
-    "name": "Emperor",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014000478",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Bujairami_Emperor1.jpg?v=1774613735&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10115424420182",
-    "brand": "Bujairami",
-    "name": "Emperor",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10115424420182",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-15850831020381-default-title",
     "brand": "Bujairami",
     "name": "Emperor Bujairami Sydney",
@@ -68085,28 +68368,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-9362014011610",
-    "brand": "Bujairami",
-    "name": "First Class",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014011610",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/FirstClass.jpg?v=1784625642&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10960046621014",
-    "brand": "Bujairami",
-    "name": "First Class",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10960046621014",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-16382549655901-default-title",
     "brand": "Bujairami",
     "name": "Forbidden Perfume Bujairami",
@@ -68130,28 +68391,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
       ],
       "base": []
     }
-  },
-  {
-    "id": "ean-9362014002168",
-    "brand": "Bujairami",
-    "name": "Freeze",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014002168",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/freeze1.jpg?v=1776435238&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10324599013718",
-    "brand": "Bujairami",
-    "name": "Freeze",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10324599013718",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-16203908120925-default-title",
@@ -68208,28 +68447,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
-  {
-    "id": "ean-9362014011801",
-    "brand": "Bujairami",
-    "name": "Full Throttle",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014011801",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Fullthrotle.jpg?v=1784627572&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10960045769046",
-    "brand": "Bujairami",
-    "name": "Full Throttle",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10960045769046",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-16316302623069-default-title",
@@ -68294,28 +68511,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": "10280493154646",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-9362014001826",
-    "brand": "Bujairami",
-    "name": "Ghost",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014001826",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Ghost.jpg?v=1784628582&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10485705376086",
-    "brand": "Bujairami",
-    "name": "Ghost",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10485705376086",
     "shops": 1,
     "image": null,
     "notes": null
@@ -68464,17 +68659,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Madagascan Patchouli"
       ]
     }
-  },
-  {
-    "id": "ean-10037755740502",
-    "brand": "Bujairami",
-    "name": "Hectic",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10037755740502",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-15842869510493-default-title",
@@ -68656,28 +68840,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "11144242233686",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-9362014000539",
-    "brand": "Bujairami",
-    "name": "Kingsman",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014000539",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1766511054-30086700.jpg?v=1774612180&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10062059503958",
-    "brand": "Bujairami",
-    "name": "Kingsman",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10062059503958",
     "shops": 1,
     "image": null,
     "notes": null
@@ -68957,28 +69119,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-9362014000461",
-    "brand": "Bujairami",
-    "name": "Madness",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014000461",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Bujairamimadnes1.jpg?v=1778845139&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10494548902230",
-    "brand": "Bujairami",
-    "name": "Madness",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10494548902230",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-16297072001373-default-title",
     "brand": "Bujairami",
     "name": "Madness Perfume Bujairami Sydney",
@@ -69094,28 +69234,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-9362014000690",
-    "brand": "Bujairami",
-    "name": "Marshmelt",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014000690",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Marshmeltbujairami1.jpg?v=1778849003&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10464871186774",
-    "brand": "Bujairami",
-    "name": "Marshmelt",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10464871186774",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-16189557408093-default-title",
     "brand": "Bujairami",
     "name": "Matcha Obession Perfume Bujairami Sydney",
@@ -69183,28 +69301,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Amber"
       ]
     }
-  },
-  {
-    "id": "ean-9362014000645",
-    "brand": "Bujairami",
-    "name": "Miss Vanilla",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014000645",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1770813347-85847300.jpg?v=1774613023&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10062061502806",
-    "brand": "Bujairami",
-    "name": "Miss Vanilla",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10062061502806",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "ean-10485896347990",
@@ -69283,28 +69379,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Amber"
       ]
     }
-  },
-  {
-    "id": "ean-9362014000232",
-    "brand": "Bujairami",
-    "name": "New York",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014000232",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Newyork2.jpg?v=1778850061&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10465004093782",
-    "brand": "Bujairami",
-    "name": "New York",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10465004093782",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-15938167046493-default-title",
@@ -69424,28 +69498,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-9362014000546",
-    "brand": "Bujairami",
-    "name": "Ocean Eyes",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014000546",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/3dac9163e93a4cc4a1453b57a8ab5cf0_tplv-t5fjg24jzw-origin-jpeg.jpg?v=1776427358&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10324593836374",
-    "brand": "Bujairami",
-    "name": "Ocean Eyes",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10324593836374",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-16146878169437-default-title",
     "brand": "Bujairami",
     "name": "Ocean Eyes Perfume Bujairami Sydney",
@@ -69550,28 +69602,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-9362014007309",
-    "brand": "Bujairami",
-    "name": "Ozonic",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014007309",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Ozonicinspired1.jpg?v=1778845328&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10485970403670",
-    "brand": "Bujairami",
-    "name": "Ozonic",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10485970403670",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-16190064886109-default-title",
     "brand": "Bujairami",
     "name": "Ozonic Perfume Bujairami Sydney",
@@ -69627,28 +69657,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Palo Santo"
       ]
     }
-  },
-  {
-    "id": "ean-9362014001482",
-    "brand": "Bujairami",
-    "name": "Powerful Lady",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014001482",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Bujairamilady1.jpg?v=1778844398&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10465083457878",
-    "brand": "Bujairami",
-    "name": "Powerful Lady",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10465083457878",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "ean-9362014001321",
@@ -69718,28 +69726,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-9362014011627",
-    "brand": "Bujairami",
-    "name": "Real Deal",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014011627",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/RealDeal.jpg?v=1784630858&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10913374110038",
-    "brand": "Bujairami",
-    "name": "Real Deal",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10913374110038",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-16407100424541-default-title",
     "brand": "Bujairami",
     "name": "Real Deal Bujairami",
@@ -69805,28 +69791,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-9362014000577",
-    "brand": "Bujairami",
-    "name": "Red Static",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014000577",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1769091814-98598800.jpg?v=1772624853&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10066264883542",
-    "brand": "Bujairami",
-    "name": "Red Static",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10066264883542",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-15850831970653-default-title",
     "brand": "Bujairami",
     "name": "Red Static Bujairami Sydney",
@@ -69848,28 +69812,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Red Fruits"
       ]
     }
-  },
-  {
-    "id": "ean-9362014007958",
-    "brand": "Bujairami",
-    "name": "Resonance",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014007958",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Bujairamib_g1.jpg?v=1778840584&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10485993734486",
-    "brand": "Bujairami",
-    "name": "Resonance",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10485993734486",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "ean-10465173995862",
@@ -69912,28 +69854,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  },
-  {
-    "id": "ean-9362014001499",
-    "brand": "Bujairami",
-    "name": "Rizz",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014001499",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/BujairamiGreen2.jpg?v=1778840105&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10486020047190",
-    "brand": "Bujairami",
-    "name": "Rizz",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10486020047190",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-16297069838685-default-title",
@@ -70039,28 +69959,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-10486167404886",
-    "brand": "Bujairami",
-    "name": "Sacred Order",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10486167404886",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-10495272419670",
-    "brand": "Bujairami",
-    "name": "Sacred Order",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10495272419670",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-16190101127517-default-title",
     "brand": "Bujairami",
     "name": "Sacred Order Bujairami Sydney",
@@ -70094,28 +69992,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": "10486182281558",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-9362014000737",
-    "brand": "Bujairami",
-    "name": "Safari Squeeze",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014000737",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/BujairamiSafariSqueezeEauDeParfum100mlSpray1.jpg?v=1778844050&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10486184935766",
-    "brand": "Bujairami",
-    "name": "Safari Squeeze",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10486184935766",
     "shops": 1,
     "image": null,
     "notes": null
@@ -70171,28 +70047,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Leather"
       ]
     }
-  },
-  {
-    "id": "ean-9362014002120",
-    "brand": "Bujairami",
-    "name": "Shadow Script",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014002120",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/ShadowScript.jpg?v=1784632125&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10960025813334",
-    "brand": "Bujairami",
-    "name": "Shadow Script",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10960025813334",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-16314341294429-default-title",
@@ -70837,28 +70691,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-9362014001550",
-    "brand": "Bujairami",
-    "name": "Too Damn Good",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014001550",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Burjairamitoodamngood.jpg?v=1778839283&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10464195838294",
-    "brand": "Bujairami",
-    "name": "Too Damn Good",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10464195838294",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-15958500704605-limited-edition-bottle",
     "brand": "Bujairami",
     "name": "Too Damn Good Bujairami Sydney Limited Edition Bottle",
@@ -70934,28 +70766,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-9362014001116",
-    "brand": "Bujairami",
-    "name": "V-Luxe",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014001116",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Bujairami_web_1.jpg?v=1779197702&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10486217408854",
-    "brand": "Bujairami",
-    "name": "V-Luxe",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10486217408854",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-16027052999005-default-title",
     "brand": "Bujairami",
     "name": "V-Luxe Perfume Bujairami Sydney",
@@ -70990,28 +70800,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-9362014002106",
-    "brand": "Bujairami",
-    "name": "Vanilla Static",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014002106",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/BujairamiVanilla1.jpg?v=1782894132&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10486228189526",
-    "brand": "Bujairami",
-    "name": "Vanilla Static",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10486228189526",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-10485650424150",
     "brand": "Bujairami",
     "name": "Vanillera",
@@ -71029,28 +70817,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "10494275682646",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-9362014012280",
-    "brand": "Bujairami",
-    "name": "Vibration",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "9362014012280",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/Bujairamivibration.jpg?v=1783936704&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10950740902230",
-    "brand": "Bujairami",
-    "name": "Vibration",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10950740902230",
     "shops": 1,
     "image": null,
     "notes": null
@@ -71123,17 +70889,6 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Cedar"
       ]
     }
-  },
-  {
-    "id": "ean-10329876889942",
-    "brand": "Bujairami",
-    "name": "Wicked",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10329876889942",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-16203964514653-default-title",
@@ -72260,10 +72015,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
+  },
   {
     "id": "ean-0783320419485",
     "brand": "Bvlgari",
@@ -72596,7 +72348,10 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
         "Citrus up front"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "justmylook-bvlg0019",
     "brand": "Bvlgari",
@@ -75749,47 +75504,6 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-84110611056752",
-    "brand": "Carolina Herrera",
-    "name": "Good Girl Blush",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": "84110611056752",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/164.jpg",
-    "notes": null
-  },
-  {
-    "id": "justmylook-cherr0039",
-    "brand": "Carolina Herrera",
-    "name": "Good Girl Blush",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/CHERR0039.png?v=1765452784&width=1000",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416648986761-45146988413065",
-    "brand": "Carolina Herrera",
-    "name": "Good Girl Blush",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Mandarin Oil"
-      ],
-      "middle": [],
-      "base": [
-        "Tonka Beans"
-      ]
-    }
-  },
-  {
     "id": "ean-8411061097922",
     "brand": "Carolina Herrera",
     "name": "Good Girl Blush",
@@ -78557,10 +78271,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
         "Almond"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-9176454234461-default-title",
     "brand": "Clive Dorris",
@@ -78936,7 +78647,10 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/CoachCherry1_ddbdd976-eff4-4563-b5f7-24c793855dfa.jpg?v=1778148073&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338438750345-44927443828873",
     "brand": "Code",
@@ -84804,10 +84518,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "Amber"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8057971181339",
     "brand": "Dolce & Gabbana",
@@ -85158,7 +84869,10 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1729170341-76083200.jpg?v=1763394882&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "ean-3423473020981",
     "brand": "Dolce & Gabbana",
@@ -90843,10 +90557,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
         "Cedar"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416683458697-45147047395465",
     "brand": "Floris London",
@@ -91212,7 +90923,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416683196553-45147047133321",
     "brand": "Floris London",
@@ -102139,10 +101853,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Ambroxan"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15430282543453-default-title",
     "brand": "French Avenue",
@@ -102786,7 +102497,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9416615166301-default-title",
     "brand": "French Avenue",
@@ -103835,17 +103549,6 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Tobacco"
       ]
     }
-  },
-  {
-    "id": "ean-10037753872726",
-    "brand": "French Avenue",
-    "name": "Safari Breeze",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": "10037753872726",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-15765619999069-default-title",
@@ -109589,10 +109292,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-guer0020",
     "brand": "Guerlain",
@@ -109950,7 +109650,10 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "ean-3346470145276",
     "brand": "Guerlain",
@@ -110948,28 +110651,6 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "concentration": "Not stated",
     "sizeMl": 100,
     "ean": "6290362162377",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-10382356119894",
-    "brand": "Gulf Orchid",
-    "name": "Maestro",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10382356119894",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-6290362166245",
-    "brand": "Gulf Orchid",
-    "name": "Maestro",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290362166245",
     "shops": 1,
     "image": null,
     "notes": null
@@ -116004,10 +115685,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-7776600883337-42734915911817",
     "brand": "Israel Philip",
@@ -116377,7 +116055,10 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "Aromatic"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338232639625-44927086297225",
     "brand": "Issey Miyake",
@@ -122651,10 +122332,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "Patchouli"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15498966237533-default-title",
     "brand": "Khadlaj",
@@ -123385,7 +123063,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
         "Vanilla Absolute"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "ean-6291107979175",
     "brand": "Khadlaj",
@@ -129918,28 +129599,6 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     }
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416713212041-45147085471881",
-    "brand": "Lattafa",
-    "name": "Eclaire Pistache",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "ean-9841776787798",
-    "brand": "Lattafa",
-    "name": "Eclaire Pistache",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9841776787798",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-15569819500893-default-title",
     "brand": "Lattafa",
     "name": "Eclaire Pistache Perfume Lattafa",
@@ -131224,10 +130883,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
         "Thailand Oud"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-9026426306909-default-title",
     "brand": "Lattafa",
@@ -131952,7 +131608,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/LattafaMayar.jpg?v=1786006780&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9661565895005-default-title",
     "brand": "Lattafa",
@@ -132339,39 +131998,6 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
         "Patchouli"
       ]
     }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416715866249-45147090944137",
-    "brand": "Lattafa",
-    "name": "Nebras Elixir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": {
-      "top": [
-        "Whipped Cream",
-        "Heliotrope"
-      ],
-      "middle": [
-        "Heliotrope"
-      ],
-      "base": [
-        "Ambroxan"
-      ]
-    }
-  },
-  {
-    "id": "ean-9833598288214",
-    "brand": "Lattafa",
-    "name": "Nebras Elixir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9833598288214",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-15568364831069-default-title",
@@ -139732,10 +139358,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/2_85f5fadd-c802-4edf-88ea-e0595bc00c73.jpg?v=1781260419&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15560403911005-default-title",
     "brand": "Maison Alhambra",
@@ -140566,7 +140189,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
       ],
       "base": []
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9529302876509-default-title",
     "brand": "Maison Alhambra",
@@ -144449,28 +144075,6 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290362163879",
-    "brand": "Maison Asrar",
-    "name": "DXB",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290362163879",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1756291061-31543900.jpg?v=1763398849&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-9828976656726",
-    "brand": "Maison Asrar",
-    "name": "DXB",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9828976656726",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-15493416386909-default-title",
     "brand": "Maison Asrar",
     "name": "Fakhama Perfume Maison Asrar",
@@ -144492,28 +144096,6 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
-  {
-    "id": "ean-6290362164494",
-    "brand": "Maison Asrar",
-    "name": "Faris Al Arab",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290362164494",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1759419443-07550000.jpg?v=1763399132&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-9831680934230",
-    "brand": "Maison Asrar",
-    "name": "Faris Al Arab",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9831680934230",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-15676718711133-default-title",
@@ -144662,28 +144244,6 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
         "Moss"
       ]
     }
-  },
-  {
-    "id": "ean-6290362163107",
-    "brand": "Maison Asrar",
-    "name": "Legacy",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290362163107",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1752066909-12400300.jpg?v=1763398269&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-9831166542166",
-    "brand": "Maison Asrar",
-    "name": "Legacy",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9831166542166",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-15493420253533-default-title",
@@ -144867,28 +144427,6 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6290362164487",
-    "brand": "Maison Asrar",
-    "name": "Muharib",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290362164487",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1759418530-99274200.jpg?v=1763399139&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-9831703675222",
-    "brand": "Maison Asrar",
-    "name": "Muharib",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9831703675222",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "emirates-oud-15678206017885-default-title",
     "brand": "Maison Asrar",
     "name": "Muharib Perfume Maison Asrar",
@@ -144941,28 +144479,6 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
         "Orcanox"
       ]
     }
-  },
-  {
-    "id": "ean-6290362164890",
-    "brand": "Maison Asrar",
-    "name": "Regent",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290362164890",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/123_79f322ee-2686-4743-be9b-93c6df716b96.jpg?v=1780390774&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10829176209750",
-    "brand": "Maison Asrar",
-    "name": "Regent",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10829176209750",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-16204064522589-default-title",
@@ -145268,28 +144784,6 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  },
-  {
-    "id": "ean-6290362164630",
-    "brand": "Maison Asrar",
-    "name": "Vanilla Seduction",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290362164630",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1762338587-87677200.jpg?v=1763399388&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-9952911786326",
-    "brand": "Maison Asrar",
-    "name": "VANILLA SEDUCTION",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9952911786326",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-15706877526365-default-title",
@@ -148474,10 +147968,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "ean-850069424640",
     "brand": "Michael Kors",
@@ -149002,7 +148493,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338257182857-44927120998537",
     "brand": "Milton Lloyd",
@@ -154742,10 +154236,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1639495510-09651500.jpg?v=1763390021&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6291106810295",
     "brand": "ORIENTICA",
@@ -155280,7 +154771,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "ean-5060143795770",
     "brand": "Oud Elixir",
@@ -162768,10 +162262,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3349668576111",
     "brand": "Rabanne",
@@ -163348,7 +162839,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "ean-3349668680740",
     "brand": "Rabanne",
@@ -166068,28 +165562,6 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6297001571392",
-    "brand": "Rayhaan",
-    "name": "Aloha",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6297001571392",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1_53900b7e-21d0-47f5-99a4-f705ef761074.jpg?v=1781711429&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10846929289558",
-    "brand": "Rayhaan",
-    "name": "Aloha",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10846929289558",
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "ean-6297001571330",
     "brand": "Rayhaan",
     "name": "Aquatica",
@@ -166140,28 +165612,6 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
         "Patchouli"
       ]
     }
-  },
-  {
-    "id": "ean-6297001571415",
-    "brand": "Rayhaan",
-    "name": "Azul",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6297001571415",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/2_01773cb5-5ad8-47b7-af44-15fa96a52ab5.jpg?v=1781711126&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-10846913429846",
-    "brand": "Rayhaan",
-    "name": "Azul",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10846913429846",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-16254927569245-default-title",
@@ -166871,17 +166321,6 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
         "Guaiac Wood"
       ]
     }
-  },
-  {
-    "id": "ean-9928967520598",
-    "brand": "Rayhaan",
-    "name": "Terra",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "9928967520598",
-    "shops": 1,
-    "image": null,
-    "notes": null
   },
   {
     "id": "emirates-oud-15728835264861-default-title",
@@ -171532,10 +170971,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-cav0010",
     "brand": "Roberto Cavalli",
@@ -172158,7 +171594,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "ean-3701436907785",
     "brand": "Roger & Gallet",
@@ -178154,10 +177593,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338281332873-44927176179849",
     "brand": "Thierry Mugler",
@@ -178779,7 +178215,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "justmylook-ford0001",
     "brand": "Tom Ford",
@@ -184564,10 +184003,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338328092809-44927237357705",
     "brand": "Yardley London",
@@ -185189,7 +184625,10 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
         "Cedar"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416793395337-45147183939721",
     "brand": "Yves Saint Laurent",
@@ -187430,6 +186869,68 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-07T19:51:59.683Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CK0124.jpg?v=1728898138&width=1000"
+    }
+  ],
+  "ean-8411061056752": [
+    {
+      "retailerId": "beautybase",
+      "price": 129,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/carolina-herrera-good-girl-blush-eau-de-parfum-80ml-spray",
+      "fetchedAt": "2026-08-15T14:19:43.573Z",
+      "firstSeenAt": "2026-08-05T18:49:31.753Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728462581-52271800.jpg?v=1763393271&width=1920"
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 96.4,
+      "wasPrice": 143,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=40460317201&a=3026001&m=6561",
+      "fetchedAt": "2026-08-17T18:31:36.899Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 84.95,
+      "wasPrice": 139,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089041729&a=3026001&m=124166",
+      "fetchedAt": "2026-08-17T18:31:36.899Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/164.jpg"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 91.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/carolina-herrera-good-girl-blush-eau-de-parfum-80ml",
+      "fetchedAt": "2026-08-16T08:34:21.652Z",
+      "firstSeenAt": "2026-08-07T22:32:57.561Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0039.png?v=1765452784&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 107.49,
+      "wasPrice": 208.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661686540&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T00:52:48.890Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-027131006534": [
@@ -192794,7 +192295,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/cool-water-woman-eau-de-toilette-200ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/cw1.jpg?v=1776438606&width=1920"
     },
     {
@@ -197034,6 +196535,106 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-6290362349129": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-eclaire-pistache-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-14T14:49:31.844Z",
+      "firstSeenAt": "2026-08-10T14:21:50.324Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1758026014-19962700.jpg?v=1763398977&width=1920"
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 22.2,
+      "wasPrice": 30,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43097106394&a=3026001&m=6561",
+      "fetchedAt": "2026-08-17T18:31:36.899Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 25.99,
+      "wasPrice": 48.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687893&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T00:52:48.890Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/lattafa-eclaire-pistache-100ml-eau-de-parfum-spray",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290362348054": [
+    {
+      "retailerId": "beautybase",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lattafa-nebras-elixir-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-14T16:44:25.824Z",
+      "firstSeenAt": "2026-08-10T14:56:38.817Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759334105-44292300.jpg?v=1763399124&width=1920"
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 29.25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43632422288&a=3026001&m=6561",
+      "fetchedAt": "2026-08-17T18:31:36.899Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 30.99,
+      "wasPrice": 57.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687943&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T00:52:48.890Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 36.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/lattafa-nebras-elixir-100ml-eau-de-parfum-spray",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-6291107455365": [
     {
       "retailerId": "beautybase",
@@ -197644,7 +197245,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/explorer-eau-de-parfum-200ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/11_2c60d2d7-30ec-43f8-943d-a4b8fcdca0d8.jpg?v=1776433405&width=1920"
     },
     {
@@ -198294,7 +197895,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/narciso-rodriguez-all-of-me-eau-de-parfum-50ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/123_fed05aea-ba0e-4d1f-9356-390affcaa87b.jpg?v=1778508124&width=1920"
     },
     {
@@ -198394,7 +197995,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/narciso-rodriguez-for-her-musc-noir-rose-eau-de-parfum-30ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/123_02ec6fd3-57e1-4513-9d9f-d5d62df6efd2.jpg?v=1778507275&width=1920"
     },
     {
@@ -203196,7 +202797,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/armaf-club-de-nuit-intense-eau-de-parfum-10ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/Clubdenuit1.jpg?v=1781789635&width=1920"
     },
     {
@@ -204360,6 +203961,82 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43157928148&a=3026001&m=106925",
       "fetchedAt": "2026-08-18T00:52:48.890Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014000157": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-hectic-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-14T22:16:39.540Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1766511040-60500600.jpg?v=1774611897&width=1920"
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 40.55,
+      "wasPrice": 59.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45587590658&a=3026001&m=6561",
+      "fetchedAt": "2026-08-17T18:31:36.899Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-hectic-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014000829": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-wicked-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T10:17:08.720Z",
+      "firstSeenAt": "2026-08-11T10:01:05.155Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/w1.jpg?v=1776435806&width=1920"
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 34.35,
+      "wasPrice": 49.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45587590660&a=3026001&m=6561",
+      "fetchedAt": "2026-08-17T18:31:36.899Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-wicked-100ml-eau-de-parfum-spray",
+      "fetchedAt": "2026-08-18T04:31:33.149Z",
+      "firstSeenAt": "2026-08-05T15:12:19.785Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -208098,7 +207775,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/dolce-gabbana-the-one-for-men-eau-de-toilette-30ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/D_Gtheoneformen.jpg?v=1781789090&width=1920"
     },
     {
@@ -209758,6 +209435,44 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-09T23:29:35.966Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0014_537eea47-f4c1-43af-940e-3b9b477a225d.png?v=1756720382&width=1000"
+    }
+  ],
+  "ean-6298042001800": [
+    {
+      "retailerId": "beautybase",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/french-avenue-safari-breeze-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T00:52:37.847Z",
+      "firstSeenAt": "2026-08-10T23:33:23.067Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771253888-26549500.jpg?v=1772624925&width=1920"
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://manchesterouds.com/products/safari-breeze-edp-100ml",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": true,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 34.5,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/french-avenue-safari-breeze-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-6290360377902": [
@@ -214824,7 +214539,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/lattafa-ajayeb-dubai-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_612cd867-1cb4-41ac-bdde-0946ab75ef47.jpg?v=1778062179&width=1920"
     },
     {
@@ -216030,7 +215745,31 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-10118889275734": [
+  "emirates-oud-big-bottle---milky-way": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/milky-way-maison-asrar",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Milky-Way-Perfume-100ml-EDP-Maison-Asrar-184445458.png?v=1771114811"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/milky-way-maison-asrar",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Milky-Way-Perfume-100ml-EDP-Maison-Asrar-184445458.png?v=1771114811"
+    },
     {
       "retailerId": "oud-arabian",
       "price": 34.99,
@@ -216042,30 +215781,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/milky-way-maison-asrar",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Milky-Way-Perfume-100ml-EDP-Maison-Asrar-184445458.png?v=1771114811"
-    },
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/milky-way-maison-asrar",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Milky-Way-Perfume-100ml-EDP-Maison-Asrar-184445458.png?v=1771114811"
     }
   ],
   "ean-3700559613610": [
@@ -216572,7 +216287,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/marc-jacobs-daisy-wild-eau-so-intense-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/Marc_Jacobs_Daisy_2.jpg?v=1778257651&width=1920"
     },
     {
@@ -221350,6 +221065,44 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-6297001571262": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/rayhaan-terra-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-14T20:36:30.618Z",
+      "firstSeenAt": "2026-08-10T21:39:43.387Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1762336040-91122900.jpg?v=1763399391&width=1920"
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 22.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44741705517&a=3026001&m=6561",
+      "fetchedAt": "2026-08-17T18:31:36.899Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/rayhaan-terra-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-5000386111838": [
     {
       "retailerId": "beautybase",
@@ -224096,7 +223849,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/viktor-rolf-flowerbomb-extreme-eau-de-parfum-intense-50ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/v_rflowerbomb.jpg?v=1781797111&width=1920"
     },
     {
@@ -229440,7 +229193,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/armaf-club-de-nuit-man-eau-de-parfum-30ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/11_82490e98-f9ae-441b-9dd5-053139ef07da.jpg?v=1776933165&width=1920"
     },
     {
@@ -230818,7 +230571,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/armaf-odyssey-mega-limited-edition-eau-de-parfum-60ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/2.webp?v=1776941608&width=1920"
     },
     {
@@ -234162,45 +233915,319 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-9362014000157": [
+  "ean-9362014000621": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-boujee-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T10:17:08.720Z",
+      "firstSeenAt": "2026-08-11T10:01:05.155Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/boujee1.jpg?v=1776435373&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-boujee-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T04:31:33.149Z",
+      "firstSeenAt": "2026-08-05T15:12:19.785Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014001147": [
     {
       "retailerId": "beautybase",
       "price": 49.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-hectic-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-14T22:16:39.540Z",
-      "firstSeenAt": "2026-08-10T22:35:31.778Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1766511040-60500600.jpg?v=1774611897&width=1920"
+      "url": "https://www.beautybase.com/products/bujairami-breathless-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-18T04:31:33.149Z",
+      "firstSeenAt": "2026-08-14T04:04:45.533Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Breathless.jpg?v=1786705595&width=1920"
     },
-    {
-      "retailerId": "perfume-click",
-      "price": 40.55,
-      "wasPrice": 59.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45587590658&a=3026001&m=6561",
-      "fetchedAt": "2026-08-17T18:31:36.899Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-10280463499606": [
     {
       "retailerId": "oud-arabian",
       "price": 49.99,
       "wasPrice": null,
       "promoEndsAt": "2027-08-18T00:00:00.000Z",
       "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-imperial-oud-100ml-extrait-de-parfum-bujairami-sydney",
+      "url": "https://oudarabian.co.uk/products/bujairami-breathless-100ml-extrait-de-parfum",
       "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T18:49:31.753Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014000072": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-candy-crush-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-14T22:16:39.540Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairami_Candy_Crush1.jpg?v=1774612797&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-candy-crush-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014001079": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-chic-wood-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-16T02:59:16.630Z",
+      "firstSeenAt": "2026-08-12T01:48:14.123Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Chicwood1.jpg?v=1784624307&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-chic-wood-eau-de-parfum",
+      "fetchedAt": "2026-08-18T04:31:33.149Z",
       "firstSeenAt": "2026-08-05T15:12:19.785Z",
       "isNew": false,
       "imageUrl": null
+    }
+  ],
+  "ean-9362014001413": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-chubby-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-16T02:59:16.630Z",
+      "firstSeenAt": "2026-08-12T01:48:14.123Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Chubby.jpg?v=1784623073&width=1920"
     },
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-chubby-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-08-18T04:31:33.149Z",
+      "firstSeenAt": "2026-08-05T17:27:59.465Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014002083": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-daddy-issues-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T20:27:19.126Z",
+      "firstSeenAt": "2026-08-11T20:34:55.929Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/DaddyIssues1.jpg?v=1782894472&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-daddy-issues-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T18:49:31.753Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014011122": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-dirty-money-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-18T04:31:33.149Z",
+      "firstSeenAt": "2026-08-14T04:04:45.533Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Dirtymoney.jpg?v=1786705957&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-dirty-money-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T18:49:31.753Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014000478": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/bujairami-emperor-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-14T22:16:39.540Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairami_Emperor1.jpg?v=1774613735&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-emperor-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014011610": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-first-class-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-16T02:59:16.630Z",
+      "firstSeenAt": "2026-08-12T01:48:14.123Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/FirstClass.jpg?v=1784625642&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-first-class-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T18:49:31.753Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014002168": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/bujairami-freeze-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T10:17:08.720Z",
+      "firstSeenAt": "2026-08-11T10:01:05.155Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/freeze1.jpg?v=1776435238&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-freeze-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T04:31:33.149Z",
+      "firstSeenAt": "2026-08-05T15:12:19.785Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014011801": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-full-throttle-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-16T02:59:16.630Z",
+      "firstSeenAt": "2026-08-12T01:48:14.123Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Fullthrotle.jpg?v=1784627572&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-full-throttle-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T18:49:31.753Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014001826": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-ghost-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-16T02:59:16.630Z",
+      "firstSeenAt": "2026-08-12T01:48:14.123Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Ghost.jpg?v=1784628582&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-ghost-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T04:31:33.149Z",
+      "firstSeenAt": "2026-08-05T17:27:59.465Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "emirates-oud-16027028324701-default-title": [
     {
       "retailerId": "emirates-oud",
       "price": 49.99,
@@ -234212,6 +234239,408 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Imperial-Oud-100ml-Extrait-De-Parfum-Bujairami-194570948.png?v=1783994671"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-imperial-oud-100ml-extrait-de-parfum-bujairami-sydney",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T15:12:19.785Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014000539": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-kingsman-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-14T22:16:39.540Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1766511054-30086700.jpg?v=1774612180&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-kingsman-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014000461": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-madness-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T14:19:43.573Z",
+      "firstSeenAt": "2026-08-11T11:47:52.623Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairamimadnes1.jpg?v=1778845139&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-madness-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T17:27:59.465Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014000690": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/bujairami-marshmelt-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T14:19:43.573Z",
+      "firstSeenAt": "2026-08-11T11:47:52.623Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Marshmeltbujairami1.jpg?v=1778849003&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-marshmelt-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T04:31:33.149Z",
+      "firstSeenAt": "2026-08-05T15:12:19.785Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014000645": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-miss-vanilla-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-14T22:16:39.540Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770813347-85847300.jpg?v=1774613023&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 44.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-miss-vanilla-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014000232": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/bujairami-new-york-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T14:19:43.573Z",
+      "firstSeenAt": "2026-08-11T11:47:52.623Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Newyork2.jpg?v=1778850061&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-new-york-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T04:31:33.149Z",
+      "firstSeenAt": "2026-08-05T15:12:19.785Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014000546": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/bujairami-ocean-eyes-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T10:17:08.720Z",
+      "firstSeenAt": "2026-08-11T10:01:05.155Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/3dac9163e93a4cc4a1453b57a8ab5cf0_tplv-t5fjg24jzw-origin-jpeg.jpg?v=1776427358&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-ocean-eyes-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-08-18T04:31:33.149Z",
+      "firstSeenAt": "2026-08-05T15:12:19.785Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014007309": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/bujairami-ozonic-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T14:19:43.573Z",
+      "firstSeenAt": "2026-08-11T11:47:52.623Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Ozonicinspired1.jpg?v=1778845328&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-ozonic-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T17:27:59.465Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014001482": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/bujairami-powerful-lady-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T14:19:43.573Z",
+      "firstSeenAt": "2026-08-11T11:47:52.623Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairamilady1.jpg?v=1778844398&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-powerful-lady-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T04:31:33.149Z",
+      "firstSeenAt": "2026-08-05T15:12:19.785Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014011627": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-real-deal-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-16T02:59:16.630Z",
+      "firstSeenAt": "2026-08-12T01:48:14.123Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/RealDeal.jpg?v=1784630858&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-real-deal-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T18:49:31.753Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014000577": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-red-static-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-14T22:16:39.540Z",
+      "firstSeenAt": "2026-08-10T22:35:31.778Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769091814-98598800.jpg?v=1772624853&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-red-static-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014007958": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-resonance-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T14:19:43.573Z",
+      "firstSeenAt": "2026-08-11T11:47:52.623Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairamib_g1.jpg?v=1778840584&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-resonance-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T17:27:59.465Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014001499": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-rizz-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T14:19:43.573Z",
+      "firstSeenAt": "2026-08-11T11:47:52.623Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/BujairamiGreen2.jpg?v=1778840105&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-rizz-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T17:27:59.465Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-10486167404886": [
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-sacred-order-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T17:27:59.465Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-sacred-order-100ml-extrait-de-parfum-1",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T17:27:59.465Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014000737": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-safari-squeeze-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T14:19:43.573Z",
+      "firstSeenAt": "2026-08-11T11:47:52.623Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/BujairamiSafariSqueezeEauDeParfum100mlSpray1.jpg?v=1778844050&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-safari-squeeze-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T17:27:59.465Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014002120": [
+    {
+      "retailerId": "beautybase",
+      "price": 59.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-shadow-script-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-16T02:59:16.630Z",
+      "firstSeenAt": "2026-08-12T01:48:14.123Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/ShadowScript.jpg?v=1784632125&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-shadow-script-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T18:49:31.753Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-9362014002052": [
@@ -234240,28 +234669,106 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-9362014000829": [
+  "ean-9362014001550": [
+    {
+      "retailerId": "beautybase",
+      "price": 55,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/bujairami-too-damn-good-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T14:19:43.573Z",
+      "firstSeenAt": "2026-08-11T11:47:52.623Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Burjairamitoodamngood.jpg?v=1778839283&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-too-damn-good-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-08-18T04:31:33.149Z",
+      "firstSeenAt": "2026-08-05T15:12:19.785Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014001116": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/bujairami-v-luxe-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T06:26:32.661Z",
+      "firstSeenAt": "2026-08-11T07:04:39.313Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairami_web_1.jpg?v=1779197702&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-v-luxe-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T17:27:59.465Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014002106": [
     {
       "retailerId": "beautybase",
       "price": 39.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-wicked-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T10:17:08.720Z",
-      "firstSeenAt": "2026-08-11T10:01:05.155Z",
+      "url": "https://www.beautybase.com/products/bujairami-vanilla-static-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T22:15:36.631Z",
+      "firstSeenAt": "2026-08-11T22:57:34.431Z",
       "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/w1.jpg?v=1776435806&width=1920"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/BujairamiVanilla1.jpg?v=1782894132&width=1920"
     },
     {
-      "retailerId": "perfume-click",
-      "price": 34.35,
-      "wasPrice": 49.99,
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-vanilla-static-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T17:27:59.465Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-9362014012280": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45587590660&a=3026001&m=6561",
-      "fetchedAt": "2026-08-17T18:31:36.899Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "url": "https://www.beautybase.com/products/bujairami-vibration-extrait-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T22:15:36.631Z",
+      "firstSeenAt": "2026-08-11T22:57:34.431Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairamivibration.jpg?v=1783936704&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/bujairami-vibration-100ml-extrait-de-parfum",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -238244,32 +238751,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0021_97337365-132e-4eed-8384-9ef4632ebeb8.png?v=1765452782&width=1000"
     }
   ],
-  "ean-8411061056752": [
-    {
-      "retailerId": "beautybase",
-      "price": 129,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/carolina-herrera-good-girl-blush-eau-de-parfum-80ml-spray",
-      "fetchedAt": "2026-08-15T14:19:43.573Z",
-      "firstSeenAt": "2026-08-05T18:49:31.753Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1728462581-52271800.jpg?v=1763393271&width=1920"
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 96.4,
-      "wasPrice": 143,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=40460317201&a=3026001&m=6561",
-      "fetchedAt": "2026-08-17T18:31:36.899Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-8411061113851": [
     {
       "retailerId": "beautybase",
@@ -239050,19 +239531,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-0810023680445": [
-    {
-      "retailerId": "perfume-click",
-      "price": 30.3,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=37790821732&a=3026001&m=6561",
-      "fetchedAt": "2026-08-17T18:31:36.899Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": null
-    },
+  "mybeauty-boutique-shopify-gb-8338364006537-44927284805769": [
     {
       "retailerId": "mybeauty-boutique",
       "price": 36.99,
@@ -239072,6 +239541,18 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43174942821&a=3026001&m=106925",
       "fetchedAt": "2026-08-18T00:52:48.890Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 30.3,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=37790821732&a=3026001&m=6561",
+      "fetchedAt": "2026-08-17T18:31:36.899Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -245274,7 +245755,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/elie-saab-girl-of-now-shine-eau-de-parfum-30ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null
     },
     {
@@ -246054,7 +246535,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/sunflowers-honeydaze-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/963_1f23e3e3-f874-46c3-9a5f-4f85e148d7e5.jpg?v=1777989304&width=1920"
     },
     {
@@ -249060,19 +249541,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-10063391752534": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.95,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/liquid-brun-limited-edition-release-150ml-extrait-de-parfum-by-french-avenue-pre-order",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
-    },
+  "emirates-oud-15719283327325-default-title": [
     {
       "retailerId": "emirates-oud",
       "price": 39.99,
@@ -249084,6 +249553,18 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Liquid-Brun-Limited-Edition-Extrait-De-Parfum-150ml-French-Avenue-184347653.png?v=1772086432"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.95,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/liquid-brun-limited-edition-release-150ml-extrait-de-parfum-by-french-avenue-pre-order",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-6290360376714": [
@@ -249174,7 +249655,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/french-avenue-ripple-extrait-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/9632_7a6a269f-8781-4a7e-abe3-831bc6f9c58e.jpg?v=1777997943&width=1920"
     },
     {
@@ -249239,32 +249720,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-17T18:31:36.899Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-6298042001800": [
-    {
-      "retailerId": "beautybase",
-      "price": 45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-safari-breeze-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T00:52:37.847Z",
-      "firstSeenAt": "2026-08-10T23:33:23.067Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1771253888-26549500.jpg?v=1772624925&width=1920"
-    },
-    {
-      "retailerId": "manchester-ouds",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://manchesterouds.com/products/safari-breeze-edp-100ml",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": true,
       "imageUrl": null
     }
   ],
@@ -253814,6 +254269,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=44741705459&a=3026001&m=6561",
       "fetchedAt": "2026-08-17T18:31:36.899Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290362166245": [
+    {
+      "retailerId": "perfume-click",
+      "price": 30.4,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44983563671&a=3026001&m=6561",
+      "fetchedAt": "2026-08-17T18:31:36.899Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/gulf-orchid-maestro-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T04:31:33.149Z",
+      "firstSeenAt": "2026-08-05T15:12:19.785Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -260838,19 +261319,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-0350170089780": [
-    {
-      "retailerId": "perfume-click",
-      "price": 9.1,
-      "wasPrice": 10.95,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=36244829250&a=3026001&m=6561",
-      "fetchedAt": "2026-08-17T18:31:36.899Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": null
-    },
+  "mybeauty-boutique-shopify-gb-8338241192073-44927101567113": [
     {
       "retailerId": "mybeauty-boutique",
       "price": 10.79,
@@ -260860,6 +261329,18 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43157930481&a=3026001&m=106925",
       "fetchedAt": "2026-08-18T00:52:48.890Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 9.1,
+      "wasPrice": 10.95,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=36244829250&a=3026001&m=6561",
+      "fetchedAt": "2026-08-17T18:31:36.899Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -263760,7 +264241,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/lacoste-l-12-12-rose-intense-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/BBPicturesTemplatecopy_4e7c4ca5-faeb-4e3b-8a06-6c483393cf4e.jpg?v=1778143329&width=1920"
     },
     {
@@ -266298,32 +266779,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-6290362349129": [
-    {
-      "retailerId": "beautybase",
-      "price": 25,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-eclaire-pistache-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-14T14:49:31.844Z",
-      "firstSeenAt": "2026-08-10T14:21:50.324Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1758026014-19962700.jpg?v=1763398977&width=1920"
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 22.2,
-      "wasPrice": 30,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43097106394&a=3026001&m=6561",
-      "fetchedAt": "2026-08-17T18:31:36.899Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-6290360591506": [
     {
       "retailerId": "perfume-click",
@@ -266740,19 +267195,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-10241896186198": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 22.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/maitha-concentrated-perfume-oil-20ml-lattafa",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
-    },
+  "emirates-oud-15933483483485-default-title": [
     {
       "retailerId": "emirates-oud",
       "price": 16.99,
@@ -266764,6 +267207,18 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Maitha-Concentrated-Perfume-Oil-20ml-Lattafa-184587398.png?v=1771482219"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/maitha-concentrated-perfume-oil-20ml-lattafa",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-6290360593050": [
@@ -266918,32 +267373,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43174941980&a=3026001&m=106925",
       "fetchedAt": "2026-08-18T00:52:48.890Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-6290362348054": [
-    {
-      "retailerId": "beautybase",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lattafa-nebras-elixir-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-14T16:44:25.824Z",
-      "firstSeenAt": "2026-08-10T14:56:38.817Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759334105-44292300.jpg?v=1763399124&width=1920"
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 29.25,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43632422288&a=3026001&m=6561",
-      "fetchedAt": "2026-08-17T18:31:36.899Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -270328,19 +270757,137 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-10128237855062": [
+  "ean-6290362163879": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/maison-asrar-dxb-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-14T12:51:02.524Z",
+      "firstSeenAt": "2026-08-10T13:03:59.151Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1756291061-31543900.jpg?v=1763398849&width=1920"
+    },
     {
       "retailerId": "oud-arabian",
-      "price": 37.99,
+      "price": 39.99,
       "wasPrice": null,
       "promoEndsAt": "2027-08-18T00:00:00.000Z",
       "stock": "outOfStock",
-      "url": "https://oudarabian.co.uk/products/maison-asrar-vanguard-perfume-100ml-edp-maison-asrar",
+      "url": "https://oudarabian.co.uk/products/maison-asrar-dxb-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290362164494": [
+    {
+      "retailerId": "beautybase",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/maison-asrar-faris-al-arab-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-14T16:44:25.824Z",
+      "firstSeenAt": "2026-08-10T14:56:38.817Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759419443-07550000.jpg?v=1763399132&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 34.5,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/maison-asrar-faris-al-arab-100ml-eau-de-parfum-spray",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290362163107": [
+    {
+      "retailerId": "beautybase",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/maison-asrar-legacy-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-18T04:31:33.149Z",
+      "firstSeenAt": "2026-08-09T23:29:35.966Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1752066909-12400300.jpg?v=1763398269&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/maison-asrar-legacy-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290362164487": [
+    {
+      "retailerId": "beautybase",
+      "price": 45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/maison-asrar-muharib-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-14T16:44:25.824Z",
+      "firstSeenAt": "2026-08-10T14:56:38.817Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759418530-99274200.jpg?v=1763399139&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 34.5,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/maison-asrar-muharib-100ml-eau-de-parfum-spray",
       "fetchedAt": "2026-08-18T06:37:23.643Z",
       "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
+    }
+  ],
+  "ean-6290362164890": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/maison-asrar-regent-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T18:19:44.419Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/123_79f322ee-2686-4743-be9b-93c6df716b96.jpg?v=1780390774&width=1920"
     },
+    {
+      "retailerId": "oud-arabian",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/maison-asrar-regent-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T17:27:59.465Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "emirates-oud-15850714661213-default-title": [
     {
       "retailerId": "emirates-oud",
       "price": 39.99,
@@ -270352,6 +270899,44 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Vanguard-Perfume-100ml-EDP-Maison-Asrar-184446074.png?v=1771114914"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 37.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "outOfStock",
+      "url": "https://oudarabian.co.uk/products/maison-asrar-vanguard-perfume-100ml-edp-maison-asrar",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290362164630": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/maison-asrar-vanilla-seduction-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-14T22:16:39.540Z",
+      "firstSeenAt": "2026-08-10T21:39:43.387Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1762338587-87677200.jpg?v=1763399388&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 31.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/maison-asrar-vanilla-seduction-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "justmylook-mfk0001": [
@@ -271326,7 +271911,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/marc-jacobs-daisy-wild-eau-so-intense-eau-de-parfum-30ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/MarcJacobsDaisy1.jpg?v=1778257789&width=1920"
     },
     {
@@ -271430,7 +272015,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/marc-jacobs-perfect-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_197fbb78-d1c7-4344-a6a8-158599809c0d.jpg?v=1778165532&width=1920"
     },
     {
@@ -275434,7 +276019,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/mugler-starlicious-berry-licorise-eau-de-toilette-75ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/starliciousberry.jpg?v=1780579324&width=1920"
     },
     {
@@ -275460,7 +276045,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/mugler-starlicious-pineapple-musk-eau-de-toilette-75ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/starliciouspineapple.jpg?v=1780579044&width=1920"
     },
     {
@@ -275486,7 +276071,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/mugler-starlicious-pistachio-praline-eau-de-toilette-75ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/Starliciouspistachio.jpg?v=1780579613&width=1920"
     },
     {
@@ -282054,19 +282639,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-5555555555554": [
-    {
-      "retailerId": "perfume-click",
-      "price": 27.9,
-      "wasPrice": 57,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=37635411339&a=3026001&m=6561",
-      "fetchedAt": "2026-08-17T18:31:36.899Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": null
-    },
+  "mybeauty-boutique-shopify-gb-8416748699785-45147131117705": [
     {
       "retailerId": "mybeauty-boutique",
       "price": 31.99,
@@ -282076,6 +282649,18 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43661688572&a=3026001&m=106925",
       "fetchedAt": "2026-08-18T00:52:48.890Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 27.9,
+      "wasPrice": 57,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=37635411339&a=3026001&m=6561",
+      "fetchedAt": "2026-08-17T18:31:36.899Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -282938,6 +283523,58 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-6297001571392": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/rayhaan-aloha-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T20:27:19.126Z",
+      "firstSeenAt": "2026-08-11T20:34:55.929Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_53900b7e-21d0-47f5-99a4-f705ef761074.jpg?v=1781711429&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 34.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/rayhaan-aloha-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T18:49:31.753Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6297001571415": [
+    {
+      "retailerId": "beautybase",
+      "price": 40,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/rayhaan-azul-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-15T20:27:19.126Z",
+      "firstSeenAt": "2026-08-11T20:34:55.929Z",
+      "isNew": true,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/2_01773cb5-5ad8-47b7-af44-15fa96a52ab5.jpg?v=1781711126&width=1920"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 34.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/rayhaan-azul-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T18:49:31.753Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-6298044138603": [
     {
       "retailerId": "perfume-click",
@@ -283016,19 +283653,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-10062888010070": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/rayhaan-kiss-perfume-100ml-edp-by-rayhaan",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
-    },
+  "emirates-oud-15831633101149-default-title": [
     {
       "retailerId": "emirates-oud",
       "price": 24.99,
@@ -283040,6 +283665,18 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rayhaan-Kiss-Perfume-100ml-EDP-by-Rayhaan-183497730.jpg?v=1768779787"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/rayhaan-kiss-perfume-100ml-edp-by-rayhaan",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-6297001571323": [
@@ -283068,19 +283705,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-10145128972630": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/rayhaan-pharaoh-perfume-100ml-edp-by-rayhaan",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
-    },
+  "emirates-oud-15858027594077-default-title": [
     {
       "retailerId": "emirates-oud",
       "price": 29.99,
@@ -283092,30 +283717,16 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rayhaan-Pharaoh-Perfume-100ml-EDP-by-Rayhaan-182865477.jpg?v=1768260078"
-    }
-  ],
-  "ean-6297001571262": [
-    {
-      "retailerId": "beautybase",
-      "price": 35,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/rayhaan-terra-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-14T20:36:30.618Z",
-      "firstSeenAt": "2026-08-10T21:39:43.387Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1762336040-91122900.jpg?v=1763399391&width=1920"
     },
     {
-      "retailerId": "perfume-click",
-      "price": 22.5,
+      "retailerId": "oud-arabian",
+      "price": 29.99,
       "wasPrice": null,
-      "promoEndsAt": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
       "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44741705517&a=3026001&m=6561",
-      "fetchedAt": "2026-08-17T18:31:36.899Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "url": "https://oudarabian.co.uk/products/rayhaan-pharaoh-perfume-100ml-edp-by-rayhaan",
+      "fetchedAt": "2026-08-18T06:37:23.643Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -283146,19 +283757,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-9639701905750": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 21.5,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/rayhaan-tiger-cal-cologne",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
-    },
+  "mybeauty-boutique-shopify-gb-8416754630793-45147137638537": [
     {
       "retailerId": "mybeauty-boutique",
       "price": 24.99,
@@ -283168,6 +283767,18 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.awin1.com/pclick.php?p=43661688705&a=3026001&m=106925",
       "fetchedAt": "2026-08-18T00:52:48.890Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 21.5,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-18T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/rayhaan-tiger-cal-cologne",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -283182,7 +283793,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/rayhaan-tonquin-giza-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_268b2bff-b69b-4fd8-ad27-dab9e5f3c28d.jpg?v=1776683375&width=1920"
     },
     {
@@ -285860,7 +286471,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/surrati-dubai-ocean-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/d1_55318521-f2a6-4cbf-99f6-6d6f6187f286.jpg?v=1776846040&width=1920"
     },
     {
@@ -290540,7 +291151,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/viktor-rolf-flowerbomb-tiger-lily-eau-de-parfum-50ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1725981742-14151600.jpg?v=1763395565&width=1920"
     },
     {
@@ -292438,7 +293049,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ysl-y-for-men-le-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/ysly.jpg?v=1784205172&width=1920"
     },
     {
@@ -300428,7 +301039,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/arabiyat-prestige-cursed-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/8521.jpg?v=1778066250&width=1920"
     }
   ],
@@ -300442,7 +301053,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/arabiyat-prestige-extradose-femme-eau-de-parfum-80ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/789_fe9960af-acef-4a1c-9275-5d6847399828.jpg?v=1778068178&width=1920"
     }
   ],
@@ -300484,7 +301095,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/arabiyat-prestige-forbidden-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/2_e0856d9d-2453-4f3f-9d93-742a77914bf8.jpg?v=1778065100&width=1920"
     }
   ],
@@ -300582,7 +301193,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/arabiyat-prestige-ramad-earthy-extrait-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/123_88499d06-d8e3-478d-bb5c-a9582d924262.jpg?v=1776341020&width=1920"
     }
   ],
@@ -302724,7 +303335,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ariana-grande-lovenotes-pink-woods-eau-de-parfum-30ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/11.jpg?v=1776344917&width=1920"
     }
   ],
@@ -302738,7 +303349,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ariana-grande-lovenotes-vanilla-suede-eau-de-parfum-30ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/123_85ea67a3-a35f-4386-91f7-aebaf993b610.jpg?v=1776682324&width=1920"
     }
   ],
@@ -302822,7 +303433,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ariana-grande-r-e-m-cherry-eclipse-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/123_8671840f-06b4-4113-a6a3-08eef6214189.jpg?v=1777982945&width=1920"
     }
   ],
@@ -306602,7 +307213,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/azzaro-forever-wanted-absolu-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/11_be12c032-3204-4c11-97d7-1e5366714fdb.jpg?v=1776858712&width=1920"
     }
   ],
@@ -309644,34 +310255,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-9362014000621": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-boujee-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T10:17:08.720Z",
-      "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/boujee1.jpg?v=1776435373&width=1920"
-    }
-  ],
-  "ean-10324599832918": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-boujee-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T04:31:33.149Z",
-      "firstSeenAt": "2026-08-05T15:12:19.785Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-16146932662621-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -309684,34 +310267,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Boujeea-Perfume-100ml-EDP-Bujairami-188785480.png?v=1777205827"
-    }
-  ],
-  "ean-9362014001147": [
-    {
-      "retailerId": "beautybase",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-breathless-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-18T04:31:33.149Z",
-      "firstSeenAt": "2026-08-14T04:04:45.533Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Breathless.jpg?v=1786705595&width=1920"
-    }
-  ],
-  "ean-10967526965590": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-breathless-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T18:49:31.753Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-15938170749277-default-title": [
@@ -309770,34 +310325,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-9362014000072": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-candy-crush-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-14T22:16:39.540Z",
-      "firstSeenAt": "2026-08-10T22:35:31.778Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairami_Candy_Crush1.jpg?v=1774612797&width=1920"
-    }
-  ],
-  "ean-10062068318550": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-candy-crush-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-16269573128541-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -309838,34 +310365,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Cherry-Reign-Perfume-100ml-EDP-Bujairami-190904572.png?v=1778541523"
-    }
-  ],
-  "ean-9362014001079": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-chic-wood-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-16T02:59:16.630Z",
-      "firstSeenAt": "2026-08-12T01:48:14.123Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Chicwood1.jpg?v=1784624307&width=1920"
-    }
-  ],
-  "ean-10464548454742": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-chic-wood-eau-de-parfum",
-      "fetchedAt": "2026-08-18T04:31:33.149Z",
-      "firstSeenAt": "2026-08-05T15:12:19.785Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-16189515268445-default-title": [
@@ -309910,34 +310409,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bujairami-Chroma-EDP-100ml-Bujairami-Sydney-182547460.png?v=1767752338"
     }
   ],
-  "ean-9362014001413": [
-    {
-      "retailerId": "beautybase",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-chubby-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-16T02:59:16.630Z",
-      "firstSeenAt": "2026-08-12T01:48:14.123Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Chubby.jpg?v=1784623073&width=1920"
-    }
-  ],
-  "ean-10485679980886": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-chubby-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T04:31:33.149Z",
-      "firstSeenAt": "2026-08-05T17:27:59.465Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-16189517857117-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -309980,34 +310451,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Confessions-Perfume-100ml-EDP-Bujairami-195628129.png?v=1786437572"
     }
   ],
-  "ean-9362014002083": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-daddy-issues-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T20:27:19.126Z",
-      "firstSeenAt": "2026-08-11T20:34:55.929Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/DaddyIssues1.jpg?v=1782894472&width=1920"
-    }
-  ],
-  "ean-11145530900822": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-daddy-issues-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T18:49:31.753Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-15938156790109-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -310044,34 +310487,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-08-18T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-deep-night-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T18:49:31.753Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-9362014011122": [
-    {
-      "retailerId": "beautybase",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-dirty-money-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-18T04:31:33.149Z",
-      "firstSeenAt": "2026-08-14T04:04:45.533Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Dirtymoney.jpg?v=1786705957&width=1920"
-    }
-  ],
-  "ean-10960046031190": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-dirty-money-100ml-extrait-de-parfum",
       "fetchedAt": "2026-08-18T06:37:23.643Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": false,
@@ -310204,34 +310619,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-9362014000478": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/bujairami-emperor-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-14T22:16:39.540Z",
-      "firstSeenAt": "2026-08-10T22:35:31.778Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairami_Emperor1.jpg?v=1774613735&width=1920"
-    }
-  ],
-  "ean-10115424420182": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-emperor-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-15850831020381-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -310330,34 +310717,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-9362014011610": [
-    {
-      "retailerId": "beautybase",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-first-class-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-16T02:59:16.630Z",
-      "firstSeenAt": "2026-08-12T01:48:14.123Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/FirstClass.jpg?v=1784625642&width=1920"
-    }
-  ],
-  "ean-10960046621014": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-first-class-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T18:49:31.753Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-16382549655901-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -310370,34 +310729,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Forbidden-Perfume-100ml-EDP-Bujairami-195413189.png?v=1785735372"
-    }
-  ],
-  "ean-9362014002168": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/bujairami-freeze-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T10:17:08.720Z",
-      "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/freeze1.jpg?v=1776435238&width=1920"
-    }
-  ],
-  "ean-10324599013718": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-freeze-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T04:31:33.149Z",
-      "firstSeenAt": "2026-08-05T15:12:19.785Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-16203908120925-default-title": [
@@ -310426,34 +310757,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fresh-AF-Perfume-100ml-EDP-Bujairami-193197095.png?v=1782126528"
-    }
-  ],
-  "ean-9362014011801": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-full-throttle-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-16T02:59:16.630Z",
-      "firstSeenAt": "2026-08-12T01:48:14.123Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Fullthrotle.jpg?v=1784627572&width=1920"
-    }
-  ],
-  "ean-10960045769046": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-full-throttle-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T18:49:31.753Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-16316302623069-default-title": [
@@ -310494,34 +310797,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://oudarabian.co.uk/products/bujairami-perfumes-gass-100ml-extrait-de-parfum",
       "fetchedAt": "2026-08-18T08:37:44.110Z",
       "firstSeenAt": "2026-08-05T15:12:19.785Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-9362014001826": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-ghost-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-16T02:59:16.630Z",
-      "firstSeenAt": "2026-08-12T01:48:14.123Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Ghost.jpg?v=1784628582&width=1920"
-    }
-  ],
-  "ean-10485705376086": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-ghost-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T04:31:33.149Z",
-      "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -310622,20 +310897,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Guava-Vice-Perfume-100ml-EDP-Bujairami-190905370.png?v=1778543711"
-    }
-  ],
-  "ean-10037755740502": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-hectic-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-15842869510493-default-title": [
@@ -310774,34 +311035,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://oudarabian.co.uk/products/bujairami-jasmime-for-her-100ml-eau-de-parfum",
       "fetchedAt": "2026-08-18T06:37:23.643Z",
       "firstSeenAt": "2026-08-05T18:49:31.753Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-9362014000539": [
-    {
-      "retailerId": "beautybase",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-kingsman-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-14T22:16:39.540Z",
-      "firstSeenAt": "2026-08-10T22:35:31.778Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1766511054-30086700.jpg?v=1774612180&width=1920"
-    }
-  ],
-  "ean-10062059503958": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-kingsman-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -311002,34 +311235,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bujairami-Madam-Perfume-100ml-EDP-Bujairami-185486651.png?v=1773621414"
     }
   ],
-  "ean-9362014000461": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-madness-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T14:19:43.573Z",
-      "firstSeenAt": "2026-08-11T11:47:52.623Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairamimadnes1.jpg?v=1778845139&width=1920"
-    }
-  ],
-  "ean-10494548902230": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-madness-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T17:27:59.465Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-16297072001373-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -311100,34 +311305,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Magna-Perfume-100ml-EDP-Bujairami-195628256.png?v=1786437700"
     }
   ],
-  "ean-9362014000690": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/bujairami-marshmelt-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T14:19:43.573Z",
-      "firstSeenAt": "2026-08-11T11:47:52.623Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Marshmeltbujairami1.jpg?v=1778849003&width=1920"
-    }
-  ],
-  "ean-10464871186774": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-marshmelt-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T04:31:33.149Z",
-      "firstSeenAt": "2026-08-05T15:12:19.785Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-16189557408093-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -311168,34 +311345,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bujairami-Midnight-Booz-EDP-100ml-Bujairami-Sydney-182547870.png?v=1767752823"
-    }
-  ],
-  "ean-9362014000645": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-miss-vanilla-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-14T22:16:39.540Z",
-      "firstSeenAt": "2026-08-10T22:35:31.778Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1770813347-85847300.jpg?v=1774613023&width=1920"
-    }
-  ],
-  "ean-10062061502806": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 44.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-miss-vanilla-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "ean-10485896347990": [
@@ -311252,34 +311401,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mysterious-Perfume-100ml-EDP-Bujairami-190986179.png?v=1779108422"
-    }
-  ],
-  "ean-9362014000232": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/bujairami-new-york-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T14:19:43.573Z",
-      "firstSeenAt": "2026-08-11T11:47:52.623Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Newyork2.jpg?v=1778850061&width=1920"
-    }
-  ],
-  "ean-10465004093782": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "outOfStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-new-york-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T04:31:33.149Z",
-      "firstSeenAt": "2026-08-05T15:12:19.785Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-15938167046493-default-title": [
@@ -311364,34 +311485,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Oasis-Perfume-100ml-EDP-Bujairami-194601224.png?v=1784055688"
-    }
-  ],
-  "ean-9362014000546": [
-    {
-      "retailerId": "beautybase",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/bujairami-ocean-eyes-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T10:17:08.720Z",
-      "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/3dac9163e93a4cc4a1453b57a8ab5cf0_tplv-t5fjg24jzw-origin-jpeg.jpg?v=1776427358&width=1920"
-    }
-  ],
-  "ean-10324593836374": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-ocean-eyes-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T04:31:33.149Z",
-      "firstSeenAt": "2026-08-05T15:12:19.785Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-16146878169437-default-title": [
@@ -311492,34 +311585,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-9362014007309": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/bujairami-ozonic-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T14:19:43.573Z",
-      "firstSeenAt": "2026-08-11T11:47:52.623Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Ozonicinspired1.jpg?v=1778845328&width=1920"
-    }
-  ],
-  "ean-10485970403670": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-ozonic-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T17:27:59.465Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-16190064886109-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -311560,34 +311625,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Powder-Affair-100ml-Extrait-De-Parfum-Bujairami-194602264.png?v=1784056206"
-    }
-  ],
-  "ean-9362014001482": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/bujairami-powerful-lady-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T14:19:43.573Z",
-      "firstSeenAt": "2026-08-11T11:47:52.623Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairamilady1.jpg?v=1778844398&width=1920"
-    }
-  ],
-  "ean-10465083457878": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "outOfStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-powerful-lady-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T04:31:33.149Z",
-      "firstSeenAt": "2026-08-05T15:12:19.785Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "ean-9362014001321": [
@@ -311646,34 +311683,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pulse-Fiction-Perfume-100ml-EDP-Bujairami-185850576.png?v=1774387637"
     }
   ],
-  "ean-9362014011627": [
-    {
-      "retailerId": "beautybase",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-real-deal-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-16T02:59:16.630Z",
-      "firstSeenAt": "2026-08-12T01:48:14.123Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/RealDeal.jpg?v=1784630858&width=1920"
-    }
-  ],
-  "ean-10913374110038": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-real-deal-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T18:49:31.753Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-16407100424541-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -311716,34 +311725,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Red-Eclipse-Perfume-100ml-EDP-Bujairami-194596738.png?v=1784055101"
     }
   ],
-  "ean-9362014000577": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-red-static-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-14T22:16:39.540Z",
-      "firstSeenAt": "2026-08-10T22:35:31.778Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769091814-98598800.jpg?v=1772624853&width=1920"
-    }
-  ],
-  "ean-10066264883542": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-red-static-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-15850831970653-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -311756,34 +311737,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bujairami-Red-Static-EDP-100ml-Bujairami-Sydney-182548142.png?v=1767753068"
-    }
-  ],
-  "ean-9362014007958": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-resonance-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T14:19:43.573Z",
-      "firstSeenAt": "2026-08-11T11:47:52.623Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairamib_g1.jpg?v=1778840584&width=1920"
-    }
-  ],
-  "ean-10485993734486": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-resonance-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T17:27:59.465Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "ean-10465173995862": [
@@ -311812,34 +311765,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rising-Sun-Perfume-100ml-EDP-Bujairami-185850851.png?v=1774388672"
-    }
-  ],
-  "ean-9362014001499": [
-    {
-      "retailerId": "beautybase",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-rizz-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T14:19:43.573Z",
-      "firstSeenAt": "2026-08-11T11:47:52.623Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/BujairamiGreen2.jpg?v=1778840105&width=1920"
-    }
-  ],
-  "ean-10486020047190": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-rizz-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T17:27:59.465Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-16297069838685-default-title": [
@@ -311912,34 +311837,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-10486167404886": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-sacred-order-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T17:27:59.465Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-10495272419670": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-sacred-order-100ml-extrait-de-parfum-1",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T17:27:59.465Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-16190101127517-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -311962,34 +311859,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-08-18T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://oudarabian.co.uk/products/bujairami-sacred-skin-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T17:27:59.465Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-9362014000737": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-safari-squeeze-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T14:19:43.573Z",
-      "firstSeenAt": "2026-08-11T11:47:52.623Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/BujairamiSafariSqueezeEauDeParfum100mlSpray1.jpg?v=1778844050&width=1920"
-    }
-  ],
-  "ean-10486184935766": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-safari-squeeze-100ml-eau-de-parfum",
       "fetchedAt": "2026-08-18T08:37:44.110Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": false,
@@ -312022,34 +311891,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bujairami-Say-Less-EDP-100ml-Bujairami-Sydney-183922438.png?v=1769918413"
-    }
-  ],
-  "ean-9362014002120": [
-    {
-      "retailerId": "beautybase",
-      "price": 59.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-shadow-script-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-16T02:59:16.630Z",
-      "firstSeenAt": "2026-08-12T01:48:14.123Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/ShadowScript.jpg?v=1784632125&width=1920"
-    }
-  ],
-  "ean-10960025813334": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-shadow-script-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T18:49:31.753Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-16314341294429-default-title": [
@@ -312542,34 +312383,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Too-Damn-Clean-100ml-Extrait-De-Parfum-Bujairami-195628040.png?v=1786437369"
     }
   ],
-  "ean-9362014001550": [
-    {
-      "retailerId": "beautybase",
-      "price": 55,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-too-damn-good-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T14:19:43.573Z",
-      "firstSeenAt": "2026-08-11T11:47:52.623Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Burjairamitoodamngood.jpg?v=1778839283&width=1920"
-    }
-  ],
-  "ean-10464195838294": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-too-damn-good-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T04:31:33.149Z",
-      "firstSeenAt": "2026-08-05T15:12:19.785Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-15958500704605-limited-edition-bottle": [
     {
       "retailerId": "emirates-oud",
@@ -312612,34 +312425,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bujairami-Unforgettable-EDP-100ml-Bujairami-Sydney-182546998.png?v=1767751499"
     }
   ],
-  "ean-9362014001116": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/bujairami-v-luxe-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T06:26:32.661Z",
-      "firstSeenAt": "2026-08-11T07:04:39.313Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairami_web_1.jpg?v=1779197702&width=1920"
-    }
-  ],
-  "ean-10486217408854": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-v-luxe-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T17:27:59.465Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-16027052999005-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -312668,34 +312453,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bujairami-Vanilla-Dream-EDP-100ml-Bujairami-Sydney-182547096.png?v=1767751583"
     }
   ],
-  "ean-9362014002106": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-vanilla-static-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T22:15:36.631Z",
-      "firstSeenAt": "2026-08-11T22:57:34.431Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/BujairamiVanilla1.jpg?v=1782894132&width=1920"
-    }
-  ],
-  "ean-10486228189526": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-vanilla-static-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T17:27:59.465Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-10485650424150": [
     {
       "retailerId": "oud-arabian",
@@ -312720,34 +312477,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://oudarabian.co.uk/products/bujairami-vanished-100ml-eau-de-parfum-1",
       "fetchedAt": "2026-08-18T08:37:44.110Z",
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-9362014012280": [
-    {
-      "retailerId": "beautybase",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/bujairami-vibration-extrait-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T22:15:36.631Z",
-      "firstSeenAt": "2026-08-11T22:57:34.431Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/Bujairamivibration.jpg?v=1783936704&width=1920"
-    }
-  ],
-  "ean-10950740902230": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-vibration-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T18:49:31.753Z",
       "isNew": false,
       "imageUrl": null
     }
@@ -312792,20 +312521,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Vice-City-Perfume-100ml-EDP-Bujairami-190924525.png?v=1778671083"
-    }
-  ],
-  "ean-10329876889942": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/bujairami-wicked-100ml-eau-de-parfum-spray",
-      "fetchedAt": "2026-08-18T04:31:33.149Z",
-      "firstSeenAt": "2026-08-05T15:12:19.785Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-16203964514653-default-title": [
@@ -318114,48 +317829,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-84110611056752": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 84.95,
-      "wasPrice": 139,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089041729&a=3026001&m=124166",
-      "fetchedAt": "2026-08-17T18:31:36.899Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/164.jpg"
-    }
-  ],
-  "justmylook-cherr0039": [
-    {
-      "retailerId": "justmylook",
-      "price": 91.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/carolina-herrera-good-girl-blush-eau-de-parfum-80ml",
-      "fetchedAt": "2026-08-16T08:34:21.652Z",
-      "firstSeenAt": "2026-08-07T22:32:57.561Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/CHERR0039.png?v=1765452784&width=1000"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416648986761-45146988413065": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 107.49,
-      "wasPrice": 208.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661686540&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T00:52:48.890Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-8411061097922": [
     {
       "retailerId": "fragrance-click",
@@ -320308,7 +319981,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/chopard-musk-malaki-eau-de-parfum-80ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/147_22033d04-17de-423a-ba31-831590b6f802.jpg?v=1776683788&width=1920"
     }
   ],
@@ -321428,7 +321101,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/coach-woman-cherry-parfum-30ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/Coach_Cherry_30ml_1.jpg?v=1778147740&width=1920"
     }
   ],
@@ -321442,7 +321115,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/coach-woman-cherry-parfum-50ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/CoachCherry1.jpg?v=1778146908&width=1920"
     }
   ],
@@ -321456,7 +321129,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/coach-woman-cherry-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/CoachCherry1_ddbdd976-eff4-4563-b5f7-24c793855dfa.jpg?v=1778148073&width=1920"
     }
   ],
@@ -331270,7 +330943,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/elizabeth-arden-sunflowers-golden-vibe-eau-de-toilette-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/741258_5b77d6b7-7cd8-4032-a5bf-67f86fb54a8d.jpg?v=1778059065&width=1920"
     }
   ],
@@ -342498,7 +342171,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/french-avenue-jasmere-extrait-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/147_5602c966-3e5c-46f1-b4fc-f49615cd9469.jpg?v=1778057653&width=1920"
     }
   ],
@@ -343102,20 +342775,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Vintage-Extrait-De-Parfum-100ml-French-Avenue-168844319.jpg?v=1748353103"
-    }
-  ],
-  "ean-10037753872726": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 34.5,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/french-avenue-safari-breeze-100ml-extrait-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-15765619999069-default-title": [
@@ -347384,7 +347043,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/givenchy-irresistible-eau-de-parfum-50ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null
     }
   ],
@@ -350490,34 +350149,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44741705471&a=3026001&m=6561",
-      "fetchedAt": "2026-08-17T18:31:36.899Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-10382356119894": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 35,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/gulf-orchid-maestro-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T04:31:33.149Z",
-      "firstSeenAt": "2026-08-05T15:12:19.785Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-6290362166245": [
-    {
-      "retailerId": "perfume-click",
-      "price": 30.4,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44983563671&a=3026001&m=6561",
       "fetchedAt": "2026-08-17T18:31:36.899Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
@@ -358346,7 +357977,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/jean-paul-gaultier-so-scandal-eau-de-parfum-80ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_c1e3e8ba-edae-4b10-8c90-5542e5f32f4c.jpg?v=1776680760&width=1920"
     }
   ],
@@ -359438,7 +359069,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/jimmy-choo-man-parfum-50ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/Jimmychoo.jpg?v=1778144891&width=1920"
     }
   ],
@@ -359452,7 +359083,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/jimmy-choo-man-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/Jimmychoo_e47b4a3b-8e40-436a-bebf-d7c7b06fe5fb.jpg?v=1778151393&width=1920"
     }
   ],
@@ -365234,7 +364865,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/lacoste-l-12-12-bleu-eau-de-parfum-50ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/LacosteL.12.12BleuEauDeParfum6.jpg?v=1778152365&width=1920"
     }
   ],
@@ -365248,7 +364879,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/lacoste-l-12-12-bleu-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/LacosteL.12.12BleuEauDeParfum.jpg?v=1778157067&width=1920"
     }
   ],
@@ -365542,7 +365173,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/lacoste-original-aqua-eau-de-parfum-60ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/LacosteOriginalAqua.jpg?v=1778167817&width=1920"
     }
   ],
@@ -365556,7 +365187,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/lacoste-original-aqua-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/Lacoste_Original_Aqua.jpg?v=1778167370&width=1920"
     }
   ],
@@ -365570,7 +365201,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/lacoste-original-pour-femme-eau-de-parfum-40ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/LacosteOriginalPourFemmeEauDeParfum1.jpg?v=1778168448&width=1920"
     }
   ],
@@ -365584,7 +365215,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/lacoste-original-pour-femme-eau-de-parfum-60ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/LacosteOriginalPourFemmeEauDeParfum1_9c063f9f-e937-4d6d-86e2-b6bdd4cd8812.jpg?v=1778168898&width=1920"
     }
   ],
@@ -365598,7 +365229,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/lacoste-original-pour-femme-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/LacosteOriginalPourFemmeEauDeParfum1_3ae84c90-6624-4cc9-9502-15980fc8b8f6.jpg?v=1778169191&width=1920"
     }
   ],
@@ -369186,34 +368817,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Eclaire-Perfume-100ml-EDP-Lattafa-131064128.jpg?v=1717383328"
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416713212041-45147085471881": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 25.99,
-      "wasPrice": 48.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687893&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T00:52:48.890Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-9841776787798": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/lattafa-eclaire-pistache-100ml-eau-de-parfum-spray",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-15569819500893-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -370752,34 +370355,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Nasmaat-Perfume-100ml-EDP-Lattafa-178953216.jpg?v=1760198028"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416715866249-45147090944137": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 30.99,
-      "wasPrice": 57.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687943&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T00:52:48.890Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-9833598288214": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 36.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/lattafa-nebras-elixir-100ml-eau-de-parfum-spray",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-15568364831069-default-title": [
@@ -376546,7 +376121,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/louis-varel-extreme-patchouli-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/123_3ec4a0d6-a304-4275-a514-2300f73ef1f1.jpg?v=1778228361&width=1920"
     }
   ],
@@ -379840,34 +379415,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Dubai-Milano-Perfume-100ml-EDP-Maison-Asrar-194852698.png?v=1784546799"
     }
   ],
-  "ean-6290362163879": [
-    {
-      "retailerId": "beautybase",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/maison-asrar-dxb-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-14T12:51:02.524Z",
-      "firstSeenAt": "2026-08-10T13:03:59.151Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1756291061-31543900.jpg?v=1763398849&width=1920"
-    }
-  ],
-  "ean-9828976656726": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "outOfStock",
-      "url": "https://oudarabian.co.uk/products/maison-asrar-dxb-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-15493416386909-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -379880,34 +379427,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fakhama-Perfume-100ml-EDP-Maison-Asrar-184445638.png?v=1771114845"
-    }
-  ],
-  "ean-6290362164494": [
-    {
-      "retailerId": "beautybase",
-      "price": 45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/maison-asrar-faris-al-arab-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-14T16:44:25.824Z",
-      "firstSeenAt": "2026-08-10T14:56:38.817Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759419443-07550000.jpg?v=1763399132&width=1920"
-    }
-  ],
-  "ean-9831680934230": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 34.5,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/maison-asrar-faris-al-arab-100ml-eau-de-parfum-spray",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-15676718711133-default-title": [
@@ -379994,34 +379513,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Infina-Perfume-100ml-EDP-Maison-Asrar-190987583.png?v=1779109479"
     }
   ],
-  "ean-6290362163107": [
-    {
-      "retailerId": "beautybase",
-      "price": 45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/maison-asrar-legacy-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-18T04:31:33.149Z",
-      "firstSeenAt": "2026-08-09T23:29:35.966Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1752066909-12400300.jpg?v=1763398269&width=1920"
-    }
-  ],
-  "ean-9831166542166": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/maison-asrar-legacy-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-15493420253533-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -380060,7 +379551,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/maison-asrar-librae-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/2_4feb1090-01d5-416c-b3c7-0a42cdd60121.jpg?v=1778056101&width=1920"
     }
   ],
@@ -380148,34 +379639,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1769765099-08911200.jpg?v=1772625023&width=1920"
     }
   ],
-  "ean-6290362164487": [
-    {
-      "retailerId": "beautybase",
-      "price": 45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/maison-asrar-muharib-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-14T16:44:25.824Z",
-      "firstSeenAt": "2026-08-10T14:56:38.817Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1759418530-99274200.jpg?v=1763399139&width=1920"
-    }
-  ],
-  "ean-9831703675222": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 34.5,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/maison-asrar-muharib-100ml-eau-de-parfum-spray",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "emirates-oud-15678206017885-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -380202,34 +379665,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Oh-Honey_-Perfume-100ml-EDP-Maison-Asrar-181141867.png?v=1764384315"
-    }
-  ],
-  "ean-6290362164890": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/maison-asrar-regent-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T18:19:44.419Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/123_79f322ee-2686-4743-be9b-93c6df716b96.jpg?v=1780390774&width=1920"
-    }
-  ],
-  "ean-10829176209750": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/maison-asrar-regent-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T17:27:59.465Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-16204064522589-default-title": [
@@ -380426,34 +379861,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Vanilla-Aura-Perfume-100ml-EDP-Maison-Asrar-184444516.png?v=1771114479"
-    }
-  ],
-  "ean-6290362164630": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/maison-asrar-vanilla-seduction-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-14T22:16:39.540Z",
-      "firstSeenAt": "2026-08-10T21:39:43.387Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1762338587-87677200.jpg?v=1763399388&width=1920"
-    }
-  ],
-  "ean-9952911786326": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 31.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/maison-asrar-vanilla-seduction-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-15706877526365-default-title": [
@@ -382454,7 +381861,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/marc-jacobs-daisy-wild-eau-so-intense-eau-de-parfum-50ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/Marc_Jacobs_Daisy_2.jpg?v=1778257651&width=1920"
     }
   ],
@@ -386318,7 +385725,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/montblanc-legend-elixir-parfum-50ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/MontblancLegendElixirParfum5.jpg?v=1778158780&width=1920"
     }
   ],
@@ -386332,7 +385739,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/montblanc-legend-elixir-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/MontblancLegendElixirParfum.jpg?v=1778166403&width=1920"
     }
   ],
@@ -386850,7 +386257,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/moschino-toy-2-gummy-eau-de-parfum-30ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/31_b8286a8d-7676-42dd-937b-9827672a3a83.jpg?v=1776248987&width=1920"
     }
   ],
@@ -386864,7 +386271,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/moschino-toy-2-gummy-eau-de-parfum-50ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/511_bdc971c4-d1b7-4f32-acd0-d34bd4dca016.jpg?v=1776259701&width=1920"
     }
   ],
@@ -386878,7 +386285,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/moschino-toy-2-gummy-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/5111_e93700c9-3048-45d8-84d6-3e9e1a63978e.jpg?v=1776260175&width=1920"
     }
   ],
@@ -386892,7 +386299,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/moschino-toy-2-yummy-eau-de-parfum-30ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/301_3b8a6be3-8d18-496c-ba2b-d49ba98aa754.jpg?v=1776167290&width=1920"
     }
   ],
@@ -386906,7 +386313,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/moschino-toy-2-yummy-eau-de-parfum-50ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/51_90c26f21-52f4-4ea4-9a2b-7c25a4eb4daf.jpg?v=1776167759&width=1920"
     }
   ],
@@ -386920,7 +386327,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/moschino-toy-2-yummy-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/101.jpg?v=1776168708&width=1920"
     }
   ],
@@ -389146,7 +388553,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/nina-eau-de-toilette-30ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/963_7d209488-1792-45c0-be4f-20dbcad8c974.jpg?v=1777993172&width=1920"
     }
   ],
@@ -396986,7 +396393,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/prada-luna-rossa-carbon-eau-de-parfum-50ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/Pradalunarossa50ml.jpg?v=1781790802&width=1920"
     }
   ],
@@ -397000,7 +396407,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/prada-luna-rossa-carbon-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/Pradalunarossa100ml.jpg?v=1781791044&width=1920"
     }
   ],
@@ -399856,7 +399263,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ralph-lauren-polo-67-extreme-eau-de-parfum-40ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/Ralphlaurenpolo67extreme40ml.jpg?v=1781795074&width=1920"
     }
   ],
@@ -399870,7 +399277,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ralph-lauren-polo-67-extreme-eau-de-parfum-125ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/polo67extreme125ml.jpg?v=1781795674&width=1920"
     }
   ],
@@ -400094,7 +399501,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ralph-lauren-polo-red-extreme-eau-de-parfum-40ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null
     }
   ],
@@ -400108,7 +399515,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ralph-lauren-polo-red-extreme-eau-de-parfum-125ml-spray",
       "fetchedAt": "2026-08-15T12:25:17.418Z",
       "firstSeenAt": "2026-08-11T10:57:36.925Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": null
     }
   ],
@@ -401372,34 +400779,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Adonis-Icarus-Perfume-100ml-EDP-Rayhaan-177031362.jpg?v=1758306140"
     }
   ],
-  "ean-6297001571392": [
-    {
-      "retailerId": "beautybase",
-      "price": 35,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/rayhaan-aloha-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T20:27:19.126Z",
-      "firstSeenAt": "2026-08-11T20:34:55.929Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_53900b7e-21d0-47f5-99a4-f705ef761074.jpg?v=1781711429&width=1920"
-    }
-  ],
-  "ean-10846929289558": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 34.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/rayhaan-aloha-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T18:49:31.753Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
   "ean-6297001571330": [
     {
       "retailerId": "beautybase",
@@ -401440,34 +400819,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rayhaan-Aquatica-Perfume-100ml-EDP-by-Rayhaan-183497431.jpg?v=1768779235"
-    }
-  ],
-  "ean-6297001571415": [
-    {
-      "retailerId": "beautybase",
-      "price": 40,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/rayhaan-azul-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-15T20:27:19.126Z",
-      "firstSeenAt": "2026-08-11T20:34:55.929Z",
-      "isNew": true,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/2_01773cb5-5ad8-47b7-af44-15fa96a52ab5.jpg?v=1781711126&width=1920"
-    }
-  ],
-  "ean-10846913429846": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 34.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/rayhaan-azul-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T18:49:31.753Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-16254927569245-default-title": [
@@ -401788,7 +401139,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/rayhaan-nocturno-elixir-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/123_b5e9a2bf-308c-4b59-ad31-40614c2215d7.jpg?v=1776683102&width=1920"
     }
   ],
@@ -402000,20 +401351,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rayhaan-Seville-Perfume-100ml-EDP-by-Rayhaan-181153797.jpg?v=1764455105"
-    }
-  ],
-  "ean-9928967520598": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 26.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-18T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/rayhaan-terra-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-18T06:37:23.643Z",
-      "firstSeenAt": "2026-08-05T12:50:37.260Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "emirates-oud-15728835264861-default-title": [
@@ -404966,7 +404303,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/roberto-cavalli-just-cavalli-eau-de-toilette-50ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/147_fa8e2c41-d4ea-4f69-8396-1cdfcf59ae99.jpg?v=1778149081&width=1920"
     }
   ],
@@ -420100,7 +419437,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ysl-paris-eau-de-parfum-75ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_5ed4834c-e7f1-4b6d-a0d1-5245051679f7.jpg?v=1778146515&width=1920"
     }
   ],
@@ -420296,7 +419633,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://www.beautybase.com/products/ysl-y-for-men-le-parfum-60ml-spray",
       "fetchedAt": "2026-08-15T10:17:08.720Z",
       "firstSeenAt": "2026-08-11T10:01:05.155Z",
-      "isNew": true,
+      "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_fcceddaf-dd27-45b2-9634-5cdf0d1e68e1.jpg?v=1784195518&width=1920"
     }
   ],
