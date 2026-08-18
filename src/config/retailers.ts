@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 57 retailers, 28 of them `enabled: true`. Every one of them is a legitimate
+ * 58 retailers, 28 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -2626,6 +2626,52 @@ export const RETAILERS: readonly Retailer[] = [
       signupUrl: 'https://affiliate-program.amazon.co.uk/',
     },
   },
+  {
+    id: 'fragrancehub',
+    name: 'FragranceHub',
+    domain: 'fragrancehub.co.uk',
+    homepage: 'https://www.fragrancehub.co.uk/',
+    tiers: ['mideast'],
+    // A brand-new candidate, not yet reachable from here. Everything below is
+    // sourced from WebSearch snippets of the shop's own pages (a live page was
+    // never opened: WebFetch to this domain returns EGRESS_BLOCKED in the
+    // environment this was written in, per docs/INGESTION.md) — nothing here
+    // is a scrape or a measurement.
+    //
+    // "/collections/all", "/collections/clearance" and "/collections/bundle-deals"
+    // are Shopify's own default collection paths, which is why `adapter:
+    // 'unknown'` and `shopifyStorefront` stays unset rather than `true`:
+    // that shape is suggestive, not a confirmed `/products.json` read.
+    // Self-described as "Home of Niche Arabian Perfumes", stocking Lattafa,
+    // Afnan and Ajmal (a registered Ajmal/Afnan stockist per its own About
+    // page) — the same mideast tier three existing retailers already carry.
+    //
+    // This entry exists to give npm run currency:probe -- --shop=fragrancehub
+    // (dispatched via .github/workflows/price-verify.yml, which does have
+    // network) something to ask: is robots.txt reachable, does /products.json
+    // answer and look like Shopify's shape, and does it quote sterling. None
+    // of that has been asked yet.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      // A search snippet describes "free shipping when spending over £90",
+      // but that is marketing copy read secondhand, not a shipping:discover
+      // run against the shop's own delivery page — so the figure is named
+      // here, not stored as freeOverGbp.
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-18',
+      confidence: 'unverified',
+      notes:
+        'Nothing has been read from fragrancehub.co.uk directly. A WebSearch snippet of the ' +
+        'shop\'s own copy states free shipping over £90, but that is secondhand and unconfirmed ' +
+        '— run shipping:discover once the currency probe below has network access to the site.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
 ] as const;
 
 /**
@@ -2670,6 +2716,12 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
     'uk.zimayaperfumes.com advertises "FREE DELIVERY OVER $50" in dollars, so it is not ' +
       'confirmed that it prices or ships in sterling; an unlocalised Shopify storefront looks ' +
       'exactly like this.',
+  ],
+  [
+    'fragrancehub',
+    'A brand-new candidate. Nothing has been read from fragrancehub.co.uk directly — WebFetch ' +
+      'to this domain returns EGRESS_BLOCKED here — so nobody has confirmed it charges sterling ' +
+      'at all. currency:probe is what this entry exists to run.',
   ],
   [
     'paco-perfumerias',
