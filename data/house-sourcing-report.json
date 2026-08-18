@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-18T13:39:00.494Z",
+  "checkedAt": "2026-08-18T15:29:48.980Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,7 +59,7 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 2,
+      "listings": 5,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
@@ -148,6 +148,7 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
+        "https://lattafa.com/products.json?limit=250&page=1: HTTP 0 AbortError: This operation was aborted",
         "https://lattafa.com/sitemap_index.xml: HTTP 0 AbortError: This operation was aborted"
       ],
       "blockers": [
@@ -196,9 +197,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 96,
-      "pricedInGbp": 96,
-      "withPhoto": 96,
+      "listings": 108,
+      "pricedInGbp": 108,
+      "withPhoto": 108,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
