@@ -23,17 +23,24 @@ import { createClient, type SupabaseClient } from '@supabase/supabase-js';
  * handled: a publisher id is fine to ship, a login is not.
  *
  * ── Why blank is a valid, non-crashing state ─────────────────────────────────
- * These start empty because this sandbox cannot create a Supabase project or
- * hold its own secrets — the same "cannot invent a number" rule the rest of
- * this project runs on, just applied to credentials instead of a price. Once
- * a real project exists, its Project URL and anon public key (Project
- * Settings > API in the Supabase dashboard) get pasted in below and the
- * account UI goes live with no other code change. Until then,
- * `SUPABASE_CONFIGURED` is false and the account page says exactly that
- * instead of a form that fails on every submit.
+ * These stayed empty for as long as this sandbox could not create a Supabase
+ * project or hold its own secrets — the same "cannot invent a number" rule
+ * the rest of this project runs on, just applied to credentials instead of a
+ * price. A real project now exists, and its Project URL and anon public key
+ * (Project Settings > API in the Supabase dashboard) are the two values
+ * below — pasted in by the project owner, not generated here. The guard
+ * stays: if either value is ever blanked out again (a fork, a fresh clone
+ * without them), `SUPABASE_CONFIGURED` goes back to false and the account
+ * page says accounts are not switched on, instead of showing a form that
+ * fails on every submit.
  */
-const SUPABASE_URL = '';
-const SUPABASE_ANON_KEY = '';
+// Typed `string`, not inferred as a literal: the SUPABASE_CONFIGURED check
+// below compares against '', which is only meaningful — and only compiles
+// under tsconfig.demo.json's stricter checking — if TS is not allowed to
+// narrow these to the one literal value they happen to hold today.
+const SUPABASE_URL: string = 'https://kemjyocklbkgjsyfdqtf.supabase.co';
+const SUPABASE_ANON_KEY: string =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtlbWp5b2NrbGJrZ2pzeWZkcXRmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcwODM4NjYsImV4cCI6MjEwMjY1OTg2Nn0._U502yyU9FNWtVb3Y4fPyI4yON_Hl8GYgf0b-unwrKU';
 
 export const SUPABASE_CONFIGURED = SUPABASE_URL !== '' && SUPABASE_ANON_KEY !== '';
 
