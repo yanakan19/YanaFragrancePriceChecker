@@ -3021,7 +3021,12 @@ export const RETAILERS: readonly Retailer[] = [
       estimatedDays: [3, 5],
       verifiedAt: '2026-08-11',
       confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+      notes:
+        'Read directly now, not just unread: shipping probe, run 32281096849 job 96159821825, ' +
+        '2026-08-19T17:22Z, checked every candidate delivery-page path against ' +
+        'perfumemarketuk.com and found none of them exist, with no footer link to one either — ' +
+        '"NO PAGE FOUND", a genuine dead end on this shop\'s own site rather than an unread ' +
+        'page. Still blocks enabling on the same standardGbp: null basis as before.',
     },
     catalogue: null,
     affiliate: { ...awinRequested() },
