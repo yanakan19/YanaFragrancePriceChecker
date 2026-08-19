@@ -23,7 +23,7 @@ import { marketOf } from '../src/catalogue/brandSiteCheck.js';
  * cruder count on 2026-08-17, 664 distinct raw strings by that same cruder
  * count on 2026-08-19 — the catalogue grows between harvests, so treat this
  * as "the count on the day someone last measured it," not a fixed total).
- * 261 of those 662 resolve here as of this measurement (39.4%, re-measured
+ * 274 of those 662 resolve here as of this measurement (41.4%, re-measured
  * after this pass's own additions — the 662/168 figures above are the count
  * at the start of the pass). This list is still only the highest-volume
  * brands so far, not a finished set.
@@ -577,6 +577,28 @@ export const BRAND_SITES: Record<string, string> = {
   hollister: 'https://www.hollisterco.com/',
   'bruno banani': 'https://brunobanani.com/en',
   coty: 'https://www.coty.com/',
+  rochas: 'https://www.rochas.com/en',
+  gisada: 'https://www.gisada.com/en-us',
+  // Italart Co is named directly as the line's brand-management company, not
+  // merely a reseller among several.
+  roccobarocco: 'https://italartprofumi.com/brand-rocco-barocco/?lang=en',
+  'histoires de parfums': 'https://www.histoiresdeparfums.com/',
+  // Another Dumont Perfumes UAE sub-line, same domain as the entries above.
+  'sergio vallanti': 'https://dumontparfums.com/collections/sergio-vallanti',
+  'b u m equipment': 'https://www.bum.com/',
+  // Spelling variant of the already-resolved "Al Wataniah" — one letter short
+  // of the usual transliteration, same house.
+  alwatniah: 'https://www.alwataniah.com/',
+  // Owned by Sterling Perfumes Industries LLC, same parent-page pattern as
+  // the "jenny glow" and "risala" entries above; no standalone Flavia domain.
+  flavia: 'https://www.sterlingparfums.com/brand/fragrance/flavia',
+  edeniste: 'https://www.edeniste.com/en-us', // British house; domain itself carries no UK marker
+  // Terenzi family house, same as "v canto" above.
+  'giardino benessere': 'https://giardinobenessere.com/en/',
+  // Dumont Perfumes UAE sub-line, same domain as the entries above.
+  'franco maxim': 'https://dumontparfums.com/collections/franco-maxim',
+  'contes de parfums': 'https://contesdeparfums.com/',
+  'maison noir': 'https://maison-noir.com/',
 };
 
 /**
