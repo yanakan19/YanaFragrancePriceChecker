@@ -187,13 +187,26 @@ async function discover(
 ): Promise<{ urls: string[]; errors: string[] }> {
   const { retailer, http, robots, headers, onProgress } = options;
 
+  // See `requiredUrlPrefix`'s own doc comment in src/types/retailer.ts for why
+  // this exists: a shop whose currency depends on which address you ask must
+  // never have its sitemap walk seeded from, or allowed to wander onto, an
+  // address outside the one confirmed sterling.
+  const requiredPrefix = retailer.catalogue?.requiredUrlPrefix ?? null;
+  const underPrefix = (url: string) => !requiredPrefix || pathOf(url).startsWith(requiredPrefix);
+
   // A shop's declared sitemap can be unreachable while the conventional path
   // serves fine — John Lewis's robots.txt points at a siteindex.xml that times
   // out — so the standard location is always kept as a fallback root rather
-  // than being skipped the moment robots.txt names something else.
-  const conventional = `https://www.${retailer.domain}/sitemap.xml`;
-  const roots = robots.sitemaps.length ? [...robots.sitemaps.slice(0, 5)] : [];
-  if (!roots.includes(conventional)) roots.push(conventional);
+  // than being skipped the moment robots.txt names something else. When a
+  // prefix is pinned, that conventional root is scoped to it too, and
+  // robots.txt's own sitemaps are only trusted where they already agree — an
+  // unscoped root is never a fallback for a pinned shop, because falling back
+  // to it is exactly the currency mistake the pin exists to prevent.
+  const conventional = requiredPrefix
+    ? `https://www.${retailer.domain}${requiredPrefix}/sitemap.xml`
+    : `https://www.${retailer.domain}/sitemap.xml`;
+  const roots = (robots.sitemaps.length ? [...robots.sitemaps.slice(0, 5)] : []).filter(underPrefix);
+  if (!roots.includes(conventional)) roots.unshift(conventional);
 
   const seen = new Set<string>();
   const scented = new Set<string>();
@@ -224,6 +237,7 @@ async function discover(
     }
 
     for (const found of locs(res.body)) {
+      if (!underPrefix(found)) continue;
       const path = pathOf(found);
       if (isXml(found)) {
         const worthDescending = SCENT.test(path) || PRODUCT_SITEMAP.test(path);
