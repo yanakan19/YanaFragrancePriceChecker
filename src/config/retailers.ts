@@ -3286,20 +3286,45 @@ export const RETAILERS: readonly Retailer[] = [
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
+      // £3.95 taken as the standard rate, on the owner's reading: of the two
+      // charges the page names, standard delivery is the cheaper and slower
+      // tier and £9.95 is an express one. That is a judgement about UK retail
+      // convention rather than a label the page supplies, so it is recorded as
+      // inference here rather than passed off as a quotation.
+      standardGbp: 3.95,
+      // Deliberately still null, and this is the load-bearing half. The page
+      // names four free-delivery thresholds — £30, £90, £100, £150 — with
+      // nothing tying any of them to the standard tier, so pairing one with
+      // £3.95 would be a guess in the one direction that actually hurts a
+      // reader. Claiming free delivery from £30 when the real standard
+      // threshold is £100 understates the delivered price, which sorts this
+      // shop above shops that are genuinely cheaper — the exact failure the
+      // delivered-price sort exists to prevent. A null threshold can only ever
+      // overstate what delivery costs, which is the safe direction to be wrong
+      // in, so it stays null until someone reads the page and can say which
+      // threshold belongs to standard.
       freeOverGbp: null,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
+      verifiedAt: '2026-08-19',
       confidence: 'unverified',
+      source: {
+        url: 'https://www.cultbeauty.co.uk/info/delivery-information',
+        quote:
+          'Delivery page names charges of £3.95 and £9.95, and free-delivery thresholds of £30, ' +
+          '£90, £100 and £150, without labelling which pairing is standard.',
+        readAt: '2026-08-19',
+      },
       notes:
-        'Read directly now, not just unread: shipping probe, run 32281470836 job 96161024104, ' +
-        '2026-08-19T17:26Z, fetched the delivery page and confirmed it genuinely is ambiguous, ' +
-        'not merely unread — the page names two different delivery charges (£3.95, £9.95) with ' +
-        'no clear label for which is the standard rate, and four different free-delivery ' +
-        'thresholds (£30, £90, £100, £150), almost certainly a mix of standard/express tiers ' +
-        'and loyalty-scheme thresholds run together by the extractor. Guessing which pairing is ' +
-        '"standard" from this alone would be inventing a figure, so none is taken. Read ' +
-        'cultbeauty.co.uk\'s delivery page directly to disambiguate, then enable.',
+        'Read directly, not merely unread: shipping probe, run 32281470836 job 96161024104, ' +
+        '2026-08-19T17:26Z, fetched the delivery page and found it genuinely ambiguous — two ' +
+        'delivery charges (£3.95, £9.95) with no label saying which is standard, and four ' +
+        'free-delivery thresholds (£30, £90, £100, £150), almost certainly standard and express ' +
+        'tiers plus loyalty-scheme thresholds run together by the extractor. The £3.95 charge is ' +
+        'now taken as standard by inference from UK retail convention (the cheaper, slower tier), ' +
+        'which is enough to price delivery. The threshold is NOT inferred, because guessing it ' +
+        'wrong understates the delivered price rather than overstating it. Read ' +
+        "cultbeauty.co.uk's delivery page by hand to settle which threshold pairs with £3.95, " +
+        'then set freeOverGbp and raise confidence.',
     },
     // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
     // NOT AN APIFY CANDIDATE on the evidence gathered this review — hand this
