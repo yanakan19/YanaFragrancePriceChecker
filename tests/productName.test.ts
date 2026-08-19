@@ -279,6 +279,58 @@ describe('displayName: "Le Parfum" and other French-article naming, not a stripp
     expect(concentration('Creed Aventus Cologne Eau De Parfum 50ml')).toBe('Eau de Parfum');
     expect(concentration('Escada Sorbetto Rosso Le Eau De Toilette 100ml')).toBe('Eau de Toilette');
   });
+
+  // Escada's "Sorbetto Rosso Le" was investigated as a possible third case
+  // alongside "I Want Choo Le Parfum" and left alone on purpose, not merely
+  // forgotten. The raw title, verbatim from data/catalogue/justmylook.json:
+  // "Escada Sorbetto Rosso Le Eau De Toilette 100ml". Three other retailers
+  // carry the same EAN (8005610619323 — beautybase.json, perfume-click.json)
+  // or the same unbarcoded listing (mybeauty-boutique.json) for what is
+  // unmistakably the same bottle, and none of them has a "Le" anywhere:
+  // "Escada Sorbetto Rosso Eau De Toilette 100ml Spray Edition", "Escada
+  // Sorbetto Rosso Eau de Toilette 100ml Spray" (x2). So justmylook's "Le" is
+  // feed noise on this one SKU, not a real flanker name Escada uses.
+  //
+  // Measured before writing any rule (checked every rawTitle in
+  // data/catalogue/*.json for a standalone "le"/"la" word — not the
+  // apostrophe-elided "l'" that "L'Eau de Parfum"/"L'Eau de Toilette" use,
+  // which is a separate, genuine, and much more common French naming
+  // convention of its own, e.g. Chloé's "L'Eau de Parfum Intense" and
+  // Lancôme's Idôle "L'Eau de Toilette" — sitting directly in front of a
+  // matched CONCENTRATION_SPECIFIC phrase): exactly two hits in the whole
+  // catalogue, not one. Escada's is the only actual noise. The other is
+  // Juicy Couture's "Couture La La Eau de Parfum" (perfume-click.json,
+  // allbeauty.json) — "La La" is that fragrance's own real name, not two
+  // words of filler; Coty markets the line as "Couture La La". A rule general
+  // enough to strip Escada's stray "Le" would strip Juicy Couture's genuine
+  // "La" too, trading one wrong name for another. One real noise case against
+  // one real counter-example is not evidence for a general rule, so — as
+  // 24cbf5f already found and left in place — this stays a known, deliberate
+  // gap, not a bug fixed here. Pinned so it cannot regress silently in either
+  // direction: a future change must not "fix" Escada by breaking Juicy
+  // Couture, and must not start second-guessing the genuine "Le Parfum"/"La
+  // La" cases either.
+  it('leaves Escada\'s one stray "Le" as feed noise rather than inventing a rule that would break a real "La" name', () => {
+    expect(displayName('Escada Sorbetto Rosso Le Eau De Toilette 100ml', 'Escada', 'Escada')).toBe(
+      'Sorbetto Rosso Le',
+    );
+    expect(
+      displayName('Juicy Couture Couture La La Eau de Parfum 100ml Spray', 'Juicy Couture', 'Juicy Couture'),
+    ).toBe('Couture La La');
+  });
+
+  // Proof this investigation did not disturb 24cbf5f's own two fixes on the
+  // same file: the trailing-own-brand strip (Shaghaf Oud, Swiss Arabian) and
+  // the "Le Parfum" flanker naming (I Want Choo) still behave exactly as that
+  // commit left them.
+  it('does not regress the trailing-brand or "Le Parfum" fixes from 24cbf5f', () => {
+    expect(displayName('Shaghaf Oud Perfume 75ml Swiss Arabian', 'Swiss Arabian', 'Swiss Arabian')).toBe(
+      'Shaghaf Oud',
+    );
+    expect(displayName('Jimmy Choo I Want Choo Le Parfum 60ml Spray', 'Jimmy Choo', 'Jimmy Choo')).toBe(
+      'I Want Choo Le Parfum',
+    );
+  });
 });
 
 describe('stripRedundantSize: a house product name does not repeat its own sizeMl badge', () => {
