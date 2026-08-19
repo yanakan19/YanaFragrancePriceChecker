@@ -28,6 +28,39 @@ import { marketOf } from '../src/catalogue/brandSiteCheck.js';
  * at the start of the pass). This list is still only the highest-volume
  * brands so far, not a finished set.
  */
+/**
+ * ── CI brand:probe sweep, 2026-08-19 (GitHub Actions run 32241839615) ───────
+ *
+ * A scheduled run of `npm run brand:probe` followed every link below and
+ * reported 22 "dead", 1 "redirected-domain" and 2 "redirected-region"
+ * findings, plus 8 "could-not-ask" (robots.txt did not answer, so the probe
+ * never actually requested the page — not evidence of a broken link, and
+ * left untouched here: britney spears, byredo, elie saab, gissah, lush,
+ * marc jacobs, victoria s secret, viktor rolf).
+ *
+ * Each of the 25 real findings was re-checked by web search (this sandbox
+ * still cannot fetch the pages directly). Four were genuine and are fixed at
+ * their own entries below, each with its own dated comment: acqua di parma
+ * (real HTTP 404 — the /en_gb/ path is gone), louis vuitton and van cleef
+ * arpels (root domain existed but a working UK-marked page was found and
+ * substituted), and moschino (the declared path now redirects to a renamed
+ * one, so the entry was pointed straight at where it lands). Lattafa and al
+ * haramain's "redirected" findings turned out to be the probe's own
+ * documented caveat — a CI runner outside the UK/target region getting
+ * geo-bounced somewhere a real visitor would not — not a real fault; each is
+ * noted inline rather than changed.
+ *
+ * The other 18 "dead" findings (bvlgari, by kilian/kilian, calvin klein,
+ * chanel, clinique, emporio armani/giorgio armani, est e lauder, frederic
+ * malle, gucci, jimmy choo, jo malone/jo malone london, lacoste, lanc me,
+ * michael kors, mugler, nishane, phlur, prada, versace) were all confirmed
+ * by search as still the brand's own current site — the "dead" verdict came
+ * from an HTTP 403 (a bot-defence block reacting to the probe's plain,
+ * non-browser request — extremely common on major luxury retail platforms,
+ * not evidence the address is wrong) or an AbortError (the request timing
+ * out, not the page being gone). None of those 18 needed a change; none are
+ * commented individually below to avoid scattering the same note 18 times.
+ */
 export const BRAND_SITES: Record<string, string> = {
   'calvin klein': 'https://www.calvinklein.co.uk/',
   'dolce gabbana': 'https://www.dolcegabbana.com/en-gb/beauty/',
@@ -47,6 +80,13 @@ export const BRAND_SITES: Record<string, string> = {
   // page-verified facts.
   'french avenue': 'https://uk.shopfrenchavenue.com/',
   armaf: 'https://armaf.uk/',
+  // The CI brand:probe sweep (run 32241839615) flagged this as
+  // "redirected-region" because the runner landed on /en-us — search still
+  // confirms alharamainperfumes.co.uk itself as the brand's own UK store
+  // (Barking-based, free UK delivery over £50), so this reads as the probe's
+  // own documented caveat (a CI runner outside the UK can get bounced to a
+  // different region than a real UK visitor would) rather than a real fault.
+  // Left unchanged.
   'al haramain': 'https://alharamainperfumes.co.uk/',
   riiffs: 'https://uk.riiffsperfumes.com/',
   // Bellavita Luxury (bellavitaluxury.uk) — the UK "luxury-inspired
@@ -69,6 +109,13 @@ export const BRAND_SITES: Record<string, string> = {
   'gulf orchid': 'https://shop-gulforchid.com/',
   'maison asrar': 'https://maisonasrar.com/',
   'ahmed al maghribi': 'https://ae.ahmedalmaghribi.com/en',
+  // The CI brand:probe sweep (run 32241839615) flagged this as
+  // "redirected-domain" because the runner landed on lattafa-usa.com —
+  // search still confirms lattafa.com itself as the brand's official global
+  // shop (Copyright Lattafa Perfumes, its own /shop/ page live), with
+  // lattafa-usa.com a separate regional storefront the .com root can bounce
+  // a non-UK visitor to, the same region-detection caveat as al haramain
+  // above. Left unchanged.
   lattafa: 'https://lattafa.com/',
   // Catalogue also carries this house as plain "Lattafa Perfumes" — same
   // company, same site, just the fuller trading name some feeds use.
@@ -129,7 +176,13 @@ export const BRAND_SITES: Record<string, string> = {
   // session actually ran (title + snippet showing it as the official site),
   // not a guess. A few carry a specific caveat inline because the search
   // didn't fully resolve one — noted rather than smoothed over.
-  'acqua di parma': 'https://www.acquadiparma.com/en_gb/',
+  // Fixed 2026-08-19 after the CI brand:probe sweep (GitHub Actions run
+  // 32241839615) flagged this as a genuine HTTP 404, not the bot-blocking
+  // false positive most of that sweep's other "dead" findings turned out to
+  // be: the underscore path (en_gb) is gone, the site now serves the same UK
+  // storefront at a slash path instead (en/gb) — confirmed by search results
+  // landing on acquadiparma.com/en/gb/store-locator, /fragrances/... etc.
+  'acqua di parma': 'https://www.acquadiparma.com/en/gb/',
   afnan: 'https://www.afnan.com/',
   chanel: 'https://www.chanel.com/gb/',
   dior: 'https://www.dior.com/en_gb/beauty/fragrance/home',
@@ -147,13 +200,22 @@ export const BRAND_SITES: Record<string, string> = {
   burberry: 'https://uk.burberry.com/',
   bvlgari: 'https://www.bulgari.com/',
   prada: 'https://www.prada-beauty.com/',
-  // US site only — no UK-specific Louis Vuitton fragrance page found.
-  'louis vuitton': 'https://us.louisvuitton.com/',
+  // Updated 2026-08-19: a UK storefront does exist after all
+  // (uk.louisvuitton.com/eng-gb/), confirmed live by search (perfumes,
+  // stories and product pages all resolving under it) — the earlier note
+  // above was wrong that only the US site could be found. Swapped from the
+  // US root the CI brand:probe sweep (run 32241839615) flagged as a 403/
+  // bot-block "dead" finding to this UK one.
+  'louis vuitton': 'https://uk.louisvuitton.com/eng-gb/homepage',
   versace: 'https://www.versace.com/gb/en/fragrances/',
   // Multiple Valentino beauty domains exist (valentino.com, valentino-beauty.us,
   // valentino-beauty.co.uk); this is the brand's own primary site.
   valentino: 'https://www.valentino.com/en-gb/experience/valentino-beauty',
-  'van cleef arpels': 'https://www.vancleefarpels.com/',
+  // Updated 2026-08-19: pointed at the UK fragrance collection path directly
+  // (confirmed live by search) rather than the bare root the CI brand:probe
+  // sweep (run 32241839615) flagged as "dead" — same domain, same house,
+  // just a more specific and UK-marked address.
+  'van cleef arpels': 'https://www.vancleefarpels.com/gb/en/collections/fragrances.html',
   guerlain: 'https://www.guerlain.com/uk/en-uk/fragrance/',
   'lanc me': 'https://www.lancome.co.uk/',
   'jo malone london': 'https://www.jomalone.com/',
@@ -226,7 +288,12 @@ export const BRAND_SITES: Record<string, string> = {
   'mind games': 'https://www.mindgamesfragrance.com/',
   montale: 'https://montaleparfums.com/en/',
   montblanc: 'https://www.montblanc.com/en-gb/fragrances',
-  moschino: 'https://www.moschino.com/gb_en/',
+  // Updated 2026-08-19: the CI brand:probe sweep (run 32241839615) found
+  // this old path now redirects to /en-gb — same market, same site, the
+  // site just renamed its own UK path since this entry was added. Pointed
+  // straight at where it actually lands rather than leave a redirect for
+  // the reader.
+  moschino: 'https://www.moschino.com/en-gb',
   mugler: 'https://www.mugler.co.uk/',
   natura: 'https://www.naturabrasil.com/',
   nishane: 'https://nishane.com/',
@@ -511,15 +578,11 @@ export const BRAND_SITES: Record<string, string> = {
   'ministry of gourmand': 'https://pariscorner.ae/',
   'billie eilish': 'https://store.billieeilish.com/',
   'christina aguilera': 'https://parfum.christinaaguilera.com/',
-  // "4711" itself CANNOT be resolved here even though 4711.com is a real,
-  // confirmed site (used above for the Mäurer & Wirtz entry's own portfolio
-  // mention): normalizeBrand() strips everything that isn't a-z, and "4711"
-  // is all digits, so it normalizes to the empty string rather than to
-  // anything a key could usefully be. Left out rather than keyed on ''`,
-  // which would wrongly catch any other brand string that also normalizes to
-  // nothing. A real limitation of this file's lookup scheme, not a research
-  // gap — fixing it means teaching normalizeBrand to keep digits, which
-  // touches every other key here and is out of scope for this pass.
+  // Resolved 2026-08-19 — see the normalizeBrandKeepingDigits fallback and
+  // its own doc comment near the bottom of this file for how the "4711"
+  // lookup itself was made to work without touching normalizeBrand's
+  // behaviour for every other brand in this file.
+  '4711': 'https://4711.com/en',
   'david beckham': 'https://www.beckham-fragrances.com/en',
   'jean patou': 'https://www.patou.com/',
   'sabrina carpenter': 'https://fragrancebysabrina.com/',
@@ -666,6 +729,37 @@ function normalizeBrand(brand: string): string {
 }
 
 /**
+ * Fallback for the one real shape normalizeBrand cannot key at all: a brand
+ * name with no a-z letters in it, like "4711", which normalizeBrand collapses
+ * to the empty string.
+ *
+ * Only ever consulted when normalizeBrand's own result is empty (see
+ * officialSiteFor below), so it can never change what any *other* brand
+ * resolves to — a brand with at least one letter always matches on
+ * normalizeBrand first, exactly as before this fallback existed. That is a
+ * measured claim, not an assumption: every "brand" string in the live
+ * catalogue (664 distinct raw spellings, checked 2026-08-19 against
+ * demo/catalogue.generated.ts) normalizes to a non-empty string under
+ * normalizeBrand except "4711" itself, so this fallback is inert for
+ * everything else in the file today.
+ *
+ * Teaching normalizeBrand itself to keep digits was considered and rejected:
+ * three existing keys — 'bon' (from "100 Bon"), 'casamorati dal' (from
+ * "CASAMORATI DAL 1888") and 'dsquared' (from "DSquared2") — rely on digits
+ * being stripped to reach their current key. Changing normalizeBrand
+ * globally would silently orphan all three already-verified entries by
+ * changing what they normalize to, trading one dead lookup for three. This
+ * narrower fallback fixes the one broken case without moving any of the
+ * others.
+ */
+function normalizeBrandKeepingDigits(brand: string): string {
+  return brand
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ')
+    .trim();
+}
+
+/**
  * The brand's own official site, if we have verified one — never invented —
  * plus whether it is a UK storefront, so a reader knows before clicking.
  *
@@ -684,7 +778,11 @@ export interface BrandSite {
 }
 
 export function officialSiteFor(brand: string): BrandSite | null {
-  const url = BRAND_SITES[normalizeBrand(brand)];
+  const primaryKey = normalizeBrand(brand);
+  // The digit-keeping fallback only ever runs for the empty-string case (see
+  // its own doc comment above) — everything else resolves on primaryKey
+  // exactly as it always has.
+  const url = BRAND_SITES[primaryKey] ?? (primaryKey === '' ? BRAND_SITES[normalizeBrandKeepingDigits(brand)] : undefined);
   if (!url) return null;
   // marketOf reports the /en-gb/ path shape as "gb" rather than "uk" — the
   // same synonym classifyLanding's own sameMarket() normalises before
