@@ -1,5 +1,14 @@
 import { describe, expect, it } from 'vitest';
-import { matchKey, findDuplicateGroups, type MatchableProduct } from '../src/catalogue/productMatch.js';
+import {
+  matchKey,
+  findDuplicateGroups,
+  untrustworthyEans,
+  trustworthyEan,
+  type MatchableProduct,
+  type EanListing,
+} from '../src/catalogue/productMatch.js';
+import { fragranceId } from '../src/catalogue/fragranceId.js';
+import type { StoredListing } from '../src/catalogue/types.js';
 
 const p = (o: Partial<MatchableProduct> & { id: string }): MatchableProduct => ({
   brand: 'Afnan',
@@ -9,6 +18,28 @@ const p = (o: Partial<MatchableProduct> & { id: string }): MatchableProduct => (
   ean: null,
   ...o,
 });
+
+/** A minimal StoredListing, for the fragranceId regression tests below. */
+function listing(o: Partial<StoredListing> & Pick<StoredListing, 'retailerId' | 'retailerSku' | 'ean' | 'rawTitle'>): StoredListing {
+  return {
+    url: 'https://shop.example/p/1',
+    rawBrand: null,
+    imageUrl: null,
+    priceGbp: 95,
+    wasPriceGbp: null,
+    promoEndsAt: null,
+    inStock: true,
+    sectionId: 'fragrance',
+    firstSeenAt: '2026-08-01T00:00:00.000Z',
+    lastSeenAt: '2026-08-16T00:00:00.000Z',
+    status: 'active',
+    delistedAt: null,
+    relistedAt: null,
+    eligibleForNewBadge: false,
+    variantId: null,
+    ...o,
+  };
+}
 
 describe('product matching', () => {
   describe('the reported duplicate', () => {
@@ -216,6 +247,156 @@ describe('product matching', () => {
     it('reports nothing when every product is already distinct', () => {
       const groups = findDuplicateGroups([p({ id: 'a', sizeMl: 50 }), p({ id: 'b', sizeMl: 100 })]);
       expect(groups).toEqual([]);
+    });
+  });
+
+  describe('an EAN one retailer prints on two different products', () => {
+    // Verbatim from data/catalogue/nicchia-luxury-uk.json (measured
+    // 2026-08-19): 8055277283900 is stuck on two genuinely different Bois
+    // 1920 bottles in that one shop's own feed. Both codes pass the GTIN
+    // check digit, so isBarcode alone would wave both through.
+    const cannabisDolce: EanListing = {
+      retailerId: 'nicchia-luxury-uk',
+      ean: '8055277283900',
+      rawTitle: 'Bois 1920 Cannabis Dolce Eau de Parfum 100 ml',
+    };
+    const cannabisSalata: EanListing = {
+      retailerId: 'nicchia-luxury-uk',
+      ean: '8055277283900',
+      rawTitle: 'Bois 1920 Cannabis Salata Eau de Parfum 100 ml',
+    };
+
+    it('untrustworthyEans catches the real Nicchia collision', () => {
+      const untrustworthy = untrustworthyEans([cannabisDolce, cannabisSalata]);
+      expect(untrustworthy.size).toBe(1);
+    });
+
+    it('trustworthyEan revokes the code on both listings, like a missing EAN', () => {
+      const untrustworthy = untrustworthyEans([cannabisDolce, cannabisSalata]);
+      expect(trustworthyEan(cannabisDolce, untrustworthy)).toBeNull();
+      expect(trustworthyEan(cannabisSalata, untrustworthy)).toBeNull();
+    });
+
+    it('does not flag a genuine repeat listing of one bottle written two ways', () => {
+      // The exact case matchKey itself already protects — see "ignores the
+      // word order shops disagree about" above. untrustworthyEans must not
+      // start flagging what the rest of this file already knows is one
+      // bottle, or every barcode in the catalogue would end up "untrustworthy"
+      // the moment a shop republished its own listing with a reordered title.
+      const a: EanListing = { retailerId: 'x', ean: '6290171070207', rawTitle: 'Supremacy Pour Homme Silver' };
+      const b: EanListing = { retailerId: 'x', ean: '6290171070207', rawTitle: 'Supremacy Silver Pour Homme' };
+      expect(untrustworthyEans([a, b]).size).toBe(0);
+      expect(trustworthyEan(a, untrustworthyEans([a, b]))).toBe('6290171070207');
+    });
+
+    it('is scoped to the one retailer that misused the code, never the shops that did not', () => {
+      // Perfume Click publishing the identical code correctly, for the
+      // identical bottle, must not be caught by Nicchia's mistake — the whole
+      // point of keying untrustworthyEans per retailer.
+      const elsewhere: EanListing = {
+        retailerId: 'perfume-click',
+        ean: '8055277283900',
+        rawTitle: 'Bois 1920 Cannabis Dolce Eau de Parfum 100 ml',
+      };
+      const untrustworthy = untrustworthyEans([cannabisDolce, cannabisSalata, elsewhere]);
+      expect(trustworthyEan(elsewhere, untrustworthy)).toBe('8055277283900');
+    });
+
+    it('leaves a code that was never barcode-shaped exactly as it found it', () => {
+      // An Oud Arabian-style Shopify id reused across two products was never
+      // trustworthy to begin with (see isBarcode); there is nothing here to
+      // revoke, and it must keep flowing through untouched.
+      const a: EanListing = { retailerId: 'oud-arabian', ean: '173', rawTitle: 'Bujairami Chubby' };
+      const b: EanListing = { retailerId: 'oud-arabian', ean: '173', rawTitle: 'Bujairami Ghost' };
+      expect(untrustworthyEans([a, b]).size).toBe(0);
+      expect(trustworthyEan(a, new Set())).toBe('173');
+    });
+
+    it('still merges an untrustworthy-coded listing into a bottle a real barcode identifies', () => {
+      // Part (a) of the guard: revoking a code for identity purposes must not
+      // stop the listing being folded into a genuinely matching product by
+      // name, size and concentration — it is treated exactly like a listing
+      // that never had an EAN, which is allowed to merge, just never to lead.
+      const canonical = p({ id: 'ean-6290171070207', ean: '6290171070207' });
+      const sameShopOtherListing: EanListing = {
+        retailerId: 'shop-x',
+        ean: '3349668612611', // a real, well-formed barcode elsewhere in shop-x's own feed
+        rawTitle: 'Supremacy In Extrait De Parfum',
+      };
+      const untrustworthy = untrustworthyEans([
+        sameShopOtherListing,
+        { retailerId: 'shop-x', ean: '3349668612611', rawTitle: 'Something Else Entirely' },
+      ]);
+      const revoked = trustworthyEan(sameShopOtherListing, untrustworthy);
+      expect(revoked).toBeNull();
+      const groups = findDuplicateGroups([canonical, p({ id: 'shop-x-sku', ean: revoked })]);
+      expect(groups).toHaveLength(1);
+      expect(groups[0]!.canonical.id).toBe('ean-6290171070207');
+      expect(groups[0]!.absorbed.map((x) => x.id)).toEqual(['shop-x-sku']);
+    });
+
+    it('never weakens a genuine barcode disagreement sitting alongside the Nicchia collision', () => {
+      // Proof the guard is scoped narrowly: computing untrustworthyEans over a
+      // listing set that includes the real Nicchia collision must not touch
+      // the completely unrelated, genuinely disagreeing Rabanne codes from
+      // "still refuses while two genuine Rabanne barcodes disagree" above.
+      const rabanne1: EanListing = { retailerId: 'a', ean: '3349668612611', rawTitle: 'Lady Million' };
+      const rabanne2: EanListing = { retailerId: 'b', ean: '3349668508471', rawTitle: 'Lady Million' };
+      const untrustworthy = untrustworthyEans([cannabisDolce, cannabisSalata, rabanne1, rabanne2]);
+      expect(trustworthyEan(rabanne1, untrustworthy)).toBe('3349668612611');
+      expect(trustworthyEan(rabanne2, untrustworthy)).toBe('3349668508471');
+      const groups = findDuplicateGroups([
+        p({ id: 'a', ean: '3349668612611', brand: 'Rabanne', name: 'Lady Million', concentration: 'Eau de Parfum', sizeMl: 30 }),
+        p({ id: 'b', ean: '3349668508471', brand: 'Rabanne', name: 'Lady Million', concentration: 'Eau de Parfum', sizeMl: 30 }),
+      ]);
+      expect(groups).toHaveLength(0);
+    });
+  });
+
+  describe('fragranceId: the same collision, one step earlier', () => {
+    // fragranceId() keys a listing on `ean-${ean}` before findDuplicateGroups
+    // ever runs. Without the untrustworthy-ean guard, that means two
+    // genuinely different Nicchia listings sharing one code silently fuse
+    // into a single product record — no name, size or concentration check at
+    // all — the moment the second one is read.
+    const divineVanille = listing({
+      retailerId: 'nicchia-luxury-uk',
+      retailerSku: '56535436886400',
+      ean: '3770010614098',
+      rawTitle: 'Essential Parfums Divine Vanille Eau de Parfum 10 ml',
+    });
+    const theMusc = listing({
+      retailerId: 'nicchia-luxury-uk',
+      retailerSku: '56535437934976',
+      ean: '3770010614098',
+      rawTitle: 'Essential Parfums The Musc Eau de Parfum 10 ml',
+    });
+
+    it('demonstrates the bug is real: without the guard, both listings key to the same id', () => {
+      expect(fragranceId(divineVanille)).toBe('ean-3770010614098');
+      expect(fragranceId(theMusc)).toBe('ean-3770010614098');
+      expect(fragranceId(divineVanille)).toBe(fragranceId(theMusc));
+    });
+
+    it('never fuses the two different Essential Parfums bottles once the guard is supplied', () => {
+      const untrustworthy = untrustworthyEans([divineVanille, theMusc]);
+      const divineVanilleId = fragranceId(divineVanille, untrustworthy);
+      const theMuscId = fragranceId(theMusc, untrustworthy);
+      expect(divineVanilleId).not.toBe(theMuscId);
+      expect(divineVanilleId).toBe('nicchia-luxury-uk-56535436886400');
+      expect(theMuscId).toBe('nicchia-luxury-uk-56535437934976');
+    });
+
+    it('leaves an uncontested EAN keying exactly as before, guard supplied or not', () => {
+      const clean = listing({
+        retailerId: 'perfume-click',
+        retailerSku: 'sku-9',
+        ean: '0088300196890',
+        rawTitle: 'Calvin Klein IN2U Eau de Toilette 100ml Spray',
+      });
+      const untrustworthy = untrustworthyEans([divineVanille, theMusc, clean]);
+      expect(fragranceId(clean)).toBe('ean-0088300196890');
+      expect(fragranceId(clean, untrustworthy)).toBe('ean-0088300196890');
     });
   });
 });

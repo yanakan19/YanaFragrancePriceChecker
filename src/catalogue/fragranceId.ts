@@ -1,5 +1,6 @@
 import type { StoredListing } from './types.js';
 import { getRetailer } from '../config/retailers.js';
+import { trustworthyEan } from './productMatch.js';
 
 /**
  * What decides whether a listing is a fragrance, and the identity a
@@ -355,9 +356,28 @@ export function isFragrance(l: StoredListing): boolean {
  * EAN groups the same bottle across shops. Without one a listing can only
  * stand alone, which is honest: we cannot claim two titles are the same
  * product until the matcher exists.
+ *
+ * `untrustworthy`, when given, is the set productMatch.ts's untrustworthyEans
+ * computed over every listing this build is considering — the EANs one
+ * retailer's own feed has printed on two or more different products (19 of
+ * them measured in data/catalogue/nicchia-luxury-uk.json; see
+ * productMatch.ts's header for the actual titles). A listing carrying one of
+ * those falls back to its retailer-sku identity exactly as a listing with no
+ * EAN at all would, because that is what it is being asked to prove is a
+ * shared identity and it cannot: two of Nicchia's own listings — "Bois 1920
+ * Cannabis Dolce" and "...Cannabis Salata" — both key to `ean-8055277283900`
+ * under the plain rule below, so the second one silently absorbs into the
+ * first's product record the moment it is read, before findDuplicateGroups
+ * (src/catalogue/productMatch.ts) or any name/size/concentration check ever
+ * runs. Omitting the argument keeps today's behaviour exactly as it was,
+ * which is safe only because every caller now passes it — see
+ * scripts/build-demo-catalogue.ts and scripts/build-price-history.ts, which
+ * must compute and pass the identical set or the two builds' ids drift, the
+ * failure this file's own header warns about.
  */
-export function fragranceId(l: StoredListing): string {
-  return l.ean
-    ? `ean-${l.ean}`
+export function fragranceId(l: StoredListing, untrustworthy?: ReadonlySet<string>): string {
+  const ean = untrustworthy ? trustworthyEan(l, untrustworthy) : l.ean;
+  return ean
+    ? `ean-${ean}`
     : `${l.retailerId}-${l.retailerSku}`.replace(/[^a-z0-9-]/gi, '-').toLowerCase();
 }
