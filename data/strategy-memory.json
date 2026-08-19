@@ -947,7 +947,91 @@
       "lastTriedAt": "2026-08-10T18:41:19.896Z",
       "lastSucceededAt": null,
       "ruledOut": null
+    },
+    "beauty-bay::section-plain": {
+      "strategyId": "section-plain",
+      "retailerId": "beauty-bay",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": null,
+      "lastError": "no catalogue sections configured",
+      "lastTriedAt": "2026-08-19T14:03:11.037Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
+    },
+    "beauty-bay::section-browser-headers": {
+      "strategyId": "section-browser-headers",
+      "retailerId": "beauty-bay",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": null,
+      "lastError": "no catalogue sections configured",
+      "lastTriedAt": "2026-08-19T14:03:12.538Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
+    },
+    "beauty-bay::sitemap-discovery": {
+      "strategyId": "sitemap-discovery",
+      "retailerId": "beauty-bay",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": null,
+      "lastError": "no fragrance URLs found in sitemap",
+      "lastTriedAt": "2026-08-19T14:03:15.209Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
+    },
+    "beauty-bay::search-page": {
+      "strategyId": "search-page",
+      "retailerId": "beauty-bay",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": null,
+      "lastError": "no catalogue sections configured",
+      "lastTriedAt": "2026-08-19T14:03:16.710Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
+    },
+    "beauty-bay::homepage-probe": {
+      "strategyId": "homepage-probe",
+      "retailerId": "beauty-bay",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": 200,
+      "lastError": null,
+      "lastTriedAt": "2026-08-19T14:03:19.031Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
+    },
+    "beauty-bay::proxied-fetch": {
+      "strategyId": "proxied-fetch",
+      "retailerId": "beauty-bay",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": null,
+      "lastError": "no catalogue sections configured",
+      "lastTriedAt": "2026-08-19T14:03:20.532Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
+    },
+    "beauty-bay::browser-render": {
+      "strategyId": "browser-render",
+      "retailerId": "beauty-bay",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": null,
+      "lastError": "no Apify actor configured; set APIFY_TOKEN to enable",
+      "lastTriedAt": "2026-08-19T14:03:22.034Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
     }
   },
-  "updatedAt": "2026-08-10T18:41:25.925Z"
+  "updatedAt": "2026-08-19T14:03:22.034Z"
 }
