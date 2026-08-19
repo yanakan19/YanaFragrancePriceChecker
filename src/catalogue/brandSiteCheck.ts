@@ -166,14 +166,33 @@ export function classifyLanding(landing: Landing): BrandSiteFinding {
       reason: `the request never completed${error ? ` — ${error}` : ''}`,
     };
   }
+  // A refusal aimed at us is not a dead link, and conflating the two sent a
+  // reviewer after eighteen healthy sites at once. The first sweep of this
+  // registry reported 22 dead; 18 of them were 403s from luxury houses
+  // (Chanel, Prada, Gucci, Lancôme, Versace and the rest) whose bot defences
+  // turn away a plain non-browser request, and every one was confirmed still
+  // live by hand afterwards. Only 4 were genuinely broken.
+  //
+  // So these statuses mean "we were not allowed to look", which is the same
+  // class of non-answer as an unreachable robots.txt and is reported the same
+  // way. A reader following the link in a real browser is not refused.
+  if (status === 401 || status === 403 || status === 429) {
+    return {
+      ...base,
+      verdict: 'could-not-ask',
+      reason:
+        `the site answered ${status} to an automated request — bot defence turning us away, ` +
+        'not evidence about the link. A browser is not refused this way; check by hand if in doubt',
+    };
+  }
   if (status >= 400) {
     return {
       ...base,
       verdict: 'dead',
       reason:
-        status === 404
+        status === 404 || status === 410
           ? 'the page is gone — this link shows a reader an error'
-          : 'the site refused or failed to serve this address',
+          : 'the site failed to serve this address',
     };
   }
   if (landed === null) {
