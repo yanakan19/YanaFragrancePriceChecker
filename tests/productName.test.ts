@@ -333,6 +333,78 @@ describe('displayName: "Le Parfum" and other French-article naming, not a stripp
   });
 });
 
+describe('displayName: "L\'Eau de Parfum"/"L\'Eau de Toilette", an elided article stripped the wrong occurrence', () => {
+  // The side-finding from the Escada investigation, now confirmed against the
+  // live CATALOGUE and fixed: 21 real, currently-published names came out
+  // mangled (checked with /\bL['’]\s*$/i for the orphaned-article shape and
+  // /\bL['’]\s+\S/ for the space-after shape, both against CATALOGUE's own
+  // `name` field). The old code stripped whichever occurrence of the matched
+  // concentration phrase came first, with no regard for what sat directly in
+  // front of it — fine for a plain "Eau de Parfum", wrong the moment the
+  // house's own naming glues an elided "L'" onto it with no space: "Idôle
+  // L'Eau de Parfum", "Chloé L'Eau de Parfum Intense", Carven's eponymous
+  // "L'Eau de Toilette". All ten cases below are verbatim rawTitle values
+  // from data/catalogue/*.json, not invented text.
+  it.each([
+    // Orphan shape: the elided phrase was the *only* occurrence, so
+    // stripping it left a bare "L'" with nothing after it.
+    ["(Lancôme) Idôle Nectar L'Eau de Parfum 100ml Spray", 'Lancôme', 'Lancôme',
+      "(Lancôme) Idôle Nectar L'Eau de Parfum"],
+    ["Lancome Idole L'Eau De Toilette 100ml", 'Lancome', 'Lancôme', "Idole L'Eau De Toilette"],
+    ["Lancome La Vie Est Belle Iris Absolu L'eau de Parfum - 100ml", 'Lancome', 'Lancôme',
+      "La Vie Est Belle Iris Absolu L'eau de Parfum"],
+    ["Lancôme La Vie est Belle L'Elixir L'eau de Parfum 50ml Refillable Spray", 'Lancome', 'Lancôme',
+      "La Vie est Belle L'Elixir L'eau de Parfum"],
+    // Space-after shape: a second, genuinely redundant restatement of the
+    // same phrase existed elsewhere in the title, and the old code stripped
+    // the wrong (elided, name-bearing) one instead of that second one.
+    ["Chloe L'eau De Parfum Intense 30ml Refillable Spray", 'Chloe', 'Chloé', "L'eau De Parfum Intense"],
+    ["Lancome Idole Power L’Eau de Parfum Intense Spray 25ml", 'Lancome', 'Lancôme',
+      "Idole Power L’Eau de Parfum Intense"],
+    ["Carven L'Eau de Toilette Eau de Toilette 100ml Spray", 'Carven', 'Carven', "L'Eau de Toilette"],
+    ["Lancome Idole Nectar L'Eau De Parfum - 100ml Eau de Parfum Spray", 'Lancome', 'Lancôme',
+      "Idole Nectar L'Eau De Parfum"],
+    ["Lancome La Vie Est Belle Rose Extraordinarie 100ml L'eau De Parfum Florale", 'Lancome', 'Lancôme',
+      "La Vie Est Belle Rose Extraordinarie L'eau De Parfum Florale"],
+    // The one generic-tier ("extrait", not a CONCENTRATION_SPECIFIC phrase)
+    // case measured in the harvest — see precededByElidedArticle's comment.
+    ["Lancôme Absolue L'Extrait Elixir Anti-Ageing Serum 30ml", 'Lancôme', 'Lancôme',
+      "Absolue L'Extrait Elixir Anti-Ageing Serum"],
+  ])('%s -> %s', (title, raw, displayed, expected) => {
+    expect(displayName(title, raw, displayed)).toBe(expected);
+  });
+
+  // The counter-examples this has to survive without breaking: real names
+  // that carry an apostrophe-L but are not this shape at all, because the
+  // word right after the apostrophe is not "eau"/"extrait" (Givenchy,
+  // Al Haramain), or because the "L'X" is its own separate, standalone token
+  // with a genuine concentration stated later rather than glued onto it
+  // (Issey Miyake, Nina Ricci, Jimmy Choo). None of these were ever broken —
+  // pinned here so a future change to this feature cannot start breaking
+  // them either.
+  it.each([
+    ["Issey Miyake L'Eau D'Issey Eau De Toilette 100ml Spray", 'Issey Miyake', 'Issey Miyake', "L'Eau D'Issey"],
+    ["Givenchy L'INTERDIT Eau De Parfum 35ml Spray", 'Givenchy', 'Givenchy', "L'INTERDIT"],
+    ["Nina Ricci L'Air Du Temps Eau De Parfum 100ml Spray", 'Nina Ricci', 'Nina Ricci', "L'Air Du Temps"],
+    ["Al Haramain L'Aventure Intense Eau De Parfum 100ml", 'Al Haramain', 'Al Haramain', "L'Aventure Intense"],
+    ["Jimmy Choo L'Eau Eau De Toilette 40ml Spray", 'Jimmy Choo', 'Jimmy Choo', "L'Eau"],
+  ])('leaves a genuine apostrophe-L name untouched: %s -> %s', (title, raw, displayed, expected) => {
+    expect(displayName(title, raw, displayed)).toBe(expected);
+  });
+
+  // The proof this is not a blanket "never strip after L'" rule either: a
+  // plain, non-elided concentration is still found and stripped exactly as
+  // before, and the pre-existing Escada/Le-Parfum/trailing-brand fixes are
+  // untouched by this one.
+  it('still strips a genuine concentration with no elided article involved', () => {
+    expect(displayName('Creed Aventus Cologne Eau De Parfum 50ml', 'Creed', 'Creed')).toBe('Aventus Cologne');
+    expect(displayName('Aramis Eau de Toilette 110ml Spray', 'Aramis', 'Aramis')).toBe('Aramis');
+    expect(displayName('Escada Sorbetto Rosso Le Eau De Toilette 100ml', 'Escada', 'Escada')).toBe(
+      'Sorbetto Rosso Le',
+    );
+  });
+});
+
 describe('stripRedundantSize: a house product name does not repeat its own sizeMl badge', () => {
   it('strips a plain trailing size', () => {
     expect(stripRedundantSize('Ashore 100ml', 100)).toBe('Ashore');
