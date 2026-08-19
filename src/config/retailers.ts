@@ -3264,7 +3264,15 @@ export const RETAILERS: readonly Retailer[] = [
       estimatedDays: [3, 5],
       verifiedAt: '2026-08-11',
       confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+      notes:
+        'Read directly now, not just unread: shipping probe, run 32281470836 job 96161024104, ' +
+        '2026-08-19T17:26Z, fetched the delivery page and confirmed it genuinely is ambiguous, ' +
+        'not merely unread — the page names two different delivery charges (£3.95, £9.95) with ' +
+        'no clear label for which is the standard rate, and four different free-delivery ' +
+        'thresholds (£30, £90, £100, £150), almost certainly a mix of standard/express tiers ' +
+        'and loyalty-scheme thresholds run together by the extractor. Guessing which pairing is ' +
+        '"standard" from this alone would be inventing a figure, so none is taken. Read ' +
+        'cultbeauty.co.uk\'s delivery page directly to disambiguate, then enable.',
     },
     // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
     // NOT AN APIFY CANDIDATE on the evidence gathered this review — hand this
