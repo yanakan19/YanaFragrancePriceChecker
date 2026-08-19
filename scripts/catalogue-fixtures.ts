@@ -108,7 +108,19 @@ const PRODUCTS: FixtureProduct[] = [
     { at: 'lookfantastic', price: 105.0, inStock: false },
     { at: 'beautybase', price: 99.0, inStock: false },
   ]},
-  { key: 'lelabo', name: 'Le Labo Santal 33 Eau de Parfum 50ml', brand: 'Le Labo', ean: '3660549000330', stocked: [
+  // ean was '3660549000330', which fails the GS1 check digit at every
+  // length (13-digit body 366054900033 wants check digit 5, not 0) — a typo
+  // in this file, not a real barcode; data/catalogue/selfridges.json carries
+  // the identical typo only because that file is itself generated from these
+  // fixtures (selfridges is fixtures-only, never live-harvested, so it is not
+  // independent evidence of a real EAN). No live-harvested retailer in this
+  // catalogue stocks Le Labo Santal 33 to check against, so the real-world
+  // barcode cannot be established from anything in this repo. The last digit
+  // is corrected to the value that actually satisfies the check (5) rather
+  // than left invalid or replaced with a different invented number — this is
+  // still a synthetic placeholder for a local test fixture, not a claim about
+  // Le Labo's real EAN.
+  { key: 'lelabo', name: 'Le Labo Santal 33 Eau de Parfum 50ml', brand: 'Le Labo', ean: '3660549000335', stocked: [
     { at: 'selfridges', price: 200.0 },
   ]},
   { key: 'oudwood', name: 'Tom Ford Oud Wood Eau de Parfum 50ml', brand: 'Tom Ford', ean: '888066008075', stocked: [
