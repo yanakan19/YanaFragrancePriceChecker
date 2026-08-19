@@ -2154,8 +2154,37 @@ export const RETAILERS: readonly Retailer[] = [
     // A fashion retailer, not a fragrance specialist, but its own perfume line
     // is single-brand the same way Armaf's shop is — Zara does not stock any
     // other house's fragrance.
+    //
+    // Was enabled with zero listings — no route was ever wired. Currency
+    // probe, run 32277218325 job 96147368914 (market sweep) and run
+    // 32277396198 job 96147931164 (a real product page,
+    // /uk/en/fashionably-london-edp-100-ml---3-38-oz-p20210888.html, found via
+    // web search rather than guessed), both 2026-08-19T16:4*Z, commit
+    // da7a4dd: not Shopify — /products.json-shaped signals absent everywhere,
+    // .json on the product path 404s. The bare origin, /gb, /uk and every
+    // cookie/header variant all answer home 200 — this domain is reachable,
+    // nothing here is blocked — but the product PAGE itself carries no
+    // schema.org JSON-LD and no currency meta at all, on any of the seven
+    // ways asked. That is the same signature Harvey Nichols' entry above
+    // documents: HTTP 200 with the markup genuinely empty until JavaScript
+    // runs, not a wrong URL and not a block. So `adapter: 'headless'` here
+    // too, for the same reason and pointed at the same Apify-actor route —
+    // see apifyActor.ts and the Harvey Nichols comment for what that route
+    // is and is not proven to do. It is UNPROVEN for this shop specifically:
+    // no APIFY_TOKEN exists in this environment, so nothing below has
+    // actually run. The two catalogue.sections URLs are real category pages
+    // (found the same way as the product URL above, not invented) but a
+    // script-rendered SPA's true pagination scheme was not established —
+    // the ?page= param is this repo's usual convention, unverified past
+    // page 1, and moot until a token makes the route runnable at all.
+    // Currency stays exactly what it was before this pass: nothing measured
+    // here bears on it either way, since the probe's only currency signals
+    // (Shopify.currency, /meta.json, JSON-LD priceCurrency) require a
+    // storefront shape this one does not have — that is a gap in what this
+    // probe can see, not a finding that Zara's published GBP price is
+    // wrong.
     enabled: true,
-    adapter: 'unknown',
+    adapter: 'headless',
     currency: 'GBP',
     shipping: {
       standardGbp: 3.95,
@@ -2168,7 +2197,19 @@ export const RETAILERS: readonly Retailer[] = [
         "page via search summary. Next-day (£4.95) and same-day London (£7.95) exist and are " +
         'out of scope for the standard-only model. Fragrance since 1998 via Puig.',
     },
-    catalogue: null,
+    // searchUrlTemplate: the bare /uk/en/search page is confirmed to exist;
+    // the ?searchTerm= param itself was only seen live on Zara's US mirror
+    // (zara.com/us/en/search?searchTerm=) during the same search, not
+    // queried directly against /uk/en/ here — kept for shape-consistency
+    // with every other entry's required field, not asserted as measured.
+    catalogue: {
+      searchUrlTemplate: 'https://www.zara.com/uk/en/search?searchTerm={q}',
+      sections: [
+        { id: 'women', label: "Women's fragrance", urlTemplate: 'https://www.zara.com/uk/en/woman-beauty-perfumes-l1415.html?page={page}', tier: 'designer' },
+        { id: 'men', label: "Men's fragrance", urlTemplate: 'https://www.zara.com/uk/en/man-accessories-perfumes-l551.html?page={page}', tier: 'designer' },
+      ],
+      firstPage: 1, maxPages: 20, minRequestGapMs: 2000,
+    },
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
