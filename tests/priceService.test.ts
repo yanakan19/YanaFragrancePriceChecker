@@ -121,10 +121,10 @@ describe('buildComparison ordering', () => {
     // there is to go on, and it is a fair comparison — neither is being
     // credited with delivery it has not quoted.
     const rows = buildComparison(
-      [offer('perfume-shopping', 60), offer('manchester-ouds', 40)],
+      [offer('ibraq', 60), offer('manchester-ouds', 40)],
       { now: NOW },
     );
-    expect(rows.map((r) => r.retailer.id)).toEqual(['manchester-ouds', 'perfume-shopping']);
+    expect(rows.map((r) => r.retailer.id)).toEqual(['manchester-ouds', 'ibraq']);
     expect(rows.every((r) => r.deliveredPriceGbp === null)).toBe(true);
   });
 
