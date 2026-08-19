@@ -124,8 +124,15 @@ describe('retailer registry', () => {
       // 2026-08-12: both now have a directly-quoted flat rate read off their
       // own shipping policy pages (see src/config/retailers.ts), so they
       // carry a real standardGbp and are no longer shown as "delivery not
-      // stated". Manchester Ouds and Perfume Shopping remain here — see each
-      // entry's shipping.notes for what was tried.
+      // stated". Manchester Ouds remains here — see its entry's
+      // shipping.notes for what was tried. Perfume Shopping left this list
+      // 2026-08-19 for a worse reason than the others: disabled outright,
+      // because two separate probes a week apart (a direct 403 on
+      // 2026-08-12, a CI probe that got no robots.txt answer at all on
+      // 2026-08-19, run 32276664942 job 96145604924) found the domain
+      // unreachable by this tooling. This list only covers *enabled*
+      // retailers, so it drops out on that basis rather than a delivery
+      // figure having been found.
       // Al Haramain, Armaf, French Avenue, IBRAQ and Zimaya joined this list
       // 2026-08-19: each cleared the Shopify-suspect currency probe (real
       // /products.json payload, a sterling price list confirmed by a CI
@@ -145,7 +152,6 @@ describe('retailer registry', () => {
         'french-avenue',
         'ibraq',
         'manchester-ouds',
-        'perfume-shopping',
         'zimaya',
       ]);
       for (const r of unstated) {

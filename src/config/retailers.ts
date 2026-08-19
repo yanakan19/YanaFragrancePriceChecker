@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 58 retailers, 33 of them `enabled: true`. Every one of them is a legitimate
+ * 58 retailers, 32 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -1307,13 +1307,27 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'perfumeshopping.com',
     homepage: 'https://www.perfumeshopping.com',
     tiers: ['designer'],
-    // Enabled with delivery not stated. The free-delivery threshold is
-    // reasonably well sourced, but the standard cost below it is not — one
-    // third-party aggregator cites a figure, never confirmed on the retailer's
-    // own page, which is not a strong enough basis to price a sort key
-    // against. So standardGbp stays null and this shop is shown without a
-    // delivered price rather than either hidden or given an invented one.
-    enabled: true,
+    // Was `enabled: true` with a real catalogue.sections config and zero
+    // listings behind it — the switch was on and nothing could flow, because
+    // nothing this repo's tooling can send ever reaches the domain.
+    //
+    // Direct re-attempt 2026-08-12 got HTTP 403 on the homepage, robots.txt
+    // AND /policies/shipping-policy alike — the whole site refuses this
+    // tooling, not one page. Currency probe, run 32276664942 job 96145604924,
+    // 2026-08-19T16:34Z, commit 2107dfa: robots.txt did not answer at all
+    // this time — no response, not even a 403 — so the probe made zero
+    // further requests, exactly as its own standard requires ("holding off
+    // rather than assuming we are welcome"). Two attempts a week apart, two
+    // different failure shapes (an explicit block, then silence), same
+    // outcome: nothing here suggests this address will ever answer this
+    // tooling. Per this registry's own rule that robots.txt (or its total
+    // absence) is binding, this is a documented dead end, not a to-do —
+    // disabled rather than left on dark. The catalogue.sections URLs below
+    // were confirmed live in a human browser 6 Aug 2026 and are kept as a
+    // record of that fact; they are not something an automated route can
+    // reach from here. Re-enable only after a probe run actually gets past
+    // robots.txt.
+    enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
@@ -1323,15 +1337,12 @@ export const RETAILERS: readonly Retailer[] = [
       verifiedAt: '2026-08-12',
       confidence: 'unverified',
       notes:
-        'THE FLAT STANDARD RATE IS UNCONFIRMED, so this shop is shown with delivery not ' +
-        'stated: no delivered price is computed for it and it can never rank as cheapest. ' +
-        'Free UK delivery over £50, next-day option at £3.99 (aggregator-sourced, not read ' +
-        'off the retailer\'s own page). Re-attempted directly 2026-08-12: every request to ' +
-        'perfumeshopping.com (homepage, robots.txt, /policies/shipping-policy) returned ' +
-        'HTTP 403 — the whole site refuses this tooling, not just the shipping page, so ' +
-        'robots.txt itself could not even be read to check what a compliant crawl route ' +
-        'would look like. Needs a different network path or a human browser session to move ' +
-        'past aggregator-sourced numbers.',
+        'THE FLAT STANDARD RATE IS UNCONFIRMED. Free UK delivery over £50, next-day option at ' +
+        '£3.99 (aggregator-sourced, not read off the retailer\'s own page). Re-attempted ' +
+        'directly 2026-08-12: every request to perfumeshopping.com (homepage, robots.txt, ' +
+        '/policies/shipping-policy) returned HTTP 403. Re-attempted from CI 2026-08-19 (run ' +
+        '32276664942 job 96145604924): robots.txt did not answer at all. See the entry-level ' +
+        'comment above for why this shop is now disabled rather than shown dark.',
     },
     // Confirmed live in a browser 6 Aug 2026. A third
     // /brands page was also given but is a brand index rather than a
