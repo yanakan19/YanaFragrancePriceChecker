@@ -23,7 +23,7 @@ import { marketOf } from '../src/catalogue/brandSiteCheck.js';
  * cruder count on 2026-08-17, 664 distinct raw strings by that same cruder
  * count on 2026-08-19 — the catalogue grows between harvests, so treat this
  * as "the count on the day someone last measured it," not a fixed total).
- * 251 of those 662 resolve here as of this measurement (37.9%, re-measured
+ * 261 of those 662 resolve here as of this measurement (39.4%, re-measured
  * after this pass's own additions — the 662/168 figures above are the count
  * at the start of the pass). This list is still only the highest-volume
  * brands so far, not a finished set.
@@ -545,7 +545,11 @@ export const BRAND_SITES: Record<string, string> = {
   thameen: 'https://thameenfragrance.com/', // British house; domain itself carries no UK marker
   'roger gallet': 'https://en.roger-gallet.com/',
   'molton brown': 'https://www.moltonbrown.co.uk/',
-  courreges: 'https://www.courreges.com/',
+  // Catalogue's canonical spelling keeps the accent — "Courrèges" — and
+  // normalizeBrand drops è as punctuation rather than folding it to "e",
+  // leaving a space in its place rather than the plain ASCII spelling this
+  // key first assumed. Same root cause as Chloé and Le Falconé above.
+  'courr ges': 'https://www.courreges.com/',
   replay: 'https://www.replayjeans.com/',
   benetton: 'https://us.benetton.com/',
   // normalizeBrand strips digits, so "100 Bon" collapses to "bon" — a real,
@@ -559,6 +563,20 @@ export const BRAND_SITES: Record<string, string> = {
   'rue broca': 'https://ruebrocaparfums.com/',
   gres: 'https://www.parfumsgres.com/en',
   'paloma picasso': 'https://paloma-picasso.com/',
+  // Parent group's own site — Puig owns Nina Ricci, Carolina Herrera, Jean
+  // Paul Gaultier, Paco Rabanne, Penhaligon's and others already in this file.
+  'antonio puig': 'https://www.puig.com/',
+  'katy perry': 'https://www.katyperryfragrances.com/',
+  'alyssa ashley': 'https://www.alyssaashley.com/',
+  'miller harris': 'https://www.millerharris.com/', // British house; domain itself carries no UK marker
+  'arabian oud': 'https://arabianoud.co.uk/en',
+  // Dumont Perfumes UAE sub-lines, same domain as the "dumont perfumes uae"
+  // and "maxo parfum" entries above.
+  borouj: 'https://dumontparfums.com/collections/borouj',
+  'ramon blazar': 'https://dumontparfums.com/collections/ramon-blazar',
+  hollister: 'https://www.hollisterco.com/',
+  'bruno banani': 'https://brunobanani.com/en',
+  coty: 'https://www.coty.com/',
 };
 
 /**
