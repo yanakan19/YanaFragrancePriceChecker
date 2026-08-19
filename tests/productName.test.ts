@@ -348,8 +348,11 @@ describe('displayName: "L\'Eau de Parfum"/"L\'Eau de Toilette", an elided articl
   it.each([
     // Orphan shape: the elided phrase was the *only* occurrence, so
     // stripping it left a bare "L'" with nothing after it.
+    // The parenthesised-brand prefix here is a separate fix (see the
+    // "parenthesised brand" describe block below); this case exercises both
+    // together, so the expected value already has it stripped.
     ["(Lancôme) Idôle Nectar L'Eau de Parfum 100ml Spray", 'Lancôme', 'Lancôme',
-      "(Lancôme) Idôle Nectar L'Eau de Parfum"],
+      "Idôle Nectar L'Eau de Parfum"],
     ["Lancome Idole L'Eau De Toilette 100ml", 'Lancome', 'Lancôme', "Idole L'Eau De Toilette"],
     ["Lancome La Vie Est Belle Iris Absolu L'eau de Parfum - 100ml", 'Lancome', 'Lancôme',
       "La Vie Est Belle Iris Absolu L'eau de Parfum"],
@@ -402,6 +405,33 @@ describe('displayName: "L\'Eau de Parfum"/"L\'Eau de Toilette", an elided articl
     expect(displayName('Escada Sorbetto Rosso Le Eau De Toilette 100ml', 'Escada', 'Escada')).toBe(
       'Sorbetto Rosso Le',
     );
+  });
+});
+
+describe('displayName: a shop that puts its own brand in parentheses ahead of the name', () => {
+  // Real, verbatim rawTitle values. beautybase.json spells the parenthesised
+  // prefix two ways in the same feed — "(Lancôme)" and "(Lancome)" — while
+  // its own rawBrand field is always the accented "Lancôme", so the
+  // unaccented title has no exact-spelling candidate to match against at
+  // all; foldDiacritics is what makes that one land.
+  it.each([
+    ["(Lancôme) Idôle Nectar L'Eau de Parfum 100ml Spray", 'Lancôme', 'Lancôme', "Idôle Nectar L'Eau de Parfum"],
+    ['(Lancôme) Miracle Eau de Parfum 30ml Spray', 'Lancôme', 'Lancôme', 'Miracle'],
+    ['(Lancome) La Nuit Trésor Eau De Parfum 50ml Spray', 'Lancôme', 'Lancôme', 'La Nuit Trésor'],
+  ])('%s -> %s', (title, raw, displayed, expected) => {
+    expect(displayName(title, raw, displayed)).toBe(expected);
+  });
+
+  // The trap a looser rule would walk into: a parenthesised word right where
+  // the brand would sit is not always the brand. Missoni's own reformulation
+  // marker and Tous's own shade name both take the identical shape and must
+  // survive untouched — neither "2015" nor "Gold" is that product's brand,
+  // so brandKey never matches either against the real brand candidates.
+  it.each([
+    ['Missoni (2015) Eau de Parfum 30ml Spray', 'Missoni', 'Missoni', '(2015)'],
+    ['Tous (Gold) Eau de Parfum 50ml Spray', 'Tous', 'Tous', '(Gold)'],
+  ])('leaves a parenthesised word alone when it is not the brand: %s -> %s', (title, raw, displayed, expected) => {
+    expect(displayName(title, raw, displayed)).toBe(expected);
   });
 });
 

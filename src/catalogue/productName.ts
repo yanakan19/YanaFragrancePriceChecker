@@ -381,6 +381,19 @@ export function concentration(title: string): string {
 const escapeRe = (s: string): string => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 /**
+ * Drop diacritics so an accented spelling folds onto the plain one before a
+ * brandKey comparison — brandKey on its own only deletes a non-ASCII letter
+ * ("ô" is filtered out, not replaced), so "Lancôme" and "Lancome" land on
+ * different keys ('lancme' vs 'lancome') even though they are the same
+ * brand two rows of the same feed spelled two ways. Same technique
+ * fragranceId.ts's own `fold` uses for the same reason (an accented
+ * concentration word must match the plain one), reimplemented here as one
+ * line rather than imported, because `fold` there is not exported and pulls
+ * in the mojibake-repair machinery this one line does not need.
+ */
+const foldDiacritics = (s: string): string => s.normalize('NFD').replace(/[̀-ͯ]/g, '');
+
+/**
  * Which spelling of the brand the title actually opens with, longest first.
  *
  * A listing has two brand strings and they are frequently not the same one.
@@ -597,6 +610,37 @@ export function displayName(title: string, brand: string | null, displayedBrand:
     // in the catalogue has one, so there is no case to fix and no reason to
     // guess at what stripping one would do.
     .replace(/^[\s,\-&|]+|[\s,\-|]+$/g, '');
+
+  // A shop that puts its own brand in parentheses ahead of the name instead
+  // of opening with it plainly — "(Lancôme) Idôle Nectar L'Eau de Parfum" —
+  // repeats a fact the brand field already states, the same redundancy
+  // brandTitleOpens strips for the plain-text case; brandTitleOpens itself
+  // never catches it because "(Lancôme)" does not literally start with
+  // "Lancôme". Checked on brandKey rather than the exact candidate string,
+  // for the same reason brandTitleEnds is (beautybase's own feed spells the
+  // parenthesised prefix "(Lancome)" without the accent in one title,
+  // "(Lancôme)" with it in the next, while its rawBrand field is always
+  // accented — the candidate list brandTitleEnds already relies on has no
+  // unaccented spelling to match against at all here). brandKey alone still
+  // is not enough for that pair — it deletes "ô" rather than folding it to
+  // "o", so "Lancome" and "Lancôme" land on different keys ('lancome' vs
+  // 'lancme') — hence foldDiacritics ahead of it, checked directly against
+  // this exact case before relying on it.
+  //
+  // 23 CATALOGUE names open this way, measured against the live build; 20 of
+  // them are this exact Lancôme shape and come off cleanly. The other 3 are
+  // the trap a looser rule would walk into: Missoni's "(2015)" and Tous's
+  // "(Gold)" also open with a parenthesised word, but "2015" and "Gold" are
+  // not that product's brand — one is a reformulation-year marker (the same
+  // shape brandTitleEnds' own "Femme (Rochas)" test guards, just at the
+  // front instead of the back), the other a shade name — and neither's
+  // brandKey matches any candidate here, so this leaves both exactly as they
+  // are.
+  const parenBrand = s.match(/^\(([^()]+)\)\s*/);
+  const parenBrandKey = parenBrand ? brandKey(foldDiacritics(parenBrand[1]!)) : '';
+  if (parenBrandKey && [displayedBrand, brand].some((c) => c && brandKey(foldDiacritics(c)) === parenBrandKey)) {
+    s = s.slice(parenBrand![0].length);
+  }
 
   // The mirror image of the opener strip above: a shop that appends its own
   // vendor field to the *end* of the title instead of opening with it — see
