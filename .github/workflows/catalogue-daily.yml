@@ -666,14 +666,37 @@ jobs:
       # in on #158 — by then 24,276 distinct URLs, up with every listing added.
       # #158 had already committed its harvest when this step was cancelled, so
       # the only thing the job timeout actually destroyed there was this
-      # report, and it marked the whole run "cancelled" to do it. 15 minutes,
-      # and a run that overruns it loses one image report rather than its
-      # status.
+      # report, and it marked the whole run "cancelled" to do it.
+      #
+      # Two passes now, not one. The broken-link sweep is scoped to only the
+      # retailers whose photos an `imageBasis` actually lets a reader see (see
+      # scripts/image-link-check.ts's header) and separates a real HTTP
+      # response from a connection failure that is ours, never counting the
+      # second as broken — the first version of this report conflated them and
+      # called 20,317 of its own dropped connections "broken images". The
+      # second pass is Bug 2's referer-sensitivity sample: it fetches a sample
+      # of each shown retailer's images once with a pricesniffs.space referer
+      # and once with none, because that second, refererless request is what
+      # this site's own <img referrerpolicy="no-referrer"> tags actually send
+      # (demo/photo.ts) — a host that only serves the first would show a real
+      # reader a broken tile. Its report is committed here too, since this is
+      # the one step of this file scripts/image-link-check.ts's owner may
+      # touch; the scheduled "Commit image link report" step below still
+      # handles data/image-link-report.json on its own.
+      #
+      # 20 minutes, up from 15, for the second pass's requests; still
+      # best-effort, and a run that overruns it loses these two reports rather
+      # than its status.
       - name: Check image links
         if: ${{ inputs.harvest || github.event_name == 'schedule' }}
         continue-on-error: true
-        timeout-minutes: 15
-        run: npm run images:check
+        timeout-minutes: 20
+        run: |
+          npm run images:check
+          npm run images:check -- --referer-check
+          ./scripts/commit-and-push.sh \
+            "Image referer check: $(date -u +%Y-%m-%d)" \
+            data/image-referer-report.json
 
       - name: Commit image link report
         if: ${{ inputs.harvest || github.event_name == 'schedule' }}
