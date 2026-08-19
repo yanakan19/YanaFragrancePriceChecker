@@ -2314,6 +2314,20 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'debenhams.com',
     homepage: 'https://www.debenhams.com',
     tiers: ['designer'],
+    // Currency probe (run 32256810054, job 96080315943, 2026-08-19): robots.txt
+    // answers with no disallow, and the bare origin serves a sterling price
+    // list — home 200, quotes GBP, no conversion applied — to a GitHub Actions
+    // runner. /en-gb, /gb, /uk, /en-uk all 404 (this shop has no market-prefix
+    // layout), and every other request shape (cookies, Accept-Language) agrees
+    // with the origin at GBP. So currency is genuinely confirmed sterling from
+    // CI, at the plain origin, with no market-pinning needed.
+    //
+    // What the same run ruled out: /products.json 404s at every address tried,
+    // so this is not a Shopify storefront and shopifyStorefront stays unset.
+    // Still `enabled: false` because nothing else has been established — no
+    // harvest route (sitemap-discovery is the generic fallback and has not
+    // been run against this shop), no standard delivery cost, and the Awin
+    // application from 2026-08-11 is still `pending`.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -2334,6 +2348,21 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'niche-beauty.com',
     homepage: 'https://www.niche-beauty.com',
     tiers: ['niche'],
+    // Currency probe (run 32254695358, job 96073578532, 2026-08-19): robots.txt
+    // answers with no disallow. The bare origin quotes this US runner USD, but
+    // the /en-gb market path — meta.json 200, home 200 — serves GBP at no
+    // conversion: STERLING, confirmed, and specifically at that address, not
+    // the origin. /gb and /uk 404, /en-uk answers but in EUR, so the market is
+    // addressed by that one exact prefix rather than a general convention.
+    //
+    // Not confirmed Shopify: /en-gb/products.json 404s (as does every other
+    // address tried), so this GBP reading comes from the theme/page, not a
+    // products feed, and shopifyStorefront stays unset. The harvest therefore
+    // has no proven route yet — sitemap-discovery is the generic fallback and
+    // has not been run against this shop — and shipping and the Awin
+    // application (still `pending`) are both unread. `enabled` stays false on
+    // those grounds, not a currency doubt: this is one of the few disabled
+    // entries here where sterling is actually the CI-confirmed answer.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -2401,8 +2430,29 @@ export const RETAILERS: readonly Retailer[] = [
     // See CURRENCY_UNCONFIRMED at the foot of this file. The way back to
     // `enabled: true` is a sterling price read off this shop's own checkout —
     // not a judgement that the above looks fine.
+    //
+    // ── Evidence refreshed 2026-08-19 ────────────────────────────────────────
+    // Currency probe, run 32257210189, job 96081595191: robots.txt answers
+    // with no disallow, and /products.json returned a real Shopify payload
+    // (Susanne Kaufmann bath/skincare lines this shop also carries) — so the
+    // route this shop WOULD be harvested by, once its currency clears, is
+    // confirmed Shopify. `shopifyStorefront: true` is set below on that
+    // strength alone; it does not change `enabled`.
+    //
+    // The currency question is unchanged in substance and freshly confirmed in
+    // detail. Every request shape settles EUR (rate 1.1869842 against the USD
+    // this runner is quoted by default). Asked ?country=GB the theme LABELS
+    // the price GBP, but the shop still settles EUR underneath at a computed
+    // rate of 0.8729568 — a live Shopify-Markets conversion of the same euro
+    // figure, not a second, genuine sterling price list. That is a different
+    // mechanism from the Awin feed's fixed 1.3490 divisor recorded above (a
+    // static factor baked into the feed export, not this storefront's own
+    // per-request FX math), but the same fact about the shop: no GBP price
+    // list independent of a euro one has ever been found here, by either
+    // route. /gb, /uk, /en-uk still 404 — no market-prefix layout.
     enabled: false,
     adapter: 'affiliate-feed',
+    shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
       standardGbp: null,
@@ -2443,6 +2493,16 @@ export const RETAILERS: readonly Retailer[] = [
     // about this shop: it is Spanish, and nobody has established what its
     // checkout charges in. Enabling it while that is open publishes euros as
     // pounds. The guard below throws rather than let that happen quietly.
+    //
+    // Currency probe (run 32257096463, job 96081230582, 2026-08-19): robots.txt
+    // answers with no disallow, and the bare origin answers 200 — but no
+    // candidate, of the nine tried, published any currency at all. No
+    // Shopify.currency in the theme, no /meta.json, at any address (/en-gb,
+    // /gb, /uk, /en-uk all 404 too). /products.json also 404s everywhere, so
+    // this is not a confirmed Shopify storefront either. A genuinely silent
+    // storefront, not a foreign-currency one — the honest reading is "unknown"
+    // rather than "not sterling", and there is no route (Shopify or otherwise)
+    // yet proven for this shop.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -2616,6 +2676,15 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'gorgeousshop.com',
     homepage: 'https://www.gorgeousshop.com',
     tiers: ['designer'],
+    // Currency probe (run 32254790354, job 96073877400, 2026-08-19): robots.txt
+    // itself answers (no disallow found), but every single request this
+    // script knows how to make — the bare origin, all four market-prefix
+    // paths, every cookie/header combination, ten candidates in total — came
+    // back HTTP 403. Not a currency finding: the storefront refused all of
+    // them outright, uniformly, which reads as bot-defence rather than a
+    // route this project can fix by asking differently. APIFY CANDIDATE for
+    // Group C — a plain HTTP client from a datacentre address is refused here
+    // categorically; see AdapterStrategy 'proxied' / apifyActor.ts.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -2636,6 +2705,18 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'beautyflash.co.uk',
     homepage: 'https://www.beautyflash.co.uk',
     tiers: ['designer'],
+    // Currency probe run twice (run 32255421951 job 96075888273, and run
+    // 32257346131 job 96082041201, both 2026-08-19): both attempts got
+    // "COULD NOT ASK: robots.txt did not answer at https://beautyflash.co.uk"
+    // — no request was even made, on either run, roughly 25 minutes apart.
+    // Per the probe's own standard (see scripts/currency-probe.ts's header,
+    // and how it treated escentual.com's own repeated robots.txt silence on
+    // 2026-08-15), a repeated failure like this is read as the shop
+    // rate-limiting or otherwise refusing this address rather than a fluke —
+    // the answer is to leave it alone rather than probe harder. This is not a
+    // currency finding either way. APIFY CANDIDATE for Group C: robots.txt
+    // itself is unreachable to a plain datacentre client on two separate
+    // attempts.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -2656,6 +2737,17 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'scentsational.com',
     homepage: 'https://www.scentsational.com',
     tiers: ['designer'],
+    // CURRENCY NOT CONFIRMED — see CURRENCY_UNCONFIRMED at the foot of this
+    // file. Currency probe (run 32255905250, job 96077421762, 2026-08-19):
+    // robots.txt answers (2s crawl-delay, honoured), and the bare origin
+    // answers 200 — quoting this US runner USD, not GBP, and every other way
+    // of asking (?country=GB, both cookies, Accept-Language en-GB) agrees at
+    // USD. /en-gb, /gb, /uk, /en-uk all 404 — no market-prefix layout to try
+    // instead. Not confirmed Shopify either: /products.json 404s at every
+    // address. A .com domain quoting dollars by default is exactly the shape
+    // this repo has learned to distrust (see escentual's history above) — the
+    // difference here is nothing has yet found a GBP reading at all, at any
+    // address, so unlike escentual there is no known way to ask for sterling.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -2681,6 +2773,16 @@ export const RETAILERS: readonly Retailer[] = [
     // a fact about this shop: it ships from Madrid and nobody has established
     // what UK orders are actually priced in. Read `shipping.notes` below and
     // CURRENCY_UNCONFIRMED at the foot of this file before enabling it.
+    //
+    // Currency probe run twice (run 32256970672 job 96080822225, and run
+    // 32257466936 job 96082441277, both 2026-08-19, roughly 7 minutes apart):
+    // both got "COULD NOT ASK: robots.txt did not answer at
+    // https://beautytheshop.com" — no request was made either time. Per the
+    // probe's own standard, a repeated failure like this reads as the shop
+    // refusing or rate-limiting this address rather than a fluke; the right
+    // response is to leave it alone rather than probe harder, not to treat it
+    // as a currency finding. APIFY CANDIDATE for Group C: robots.txt itself is
+    // unreachable to a plain datacentre client on two separate attempts.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -2705,6 +2807,18 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'perfumemarketuk.com',
     homepage: 'https://www.perfumemarketuk.com',
     tiers: ['designer'],
+    // Currency probe (run 32256242622, job 96078492089, 2026-08-19): robots.txt
+    // answers with no disallow, and the bare origin serves sterling — home
+    // 200, quotes GBP, no conversion — to a GitHub Actions runner. Every other
+    // request shape (?country=GB, both cookies, Accept-Language) agrees at
+    // GBP; /en-gb, /gb, /uk, /en-uk all 404 (no market-prefix layout). So
+    // currency is genuinely confirmed sterling from CI, at the plain origin.
+    //
+    // Not confirmed Shopify: /products.json 404s everywhere tried, so
+    // shopifyStorefront stays unset and there is no proven harvest route yet
+    // — sitemap-discovery is the generic fallback and has not been run
+    // against this shop. `enabled` stays false for that reason plus unread
+    // shipping and a still-`pending` Awin application, not a currency doubt.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -2725,6 +2839,16 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'parfumdreams.co.uk',
     homepage: 'https://www.parfumdreams.co.uk',
     tiers: ['designer'],
+    // CURRENCY NOT CONFIRMED — see CURRENCY_UNCONFIRMED at the foot of this
+    // file. Currency probe (run 32256361673, job 96078874562, 2026-08-19):
+    // robots.txt answers with no disallow, and the bare origin answers 200 —
+    // but no candidate, of the nine tried, published any currency at all. No
+    // Shopify.currency in the theme, no /meta.json, at any address (/en-gb,
+    // /gb, /uk, /en-uk all 404 too). /products.json also 404s everywhere. A
+    // .co.uk domain is not evidence of sterling pricing on its own (see
+    // zimaya's entry below), and here the storefront is simply silent rather
+    // than confirming anything — "unknown", not "not sterling", and no
+    // harvest route (Shopify or otherwise) has been established.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -2874,6 +2998,16 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'fragrancedirect.co.uk',
     homepage: 'https://www.fragrancedirect.co.uk',
     tiers: ['designer'],
+    // CURRENCY NOT CONFIRMED — see CURRENCY_UNCONFIRMED at the foot of this
+    // file. Currency probe (run 32256534104, job 96079423648, 2026-08-19):
+    // robots.txt answers with no disallow, and the bare origin answers 200 —
+    // but no candidate, of the nine tried, published any currency at all. No
+    // Shopify.currency in the theme, no /meta.json, at any address (/en-gb,
+    // /gb, /uk, /en-uk all 404 too). /products.json also 404s everywhere. A
+    // .co.uk domain is not evidence of sterling pricing on its own (see
+    // zimaya's entry below) — this storefront is simply silent about its
+    // currency rather than confirming anything, and no harvest route has been
+    // established either.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -2928,6 +3062,15 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'cosmetify.com',
     homepage: 'https://www.cosmetify.com',
     tiers: ['designer', 'niche'],
+    // CURRENCY NOT CONFIRMED — see CURRENCY_UNCONFIRMED at the foot of this
+    // file. Currency probe (run 32256674382, job 96079949118, 2026-08-19):
+    // robots.txt answers with no disallow, and the bare origin answers 200 —
+    // but no candidate, of the nine tried, published any currency at all (no
+    // Shopify.currency in the theme, no /meta.json). /en-gb, /gb, /uk, /en-uk
+    // all 404, and so does /products.json at every address tried — so this is
+    // not a confirmed Shopify storefront either, and there is no proven
+    // harvest route yet. A genuinely silent storefront, not a foreign-currency
+    // one.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -2949,14 +3092,14 @@ export const RETAILERS: readonly Retailer[] = [
     affiliate: { ...awinPending('29993') },
   },
 
-  // ── Surfaced by Microsoft Shopping, nothing yet read from the shop ──────────
+  // ── Surfaced by Microsoft Shopping; a currency probe has since read it ──────
   {
     id: 'carethy',
     name: 'Carethy',
     // Taken from the shopping listing, which named the shop "Carethy.co.uk".
-    // That is the only source for this domain — nobody has opened it, so the
-    // `www.` on the homepage below is a convention, not something observed.
-    // Confirm both before enabling.
+    // That is the only source for this domain — nobody has opened it in a
+    // browser, so the `www.` on the homepage below is a convention, not
+    // something observed. Confirm both before enabling.
     domain: 'carethy.co.uk',
     homepage: 'https://www.carethy.co.uk',
     // From the one listing seen: a Calvin Klein Eau de Parfum, which is
@@ -2964,14 +3107,22 @@ export const RETAILERS: readonly Retailer[] = [
     // so those tiers are not claimed.
     tiers: ['designer'],
     // Disabled, and it must stay that way until someone has actually read this
-    // shop. Everything known about it is one line of a third-party shopping
-    // widget. In particular the currency is not established and this entry is
+    // shop. In particular the currency is not established and this entry is
     // listed in CURRENCY_UNCONFIRMED at the foot of this file, which is the
     // lesson from nicchia-luxury-uk written down as data rather than as
     // regret: that shop went live with 4,032 listings on a `currency: 'GBP'`
     // nobody had checked, and the guard could not catch it because nobody had
     // added it to the list. A .co.uk domain is not evidence of sterling
     // pricing — uk.zimayaperfumes.com quotes dollars.
+    //
+    // Currency probe (run 32254829111, job 96074001578, 2026-08-19): robots.txt
+    // answers with a 10s crawl-delay (honoured — this is why the probe step
+    // took nearly 4.5 minutes), no disallow. The bare origin answers 200, but
+    // no candidate, of the nine tried, published any currency at all — no
+    // Shopify.currency, no /meta.json, at any address (/en-gb, /gb, /uk,
+    // /en-uk all 404 too). /products.json also 404s everywhere. A genuinely
+    // silent storefront: still no basis to leave CURRENCY_UNCONFIRMED, and now
+    // also no confirmed harvest route (not Shopify).
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -3211,11 +3362,23 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
   [
     'paco-perfumerias',
     'A Spanish retailer (pacoperfumerias.com) with a UK-targeted Awin programme. Whether that ' +
-      'programme checks out in GBP, or the site is EU-priced throughout, has not been confirmed.',
+      'programme checks out in GBP, or the site is EU-priced throughout, has not been confirmed. ' +
+      'Currency probe, run 32257096463 job 96081230582, 2026-08-19: robots.txt answers with no ' +
+      'disallow, and the bare origin answers 200, but none of the nine ways of asking published ' +
+      'any currency at all — no Shopify.currency in the theme, no /meta.json, and /en-gb /gb /uk ' +
+      '/en-uk all 404. /products.json also 404s everywhere, so this is not a confirmed Shopify ' +
+      'storefront either. A genuinely silent storefront, not evidence either way.',
   ],
   [
     'beauty-the-shop-uk',
-    'Ships from Madrid, Spain. Whether UK orders are actually GBP-priced has not been confirmed.',
+    'Ships from Madrid, Spain. Whether UK orders are actually GBP-priced has not been confirmed. ' +
+      'Currency probe attempted twice, 2026-08-19 (run 32256970672 job 96080822225, and run ' +
+      '32257466936 job 96082441277, roughly 7 minutes apart): both got "COULD NOT ASK: robots.txt ' +
+      'did not answer at https://beautytheshop.com" — no request was made either time. A repeated ' +
+      'failure like this reads as the shop refusing or rate-limiting this address rather than a ' +
+      'fluke; per the probe\'s own standard the right response is to leave it alone rather than ' +
+      'probe harder. Not a currency finding, and a documented Apify candidate for whoever next ' +
+      'takes on scraping this shop directly — a plain HTTP client cannot even read its robots.txt.',
   ],
   [
     'nicchia-luxury-uk',
@@ -3236,7 +3399,14 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       "kept as nativePrice under currency 'unknown', the only label the measurements above " +
       'support: not the euros the storefront quotes, not pounds, and not a converted anything. ' +
       'CatalogueStore.write now refuses to store a sterling figure against any id on this list, ' +
-      'so no routine run can put them back.',
+      'so no routine run can put them back. Evidence refreshed 2026-08-19 (currency probe, run ' +
+      '32257210189, job 96081595191): /products.json now returns a real Shopify payload — this ' +
+      'is confirmed Shopify, the route that WOULD serve it — but every request shape still ' +
+      'settles EUR. Asked ?country=GB the theme labels the price GBP while settling EUR at a ' +
+      'computed rate of 0.8729568, a live Shopify-Markets conversion of the same euro figure, ' +
+      'not a second genuine sterling list; this is a different mechanism from the Awin feed\'s ' +
+      'fixed 1.3490 divisor above, but the same underlying fact: no GBP price list independent ' +
+      'of a euro one has been found here by any route tried.',
   ],
   [
     'carethy',
@@ -3244,7 +3414,46 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'only moment at which this list can be complete. Everything known about carethy.co.uk ' +
       'is one row of a Microsoft Shopping results page; its checkout currency has not been ' +
       'looked at, and a .co.uk domain is not evidence of sterling (uk.zimayaperfumes.com ' +
-      'quotes dollars). No claim is made that it prices in anything in particular.',
+      'quotes dollars). No claim is made that it prices in anything in particular. Currency ' +
+      'probe, run 32254829111 job 96074001578, 2026-08-19: robots.txt answers with a 10s ' +
+      'crawl-delay and no disallow; the bare origin answers 200, but none of the nine ways of ' +
+      'asking published any currency at all, and /products.json 404s everywhere too. Now a ' +
+      'genuinely silent storefront rather than an unopened one — still no basis for sterling.',
+  ],
+  [
+    'scentsational',
+    'scentsational.com quotes this US runner USD by default and at every request shape tried ' +
+      '(currency probe, run 32255905250 job 96077421762, 2026-08-19): origin, ?country=GB, both ' +
+      'localisation cookies and Accept-Language en-GB all settle USD; /en-gb, /gb, /uk, /en-uk ' +
+      'all 404, so there is no market-prefix address to try instead. /products.json 404s ' +
+      'everywhere too, so this is not a confirmed Shopify storefront either. Unlike escentual, ' +
+      'no request this repo knows how to make has found a GBP reading anywhere on this shop.',
+  ],
+  [
+    'parfumdreams-uk',
+    'Currency probe, run 32256361673 job 96078874562, 2026-08-19: robots.txt answers with no ' +
+      'disallow, and the bare origin answers 200, but none of the nine ways of asking published ' +
+      'any currency at all — no Shopify.currency, no /meta.json, and /en-gb /gb /uk /en-uk all ' +
+      '404. /products.json also 404s everywhere. A .co.uk domain is not evidence of sterling ' +
+      'pricing on its own (uk.zimayaperfumes.com quotes dollars) — this storefront is simply ' +
+      'silent about its currency rather than confirming anything.',
+  ],
+  [
+    'fragrancedirect',
+    'Currency probe, run 32256534104 job 96079423648, 2026-08-19: robots.txt answers with no ' +
+      'disallow, and the bare origin answers 200, but none of the nine ways of asking published ' +
+      'any currency at all — no Shopify.currency, no /meta.json, and /en-gb /gb /uk /en-uk all ' +
+      '404. /products.json also 404s everywhere. A .co.uk domain is not evidence of sterling ' +
+      'pricing on its own (uk.zimayaperfumes.com quotes dollars) — this storefront is simply ' +
+      'silent about its currency rather than confirming anything.',
+  ],
+  [
+    'cosmetify',
+    'Currency probe, run 32256674382 job 96079949118, 2026-08-19: robots.txt answers with no ' +
+      'disallow, and the bare origin answers 200, but none of the nine ways of asking published ' +
+      'any currency at all — no Shopify.currency, no /meta.json, and /en-gb /gb /uk /en-uk all ' +
+      '404. /products.json also 404s at every address tried, so this is not a confirmed Shopify ' +
+      'storefront either. A genuinely silent storefront, not a foreign-currency one.',
   ],
   [
     'escentual',
@@ -3276,8 +3485,13 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
 
 // Runs once, at import, which is the only moment early enough to matter: by
 // the time a price reaches a snapshot the currency has already been assumed.
-// Cannot fire today — all six are `enabled: false` — and that is the point.
-// It exists for the edit that flips one of them without reading the note.
+// Cannot fire today — every id above is `enabled: false` — and that is the
+// point. The count on this list moves as shops are measured (zimaya and
+// FragranceHub came off it on 2026-08-19 evidence; khadlaj, scentsational,
+// Parfumdreams UK, Fragrancedirect and Cosmetify went on it the same day) so
+// no fixed number is pinned here — only the invariant that every id present
+// is disabled. It exists for the edit that flips one of them without reading
+// the note.
 //
 // It did not catch Nicchia Luxury, because Nicchia Luxury was never on this
 // list: the entry was enabled on 2026-08-12 by someone who had read the Awin
