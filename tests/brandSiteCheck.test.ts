@@ -90,7 +90,25 @@ describe('classifyLanding', () => {
 
   it('reports a dead link', () => {
     expect(classifyLanding(landing({ status: 404 })).verdict).toBe('dead');
+    expect(classifyLanding(landing({ status: 410 })).verdict).toBe('dead');
     expect(classifyLanding(landing({ status: 503 })).verdict).toBe('dead');
+  });
+
+  // The first live sweep of demo/brandSites.ts reported 22 dead links. Only 4
+  // were real: 18 were 403s from luxury houses' bot defences — Chanel, Prada,
+  // Gucci, Lancôme, Versace among them — every one confirmed still live by
+  // hand. Calling a refusal aimed at us a dead link sends a reviewer after
+  // healthy sites, so these are a non-answer, not a finding.
+  it('does not call a bot-defence refusal a dead link', () => {
+    for (const status of [401, 403, 429]) {
+      const f = classifyLanding(landing({ status }));
+      expect(f.verdict).toBe('could-not-ask');
+      expect(f.verdict).not.toBe('dead');
+    }
+  });
+
+  it('says plainly that a refusal is not evidence about the link', () => {
+    expect(classifyLanding(landing({ status: 403 })).reason).toContain('not evidence about the link');
   });
 
   it('reports a request that never arrived', () => {
