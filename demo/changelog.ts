@@ -30,6 +30,29 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.9.0',
+    date: '18 Aug 2026',
+    title: 'Accounts and wishlists go live, and duplicate listings merged',
+    points: [
+      'Accounts went live — sign up, verify your email, and save fragrances to a wishlist, built earlier and switched on now',
+      'Rewrote the privacy notice to honestly explain what creating an account involves, since it previously said flatly that there was no account to create',
+      "Found that one shop had been publishing its own internal stock numbers in the barcode field, which was wrongly stopping genuinely identical bottles at different shops from being shown as one product — around 50 duplicate listings are now merged, and 40 more products now show more than one shop's price",
+      'The Deals page no longer advertises a discount on a fragrance we have no real photo of; the same deal still appears everywhere else on the site',
+    ],
+  },
+  {
+    version: 'v3.8.0',
+    date: '17 Aug 2026',
+    title: "Fragrance pages now show up in search, and Virtual Yanny learns who a scent is for",
+    points: [
+      "Fixed a bug that told search engines every one of the site's fragrance pages was a duplicate of the homepage, so none of them could be found on their own in a search result — each page now says clearly what it actually is",
+      'A broken or outdated link now shows a proper "page not found" screen with a working search box, instead of silently showing the homepage as if nothing were wrong',
+      'Added a skip-to-content link, a back-to-top button, a print-friendly layout for fragrance pages, and a working show/hide button on the password field when creating an account',
+      'Virtual Yanny now understands "perfume oil" as a genuine strength rather than losing those listings, and no longer describes an ungraded fragrance as though "Not stated" were a real kind of perfume',
+      'Virtual Yanny can now answer who a fragrance is marketed for — women\'s, men\'s or unisex — read from the product\'s own title, and says plainly how much of the catalogue actually states this rather than guessing at the rest',
+    ],
+  },
+  {
     version: 'v3.7.0',
     date: '16 Aug 2026',
     title: 'Virtual Yanny understands how people actually ask',
