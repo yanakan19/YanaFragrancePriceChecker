@@ -2632,27 +2632,40 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'fragrancehub.co.uk',
     homepage: 'https://www.fragrancehub.co.uk/',
     tiers: ['mideast'],
-    // A brand-new candidate, not yet reachable from here. Everything below is
-    // sourced from WebSearch snippets of the shop's own pages (a live page was
-    // never opened: WebFetch to this domain returns EGRESS_BLOCKED in the
-    // environment this was written in, per docs/INGESTION.md) — nothing here
-    // is a scrape or a measurement.
+    // Added 2026-08-18 from WebSearch snippets alone, then actually measured
+    // the next day. Self-described as "Home of Niche Arabian Perfumes",
+    // stocking Lattafa, Afnan and Ajmal — the same mideast tier three
+    // existing retailers already carry.
     //
-    // "/collections/all", "/collections/clearance" and "/collections/bundle-deals"
-    // are Shopify's own default collection paths, which is why `adapter:
-    // 'unknown'` and `shopifyStorefront` stays unset rather than `true`:
-    // that shape is suggestive, not a confirmed `/products.json` read.
-    // Self-described as "Home of Niche Arabian Perfumes", stocking Lattafa,
-    // Afnan and Ajmal (a registered Ajmal/Afnan stockist per its own About
-    // page) — the same mideast tier three existing retailers already carry.
+    // ── What the currency probe found ────────────────────────────────────────
+    // Price verification run 23, job 95684340039, 2026-08-18: the storefront
+    // served a sterling price list, at rate 1, to eight of the nine ways of
+    // asking — its bare origin, ?country=GB, a localization=GB cookie, a
+    // cart_currency=GBP cookie, both cookies together, and an en-GB
+    // Accept-Language header. Only the market-path addresses (/en-gb, /gb,
+    // /uk, /en-uk) 404, which is a shop that simply does not use that URL
+    // shape rather than one that refuses sterling.
     //
-    // This entry exists to give npm run currency:probe -- --shop=fragrancehub
-    // (dispatched via .github/workflows/price-verify.yml, which does have
-    // network) something to ask: is robots.txt reachable, does /products.json
-    // answer and look like Shopify's shape, and does it quote sterling. None
-    // of that has been asked yet.
+    // That is why the id has been removed from CURRENCY_UNCONFIRMED at the
+    // foot of this file. The bar that list sets is a sterling price read off
+    // the shop itself rather than assumed from the type, and this clears it.
+    // Note what it does not establish: the runner is not in the UK, so this
+    // proves what the shop quotes that machine, and a harvest must ask the
+    // same way rather than trusting whichever market a runner lands in.
+    //
+    // `shopifyStorefront` is now set rather than left unset: the same run read
+    // /products.json and got a real Shopify payload back, three priced
+    // products among them (rayhaan-nava-sol-eau-de-parfum-100ml at 30.00,
+    // khadlaj-shiyaaka-sky-eau-de-parfum-100ml at 34.99). That is the
+    // confirmed read the previous note said was still missing. `adapter` stays
+    // 'unknown' because no harvest has actually run against this shop yet.
+    //
+    // Still off, and the blocker is commercial rather than technical: no
+    // affiliate programme is confirmed. Nothing here is a reason to flip
+    // `enabled` — a delivery cost and an affiliate route are both still open.
     enabled: false,
     adapter: 'unknown',
+    shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
       standardGbp: null,
@@ -2671,9 +2684,12 @@ export const RETAILERS: readonly Retailer[] = [
         readAt: '2026-08-18',
       },
       notes:
-        'Nothing has been read from fragrancehub.co.uk directly. A WebSearch snippet of the ' +
-        'shop\'s own copy states free shipping over £90, but that is secondhand and unconfirmed ' +
-        '— run shipping:discover once the currency probe below has network access to the site.',
+        "Their own shipping-policy page was read by shipping:discover on 2026-08-18 and states " +
+        '"FREE SHIPPING FOR ORDERS OVER £90" (quoted in `source` above), which supersedes the ' +
+        'WebSearch snippet this entry was first written from. No standard flat rate for an order ' +
+        'below that threshold is published anywhere on the page, which is what ' +
+        '`standardRateNotPublished` records — an absent figure, not one waiting to be looked up. ' +
+        'Currency is separately confirmed as sterling; see the comment above this entry.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -2723,12 +2739,12 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'confirmed that it prices or ships in sterling; an unlocalised Shopify storefront looks ' +
       'exactly like this.',
   ],
-  [
-    'fragrancehub',
-    'A brand-new candidate. Nothing has been read from fragrancehub.co.uk directly — WebFetch ' +
-      'to this domain returns EGRESS_BLOCKED here — so nobody has confirmed it charges sterling ' +
-      'at all. currency:probe is what this entry exists to run.',
-  ],
+  // fragrancehub was removed from this list on 2026-08-19, on the evidence the
+  // list itself asks for: Price verification run 23, job 95684340039, read a
+  // sterling price list off the shop's own storefront at rate 1 through eight
+  // separate ways of asking. See the comment on its registry entry above for
+  // what that run did and did not establish. It remains `enabled: false` for
+  // unrelated reasons, so nothing about this removal puts a price on the site.
   [
     'paco-perfumerias',
     'A Spanish retailer (pacoperfumerias.com) with a UK-targeted Awin programme. Whether that ' +
