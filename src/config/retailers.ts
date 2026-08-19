@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 58 retailers, 32 of them `enabled: true`. Every one of them is a legitimate
+ * 58 retailers, 31 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -2329,7 +2329,28 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.lush.com/uk/en',
     tiers: ['niche'],
     singleBrandOnly: 'Lush',
-    enabled: true,
+    // Was `enabled: true` with zero listings — no route was ever wired, and
+    // none could be established. Currency probe attempted twice, 2026-08-19,
+    // roughly 11 minutes apart (run 32278174768 job 96150394516 at 16:50Z,
+    // and run 32279193684 job 96153817539 at 17:01Z): both got "COULD NOT
+    // ASK: robots.txt did not answer at https://lush.com" — no request was
+    // ever made either time. Per this file's own standard for that failure
+    // shape (see beauty-the-shop-uk and paco-perfumerias below), a repeat
+    // like this reads as the shop refusing or rate-limiting this address
+    // rather than a fluke, and the right response is to stop asking rather
+    // than probe harder. This is a reachability finding, not a currency one
+    // — LUSH's GBP pricing was never in doubt, unlike those two entries — so
+    // this id is not added to CURRENCY_UNCONFIRMED. Disabled rather than
+    // left dark: no route (Shopify, sitemap, proxied or headless) can be
+    // evaluated when even robots.txt cannot be read. Re-enable only after a
+    // probe run actually gets an answer from this domain.
+    //
+    // fragranceOnlyCatalogue is correctly NOT set here, per its own doc
+    // comment in src/types/retailer.ts, which names LUSH specifically: it
+    // sells bath and body products, and the concentration-word title test is
+    // exactly what keeps soap out of a fragrance comparison. That stays true
+    // regardless of this shop's reachability.
+    enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
