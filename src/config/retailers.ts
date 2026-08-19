@@ -2598,17 +2598,21 @@ export const RETAILERS: readonly Retailer[] = [
         'membership before this goes live. Delivery terms and page structure not yet read.',
     },
     // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
-    // Not designed. Nothing in this project has ever fetched a single page
-    // from this shop — no strategy-memory record exists for it, because
-    // scripts/catalogue-probe.ts only ever probes `enabled` shops and this
-    // one never has been. `catalogue: null` means there is no confirmed
-    // category URL to point any adapter at yet, free, proxied or actor —
-    // that has to come from a human opening the real site in a browser, the
-    // same first step every other shop in this file went through (see the
-    // "confirmed live in a browser" notes throughout). Bot-defence status is
-    // therefore unestablished, not "hard" or "easy" — there is no evidence
-    // either way, and Apify only has a job once a real start URL exists to
-    // give it.
+    // NOT AN APIFY CANDIDATE on the evidence gathered this review. `npm run
+    // shipping:discover --shop=beauty-pie` (price-verify.yml run 32258830120,
+    // job 96087143064) fetched two pages successfully — "2 pages, NO RATE
+    // STATED", meaning the delivery page was read and simply never names a
+    // flat standard charge, not that it was refused. The one path this run
+    // did not fetch was skipped on principle, not by force:
+    // `/cart/shipping_rates.json: disallowed by robots.txt — checkout
+    // estimator not attempted` — a real Disallow rule, correctly respected,
+    // exactly the "robots.txt is the answer" stance this project holds
+    // everywhere else (see attempt.ts). Two ordinary pages fetched clean, one
+    // path politely skipped on the site's own instruction: nothing here
+    // reads as bot-defence. `catalogue: null` still means no confirmed
+    // category URL exists — that prerequisite is unrelated to Apify and
+    // applies to any adapter, free included — but this shop belongs with the
+    // cheap free-route candidates, not this tier.
     //
     // A second, independent open question sits ahead of the retrieval one:
     // the shipping note above already flags that Beauty Pie's listed prices
@@ -3055,14 +3059,21 @@ export const RETAILERS: readonly Retailer[] = [
       notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
     },
     // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
-    // Not designed, same reasoning as the other three unresearched Awin
-    // applicants above: no strategy-memory record exists, `catalogue: null`
-    // means no confirmed category URL for any adapter to target, bot-defence
-    // status is genuinely unestablished. Not probed this review — the CI
-    // dispatch budget for this pass went to very.co.uk and Beauty Bay first;
-    // `npm run probe -- --shop=cult-beauty-global` via a
-    // catalogue-daily.yml workflow_dispatch (probe_shop=cult-beauty-global)
-    // is the next concrete, free step, same tool as the other two.
+    // NOT AN APIFY CANDIDATE on the evidence gathered this review — hand this
+    // one to whichever group takes the cheap free-route shops next, rather
+    // than the bot-defended-majors tier. `npm run shipping:discover
+    // --shop=cult-beauty-global` (price-verify.yml run 32258749428, job
+    // 96086619048) fetched a real delivery page successfully: "1 pages, +1
+    // links, AMBIGUOUS" — a genuine plain HTTP fetch reached the site, found
+    // a footer link to a delivery page, and read it; only the actual rate
+    // was unclear on the page, not the retrieval. `products.json` 404s (not
+    // Shopify), but that is irrelevant to bot-defence. This is the opposite
+    // finding from very.co.uk's clean 403 immediately above — nothing here
+    // shows cultbeauty.co.uk refusing a datacentre address. `catalogue: null`
+    // still means no confirmed category URL exists yet — that prerequisite is
+    // unrelated to Apify and applies to any adapter — but designing a paid
+    // retrieval tier for a shop with no evidence of needing one would be
+    // exactly the mistake this review's own brief warned against.
     catalogue: null,
     affiliate: { ...awinRequested() },
   },
