@@ -93,6 +93,27 @@
 import { brandKey } from './brandName.js';
 
 /**
+ * The literal value of CONCENTRATION_NOT_STATED in productName.ts, already
+ * lowercased the same way matchKey lowercases every concentration before
+ * keying on it.
+ *
+ * Not imported, deliberately: productName.ts imports fragranceId.ts, which
+ * imports trustworthyEan from this very file, so importing productName.ts
+ * from here would close that chain into a circular import. Confirmed by
+ * trying it — every SIZE_TOKEN_RE-dependent test in the suite failed with
+ * "Cannot read properties of undefined (reading 'source')", the classic
+ * symptom of a module being used before its own top-level finished running
+ * because two files were each waiting on the other to load first.
+ *
+ * A hand-copied constant is exactly the kind of drift this codebase's own
+ * style warns against elsewhere, so it is not left as an untested guess:
+ * tests/productMatch.test.ts imports CONCENTRATION_NOT_STATED from
+ * productName.ts directly and asserts this equals its lowercased form, so
+ * the two cannot silently disagree the way a bare copy-paste could.
+ */
+export const NOT_STATED_MATCH_KEY = 'not stated';
+
+/**
  * A GTIN/EAN with its leading zeros removed, so a 13-digit code and the
  * 12-digit UPC-A it pads (GS1's own rule: EAN-13 is "0" + UPC-A) compare
  * equal, along with a barcode that lost a leading zero somewhere upstream —
@@ -222,6 +243,18 @@ export function matchKey(p: MatchableProduct): string {
 }
 
 /**
+ * matchKey with concentration left out — the identity two listings must
+ * share before a missing concentration is even considered for a bridge. See
+ * findDuplicateGroups' second pass for why this exists as its own function
+ * rather than a string surgery on matchKey's own output: the two have to stay
+ * in lockstep by construction (same brandKey, same sizeMl, same wordSet) or a
+ * future edit to one silently stops agreeing with the other.
+ */
+function looseMatchKey(p: MatchableProduct): string {
+  return [brandKey(p.brand), p.sizeMl, wordSet(p.name)].join('|');
+}
+
+/**
  * A listing carrying enough to ask untrustworthyEans' question: which shop,
  * what code, what it called the product. A subset of StoredListing (see
  * fragranceId.ts) so this file does not need to import that type just to
@@ -315,6 +348,12 @@ export interface MergeGroup<T extends MatchableProduct> {
  * Returns only groups where something actually merges, so a caller can both
  * apply the merges and report exactly what was folded together — this changes
  * what the reader sees, so it should never happen invisibly.
+ *
+ * Two passes. The first is matchKey's own exact rule, unchanged: same brand,
+ * size, concentration and word set, or no merge. The second is new — see its
+ * own comment below for why a missing concentration gets one narrow,
+ * carefully bounded exception to that exactness rather than being left
+ * exactly as strict as a genuine EDT/EDP disagreement.
  */
 export function findDuplicateGroups<T extends MatchableProduct>(products: readonly T[]): MergeGroup<T>[] {
   const byKey = new Map<string, T[]>();
@@ -345,5 +384,88 @@ export function findDuplicateGroups<T extends MatchableProduct>(products: readon
     const canonical = bucket.find((p) => isBarcode(p.ean)) ?? bucket[0]!;
     groups.push({ canonical, absorbed: bucket.filter((p) => p !== canonical) });
   }
+
+  /**
+   * A shop that names no concentration is not a shop that disagrees about
+   * one — "Not stated" (see CONCENTRATION_NOT_STATED in productName.ts) is
+   * an admission of silence, not a value in its own right, and matchKey
+   * above treats it as an ordinary fourth value regardless: "Shaghaf Oud"
+   * Eau de Parfum from four shops and Emirates Oud's own "Shaghaf Oud" with
+   * no strength named stayed two products for exactly that reason — the
+   * bug this whole change exists to fix. Checked against the live
+   * catalogue (npx tsx, real data, see the commit message this sits beside
+   * for the exact command): of the products that gained an exact sibling
+   * once the trailing-brand fix above ran, only 6 were blocked purely by
+   * this, and one of those six is genuinely ambiguous (see below) — this is
+   * a narrow gap, not a rewrite of the matcher.
+   *
+   * The bridge only ever runs one way: a "Not stated" bucket may join a
+   * bucket that names a real concentration, never the reverse, and only
+   * when the loose identity — brand, size, and the exact same word set —
+   * already matches. It is never applied when two *different* real
+   * concentrations both share that identity: an EDT and an EDP of the same
+   * name are genuinely different articles (see this file's own header,
+   * "Where it refuses"), and "Not stated" must never be the tie-breaker
+   * that silently decides which of them it secretly was. Measured: French
+   * Avenue and Ahmed Al Maghribi both sell EDP and Extrait de Parfum
+   * versions of several identically-named fragrances (16 pairs, checked by
+   * hand) — none of those are touched, because loose-matching them finds
+   * two stated concentrations, not one, and the ambiguous case is refused
+   * exactly like a real barcode disagreement is above.
+   *
+   * The barcode check is asked again here, independently, rather than
+   * inherited from the pass above — a "Not stated" listing carrying a real
+   * barcode that disagrees with the stated bucket's own must still refuse,
+   * for the identical reason the exact-match pass refuses one. And where
+   * the exact-match pass above already refused to merge a bucket's own
+   * internal duplicates over a barcode disagreement, this must refuse the
+   * bridge too rather than pick one of the disputed records as an arbitrary
+   * target — there is no "the" canonical to bridge into when the pass above
+   * could not agree on one either.
+   */
+  const NOT_STATED_KEY = NOT_STATED_MATCH_KEY;
+  const looseIndex = new Map<string, Map<string, string>>();
+  for (const [key, bucket] of byKey) {
+    const rep = bucket[0]!;
+    const loose = looseMatchKey(rep);
+    const byConcentration = looseIndex.get(loose) ?? new Map<string, string>();
+    byConcentration.set(rep.concentration.toLowerCase().trim(), key);
+    looseIndex.set(loose, byConcentration);
+  }
+
+  for (const [loose, byConcentration] of looseIndex) {
+    const notStatedKey = byConcentration.get(NOT_STATED_KEY);
+    if (!notStatedKey) continue;
+    const statedEntries = [...byConcentration].filter(([c]) => c !== NOT_STATED_KEY);
+    // Zero real siblings: nothing to bridge into. Two or more: which one
+    // named the truth is exactly the question "Not stated" cannot answer —
+    // see the ambiguous Afnan "Supremacy Not Only Intense" case (both Eau
+    // de Parfum and Extrait de Parfum siblings exist) in the measurement
+    // above. Refused, not guessed at.
+    if (statedEntries.length !== 1) continue;
+    const [, statedKey] = statedEntries[0]!;
+
+    const notStatedBucket = byKey.get(notStatedKey)!;
+    const statedBucket = byKey.get(statedKey)!;
+
+    // Both sides' own internal barcodes must already agree with each other,
+    // not just across the bridge — the same test the exact-match pass above
+    // applies to a single bucket, applied here to the union of both.
+    const barcodes = new Set(
+      [...notStatedBucket, ...statedBucket].filter((p) => isBarcode(p.ean)).map((p) => normalizedEan(p.ean!)),
+    );
+    if (barcodes.size > 1) continue;
+
+    // The same selection the exact-match pass above already made for each
+    // bucket independently — reusing it rather than a fresh rule means the
+    // record this bridges into is always the literal object that pass
+    // already chose (and already finished merging any of its own exact
+    // duplicates into) by the time a caller applies groups in order.
+    const canonical = statedBucket.find((p) => isBarcode(p.ean)) ?? statedBucket[0]!;
+    const notStatedCanonical = notStatedBucket.find((p) => isBarcode(p.ean)) ?? notStatedBucket[0]!;
+    if (canonical === notStatedCanonical) continue;
+    groups.push({ canonical, absorbed: [notStatedCanonical] });
+  }
+
   return groups;
 }

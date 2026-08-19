@@ -12,6 +12,7 @@
  * fragranceId.ts, which is a different question with a different failure mode.
  */
 import { ML_SIZE_RE, OZ_SIZE_RE, OZ_TO_ML } from './fragranceId.js';
+import { brandKey } from './brandName.js';
 
 /**
  * Concentrations, split into two tiers so a match can be tried by
@@ -167,6 +168,114 @@ const CONCENTRATION_DISPLAY: Record<string, string> = {
 };
 
 /**
+ * Generic-tier words that can themselves be a fragrance's own naming
+ * convention rather than a stated strength, when the word directly follows
+ * the French article "le", "la" or "l'" — see precededByFrenchArticle for
+ * the shape and NOMINAL_AFTER_FRENCH_ARTICLE for which words actually carry
+ * it, checked against the real harvest rather than assumed.
+ */
+const NOMINAL_AFTER_FRENCH_ARTICLE_RE = /(?:^|[^a-z])(le|la|l)['’]?\s*$/i;
+
+/**
+ * A standalone size mention sitting right at the end of the text being
+ * tested, so it can be looked past rather than treated as the word directly
+ * before the concentration word. Built from ML_SIZE_RE/OZ_SIZE_RE for the
+ * same reason SIZE_TOKEN_RE further down is: a second, hand-written size
+ * pattern is a bug waiting to happen the moment either one changes.
+ *
+ * Needed because one feed (Fragrance Click) writes the size *between* the
+ * naming article and the naming word instead of after both — "Jimmy Choo I
+ * Want Choo Le 10ml Parfum" rather than "...Le Parfum 10ml" — for at least
+ * five products (Jimmy Choo I Want Choo, Jean Paul Gaultier Divine For Her
+ * and Scandal Pour Homme, Lancôme La Nuit Trésor, Prada Luna Rossa Ocean; 8
+ * titles). Without looking past the size, "Le" reads as three tokens back
+ * from "Parfum" rather than the immediately preceding word, and
+ * precededByFrenchArticle below would miss it.
+ */
+const TRAILING_SIZE_RE = new RegExp(`\\s*(?:${ML_SIZE_RE.source}|${OZ_SIZE_RE.source})\\s*$`, 'i');
+
+/**
+ * Whether the text immediately before `index` in `title` ends in a
+ * standalone "le", "la" or "l'" — the shape a house's own flanker name takes
+ * ("<Name> Le Parfum"), as opposed to the word merely sitting somewhere in a
+ * longer word ("Mademoiselle Parfum" does not end in a *standalone* "le":
+ * the character right before it is a letter, not a boundary, so the
+ * alternative here — `(?:^|[^a-z])` — refuses to match there). A single
+ * trailing size mention is stripped first — see TRAILING_SIZE_RE — so a
+ * title that states the size between the article and the naming word is
+ * recognised exactly the same way as one that does not.
+ */
+function precededByFrenchArticle(title: string, index: number): boolean {
+  const before = title.slice(0, index).replace(TRAILING_SIZE_RE, '');
+  return NOMINAL_AFTER_FRENCH_ARTICLE_RE.test(before);
+}
+
+/**
+ * Which generic-tier words are known to carry the "<Name> Le X" naming
+ * shape at all. Checked directly against the full harvest before being
+ * added, the same way CONCENTRATION_OIL and the oud-last ordering above
+ * were — not applied to every generic word on the assumption that any of
+ * them might:
+ *
+ *   npx tsx scripts/concentration-report.ts (adapted to search each generic
+ *   word for an immediately preceding "le"/"la"/"l'")
+ *
+ * "parfum" is the only one that does: 225 titles across at least eight
+ * houses carry a "<Name> Le Parfum" flanker — Jean Paul Gaultier ("Scandal
+ * Le Parfum", "'Le Male' Le Parfum", "Le Beau Le Parfum"), YSL ("Black
+ * Opium Le Parfum", "Libre Le Parfum", "MYSLF Le Parfum", "Y for Men Le
+ * Parfum"), Prada ("Paradigme Le Parfum", "Luna Rossa Ocean Le Parfum"),
+ * Elie Saab ("Le Parfum", plus several of its own flankers — "Le Parfum
+ * Absolu", "Le Parfum Essentiel"), Carolina Herrera ("Bad Boy Le Parfum"),
+ * Chloé ("Le Parfum"), Jimmy Choo ("I Want Choo Le Parfum") and Nuxe ("Men
+ * Le Parfum") — none of them a coincidence, this is a real, common
+ * perfumery naming convention, the exact reason "Le Parfum" reads as a
+ * flanker line the same way Creed's own "Cologne" does in Aventus Cologne
+ * above, not a strength. "cologne", "extrait", "attar", "oud" and the rest
+ * of CONCENTRATION_GENERIC_PRIORITY never occur directly after "le"/"la"/
+ * "l'" anywhere in the harvest (0 titles each, checked the same way) — this
+ * is deliberately not a blanket rule applied to every word on the strength
+ * of one example, which is exactly the mistake this file's own module doc
+ * warns brandName.ts's KNOWN_ALIASES against making for brands.
+ *
+ * The specific "eau de X" phrases (CONCENTRATION_SPECIFIC) are never
+ * checked against this at all — "Escada Sorbetto Rosso Le Eau De Toilette"
+ * is real, and "Le" there is stray feed noise ahead of a genuine stated
+ * concentration, not a naming convention (no house anywhere in the
+ * catalogue markets a line called "Le Eau De Toilette"). Restricting the
+ * check to the generic tier, and to this one measured word within it, is
+ * what keeps that title's real "Eau De Toilette" concentration intact
+ * while still protecting "Le Parfum".
+ */
+const NOMINAL_AFTER_FRENCH_ARTICLE = new Set(['parfum']);
+
+/**
+ * The first occurrence of a generic-tier word that actually states a
+ * strength, skipping any occurrence NOMINAL_AFTER_FRENCH_ARTICLE flags as
+ * "<Name> Le X" instead. Falls through to the next word in
+ * CONCENTRATION_GENERIC_PRIORITY exactly as a title with no occurrence at
+ * all would — same as returning null from a plain `.match()` — so a title
+ * carrying nothing but "Le Parfum" and no other concentration word ends up
+ * "Not stated", the honest answer, rather than either "Parfum" (wrong: that
+ * is naming, not strength) or a guessed real concentration.
+ *
+ * Real two-mention case this exists to get right, not merely tolerate:
+ * "Jean Paul Gaultier Divine Le Parfum Eau De Parfum Intense 200ml Refill"
+ * carries "Parfum" twice — once nominally in "Le Parfum" and once for real
+ * in "Eau De Parfum" — but that second one is CONCENTRATION_SPECIFIC's own
+ * phrase, checked and returned before this function is ever reached, so it
+ * is never in question here at all.
+ */
+function firstGenuineOccurrence(title: string, pattern: RegExp): string | null {
+  const global = new RegExp(pattern.source, `${pattern.flags}g`);
+  let m: RegExpExecArray | null;
+  while ((m = global.exec(title))) {
+    if (!precededByFrenchArticle(title, m.index)) return m[0];
+  }
+  return null;
+}
+
+/**
  * Whichever concentration phrase a title actually names, by specificity
  * rather than by which one merely occurs first in the string.
  *
@@ -203,7 +312,10 @@ export function concentrationMatch(title: string): string | null {
   const specific = title.match(CONCENTRATION_SPECIFIC)?.[0];
   if (specific) return specific;
   for (const word of CONCENTRATION_GENERIC_PRIORITY) {
-    const hit = title.match(CONCENTRATION_GENERIC_PATTERNS[word]!)?.[0];
+    const pattern = CONCENTRATION_GENERIC_PATTERNS[word]!;
+    const hit = NOMINAL_AFTER_FRENCH_ARTICLE.has(word)
+      ? firstGenuineOccurrence(title, pattern)
+      : title.match(pattern)?.[0];
     if (hit) return hit;
   }
   return null;
@@ -281,6 +393,80 @@ export function brandTitleOpens(title: string, candidates: (string | null)[]): s
 }
 
 /**
+ * Which spelling of the brand the title actually *closes* with, if any —
+ * brandTitleOpens' mirror image, for the shops that append their own vendor
+ * field to the end of the title instead of opening with it.
+ *
+ * Real, measured cases from the live catalogue, all Emirates Oud: "Shaghaf
+ * Oud Perfume 75ml Swiss Arabian", "Shaghaf Oud Royale Perfume 75ml EDP
+ * Swiss Arabian", "Costa de Amalfi Perfume 100ml EDP Riiffs" — the last of
+ * those is the exact example brandTitleOpens' own test coverage already
+ * cites as a title it deliberately leaves alone, because opening-only was
+ * the whole story until this was written. Across the full catalogue, 1,904
+ * products carry their own brand trailing their name this way, across 96
+ * brands, and 341 of them have an exact sibling elsewhere in the catalogue
+ * that would fold into a single product once this is stripped and nothing
+ * else about the two listings differs — measured with
+ * scripts/trailing-brand-report.ts.
+ *
+ * ── Why this reuses brandKey instead of matching the candidate spelling verbatim ──
+ * brandTitleOpens can afford to test the exact candidate string because the
+ * candidates it is given (displayedBrand, the resolved raw brand) are
+ * spellings *that source actually published*, so a byte-for-byte match at
+ * the front of the very same title is the normal case. The trailing
+ * position does not get that luxury: a shop that appends its vendor field
+ * to a title is exactly the kind of shop whose feed also disagrees with
+ * itself about spacing — "Swiss Arabian" as the vendor field, "SwissArabian"
+ * glued together in one product's own title, both observed in the same
+ * feed. Matching the candidate string verbatim would silently do nothing
+ * for the glued form and leave the brand sitting in the display name, the
+ * exact bug this function exists to fix. So the comparison is done on
+ * brandKey — letters and digits only, lowercased, the same normalisation
+ * brandName.ts already trusts to say "same brand, different decoration" —
+ * built up token by token from the end of the title until it matches a
+ * candidate's own brandKey exactly. A genuinely different trailing word
+ * never reaches that length or never reaches that key, so nothing but an
+ * actual match on the resolved brand is ever stripped.
+ *
+ * Anchored strictly at the end: matching stops the moment anything but
+ * trailing whitespace follows the last token, so a brand name that happens
+ * to sit mid-title, or is followed by trailing punctuation that changes its
+ * meaning, is never mistaken for the trailing case. Longest candidate wins
+ * on a tie, for the same reason as brandTitleOpens: preferring a shorter
+ * candidate risks leaving a fragment of the longer one sitting in the name.
+ */
+export function brandTitleEnds(title: string, candidates: (string | null)[]): string | null {
+  const tokens = [...title.matchAll(/[A-Za-z0-9]+/g)];
+  if (tokens.length === 0) return null;
+  const lastToken = tokens[tokens.length - 1]!;
+  // Nothing but whitespace may follow the last word-ish token, or this is
+  // not the trailing case at all — "Joop!" ending in punctuation after the
+  // brand's own name is a different, already-handled shape (brandTitleOpens),
+  // not this one.
+  if (!/^\s*$/.test(title.slice(lastToken.index! + lastToken[0].length))) return null;
+
+  let longestSpan: string | null = null;
+  let longestCandidate: string | null = null;
+  for (const b of candidates) {
+    if (!b) continue;
+    if (longestCandidate !== null && b.length <= longestCandidate.length) continue;
+    const wantKey = brandKey(b);
+    if (!wantKey) continue;
+    let acc = '';
+    for (let i = tokens.length - 1; i >= 0; i--) {
+      acc = brandKey(tokens[i]![0]) + acc;
+      if (acc.length > wantKey.length) break;
+      if (acc === wantKey) {
+        longestSpan = title.slice(tokens[i]!.index!);
+        longestCandidate = b;
+        break;
+      }
+    }
+  }
+  return longestSpan;
+}
+
+/**
  * Strip the shop's noise off a title to get something readable.
  *
  * Deliberately conservative. Where this cannot do better it leaves the shop's
@@ -334,6 +520,35 @@ export function displayName(title: string, brand: string | null, displayedBrand:
     // in the catalogue has one, so there is no case to fix and no reason to
     // guess at what stripping one would do.
     .replace(/^[\s,\-&|]+|[\s,\-|]+$/g, '');
+
+  // The mirror image of the opener strip above: a shop that appends its own
+  // vendor field to the *end* of the title instead of opening with it — see
+  // brandTitleEnds for the measured scale (1,904 products, 96 brands) and why
+  // it has to compare on brandKey rather than an exact candidate spelling.
+  // Run against the already-cleaned `s`, not the raw title, because the size,
+  // spray-word and concentration strips above never touch the true tail —
+  // the brand a shop appends sits after all of that in the raw text, so it
+  // still sits at the end of `s` once the rest is gone.
+  const closer = brandTitleEnds(s, [displayedBrand, brand]);
+  if (closer) {
+    s = s.slice(0, s.length - closer.length);
+    // A shop that appends its own brand often prefixes that append with the
+    // bare, generic word "Perfume" — "Shaghaf Oud Royale Perfume 75ml EDP
+    // Swiss Arabian". Where "EDP" (not "Perfume") supplied the concentration
+    // badge above, that "Perfume" is never consumed by the concentration
+    // strip and is left sitting immediately in front of the brand just
+    // removed. Stripped only here, immediately adjacent to a brand this
+    // function has just confirmed was genuinely appended — never elsewhere
+    // in the name, where "Perfume" may be doing real work (see
+    // CONCENTRATION_OIL's "Perfume Oil": that phrase's last word is "Oil",
+    // not "Perfume", so this can never reach it).
+    s = s.replace(/\s+perfume\s*$/i, '');
+    // The brand strip above already trims stray leading/trailing separators
+    // once; removing more text off the end here can expose a fresh one
+    // ("Name -" once "- Brand" is gone), so the same trim runs again.
+    s = s.replace(/[\s,\-&|]+$/g, '');
+  }
+
   // A fragrance named after its own house. Stripping the brand, the
   // concentration and the size leaves nothing because there was nothing else
   // in the title: Chloé's "Chloé", Aramis's "Aramis", Jimmy Choo's "Jimmy

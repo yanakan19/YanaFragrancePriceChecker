@@ -4,10 +4,12 @@ import {
   findDuplicateGroups,
   untrustworthyEans,
   trustworthyEan,
+  NOT_STATED_MATCH_KEY,
   type MatchableProduct,
   type EanListing,
 } from '../src/catalogue/productMatch.js';
 import { fragranceId } from '../src/catalogue/fragranceId.js';
+import { CONCENTRATION_NOT_STATED } from '../src/catalogue/productName.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 
 const p = (o: Partial<MatchableProduct> & { id: string }): MatchableProduct => ({
@@ -397,6 +399,94 @@ describe('product matching', () => {
       const untrustworthy = untrustworthyEans([divineVanille, theMusc, clean]);
       expect(fragranceId(clean)).toBe('ean-0088300196890');
       expect(fragranceId(clean, untrustworthy)).toBe('ean-0088300196890');
+    });
+  });
+
+  describe('a "Not stated" concentration joining the one real sibling that names it', () => {
+    // Verbatim from demo/catalogue.generated.ts once productName.ts's trailing-
+    // brand strip runs: Emirates Oud's own "Shaghaf Oud Perfume 75ml Swiss
+    // Arabian" cleans to the same brand, size and name as the other four
+    // shops' "Shaghaf Oud Perfume 75ml EDP", but its title never states a
+    // concentration at all, so it reads "Not stated" where the other four
+    // read "Eau de Parfum" — the exact reported bug (see the commit message
+    // for the real npm run catalogue:demo before/after counts).
+    const fourShops = p({
+      id: 'ean-6295124024832', ean: '6295124024832',
+      brand: 'Swiss Arabian', name: 'Shaghaf Oud', concentration: 'Eau de Parfum', sizeMl: 75,
+    });
+    const emiratesOud = p({
+      id: 'emirates-oud-8916599177565-default-title', ean: null,
+      brand: 'Swiss Arabian', name: 'Shaghaf Oud', concentration: 'Not stated', sizeMl: 75,
+    });
+
+    it('joins the barcode-bearing group rather than sitting beside it as a second product', () => {
+      const groups = findDuplicateGroups([fourShops, emiratesOud]);
+      expect(groups).toHaveLength(1);
+      expect(groups[0]!.canonical.id).toBe('ean-6295124024832');
+      expect(groups[0]!.absorbed.map((x) => x.id)).toEqual(['emirates-oud-8916599177565-default-title']);
+      // The merged record keeps the real, stated concentration — a "Not
+      // stated" sibling joining the group must never downgrade what the
+      // other four shops actually said.
+      expect(groups[0]!.canonical.concentration).toBe('Eau de Parfum');
+    });
+
+    it('never bridges the other way: a stated concentration cannot absorb a "Not stated" sibling\'s identity', () => {
+      // Same two records, canonical selection must still prefer the one that
+      // actually names a concentration — proven above — but the rule itself
+      // is asymmetric by construction: swapping the input order must not
+      // change which one is picked, or "Not stated" could end up leading.
+      const groups = findDuplicateGroups([emiratesOud, fourShops]);
+      expect(groups[0]!.canonical.id).toBe('ean-6295124024832');
+    });
+
+    it('refuses when two different real concentrations both share the identity (ambiguous)', () => {
+      // Real, verbatim shape from Afnan "Supremacy Not Only Intense" 100ml:
+      // an Eau de Parfum sibling and an Extrait de Parfum sibling both exist
+      // for the same brand, size and name, so "Not stated" cannot tell which
+      // of the two it secretly was. Left as three separate products rather
+      // than guessed into either.
+      const edp = p({ id: 'a', brand: 'Afnan', name: 'Supremacy Not Only Intense', concentration: 'Eau de Parfum', sizeMl: 100 });
+      const extrait = p({ id: 'b', brand: 'Afnan', name: 'Supremacy Not Only Intense', concentration: 'Extrait de Parfum', sizeMl: 100 });
+      const notStated = p({ id: 'c', brand: 'Afnan', name: 'Supremacy Not Only Intense', concentration: 'Not stated', sizeMl: 100 });
+      const groups = findDuplicateGroups([edp, extrait, notStated]);
+      expect(groups).toHaveLength(0);
+    });
+
+    it('refuses when there is no stated sibling to join at all', () => {
+      const groups = findDuplicateGroups([emiratesOud]);
+      expect(groups).toHaveLength(0);
+    });
+
+    it('still refuses a bridge whose own barcode disagrees with the stated group', () => {
+      const disagreeing = p({
+        id: 'x', ean: '3349668508471',
+        brand: 'Swiss Arabian', name: 'Shaghaf Oud', concentration: 'Not stated', sizeMl: 75,
+      });
+      const barcoded = p({
+        id: 'ean-3349668612611', ean: '3349668612611',
+        brand: 'Swiss Arabian', name: 'Shaghaf Oud', concentration: 'Eau de Parfum', sizeMl: 75,
+      });
+      const groups = findDuplicateGroups([barcoded, disagreeing]);
+      expect(groups).toHaveLength(0);
+    });
+
+    it('still respects brand, size and name — an unrelated "Not stated" product is untouched', () => {
+      const unrelated = p({
+        id: 'y', ean: null,
+        brand: 'Afnan', name: 'Something Else Entirely', concentration: 'Not stated', sizeMl: 50,
+      });
+      const groups = findDuplicateGroups([fourShops, emiratesOud, unrelated]);
+      expect(groups).toHaveLength(1);
+      expect(groups[0]!.absorbed.map((x) => x.id)).toEqual(['emirates-oud-8916599177565-default-title']);
+    });
+
+    // NOT_STATED_MATCH_KEY is a hand-copy of CONCENTRATION_NOT_STATED,
+    // lowercased — productMatch.ts cannot import productName.ts directly
+    // without closing a circular import (productName.ts -> fragranceId.ts ->
+    // productMatch.ts; see NOT_STATED_MATCH_KEY's own comment). This is the
+    // guard that stops the copy silently drifting from the original.
+    it('NOT_STATED_MATCH_KEY never drifts from CONCENTRATION_NOT_STATED', () => {
+      expect(NOT_STATED_MATCH_KEY).toBe(CONCENTRATION_NOT_STATED.toLowerCase());
     });
   });
 });
