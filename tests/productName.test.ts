@@ -111,6 +111,50 @@ describe('displayName: a fragrance named after its own house', () => {
   });
 });
 
+describe('displayName: a fragrance named after its own house, qualified by a bracket', () => {
+  // The mirror image of the block above: stripping the brand doesn't leave
+  // nothing, it leaves nothing but a bracketed qualifier. Real, verbatim
+  // rawTitle values — Missoni's own reformulation year, Tous's own shade
+  // name — both refused as a brand-repeating prefix in e23137c (correctly:
+  // neither is that product's brand), which used to leave them displaying as
+  // a bare "(2015)"/"(Gold)": one real fact (the house) silently dropped,
+  // the same failure the plain eponymous case above already fixed for an
+  // empty remainder. The fragrance is called "Missoni (2015)", not "(2015)",
+  // the same way it is "Chloé Nomade" and not just "Nomade" when a real name
+  // exists — the qualifier modifies the brand rather than replacing it.
+  it.each([
+    ['Missoni (2015) Eau de Parfum 30ml Spray', 'Missoni', 'Missoni', 'Missoni (2015)'],
+    ['Missoni (2015) Eau de Parfum 50ml Spray', 'Missoni', 'Missoni', 'Missoni (2015)'],
+    ['Tous (Gold) Eau de Parfum 50ml Spray', 'Tous', 'Tous', 'Tous (Gold)'],
+  ])('%s -> %s', (title, raw, displayed, expected) => {
+    expect(displayName(title, raw, displayed)).toBe(expected);
+  });
+
+  // Measured before writing the rule this broadly: every CATALOGUE product
+  // name that is 4 characters or shorter, and every one that is exactly a
+  // common qualifier word (Homme/Femme/Man/Woman/Gold/Black/Intense/
+  // Original/a bare year...), checked by hand. Every one of them but these
+  // two products is a house's own real, standalone product name — pinned
+  // here so this rule is never widened to swallow them.
+  it.each([
+    ['Dior Homme Eau De Toilette 100ml Spray', 'Dior', 'Dior', 'Homme'],
+    ['DKNY Women Eau De Parfum 100ml Spray', 'DKNY', 'DKNY', 'Women'],
+    ['Histoires de Parfums 1804 Eau de Parfum 60ml', 'Histoires de Parfums', 'Histoires de Parfums', '1804'],
+    ['Calvin Klein One Eau de Toilette 100ml Spray', 'Calvin Klein', 'Calvin Klein', 'One'],
+  ])('does not touch a real one-word or bare-year name: %s -> %s', (title, raw, displayed, expected) => {
+    expect(displayName(title, raw, displayed)).toBe(expected);
+  });
+
+  // Not a blanket "always keep the brand" rule: a real name that happens to
+  // carry a bracket mid-string, not as the entire remainder, is untouched —
+  // "Femme (Rochas)" (mybeauty-boutique.json) is a real name in its own
+  // right, brandTitleEnds' own test above already relies on it surviving
+  // exactly as written, and it does not gain a second "Rochas" in front.
+  it('does not touch a bracket that is only part of a real name', () => {
+    expect(displayName('Femme (Rochas) 100Ml Edt', 'Rochas', 'Rochas')).toBe('Femme (Rochas)');
+  });
+});
+
 describe('displayName: what it deliberately leaves in the name', () => {
   // Creed sells "Aventus" and "Aventus For Her" as two different fragrances.
   // Stripping the phrase collapsed them to one displayed name; 302 listings
@@ -425,12 +469,15 @@ describe('displayName: a shop that puts its own brand in parentheses ahead of th
   // The trap a looser rule would walk into: a parenthesised word right where
   // the brand would sit is not always the brand. Missoni's own reformulation
   // marker and Tous's own shade name both take the identical shape and must
-  // survive untouched — neither "2015" nor "Gold" is that product's brand,
-  // so brandKey never matches either against the real brand candidates.
+  // never be stripped as a brand repeat — neither "2015" nor "Gold" is that
+  // product's brand, so brandKey never matches either against the real brand
+  // candidates. They are not left as a bare "(2015)"/"(Gold)" either — see
+  // the "eponymous, qualified by a bracket" describe block below for why the
+  // brand comes back in front of them instead.
   it.each([
-    ['Missoni (2015) Eau de Parfum 30ml Spray', 'Missoni', 'Missoni', '(2015)'],
-    ['Tous (Gold) Eau de Parfum 50ml Spray', 'Tous', 'Tous', '(Gold)'],
-  ])('leaves a parenthesised word alone when it is not the brand: %s -> %s', (title, raw, displayed, expected) => {
+    ['Missoni (2015) Eau de Parfum 30ml Spray', 'Missoni', 'Missoni', 'Missoni (2015)'],
+    ['Tous (Gold) Eau de Parfum 50ml Spray', 'Tous', 'Tous', 'Tous (Gold)'],
+  ])('never strips a parenthesised word that is not the brand: %s -> %s', (title, raw, displayed, expected) => {
     expect(displayName(title, raw, displayed)).toBe(expected);
   });
 });
