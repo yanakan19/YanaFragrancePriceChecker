@@ -23,8 +23,10 @@ import { marketOf } from '../src/catalogue/brandSiteCheck.js';
  * cruder count on 2026-08-17, 664 distinct raw strings by that same cruder
  * count on 2026-08-19 — the catalogue grows between harvests, so treat this
  * as "the count on the day someone last measured it," not a fixed total).
- * 168 of those 662 resolve here as of this measurement (25.4%). This list is
- * still only the highest-volume brands so far, not a finished set.
+ * 232 of those 662 resolve here as of this measurement (35.0%, re-measured
+ * after this pass's own additions — the 662/168 figures above are the count
+ * at the start of the pass). This list is still only the highest-volume
+ * brands so far, not a finished set.
  */
 export const BRAND_SITES: Record<string, string> = {
   'calvin klein': 'https://www.calvinklein.co.uk/',
@@ -320,7 +322,15 @@ export const BRAND_SITES: Record<string, string> = {
   // Mugler's house name before its 2021 shortening; some feeds still send it.
   'thierry mugler': 'https://www.mugler.co.uk/', // = mugler
   memo: 'https://www.memoparis.com/', // = memo paris
-  'dumont perfumes uae': 'https://www.dumontparis.com/', // = dumont
+  // Corrected 2026-08-19: this was first added as an assumed alias of
+  // "dumont" (dumontparis.com). A later search found dumontparfums.com's own
+  // page titling itself "Dumont Perfumes UAE" directly — a distinct,
+  // separately-run regional site, not just a drift-matched spelling of the
+  // Paris one. Pointing the key at its own real match instead of the
+  // assumed one.
+  'dumont perfumes uae': 'https://dumontparfums.com/',
+  // Maxo Parfum is a line sold through this same Dumont Perfumes UAE site.
+  'maxo parfum': 'https://dumontparfums.com/collections/maxo-parfum',
   // Hugo Boss now markets its fragrance line under the bare "BOSS" name
   // (hugoboss.com/boss-fragrances-inspiration/, checked 2026-08-19); same
   // company, same site as the "hugo boss" key already above.
@@ -429,6 +439,104 @@ export const BRAND_SITES: Record<string, string> = {
   // subdomain, path or TLD position marketOf reads, so this renders Non-UK.
   // See this block's own header note; not fixed here on purpose.
   cacharel: 'https://cachareluk.com/',
+  'jeanne arthes': 'https://www.groupe-arthes.com/en/jeanne-arthes-2/',
+  // zadig-et-voltaire.com is Zadig & Voltaire's own domain (search actually
+  // landed on its own /eu/be/ fragrance page); using the plain root rather
+  // than that one region's path.
+  'zadig voltaire': 'https://www.zadig-et-voltaire.com/',
+  chopard: 'https://www.chopard.com/en-gb/accessories-perfume-women',
+  ghost: 'https://www.ghost.co.uk/',
+  lomani: 'https://lomaniperfumes.com/',
+  tubbees: 'https://www.tubbees.com/',
+  'juicy couture': 'https://juicycouture.com/',
+  trussardi: 'https://trussardi.com/',
+  cartier: 'https://www.cartier.com/en-gb',
+  'antonio banderas': 'https://www.banderasperfumes.com/',
+  // franckolivier.fr titles itself "Site Officiel"; franckolivierparfum.com
+  // (found separately) calls itself "The Official US Site" for the same
+  // house — either is real, this is the primary one.
+  'franck olivier': 'https://franckolivier.fr/',
+  'lolita lempicka': 'https://www.lolitalempicka.com/',
+  // Terenzi family's niche house (Tiziana Terenzi's own family), separate
+  // storefront from the tizianaterenzi.com entry already above.
+  'v canto': 'https://vcanto.com/',
+  'pascal morabito': 'https://parfumspascalmorabito.com/en',
+  'le falcone': 'https://lefalcone.co.uk/',
+  'le falcon': 'https://lefalcone.co.uk/', // = "Le Falconé" — accented é drops out under normalizeBrand the same way Chloé's did above
+  'elizabeth taylor': 'https://elizabethtaylor.com/',
+  'tiffany co': 'https://www.tiffany.co.uk/home-accessories/fragrances/',
+  baldessarini: 'https://baldessarini-fragrances.com/en',
+  'laura biagiotti': 'https://laurabiagiotti.it/fragrances/?lang=en',
+  // Paris Corner sub-line, same domain as the existing "paris corner" entry.
+  'ministry of oud': 'https://pariscorner.ae/',
+  atralia: 'https://atralia.com/',
+  'giorgio beverly hills': 'https://www.giorgiobeverlyhills.com/en/',
+  korres: 'https://uk.korres.com/',
+  'le couvent des minimes': 'https://fr.lecouventparfums.com/en',
+  // Parent company's own "our brands" page names Cyrus directly; no
+  // standalone Cyrus-branded domain turned up.
+  cyrus: 'https://www.sppcparfums.com/new/en/our-brands/cyrus/',
+  'fine perfumery': 'https://www.fineperfumery.com/', // British-made; domain itself carries no UK marker
+  atkinsons: 'https://www.atkinsons1799.com/',
+  'miu miu': 'https://www.miumiu.com/',
+  fcuk: 'https://www.frenchconnection.com/collections/fcuk-collection',
+  jaguar: 'https://jaguar-fragrances.com/en',
+  // Coty's own brand page — Jovan has no standalone site of its own.
+  jovan: 'https://www.coty.com/our-brands/consumer-brands/jovan',
+  // London boutique house; own domain confirmed by search (self-titled "Shay
+  // & Blue UK"), but the address itself carries no .co.uk/uk./​uk-path marker.
+  'shay blue': 'https://www.shayandblue.com/',
+  bentley: 'https://bentley-fragrances.com/en',
+  missoni: 'https://www.missoni.com/',
+  'bharara beauty': 'https://www.bhararabeauty.com/',
+  // Spelling variant of the already-resolved "Ibrahim Al Qurashi (IBRAQ)".
+  'ibraheem al qurashi': 'https://ibraquk.com/',
+  dsquared: 'https://www.dsquared2.com/', // catalogue's normalizeBrand key for "DSquared2" (digit dropped)
+  'emanuel ungaro': 'https://www.ungaro.com/',
+  'anna sui': 'https://www.annasui.com/',
+  moncler: 'https://www.moncler.com/',
+  // "Clean" in the catalogue is this same New York label's current fragrance
+  // line, trading today as Clean Reserve — thecleanreserve.com titles itself
+  // "Official Website" directly.
+  clean: 'https://thecleanreserve.com/',
+  // Not an independent house: a Clive Dorris Collection sub-line sold under
+  // the existing "fragrance world" entry's own domain — every search result
+  // names Fragrance World (Dubai) as the manufacturer, never a Clive
+  // Dorris-branded site of its own.
+  'clive dorris': 'https://fragranceworld.ae/',
+  // Paris Corner sub-lines, same domain as the existing "paris corner" entry
+  // (pariscorner.ae carries its own /product-category/ministry-of-gourmand/
+  // page, confirming the domain directly rather than by inference).
+  'north stag': 'https://pariscorner.ae/',
+  'ministry of gourmand': 'https://pariscorner.ae/',
+  'billie eilish': 'https://store.billieeilish.com/',
+  'christina aguilera': 'https://parfum.christinaaguilera.com/',
+  // "4711" itself CANNOT be resolved here even though 4711.com is a real,
+  // confirmed site (used above for the Mäurer & Wirtz entry's own portfolio
+  // mention): normalizeBrand() strips everything that isn't a-z, and "4711"
+  // is all digits, so it normalizes to the empty string rather than to
+  // anything a key could usefully be. Left out rather than keyed on ''`,
+  // which would wrongly catch any other brand string that also normalizes to
+  // nothing. A real limitation of this file's lookup scheme, not a research
+  // gap — fixing it means teaching normalizeBrand to keep digits, which
+  // touches every other key here and is out of scope for this pass.
+  'david beckham': 'https://www.beckham-fragrances.com/en',
+  'jean patou': 'https://www.patou.com/',
+  'sabrina carpenter': 'https://fragrancebysabrina.com/',
+  'sarah jessica parker': 'https://sjpbysarahjessicaparker.com/',
+  'privee couture collection': 'https://www.priveecouturecollection.com/',
+  sistelle: 'https://sistelleetcyrus.com/',
+  'prime collection': 'https://primeperfumeuae.com/',
+  // Licensee-run storefront (Eden Parfums Ltd), self-titled "CR7 Fragrances"
+  // directly, the same shape as David Beckham's beckham-fragrances.com above.
+  'cristiano ronaldo': 'https://cr7fragrances.store/',
+  'laurelle parfums': 'https://laurelle.co.uk/',
+  'collection prestige': 'https://collection-prestige.com/',
+  'la perla': 'https://beautybylaperla.com/',
+  'mercedes benz': 'https://parfums.mercedes-benz.com/en',
+  'ramon monegal': 'https://ramonmonegal.com/',
+  alezz: 'https://alezz-oud.com/en/alezz-perfumes/c179816661',
+  'pairfum london': 'https://www.pairfum.com/', // British house; domain itself carries no UK marker
 };
 
 /**
