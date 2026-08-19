@@ -2514,12 +2514,35 @@ export const RETAILERS: readonly Retailer[] = [
     //
     // Not confirmed Shopify: /en-gb/products.json 404s (as does every other
     // address tried), so this GBP reading comes from the theme/page, not a
-    // products feed, and shopifyStorefront stays unset. The harvest therefore
-    // has no proven route yet — sitemap-discovery is the generic fallback and
-    // has not been run against this shop — and shipping and the Awin
-    // application (still `pending`) are both unread. `enabled` stays false on
-    // those grounds, not a currency doubt: this is one of the few disabled
-    // entries here where sterling is actually the CI-confirmed answer.
+    // products feed, and shopifyStorefront stays unset.
+    //
+    // ── The correctness trap, and what is now built for it ──────────────────
+    // The plain origin quotes USD and /en-uk quotes EUR — a sitemap walk that
+    // is not pinned to /en-gb could just as easily discover an off-locale
+    // product URL and, since src/catalogue/jsonld.ts's price parser has no
+    // priceCurrency check of its own, publish a dollar or euro figure as
+    // pounds without anything noticing. `CatalogueConfig.requiredUrlPrefix`
+    // now exists specifically for this (see its doc comment in
+    // src/types/retailer.ts): when set, both the production harvest
+    // (crawlViaSitemap in src/catalogue/sitemapCrawl.ts) and the diagnostic
+    // probe (viaSitemap in src/catalogue/attempt.ts) seed discovery from
+    // `/en-gb/sitemap.xml` and drop every discovered URL outside that prefix,
+    // sitemap index or product alike. Both are unit-tested
+    // (tests/sitemapCrawl.test.ts, tests/attempt.test.ts).
+    //
+    // What is NOT yet established is whether `/en-gb/sitemap.xml` actually
+    // exists and lists real fragrance products — that is a fact about this
+    // one shop's sitemap layout, not something a unit test can prove.
+    // Shipping probe, run 32282115059 job 96163076612, 2026-08-19T17:32Z:
+    // the delivery page was read and genuinely states no flat standard
+    // charge ("NO RATE STATED"), so there is also no real delivery figure
+    // that would let this join tests/registry.test.ts's "unstated" list on
+    // its own. A catalogue-probe dispatch (probe_shop=niche-beauty-uk) was
+    // queued this session at run 32279140837 to test the live sitemap, but
+    // sat behind a ~70-minute scheduled harvest and had not completed by the
+    // end of this session. Whoever picks this up next: read that run's log
+    // first; if it shows real /en-gb-scoped listings, set
+    // `catalogue: { ..., requiredUrlPrefix: '/en-gb' }` and enable.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -2527,9 +2550,13 @@ export const RETAILERS: readonly Retailer[] = [
       standardGbp: null,
       freeOverGbp: null,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
+      verifiedAt: '2026-08-19',
       confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+      notes:
+        'Read directly, not unread: shipping probe, run 32282115059 job 96163076612, ' +
+        '2026-08-19T17:32Z, fetched niche-beauty.com\'s delivery page and confirmed it never ' +
+        'names a flat standard charge — "NO RATE STATED". Applied via Awin 2026-08-11, still ' +
+        'pending.',
     },
     catalogue: null,
     affiliate: { ...awinRequested() },
