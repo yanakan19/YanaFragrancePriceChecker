@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 58 retailers, 31 of them `enabled: true`. Every one of them is a legitimate
+ * 58 retailers, 32 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -2454,20 +2454,47 @@ export const RETAILERS: readonly Retailer[] = [
     //
     // What the same run ruled out: /products.json 404s at every address tried,
     // so this is not a Shopify storefront and shopifyStorefront stays unset.
-    // Still `enabled: false` because nothing else has been established — no
-    // harvest route (sitemap-discovery is the generic fallback and has not
-    // been run against this shop), no standard delivery cost, and the Awin
-    // application from 2026-08-11 is still `pending`.
-    enabled: false,
+    //
+    // Shipping probe, run 32280695672 job 96158519562, 2026-08-19T17:17Z:
+    // fetched the delivery page (3 pages, +6 footer links followed) and read
+    // its own words — "UK Standard Delivery ~ £3.99 per order ~ ⭐ FREE with
+    // Debenhams UNLIMITED" (https://www.debenhams.com/pages/informational/
+    // delivery). £3.99 is the standard rate; UNLIMITED is a paid subscription
+    // scheme, modelled as membershipPerk and never applied to the delivered
+    // price, same treatment as every other membership scheme in this file. No
+    // basket threshold is stated for non-members, so freeOverGbp stays null.
+    //
+    // Enabled on that: currency confirmed sterling, robots permits, not
+    // Shopify, and now a real, sourced standard delivery cost — the same
+    // basis bellavita-luxury/oud-arabian/lush already enable on with
+    // catalogue: null and adapter: 'unknown', relying on crawlViaSitemap's
+    // generic sitemap-discovery route (src/catalogue/sitemapCrawl.ts). No
+    // category URL has been found or verified, so catalogue stays null;
+    // unlike a standardGbp: null entry this does not need one to join
+    // tests/registry.test.ts's "unstated" list, because it is not on it. The
+    // Awin application from 2026-08-11 is still `pending`.
+    enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
     shipping: {
-      standardGbp: null,
+      standardGbp: 3.99,
       freeOverGbp: null,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-11',
-      confidence: 'unverified',
-      notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
+      membershipPerk: {
+        scheme: 'Debenhams UNLIMITED',
+        description: 'Paid subscription scheme advertised alongside the standard rate as giving free delivery.',
+      },
+      verifiedAt: '2026-08-19',
+      confidence: 'confirmed',
+      source: {
+        url: 'https://www.debenhams.com/pages/informational/delivery',
+        quote: 'UK Standard Delivery ~ £3.99 per order ~ ⭐ FREE with Debenhams UNLIMITED',
+        readAt: '2026-08-19',
+      },
+      notes:
+        'Read directly off the shop\'s own delivery page by shipping:discover, not searched for. ' +
+        'No non-member spend threshold for free delivery is stated on the page, so freeOverGbp ' +
+        'stays null rather than assumed.',
     },
     catalogue: null,
     affiliate: { ...awinRequested() },
