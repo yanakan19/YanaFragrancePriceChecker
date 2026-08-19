@@ -69,7 +69,20 @@ delay=2
 # sources disagreeing about a fact — it is two runs having built the same
 # artefact at different moments, and the answer is to rebuild it from the
 # merged inputs rather than to pick a side.
-GENERATED_PATHS="demo/index.html demo/404.html demo/catalogue.generated.ts demo/priceHistory.generated.ts dist-demo/artifact.html"
+#
+# Deliberately NOT here: dist-demo/artifact.html. It used to be, and that was
+# a real bug (run #236, 2026-08-18): no caller of this script has ever passed
+# it to be committed — it is gitignored build output, never tracked — yet it
+# was listed here and so got blindly `git add`-ed after every regenerate.
+# That add always failed ("paths are ignored by one of your .gitignore
+# files"), and because bash suppresses -e for commands run inside a function
+# whose result feeds an `if` (resolve_generated_conflicts does, below), the
+# failure did not stop the script — it just meant this function could reach
+# `git rebase --continue` having silently skipped a step it assumed had
+# worked. Fixed by removing the path rather than trusting that quirk; see
+# also the explicit exit-code checks below, added so a future mistake here
+# fails loudly instead of vanishing the same way.
+GENERATED_PATHS="demo/index.html demo/404.html demo/catalogue.generated.ts demo/priceHistory.generated.ts"
 
 # How to rebuild them. Overridable so this script does not hard-code knowledge
 # of the app's build for callers that generate something else.
@@ -105,12 +118,20 @@ is_generated() {
 # it changes on its own 6-hourly schedule regardless of what else lands in
 # between, not on every conflict a rebuild would silently trigger.
 # Regenerating it mid-conflict would defeat the one thing it exists to do.
+#
+# The *-marker.txt / *-state.json entries are the cadence-gate bookkeeping
+# the workflow's periodic steps (shipping discovery, Awin sync, deals
+# refresh) read to decide "have I run recently enough" — see
+# catalogue-daily.yml's MARKER= lines. Machine-written timestamps, never
+# hand-edited, same category as the report files above.
 is_raw_snapshot() {
   case "$1" in
     data/catalogue/*.json|data/houses/*.json) return 0 ;;
     data/house-sourcing-report.json|data/shipping-discovery-report.json) return 0 ;;
     data/image-link-report.json|data/awin-feed-sync-state.json|data/strategy-memory.json) return 0 ;;
     data/price-verification-report.json|data/storefront-reprice-report.json) return 0 ;;
+    data/shipping-discover-marker.txt|data/shipping-discover-state.json) return 0 ;;
+    data/feed-sync-marker.txt|data/deals-refresh-marker.txt) return 0 ;;
     demo/deals.generated.ts) return 0 ;;
     *) return 1 ;;
   esac
@@ -155,9 +176,34 @@ resolve_generated_conflicts() {
   # on its own, and this run's own freshly harvested delta for whichever
   # retailer or house conflicted is a one-cycle loss the next scheduled
   # harvest naturally supersedes, not a permanent one.
+  #
+  # "Incoming side" is --ours here, not --theirs. `git rebase` flips the
+  # usual merge meaning: while a commit is being replayed, --ours is the
+  # branch we are rebasing onto (the already-pushed, incoming side) and
+  # --theirs is the commit currently being applied (our own local harvest
+  # commit) — the reverse of `git merge`. An earlier version of this script
+  # had that backwards, which happened to be harmless for GENERATED_PATHS
+  # (regenerated fresh below regardless) but meant every raw-snapshot
+  # conflict silently kept our own commit's copy instead of the incoming
+  # one this comment says it keeps. Fixed; verified locally against a
+  # scratch repo (checkout --ours/--theirs content dumped directly).
+  #
+  # Every checkout/add below is checked explicitly rather than trusted to
+  # propagate its exit code, on purpose: this function is called as
+  # `if resolve_generated_conflicts; then …`, and bash suppresses `-e` for
+  # commands run inside a function invoked as an `if` condition. A command
+  # that fails here would otherwise fail silently and let execution reach
+  # `git rebase --continue` having skipped a step — which is exactly how
+  # run #236 (2026-08-18) went unnoticed for as long as it did.
   for file in $conflicted; do
-    git checkout --theirs -- "$file" 2>/dev/null || git checkout --ours -- "$file"
-    git add -- "$file"
+    if ! git checkout --ours -- "$file" 2>/dev/null && ! git checkout --theirs -- "$file"; then
+      echo "::error::Could not check out either side of the conflict in ${file}." >&2
+      return 1
+    fi
+    if ! git add -- "$file"; then
+      echo "::error::git add failed for ${file} while resolving its conflict." >&2
+      return 1
+    fi
   done
 
   if [ "$needs_regenerate" -eq 1 ]; then
@@ -167,11 +213,17 @@ resolve_generated_conflicts() {
     fi
 
     for file in $GENERATED_PATHS; do
-      if [ -e "$file" ]; then git add -- "$file"; fi
+      if [ -e "$file" ] && ! git add -- "$file"; then
+        echo "::error::git add failed for regenerated file ${file}." >&2
+        return 1
+      fi
     done
   fi
 
-  GIT_EDITOR=true git rebase --continue
+  if ! GIT_EDITOR=true git rebase --continue; then
+    echo "::error::git rebase --continue failed after conflicts appeared resolved." >&2
+    return 1
+  fi
 }
 
 for attempt in 1 2 3 4 5; do
@@ -188,11 +240,13 @@ for attempt in 1 2 3 4 5; do
   delay=$(( delay * 2 ))
 
   # A rebase will not start at all while the tree is dirty, and the build
-  # reliably leaves it dirty: `npm run demo` writes demo/404.html and
-  # dist-demo/artifact.html whether or not the caller listed them, so anything
-  # the caller did not name stays modified. That produced "cannot pull with
-  # rebase: You have unstaged changes", which aborted the retry before it began
-  # and cost a complete 40-minute harvest.
+  # reliably leaves it dirty: `npm run demo` writes demo/404.html (and other
+  # tracked generated files) whether or not the caller listed them, so
+  # anything the caller did not name stays modified. That produced "cannot
+  # pull with rebase: You have unstaged changes", which aborted the retry
+  # before it began and cost a complete 40-minute harvest. (dist-demo/ is
+  # gitignored, so its build output never shows up here regardless — see the
+  # GENERATED_PATHS comment above for why it is not listed there either.)
   #
   # Discarding them is safe and is not a judgement call: everything still
   # uncommitted at this point is build output, reproducible from the inputs that
