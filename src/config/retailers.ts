@@ -2981,14 +2981,26 @@ export const RETAILERS: readonly Retailer[] = [
       notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
     },
     // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
-    // Not designed, same reasoning as very.co.uk and Beauty Pie above: no
-    // strategy-memory record exists, `catalogue: null` means no confirmed
-    // category URL for any adapter to target, bot-defence status is
-    // genuinely unestablished. A CI probe dispatch was queued this review
-    // (catalogue-daily.yml, probe_shop=beauty-bay) and is waiting behind the
-    // day's scheduled harvest as of this writing — check
-    // data/strategy-memory.json for a beauty-bay:: record before assuming
-    // this is still unread by the time anyone acts on this entry.
+    // Ambiguous first evidence, not a confirmed block. The catalogue-daily.yml
+    // probe_shop dispatch queued behind the scheduled harvest and never got a
+    // runner (same concurrency-slot issue noted on very.co.uk above), so
+    // `npm run shipping:discover -- --shop=beauty-bay` ran via price-verify.yml
+    // instead (run 32258017812, job 96084246448): verdict NO PAGE FOUND, and
+    // critically *not* UNREACHABLE — this script's own verdict logic (see
+    // scripts/shipping-discover.ts) only reaches UNREACHABLE when a fetch
+    // actually errors, so a homepage fetch here did not error; none of the
+    // script's guessed delivery-page paths matched a real one on
+    // beautybay.com. `products.json` returned an HTML document, not JSON
+    // ("Unexpected token '<', \"<!doctype \"..."), meaning either not
+    // Shopify or a Shopify endpoint answering with a shell page rather than
+    // the catalogue. That is meaningfully different from very.co.uk's clean
+    // 403 on its own homepage: nothing here shows Beauty Bay refusing a
+    // request outright. Read as "not yet shown to be bot-defended" rather
+    // than "confirmed easy" — a direct plain fetch of the bare homepage and
+    // robots.txt (which this run did not isolate on its own) is the next
+    // concrete check, cheaper than Apify and worth doing before assuming
+    // this belongs in the same tier as very.co.uk. `catalogue: null` still
+    // means no confirmed category URL exists for any adapter regardless.
     catalogue: null,
     affiliate: { ...awinRequested() },
   },
