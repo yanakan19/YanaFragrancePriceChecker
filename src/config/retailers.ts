@@ -2112,8 +2112,23 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://uk.kayali.com',
     tiers: ['designer', 'niche'],
     singleBrandOnly: 'Kayali',
+    // Was enabled with zero listings — no route was ever wired. Currency
+    // probe, run 32277002439 job 96146678060, 2026-08-19T16:38Z, commit
+    // a5b1757: /products.json returned a real Shopify payload (e.g.
+    // go-boujee-1 108.00, boujee-kitty-caramel-milk-22 80.00), and the
+    // origin quotes GBP, settles GBP, at rate 1 — identically through five
+    // other ways of asking (?country=GB, both localisation cookies,
+    // Accept-Language en-GB). /en-gb, /gb, /uk and /en-uk all 404, as
+    // expected of a single-market store. robots.txt permitted every request
+    // made. So `shopifyStorefront` is set below. Note the sample also
+    // included a "mini perfume holder charm" — this shop sells fragrance
+    // accessories alongside scent, which is exactly the kind of listing
+    // `fragranceOnlyCatalogue`'s doc comment warns against admitting without
+    // the concentration-word title test; that flag is deliberately left
+    // unset here.
     enabled: true,
     adapter: 'unknown',
+    shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
       standardGbp: 5.5,
