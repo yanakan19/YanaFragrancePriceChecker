@@ -51,6 +51,20 @@ const CONCENTRATION =
  * (no word boundary between the C and the r, so it is never touched).
  * Checked against the live catalogue before being added: no collision.
  *
+ * "serum" is the same shape as "hair": "Lancôme Absolue L'Extrait Elixir
+ * Anti-Ageing Serum 30ml" is a real product, genuinely stated at an
+ * "extrait" strength and a parseable size, but a skincare serum rather than
+ * something worn as a scent. Checked before adding it, the same way "hair"
+ * was: 894 active listings across the harvest carry the bare word — face
+ * serum, eye serum, beard serum, hair serum, brow serum, scalp serum, every
+ * one of them skincare or haircare (Anua, Avène, CeraVe, Clarins, Biotherm,
+ * Beauty Of Joseon among others) — and this Lancôme row is the *only* one
+ * that was ever actually being counted as a fragrance; the rest are already
+ * excluded upstream by having no stated concentration at all. No genuine
+ * fine fragrance is titled "[house] [anything] Serum", so the bare word is
+ * safe the same way "hair" is — checked, no other currently-classified
+ * fragrance in the catalogue carries it.
+ *
  * The scented-air and body-spray entries — "air freshener", "room spray",
  * "lamp fragrance", "home spray", "body spray", "body mist" — were added after
  * 26 of them were being sold to readers as perfume. They get in because the
@@ -80,7 +94,7 @@ const CONCENTRATION =
  * they are dropped deliberately, not tolerated as collateral.
  */
 export const NOT_A_FRAGRANCE =
-  /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|body cream|shampoo|conditioner|deodorant|shower gel|body wash|candle|diffuser|reed|gift ?set|set of|bundle|tester|sample|refill|travel spray|decant|hand wash|moisturis|lotion|balm|scrub|talc|hair|air ?freshener|room spray|lamp fragrance|home spray|body spray|body mist)\b/i;
+  /\b(fragrance[- ]free|unperfumed|unscented|nappy|tissue|soap bar|body cream|shampoo|conditioner|deodorant|shower gel|body wash|candle|diffuser|reed|gift ?set|set of|bundle|tester|sample|refill|travel spray|decant|hand wash|moisturis|lotion|balm|scrub|talc|hair|serum|air ?freshener|room spray|lamp fragrance|home spray|body spray|body mist)\b/i;
 
 /**
  * The size phrases sizeMl() reads, exported so a caller that needs to find
