@@ -1954,9 +1954,13 @@ export const RETAILERS: readonly Retailer[] = [
       verifiedAt: '2026-08-05',
       confidence: 'unverified',
       notes:
-        'Nothing about their delivery terms turned up in search results at all beyond the ' +
-        'shop existing and trading as Perfumeo Ltd. Read perfumeo.co.uk delivery terms ' +
-        'directly, fill in every field above, then enable.',
+        'Read directly now, not just searched for: shipping probe, run 32279620206 job ' +
+        '96155027469, 2026-08-19T17:05Z, fetched 4 pages of perfumeo.co.uk (+1 footer link ' +
+        'followed) and confirmed NO RATE STATED — the delivery page exists and was read, it ' +
+        'simply never names a flat standard charge, the same shape beauty-pie and ' +
+        'cult-beauty-global\'s delivery pages show. Not a retrieval failure to fix; there is no ' +
+        'figure on the page to find. Still blocks enabling on the same standardGbp: null basis ' +
+        'as before.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
