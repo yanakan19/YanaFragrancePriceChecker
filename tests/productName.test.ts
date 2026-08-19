@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  CONCENTRATION_NOT_STATED, brandTitleOpens, concentration, displayName, stripRedundantSize,
+  CONCENTRATION_NOT_STATED, brandTitleOpens, brandTitleEnds, concentration, displayName, stripRedundantSize,
 } from '../src/catalogue/productName.js';
 
 /**
@@ -133,6 +133,151 @@ describe('displayName: what it deliberately leaves in the name', () => {
   it('does not mistake a leading "Oud" for the concentration', () => {
     expect(concentration('Oud & Roses Perfume 60ml EDP')).toBe('Eau de Parfum');
     expect(displayName('Oud & Roses Perfume 60ml EDP', null, null)).toBe('Oud & Roses Perfume');
+  });
+});
+
+describe('brandTitleEnds: which spelling of the brand the title actually closes with', () => {
+  it.each([
+    ['Shaghaf Oud Perfume 75ml Swiss Arabian', 'Swiss Arabian', 'Swiss Arabian', 'Swiss Arabian'],
+    ['Costa de Amalfi Perfume 100ml EDP Riiffs', 'Riiffs', 'Riiffs', 'Riiffs'],
+  ])('%s -> uses %s', (title, displayed, raw, expected) => {
+    expect(brandTitleEnds(title, [displayed, raw])).toBe(expected);
+  });
+
+  // The trap this exists to catch: one shop's own feed spelling the vendor
+  // field "Swiss Arabian" and gluing the same brand together with no space
+  // inside a product's own title. Matching on brandKey rather than the exact
+  // candidate string is what makes this land — see the function's own doc.
+  it('matches a title that glues the brand together differently from the candidate spelling', () => {
+    expect(brandTitleEnds('Shaghaf Oud 75ml SwissArabian', ['Swiss Arabian', 'Swiss Arabian'])).toBe('SwissArabian');
+  });
+
+  it('returns null when nothing but trailing punctuation follows the brand', () => {
+    // "Femme (Rochas)" is real (mybeauty-boutique.json): stripping through
+    // closing punctuation risks eating a genuine trailing annotation like a
+    // "(2019)" reformulation marker sitting in the same shape elsewhere in
+    // the same feed, so this stays deliberately conservative.
+    expect(brandTitleEnds('Femme (Rochas)', ['Rochas', 'Rochas'])).toBeNull();
+  });
+
+  it('returns null when the title does not close with the brand at all', () => {
+    expect(brandTitleEnds('Afnan 9PM Elixir Extrait de Parfum 100ml Spray', ['Afnan', 'Afnan Perfumes'])).toBeNull();
+  });
+
+  it('prefers the longer candidate on a tie', () => {
+    expect(brandTitleEnds('Costa de Amalfi Perfume 100ml EDP Dunhill London', ['Dunhill', 'Dunhill London'])).toBe(
+      'Dunhill London',
+    );
+  });
+});
+
+describe('displayName: a shop that appends its own brand to the end of the title', () => {
+  // The reported bug, verbatim from data/catalogue/emirates-oud.json: Swiss
+  // Arabian's own "Shaghaf Oud" reads as two separate listings on the brand
+  // page because Emirates Oud appends "Perfume Swiss Arabian" (and sometimes
+  // just "Swiss Arabian") to the end of its own titles. 1,904 products across
+  // 96 brands carry this shape — measured with
+  //
+  //   npx tsx (import CATALOGUE, count products whose normalised name ends
+  //   with " " + normalised brand)
+  //
+  // — see the commit message for the full before/after count.
+  it.each([
+    ['Shaghaf Oud Perfume 75ml Swiss Arabian', 'Swiss Arabian', 'Swiss Arabian', 'Shaghaf Oud'],
+    ['Shaghaf Oud Royale Perfume 75ml EDP Swiss Arabian', 'Swiss Arabian', 'Swiss Arabian', 'Shaghaf Oud Royale'],
+    ['Shaghaf Oud Tonka Perfume Swiss Arabian', 'Swiss Arabian', 'Swiss Arabian', 'Shaghaf Oud Tonka'],
+    ['Costa de Amalfi Perfume 100ml EDP Riiffs', 'Riiffs', 'Riiffs', 'Costa de Amalfi'],
+  ])('%s -> %s', (title, raw, displayed, expected) => {
+    expect(displayName(title, raw, displayed)).toBe(expected);
+  });
+
+  // "Perfume" is only ever removed here immediately adjacent to a brand this
+  // function has already confirmed was genuinely appended — never elsewhere
+  // in the name, where the word may be doing real work.
+  it('does not strip "Perfume" when it is not adjacent to the removed brand', () => {
+    expect(displayName('Al Haramain Musk Concentrated Perfume Oil 12ml Roll-On Al Haramain', 'Al Haramain', 'Al Haramain'))
+      .toBe('Musk Roll-On');
+  });
+
+  // The trap this whole feature exists to avoid falling into: a brand word
+  // that is genuinely part of the fragrance's own name must never be eaten
+  // along with the shop's real appended copy. Both real, verbatim from
+  // data/catalogue/emirates-oud.json — "Blue Laverne" and "Miss Laverne" are
+  // Laverne's own sub-line names, confirmed by "Blue Laverne Bakhoor" and
+  // "Blue Laverne Elixir" repeating the same "Blue Laverne" prefix elsewhere
+  // in the same feed — so only the truly redundant final "Laverne" comes off,
+  // never the one that is the fragrance's own name.
+  it.each([
+    ['Blue Laverne 100ml EDP Laverne', 'Laverne', 'Laverne', 'Blue Laverne'],
+    ['Miss Laverne 100ml EDP Laverne', 'Laverne', 'Laverne', 'Miss Laverne'],
+  ])('does not strip a brand word that is legitimately part of the name: %s -> %s', (title, raw, displayed, expected) => {
+    expect(displayName(title, raw, displayed)).toBe(expected);
+  });
+
+  it('still handles the leading and trailing brand independently', () => {
+    // Neither strip should interfere with the other when a title happens to
+    // both open and close with a brand candidate.
+    expect(displayName('Afnan 9PM Elixir Extrait de Parfum 100ml Spray', 'Afnan', 'Afnan')).toBe('9PM Elixir');
+  });
+});
+
+describe('displayName: "Le Parfum" and other French-article naming, not a stripped strength', () => {
+  // The mirror-image bug: Jimmy Choo's real "I Want Choo Le Parfum" line was
+  // read as "I Want Choo Le" with concentration "Parfum", because the bare
+  // generic-tier word "parfum" doubles as both a real (if vague) strength
+  // word and this exact French flanker-naming convention. Verbatim from
+  // data/catalogue/fragrance-click.json and justmylook.json.
+  it.each([
+    ['Jimmy Choo I Want Choo Le Parfum 40ml Spray', 'Jimmy Choo', 'Jimmy Choo', 'I Want Choo Le Parfum'],
+    ['Jimmy Choo I Want Choo Le Parfum 60ml Spray', 'Jimmy Choo', 'Jimmy Choo', 'I Want Choo Le Parfum'],
+    ['Jimmy Choo I Want Choo Le Parfum 100ml Spray', 'Jimmy Choo', 'Jimmy Choo', 'I Want Choo Le Parfum'],
+    // Fragrance Click writes the size *between* the article and the naming
+    // word rather than after both — "Le 10ml Parfum" — and the strip has to
+    // look past that size the same way it looks past none at all.
+    ['Jimmy Choo I Want Choo Le 10ml Parfum', 'Jimmy Choo', 'Jimmy Choo', 'I Want Choo Le Parfum'],
+    ['Yves Saint Laurent MYSLF Le Parfum Spray 60ml', 'Yves Saint Laurent', 'Yves Saint Laurent', 'MYSLF Le Parfum'],
+    ['Chloe Le Parfum 100ml', 'Chloe', 'Chloé', 'Le Parfum'],
+  ])('%s -> %s', (title, raw, displayed, expected) => {
+    expect(displayName(title, raw, displayed)).toBe(expected);
+  });
+
+  it('reports "Not stated" rather than a guessed strength when "Le Parfum" is the only concentration word', () => {
+    expect(concentration('Jimmy Choo I Want Choo Le Parfum 40ml Spray')).toBe(CONCENTRATION_NOT_STATED);
+    expect(concentration('Jimmy Choo I Want Choo Le 10ml Parfum')).toBe(CONCENTRATION_NOT_STATED);
+  });
+
+  // The listing-split half of the same bug: one retailer's title also
+  // carried an explicit "EDP", so it kept its full name but landed in a
+  // different concentration bucket from the other four — the reported shape
+  // exactly. A real, later "EDP" is still found and still stated correctly.
+  it('still finds a real concentration stated elsewhere in the same "Le Parfum" title', () => {
+    expect(concentration('Jimmy Choo I Want Choo Le Parfum EDP 60ml')).toBe('Eau de Parfum');
+    expect(displayName('Jimmy Choo I Want Choo Le Parfum EDP 60ml', 'Jimmy Choo', 'Jimmy Choo')).toBe(
+      'I Want Choo Le Parfum',
+    );
+  });
+
+  // The proof this is not a blanket "never strip after Le" rule: a genuine
+  // trailing concentration is still read and stripped exactly as before.
+  it('still strips a genuine trailing concentration with no French-article naming involved', () => {
+    expect(concentration('Chanel Coco Mademoiselle Eau de Parfum 100ml')).toBe('Eau de Parfum');
+    expect(displayName('Chanel Coco Mademoiselle Eau de Parfum 100ml', 'Chanel', 'Chanel')).toBe('Coco Mademoiselle');
+  });
+
+  // "Mademoiselle" ends in the letters "le" but is not the standalone word
+  // "Le" — precededByFrenchArticle must never fire on a substring inside a
+  // longer word.
+  it('does not mistake the tail of a longer word for the article "le"', () => {
+    expect(concentration('Rochas Mademoiselle Parfum 100ml')).toBe('Parfum');
+  });
+
+  // "Aventus Cologne" stays exactly as it was: the French-article check is
+  // scoped to the generic-tier "parfum" word alone, never to the specific
+  // "eau de X" phrases, so Creed's own naming (and Escada's stray "Le" ahead
+  // of a genuinely stated "Eau De Toilette") is untouched by this feature.
+  it('never applies to the specific "eau de X" phrases', () => {
+    expect(concentration('Creed Aventus Cologne Eau De Parfum 50ml')).toBe('Eau de Parfum');
+    expect(concentration('Escada Sorbetto Rosso Le Eau De Toilette 100ml')).toBe('Eau de Toilette');
   });
 });
 
