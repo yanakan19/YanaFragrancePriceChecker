@@ -3952,6 +3952,32 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-3614273069175",
+    "brand": "Lancôme",
+    "name": "Idôle",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3614273069175",
+    "shops": 4,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/942.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
+  },
+  {
     "id": "ean-3147758029390",
     "brand": "Lancôme",
     "name": "Miracle",
@@ -8738,7 +8764,10 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "White Wood"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
   {
     "id": "ean-8054754405088",
     "brand": "Dolce & Gabbana",
@@ -8749,10 +8778,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://bgstatic.net/photos/186366_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3423473049456",
     "brand": "Dolce & Gabbana",
@@ -11637,58 +11663,6 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3614273069175",
-    "brand": "Lancôme",
-    "name": "(Lancôme) Idôle",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3614273069175",
-    "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/942.jpg",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Citrus",
-        "Fresh florals"
-      ],
-      "middle": [
-        "Jasmine",
-        "Rose",
-        "Floral bouquet"
-      ],
-      "base": [
-        "Vanilla",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "ean-3614274169706",
-    "brand": "Lancôme",
-    "name": "(Lancôme) La Vie Est Belle L'Elixir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3614274169706",
-    "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/965.jpg",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Citrus",
-        "Fresh florals"
-      ],
-      "middle": [
-        "Jasmine",
-        "Rose",
-        "Floral bouquet"
-      ],
-      "base": [
-        "Vanilla",
-        "Musk"
-      ]
-    }
-  },
-  {
     "id": "ean-3614274078541",
     "brand": "Lancôme",
     "name": "Idôle",
@@ -11722,6 +11696,32 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3614274169706",
+    "brand": "Lancôme",
+    "name": "La Vie Est Belle L'Elixir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3614274169706",
+    "shops": 3,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/965.jpg",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Citrus",
+        "Fresh florals"
+      ],
+      "middle": [
+        "Jasmine",
+        "Rose",
+        "Floral bouquet"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
+  },
+  {
     "id": "ean-3605533286555",
     "brand": "Lancôme",
     "name": "La Vie Est Belle Sprayay",
@@ -11746,6 +11746,17 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "Musk"
       ]
     }
+  },
+  {
+    "id": "ean-3147758029406",
+    "brand": "Lancôme",
+    "name": "Miracle",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "3147758029406",
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51YGjN_ouiL.jpg?v=1767983649",
+    "notes": null
   },
   {
     "id": "ean-3147758155112",
@@ -16723,7 +16734,10 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61GRZlM9liL.jpg?v=1767986411",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "ean-3614272648401",
     "brand": "Yves Saint Laurent",
@@ -16734,10 +16748,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://bgstatic.net/photos/130467_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614272648425",
     "brand": "Yves Saint Laurent",
@@ -24423,7 +24434,10 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/k/ck_eternity_m_parfum_200ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-3614224871284",
     "brand": "Calvin Klein",
@@ -24449,10 +24463,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-ck0144",
     "brand": "Calvin Klein",
@@ -31283,7 +31294,10 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/107533_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "ean-3516642139321",
     "brand": "Franck Olivier",
@@ -31294,10 +31308,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/190305_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3516640525324",
     "brand": "Franck Olivier",
@@ -38087,7 +38098,10 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/117908_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "ean-3386460058407",
     "brand": "Karl Lagerfeld",
@@ -38098,10 +38112,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/115920_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3386460082075",
     "brand": "Karl Lagerfeld",
@@ -39884,116 +39895,6 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3614273749459",
-    "brand": "Lancôme",
-    "name": "(Lancôme) Idôle Nectar L'Eau de Parfum",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "3614273749459",
-    "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1658327868-51927000.jpg?v=1763392548&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3614274335675",
-    "brand": "Lancôme",
-    "name": "(Lancome) La Nuit Trésor",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "3614274335675",
-    "shops": 2,
-    "image": "https://bgstatic.net/photos/192045_ml.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3614273922968",
-    "brand": "Lancôme",
-    "name": "(Lancôme) La Vie Est Belle Iris Absolu",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "3614273922968",
-    "shops": 2,
-    "image": "https://bgstatic.net/photos/168590_ml.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3614273922975",
-    "brand": "Lancôme",
-    "name": "(Lancôme) La Vie Est Belle Iris Absolu",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3614273922975",
-    "shops": 2,
-    "image": "https://bgstatic.net/photos/169717_ml.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3614274169720",
-    "brand": "Lancôme",
-    "name": "(Lancôme) La Vie Est Belle L'Elixir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 30,
-    "ean": "3614274169720",
-    "shops": 2,
-    "image": "https://images2.productserve.com/noimage.gif",
-    "notes": null
-  },
-  {
-    "id": "ean-3614274169713",
-    "brand": "Lancôme",
-    "name": "(Lancôme) La Vie Est Belle L'Elixir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "3614274169713",
-    "shops": 2,
-    "image": "https://bgstatic.net/photos/174676_ml.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3614274103007",
-    "brand": "Lancôme",
-    "name": "(Lancôme) La Vie Est Belle Rose Extraordinaire",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 30,
-    "ean": "3614274103007",
-    "shops": 2,
-    "image": "https://bgstatic.net/photos/173973_ml.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3614274104448",
-    "brand": "Lancôme",
-    "name": "(Lancôme) La Vie Est Belle Rose Extraordinaire",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "3614274104448",
-    "shops": 2,
-    "image": "https://bgstatic.net/photos/174804_ml.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3614274104370",
-    "brand": "Lancôme",
-    "name": "(Lancôme) La Vie Est Belle Rose Extraordinaire",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3614274104370",
-    "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome-la-vie-est-belle-rose-extraordinaire-eau-de-parfum.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3147758034905",
-    "brand": "Lancôme",
-    "name": "(Lancôme) Trésor",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 30,
-    "ean": "3147758034905",
-    "shops": 2,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-edp-vapo-50ml-lancome-1.jpg",
-    "notes": null
-  },
-  {
     "id": "ean-3614272639638",
     "brand": "Lancôme",
     "name": "Idôle",
@@ -40002,6 +39903,17 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "ean": "3614272639638",
     "shops": 2,
     "image": "https://bgstatic.net/photos/122097_ml.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3614273749459",
+    "brand": "Lancôme",
+    "name": "Idôle Nectar L'Eau de Parfum",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3614273749459",
+    "shops": 2,
+    "image": "https://www.beautybase.com/cdn/shop/files/1658327868-51927000.jpg?v=1763392548&width=1920",
     "notes": null
   },
   {
@@ -40035,6 +39947,17 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
         "Papyrus"
       ]
     }
+  },
+  {
+    "id": "ean-3614274335675",
+    "brand": "Lancôme",
+    "name": "La Nuit Trésor",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3614274335675",
+    "shops": 2,
+    "image": "https://bgstatic.net/photos/192045_ml.jpg",
+    "notes": null
   },
   {
     "id": "justmylook-lanc0017",
@@ -40095,6 +40018,83 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "ean": "3614273922951",
     "shops": 2,
     "image": "https://bgstatic.net/photos/190319_ml.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3614273922968",
+    "brand": "Lancôme",
+    "name": "La Vie Est Belle Iris Absolu",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3614273922968",
+    "shops": 2,
+    "image": "https://bgstatic.net/photos/168590_ml.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3614273922975",
+    "brand": "Lancôme",
+    "name": "La Vie Est Belle Iris Absolu",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3614273922975",
+    "shops": 2,
+    "image": "https://bgstatic.net/photos/169717_ml.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3614274169720",
+    "brand": "Lancôme",
+    "name": "La Vie Est Belle L'Elixir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "3614274169720",
+    "shops": 2,
+    "image": "https://images2.productserve.com/noimage.gif",
+    "notes": null
+  },
+  {
+    "id": "ean-3614274169713",
+    "brand": "Lancôme",
+    "name": "La Vie Est Belle L'Elixir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3614274169713",
+    "shops": 2,
+    "image": "https://bgstatic.net/photos/174676_ml.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3614274103007",
+    "brand": "Lancôme",
+    "name": "La Vie Est Belle Rose Extraordinaire",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "3614274103007",
+    "shops": 2,
+    "image": "https://bgstatic.net/photos/173973_ml.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3614274104448",
+    "brand": "Lancôme",
+    "name": "La Vie Est Belle Rose Extraordinaire",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3614274104448",
+    "shops": 2,
+    "image": "https://bgstatic.net/photos/174804_ml.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3614274104370",
+    "brand": "Lancôme",
+    "name": "La Vie Est Belle Rose Extraordinaire",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3614274104370",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome-la-vie-est-belle-rose-extraordinaire-eau-de-parfum.jpg",
     "notes": null
   },
   {
@@ -40186,17 +40186,6 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "justmylook-lanc0037",
-    "brand": "Lancôme",
-    "name": "Miracle",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 30,
-    "ean": null,
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51YGjN_ouiL.jpg?v=1767983649",
-    "notes": null
-  },
-  {
     "id": "justmylook-lanc0039",
     "brand": "Lancôme",
     "name": "Miracle",
@@ -40249,6 +40238,17 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "ean": null,
     "shops": 2,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61qqmCSc86L.jpg?v=1767983638",
+    "notes": null
+  },
+  {
+    "id": "ean-3147758034905",
+    "brand": "Lancôme",
+    "name": "Trésor",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "3147758034905",
+    "shops": 2,
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-edp-vapo-50ml-lancome-1.jpg",
     "notes": null
   },
   {
@@ -127668,83 +127668,6 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3614273476782",
-    "brand": "Lancôme",
-    "name": "(Lancôme) Idole Aura",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 25,
-    "ean": "3614273476782",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1_24946d1f-0207-4d4b-8578-91fb5f3f6fc5.jpg?v=1774371158&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3614273476287",
-    "brand": "Lancôme",
-    "name": "(Lancôme) Idole Aura",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "3614273476287",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1_9790e254-f647-4348-82db-8d16ca0c112e.jpg?v=1774370063&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3614273476164",
-    "brand": "Lancôme",
-    "name": "(Lancôme) Idole Aura",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3614273476164",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1643027055-53158900.jpg?v=1763391443&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3614273749428",
-    "brand": "Lancôme",
-    "name": "(Lancôme) Idôle Nectar L'Eau de Parfum",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 25,
-    "ean": "3614273749428",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737020929-47230900.jpg?v=1763393793&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3614273749558",
-    "brand": "Lancôme",
-    "name": "(Lancôme) Idôle Nectar L'Eau de Parfum",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3614273749558",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1666265759-34666700.jpg?v=1763392593&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3614273694797",
-    "brand": "Lancôme",
-    "name": "(Lancôme) La Vie Est Belle",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 150,
-    "ean": "3614273694797",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1665134795-75733500.jpg?v=1763392700&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-3147758029406",
-    "brand": "Lancôme",
-    "name": "(Lancôme) Miracle",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 30,
-    "ean": "3147758029406",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/147_a0dd00f5-80cb-4ef9-b3bb-d6e480769956.jpg?v=1782313316&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-3614274318050",
     "brand": "Lancôme",
     "name": "Absolue L'Extrait Elixir Anti-Ageing Serum",
@@ -127800,36 +127723,6 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8338249351305-44927111102601",
-    "brand": "Lancôme",
-    "name": "Idôle",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41-v-8oJxOL.jpg?v=1763139954",
-    "notes": {
-      "top": [
-        "Pear",
-        "Bergamot",
-        "Pink Pepper"
-      ],
-      "middle": [
-        "Rose",
-        "Jasmine"
-      ],
-      "base": [
-        "White Musk",
-        "Vanilla",
-        "Patchouli",
-        "Cedar",
-        "Night use",
-        "Spring",
-        "Summer occasions"
-      ]
-    }
-  },
-  {
     "id": "ean-3614273950718",
     "brand": "Lancôme",
     "name": "Idole 3 Pcs Set",
@@ -127838,6 +127731,39 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "ean": "3614273950718",
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/944.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3614273476782",
+    "brand": "Lancôme",
+    "name": "Idole Aura",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 25,
+    "ean": "3614273476782",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_24946d1f-0207-4d4b-8578-91fb5f3f6fc5.jpg?v=1774371158&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3614273476287",
+    "brand": "Lancôme",
+    "name": "Idole Aura",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3614273476287",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1_9790e254-f647-4348-82db-8d16ca0c112e.jpg?v=1774370063&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3614273476164",
+    "brand": "Lancôme",
+    "name": "Idole Aura",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3614273476164",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1643027055-53158900.jpg?v=1763391443&width=1920",
     "notes": null
   },
   {
@@ -127871,6 +127797,28 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71zrBeeRt5L.jpg?v=1763139964",
+    "notes": null
+  },
+  {
+    "id": "ean-3614273749428",
+    "brand": "Lancôme",
+    "name": "Idôle Nectar L'Eau de Parfum",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 25,
+    "ean": "3614273749428",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1737020929-47230900.jpg?v=1763393793&width=1920",
+    "notes": null
+  },
+  {
+    "id": "ean-3614273749558",
+    "brand": "Lancôme",
+    "name": "Idôle Nectar L'Eau de Parfum",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3614273749558",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1666265759-34666700.jpg?v=1763392593&width=1920",
     "notes": null
   },
   {
@@ -128110,6 +128058,17 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/lancome-la-vie-est-belle-eau-de-parfum-100ml-p27870-69694_image.jpg?v=1721322265&width=1000",
+    "notes": null
+  },
+  {
+    "id": "ean-3614273694797",
+    "brand": "Lancôme",
+    "name": "La Vie Est Belle",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 150,
+    "ean": "3614273694797",
+    "shops": 1,
+    "image": "https://www.beautybase.com/cdn/shop/files/1665134795-75733500.jpg?v=1763392700&width=1920",
     "notes": null
   },
   {
@@ -134381,10 +134340,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51zkXGungsL.jpg?v=1767983896",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416717176969-45147092353161",
     "brand": "Laurent Mazzone",
@@ -134406,7 +134362,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31jQxWIQlML.jpg?v=1767983912",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416717242505-45147092418697",
     "brand": "Laurent Mazzone",
@@ -143306,10 +143265,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/MASM0020.png?v=1732820641&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-masm0021",
     "brand": "Maison Margiela",
@@ -143331,7 +143287,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/images_48cd3696-96b5-49e2-beb7-fc2e38b160db.jpg?v=1763147865",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "justmylook-masm0022",
     "brand": "Maison Margiela",
@@ -149710,10 +149669,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1732183604-81679700.jpg?v=1763396708&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416743981193-45147126268041",
     "brand": "Nautica",
@@ -149735,7 +149691,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51unNnmhNpL.jpg?v=1767984782",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "ean-3614228834032",
     "brand": "Nautica",
@@ -157186,10 +157145,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/172928_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8436581942538",
     "brand": "Pepe Jeans",
@@ -157211,7 +157167,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51klTWgRZfL.jpg?v=1763145759",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "ean-8436581947496",
     "brand": "Pepe Jeans",
@@ -164617,10 +164576,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-medium-bottle---reef-summer-yellow",
     "brand": "Reef Perfumes",
@@ -164652,7 +164608,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/131050_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "ean-3386460115964",
     "brand": "Repetto",
@@ -172146,10 +172105,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/817APEHFh7L.jpg?v=1767985726",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "ean-7640473481246",
     "brand": "Superdry",
@@ -172187,7 +172143,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338161467529-44926978490505",
     "brand": "Supremacy",
@@ -178727,10 +178686,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/64995_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416785694857-45147174862985",
     "brand": "Versace",
@@ -178752,7 +178708,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/419y7Rp_18L.jpg?v=1763142538",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "justmylook-vs0031",
     "brand": "Victoria's Secret",
@@ -193776,6 +193735,56 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41yARyUP5FL.jpg?v=1763139954"
+    }
+  ],
+  "ean-3614273069175": [
+    {
+      "retailerId": "beautybase",
+      "price": 129,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lancome-idole-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-17T16:21:42.727Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1737019404-38151200.jpg?v=1763391441&width=1920"
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 89.95,
+      "wasPrice": 120,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45353161250&a=3026001&m=124166",
+      "fetchedAt": "2026-08-19T06:34:59.001Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/942.jpg"
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 94.9,
+      "wasPrice": 125,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=38421214764&a=3026001&m=6561",
+      "fetchedAt": "2026-08-19T00:53:51.281Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/132985_ml.jpg"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 104.49,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157929633&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T18:30:31.316Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41-v-8oJxOL.jpg?v=1763139954"
     }
   ],
   "ean-3147758029390": [
@@ -213614,82 +213623,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/99350113030_000_31.jpg?v=1763139693"
     }
   ],
-  "ean-3614273069175": [
-    {
-      "retailerId": "beautybase",
-      "price": 129,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lancome-idole-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-17T16:21:42.727Z",
-      "firstSeenAt": "2026-08-04T19:00:21.352Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1737019404-38151200.jpg?v=1763391441&width=1920"
-    },
-    {
-      "retailerId": "fragrance-click",
-      "price": 89.95,
-      "wasPrice": 120,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45353161250&a=3026001&m=124166",
-      "fetchedAt": "2026-08-19T06:34:59.001Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/942.jpg"
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 94.9,
-      "wasPrice": 125,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=38421214764&a=3026001&m=6561",
-      "fetchedAt": "2026-08-19T00:53:51.281Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/132985_ml.jpg"
-    }
-  ],
-  "ean-3614274169706": [
-    {
-      "retailerId": "beautybase",
-      "price": 143,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lancome-la-vie-est-belle-lelixir-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-17T08:52:00.780Z",
-      "firstSeenAt": "2026-08-08T07:47:52.407Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_aa483943-6596-432c-849e-d7ade9b0cf6a.jpg?v=1774434480&width=1920"
-    },
-    {
-      "retailerId": "fragrance-click",
-      "price": 85.95,
-      "wasPrice": 142,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089042130&a=3026001&m=124166",
-      "fetchedAt": "2026-08-19T06:34:59.001Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/965.jpg"
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 104.25,
-      "wasPrice": 140,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43782643909&a=3026001&m=6561",
-      "fetchedAt": "2026-08-19T00:53:51.281Z",
-      "firstSeenAt": "2026-08-19T00:53:51.281Z",
-      "isNew": true,
-      "imageUrl": "https://bgstatic.net/photos/177330_ml.jpg"
-    }
-  ],
   "ean-3614274078541": [
     {
       "retailerId": "beautybase",
@@ -213804,6 +213737,44 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51hkRxZOnDL.jpg?v=1767983639"
     }
   ],
+  "ean-3614274169706": [
+    {
+      "retailerId": "beautybase",
+      "price": 143,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lancome-la-vie-est-belle-lelixir-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-17T08:52:00.780Z",
+      "firstSeenAt": "2026-08-08T07:47:52.407Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_aa483943-6596-432c-849e-d7ade9b0cf6a.jpg?v=1774434480&width=1920"
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 85.95,
+      "wasPrice": 142,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44089042130&a=3026001&m=124166",
+      "fetchedAt": "2026-08-19T06:34:59.001Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/965.jpg"
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 104.25,
+      "wasPrice": 140,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43782643909&a=3026001&m=6561",
+      "fetchedAt": "2026-08-19T00:53:51.281Z",
+      "firstSeenAt": "2026-08-19T00:53:51.281Z",
+      "isNew": true,
+      "imageUrl": "https://bgstatic.net/photos/177330_ml.jpg"
+    }
+  ],
   "ean-3605533286555": [
     {
       "retailerId": "beautybase",
@@ -213840,6 +213811,44 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/74727_ml.jpg"
+    }
+  ],
+  "ean-3147758029406": [
+    {
+      "retailerId": "beautybase",
+      "price": 39.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lancome-miracle-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-15T18:19:44.419Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/147_a0dd00f5-80cb-4ef9-b3bb-d6e480769956.jpg?v=1782313316&width=1920"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 34.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/lancome-miracle-eau-de-parfum-30ml",
+      "fetchedAt": "2026-08-17T20:30:14.142Z",
+      "firstSeenAt": "2026-08-05T07:37:13.610Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/lancome-miracle-eau-de-parfum-30ml-p36776-113824_image.jpg?v=1721322278&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 35.49,
+      "wasPrice": 66.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687809&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T18:30:31.316Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51YGjN_ouiL.jpg?v=1767983649"
     }
   ],
   "ean-3147758155112": [
@@ -267776,6 +267785,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71prb3BGEVL.jpg?v=1767983664"
     }
   ],
+  "ean-3614272639638": [
+    {
+      "retailerId": "beautybase",
+      "price": 65,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lancome-idole-eau-de-parfum-25ml-spray",
+      "fetchedAt": "2026-08-17T04:36:33.232Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1565951320-65358400.jpg?v=1763389395&width=1920"
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 39.55,
+      "wasPrice": 58,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=41843735140&a=3026001&m=6561",
+      "fetchedAt": "2026-08-19T00:53:51.281Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/122097_ml.jpg"
+    }
+  ],
   "ean-3614273749459": [
     {
       "retailerId": "beautybase",
@@ -267802,6 +267837,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://bgstatic.net/photos/157769_ml.jpg"
     }
   ],
+  "justmylook-lanc0047": [
+    {
+      "retailerId": "justmylook",
+      "price": 83.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/lancome-la-nuit-tresor-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-17T10:27:23.070Z",
+      "firstSeenAt": "2026-08-05T04:06:55.385Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/lancome-la-nuit-tresor-eau-de-parfum-50ml-p27893-69714_image.jpg?v=1721322263&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 70.99,
+      "wasPrice": 91.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157929621&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T18:30:31.316Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/375x500.29157.jpg?v=1763139976"
+    }
+  ],
   "ean-3614274335675": [
     {
       "retailerId": "beautybase",
@@ -267826,6 +267887,136 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/192045_ml.jpg"
+    }
+  ],
+  "justmylook-lanc0017": [
+    {
+      "retailerId": "justmylook",
+      "price": 49.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/lancome-la-vie-est-belle-eau-de-parfum-30ml",
+      "fetchedAt": "2026-08-17T12:35:53.854Z",
+      "firstSeenAt": "2026-08-05T04:06:55.385Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/lancome-la-vie-est-belle-eau-de-parfum-30ml-p27868-69692_image.jpg?v=1721322265&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 64.49,
+      "wasPrice": 66.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157929625&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T18:30:31.316Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41EdvRyQSPL.jpg?v=1763139986"
+    }
+  ],
+  "justmylook-lanc0018": [
+    {
+      "retailerId": "justmylook",
+      "price": 71.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/lancome-la-vie-est-belle-eau-de-parfum-50ml",
+      "fetchedAt": "2026-08-17T10:27:23.070Z",
+      "firstSeenAt": "2026-08-05T04:06:55.385Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/lancome-la-vie-est-belle-eau-de-parfum-50ml-p27869-69693_image.jpg?v=1721322264&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 78.49,
+      "wasPrice": 94.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157929624&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T18:30:31.316Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/download_4_d98796df-81b9-4f23-843e-77d3b842e75a.png?v=1763139986"
+    }
+  ],
+  "ean-3614273088657": [
+    {
+      "retailerId": "perfume-click",
+      "price": 29.95,
+      "wasPrice": 37.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=39035942717&a=3026001&m=6561",
+      "fetchedAt": "2026-08-19T00:53:51.281Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/131159_ml.jpg"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 29.99,
+      "wasPrice": 53.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687814&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T18:30:31.316Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61ttuXflExL.jpg?v=1767983656"
+    }
+  ],
+  "ean-3614272964679": [
+    {
+      "retailerId": "fragrance-click",
+      "price": 57.95,
+      "wasPrice": 108,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45223969095&a=3026001&m=124166",
+      "fetchedAt": "2026-08-19T06:34:59.001Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_la_vie_est_belle_intensement_eau_de_parfum_50ml_spray_.jpg"
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 74.6,
+      "wasPrice": 86,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=39261901997&a=3026001&m=6561",
+      "fetchedAt": "2026-08-19T00:53:51.281Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/136332_ml.jpg"
+    }
+  ],
+  "ean-3614273922951": [
+    {
+      "retailerId": "perfume-click",
+      "price": 49.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=42812895772&a=3026001&m=6561",
+      "fetchedAt": "2026-08-19T00:53:51.281Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/190319_ml.jpg"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 55.99,
+      "wasPrice": 105.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687816&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T18:30:31.316Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61AboQKRgvL.jpg?v=1767983660"
     }
   ],
   "ean-3614273922968": [
@@ -268008,214 +268199,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome-la-vie-est-belle-rose-extraordinaire-eau-de-parfum.jpg"
-    }
-  ],
-  "ean-3147758034905": [
-    {
-      "retailerId": "beautybase",
-      "price": 49.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lancome-tresor-eau-de-parfum-30ml-spray",
-      "fetchedAt": "2026-08-17T16:21:42.727Z",
-      "firstSeenAt": "2026-08-04T19:00:21.352Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1737022052-99050800.jpg?v=1763391459&width=1920"
-    },
-    {
-      "retailerId": "fragrance-click",
-      "price": 34.95,
-      "wasPrice": 67,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45210130166&a=3026001&m=124166",
-      "fetchedAt": "2026-08-19T06:34:59.001Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-edp-vapo-50ml-lancome-1.jpg"
-    }
-  ],
-  "ean-3614272639638": [
-    {
-      "retailerId": "beautybase",
-      "price": 65,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lancome-idole-eau-de-parfum-25ml-spray",
-      "fetchedAt": "2026-08-17T04:36:33.232Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1565951320-65358400.jpg?v=1763389395&width=1920"
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 39.55,
-      "wasPrice": 58,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=41843735140&a=3026001&m=6561",
-      "fetchedAt": "2026-08-19T00:53:51.281Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/122097_ml.jpg"
-    }
-  ],
-  "justmylook-lanc0047": [
-    {
-      "retailerId": "justmylook",
-      "price": 83.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/lancome-la-nuit-tresor-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-17T10:27:23.070Z",
-      "firstSeenAt": "2026-08-05T04:06:55.385Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/lancome-la-nuit-tresor-eau-de-parfum-50ml-p27893-69714_image.jpg?v=1721322263&width=1000"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 70.99,
-      "wasPrice": 91.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157929621&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T18:30:31.316Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/375x500.29157.jpg?v=1763139976"
-    }
-  ],
-  "justmylook-lanc0017": [
-    {
-      "retailerId": "justmylook",
-      "price": 49.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/lancome-la-vie-est-belle-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-17T12:35:53.854Z",
-      "firstSeenAt": "2026-08-05T04:06:55.385Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/lancome-la-vie-est-belle-eau-de-parfum-30ml-p27868-69692_image.jpg?v=1721322265&width=1000"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 64.49,
-      "wasPrice": 66.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157929625&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T18:30:31.316Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41EdvRyQSPL.jpg?v=1763139986"
-    }
-  ],
-  "justmylook-lanc0018": [
-    {
-      "retailerId": "justmylook",
-      "price": 71.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/lancome-la-vie-est-belle-eau-de-parfum-50ml",
-      "fetchedAt": "2026-08-17T10:27:23.070Z",
-      "firstSeenAt": "2026-08-05T04:06:55.385Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/lancome-la-vie-est-belle-eau-de-parfum-50ml-p27869-69693_image.jpg?v=1721322264&width=1000"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 78.49,
-      "wasPrice": 94.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157929624&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T18:30:31.316Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/download_4_d98796df-81b9-4f23-843e-77d3b842e75a.png?v=1763139986"
-    }
-  ],
-  "ean-3614273088657": [
-    {
-      "retailerId": "perfume-click",
-      "price": 29.95,
-      "wasPrice": 37.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=39035942717&a=3026001&m=6561",
-      "fetchedAt": "2026-08-19T00:53:51.281Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/131159_ml.jpg"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 29.99,
-      "wasPrice": 53.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687814&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T18:30:31.316Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61ttuXflExL.jpg?v=1767983656"
-    }
-  ],
-  "ean-3614272964679": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 57.95,
-      "wasPrice": 108,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45223969095&a=3026001&m=124166",
-      "fetchedAt": "2026-08-19T06:34:59.001Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_la_vie_est_belle_intensement_eau_de_parfum_50ml_spray_.jpg"
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 74.6,
-      "wasPrice": 86,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=39261901997&a=3026001&m=6561",
-      "fetchedAt": "2026-08-19T00:53:51.281Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/136332_ml.jpg"
-    }
-  ],
-  "ean-3614273922951": [
-    {
-      "retailerId": "perfume-click",
-      "price": 49.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42812895772&a=3026001&m=6561",
-      "fetchedAt": "2026-08-19T00:53:51.281Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/190319_ml.jpg"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 55.99,
-      "wasPrice": 105.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687816&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T18:30:31.316Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61AboQKRgvL.jpg?v=1767983660"
     }
   ],
   "ean-3614273357203": [
@@ -268426,32 +268409,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://images2.productserve.com/noimage.gif"
     }
   ],
-  "justmylook-lanc0037": [
-    {
-      "retailerId": "justmylook",
-      "price": 34.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/lancome-miracle-eau-de-parfum-30ml",
-      "fetchedAt": "2026-08-17T20:30:14.142Z",
-      "firstSeenAt": "2026-08-05T07:37:13.610Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/lancome-miracle-eau-de-parfum-30ml-p36776-113824_image.jpg?v=1721322278&width=1000"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 35.49,
-      "wasPrice": 66.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687809&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T18:30:31.316Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51YGjN_ouiL.jpg?v=1767983649"
-    }
-  ],
   "justmylook-lanc0039": [
     {
       "retailerId": "justmylook",
@@ -268580,6 +268537,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61qqmCSc86L.jpg?v=1767983638"
+    }
+  ],
+  "ean-3147758034905": [
+    {
+      "retailerId": "beautybase",
+      "price": 49.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/lancome-tresor-eau-de-parfum-30ml-spray",
+      "fetchedAt": "2026-08-17T16:21:42.727Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1737022052-99050800.jpg?v=1763391459&width=1920"
+    },
+    {
+      "retailerId": "fragrance-click",
+      "price": 34.95,
+      "wasPrice": 67,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45210130166&a=3026001&m=124166",
+      "fetchedAt": "2026-08-19T06:34:59.001Z",
+      "firstSeenAt": "2026-08-04T07:59:20.292Z",
+      "isNew": false,
+      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-edp-vapo-50ml-lancome-1.jpg"
     }
   ],
   "ean-3605532423203": [
@@ -365422,104 +365405,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://images2.productserve.com/noimage.gif"
     }
   ],
-  "ean-3614273476782": [
-    {
-      "retailerId": "beautybase",
-      "price": 62,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lancome-idole-aura-eau-de-parfum-25ml-spray",
-      "fetchedAt": "2026-08-17T16:21:42.727Z",
-      "firstSeenAt": "2026-08-04T19:00:21.352Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_24946d1f-0207-4d4b-8578-91fb5f3f6fc5.jpg?v=1774371158&width=1920"
-    }
-  ],
-  "ean-3614273476287": [
-    {
-      "retailerId": "beautybase",
-      "price": 92,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lancome-idole-aura-eau-de-parfum-50ml-spray",
-      "fetchedAt": "2026-08-15T10:17:08.720Z",
-      "firstSeenAt": "2026-08-01T21:42:34.212Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_9790e254-f647-4348-82db-8d16ca0c112e.jpg?v=1774370063&width=1920"
-    }
-  ],
-  "ean-3614273476164": [
-    {
-      "retailerId": "beautybase",
-      "price": 127,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lancome-idole-aura-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-17T16:21:42.727Z",
-      "firstSeenAt": "2026-08-04T19:00:21.352Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1643027055-53158900.jpg?v=1763391443&width=1920"
-    }
-  ],
-  "ean-3614273749428": [
-    {
-      "retailerId": "beautybase",
-      "price": 62,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lancome-idole-nectar-leau-de-parfum-25ml-spray",
-      "fetchedAt": "2026-08-16T06:29:14.836Z",
-      "firstSeenAt": "2026-08-06T00:01:26.900Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1737020929-47230900.jpg?v=1763393793&width=1920"
-    }
-  ],
-  "ean-3614273749558": [
-    {
-      "retailerId": "beautybase",
-      "price": 129,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lancome-idole-nectar-leau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-19T06:39:10.179Z",
-      "firstSeenAt": "2026-08-05T15:12:19.785Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1666265759-34666700.jpg?v=1763392593&width=1920"
-    }
-  ],
-  "ean-3614273694797": [
-    {
-      "retailerId": "beautybase",
-      "price": 162,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/lancome-la-vie-est-belle-eau-de-parfum-150ml-spray",
-      "fetchedAt": "2026-08-19T08:38:29.127Z",
-      "firstSeenAt": "2026-08-05T15:12:19.785Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1665134795-75733500.jpg?v=1763392700&width=1920"
-    }
-  ],
-  "ean-3147758029406": [
-    {
-      "retailerId": "beautybase",
-      "price": 39.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/lancome-miracle-eau-de-parfum-30ml-spray",
-      "fetchedAt": "2026-08-15T18:19:44.419Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/147_a0dd00f5-80cb-4ef9-b3bb-d6e480769956.jpg?v=1782313316&width=1920"
-    }
-  ],
   "ean-3614274318050": [
     {
       "retailerId": "perfume-click",
@@ -365590,20 +365475,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/idole-eau-de-parfum-100ml-p31969-88149_image.jpg?v=1721322259&width=1000"
     }
   ],
-  "mybeauty-boutique-shopify-gb-8338249351305-44927111102601": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 104.49,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157929633&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T18:30:31.316Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41-v-8oJxOL.jpg?v=1763139954"
-    }
-  ],
   "ean-3614273950718": [
     {
       "retailerId": "fragrance-click",
@@ -365616,6 +365487,48 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/944.jpg"
+    }
+  ],
+  "ean-3614273476782": [
+    {
+      "retailerId": "beautybase",
+      "price": 62,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lancome-idole-aura-eau-de-parfum-25ml-spray",
+      "fetchedAt": "2026-08-17T16:21:42.727Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_24946d1f-0207-4d4b-8578-91fb5f3f6fc5.jpg?v=1774371158&width=1920"
+    }
+  ],
+  "ean-3614273476287": [
+    {
+      "retailerId": "beautybase",
+      "price": 92,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lancome-idole-aura-eau-de-parfum-50ml-spray",
+      "fetchedAt": "2026-08-15T10:17:08.720Z",
+      "firstSeenAt": "2026-08-01T21:42:34.212Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_9790e254-f647-4348-82db-8d16ca0c112e.jpg?v=1774370063&width=1920"
+    }
+  ],
+  "ean-3614273476164": [
+    {
+      "retailerId": "beautybase",
+      "price": 127,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lancome-idole-aura-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-17T16:21:42.727Z",
+      "firstSeenAt": "2026-08-04T19:00:21.352Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1643027055-53158900.jpg?v=1763391443&width=1920"
     }
   ],
   "justmylook-lanc0085": [
@@ -365658,6 +365571,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71zrBeeRt5L.jpg?v=1763139964"
+    }
+  ],
+  "ean-3614273749428": [
+    {
+      "retailerId": "beautybase",
+      "price": 62,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lancome-idole-nectar-leau-de-parfum-25ml-spray",
+      "fetchedAt": "2026-08-16T06:29:14.836Z",
+      "firstSeenAt": "2026-08-06T00:01:26.900Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1737020929-47230900.jpg?v=1763393793&width=1920"
+    }
+  ],
+  "ean-3614273749558": [
+    {
+      "retailerId": "beautybase",
+      "price": 129,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lancome-idole-nectar-leau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-19T06:39:10.179Z",
+      "firstSeenAt": "2026-08-05T15:12:19.785Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1666265759-34666700.jpg?v=1763392593&width=1920"
     }
   ],
   "ean-3614273927338": [
@@ -365924,6 +365865,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-05T04:06:55.385Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/lancome-la-vie-est-belle-eau-de-parfum-100ml-p27870-69694_image.jpg?v=1721322265&width=1000"
+    }
+  ],
+  "ean-3614273694797": [
+    {
+      "retailerId": "beautybase",
+      "price": 162,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/lancome-la-vie-est-belle-eau-de-parfum-150ml-spray",
+      "fetchedAt": "2026-08-19T08:38:29.127Z",
+      "firstSeenAt": "2026-08-05T15:12:19.785Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1665134795-75733500.jpg?v=1763392700&width=1920"
     }
   ],
   "justmylook-lanc0091": [
