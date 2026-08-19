@@ -44924,17 +44924,6 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-8011003826810",
-    "brand": "Missoni",
-    "name": "(2015)",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 30,
-    "ean": "8011003826810",
-    "shops": 2,
-    "image": "https://bgstatic.net/photos/92466_ml.jpg",
-    "notes": null
-  },
-  {
     "id": "ean-8011003832811",
     "brand": "Missoni",
     "name": "Missoni",
@@ -44954,6 +44943,17 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "ean": "8011003832828",
     "shops": 2,
     "image": "https://bgstatic.net/photos/100159_ml.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-8011003826810",
+    "brand": "Missoni",
+    "name": "Missoni (2015)",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 30,
+    "ean": "8011003826810",
+    "shops": 2,
+    "image": "https://bgstatic.net/photos/92466_ml.jpg",
     "notes": null
   },
   {
@@ -146290,34 +146290,6 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416738541705-45147119878281",
-    "brand": "Missoni",
-    "name": "(2015)",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/519q1SGUyRL.jpg?v=1767984610",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416738279561-45147119779977",
-    "brand": "Missoni",
-    "name": "(2015)",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51JiUaUEOiL.jpg?v=1767984606",
-    "notes": {
-      "top": [
-        "Italian lemon"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
     "id": "ean-8011003838479",
     "brand": "Missoni",
     "name": "Man",
@@ -146349,6 +146321,34 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/104585_ml.jpg",
     "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416738541705-45147119878281",
+    "brand": "Missoni",
+    "name": "Missoni (2015)",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/519q1SGUyRL.jpg?v=1767984610",
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416738279561-45147119779977",
+    "brand": "Missoni",
+    "name": "Missoni (2015)",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51JiUaUEOiL.jpg?v=1767984606",
+    "notes": {
+      "top": [
+        "Italian lemon"
+      ],
+      "middle": [],
+      "base": []
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8416738934921-45147120271497",
@@ -175367,17 +175367,6 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-8437002997571",
-    "brand": "Tous",
-    "name": "(Gold)",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "8437002997571",
-    "shops": 1,
-    "image": "https://bgstatic.net/photos/109623_ml.jpg",
-    "notes": null
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8416782581897-45147171291273",
     "brand": "Tous",
     "name": "Bonjour Señorita",
@@ -175448,6 +175437,17 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/413M9w7aVTL.jpg?v=1767986017",
+    "notes": null
+  },
+  {
+    "id": "ean-8437002997571",
+    "brand": "Tous",
+    "name": "Tous (Gold)",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "8437002997571",
+    "shops": 1,
+    "image": "https://bgstatic.net/photos/109623_ml.jpg",
     "notes": null
   },
   {
@@ -276432,32 +276432,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/714v2T5lHmL.jpg?v=1767984601"
     }
   ],
-  "ean-8011003826810": [
-    {
-      "retailerId": "perfume-click",
-      "price": 17.55,
-      "wasPrice": 46,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42830444116&a=3026001&m=6561",
-      "fetchedAt": "2026-08-19T00:53:51.281Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/92466_ml.jpg"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 18.99,
-      "wasPrice": 42.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661688369&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T18:30:31.316Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61w6gaLPhTL.jpg?v=1767984611"
-    }
-  ],
   "ean-8011003832811": [
     {
       "retailerId": "perfume-click",
@@ -276508,6 +276482,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51jiH5BB1AL.jpg?v=1767984608"
+    }
+  ],
+  "ean-8011003826810": [
+    {
+      "retailerId": "perfume-click",
+      "price": 17.55,
+      "wasPrice": 46,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=42830444116&a=3026001&m=6561",
+      "fetchedAt": "2026-08-19T00:53:51.281Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/92466_ml.jpg"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 18.99,
+      "wasPrice": 42.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661688369&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T18:30:31.316Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61w6gaLPhTL.jpg?v=1767984611"
     }
   ],
   "ean-8011003858156": [
@@ -381102,34 +381102,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://images2.productserve.com/noimage.gif"
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416738541705-45147119878281": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 21.49,
-      "wasPrice": 42.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661688367&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T18:30:31.316Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/519q1SGUyRL.jpg?v=1767984610"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416738279561-45147119779977": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 46.99,
-      "wasPrice": 58.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661688365&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T18:30:31.316Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51JiUaUEOiL.jpg?v=1767984606"
-    }
-  ],
   "ean-8011003838479": [
     {
       "retailerId": "beautybase",
@@ -381170,6 +381142,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/104585_ml.jpg"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416738541705-45147119878281": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 21.49,
+      "wasPrice": 42.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661688367&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T18:30:31.316Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/519q1SGUyRL.jpg?v=1767984610"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416738279561-45147119779977": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 46.99,
+      "wasPrice": 58.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661688365&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T18:30:31.316Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51JiUaUEOiL.jpg?v=1767984606"
     }
   ],
   "mybeauty-boutique-shopify-gb-8416738934921-45147120271497": [
@@ -409004,20 +409004,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10049712.jpg?v=1763146505"
     }
   ],
-  "ean-8437002997571": [
-    {
-      "retailerId": "perfume-click",
-      "price": 21.6,
-      "wasPrice": 45.45,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45489225132&a=3026001&m=6561",
-      "fetchedAt": "2026-08-19T00:53:51.281Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/109623_ml.jpg"
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8416782581897-45147171291273": [
     {
       "retailerId": "mybeauty-boutique",
@@ -409100,6 +409086,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/413M9w7aVTL.jpg?v=1767986017"
+    }
+  ],
+  "ean-8437002997571": [
+    {
+      "retailerId": "perfume-click",
+      "price": 21.6,
+      "wasPrice": 45.45,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=45489225132&a=3026001&m=6561",
+      "fetchedAt": "2026-08-19T00:53:51.281Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/109623_ml.jpg"
     }
   ],
   "mybeauty-boutique-shopify-gb-8416782712969-45147171422345": [

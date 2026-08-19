@@ -670,7 +670,37 @@ export function displayName(title: string, brand: string | null, displayedBrand:
     s = s.replace(/[\s,\-&|]+$/g, '');
   }
 
-  // A fragrance named after its own house. Stripping the brand, the
+  // A fragrance named after its own house, the mirror-image half of this same
+  // case: stripping the brand doesn't leave *nothing*, it leaves nothing but
+  // a bracketed qualifier — "Missoni (2015) Eau de Parfum 30ml Spray" and
+  // "Tous (Gold) Eau de Parfum 50ml Spray" (both e23137c already refused to
+  // strip as a brand-repeating prefix, correctly: "2015" and "Gold" are not
+  // that product's brand). The qualifier isn't a second name replacing the
+  // brand, it's a modifier of it — Missoni's fragrance is called "Missoni
+  // (2015)", not "(2015)" — so displaying the bracket alone reads exactly
+  // like the trailing-brand bug this file's own history keeps fixing: one
+  // real fact (the house) silently dropped, leaving a fragment standing in
+  // for the whole name.
+  //
+  // Measured how much wider than these two products the "stripping leaves
+  // no real word behind" problem is before writing a rule for it, the same
+  // way every other rule in this function was sized: every product name in
+  // the live CATALOGUE that is 4 characters or shorter, and every one that is
+  // exactly a common qualifier word (Homme/Femme/Man/Woman/Gold/Black/
+  // Intense/Original/a bare year...), checked by hand. All of them but these
+  // four are a house's own real product name — Dior "Homme", DKNY "Women",
+  // Histoires de Parfums "1804"/"1826"/"1876", Xerjoff "1888", CK "One" — not
+  // a stripped-down fragment; a rule broad enough to also catch those would
+  // prepend a brand that is already the whole point of the name being just
+  // that one word. Only the fully-bracketed shape — nothing outside a single
+  // "(...)" survives the strip at all — is the one measured to actually be
+  // this bug, so only that shape is handled.
+  if (/^\([^()]*\)$/.test(s)) {
+    const eponym = displayedBrand || brand;
+    if (eponym) s = `${eponym} ${s}`;
+  }
+
+  // A fragrance named after its own house outright: stripping the brand, the
   // concentration and the size leaves nothing because there was nothing else
   // in the title: Chloé's "Chloé", Aramis's "Aramis", Jimmy Choo's "Jimmy
   // Choo" are real fragrances whose own name is the house's name.
