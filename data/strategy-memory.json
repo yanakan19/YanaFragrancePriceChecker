@@ -1031,7 +1031,91 @@
       "lastTriedAt": "2026-08-19T14:03:22.034Z",
       "lastSucceededAt": null,
       "ruledOut": null
+    },
+    "niche-beauty-uk::section-plain": {
+      "strategyId": "section-plain",
+      "retailerId": "niche-beauty-uk",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": null,
+      "lastError": "no catalogue sections configured",
+      "lastTriedAt": "2026-08-19T17:58:27.522Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
+    },
+    "niche-beauty-uk::section-browser-headers": {
+      "strategyId": "section-browser-headers",
+      "retailerId": "niche-beauty-uk",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": null,
+      "lastError": "no catalogue sections configured",
+      "lastTriedAt": "2026-08-19T17:58:29.023Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
+    },
+    "niche-beauty-uk::sitemap-discovery": {
+      "strategyId": "sitemap-discovery",
+      "retailerId": "niche-beauty-uk",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": 200,
+      "lastError": "HTTP 200",
+      "lastTriedAt": "2026-08-19T17:58:34.810Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
+    },
+    "niche-beauty-uk::search-page": {
+      "strategyId": "search-page",
+      "retailerId": "niche-beauty-uk",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": null,
+      "lastError": "no catalogue sections configured",
+      "lastTriedAt": "2026-08-19T17:58:36.311Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
+    },
+    "niche-beauty-uk::homepage-probe": {
+      "strategyId": "homepage-probe",
+      "retailerId": "niche-beauty-uk",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": 200,
+      "lastError": null,
+      "lastTriedAt": "2026-08-19T17:58:39.677Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
+    },
+    "niche-beauty-uk::proxied-fetch": {
+      "strategyId": "proxied-fetch",
+      "retailerId": "niche-beauty-uk",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": null,
+      "lastError": "no catalogue sections configured",
+      "lastTriedAt": "2026-08-19T17:58:41.178Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
+    },
+    "niche-beauty-uk::browser-render": {
+      "strategyId": "browser-render",
+      "retailerId": "niche-beauty-uk",
+      "attempts": 1,
+      "successes": 0,
+      "listingsFound": 0,
+      "lastStatus": null,
+      "lastError": "no Apify actor configured; set APIFY_TOKEN to enable",
+      "lastTriedAt": "2026-08-19T17:58:42.680Z",
+      "lastSucceededAt": null,
+      "ruledOut": null
     }
   },
-  "updatedAt": "2026-08-19T14:03:22.034Z"
+  "updatedAt": "2026-08-19T17:58:42.680Z"
 }
