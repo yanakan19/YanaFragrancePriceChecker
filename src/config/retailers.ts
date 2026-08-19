@@ -1960,8 +1960,31 @@ export const RETAILERS: readonly Retailer[] = [
       'We keep costs down with an honest to goodness no-frills approach. We do not pay for ' +
       'fancy marketing campaigns or luxurious offices, so we can pass on all our savings to you.',
     tiers: ['designer'],
+    // Was `adapter: 'affiliate-feed'` pointed at an Awin programme this
+    // entry's own prior notes recorded as `awinActive('116255', ...)`,
+    // "joined 5 Aug 2026" — but the feed itself was never pulled ("Feed not
+    // yet checked" in that same note), so this shop ran enabled with zero
+    // listings regardless. The owner has since confirmed directly that the
+    // application was in fact REJECTED, not accepted — this entry's earlier
+    // "active" data was wrong. The feed route is dead: there is no live
+    // programme behind it, and no basis for the phone-call image permission
+    // that data cited either, so that has been dropped along with it.
+    //
+    // What replaces it is a different, independently verified route: this
+    // shop's own Shopify storefront. Currency probe, run 32278317097 job
+    // 96150855581, 2026-08-19T16:52Z, commit 96315d3: /products.json returns
+    // a real Shopify payload (e.g.
+    // yves-saint-laurent-black-opium-glitter-eau-de-parfum at 39.99).
+    // ?country=GB explicitly quotes AND settles GBP at rate 1; every other
+    // way of asking labels the identical figures USD while still settling
+    // GBP — the same numbers under two labels, no real conversion — so
+    // ?country=GB is the confirmed-sterling address (same shape as Al
+    // Haramain/Armaf/French Avenue/IBRAQ elsewhere in this file).
+    // robots.txt permitted every request made. `shopifyStorefront` set
+    // below; `adapter` no longer names a feed that does not exist.
     enabled: true,
-    adapter: 'affiliate-feed',
+    adapter: 'unknown',
+    shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
       standardGbp: 2.95,
@@ -1984,23 +2007,20 @@ export const RETAILERS: readonly Retailer[] = [
     },
     catalogue: null,
     affiliate: {
-      ...awinActive('116255', '3017443'),
-      // Permission to use their product photography was given directly by
-      // their team on a call, 5 Aug 2026, after the site was explained to
-      // them: they confirmed that "No branding guidelines" in the programme
-      // terms is permissive rather than silent. That is a stronger basis than
-      // reading a terms page, which is why imageBasis is set — but it is
-      // spoken rather than written, so it is recorded here with its date and
-      // provenance so anyone auditing can ask for it in writing.
-      imageUsageConfirmed: true,
-      imageBasis: 'affiliate-terms',
+      network: 'awin',
+      verified: true,
+      status: 'rejected',
+      publisherId: null,
+      deeplinkTemplate: null,
+      querySuffixTemplate: null,
+      signupUrl: 'https://ui.awin.com/merchant-profile/116255',
       notes:
-        'Merchant id 116255, joined 5 Aug 2026. Programme terms last updated 30 May 2025. ' +
-        'Commission is calculated on a transaction value that includes VAT, delivery, card fees ' +
-        'and gift wrapping, and no product category is excluded. Paid search on their brand name ' +
-        'is heavily restricted, which does not affect this site — we run no ads. Feed not yet ' +
-        'checked: Toolbox > Create-a-Feed. Import with npm run catalogue:feed -- ' +
-        '--file=<feed.csv> --retailer=the-beauty-store-uk'
+        "The owner confirmed directly that this programme's application was not accepted — " +
+        'rejected, not pending and not active. Merchant id 116255 is kept above only as a record ' +
+        "of which programme this was; it names no live relationship. Prices now come from the " +
+        "shop's own storefront (see the entry-level comment above), not an affiliate feed, so no " +
+        'imageUsageConfirmed/imageBasis is set: there is no affiliate terms page granting a basis ' +
+        'for displaying their photography, and none is claimed.',
     },
   },
   {
