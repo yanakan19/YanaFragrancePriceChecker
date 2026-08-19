@@ -415,6 +415,18 @@ for (const retailer of shops) {
       `${outcome.linksFound.length ? ` +${outcome.linksFound.length} links` : '          '}` +
       `${outcome.quote ? (outcome.quote.ok ? '  +quote' : '  +quote(x)') : '        '}   ${mark}`,
   );
+  // The summary line above only ever printed `mark`, the word before the
+  // colon — for CONFIRMED/NO RATE PUBLISHED that is fine, since --write mode
+  // has already put the number in the registry and the log need not repeat
+  // it. For every other verdict (PROPOSE-RATE, PROPOSE (checkout), AMBIGUOUS,
+  // CURRENCY MISMATCH) that colon is followed by the one thing a human
+  // reading this log came for — the actual figure the page proposed, or the
+  // reason it is ambiguous — and it was being silently dropped, unreadable
+  // from CI even though it had already been computed. A CI runner with no
+  // outbound network from elsewhere in this project is often the only place
+  // this line can ever be read.
+  const detail = outcome.verdict.slice(outcome.verdict.indexOf(':') + 1).trim();
+  if (detail && !(outcome.patch && outcome.patch.write)) console.log(`      ${detail}`);
   if (outcome.quote && !outcome.quote.ok) console.log(`      quote: ${outcome.quote.error}`);
   for (const e of outcome.errors.slice(0, 2)) console.log(`      ${e}`);
 
