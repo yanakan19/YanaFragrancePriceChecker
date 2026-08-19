@@ -167,6 +167,34 @@ describe('isFragrance: scented air and body sprays are not perfume', () => {
   });
 });
 
+describe('isFragrance: a skincare serum is not a fragrance', () => {
+  // The reported gap, verbatim from data/catalogue/perfume-click.json: a real
+  // product, genuinely stated at an "extrait" strength with a parseable size,
+  // but a skincare serum. Measured before adding "serum" to NOT_A_FRAGRANCE
+  // (ran isFragrance over every one of the 894 active listings in
+  // data/catalogue/*.json carrying the bare word): this was the *only* one
+  // ever actually classified as a fragrance — the other 893 (face serum, eye
+  // serum, beard serum, hair serum, brow serum, scalp serum from Anua, Avène,
+  // CeraVe, Clarins, Biotherm, Beauty Of Joseon among others) were already
+  // kept out by having no stated concentration at all.
+  it('rejects a serum that happens to carry a real concentration word', () => {
+    expect(isFragrance(listing('perfume-click', "Lancôme Absolue L'Extrait Elixir Anti-Ageing Serum 30ml"))).toBe(
+      false,
+    );
+  });
+
+  // The same shape "hair" is already trusted for: no genuine fine fragrance
+  // is titled "[house] [anything] Serum", so the bare word needs no phrase
+  // wrapper the way the body-spray family above does.
+  it.each([
+    'Anua Niacinamide 10% + Txa 4% Dark Spot Correcting Serum 30ml',
+    'CeraVe Hydrating Hyaluronic Acid Serum 30ml',
+    'American Crew Beard Serum 50ml',
+  ])('rejects other real skincare serums too: %s', (title) => {
+    expect(isFragrance(listing('perfume-click', title))).toBe(false);
+  });
+});
+
 describe('isFragrance: a quantity against a size means several bottles', () => {
   // sizeMl reads the first size in the title, so each of these published as a
   // single small bottle at the price of the whole pack: £205 for "10ml",

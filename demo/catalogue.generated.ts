@@ -127668,17 +127668,6 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3614274318050",
-    "brand": "Lancôme",
-    "name": "Absolue L'Extrait Elixir Anti-Ageing Serum",
-    "concentration": "Extrait",
-    "sizeMl": 30,
-    "ean": "3614274318050",
-    "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
-    "notes": null
-  },
-  {
     "id": "justmylook-lanc0034",
     "brand": "Lancôme",
     "name": "Hypnose",
@@ -134362,10 +134351,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31jQxWIQlML.jpg?v=1767983912",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416717242505-45147092418697",
     "brand": "Laurent Mazzone",
@@ -134376,7 +134362,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/21K2c17l3iL.jpg?v=1767983914",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416718389385-45147093794953",
     "brand": "Laurent Mazzone",
@@ -143287,10 +143276,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/images_48cd3696-96b5-49e2-beb7-fc2e38b160db.jpg?v=1763147865",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-masm0022",
     "brand": "Maison Margiela",
@@ -143301,7 +143287,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/MASM0022.png?v=1732820633&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "justmylook-masm0026",
     "brand": "Maison Margiela",
@@ -149691,10 +149680,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51unNnmhNpL.jpg?v=1767984782",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614228834032",
     "brand": "Nautica",
@@ -149705,7 +149691,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/146300_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338262917257-44927128699017",
     "brand": "Nautica",
@@ -157167,10 +157156,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51klTWgRZfL.jpg?v=1763145759",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8436581947496",
     "brand": "Pepe Jeans",
@@ -157181,7 +157167,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/174079_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338384355465-44927316623497",
     "brand": "Pepe Jeans",
@@ -164608,10 +164597,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/131050_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3386460115964",
     "brand": "Repetto",
@@ -164622,7 +164608,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/138821_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338274025609-44927144296585",
     "brand": "Replay",
@@ -172143,10 +172132,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338161467529-44926978490505",
     "brand": "Supremacy",
@@ -172164,7 +172150,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
       "middle": [],
       "base": []
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "ean-6281085019758",
     "brand": "Surrati",
@@ -178708,10 +178697,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/419y7Rp_18L.jpg?v=1763142538",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-vs0031",
     "brand": "Victoria's Secret",
@@ -178722,7 +178708,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/VS0031_bca8c7a2-2e91-4a14-aaa2-5caac46df003.png?v=1769531012&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338303484041-44927211798665",
     "brand": "Victoria's Secret",
@@ -365399,20 +365388,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45315818383&a=3026001&m=6561",
-      "fetchedAt": "2026-08-19T00:53:51.281Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif"
-    }
-  ],
-  "ean-3614274318050": [
-    {
-      "retailerId": "perfume-click",
-      "price": 347.25,
-      "wasPrice": 370,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42102874926&a=3026001&m=6561",
       "fetchedAt": "2026-08-19T00:53:51.281Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
