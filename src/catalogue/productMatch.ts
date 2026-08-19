@@ -52,6 +52,43 @@
  * penny (Chubby is £49.99 at both) is the clearest possible confirmation they
  * were one bottle all along. Nothing about a Shopify id is the manufacturer
  * saying anything, so it no longer gets a vote.
+ *
+ * ── What else does not get a vote: a barcode that vouches for two bottles ───
+ * A code passing the two tests above is real GS1 format, but format is not
+ * the whole question — it still has to be *one shop's honest statement about
+ * one product*. Measured against data/catalogue/nicchia-luxury-uk.json: 18
+ * distinct EAN strings are each printed on two (one, "8054036502115", on
+ * three) genuinely different products in that one shop's own feed — Bois
+ * 1920 "Cannabis Dolce" and "Cannabis Salata" share 8055277283900, Essential
+ * Parfums "Divine Vanille" and "The Musc" share 3770010614098, Malbrum
+ * "Safariyah" and "Tigre du Bengale" share 0635346315909. A 19th pair hides
+ * behind normalizedEan rather than a shared string: Olaplex No. 5 and "No.
+ * 5Fine" Bond Maintenance Conditioner are printed as "0850056933612" and
+ * "850056933612" — the exact padded/unpadded split normalizedEan already
+ * exists to collapse, so counting by raw string alone would have missed it.
+ * Every one of the 19 passes the check digit — Nicchia's feed is otherwise
+ * real barcodes almost throughout, so this is not the Oud Arabian problem of
+ * a shop never publishing barcodes at all. It is a shop that mostly does,
+ * mislabelling a few: a copy-paste from a sibling product's page, most
+ * likely, not a random digit. A code cannot be both bottles' identity, so it
+ * is neither shop's listing to trust.
+ *
+ * fragranceId() (fragranceId.ts) keys a listing on `ean-${ean}` before this
+ * file's own matching ever runs, so an unfiltered collision here does not
+ * wait for findDuplicateGroups to misjudge two barcodes as agreeing — it
+ * fuses "Cannabis Dolce" and "Cannabis Salata" into one product the moment
+ * the second listing is read, silently, with no name, size or concentration
+ * check at all: the failure mode this whole file exists to prevent, arrived
+ * at from the opposite direction, entirely within one shop's own feed.
+ * untrustworthyEans and trustworthyEan below are what fragranceId() and the
+ * demo-catalogue build consult to catch it before that fusion happens; see
+ * their own comments for exactly what they revoke and why.
+ *
+ * Currently inert: nicchia-luxury-uk is `enabled: false` and every one of its
+ * listings carries `priceGbp: null` (it is in CURRENCY_UNCONFIRMED — see
+ * src/config/retailers.ts), so none of its listings reach isFragrance() or
+ * fragranceId() in a live build today. This is hardening for the day both of
+ * those clear, not a fix for a live symptom.
  */
 import { brandKey } from './brandName.js';
 
@@ -66,8 +103,12 @@ import { brandKey } from './brandName.js';
  * strings read them as two disagreeing barcodes and `findDuplicateGroups`
  * refused to merge on exactly the rule described below, splitting one real
  * bottle into two products with two prices.
+ *
+ * Exported because untrustworthyEans and trustworthyEan below need this same
+ * normalisation to recognise a padded and unpadded copy of one shop's own
+ * code as the same code, not two.
  */
-function normalizedEan(ean: string): string {
+export function normalizedEan(ean: string): string {
   return ean.replace(/^0+(?=\d)/, '');
 }
 
@@ -131,8 +172,12 @@ function hasGtinCheckDigit(code: string): boolean {
  * A code that fails either test is treated exactly as a missing one: the
  * listing can still be merged into a bottle identified by a real barcode, and
  * still cannot be used to argue that two bottles are different articles.
+ *
+ * Exported so untrustworthyEans below asks this exact question rather than a
+ * second copy of it: a code with no valid GTIN format was never trustworthy
+ * to begin with, so there is nothing for that function to revoke.
  */
-function isBarcode(code: string | null): code is string {
+export function isBarcode(code: string | null): code is string {
   if (code === null) return false;
   if (!hasGtinCheckDigit(code)) return false;
   return normalizedEan(code).length <= 13;
@@ -148,14 +193,17 @@ export interface MatchableProduct {
 }
 
 /**
- * The identity two listings must share to be the same bottle.
- *
- * Name words are lowercased, stripped of punctuation and sorted, so ordering
- * and hyphenation differences between feeds collapse while genuinely different
+ * Words lowercased, stripped of punctuation and sorted, so ordering and
+ * hyphenation differences between feeds collapse while genuinely different
  * words never do.
+ *
+ * Factored out of matchKey so untrustworthyEans below can ask the identical
+ * question of a raw, unprocessed title — see that function for why it needs
+ * to, and why a second, slightly different word-normaliser there would
+ * quietly stop agreeing with this one the first time either was edited.
  */
-export function matchKey(p: MatchableProduct): string {
-  const words = p.name
+function wordSet(text: string): string {
+  return text
     .toLowerCase()
     // Apostrophes vanish rather than splitting the word around them: one feed
     // writes "Bade'e Al Oud" and another "Badee Al Oud", and treating the
@@ -166,7 +214,92 @@ export function matchKey(p: MatchableProduct): string {
     .filter(Boolean)
     .sort()
     .join(' ');
-  return [brandKey(p.brand), p.sizeMl, p.concentration.toLowerCase().trim(), words].join('|');
+}
+
+/** The identity two listings must share to be the same bottle. */
+export function matchKey(p: MatchableProduct): string {
+  return [brandKey(p.brand), p.sizeMl, p.concentration.toLowerCase().trim(), wordSet(p.name)].join('|');
+}
+
+/**
+ * A listing carrying enough to ask untrustworthyEans' question: which shop,
+ * what code, what it called the product. A subset of StoredListing (see
+ * fragranceId.ts) so this file does not need to import that type just to
+ * name three fields of it.
+ */
+export interface EanListing {
+  retailerId: string;
+  ean: string | null;
+  rawTitle: string;
+}
+
+/** One retailer's own code, paired with the one product it is trusted to identify. */
+function eanKey(retailerId: string, ean: string): string {
+  return `${retailerId} ${normalizedEan(ean)}`;
+}
+
+/**
+ * EANs a single retailer's own feed prints on two or more genuinely
+ * different products — see this file's own header for the measured Nicchia
+ * case this exists to catch (19 codes once padding is normalised, one shared
+ * by three products) and why
+ * it has to run ahead of fragranceId(), not inside findDuplicateGroups.
+ *
+ * Keyed per retailer, not globally: the same code can be a real barcode where
+ * one shop publishes it correctly and simultaneously be misused in another
+ * shop's feed, and revoking trust in the second must never touch the first.
+ *
+ * Compared on the whole raw title's word set (see wordSet) rather than a
+ * cleaned, brand-and-size-stripped product name, because this has to answer
+ * before a listing's brand, size or concentration have been read out of it at
+ * all — fragranceId() needs the answer at the moment it decides a listing's
+ * id, which is earlier than build-demo-catalogue.ts otherwise computes any of
+ * those three. A rename or reordering of the very same bottle's own title
+ * changes no word in the set, so a genuine repeat listing of one bottle under
+ * one code is never flagged; two different fragrance names sharing a code
+ * always are — exactly matchKey's own standard for "different", asked here of
+ * a title matchKey has not been handed yet.
+ *
+ * Restricted to codes that already pass isBarcode: a Shopify-style internal
+ * id was never trustworthy to begin with, so there is nothing here to revoke,
+ * and measured across every catalogue file today, no shop other than Nicchia
+ * has this problem at all — so this changes nothing for the other 23 feeds.
+ */
+export function untrustworthyEans(listings: readonly EanListing[]): ReadonlySet<string> {
+  const wordsSeenByKey = new Map<string, Set<string>>();
+  for (const l of listings) {
+    if (!isBarcode(l.ean)) continue;
+    const key = eanKey(l.retailerId, l.ean);
+    const words = wordSet(l.rawTitle);
+    const seen = wordsSeenByKey.get(key);
+    if (seen) seen.add(words);
+    else wordsSeenByKey.set(key, new Set([words]));
+  }
+  const untrustworthy = new Set<string>();
+  for (const [key, words] of wordsSeenByKey) {
+    if (words.size > 1) untrustworthy.add(key);
+  }
+  return untrustworthy;
+}
+
+/**
+ * The ean a listing is safe to publish as its identity: the retailer's own
+ * `ean` field, unless untrustworthyEans has already caught this exact shop
+ * printing this exact code on more than one product — in which case this
+ * returns null, the same answer as a shop that never published a code at
+ * all. Every caller that would otherwise read `l.ean` directly — fragranceId()
+ * and the product-record `ean` field build-demo-catalogue.ts writes — reads
+ * it through here instead, so a revoked code cannot survive in one place and
+ * leak back in through the other.
+ *
+ * A code that was never barcode-shaped (fails isBarcode) is untouched here
+ * and keeps flowing through exactly as before: this only ever narrows an
+ * already-trustworthy code, never widens or shrinks anything else.
+ */
+export function trustworthyEan(l: EanListing, untrustworthy: ReadonlySet<string>): string | null {
+  if (l.ean === null) return null;
+  if (isBarcode(l.ean) && untrustworthy.has(eanKey(l.retailerId, l.ean))) return null;
+  return l.ean;
 }
 
 export interface MergeGroup<T extends MatchableProduct> {

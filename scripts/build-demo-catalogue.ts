@@ -25,7 +25,11 @@ import { RETAILERS } from '../src/config/retailers.js';
 import type { Retailer } from '../src/types/retailer.js';
 import { HOUSES } from '../src/config/houses.js';
 import { buildBrandCanon } from '../src/catalogue/brandName.js';
-import { findDuplicateGroups } from '../src/catalogue/productMatch.js';
+import {
+  findDuplicateGroups,
+  untrustworthyEans as computeUntrustworthyEans,
+  trustworthyEan,
+} from '../src/catalogue/productMatch.js';
 import { auditPriceScale } from '../src/catalogue/priceScale.js';
 import {
   isFragrance,
@@ -479,6 +483,13 @@ let rejected = 0;
 /** Active listings carrying no usable price. Never published; see the guard below. */
 let unpriced = 0;
 
+/** One retailer's eligible listings, repaired, kept together for resolveRawBrand below. */
+interface EligibleSnapshot {
+  retailer: Retailer;
+  listings: StoredListing[];
+}
+const eligible: EligibleSnapshot[] = [];
+
 if (existsSync(dir)) {
   for (const file of readdirSync(dir).filter((f) => f.endsWith('.json'))) {
     const snapshot = store.read(file.replace(/\.json$/, ''));
@@ -513,73 +524,97 @@ if (existsSync(dir)) {
     const active = snapshot.listings.filter((l) => l.status === 'active');
     if (active.length > 0) liveShops++;
 
-    for (const stored of active) {
-      // Repaired once, here, so the same text drives the fragrance decision,
-      // the brand match and the label a reader sees. MyBeauty.Boutique's feed
-      // arrives as UTF-8 decoded as Latin-1 — "Rosé" as "RosÃ©" — and 114 of
-      // those were already rendering that way on the live site. Doing this
-      // only at display time would leave the classifier reading different
-      // text from the one shown, which is how "ParfumÃ©e" came to pass the
-      // concentration test for the wrong reason. See repairMojibake.
-      const l = {
+    // Repaired once, here, so the same text drives the fragrance decision,
+    // the brand match and the label a reader sees. MyBeauty.Boutique's feed
+    // arrives as UTF-8 decoded as Latin-1 — "Rosé" as "RosÃ©" — and 114 of
+    // those were already rendering that way on the live site. Doing this
+    // only at display time would leave the classifier reading different
+    // text from the one shown, which is how "ParfumÃ©e" came to pass the
+    // concentration test for the wrong reason. See repairMojibake.
+    eligible.push({
+      retailer,
+      listings: active.map((stored) => ({
         ...stored,
         rawTitle: repairMojibake(stored.rawTitle),
         rawBrand: stored.rawBrand === null ? null : repairMojibake(stored.rawBrand),
-      };
-      considered++;
+      })),
+    });
+  }
+}
 
-      // An offer with no price is not an offer. This was an unguarded `l.priceGbp!`
-      // three lines down, and the only thing keeping a bad number off the site was
-      // luck: two Oud Arabian listings currently carry priceGbp 0, and a £0 offer
-      // wins the cheapest-price sort everywhere it appears. It is also what makes
-      // "we could not corroborate this price" expressible at all — see
-      // src/catalogue/feedPriceRepair.ts, which clears rather than guesses.
-      if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) {
-        unpriced++;
-        continue;
-      }
+/* ── an EAN one retailer's own feed has stuck on two different products ─────
+   Computed once, over every eligible listing from every shop, before any of
+   them are turned into a product — see productMatch.ts's untrustworthyEans
+   for the full reasoning and the measured Nicchia case (19 EANs once padding
+   is normalised, one shared by three products) this exists to catch. It has
+   to run here rather than inside the loop below: fragranceId() decides a
+   listing's identity from its very first line, and by the time a second
+   listing with the same EAN reaches "if (existing)" it has already silently
+   become an offer on the first one's product — too late for any check placed
+   after that point to undo. */
+const untrustworthyEans = computeUntrustworthyEans(eligible.flatMap(({ listings }) => listings));
 
-      if (!isFragrance(l)) {
-        rejected++;
-        continue;
-      }
+for (const { retailer, listings } of eligible) {
+  for (const l of listings) {
+    considered++;
 
-      const size = sizeMl(l.rawTitle)!;
-      const id = fragranceId(l);
-      const effectiveRawBrand = resolveRawBrand(l, retailer);
+    // An offer with no price is not an offer. This was an unguarded `l.priceGbp!`
+    // three lines down, and the only thing keeping a bad number off the site was
+    // luck: two Oud Arabian listings currently carry priceGbp 0, and a £0 offer
+    // wins the cheapest-price sort everywhere it appears. It is also what makes
+    // "we could not corroborate this price" expressible at all — see
+    // src/catalogue/feedPriceRepair.ts, which clears rather than guesses.
+    if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) {
+      unpriced++;
+      continue;
+    }
 
-      const existing = products.get(id);
-      const offer: Offer = {
-        retailerId: l.retailerId,
-        price: l.priceGbp!,
-        wasPrice: l.wasPriceGbp,
-        promoEndsAt: l.promoEndsAt,
-        stock: l.inStock === true ? 'inStock' : l.inStock === false ? 'outOfStock' : 'unknown',
-        url: l.url,
-        fetchedAt: l.lastSeenAt,
-        firstSeenAt: l.firstSeenAt,
-        isNew: isNewListing(l, now),
-        imageUrl: IMAGE_ALLOWED.has(l.retailerId) ? l.imageUrl : null,
-        description: l.description ?? null,
-      };
+    if (!isFragrance(l)) {
+      rejected++;
+      continue;
+    }
 
-      if (existing) {
-        existing.offers.push(offer);
-      } else {
-        // The displayed brand is handed to displayName as well as the raw
-        // vendor field: it is the string that will sit beside the name on
-        // screen, so it is the one whose duplication a reader actually sees.
-        const displayedBrand = canonBrand(effectiveRawBrand);
-        products.set(id, {
-          id,
-          brand: displayedBrand ?? 'Unbranded',
-          name: displayName(l.rawTitle, effectiveRawBrand, displayedBrand),
-          concentration: concentration(l.rawTitle),
-          sizeMl: size,
-          ean: l.ean,
-          offers: [offer],
-        });
-      }
+    const size = sizeMl(l.rawTitle)!;
+    const id = fragranceId(l, untrustworthyEans);
+    const effectiveRawBrand = resolveRawBrand(l, retailer);
+
+    const existing = products.get(id);
+    const offer: Offer = {
+      retailerId: l.retailerId,
+      price: l.priceGbp!,
+      wasPrice: l.wasPriceGbp,
+      promoEndsAt: l.promoEndsAt,
+      stock: l.inStock === true ? 'inStock' : l.inStock === false ? 'outOfStock' : 'unknown',
+      url: l.url,
+      fetchedAt: l.lastSeenAt,
+      firstSeenAt: l.firstSeenAt,
+      isNew: isNewListing(l, now),
+      imageUrl: IMAGE_ALLOWED.has(l.retailerId) ? l.imageUrl : null,
+      description: l.description ?? null,
+    };
+
+    if (existing) {
+      existing.offers.push(offer);
+    } else {
+      // The displayed brand is handed to displayName as well as the raw
+      // vendor field: it is the string that will sit beside the name on
+      // screen, so it is the one whose duplication a reader actually sees.
+      const displayedBrand = canonBrand(effectiveRawBrand);
+      products.set(id, {
+        id,
+        brand: displayedBrand ?? 'Unbranded',
+        name: displayName(l.rawTitle, effectiveRawBrand, displayedBrand),
+        concentration: concentration(l.rawTitle),
+        sizeMl: size,
+        // Not the raw `l.ean`: a code this shop's own feed has also put on a
+        // different product (see untrustworthyEans above) must not survive
+        // into the one place findDuplicateGroups (productMatch.ts) still
+        // reads an ean from, or it would sit in a match bucket later and
+        // either wrongly identify a bottle or wrongly veto a real merge —
+        // the same failure this file exists to prevent, one step downstream.
+        ean: trustworthyEan(l, untrustworthyEans),
+        offers: [offer],
+      });
     }
   }
 }

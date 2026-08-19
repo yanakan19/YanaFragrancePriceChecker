@@ -22,7 +22,14 @@
  *   2. **Fragrance only, same identity.** isFragrance/fragranceId are
  *      imported from src/catalogue/fragranceId.ts rather than reimplemented,
  *      so a listing's id here can never drift from what
- *      build-demo-catalogue.ts calls the same product.
+ *      build-demo-catalogue.ts calls the same product. That now includes
+ *      fragranceId's optional untrustworthy-EAN argument: this script
+ *      recomputes productMatch.ts's untrustworthyEans fresh for each replayed
+ *      commit's own snapshot (an EAN collision in today's feed says nothing
+ *      about whether it existed last month) and passes it through exactly as
+ *      build-demo-catalogue.ts does, so a listing that would fall back to its
+ *      retailer-sku identity in the current catalogue falls back to the same
+ *      identity here.
  *
  * The line plotted is the cheapest live price at each point in time, with
  * the retailer that held it — not one line per shop — because that is what
@@ -34,6 +41,7 @@ import { writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isFragrance, fragranceId } from '../src/catalogue/fragranceId.js';
+import { untrustworthyEans } from '../src/catalogue/productMatch.js';
 import { CURRENCY_UNCONFIRMED } from '../src/config/retailers.js';
 import type { StoredListing } from '../src/catalogue/types.js';
 
@@ -99,12 +107,25 @@ const history = new Map<string, PricePoint[]>();
 for (const [i, { sha, at }] of commits.entries()) {
   const cheapestThisCommit = new Map<string, { priceGbp: number; retailerId: string }>();
 
+  // Read every live snapshot at this commit once, up front — not per file
+  // inside the pricing loop below — because untrustworthyEans (see its own
+  // header comment in productMatch.ts) has to see every retailer's listings
+  // before any of them is turned into a price point, for the same reason
+  // build-demo-catalogue.ts computes it before its own product loop: an EAN
+  // collision within one shop's feed has to be known before the first
+  // colliding listing is read, not discovered after the second one has
+  // already been read as though it agreed with the first.
+  const activeAtCommit: StoredListing[][] = [];
   for (const path of catalogueFilesAt(sha)) {
     const snapshot = readFileAt(sha, path);
     if (!snapshot || snapshot.source !== 'live') continue;
+    activeAtCommit.push(snapshot.listings.filter((l) => l.status === 'active'));
+  }
+  const untrustworthy = untrustworthyEans(activeAtCommit.flat());
 
-    for (const l of snapshot.listings) {
-      if (l.status !== 'active' || !isFragrance(l)) continue;
+  for (const listings of activeAtCommit) {
+    for (const l of listings) {
+      if (!isFragrance(l)) continue;
       // A shop whose currency was never established has no price history, and
       // clearing its current snapshot cannot reach the past: this script
       // replays old commits, so the pre-quarantine files are still right there
@@ -126,7 +147,7 @@ for (const [i, { sha, at }] of commits.entries()) {
       // build-demo-catalogue.ts already guards the same way, for the same
       // reason.
       if (typeof l.priceGbp !== 'number' || !(l.priceGbp > 0)) continue;
-      const id = fragranceId(l);
+      const id = fragranceId(l, untrustworthy);
       const price = l.priceGbp;
       const current = cheapestThisCommit.get(id);
       // Retailer id as the tiebreaker keeps this deterministic run to run —
