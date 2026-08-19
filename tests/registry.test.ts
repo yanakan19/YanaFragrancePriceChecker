@@ -111,10 +111,12 @@ describe('retailer registry', () => {
     it('is a short, deliberate list rather than everything unresearched', () => {
       // Being shown without a delivery cost is safe, but it is not free: each
       // of these is a shop a reader can open and be sent to. They are here
-      // because each has a real ingestion route (a catalogue config, or a
-      // confirmed live Awin feed) and a real reason to be listed. The other
-      // retailers carrying standardGbp: null have catalogue: null and
-      // adapter: 'unknown' — nothing to fetch, so they would render as empty
+      // because each has a real ingestion route (a catalogue config, a
+      // confirmed live Awin feed, or `shopifyStorefront: true` pointed at a
+      // confirmed-Shopify, confirmed-sterling storefront) and a real reason
+      // to be listed. The other retailers carrying standardGbp: null have
+      // none of those — catalogue: null, adapter: 'unknown' and no
+      // shopifyStorefront — nothing to fetch, so they would render as empty
       // shops — and mostly a pending affiliate application, so listing them
       // as live partners would describe a relationship that does not exist
       // yet.
@@ -124,18 +126,31 @@ describe('retailer registry', () => {
       // carry a real standardGbp and are no longer shown as "delivery not
       // stated". Manchester Ouds and Perfume Shopping remain here — see each
       // entry's shipping.notes for what was tried.
+      // Al Haramain, Armaf, French Avenue, IBRAQ and Zimaya joined this list
+      // 2026-08-19: each cleared the Shopify-suspect currency probe (real
+      // /products.json payload, a sterling price list confirmed by a CI
+      // runner, robots.txt permitting every request — see each entry's own
+      // comment for its run and job id) and was enabled on that, with no
+      // standard delivery cost found for any of them yet. A confirmed
+      // ingestion route is not the same claim as a confirmed delivery cost;
+      // this list is exactly the record of that gap.
       // Nicchia Luxury UK left this list on 2026-08-13 for a different and
       // worse reason: it was disabled outright, because what currency it
       // charges in was never established. This list only covers *enabled*
       // retailers, so a disabled one drops out of it — that is the list
       // tracking the registry, not a delivery figure having been found.
       expect(unstated.map((r) => r.id).sort()).toEqual([
+        'al-haramain',
+        'armaf',
+        'french-avenue',
+        'ibraq',
         'manchester-ouds',
         'perfume-shopping',
+        'zimaya',
       ]);
       for (const r of unstated) {
         expect(
-          r.catalogue !== null || r.adapter === 'affiliate-feed',
+          r.catalogue !== null || r.adapter === 'affiliate-feed' || r.shopifyStorefront === true,
           `${r.name} is enabled with no way to fetch anything`,
         ).toBe(true);
       }
@@ -250,7 +265,17 @@ describe('retailer registry', () => {
     it('still covers the Spanish and Madrid-shipping entries', () => {
       expect(CURRENCY_UNCONFIRMED.has('paco-perfumerias')).toBe(true);
       expect(CURRENCY_UNCONFIRMED.has('beauty-the-shop-uk')).toBe(true);
-      expect(CURRENCY_UNCONFIRMED.has('zimaya')).toBe(true);
+    });
+
+    // zimaya was removed 2026-08-19 on a currency probe that read a sterling
+    // price list off the shop's own storefront (see src/config/retailers.ts).
+    // khadlaj joined the same day for the opposite finding: confirmed
+    // Shopify, but every way of asking quoted USD or 404d, never sterling.
+    // Named rather than derived, so deleting either entry fails here too and
+    // has to be a deliberate act with a checkout behind it.
+    it('covers khadlaj, confirmed Shopify but never confirmed sterling', () => {
+      expect(CURRENCY_UNCONFIRMED.has('khadlaj')).toBe(true);
+      expect(CURRENCY_UNCONFIRMED.has('zimaya')).toBe(false);
     });
   });
 
