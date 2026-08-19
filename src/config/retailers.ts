@@ -2583,25 +2583,30 @@ export const RETAILERS: readonly Retailer[] = [
       notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
     },
     // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
-    // Not designed, for the same reason as Beauty Pie above: no
-    // strategy-memory record exists, `catalogue: null` means no confirmed
-    // category URL exists for any adapter to target, and bot-defence status
-    // is genuinely unestablished rather than assumed hard. A CI probe
-    // dispatch was attempted this review (catalogue-daily.yml workflow_dispatch
-    // with probe_shop=very, using catalogue-probe.ts's new --shop bypass of
-    // `enabled` — see that script's own comment) but was queued behind the
-    // day's scheduled harvest and then displaced by a second dispatch before
-    // it got a runner; GitHub Actions keeps only one pending run per
-    // concurrency group, so firing dispatches back to back cancels the
-    // earlier one rather than queuing both. Re-running that single-shop
-    // probe once a runner is free is the next concrete step, and it costs
-    // nothing — it is the free-tier strategies, not Apify.
+    // First real evidence gathered this review. A catalogue-daily.yml
+    // workflow_dispatch (probe_shop=very) queued behind the day's scheduled
+    // harvest and never got a runner in time — GitHub Actions keeps only one
+    // pending run per concurrency group, so a second dispatch fired shortly
+    // after cancelled it rather than queuing both. price-verify.yml's own
+    // concurrency group is separate and was free, so
+    // `npm run shipping:discover -- --shop=very` ran there instead (run
+    // 32257812348, job 96083580395): `products.json` 404s (not Shopify),
+    // and both the bare homepage and /policies/shipping-policy came back
+    // HTTP 403. That is a genuine block, not silence — very.co.uk refuses a
+    // datacentre address outright, the same shape as this file's other
+    // confirmed Class-1 shops (Superdrug, Selfridges, Notino UK, The
+    // Fragrance Shop, The Perfume Shop). `catalogue: null` still means no
+    // confirmed category URL exists for the proxy or actor tier to target —
+    // that has to come from a human opening the real site in a browser
+    // first, the same step every other shop in this file went through —
+    // but bot-defence status is no longer unestablished: it is confirmed,
+    // by a real HTTP response, not assumed.
     //
     // very.co.uk is a general department store (electronics, furniture,
     // clothing) that also sells fragrance, the same shape as John Lewis —
-    // worth checking against John Lewis's own entry once real URLs exist,
-    // since a large general retailer's defence posture can differ sharply
-    // from a specialist beauty retailer's.
+    // worth comparing once real section URLs exist, since a large general
+    // retailer's defence posture can still differ sharply from a specialist
+    // beauty retailer's even when both 403 a bare homepage request.
     catalogue: null,
     affiliate: { ...awinRequested() },
   },
