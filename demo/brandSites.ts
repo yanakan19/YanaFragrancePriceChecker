@@ -12,21 +12,25 @@ import { marketOf } from '../src/catalogue/brandSiteCheck.js';
  *
  * Measured 2026-08-19 by running buildBrandCanon() from src/catalogue/
  * brandName.ts — the module that actually decides one canonical display
- * spelling per house — over every "brand" string in demo/catalogue.generated.ts,
- * then checking each canonical name against this file, minus "Unbranded" and
- * "vendor-unknown" (feed artifacts, not houses; see the worklist comment
+ * spelling per house — over every "brand" field on every product in the live
+ * CATALOGUE array (demo/catalogue.generated.ts), including repeats (the
+ * counts are what buildBrandCanon uses to break casing ties), then checking
+ * each canonical name against this file with officialSiteFor(), minus
+ * "Unbranded" (a feed artifact, not a house; see the worklist comment
  * below). That is a stricter count than a raw grep-and-dedupe of the feed
  * strings: it collapses "ARMAF"/"Armaf", "Paco Rabanne"/"Rabanne" and similar
  * pairs to one house the way the app itself does, rather than counting each
  * spelling separately. By that measure the live catalogue currently carries
- * 662 real houses (this number moves as the harvest runs; it was 629 by the
- * cruder count on 2026-08-17, 664 distinct raw strings by that same cruder
- * count on 2026-08-19 — the catalogue grows between harvests, so treat this
- * as "the count on the day someone last measured it," not a fixed total).
- * 274 of those 662 resolve here as of this measurement (41.4%, re-measured
- * after this pass's own additions — the 662/168 figures above are the count
- * at the start of the pass). This list is still only the highest-volume
- * brands so far, not a finished set.
+ * 629 real houses (this number moves as the harvest runs, so treat it as
+ * "the count on the day someone last measured it," not a fixed total — a
+ * prior version of this comment claimed 662 by the same method; this pass
+ * could not reproduce that figure by re-running buildBrandCanon() the same
+ * way and is reporting what it actually measured rather than carrying the
+ * old number forward unchecked). 271 of those 629 resolve here as of this
+ * measurement (43.1%, re-measured after this pass's own additions — 253/629
+ * was the count at the start of the pass, before the CI dead-link fixes and
+ * new brands below). This list is still only the highest-volume brands so
+ * far, not a finished set.
  */
 /**
  * ── CI brand:probe sweep, 2026-08-19 (GitHub Actions run 32241839615) ───────
@@ -257,6 +261,14 @@ export const BRAND_SITES: Record<string, string> = {
   'ex nihilo': 'https://www.ex-nihilo-paris.com/',
   'filippo sorcinelli': 'https://filipposorcinelli.com/en',
   'frederic malle': 'https://www.fredericmalle.com/',
+  // "Frédéric Malle" — the catalogue's own canonical spelling keeps the
+  // accents, and normalizeBrand is ASCII-only, so both é's drop out as
+  // punctuation rather than folding to "e", leaving this as a second,
+  // narrower key rather than a duplicate of the plain-ASCII one above. Same
+  // root cause as Chloé, Le Falconé and Courrèges elsewhere in this file —
+  // found 2026-08-19 while measuring coverage, when this brand still showed
+  // as unresolved despite the entry above already existing.
+  'fr d ric malle': 'https://www.fredericmalle.com/',
   fugazzi: 'https://fugazzifragrances.com/',
   'giardini di toscana': 'https://www.giardiniditoscana.com/en',
   givenchy: 'https://www.givenchybeauty.com/gb/',
@@ -662,60 +674,158 @@ export const BRAND_SITES: Record<string, string> = {
   'franco maxim': 'https://dumontparfums.com/collections/franco-maxim',
   'contes de parfums': 'https://contesdeparfums.com/',
   'maison noir': 'https://maison-noir.com/',
+
+  // ── Coverage continuation, 2026-08-19 ─────────────────────────────────────
+  // Same staged method as the sweep above: plain "<brand> official site"
+  // search first, a UK-targeted follow-up, then parent-company/variant
+  // searches for stragglers. Working down the worklist below by product
+  // count. WebSearch only, same as the sweep above — nothing opened directly.
+  //
+  // Domain itself named after the brand, and every business-directory and
+  // "about us" listing found for it ties it to Ard Al Zaafaran Trading LLC
+  // (the manufacturer, Deira/Al Ras, Dubai) rather than reading as an
+  // unrelated third party that happened to pick a matching name.
+  'ard al zaafaran': 'https://ardalzaafaranshop.com/',
+  // Confirmed by matching this catalogue's own product names (Elation
+  // Eloise, Cosmopolitan) directly against orchidperfumesfactory.com's own
+  // product pages and its own /product-category/orchid/ line — this is a
+  // different UAE house from the already-resolved "Gulf Orchid" above, not
+  // a spelling variant of it.
+  orchid: 'https://orchidperfumesfactory.com/',
+  // The file's own 2026-08-19 sweep above deliberately left this unaliased
+  // to "risala" pending confirmation it was the same company's own line.
+  // Found this pass: multiple independent retailers (FragranceX, Perfume.com,
+  // Khan El Khalili) all credit Risala Elite fragrances as "by Risala," and
+  // risala.ae's own navigation carries an Elite Collection — enough to
+  // resolve it to the same site as the existing "risala" entry.
+  'risala elite': 'https://risala.ae/',
+  'pepe jeans': 'https://www.pepejeans.com/en_gb/men/accessories/fragrances',
+  // Coty-produced line; cerruti1881fragrances.com titles itself the Cerruti
+  // 1881 Fragrances site directly.
+  cerruti: 'https://www.cerruti1881fragrances.com/',
+  // Own-brand of Mavive S.p.A. (Venice) — no separate monotheme.com, but
+  // mavive.com carries its own dedicated /85-monotheme product line, not a
+  // third-party listing.
+  monotheme: 'https://www.mavive.com/en/85-monotheme',
+  // French house; louisvarel.fr carries its own "About Us" page rather than
+  // reading as a retailer.
+  'louis varel': 'https://louisvarel.fr/',
+  // nikos-sculpture.com titles itself "NIKOS SCULPTURE: Official website"
+  // directly.
+  nikos: 'https://www.nikos-sculpture.com/',
+  // Global US site; no UK-specific Revlon fragrance path found.
+  revlon: 'https://www.revlon.com/',
+  // Disney's own UK retail storefront (disneystore.co.uk, confirmed by
+  // search as "shopDisney online is now disneystore.co.uk"); its fragrance
+  // stock was not separately confirmed live in search results the way most
+  // other entries in this file were, so treat the fragrance-carrying claim
+  // as unverified even though the site itself is genuinely Disney's own.
+  disney: 'https://www.disneystore.co.uk/',
+
+  // bogartperfumes.com has its own /about page and a Facebook page under the
+  // same "Bogart Perfumes" name (@bogartperfumes.official) — a distributor
+  // reading as the house's own storefront rather than a plain reseller.
+  'jacques bogart': 'https://www.bogartperfumes.com/',
+  // Same collection as the existing "david beckham" entry above (Coty-
+  // produced, beckham-fragrances.com) — the catalogue also carries this
+  // house under its fuller couple's-name spelling, which normalizes to a
+  // different key than "David Beckham" alone.
+  'david victoria beckham': 'https://www.beckham-fragrances.com/en',
+  // reebok.co.uk is genuinely Reebok's own UK site, confirmed by search
+  // ("Reebok® Official Site"), but fragrance is licensed out (Tailored
+  // Perfumes make it) and a fragrance-specific page on reebok.co.uk itself
+  // was not confirmed live in search results the way most other entries in
+  // this file were — same caveat as the "disney" entry above.
+  reebok: 'https://www.reebok.co.uk/',
+  // alexandre-j.com has its own /pages/about page ("Welcome to La Maison
+  // Alexandre.J"), not a retailer.
+  'alexandre j': 'https://www.alexandre-j.com/',
+  // normalizeBrand strips digits entirely, so "Bois 1920" collapses to the
+  // bare word "bois" — a real, if surprising, key rather than a collision:
+  // measured against every brand string in the live catalogue, "Bois 1920"
+  // is the only one that normalizes to "bois". bois1920.it titles itself
+  // "Artisan Perfumes Florence | Bois 1920 Italian Niche Fragrances"
+  // directly.
+  bois: 'https://www.bois1920.it/en/',
+  // angelschlesserparfums.com carries its own dedicated brand ("Il Brand")
+  // and collection pages.
+  'angel schlesser': 'https://www.angelschlesserparfums.com/en/',
+
+  // Left unresolved this pass — search turned up only third-party retailers
+  // and Fragrantica/Parfumo listings, never a confirmed brand-owned domain:
+  // New Brand Parfums, Dkhoon Emirates, Jennifer Lopez (JLo fragrances are
+  // sold only through retailers, no dedicated brand site found), Tonino
+  // Lamborghini (catalogue's plain "Lamborghini" — confirmed by product
+  // names, Classico/Intenso/Prestigio/Acqua/Essenza, to be this house rather
+  // than the separate "Automobili Lamborghini" line), Diane Castel, Cuba
+  // Paris, Taylor of London, Cevi Les Parfums, Salvador Dali, Marvel (sold
+  // via a licensed manufacturer, JADS International, not Marvel's/Disney's
+  // own site), Hello Kitty (sold via a Sanrio license, no dedicated
+  // fragrance-brand site of Sanrio's own found). Ellen Tracy and Liz Claiborne are deliberately left out too:
+  // search surfaced only domains ("ellentracy.com", "lizclaiborns.com" —
+  // note the missing "e", "lizclaiborneperfume.com") that were never
+  // actually present in any search result's own link list, or read as
+  // spammy multi-brand storefronts rather than the house's own site — the
+  // "never invent, never guess" rule this file runs on applies exactly here.
 };
 
 /**
  * ── Worklist: highest-product brands with no entry above ────────────────────
  *
  * Not code — a priority order for whoever runs the next confirmation pass,
- * ranked by product count in the live catalogue (measured 2026-08-17 against
- * demo/catalogue.generated.ts, 12,664 products / 629 brands). "cum" is what
- * share of the whole catalogue's products would gain a website line if every
- * brand up to that point were added. 517 of 629 brands (82.2%) have no entry
- * yet, but they are mostly small: the 30 largest below already cover 12.7%
- * of all products on their own, the top 100 would cover 24.6%.
+ * ranked by product count in the live catalogue. Re-measured 2026-08-19
+ * against demo/catalogue.generated.ts (12,267 products / 629 brands) using
+ * the same buildBrandCanon()-based method as the file header's own count —
+ * this replaces a 2026-08-17 version of this list that this pass's own
+ * additions have now mostly cleared out (Ard Al Zaafaran, Police, Louis
+ * Cardin, Orchid and 24 more of that list's top 30 now have entries above).
+ * "cum" is what share of the whole catalogue's products would gain a website
+ * line if every unresolved brand up to that point were added. 358 of 629
+ * brands (56.9%) still have no entry, but they are mostly small: the 30
+ * largest below cover 3.0% of all products on their own, the top 50 reach
+ * 4.2%, the top 100 reach 6.2%.
  *
- * One entry is deliberately excluded from this ranking: "Unbranded" (61
- * products, would rank 5th) is not a house at all — it is the literal string
- * some retailer feeds send when they have no brand for a listing. Its
- * products span dozens of real houses (4711, Acqua Di Parma, Aesop, Banana
- * Republic, Calvin Klein, Diesel, DKNY, Dolce&Gabbana, ...), so there is no
- * single URL that could ever belong there — see brandName.ts's own doc for
- * why a catch-all like this can't be folded into any one brand.
+ * "Unbranded" (61 products) is excluded from this ranking — not a house, the
+ * literal string some retailer feeds send when they have no brand for a
+ * listing. Its products span dozens of real houses (4711, Acqua Di Parma,
+ * Aesop, Banana Republic, Calvin Klein, Diesel, DKNY, Dolce&Gabbana, ...), so
+ * there is no single URL that could ever belong there — see brandName.ts's
+ * own doc for why a catch-all like this can't be folded into any one brand.
  *
- *   Ard Al Zaafaran                    127 products  (cum  1.0%)
- *   Police                             117 products  (cum  1.9%)
- *   Louis Cardin                       114 products  (cum  2.8%)
- *   Orchid                              82 products  (cum  3.5%)
- *   Jenny Glow                          59 products  (cum  4.4%)  [Unbranded, 61, skipped]
- *   Ibrahim Al Qurashi (IBRAQ)          59 products  (cum  4.9%)
- *   Yardley London                      56 products  (cum  5.3%)
- *   Mäurer & Wirtz                      56 products  (cum  5.8%)
- *   Floris London                       56 products  (cum  6.2%)
- *   Salvatore Ferragamo                 55 products  (cum  6.7%)
- *   Guess                               51 products  (cum  7.1%)
- *   Escentric Molecules                 48 products  (cum  7.4%)
- *   Dunhill                             45 products  (cum  7.8%)
- *   Maison Margiela                     44 products  (cum  8.1%)
- *   Chloé                               44 products  (cum  8.5%)
- *   Risala Elite                        42 products  (cum  8.8%)
- *   Karl Lagerfeld                      42 products  (cum  9.1%)
- *   Rochas                              41 products  (cum  9.5%)
- *   Escada                              41 products  (cum  9.8%)
- *   Roberto Cavalli                     39 products  (cum 10.1%)
- *   Reef Perfumes                       39 products  (cum 10.4%)
- *   Nina Ricci                          39 products  (cum 10.7%)
- *   Laurent Mazzone                     37 products  (cum 11.0%)
- *   Lanvin                              37 products  (cum 11.3%)
- *   Street Origins                      36 products  (cum 11.6%)
- *   Caron                               36 products  (cum 11.9%)
- *   Tommy Hilfiger                      35 products  (cum 12.1%)
- *   Milton Lloyd                        35 products  (cum 12.4%)
- *   Cuba Paris                          34 products  (cum 12.7%)   <- 29 real brands here (Unbranded occupied would-be rank 5)
+ *   Cuba Paris                          34 products  (cum  0.3%)
+ *   New Brand Parfums                   29 products  (cum  0.5%)
+ *   Dkhoon Emirates                     28 products  (cum  0.7%)
+ *   Lamborghini                         26 products  (cum  1.0%)  (Tonino Lamborghini — see note above)
+ *   Jennifer Lopez                      23 products  (cum  1.1%)
+ *   Diane Castel                        17 products  (cum  1.3%)
+ *   Ellen Tracy                         12 products  (cum  1.4%)
+ *   Marvel                              12 products  (cum  1.5%)
+ *   Salvador Dali                       11 products  (cum  1.6%)
+ *   Taylor of London                    11 products  (cum  1.7%)
+ *   Cevi Les Parfums                    11 products  (cum  1.7%)
+ *   Liz Claiborne                       10 products  (cum  1.8%)
+ *   Hello Kitty                         10 products  (cum  1.9%)
+ *   Designer Collection                  9 products  (cum  2.0%)
+ *   Oud Elixir                           9 products  (cum  2.1%)
+ *   Blood Concept                        8 products  (cum  2.1%)
+ *   Etienne Aigner                       8 products  (cum  2.2%)
+ *   Jean-Louis Scherrer                  8 products  (cum  2.2%)
+ *   Just Jack                            8 products  (cum  2.3%)
+ *   Kate Spade                           8 products  (cum  2.4%)
+ *   Mayfair                              8 products  (cum  2.4%)
+ *   mustang                              8 products  (cum  2.5%)
+ *   Oros                                 8 products  (cum  2.6%)
+ *   United Colors & Prestige Beauty      8 products  (cum  2.6%)
+ *   Affinessence                         8 products  (cum  2.7%)
+ *   aigner                               8 products  (cum  2.8%)
+ *   Attar & Co                           8 products  (cum  2.8%)
+ *   Banana Republic                      8 products  (cum  2.9%)
+ *   Geparlys                             8 products  (cum  3.0%)
+ *   Masquerade                           8 products  (cum  3.0%)
  *
- * (top 50 reaches 17.1% cumulative, top 100 reaches 24.6% — full ranked list
- * is reproducible any time with the grep-and-tally in this comment's own
- * measurement note above; nothing here is stored anywhere else.)
+ * (full ranked list is reproducible any time by running buildBrandCanon()
+ * over the live catalogue and diffing against this file's own keys, the same
+ * check this pass ran; nothing here is stored anywhere else.)
  */
 
 /** Lowercase, strip everything but letters — so "Dolce & Gabbana", "Dolce&Gabbana"
