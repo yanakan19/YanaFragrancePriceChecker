@@ -23,11 +23,14 @@ name: Catalogue crawl
 # silence. They now gate on time elapsed since they last ran, so the cadence
 # holds however late a run starts. See each step for its own threshold.
 #
-# --allow-metered below is a no op unless the APIFY_PROXY_PASSWORD secret is
-# set, which it currently is not. If that secret is ever added, every tick
-# would retry the blocked shops through the paid residential proxy — worth
-# revisiting the cadence at that point rather than assuming this comment still
-# holds.
+# --allow-metered below is a no op unless APIFY_PROXY_PASSWORD or APIFY_TOKEN
+# is set, and neither currently is. If either secret is ever added, every
+# tick would retry the blocked shops through that tier — the residential
+# proxy for APIFY_PROXY_PASSWORD, a real-browser render for APIFY_TOKEN (see
+# src/catalogue/apifyActor.ts) — worth revisiting the cadence at that point
+# rather than assuming this comment still holds, and worth watching cost
+# closely for the first few ticks after APIFY_TOKEN specifically: that tier
+# is estimated at roughly ten times the proxy's per-page cost.
 on:
   schedule:
     - cron: '0 */2 * * *'
@@ -50,6 +53,10 @@ on:
         description: 'Run the adaptive retrieval probe instead of the crawl.'
         type: boolean
         default: false
+      probe_shop:
+        description: 'Limit the probe to one retailer id (e.g. very). Bypasses that retailer''s own enabled flag, so a disabled candidate can be probed without switching it on — see catalogue-probe.ts. Empty probes every enabled shop, same as the schedule.'
+        type: string
+        default: ''
       harvest:
         description: 'Harvest real listings through each shop sitemap.'
         type: boolean
@@ -71,7 +78,7 @@ on:
         type: string
         default: ''
       allow_metered:
-        description: 'Retry genuinely blocked shops through the Apify proxy. Requires the APIFY_PROXY_PASSWORD secret. Costs money.'
+        description: 'Retry genuinely blocked shops through the Apify proxy (APIFY_PROXY_PASSWORD) and, for shops that stay at zero, a real-browser Apify actor render (APIFY_TOKEN). Each fires independently only if its own secret is set. Costs money — the actor tier roughly ten times more per page than the proxy tier.'
         type: boolean
         default: false
       shipping_discover:
@@ -211,9 +218,20 @@ jobs:
 
       # Tries several retrieval strategies per shop, ordered by what has worked
       # before, and commits what it learned so tomorrow starts smarter.
+      #
+      # Both Apify credentials are passed unconditionally, same reasoning as
+      # the harvest step below: catalogue-probe.ts checks for each itself and
+      # simply leaves proxied-fetch or browser-render unavailable, with a
+      # clear log line, when its secret is absent. Neither is required for
+      # the free strategies to run normally.
       - name: Adaptive probe
         if: ${{ inputs.probe }}
-        run: npm run probe
+        env:
+          APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+        run: |
+          npm run probe -- \
+            ${{ inputs.probe_shop && format('--shop={0}', inputs.probe_shop) || '' }}
 
       - name: Commit what the probe learned
         if: ${{ inputs.probe }}
@@ -509,10 +527,23 @@ jobs:
       # below for the seven runs, what they actually wrote, and why that is not
       # a reason to keep dispatching it.
       #
-      # --allow-metered is harmless to pass even with no secret configured:
-      # the harvest script checks for APIFY_PROXY_PASSWORD itself and simply
-      # skips proxied retrieval if it is absent, logging that it did so. It
-      # only ever fires for shops the free route returned nothing for.
+      # --allow-metered is harmless to pass even with neither secret
+      # configured: the harvest script checks for APIFY_PROXY_PASSWORD and
+      # APIFY_TOKEN itself and simply skips the tier whose secret is absent,
+      # logging that it did so. Both tiers only ever fire for shops the
+      # cheaper route(s) before them returned nothing for — see
+      # src/catalogue/apifyActor.ts and this step's own comment in
+      # scripts/catalogue-harvest.ts for why a residential IP (the proxy) and
+      # a real browser (the actor) fix genuinely different failures, and are
+      # gated independently so either secret can be added on its own.
+      #
+      # The actor tier's budget (MAX_ACTOR_PAGES_PER_RUN, currently 10) is
+      # shared across every shop that reaches it in one run, spent in
+      # RETAILERS' own list order with no rotation. Once real usage exists,
+      # a shop late in that order could starve every run if more shops need
+      # rendering than the budget covers — worth watching once APIFY_TOKEN is
+      # actually set, not a problem yet while the tier has never fired for
+      # real.
       #
       # Budget and refresh share.
       #
@@ -583,6 +614,7 @@ jobs:
         timeout-minutes: 60
         env:
           APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
         run: |
           npm run harvest -- \
             --max=${{ inputs.harvest_max || '70' }} \

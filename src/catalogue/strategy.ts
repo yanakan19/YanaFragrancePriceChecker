@@ -37,7 +37,16 @@ export type StrategyId =
   /** Homepage, purely to learn whether the shop emits JSON-LD anywhere. */
   | 'homepage-probe'
   /** Retrieval through a paid residential proxy. Costs money, so it is last. */
-  | 'proxied-fetch';
+  | 'proxied-fetch'
+  /**
+   * Real headless-browser render through an Apify actor. For a shop whose
+   * grid is drawn by client-side script, no amount of retrying the raw HTTP
+   * response — proxied or not — will ever contain it; see apifyActor.ts's own
+   * header. Costs roughly ten times proxied-fetch per page (same source), so
+   * it ranks last of all and is only ever reached once every cheaper strategy
+   * has already failed.
+   */
+  | 'browser-render';
 
 export interface StrategyRecord {
   strategyId: StrategyId;
@@ -75,10 +84,22 @@ export const ALL_STRATEGIES: StrategyId[] = [
   'search-page',
   'homepage-probe',
   'proxied-fetch',
+  'browser-render',
 ];
 
 /** Strategies that cost money per request, so they are never explored casually. */
-const METERED: ReadonlySet<StrategyId> = new Set<StrategyId>(['proxied-fetch']);
+const METERED: ReadonlySet<StrategyId> = new Set<StrategyId>(['proxied-fetch', 'browser-render']);
+
+/**
+ * Per-strategy cost penalty applied in `score()` below. Both metered
+ * strategies have to clearly beat the free ones to be chosen, and
+ * browser-render has to clearly beat proxied-fetch too — apifyActor.ts's own
+ * header sources the roughly tenfold per-page cost difference between them.
+ */
+const COST_PENALTY: Partial<Record<StrategyId, number>> = {
+  'proxied-fetch': 0.35,
+  'browser-render': 0.55,
+};
 
 export function getRecord(
   memory: StrategyMemory,
@@ -117,7 +138,7 @@ export function score(record: StrategyRecord): number {
   const yieldBonus = Math.log1p(avgYield) / Math.log1p(100);
 
   // A metered strategy has to clearly beat the free ones to be chosen.
-  const costPenalty = METERED.has(record.strategyId) ? 0.35 : 0;
+  const costPenalty = COST_PENALTY[record.strategyId] ?? 0;
 
   return rate * (1 + yieldBonus) - costPenalty;
 }

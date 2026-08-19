@@ -4,19 +4,33 @@
  *   npm run harvest                        # every shop, free routes only
  *   npm run harvest -- --max=120           # deeper
  *   npm run harvest -- --shop=allbeauty
- *   npm run harvest -- --allow-metered     # also try Apify proxy for shops the free route can't reach
+ *   npm run harvest -- --allow-metered     # also try Apify proxy and actor for shops the free route can't reach
  *   npm run harvest -- --shop-minutes=15   # raise the per-shop wall-clock ceiling
  *   npm run harvest -- --refresh-share=0.8 # spend most of the budget re-pricing what we already hold
  *
  * This is the route the probe proved works for the sites that allow it.
  * Guessed section URLs returned nothing; asking the sitemap returned real
  * products. For shops that refuse every free route (see docs/SPIKE-RESULTS.md
- * and docs/INGESTION.md), --allow-metered retries through Apify's residential
- * proxy when APIFY_PROXY_PASSWORD is set, using the exact same sitemap walk
- * and the exact same parser — only the transport changes.
+ * and docs/INGESTION.md), --allow-metered adds two independent, separately
+ * credentialed escalation tiers, each only tried when the tier before it
+ * still returned zero priced listings:
+ *
+ *   1. Apify's residential proxy, when APIFY_PROXY_PASSWORD is set — the
+ *      exact same sitemap walk and the exact same parser as the free route,
+ *      only the transport changes. Fixes an IP-based refusal.
+ *   2. An Apify actor (real headless browser), when APIFY_TOKEN is set —
+ *      renders each configured catalogue section's first page through actual
+ *      Chromium and parses whatever it painted with the same parser again.
+ *      Fixes a shop whose grid needs JavaScript to exist at all, which no
+ *      change of IP can — see src/catalogue/apifyActor.ts's own header, and
+ *      the Harvey Nichols / John Lewis / Boots entries in retailers.ts for
+ *      the evidence that this is a genuinely different failure from tier 1.
+ *      Costs roughly ten times as much per page as tier 1, which is why it
+ *      only ever fires after both the free route and tier 1 have failed, and
+ *      why it stays capped far lower (MAX_ACTOR_PAGES_PER_RUN).
  *
  * Nothing here fabricates a listing. A shop that yields nothing is reported as
- * yielding nothing, proxy or not.
+ * yielding nothing, whichever tier was tried.
  */
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -27,10 +41,15 @@ import { crawlViaSitemap, type SitemapCrawlResult } from '../src/catalogue/sitem
 import { crawlViaShopifyProducts } from '../src/catalogue/shopifyProductsCrawl.js';
 import { quarantinePrices } from '../src/catalogue/priceQuarantine.js';
 import { loadRobots, BROWSER_HEADERS, type Http } from '../src/catalogue/attempt.js';
+import { isAllowed } from '../src/catalogue/robots.js';
+import { parseListings } from '../src/catalogue/jsonld.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import {
   apifyProxyConfigFromEnv, apifyProxyHttp, MAX_PROXIED_REQUESTS_PER_RUN,
 } from '../src/catalogue/apifyProxy.js';
+import {
+  apifyActorConfigFromEnv, apifyActorRenderer, MAX_ACTOR_PAGES_PER_RUN,
+} from '../src/catalogue/apifyActor.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -83,6 +102,21 @@ if (allowMetered && !proxyConfig) {
   console.log('--allow-metered was passed but APIFY_PROXY_PASSWORD is not set. Skipping proxied retrieval.\n');
 } else if (useProxy) {
   console.log(`Apify proxy available. Genuinely blocked shops get a metered retry, capped at ${MAX_PROXIED_REQUESTS_PER_RUN} requests each.\n`);
+}
+
+// A separate, independently gated escalation tier — see src/catalogue/
+// apifyActor.ts's own header and this file's own header above for why a
+// residential IP and a real browser fix different failures. Fails soft with
+// its own clear log line, same shape as the proxy above, whether or not
+// --allow-metered or APIFY_PROXY_PASSWORD were ever set.
+const actorConfig = apifyActorConfigFromEnv();
+const useActor = allowMetered && actorConfig !== null;
+const actorRenderer = useActor ? apifyActorRenderer(actorConfig!) : null;
+
+if (allowMetered && !actorConfig) {
+  console.log('--allow-metered was passed but APIFY_TOKEN is not set. Skipping real-browser retrieval.\n');
+} else if (useActor) {
+  console.log(`Apify actor available. Shops still yielding nothing after the proxy retry get a real-browser render, capped at ${MAX_ACTOR_PAGES_PER_RUN} pages for the whole run.\n`);
 }
 
 const http: Http = createHttp();
@@ -252,14 +286,21 @@ for (const retailer of shops) {
   }
   let withPrice = result.listings.filter((l) => l.priceGbp !== null);
   let viaProxy = false;
+  let viaActor = false;
+  // Set false only by the actor tier below, since that tier deliberately
+  // fetches one page per section rather than walking a whole sitemap — see
+  // its own comment on why `complete` cannot be allowed to follow from that.
+  let actorPartial = false;
 
   // Only pay for retrieval where the free route genuinely found nothing.
   // Robots.txt itself is refetched through the proxy too: a shop that 403s
   // everything usually 403s that as well, and NO_RESTRICTIONS must never be
   // assumed just because the free fetch failed.
+  let robotsForActor = robots;
   if (withPrice.length === 0 && useProxy) {
     const proxiedHttp = apifyProxyHttp(proxyConfig!);
     const proxiedRobots = await loadRobots(retailer, proxiedHttp);
+    robotsForActor = proxiedRobots;
     const retry = await crawlViaSitemap({
       retailer, http: proxiedHttp, robots: proxiedRobots, maxPages, gapMs: 0,
       headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat,
@@ -274,6 +315,46 @@ for (const retailer of shops) {
     }
   }
 
+  // The third, most expensive tier: a real headless-browser render, for a
+  // shop whose grid needs JavaScript to exist at all rather than an IP that
+  // gets refused. Only ever tried once both cheaper tiers above have already
+  // returned nothing, and only fetches each configured section's first page
+  // — never a walk, never one request per product — for the same cost
+  // reasoning docs/INGESTION.md sets out for every tier here, applied to a
+  // route that costs roughly ten times as much per page.
+  if (withPrice.length === 0 && useActor && retailer.catalogue) {
+    const targets = retailer.catalogue.sections.map((section) => ({
+      id: section.id,
+      url: section.urlTemplate.replace('{page}', String(retailer.catalogue!.firstPage)),
+    }));
+    const allowed = targets.filter((t) => isAllowed(robotsForActor, t.url));
+
+    if (allowed.length === 0) {
+      result.errors.push(
+        `[actor] every section URL disallowed by robots.txt, or robots.txt unreachable`,
+      );
+    } else {
+      const rendered = await actorRenderer!.render(allowed.map((t) => t.url));
+      const listings = allowed.flatMap(({ id, url }) => {
+        const res = rendered.get(url);
+        if (!res?.ok || !res.body) return [];
+        return parseListings(res.body, { sectionId: id, pageUrl: url });
+      });
+      const actorWithPrice = listings.filter((l) => l.priceGbp !== null);
+
+      if (actorWithPrice.length > 0) {
+        result = {
+          listings, pagesFetched: allowed.length, urlsDiscovered: allowed.length, errors: [], sampledUrls: [],
+        };
+        withPrice = actorWithPrice;
+        viaActor = true;
+        actorPartial = true;
+      } else {
+        result.errors.push(`[actor] rendered ${allowed.length} section page(s), 0 priced listings`);
+      }
+    }
+  }
+
   totalListings += withPrice.length;
   if (withPrice.length > 0) reached++;
 
@@ -282,6 +363,7 @@ for (const retailer of shops) {
       `${String(result.pagesFetched).padStart(3)} fetched  ` +
       `${String(withPrice.length).padStart(3)} priced listings` +
       (viaProxy ? '  [via Apify proxy]' : '') +
+      (viaActor ? '  [via Apify actor]' : '') +
       (result.errors.length ? `  (${result.errors.length} errors)` : ''),
   );
   for (const e of result.errors.slice(0, 1)) console.log(`      ${e}`);
@@ -323,7 +405,14 @@ for (const retailer of shops) {
   // Absence only means withdrawal when the walk actually reached the end of
   // what it discovered, which is the case for a genuinely small catalogue and
   // not for a budgeted sample of a large one.
-  const complete = result.pagesFetched >= result.urlsDiscovered;
+  //
+  // The actor tier is never "complete" by this test even though it sets
+  // pagesFetched equal to urlsDiscovered: it deliberately renders only page
+  // one of each configured section, on purpose, for the cost reasons in its
+  // own comment above — that is a fixed-size sample of an unknown-size
+  // catalogue, exactly the shape this whole guard exists to catch, and it
+  // would trivially pass the >= test above without actorPartial's override.
+  const complete = result.pagesFetched >= result.urlsDiscovered && !actorPartial;
 
   const outcome = reconcile({
     existing, crawled: withPrice, retailerId: retailer.id, now, complete,
@@ -353,6 +442,7 @@ console.log(`\n${reached} of ${shops.length} shops yielded real priced listings`
 console.log(`${totalListings} listings total`);
 if (zeroThisRun.length) console.log(`zero this run: ${zeroThisRun.join(', ')}`);
 if (neverLive.length) console.log(`never once live: ${neverLive.join(', ')} — still on fixtures, excluded from the site`);
+if (actorRenderer) console.log(`Apify actor pages rendered this run: ${actorRenderer.used()} of ${MAX_ACTOR_PAGES_PER_RUN} budgeted`);
 console.log('');
 
 if (reached === 0) {

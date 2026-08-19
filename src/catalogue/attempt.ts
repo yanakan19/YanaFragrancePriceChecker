@@ -73,6 +73,17 @@ export interface AttemptContext {
    * entirely and still run every free strategy normally.
    */
   proxiedHttp?: Http;
+  /**
+   * Renders one or more URLs through a real headless browser (an Apify
+   * actor) and hands back what it painted, for `browser-render` only. A
+   * batch function rather than an `Http`, deliberately: one actor run per
+   * shop amortises the browser-startup cost across that shop's sections
+   * instead of paying it once per page — see apifyActor.ts's own header.
+   * Kept apart from `http` and `proxiedHttp` for the same reason those are
+   * kept apart from each other: a caller with no APIFY_TOKEN configured can
+   * omit this entirely and every other strategy runs exactly as before.
+   */
+  actorRender?: (urls: string[]) => Promise<Map<string, HttpResponse>>;
 }
 
 export interface Attempt {
@@ -265,7 +276,75 @@ export async function runStrategy(id: StrategyId, ctx: AttemptContext): Promise<
         section.id,
       );
     }
+
+    case 'browser-render':
+      return viaBrowserRender(ctx);
   }
+}
+
+/**
+ * Render every configured section's first page through a real browser and
+ * parse whatever it painted — the same "one page per section, never a
+ * per-product crawl" shape `proxied-fetch` already uses, applied to a route
+ * that costs roughly ten times as much per page. See apifyActor.ts.
+ */
+async function viaBrowserRender(ctx: AttemptContext): Promise<Attempt> {
+  if (!ctx.actorRender) {
+    return {
+      result: {
+        ok: false,
+        status: null,
+        listings: 0,
+        error: 'no Apify actor configured; set APIFY_TOKEN to enable',
+      },
+      listings: [],
+    };
+  }
+
+  const cat = ctx.retailer.catalogue;
+  if (!cat || cat.sections.length === 0) return notConfigured();
+
+  const targets = cat.sections.map((section) => ({
+    id: section.id,
+    url: section.urlTemplate.replace('{page}', String(cat.firstPage)),
+  }));
+  const allowed = targets.filter((t) => isAllowed(ctx.robots, t.url));
+
+  if (allowed.length === 0) {
+    return {
+      result: {
+        ok: false,
+        status: null,
+        listings: 0,
+        error: ctx.robots.unavailable
+          ? 'robots.txt unreachable, holding off until the server recovers'
+          : 'disallowed by robots.txt',
+        ...(ctx.robots.unavailable ? {} : { ruleOut: 'robots.txt disallows this path' }),
+      },
+      listings: [],
+    };
+  }
+
+  const rendered = await ctx.actorRender(allowed.map((t) => t.url));
+
+  const listings: RawListing[] = [];
+  const worked: string[] = [];
+  for (const { id, url } of allowed) {
+    const res = rendered.get(url);
+    if (res?.ok && res.body) {
+      const found = parseListings(res.body, { sectionId: id, pageUrl: url });
+      if (found.length > 0) {
+        listings.push(...found);
+        worked.push(url);
+      }
+    }
+  }
+
+  return {
+    result: { ok: listings.length > 0, status: 200, listings: listings.length },
+    listings,
+    ...(worked.length ? { discovered: { sectionUrls: worked } } : {}),
+  };
 }
 
 function notConfigured(): Attempt {
