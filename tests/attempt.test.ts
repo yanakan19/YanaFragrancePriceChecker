@@ -155,3 +155,54 @@ describe('runStrategy: browser-render', () => {
     expect(attempt.result.error).toContain('unreachable');
   });
 });
+
+// Mirrors tests/sitemapCrawl.test.ts's coverage of the same `requiredUrlPrefix`
+// guard, applied to this diagnostic strategy's own, separate sitemap walk —
+// see that field's doc comment in src/types/retailer.ts for why a pinned
+// shop's probe result must never quietly come from an off-prefix address.
+describe('runStrategy: sitemap-discovery with requiredUrlPrefix', () => {
+  it('never fetches an address outside the pinned prefix, even when robots.txt names one', async () => {
+    const calls: string[] = [];
+    const http: Http = async (url) => {
+      calls.push(url);
+      if (url === 'https://www.harveynichols.com/en-gb/sitemap.xml') {
+        return {
+          status: 200,
+          ok: true,
+          body:
+            '<urlset>' +
+            '<url><loc>https://www.harveynichols.com/en-gb/products/fragrance-1</loc></url>' +
+            '<url><loc>https://www.harveynichols.com/sitemap_blog.xml</loc></url>' +
+            '</urlset>',
+        };
+      }
+      if (url === 'https://www.harveynichols.com/en-gb/products/fragrance-1') {
+        return { status: 200, ok: true, body: page('Fragrance One', 59.99) };
+      }
+      return { status: 200, ok: true, body: '<urlset></urlset>' };
+    };
+
+    const ctx = baseCtx({
+      retailer: retailer({
+        catalogue: {
+          searchUrlTemplate: 'https://www.harveynichols.com/en-gb/search/?q={q}',
+          sections: [],
+          firstPage: 1,
+          maxPages: 5,
+          minRequestGapMs: 0,
+          requiredUrlPrefix: '/en-gb',
+        },
+      }),
+      http,
+      robots: { ...NO_RESTRICTIONS, sitemaps: ['https://www.harveynichols.com/sitemap.xml'] },
+    });
+
+    const attempt = await runStrategy('sitemap-discovery', ctx);
+
+    expect(calls).not.toContain('https://www.harveynichols.com/sitemap.xml');
+    expect(calls).not.toContain('https://www.harveynichols.com/sitemap_blog.xml');
+    expect(calls).toContain('https://www.harveynichols.com/en-gb/sitemap.xml');
+    expect(attempt.result.ok).toBe(true);
+    expect(attempt.listings).toHaveLength(1);
+  });
+});

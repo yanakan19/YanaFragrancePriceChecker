@@ -162,9 +162,28 @@ function sitemapUrls(xml: string): string[] {
  * produced the two 404s in the first place.
  */
 async function viaSitemap(ctx: AttemptContext): Promise<Attempt> {
-  const roots = ctx.robots.sitemaps.length
-    ? ctx.robots.sitemaps
-    : [`https://www.${ctx.retailer.domain}/sitemap.xml`];
+  // See `requiredUrlPrefix`'s own doc comment in src/types/retailer.ts, and
+  // the matching guard in src/catalogue/sitemapCrawl.ts's `discover()`. This
+  // is a diagnostic path (it writes nothing), but it still fetches real pages
+  // and prints what it finds — a probe result that quietly wandered off the
+  // one confirmed-sterling address for a pinned shop would read as "the
+  // sitemap route works" while actually having tested nothing about the
+  // address that matters.
+  const requiredPrefix = ctx.retailer.catalogue?.requiredUrlPrefix ?? null;
+  const underPrefix = (url: string) => {
+    if (!requiredPrefix) return true;
+    try {
+      return new URL(url).pathname.startsWith(requiredPrefix);
+    } catch {
+      return false;
+    }
+  };
+
+  const conventional = requiredPrefix
+    ? `https://www.${ctx.retailer.domain}${requiredPrefix}/sitemap.xml`
+    : `https://www.${ctx.retailer.domain}/sitemap.xml`;
+  const roots = (ctx.robots.sitemaps.length ? ctx.robots.sitemaps : []).filter(underPrefix);
+  if (!roots.includes(conventional)) roots.unshift(conventional);
 
   const candidates: string[] = [];
 
@@ -173,7 +192,7 @@ async function viaSitemap(ctx: AttemptContext): Promise<Attempt> {
     const res = await ctx.http(root, BOT_HEADERS);
     if (!res.ok) continue;
 
-    const found = sitemapUrls(res.body);
+    const found = sitemapUrls(res.body).filter(underPrefix);
 
     // A sitemap index points at more sitemaps. Follow only the ones whose name
     // suggests fragrance or product, rather than downloading the whole site.
@@ -184,7 +203,7 @@ async function viaSitemap(ctx: AttemptContext): Promise<Attempt> {
     for (const child of nested.filter((u) => /fragrance|perfume|product/i.test(u)).slice(0, 2)) {
       if (!isAllowed(ctx.robots, child)) continue;
       const sub = await ctx.http(child, BOT_HEADERS);
-      if (sub.ok) candidates.push(...sitemapUrls(sub.body).slice(0, 40));
+      if (sub.ok) candidates.push(...sitemapUrls(sub.body).filter(underPrefix).slice(0, 40));
     }
   }
 
