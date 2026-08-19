@@ -76,6 +76,22 @@ on:
         description: "Instead of verifying, read the shop named in \"shop\" its own delivery page and report what it states. Proposes nothing and writes no registry change."
         type: boolean
         default: false
+      brand_site_probe:
+        description: "Instead of verifying, follow every official-brand-site link in demo/brandSites.ts and report which are dead or land somewhere other than the published address. Writes nothing."
+        type: boolean
+        default: false
+      brand_site_probe_brand:
+        description: 'Limit the brand sweep to one brand key (e.g. armaf). Empty checks every entry.'
+        type: string
+        default: ''
+      brand_site_probe_limit:
+        description: 'Cap the brand sweep at N distinct URLs. 0 checks all of them.'
+        type: string
+        default: '0'
+      brand_site_probe_require_all_ok:
+        description: 'Fail the run if any brand link is broken or lands off its published address. Leave off to look; turn on when the run is meant to BE the evidence.'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -116,7 +132,7 @@ jobs:
       # keys every listing and reports exactly what it would change, without
       # touching a snapshot or committing anything.
       - name: Dry-run the storefront re-price
-        if: ${{ inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe }}
+        if: ${{ inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe }}
         run: |
           npm run storefront:reprice -- --dry-run \
             ${{ inputs.shop && format('--shop={0}', inputs.shop) || '' }}
@@ -155,8 +171,28 @@ jobs:
         if: ${{ inputs.shipping_probe }}
         run: npm run shipping:discover -- --shop=${{ inputs.shop }}
 
+      # The confirmation pass demo/brandSites.ts asks for in its own comments.
+      # Most of that file's URLs came from web-search snippets gathered in
+      # network-blocked sessions and were never opened; three separate comment
+      # blocks in it say as much. Each one renders as an "official site" link
+      # on a brand page, so a wrong entry sends a reader somewhere this site
+      # vouched for — the known case being a UK reader handed a house's UAE
+      # storefront. This runner can actually follow them.
+      #
+      # Not continue-on-error, for the same reason as the currency probe: with
+      # require_all_ok on, this run's own exit code is the evidence, and a step
+      # that cannot go red proves nothing. It writes nothing and commits
+      # nothing; fixing an entry stays a human judgement.
+      - name: Follow every brand's official-site link
+        if: ${{ inputs.brand_site_probe }}
+        run: |
+          npm run brand:probe -- \
+            ${{ inputs.brand_site_probe_brand && format('--brand={0}', inputs.brand_site_probe_brand) || '' }} \
+            --limit=${{ inputs.brand_site_probe_limit || '0' }} \
+            ${{ inputs.brand_site_probe_require_all_ok && '--require-all-ok' || '' }}
+
       - name: Verify prices against live storefronts
-        if: ${{ !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe }}
+        if: ${{ !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe }}
         continue-on-error: true
         run: |
           npm run price:verify -- \
@@ -166,7 +202,7 @@ jobs:
             --budget-ms=${{ inputs.budget_ms || '240000' }}
 
       - name: Commit the drift report
-        if: ${{ inputs.commit_report && !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe }}
+        if: ${{ inputs.commit_report && !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe }}
         run: |
           ./scripts/commit-and-push.sh \
             "Price verification: measured drift $(date -u +%Y-%m-%dT%H:%MZ)" \

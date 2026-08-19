@@ -20,6 +20,18 @@ export interface HttpResponse {
   body: string;
   ok: boolean;
   error?: string;
+  /**
+   * Where the request actually ended up, after any redirects were followed.
+   *
+   * Absent when the request never completed (a DNS failure or timeout has no
+   * final URL to report). Every caller that only wants the body can keep
+   * ignoring this; it exists because scripts/brand-site-probe.ts's whole
+   * question is *where a link lands*, not what it says. A brand URL that
+   * quietly 301s to a different market's storefront returns HTTP 200 with
+   * perfectly ordinary content, so the status code alone cannot tell that
+   * case from a healthy one — only the address it settled on can.
+   */
+  finalUrl?: string;
 }
 
 export type Http = (url: string, headers: Record<string, string>) => Promise<HttpResponse>;
