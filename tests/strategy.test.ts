@@ -68,10 +68,22 @@ describe('strategy learning', () => {
     expect(explored).not.toBe(best);
   });
 
-  it('allows metered retrieval only when asked, and still ranks it last', () => {
+  it('allows metered retrieval only when asked, and still ranks both metered strategies last', () => {
     const plan = planFor(EMPTY_MEMORY, 'boots', { ...noExplore, allowMetered: true });
     expect(plan).toContain('proxied-fetch');
-    expect(plan.at(-1)).toBe('proxied-fetch');
+    expect(plan).toContain('browser-render');
+    // browser-render costs roughly ten times proxied-fetch per page (see
+    // apifyActor.ts), so it carries the larger cost penalty and ranks last of
+    // all, with proxied-fetch immediately ahead of it.
+    expect(plan.at(-1)).toBe('browser-render');
+    expect(plan.at(-2)).toBe('proxied-fetch');
+  });
+
+  it('ranks browser-render below proxied-fetch even once proxied-fetch has failed', () => {
+    let m = EMPTY_MEMORY;
+    m = record(m, 'boots', 'proxied-fetch', { ok: false, status: 403, listings: 0 }, NOW);
+    const plan = planFor(m, 'boots', { ...noExplore, allowMetered: true });
+    expect(plan.indexOf('proxied-fetch')).toBeLessThan(plan.indexOf('browser-render'));
   });
 
   it('can explain itself', () => {

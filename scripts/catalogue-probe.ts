@@ -17,6 +17,7 @@ import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
 import { loadRobots, runStrategy, type Http } from '../src/catalogue/attempt.js';
 import { apifyProxyConfigFromEnv, apifyProxyHttp } from '../src/catalogue/apifyProxy.js';
+import { apifyActorConfigFromEnv, apifyActorRenderer } from '../src/catalogue/apifyActor.js';
 import {
   EMPTY_MEMORY, planFor, record, explain, type StrategyMemory,
 } from '../src/catalogue/strategy.js';
@@ -37,6 +38,18 @@ if (proxyConfig) {
   console.log('Apify residential proxy configured. proxied-fetch is available this run.\n');
 } else {
   console.log('No APIFY_PROXY_PASSWORD set. proxied-fetch will stay unavailable.\n');
+}
+
+// A separate credential from the proxy above — see apifyActor.ts's own
+// header on why the two are not interchangeable. Either, both or neither may
+// be set; each strategy fails soft with its own clear reason when its
+// credential is absent, same as proxied-fetch always has.
+const actorConfig = apifyActorConfigFromEnv();
+const actorRenderer = actorConfig ? apifyActorRenderer(actorConfig) : undefined;
+if (actorConfig) {
+  console.log('Apify actor configured. browser-render is available this run.\n');
+} else {
+  console.log('No APIFY_TOKEN set. browser-render will stay unavailable.\n');
 }
 
 let memory: StrategyMemory = EMPTY_MEMORY;
@@ -67,8 +80,21 @@ const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 // affiliate-feed shops have an approved feed as their route in — probing
 // retrieval strategies against them would mean testing how to scrape a
 // partner who already handed the data over for free. See catalogue-harvest.ts.
+//
+// `enabled` is skipped only when a specific --shop was named. The bulk sweep
+// (no --shop) stays scoped to enabled shops, same as always — nobody wants a
+// routine run spending politeness budget on shops nobody has decided to
+// carry. But a handful of disabled candidates (very, beauty-bay,
+// cult-beauty-global, beauty-pie) have never had a single retrieval strategy
+// tried against them at all: their registry entries hold `catalogue: null`
+// because nobody has confirmed real section URLs yet, which is a fact that
+// can only be established by asking, and asking a specific disabled shop by
+// name is a deliberate diagnostic act, not an accidental one. Flipping
+// `enabled` to make that possible is explicitly out of scope for this
+// module — see the retailer's own comment — so the bypass lives here
+// instead.
 const shops = RETAILERS.filter(
-  (r) => r.enabled && r.adapter !== 'affiliate-feed' && (!onlyShop || r.id === onlyShop),
+  (r) => r.adapter !== 'affiliate-feed' && (onlyShop ? r.id === onlyShop : r.enabled),
 );
 
 console.log(`\nAdaptive retrieval probe`);
@@ -85,7 +111,9 @@ for (const retailer of shops) {
     (robots.crawlDelaySeconds ?? 0) * 1000,
   );
 
-  const plan = planFor(memory, retailer.id, { allowMetered: Boolean(proxyConfig) });
+  const plan = planFor(memory, retailer.id, {
+    allowMetered: Boolean(proxyConfig) || Boolean(actorConfig),
+  });
   const tried: string[] = [];
   let won = false;
 
@@ -93,6 +121,7 @@ for (const retailer of shops) {
     const attempt = await runStrategy(strategyId, {
       retailer, http, robots, sampleQuery: 'Dior Sauvage Eau de Parfum 100ml',
       ...(proxiedHttp ? { proxiedHttp } : {}),
+      ...(actorRenderer ? { actorRender: actorRenderer.render } : {}),
     });
 
     memory = record(memory, retailer.id, strategyId, attempt.result);
@@ -123,6 +152,10 @@ for (const retailer of shops) {
     ? 'robots.txt unreadable'
     : `${robots.sitemaps.length} sitemaps, ${robots.disallow.length} disallow rules`;
   console.log(`${retailer.name.padEnd(20)} ${won ? 'REACHED' : 'blocked'}   (${robotsNote})`);
+}
+
+if (actorRenderer) {
+  console.log(`\nApify actor pages rendered this run: ${actorRenderer.used()}`);
 }
 
 mkdirSync(dirname(memoryPath), { recursive: true });
