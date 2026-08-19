@@ -290,6 +290,24 @@ export const RETAILERS: readonly Retailer[] = [
     // markup was served. Bot mitigation, not a parsing problem. Prefer an
     // affiliate feed; paid residential retrieval is the fallback.
     // See docs/SPIKE-RESULTS.md and docs/INGESTION.md.
+    //
+    // ── Apify harvest design, reviewed 2026-08-19 ─────────────────────────
+    // data/strategy-memory.json's most recent probe (2026-08-10) is a clean
+    // pattern here, unlike Boots: all five free strategies — section-plain,
+    // section-browser-headers, sitemap-discovery, search-page, homepage-probe
+    // — returned HTTP 403 every time. This is a straightforward IP-level
+    // refusal, not a script-rendered page: robots.txt has never ruled the
+    // section URL out (it is reachable in principle, the *request* is what
+    // gets refused). apifyProxyHttp's residential proxy (APIFY_PROXY_PASSWORD)
+    // is the right first tier for exactly this shape and is already wired
+    // generically in scripts/catalogue-harvest.ts against the four sections
+    // below, no shop-specific code needed. If a real run shows the proxy
+    // alone still 403s — plausible, since a 403 this consistent may be
+    // checking more than source IP (TLS fingerprint, header order) — the
+    // browser-render tier (APIFY_TOKEN, src/catalogue/apifyActor.ts) is the
+    // fallback, because it renders through the same residential proxy inside
+    // an actual browser rather than a plain HTTP client. Neither tier has
+    // run for real: no Apify credential exists in this environment.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -337,6 +355,29 @@ export const RETAILERS: readonly Retailer[] = [
     // in a browser), rather than the narrower landing page previously
     // guessed — this does not change the 403 outcome, which is IP based
     // and happens before the URL is even read.
+    //
+    // ── Apify harvest design, reviewed 2026-08-19 ─────────────────────────
+    // The picture is not a clean 403 wall. data/strategy-memory.json's most
+    // recent probe (2026-08-10) shows section-plain 403, but
+    // section-browser-headers, sitemap-discovery and homepage-probe all came
+    // back HTTP 200 with zero listings — the same shape Harvey Nichols and
+    // John Lewis show, which their own entries record as a script-rendered
+    // grid rather than an IP refusal. Boots may be a mix of both: some
+    // requests refused outright, others served a shell page with no product
+    // markup until JavaScript runs. Neither strategy has ever ruled the
+    // section URL out via robots.txt (only /sitesearch is disallowed, hit by
+    // search-page, not this section).
+    //
+    // Two escalation tiers now exist, both already wired generically in
+    // scripts/catalogue-harvest.ts — nothing shop-specific was needed beyond
+    // the `catalogue.sections` below, which both tiers reuse as-is:
+    //   1. Apify's residential proxy (APIFY_PROXY_PASSWORD) for the 403s.
+    //   2. An Apify actor real-browser render (APIFY_TOKEN, see
+    //      src/catalogue/apifyActor.ts) for the 200-with-nothing pages.
+    // Both are unproven against this shop specifically: no Apify credential
+    // exists in this environment, so neither tier has ever run for real. The
+    // owner adding either secret to the repo's Actions settings is what
+    // turns this from a design into a measurement.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -380,6 +421,20 @@ export const RETAILERS: readonly Retailer[] = [
     // See docs/SPIKE-RESULTS.md and docs/INGESTION.md. /fragrance/l added
     // 6 Aug 2026 as a general section confirmed live in a browser; the
     // gendered sections below were never confirmed wrong, so they stay.
+    //
+    // ── Apify harvest design, reviewed 2026-08-19 ─────────────────────────
+    // data/strategy-memory.json's most recent probe (2026-08-10): 403 on
+    // every free strategy tried (section-plain, section-browser-headers,
+    // search-page, homepage-probe), and sitemap-discovery found no fragrance
+    // URLs at all rather than a 403 — consistent with a shop that blocks
+    // before serving anything, sitemap included. Same clean IP-refusal shape
+    // as Superdrug, Selfridges, Notino UK and The Perfume Shop below, not the
+    // script-rendered-page shape Harvey Nichols/John Lewis show. The proxy
+    // tier (APIFY_PROXY_PASSWORD) is the natural first try, already wired
+    // generically against the three sections below; the actor tier
+    // (APIFY_TOKEN) is the fallback if a real run shows the block survives a
+    // residential IP alone. Neither has run for real — no Apify credential
+    // exists in this environment.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -418,6 +473,17 @@ export const RETAILERS: readonly Retailer[] = [
     // replaced 6 Aug 2026 with the real category-code paths confirmed live
     // in a browser — the generic /womens/c/womens style guessed earlier
     // was less specific than what the site actually uses.
+    //
+    // ── Apify harvest design, reviewed 2026-08-19 ─────────────────────────
+    // data/strategy-memory.json's most recent probe (2026-08-10): 403 on
+    // every free strategy (section-plain, section-browser-headers,
+    // sitemap-discovery, search-page, homepage-probe) — the same clean
+    // IP-refusal shape as Superdrug, Selfridges, Notino UK and The Fragrance
+    // Shop. The proxy tier (APIFY_PROXY_PASSWORD) is the natural first try
+    // and is already wired generically against the four sections below; the
+    // actor tier (APIFY_TOKEN) is the fallback if a real run shows the
+    // refusal survives a residential IP alone. Neither has run for real — no
+    // Apify credential exists in this environment.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -455,7 +521,34 @@ export const RETAILERS: readonly Retailer[] = [
     // wrong. Replaced 6 Aug 2026 with the real category URLs (confirmed
     // live in a browser), which also turned out to be four separate
     // listings rather than one combined fragrance page.
-    adapter: 'unknown',
+    //
+    // ── Apify harvest design, reviewed 2026-08-19 ─────────────────────────
+    // `adapter: 'unknown'` was never updated once the 404 above was fixed,
+    // and the evidence since does not show a clean bot-defence wall the way
+    // Boots or Superdrug do. data/strategy-memory.json's most recent probe
+    // (2026-08-10): section-plain and sitemap-discovery both return HTTP
+    // 200 (sitemap reaches the file but the fragrance-keyword walk finds
+    // nothing on it), while section-browser-headers and homepage-probe both
+    // record `AbortError: This operation was aborted` — the probe's own 20s
+    // timeout firing, not a refusal. Nothing here has ever produced a 403,
+    // and robots.txt has only ever ruled out /search (hit by search-page),
+    // never a section URL. That is a materially different signature from
+    // this file's other Class-1 shops and reads as "slow to answer" at
+    // least as plausibly as "script-rendered" — a genuinely different
+    // failure from either, and one a longer plain-fetch timeout might fix
+    // for free before any Apify spend. Recorded as a candidate for a
+    // cheaper-route recheck, not asserted as bot-defended.
+    //
+    // If a re-probe with a longer timeout still yields nothing, both
+    // Apify tiers apply exactly as designed for the rest of this file's
+    // shops: the proxy (APIFY_PROXY_PASSWORD) against whichever section
+    // still 403s or times out, the actor real-browser render (APIFY_TOKEN,
+    // src/catalogue/apifyActor.ts) against whichever renders a script-only
+    // grid. Kept on `adapter: 'proxied'` below to match this file's
+    // convention for "known to need paid retrieval", now that the 404 is
+    // resolved and this design has actually been done — not because the
+    // 403 evidence the other Class-1 shops have has been reproduced here.
+    adapter: 'proxied',
     currency: 'GBP',
     shipping: {
       standardGbp: 4.5,
@@ -650,6 +743,19 @@ export const RETAILERS: readonly Retailer[] = [
     // See docs/SPIKE-RESULTS.md and docs/INGESTION.md. Main section URL
     // confirmed correct in a live browser check 6 Aug 2026, which also
     // surfaced a second, premium-fragrances listing added below.
+    //
+    // ── Apify harvest design, reviewed 2026-08-19 ─────────────────────────
+    // data/strategy-memory.json's most recent probe (2026-08-10): 403 on
+    // every free strategy (section-plain, section-browser-headers,
+    // sitemap-discovery, search-page, homepage-probe). A clean IP-level
+    // refusal, not a script-rendered page — the same shape as Selfridges,
+    // Notino UK, The Fragrance Shop and The Perfume Shop. Robots.txt has
+    // never ruled either section below out. The proxy tier
+    // (APIFY_PROXY_PASSWORD) is the natural first try and is already wired
+    // generically against both sections; the actor tier (APIFY_TOKEN,
+    // src/catalogue/apifyActor.ts) is the fallback if a real run shows the
+    // refusal survives a residential IP alone. Neither has run for real —
+    // no Apify credential exists in this environment.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -700,6 +806,18 @@ export const RETAILERS: readonly Retailer[] = [
     // affiliate feed; paid residential retrieval is the fallback.
     // See docs/SPIKE-RESULTS.md and docs/INGESTION.md. Section URL
     // independently confirmed correct in a live browser check 6 Aug 2026.
+    //
+    // ── Apify harvest design, reviewed 2026-08-19 ─────────────────────────
+    // data/strategy-memory.json's most recent probe (2026-08-10): 403 on
+    // every free strategy (section-plain, section-browser-headers,
+    // sitemap-discovery, search-page, homepage-probe). A clean IP-level
+    // refusal, same shape as Superdrug, Notino UK, The Fragrance Shop and
+    // The Perfume Shop. Robots.txt has never ruled the section below out.
+    // The proxy tier (APIFY_PROXY_PASSWORD) is the natural first try and is
+    // already wired generically against it; the actor tier (APIFY_TOKEN,
+    // src/catalogue/apifyActor.ts) is the fallback if a real run shows the
+    // refusal survives a residential IP alone. Neither has run for real —
+    // no Apify credential exists in this environment.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -737,10 +855,30 @@ export const RETAILERS: readonly Retailer[] = [
     // the section URL is wrong or the grid is drawn by script. Re-checked
     // 6 Aug 2026 against a live browser: the URL below is the real page, so
     // the URL was never the problem — the grid genuinely needs JavaScript to
-    // render, which this project has no crawling route for yet (see
-    // docs/SCRAPING.md's neighbour problem — the crawler here does retrieval
-    // strategies, not a headless browser).
-    adapter: 'unknown',
+    // render.
+    //
+    // ── Apify harvest design, reviewed 2026-08-19 ─────────────────────────
+    // The "this project has no crawling route for yet" line above is no
+    // longer true — that route is src/catalogue/apifyActor.ts, added this
+    // review. data/strategy-memory.json's most recent probe (2026-08-10) is
+    // this file's cleanest case for it: every one of the five free
+    // strategies — section-plain, section-browser-headers, sitemap-discovery,
+    // search-page, homepage-probe — returned HTTP 200 with zero listings.
+    // Never a single 403, never a robots.txt rule-out. That is the exact
+    // signature a script-rendered grid produces and a proxied plain fetch
+    // cannot fix, however many IPs it tries, because the response is
+    // genuinely empty of markup until JavaScript runs — see apifyActor.ts's
+    // own header, which cites this shop as its motivating case. `adapter`
+    // changed from 'unknown' to 'headless' to name that specifically, rather
+    // than 'proxied', which this file uses for an IP-level refusal Harvey
+    // Nichols has never shown. The route itself (browser-render strategy /
+    // Apify actor tier) is already wired generically in
+    // scripts/catalogue-harvest.ts against the section below — nothing
+    // shop-specific needed beyond this comment. Unproven against this shop
+    // specifically: no Apify credential exists in this environment, so
+    // nothing here has run for real. The owner adding APIFY_TOKEN is what
+    // turns this from a design into a measurement.
+    adapter: 'headless',
     currency: 'GBP',
     shipping: {
       // Beauty-only baskets get the reduced rate, and a fragrance comparison is
@@ -2195,6 +2333,38 @@ export const RETAILERS: readonly Retailer[] = [
         'retailer — most listings will not be fragrance at all. Delivery terms and page ' +
         'structure not yet read.',
     },
+    // ── Apify harvest evaluation, 2026-08-19: not a scraper candidate ────────
+    // Assigned to the bot-defended-majors review on the assumption it was a
+    // shelf retailer like the rest of this file. It is not, and no amount of
+    // rendering technology changes that.
+    //
+    // Wowcher sells time-limited voucher deals, not SKU prices. Its product
+    // model is fundamentally different from every other entry here: a "Dior
+    // Sauvage 100ml" listing on this site would be a voucher good for a
+    // redemption window, priced against whatever discount that specific deal
+    // is running that week, not a standing shelf price a shopper can compare
+    // against Boots or LOOKFANTASTIC on the day they read it. This site's
+    // whole premise — "what does this fragrance cost right now, at this
+    // retailer" — presumes a price the retailer is charging for the product
+    // itself, continuously. A voucher deal is a different offer shape:
+    // discontinuous (expires and is replaced by a different deal at a
+    // different discount), often bundled or quantity-limited, and frequently
+    // not for the product at all but for a redemption code or experience
+    // that happens to be fragrance-adjacent. Comparing it against a standing
+    // retail price the way this site compares Boots against Superdrug would
+    // misrepresent both sides: the "price" would be a snapshot of a
+    // promotion's current state, not a price, and would go stale the moment
+    // the deal rotates or sells out — which a nightly harvest has no way to
+    // detect mid-cycle the way it detects an ordinary price change.
+    //
+    // This is a product-model mismatch, not a retrieval problem, so no Apify
+    // config was designed and no bot-defence status was established — an
+    // actor could render Wowcher's pages perfectly and the output still
+    // would not be an honest fragrance price. Keeping this disabled is the
+    // right call independent of anything Apify could fix. If this is ever
+    // revisited, the question to answer first is not "can we scrape it" but
+    // "does a redeemed-voucher price belong next to a standing retail price
+    // at all" — an editorial decision, not an engineering one.
     catalogue: null,
     affiliate: { ...awinRequested() },
   },
@@ -2218,6 +2388,31 @@ export const RETAILERS: readonly Retailer[] = [
         'members) — worth checking whether its listed prices are even meaningful without a ' +
         'membership before this goes live. Delivery terms and page structure not yet read.',
     },
+    // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
+    // Not designed. Nothing in this project has ever fetched a single page
+    // from this shop — no strategy-memory record exists for it, because
+    // scripts/catalogue-probe.ts only ever probes `enabled` shops and this
+    // one never has been. `catalogue: null` means there is no confirmed
+    // category URL to point any adapter at yet, free, proxied or actor —
+    // that has to come from a human opening the real site in a browser, the
+    // same first step every other shop in this file went through (see the
+    // "confirmed live in a browser" notes throughout). Bot-defence status is
+    // therefore unestablished, not "hard" or "easy" — there is no evidence
+    // either way, and Apify only has a job once a real start URL exists to
+    // give it.
+    //
+    // A second, independent open question sits ahead of the retrieval one:
+    // the shipping note above already flags that Beauty Pie's listed prices
+    // are "at cost to members" — if the storefront only shows that
+    // member-cost figure and not a comparable non-member price, no adapter,
+    // however good, produces an honest comparison against a shop anyone can
+    // walk into and buy from at the price shown. That has to be answered by
+    // reading the actual product page, not assumed either way here.
+    //
+    // Awin applied 2026-08-11, unconfirmed as of this review (2026-08-19,
+    // eight days later) — `npm run awin:memberships` is the tool that would
+    // confirm approval, and if it lands first this whole question moves to
+    // Group A/B's feed-sync territory rather than staying here.
     catalogue: null,
     affiliate: { ...awinRequested() },
   },
@@ -2238,6 +2433,26 @@ export const RETAILERS: readonly Retailer[] = [
       confidence: 'unverified',
       notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
     },
+    // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
+    // Not designed, for the same reason as Beauty Pie above: no
+    // strategy-memory record exists, `catalogue: null` means no confirmed
+    // category URL exists for any adapter to target, and bot-defence status
+    // is genuinely unestablished rather than assumed hard. A CI probe
+    // dispatch was attempted this review (catalogue-daily.yml workflow_dispatch
+    // with probe_shop=very, using catalogue-probe.ts's new --shop bypass of
+    // `enabled` — see that script's own comment) but was queued behind the
+    // day's scheduled harvest and then displaced by a second dispatch before
+    // it got a runner; GitHub Actions keeps only one pending run per
+    // concurrency group, so firing dispatches back to back cancels the
+    // earlier one rather than queuing both. Re-running that single-shop
+    // probe once a runner is free is the next concrete step, and it costs
+    // nothing — it is the free-tier strategies, not Apify.
+    //
+    // very.co.uk is a general department store (electronics, furniture,
+    // clothing) that also sells fragrance, the same shape as John Lewis —
+    // worth checking against John Lewis's own entry once real URLs exist,
+    // since a large general retailer's defence posture can differ sharply
+    // from a specialist beauty retailer's.
     catalogue: null,
     affiliate: { ...awinRequested() },
   },
@@ -2487,6 +2702,15 @@ export const RETAILERS: readonly Retailer[] = [
       confidence: 'unverified',
       notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
     },
+    // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
+    // Not designed, same reasoning as very.co.uk and Beauty Pie above: no
+    // strategy-memory record exists, `catalogue: null` means no confirmed
+    // category URL for any adapter to target, bot-defence status is
+    // genuinely unestablished. A CI probe dispatch was queued this review
+    // (catalogue-daily.yml, probe_shop=beauty-bay) and is waiting behind the
+    // day's scheduled harvest as of this writing — check
+    // data/strategy-memory.json for a beauty-bay:: record before assuming
+    // this is still unread by the time anyone acts on this entry.
     catalogue: null,
     affiliate: { ...awinRequested() },
   },
@@ -2530,6 +2754,15 @@ export const RETAILERS: readonly Retailer[] = [
       confidence: 'unverified',
       notes: 'Applied via Awin 2026-08-11. Delivery terms and page structure not yet read.',
     },
+    // ── Apify harvest evaluation, 2026-08-19 ──────────────────────────────
+    // Not designed, same reasoning as the other three unresearched Awin
+    // applicants above: no strategy-memory record exists, `catalogue: null`
+    // means no confirmed category URL for any adapter to target, bot-defence
+    // status is genuinely unestablished. Not probed this review — the CI
+    // dispatch budget for this pass went to very.co.uk and Beauty Bay first;
+    // `npm run probe -- --shop=cult-beauty-global` via a
+    // catalogue-daily.yml workflow_dispatch (probe_shop=cult-beauty-global)
+    // is the next concrete, free step, same tool as the other two.
     catalogue: null,
     affiliate: { ...awinRequested() },
   },
@@ -2646,6 +2879,22 @@ export const RETAILERS: readonly Retailer[] = [
     //      price" is not one number the way every other retailer here quotes
     //      one. Which seller a comparison would name is an editorial decision
     //      that has not been made.
+    //
+    // ── Reviewed 2026-08-19, position unchanged ───────────────────────────
+    // Revisited as part of the bot-defended-majors Apify rollout, on the
+    // instruction that Amazon specifically gets no scraper built for it.
+    // Confirmed here rather than assumed: none of the three blockers above
+    // is a retrieval problem Apify — real-browser rendering, a UK-geo
+    // residential proxy, or otherwise — could touch. (1) is a licensing gate
+    // on the *legitimate* API, and scraping around it does not acquire a
+    // licence, it evades the requirement for one; a site whose entire pitch
+    // is a defensible, sourced price cannot rest one of its 58 retailers on
+    // a route it would have to hide. (2) and (3) are retention-terms and
+    // editorial questions that exist independent of how the page is
+    // fetched. No Apify config was designed, no strategy-memory probe was
+    // run against amazon.co.uk, and none of that is an oversight — it is
+    // the deliberate absence this entry has held since 2026-08-16, held
+    // again now on inspection rather than by default.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
