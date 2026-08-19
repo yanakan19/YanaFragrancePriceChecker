@@ -29,6 +29,7 @@ Evidence read to write this: `src/catalogue/sitemapCrawl.ts`, `jsonld.ts`,
 | Shopify `/products.json` | `shopifyJson.ts` | Working: armaf (252 listings), french-avenue (151) — both non-GBP, so `priceGbp` is null on every row (see §"What it deliberately does not give us" in `shopifyJson.ts`) |
 | Awin affiliate feed (CSV/TSV) | `awinFeed.ts` + `scripts/catalogue-feed.ts` | Built and unit-tested against synthetic rows only; the real Fragrance Click UK feed has never been pulled through it |
 | Apify residential proxy (retrieval only, same parser) | `apifyProxy.ts` | Built, gated on `APIFY_PROXY_PASSWORD` which is not set; has never run against real Apify infrastructure |
+| Apify actor real-browser render, for a script-rendered page the proxy alone cannot fix (retrieval only, same parser) | `apifyActor.ts` (added 2026-08-19) | Built, gated on `APIFY_TOKEN` which is not set — a third, distinct credential from both the Apify proxy password and this project's own bot user-agent; has never run against real Apify infrastructure |
 | robots.txt obedience, crawl-delay | `robots.ts` | Working, and correctly conservative — see §4 |
 
 Everything below is additional to this, not a replacement for it.

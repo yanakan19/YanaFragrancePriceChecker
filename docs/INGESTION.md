@@ -181,3 +181,51 @@ verification step, and read its output rather than assuming it worked.
   shop that blocks the free route usually blocks that too, and treating an
   unreachable robots.txt as permission would be the same category of mistake
   already caught once in `src/catalogue/robots.ts`.
+
+## A second tier below the proxy: real-browser rendering (19 August update)
+
+The proxy above answers one failure: a shop that refuses a datacentre IP.
+Auditing the eight enabled retailers that had never once gone live (`boots`,
+`superdrug`, `harvey-nichols`, `john-lewis`, `notino-uk`, `selfridges`,
+`the-fragrance-shop`, `the-perfume-shop` — see `docs/INGESTION-AUDIT.md`)
+against `data/strategy-memory.json`'s most recent probe found a second,
+distinct failure the proxy cannot touch: Harvey Nichols and John Lewis return
+HTTP 200 with zero listings on *every* strategy, proxied or not, because the
+product grid is drawn by client-side script and the response genuinely
+carries no markup until JavaScript runs. Boots shows a mix of both shapes.
+No residential IP fixes an empty response — the page itself has nothing to
+parse.
+
+`src/catalogue/apifyActor.ts` is the tool for that case: one Apify actor run
+per shop (`apify/puppeteer-scraper`, real headless Chromium, the same
+GB-residential proxy config as above) renders each configured catalogue
+section's first page and hands back the resulting HTML. Extraction is still
+`parseListings()` and nothing else — the module's own header restates the
+"outsource retrieval, not understanding" principle this file already settled
+on, one layer further down the stack (rendering, not just retrieval). Wired
+as a new `browser-render` strategy (`src/catalogue/strategy.ts`,
+`src/catalogue/attempt.ts`) and as a third harvest tier
+(`scripts/catalogue-harvest.ts`), each only tried after every cheaper tier
+before it has already returned zero.
+
+A third, separate credential: `APIFY_TOKEN`, an Apify **API token** from the
+console's Integrations page — not the Apify Proxy password above, and not
+interchangeable with it. Same fail-soft shape: absent, the tier is skipped
+with a clear log line and every other strategy runs exactly as before.
+
+**Cost is materially higher per page.** Apify's own published compute-unit
+rate is $0.13-$0.20/CU (1 CU = 1 GB-RAM-hour) depending on plan, and
+independent benchmarking of Puppeteer/Playwright-class actors puts the
+all-in cost at roughly $2-5 per 1,000 pages once browser CPU/memory overhead
+is counted — both figures estimates gathered from public pricing pages in
+August 2026, not a quote for this account's plan. `MAX_ACTOR_PAGES_PER_RUN`
+(10) is sized an order of magnitude below the proxy's own 40-page ceiling for
+exactly that reason — see `apifyActor.ts`'s own header for the full
+reasoning and sourcing.
+
+**Nothing here has run against Apify's real infrastructure either.** Same
+caveat as the proxy above, restated rather than assumed still true: no
+Apify account exists in this environment, request-building and budget
+gating are unit tested against a fake transport
+(`tests/apifyActor.test.ts`, `tests/attempt.test.ts`), and the first real
+run with `APIFY_TOKEN` set is the verification step, not this document.
