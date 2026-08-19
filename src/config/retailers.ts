@@ -919,6 +919,11 @@ export const RETAILERS: readonly Retailer[] = [
     },
     catalogue: null,
     affiliate: {
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      imageBasis: 'hotlink-unlicensed',
       ...awinActive('106925', '3017443'),
       // Deliberately not set: the merchant's Terms/Creative tab has not been
       // read, so no product photography of theirs may be displayed yet.
@@ -1092,7 +1097,14 @@ export const RETAILERS: readonly Retailer[] = [
     // Applied via Awin's own Activity Stream 2026-08-11, merchant id not yet
     // known — only surfaces once the programme accepts and its profile page
     // becomes readable.
-    affiliate: { ...awinRequested() },
+    affiliate: {
+      ...awinRequested(),
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'scentstore',
@@ -1252,6 +1264,11 @@ export const RETAILERS: readonly Retailer[] = [
       firstPage: 1, maxPages: 60, minRequestGapMs: 1500,
     },
     affiliate: {
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      imageBasis: 'hotlink-unlicensed',
       ...awinActive('107736', '3017443'),
       notes:
         'Merchant id 107736, joined 4 Aug 2026. No product feed published (0 products, ' +
@@ -1453,7 +1470,14 @@ export const RETAILERS: readonly Retailer[] = [
         '"Bellavita" — see the matching caution in demo/brandSites.ts.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'oud-arabian',
@@ -1481,7 +1505,14 @@ export const RETAILERS: readonly Retailer[] = [
         'postage deduction, not the delivery threshold. Express is £7.99 and out of scope.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'manchester-ouds',
@@ -1529,7 +1560,14 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 30, minRequestGapMs: 1500,
     },
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'emirates-oud',
@@ -1913,7 +1951,14 @@ export const RETAILERS: readonly Retailer[] = [
         'Beauty, Space NK) — expect catalogue overlap once this harvest runs.',
     },
     catalogue: null,
-    affiliate: { ...NO_AFFILIATE_YET },
+    affiliate: {
+      ...NO_AFFILIATE_YET,
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'lush',
@@ -2416,7 +2461,14 @@ export const RETAILERS: readonly Retailer[] = [
         'and is not modelled.',
     },
     catalogue: null,
-    affiliate: { ...awinActive('6561', '3017443') },
+    affiliate: {
+      ...awinActive('6561', '3017443'),
+      // Images are hot-linked from this shop's own servers with no licence
+      // obtained — see the ImageBasis doc comment. Nothing is copied or
+      // rehosted, and every image sits beside a link sending the reader to buy
+      // from them. Unset this the moment they object or block hot-linking.
+      imageBasis: 'hotlink-unlicensed',
+    },
   },
   {
     id: 'beauty-bay',
