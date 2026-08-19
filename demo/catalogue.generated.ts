@@ -25793,7 +25793,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-3616303445577",
     "brand": "Chloe",
-    "name": "L' Intense",
+    "name": "L'eau De Parfum Intense",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
     "ean": "3616303445577",
@@ -25804,7 +25804,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-3616303445584",
     "brand": "Chloe",
-    "name": "L' Intense",
+    "name": "L'eau De Parfum Intense",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "3616303445584",
@@ -39886,7 +39886,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "ean-3614273749459",
     "brand": "Lancôme",
-    "name": "(Lancôme) Idôle Nectar L'",
+    "name": "(Lancôme) Idôle Nectar L'Eau de Parfum",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
     "ean": "3614273749459",
@@ -40002,39 +40002,6 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "ean": "3614272639638",
     "shops": 2,
     "image": "https://bgstatic.net/photos/122097_ml.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3614274299205",
-    "brand": "Lancôme",
-    "name": "Idôle Power L’ Intense",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 25,
-    "ean": "3614274299205",
-    "shops": 2,
-    "image": "https://bgstatic.net/photos/178719_ml.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3614274299212",
-    "brand": "Lancôme",
-    "name": "Idôle Power L’ Intense",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "3614274299212",
-    "shops": 2,
-    "image": "https://bgstatic.net/photos/186567_ml.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-3614274299229",
-    "brand": "Lancôme",
-    "name": "Idôle Power L’ Intense",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3614274299229",
-    "shops": 2,
-    "image": "https://bgstatic.net/photos/183027_ml.jpg",
     "notes": null
   },
   {
@@ -45374,10 +45341,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/116714_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3386460121538",
     "brand": "Montblanc",
@@ -45434,7 +45398,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31vme5RK6aL.jpg?v=1763140521",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   {
     "id": "ean-3386460144247",
     "brand": "Montblanc",
@@ -52325,10 +52292,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
+  },
   {
     "id": "ean-5060523017966",
     "brand": "Ted Baker",
@@ -52368,7 +52332,10 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/151785_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "ean-5060412678360",
     "brand": "Ted Baker",
@@ -59168,10 +59135,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "Patchouli"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338168316041-44926985502857",
     "brand": "Al Haramain",
@@ -59226,7 +59190,10 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61cgsmNZXtL.jpg?v=1767980852",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9470561517917-default-title",
     "brand": "Al Haramain",
@@ -67923,10 +67890,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15943321059677-default-title",
     "brand": "Assaf",
@@ -68003,7 +67967,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15691110515037-default-title",
     "brand": "Assaf",
@@ -75759,10 +75726,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1641981709-82325900.jpg?v=1763390727&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338181226633-44927004803209",
     "brand": "Burberry",
@@ -75803,7 +75767,10 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/375x500.32565.jpg?v=1763135684",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "ean-3614229840124",
     "brand": "Burberry",
@@ -80842,7 +80809,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "ean-3355991221062",
     "brand": "Carven",
-    "name": "L' Eau de Toilette",
+    "name": "L'Eau de Toilette",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": "3355991221062",
@@ -81290,7 +81257,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "ean-3616303445560",
     "brand": "Chloe",
-    "name": "L' Intense",
+    "name": "L'eau De Parfum Intense",
     "concentration": "Eau de Parfum",
     "sizeMl": 30,
     "ean": "3616303445560",
@@ -81420,9 +81387,20 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3614228972925",
+    "brand": "Chloé",
+    "name": "L'Eau",
+    "concentration": "Eau de Toilette",
+    "sizeMl": 30,
+    "ean": "3614228972925",
+    "shops": 1,
+    "image": "https://bgstatic.net/photos/132135_ml.jpg",
+    "notes": null
+  },
+  {
     "id": "mybeauty-boutique-shopify-gb-8338406441097-44927372591241",
     "brand": "Chloé",
-    "name": "L' Intense",
+    "name": "L'Eau de Parfum Intense",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
     "ean": null,
@@ -81433,23 +81411,12 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338426003593-44927423316105",
     "brand": "Chloé",
-    "name": "L' Intense",
+    "name": "L'Eau de Parfum Intense",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61XDu_y2PGL.jpg?v=1763147571",
-    "notes": null
-  },
-  {
-    "id": "ean-3614228972925",
-    "brand": "Chloé",
-    "name": "L'Eau",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 30,
-    "ean": "3614228972925",
-    "shops": 1,
-    "image": "https://bgstatic.net/photos/132135_ml.jpg",
     "notes": null
   },
   {
@@ -81962,10 +81929,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/168451_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
+  },
   {
     "id": "ean-7640177366276",
     "brand": "Chopard",
@@ -81998,7 +81962,10 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/190423_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "ean-0719346218535",
     "brand": "Christina Aguilera",
@@ -88301,10 +88268,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
       ],
       "base": []
     }
-  }
-];
-
-const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338201837705-44927039176841",
     "brand": "Dolce & Gabbana",
@@ -88347,7 +88311,10 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/122364_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "ean-3423473044659",
     "brand": "Dolce & Gabbana",
@@ -94393,10 +94360,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51L4Vz7IkrL.jpg?v=1763144590",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338216321161-44927056642185",
     "brand": "Fcuk",
@@ -94435,7 +94399,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1755610253-85813000.jpg?v=1763398121&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "ean-8002135111974",
     "brand": "Ferrari",
@@ -105532,10 +105499,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       "middle": [],
       "base": []
     }
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-14702398996829-default-title",
     "brand": "French Avenue",
@@ -105615,7 +105579,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Labdanum"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16219843723613-default-title",
     "brand": "French Avenue",
@@ -112568,10 +112535,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "ean-085715002334",
     "brand": "Guess",
@@ -112604,7 +112568,10 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/128246_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "ean-0085715321213",
     "brand": "Guess",
@@ -118910,10 +118877,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/120925_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338233852041-44927088754825",
     "brand": "Jaguar",
@@ -118964,7 +118928,10 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
       ],
       "base": []
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338233884809-44927088820361",
     "brand": "Jaguar",
@@ -126172,10 +126139,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1763479474-85278700.jpg?v=1772624986&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
+  },
   {
     "id": "ean-4064941111719",
     "brand": "Kylie Jenner",
@@ -126208,7 +126172,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1763483532-95956000.jpg?v=1772624982&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416710754441-45147083112585",
     "brand": "L'Artisan Parfumeur",
@@ -127736,7 +127703,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "ean-3614273749428",
     "brand": "Lancôme",
-    "name": "(Lancôme) Idôle Nectar L'",
+    "name": "(Lancôme) Idôle Nectar L'Eau de Parfum",
     "concentration": "Eau de Parfum",
     "sizeMl": 25,
     "ean": "3614273749428",
@@ -127747,7 +127714,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "ean-3614273749558",
     "brand": "Lancôme",
-    "name": "(Lancôme) Idôle Nectar L'",
+    "name": "(Lancôme) Idôle Nectar L'Eau de Parfum",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "3614273749558",
@@ -127780,7 +127747,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "ean-3614274318050",
     "brand": "Lancôme",
-    "name": "Absolue L' Elixir Anti-Ageing Serum",
+    "name": "Absolue L'Extrait Elixir Anti-Ageing Serum",
     "concentration": "Extrait",
     "sizeMl": 30,
     "ean": "3614274318050",
@@ -127876,7 +127843,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "justmylook-lanc0085",
     "brand": "Lancôme",
-    "name": "Idole L'",
+    "name": "Idole L'Eau De Toilette",
     "concentration": "Eau de Toilette",
     "sizeMl": 100,
     "ean": null,
@@ -127887,7 +127854,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338249515145-44927111364745",
     "brand": "Lancôme",
-    "name": "Idole Nectar L' - Eau de Parfum",
+    "name": "Idole Nectar L'Eau De Parfum",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
     "ean": null,
@@ -127898,7 +127865,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338249416841-44927111168137",
     "brand": "Lancôme",
-    "name": "Idole Nectar L' - Eau de Parfum",
+    "name": "Idole Nectar L'Eau De Parfum",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -127959,6 +127926,72 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "ean": "3614273927321",
     "shops": 1,
     "image": "https://bgstatic.net/photos/173966_ml.jpg",
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8338419024009-44927409258633",
+    "brand": "Lancôme",
+    "name": "Idôle Power L? Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 25,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61go5AtOEPL.jpg?v=1763147297",
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416708952201-45147080196233",
+    "brand": "Lancôme",
+    "name": "Idôle Power L? Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61CgbXPs0rL.jpg?v=1767983627",
+    "notes": null
+  },
+  {
+    "id": "mybeauty-boutique-shopify-gb-8416708722825-45147079966857",
+    "brand": "Lancôme",
+    "name": "Idôle Power L? Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61CIPJAlqNL.jpg?v=1767983619",
+    "notes": null
+  },
+  {
+    "id": "ean-3614274299205",
+    "brand": "Lancôme",
+    "name": "Idôle Power L’Eau de Parfum Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 25,
+    "ean": "3614274299205",
+    "shops": 1,
+    "image": "https://bgstatic.net/photos/178719_ml.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3614274299212",
+    "brand": "Lancôme",
+    "name": "Idôle Power L’Eau de Parfum Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 50,
+    "ean": "3614274299212",
+    "shops": 1,
+    "image": "https://bgstatic.net/photos/186567_ml.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3614274299229",
+    "brand": "Lancôme",
+    "name": "Idôle Power L’Eau de Parfum Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3614274299229",
+    "shops": 1,
+    "image": "https://bgstatic.net/photos/183027_ml.jpg",
     "notes": null
   },
   {
@@ -128148,7 +128181,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338250498185-44927112773769",
     "brand": "Lancôme",
-    "name": "La Vie Est Belle Iris Absolu L'",
+    "name": "La Vie Est Belle Iris Absolu L'eau de Parfum",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
     "ean": null,
@@ -128170,7 +128203,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338250465417-44927112741001",
     "brand": "Lancôme",
-    "name": "La Vie Est Belle Iris Absolu L'",
+    "name": "La Vie Est Belle Iris Absolu L'eau de Parfum",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -128188,7 +128221,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416708853897-45147080097929",
     "brand": "Lancôme",
-    "name": "La Vie est Belle L'Elixir L'",
+    "name": "La Vie est Belle L'Elixir L'eau de Parfum",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
     "ean": null,
@@ -128210,7 +128243,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338250629257-44927112904841",
     "brand": "Lancôme",
-    "name": "La Vie Est Belle Rose Extraordinarie L' Florale",
+    "name": "La Vie Est Belle Rose Extraordinarie L'eau De Parfum Florale",
     "concentration": "Eau de Parfum",
     "sizeMl": 50,
     "ean": null,
@@ -128221,7 +128254,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338250563721-44927112839305",
     "brand": "Lancôme",
-    "name": "La Vie Est Belle Rose Extraordinarie L' Florale",
+    "name": "La Vie Est Belle Rose Extraordinarie L'eau De Parfum Florale",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -134348,7 +134381,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51zkXGungsL.jpg?v=1767983896",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416717176969-45147092353161",
     "brand": "Laurent Mazzone",
@@ -134381,10 +134417,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/21K2c17l3iL.jpg?v=1767983914",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416718389385-45147093794953",
     "brand": "Laurent Mazzone",
@@ -143273,7 +143306,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/MASM0020.png?v=1732820641&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "justmylook-masm0021",
     "brand": "Maison Margiela",
@@ -143306,10 +143342,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/MASM0022.png?v=1732820633&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-masm0026",
     "brand": "Maison Margiela",
@@ -149677,7 +149710,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1732183604-81679700.jpg?v=1763396708&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416743981193-45147126268041",
     "brand": "Nautica",
@@ -149710,10 +149746,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/146300_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338262917257-44927128699017",
     "brand": "Nautica",
@@ -157153,7 +157186,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/172928_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "ean-8436581942538",
     "brand": "Pepe Jeans",
@@ -157186,10 +157222,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/174079_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338384355465-44927316623497",
     "brand": "Pepe Jeans",
@@ -164584,7 +164617,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "emirates-oud-medium-bottle---reef-summer-yellow",
     "brand": "Reef Perfumes",
@@ -164627,10 +164663,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/138821_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338274025609-44927144296585",
     "brand": "Replay",
@@ -172113,7 +172146,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/817APEHFh7L.jpg?v=1767985726",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "ean-7640473481246",
     "brand": "Superdry",
@@ -172169,10 +172205,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
       "middle": [],
       "base": []
     }
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6281085019758",
     "brand": "Surrati",
@@ -178694,7 +178727,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/64995_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416785694857-45147174862985",
     "brand": "Versace",
@@ -178727,10 +178763,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/VS0031_bca8c7a2-2e91-4a14-aaa2-5caac46df003.png?v=1769531012&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338303484041-44927211798665",
     "brand": "Victoria's Secret",
@@ -268029,84 +268062,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://bgstatic.net/photos/122097_ml.jpg"
     }
   ],
-  "ean-3614274299205": [
-    {
-      "retailerId": "perfume-click",
-      "price": 49.95,
-      "wasPrice": 67,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=40280413518&a=3026001&m=6561",
-      "fetchedAt": "2026-08-19T00:53:51.281Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/178719_ml.jpg"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 68.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43174943391&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T18:30:31.316Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61go5AtOEPL.jpg?v=1763147297"
-    }
-  ],
-  "ean-3614274299212": [
-    {
-      "retailerId": "perfume-click",
-      "price": 65.85,
-      "wasPrice": 100,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=40291973840&a=3026001&m=6561",
-      "fetchedAt": "2026-08-19T00:53:51.281Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/186567_ml.jpg"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 79.99,
-      "wasPrice": 152.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687798&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T18:30:31.316Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61CgbXPs0rL.jpg?v=1767983627"
-    }
-  ],
-  "ean-3614274299229": [
-    {
-      "retailerId": "perfume-click",
-      "price": 94.9,
-      "wasPrice": 139,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42116715577&a=3026001&m=6561",
-      "fetchedAt": "2026-08-19T00:53:51.281Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/183027_ml.jpg"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 104.49,
-      "wasPrice": 210.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687793&a=3026001&m=106925",
-      "fetchedAt": "2026-08-18T18:30:31.316Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61CIPJAlqNL.jpg?v=1767983619"
-    }
-  ],
   "justmylook-lanc0047": [
     {
       "retailerId": "justmylook",
@@ -320975,6 +320930,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://bgstatic.net/photos/189426_ml.jpg"
     }
   ],
+  "ean-3614228972925": [
+    {
+      "retailerId": "perfume-click",
+      "price": 40.8,
+      "wasPrice": 45,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=38614408508&a=3026001&m=6561",
+      "fetchedAt": "2026-08-19T00:53:51.281Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/132135_ml.jpg"
+    }
+  ],
   "mybeauty-boutique-shopify-gb-8338406441097-44927372591241": [
     {
       "retailerId": "mybeauty-boutique",
@@ -321001,20 +320970,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61XDu_y2PGL.jpg?v=1763147571"
-    }
-  ],
-  "ean-3614228972925": [
-    {
-      "retailerId": "perfume-click",
-      "price": 40.8,
-      "wasPrice": 45,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=38614408508&a=3026001&m=6561",
-      "fetchedAt": "2026-08-19T00:53:51.281Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/132135_ml.jpg"
     }
   ],
   "ean-3614220724324": [
@@ -365773,6 +365728,90 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/173966_ml.jpg"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8338419024009-44927409258633": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 68.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43174943391&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T18:30:31.316Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61go5AtOEPL.jpg?v=1763147297"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416708952201-45147080196233": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 79.99,
+      "wasPrice": 152.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687798&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T18:30:31.316Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61CgbXPs0rL.jpg?v=1767983627"
+    }
+  ],
+  "mybeauty-boutique-shopify-gb-8416708722825-45147079966857": [
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 104.49,
+      "wasPrice": 210.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687793&a=3026001&m=106925",
+      "fetchedAt": "2026-08-18T18:30:31.316Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61CIPJAlqNL.jpg?v=1767983619"
+    }
+  ],
+  "ean-3614274299205": [
+    {
+      "retailerId": "perfume-click",
+      "price": 49.95,
+      "wasPrice": 67,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=40280413518&a=3026001&m=6561",
+      "fetchedAt": "2026-08-19T00:53:51.281Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/178719_ml.jpg"
+    }
+  ],
+  "ean-3614274299212": [
+    {
+      "retailerId": "perfume-click",
+      "price": 65.85,
+      "wasPrice": 100,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=40291973840&a=3026001&m=6561",
+      "fetchedAt": "2026-08-19T00:53:51.281Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/186567_ml.jpg"
+    }
+  ],
+  "ean-3614274299229": [
+    {
+      "retailerId": "perfume-click",
+      "price": 94.9,
+      "wasPrice": 139,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=42116715577&a=3026001&m=6561",
+      "fetchedAt": "2026-08-19T00:53:51.281Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/183027_ml.jpg"
     }
   ],
   "ean-3605533315347": [

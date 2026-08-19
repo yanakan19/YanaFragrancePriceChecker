@@ -211,6 +211,44 @@ function precededByFrenchArticle(title: string, index: number): boolean {
 }
 
 /**
+ * Whether `index` in `text` is immediately preceded by an *elided* French
+ * article — "l'"/"l’" glued straight onto the next word with no space, as
+ * opposed to precededByFrenchArticle's "le "/"la "/"l' " with a gap. This is
+ * the shape "L'Eau de Parfum" and "L'Eau de Toilette" take as a house's own
+ * naming — Lancôme's Idôle "L'Eau de Parfum", Chloé's own "L'Eau de Parfum
+ * Intense", Carven's eponymous "L'Eau de Toilette".
+ *
+ * Used for both CONCENTRATION_SPECIFIC's phrases and CONCENTRATION_GENERIC_PRIORITY's
+ * bare words alike (stripGenuineConcentration below does not care which tier
+ * matched it), and deliberately no per-word allowlist the way
+ * NOMINAL_AFTER_FRENCH_ARTICLE has to be for the bare generic-tier "parfum":
+ * French only elides the article before a vowel sound, so a word starting
+ * with a consonant ("parfum", "cologne", "perfume", "attar") can never
+ * follow an elided "l'" grammatically in the first place, and one starting
+ * with a vowel that could ("eau...", "extrait...", "oud") is safe to check
+ * structurally rather than by name. Checked against the harvest before
+ * relying on that rather than assuming it (the same discipline
+ * NOMINAL_AFTER_FRENCH_ARTICLE's own comment used): every
+ * CONCENTRATION_GENERIC_PRIORITY word tried against `l['’]<word>\b` — zero
+ * hits for "oud", "attar", "edp", "edt", "edc", "perfume", "aftershave",
+ * "cologne" and the already-covered "parfum"; "extrait" is the one real
+ * case, 6 titles, all Lancôme ("La Vie Est Belle Gold L'Extrait Eau De
+ * Parfum", "Absolue L'Extrait Elixir..."), and it needs no special-casing
+ * beyond this same structural rule — concentrationMatch reaches the generic
+ * tier's bare "extrait" at all only when no CONCENTRATION_SPECIFIC phrase
+ * exists in the title, and where one does ("L'Extrait Eau De Parfum") that
+ * specific phrase is what gets matched and stripped instead, "L'Extrait"
+ * left alone as the name decoration it is, exactly like "Aventus Cologne".
+ *
+ * Anchored the same way precededByFrenchArticle is — `(?:^|[^a-zA-Z])` so
+ * "Mademoiselle" is never mistaken for the article sitting mid-word.
+ */
+const ELIDED_ARTICLE_RE = /(?:^|[^a-zA-Z])l['’]$/i;
+function precededByElidedArticle(text: string, index: number): boolean {
+  return ELIDED_ARTICLE_RE.test(text.slice(0, index));
+}
+
+/**
  * Which generic-tier words are known to carry the "<Name> Le X" naming
  * shape at all. Checked directly against the full harvest before being
  * added, the same way CONCENTRATION_OIL and the oud-last ordering above
@@ -467,6 +505,45 @@ export function brandTitleEnds(title: string, candidates: (string | null)[]): st
 }
 
 /**
+ * Remove the one occurrence of a matched CONCENTRATION_SPECIFIC phrase that
+ * actually states the strength, skipping any occurrence sitting directly
+ * after an elided "L'" — see precededByElidedArticle for the shape and why
+ * it needs no per-word allowlist the way firstGenuineOccurrence's does.
+ *
+ * If every occurrence in `s` carries the elided article, nothing is
+ * stripped and the whole phrase stays in the name: there is no second,
+ * purely redundant restatement to remove instead, so taking out the only
+ * one there is would delete the fragrance's own name for a badge the
+ * `concentration` field already states on its own — it is derived from
+ * `concentrationMatch(title)` directly and does not consult this function,
+ * exactly the same separation of "what the strength is" from "what stays in
+ * the name" as Aventus Cologne's "Cologne" above.
+ *
+ * Real two-occurrence case this exists to get right, not merely tolerate:
+ * Carven's own "L'Eau de Toilette Eau de Toilette 100ml Spray" states the
+ * identical phrase twice — once as the fragrance's actual name (Carven's
+ * eponymous line really is called "L'Eau de Toilette"), once as a plain
+ * restated concentration, the same shape Aramis restates "Eau de Toilette"
+ * beside its own eponymous name in the block below. Only the second,
+ * genuinely redundant occurrence comes off; the first stays because it is
+ * the name, not filler.
+ *
+ * Measured before writing this (checked every CATALOGUE product name against
+ * /\bL['’]\s*$/i and /\bL['’]\s+\S/, the exact shapes an unconditional single
+ * strip produces when it eats the wrong occurrence): 21 mangled names, all
+ * Lancôme, Chloé or Carven — "(Lancôme) Idôle Nectar L'", "Chloe L' Intense",
+ * "Carven L' Eau de Toilette" among them — see tests/productName.test.ts for
+ * the full set, each now pinned to its corrected name.
+ */
+function stripGenuineConcentration(s: string, phrase: string): string {
+  const global = new RegExp(`\\b${escapeRe(phrase)}\\b`, 'gi');
+  const matches = [...s.matchAll(global)];
+  const genuine = matches.find((m) => !precededByElidedArticle(s, m.index!));
+  if (!genuine) return s;
+  return s.slice(0, genuine.index!) + s.slice(genuine.index! + genuine[0].length);
+}
+
+/**
  * Strip the shop's noise off a title to get something readable.
  *
  * Deliberately conservative. Where this cannot do better it leaves the shop's
@@ -505,7 +582,7 @@ export function displayName(title: string, brand: string | null, displayedBrand:
   if (opener) s = s.replace(new RegExp(`^${escapeRe(opener)}\\s*`, 'i'), '');
   const matchedConcentration = concentrationMatch(title);
   if (matchedConcentration) {
-    s = s.replace(new RegExp(`\\b${escapeRe(matchedConcentration)}\\b`, 'i'), '');
+    s = stripGenuineConcentration(s, matchedConcentration);
   }
   s = s
     .replace(/\b\d{1,4}(?:\.\d)?\s*ml\b/gi, '')
