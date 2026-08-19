@@ -219,9 +219,11 @@ independent benchmarking of Puppeteer/Playwright-class actors puts the
 all-in cost at roughly $2-5 per 1,000 pages once browser CPU/memory overhead
 is counted — both figures estimates gathered from public pricing pages in
 August 2026, not a quote for this account's plan. `MAX_ACTOR_PAGES_PER_RUN`
-(10) is sized an order of magnitude below the proxy's own 40-page ceiling for
-exactly that reason — see `apifyActor.ts`'s own header for the full
-reasoning and sourcing.
+(10) is sized well below the proxy's own 40-page ceiling for that reason —
+not to hold spend exactly equal (the per-page cost gap is roughly tenfold,
+the budget gap fourfold), but as a conservative starting point sized to this
+file's enabled-but-dark shops rather than derived from the cost ratio — see
+`apifyActor.ts`'s own header for the full reasoning and sourcing.
 
 **Nothing here has run against Apify's real infrastructure either.** Same
 caveat as the proxy above, restated rather than assumed still true: no

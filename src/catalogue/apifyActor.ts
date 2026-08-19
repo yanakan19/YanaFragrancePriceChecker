@@ -47,10 +47,13 @@
  * for the proxy route. Both figures are estimates gathered from public
  * pricing pages and third-party benchmarks in August 2026, not a quote for
  * this account's actual plan, and should be re-checked against the console
- * once real usage exists. `MAX_ACTOR_PAGES_PER_RUN` below is sized an order
- * of magnitude smaller than apifyProxy.ts's `MAX_PROXIED_REQUESTS_PER_RUN`
- * for exactly that reason: the per-page cost is roughly ten times higher, so
- * the same dollar ceiling means a tenth of the page budget.
+ * once real usage exists. `MAX_ACTOR_PAGES_PER_RUN` below (10) is sized well
+ * below apifyProxy.ts's own `MAX_PROXIED_REQUESTS_PER_RUN` (40) for exactly
+ * that reason — not derived to hold spend exactly equal (the per-page cost
+ * gap is roughly tenfold, the budget gap is fourfold), but chosen as a
+ * number that covers roughly one page per shop in this file's enabled-but-
+ * dark tier with a little headroom, cheap enough to be a sane starting point
+ * before any real cost has been measured. Revisit once it has.
  *
  * ── What has and has not been verified ──────────────────────────────────
  * Built against Apify's publicly documented REST API
