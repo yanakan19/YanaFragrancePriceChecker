@@ -331,6 +331,31 @@ export interface CatalogueConfig {
    * fastest way to get blocked is to arrive all at once.
    */
   minRequestGapMs: number;
+  /**
+   * A URL path this shop's sitemap walk (`crawlViaSitemap` in
+   * `src/catalogue/sitemapCrawl.ts`) must stay under, e.g. `/en-gb`.
+   *
+   * Exists for one specific failure shape: a shop that quotes different
+   * currencies at different address prefixes, where the price parser
+   * (`src/catalogue/jsonld.ts`) has no `priceCurrency` check at all — it reads
+   * a JSON-LD number and records it as `priceGbp`, trusting the registry's
+   * `currency: 'GBP'` rather than anything the page actually said. For an
+   * ordinary shop that is harmless, because the whole storefront is one price
+   * list. For niche-beauty-uk it is not: the plain origin quotes a US CI
+   * runner USD, only `/en-gb` quotes sterling, and `/en-uk` quotes euros (see
+   * that entry's own comment, currency probe run 32254695358). A sitemap walk
+   * seeded from the plain domain, or from a robots.txt sitemap that is not
+   * itself scoped to `/en-gb`, could just as easily hand back a euro or dollar
+   * figure and this parser would publish it as pounds without ever noticing.
+   *
+   * Set only once the confirmed-sterling address has been read directly from
+   * a CI run, never guessed. When set, `discover()` seeds from
+   * `https://www.{domain}{prefix}/sitemap.xml` ahead of anything robots.txt
+   * names, and drops every discovered URL — sitemap index or product alike —
+   * whose path does not start with it. Unset for every other retailer, where
+   * the plain domain is the only price list there is.
+   */
+  requiredUrlPrefix?: string;
 }
 
 export interface Retailer {
