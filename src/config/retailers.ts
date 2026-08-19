@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 58 retailers, 28 of them `enabled: true`. Every one of them is a legitimate
+ * 58 retailers, 33 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -1433,8 +1433,26 @@ export const RETAILERS: readonly Retailer[] = [
     // Avenue line — but unlike Pairfum London this one is worth comparing
     // against, because other enabled retailers here also stock French Avenue,
     // so it competes on price rather than existing in isolation.
-    enabled: false,
+    //
+    // Currency probe, run 32255268280 job 96075418694, 2026-08-19T12:56Z,
+    // commit 14eede4: the plain origin quotes a US GitHub runner GBP, settles
+    // GBP, at rate 1, and every UK-market address tried (?country=GB, both
+    // localisation cookies, Accept-Language en-GB) returns the same currency
+    // and the identical three prices (jasmere-edp-100ml 30.00,
+    // zenith-noire-edp-100ml 30.00, glorious-oud-royal-blanc-exdp-80ml 25.00)
+    // — no conversion anywhere. /en-gb, /gb, /uk, /en-uk all 404. The same
+    // run read /products.json and got a real Shopify payload back, so
+    // `shopifyStorefront` is set below.
+    //
+    // Enabled on that: currency confirmed, robots permit, products.json
+    // works. `standardGbp` stays null — no delivery figure has been found at
+    // all — which is not a reason to keep the shop off the site (see
+    // tests/registry.test.ts's `unstated` list): the offer renders "delivery
+    // not stated" and can never be shown as cheapest, it is simply never
+    // invented.
+    enabled: true,
     adapter: 'unknown',
+    shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
       standardGbp: null,
@@ -1447,7 +1465,8 @@ export const RETAILERS: readonly Retailer[] = [
         'specific storefront turned up. A £50 free-delivery figure appears in search results ' +
         'but is attributed to third-party UK retailers stocking French Avenue, not confirmed ' +
         "as this site's own policy — do not carry it over without checking " +
-        'uk.shopfrenchavenue.com directly. No standard-delivery cost found at all.',
+        'uk.shopfrenchavenue.com directly. No standard-delivery cost found at all. Currency ' +
+        'separately confirmed sterling; see this entry\'s comment above.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -1459,8 +1478,24 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://armaf.uk',
     tiers: ['mideast'],
     singleBrandOnly: 'Armaf',
-    enabled: false,
+    // Currency probe, run 32256539223 job 96079521031, 2026-08-19T13:10Z,
+    // commit fc97aad: the plain origin quotes a US GitHub runner GBP, settles
+    // GBP, at rate 1, and every UK-market address tried (?country=GB, both
+    // localisation cookies, Accept-Language en-GB) returns the same currency
+    // and the identical price across all three sampled products (110.00 for
+    // each of the profumi-dart-* range) — no conversion anywhere. /en-gb,
+    // /gb, /uk, /en-uk all 404. The same run read /products.json and got a
+    // real Shopify payload back, so `shopifyStorefront` is set below.
+    //
+    // Enabled on that: currency confirmed, robots permit, products.json
+    // works. `standardGbp` stays null — no delivery figure has been found at
+    // all — which is not a reason to keep the shop off the site (see
+    // tests/registry.test.ts's `unstated` list): the offer renders "delivery
+    // not stated" and can never be shown as cheapest, it is simply never
+    // invented.
+    enabled: true,
     adapter: 'unknown',
+    shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
       standardGbp: null,
@@ -1473,7 +1508,7 @@ export const RETAILERS: readonly Retailer[] = [
         'LTD, Companies House 12161258. Their own shipping page exists at ' +
         'armaf.uk/pages/shipping-details (Royal Mail, Mon-Sat, no bank-holiday deliveries) but ' +
         'search results did not surface the actual cost or free-delivery threshold — read that ' +
-        'page directly before enabling.',
+        'page directly. Currency separately confirmed sterling; see this entry\'s comment above.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -1485,8 +1520,35 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://alharamainperfumes.co.uk',
     tiers: ['mideast'],
     singleBrandOnly: 'Al Haramain',
-    enabled: false,
+    // MARKETS. This shop's /en-us/ delivery-page path was a hint worth
+    // taking seriously — currency probe, run 32255764344 job 96077031353,
+    // 2026-08-19T13:02Z, commit 14eede4: the plain origin quotes this US
+    // runner USD and settles nothing, and every cookie/header candidate does
+    // the same (localisation cookie, cart_currency cookie, both together,
+    // Accept-Language en-GB — all quote USD). Only `?country=GB` reaches a
+    // sterling list: meta and home both 200, quotes GBP, settles GBP, rate 1.
+    // Critically, the actual figures are identical across every candidate —
+    // origin(USD-labelled) and ?country=GB(GBP-labelled) both read
+    // dehnal-al-oudh-cambodi-100ml at 85.00, shefon-deodorant-bspray-200ml at
+    // 3.50, al-halal-sparkle-perfumed-hand-sanitiser-200ml at 4.99 — so no
+    // conversion is applied between them and the number is sound as pounds.
+    // /en-gb, /gb, /uk, /en-uk all 404. Same shape as Escentric Molecules:
+    // the origin is not the sterling address, but a nearby one is, and this
+    // repo's UK-market search (src/catalogue/marketProbe.ts, wired into
+    // crawlViaShopifyProducts) exists exactly to find it.
+    //
+    // The same run read /products.json and got a real Shopify payload back,
+    // so `shopifyStorefront` is set below.
+    //
+    // Enabled on that: currency confirmed (via the resolved UK market),
+    // robots permit, products.json works. `standardGbp` stays null —
+    // freeOverGbp is their own stated figure but no flat rate below it has
+    // been found — which is not a reason to keep the shop off the site (see
+    // tests/registry.test.ts's `unstated` list): the offer renders "delivery
+    // not stated" and can never be shown as cheapest.
+    enabled: true,
     adapter: 'unknown',
+    shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
       standardGbp: null,
@@ -1504,7 +1566,8 @@ export const RETAILERS: readonly Retailer[] = [
         'freeOverGbp is their own stated figure (free UK delivery over £50, half-price over ' +
         '£150). The standard cost below £50 was not found — read alharamainperfumes.co.uk/' +
         'en-us/pages/shipping-policy directly, then enable. UK-founded (opened a London retail ' +
-        'store), part of the wider Al Haramain group trading since 1970.',
+        'store), part of the wider Al Haramain group trading since 1970. Currency separately ' +
+        'confirmed sterling via the ?country=GB market; see this entry\'s comment above.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -1516,6 +1579,17 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://uk.riiffsperfumes.com',
     tiers: ['mideast'],
     singleBrandOnly: 'Riiffs',
+    // NOT Shopify — checked, not guessed. Currency probe, run 32256162179
+    // job 96078235660, 2026-08-19T13:06Z, commit 14eede4: robots.txt was
+    // reachable and permitted every request tried (home page answered 200
+    // for all nine ways of asking), but /products.json 404s on every one of
+    // them — the same "page===1, HTTP 404" signal
+    // src/catalogue/shopifyProductsCrawl.ts itself reads as "not a Shopify
+    // storefront". No candidate published a currency anywhere either (no
+    // /meta.json, no Shopify.currency in the theme). A dead end for the
+    // Shopify route specifically; this shop would need the ordinary sitemap
+    // walk (crawlViaSitemap) if it is ever pursued, which is untouched by
+    // this finding.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -1540,8 +1614,25 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://ibraquk.com',
     tiers: ['mideast'],
     singleBrandOnly: 'IBRAQ',
-    enabled: false,
+    // Currency probe, run 32256269411 job 96078682112, 2026-08-19T13:07Z,
+    // commit 14eede4: the plain origin quotes a US GitHub runner GBP, settles
+    // GBP, at rate 1, and every UK-market address tried (?country=GB, both
+    // localisation cookies, Accept-Language en-GB) returns the same currency
+    // and the identical three prices (49.99 with a 59.99 compare_at, 79.99,
+    // 24.99) — no conversion anywhere. /en-gb, /gb, /uk and /en-uk all 404.
+    // The same run read /products.json and got a real Shopify payload back
+    // (tobacco-collection-set-9x10ml among the priced rows), so
+    // `shopifyStorefront` is set below. robots.txt permitted every request.
+    //
+    // Enabled on that: currency confirmed, robots permit, products.json
+    // works. `standardGbp` stays null — freeOverGbp is this shop's own
+    // stated figure but no standard flat rate has been found — which is not
+    // a reason to keep it off the site (see tests/registry.test.ts's
+    // `unstated` list): the offer renders "delivery not stated" and can
+    // never be shown as cheapest, it is simply never invented.
+    enabled: true,
     adapter: 'unknown',
+    shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
       standardGbp: null,
@@ -1553,7 +1644,8 @@ export const RETAILERS: readonly Retailer[] = [
         'The Saudi house formerly trading as Ibrahim Al Qurashi, rebranded IBRAQ — this is ' +
         'its dedicated UK storefront. freeOverGbp and 1-2 working day processing are their ' +
         'own stated figures; the standard cost below £50 was not found. Requested as ' +
-        '"Ibraq (formerly Ibrahim Al Quarashi)" — spelling matches.',
+        '"Ibraq (formerly Ibrahim Al Quarashi)" — spelling matches. Currency separately ' +
+        'confirmed sterling; see this entry\'s comment above.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -1824,6 +1916,13 @@ export const RETAILERS: readonly Retailer[] = [
     tiers: ['designer'],
     // General discount fragrance retailer, not Middle Eastern focused —
     // requested under "retailer listings" alongside the oud specialists.
+    //
+    // NOT Shopify — checked, not guessed. Currency probe, run 32256436199
+    // job 96079115721, 2026-08-19T13:09Z, commit fc97aad: robots.txt was
+    // reachable and permitted every request tried (home page answered 200
+    // for all nine ways of asking), but /products.json 404s on every one of
+    // them. No candidate published a currency anywhere either. A dead end
+    // for the Shopify route specifically.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -1900,18 +1999,35 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://uk.zimayaperfumes.com',
     tiers: ['mideast'],
     singleBrandOnly: 'Zimaya',
-    // Disabled pending a standard delivery cost, and with a currency question
-    // on top — see the note below. The twice-daily shipping:discover run reads
-    // their delivery page, so this should resolve without anyone opening a
-    // browser.
+    // Was disabled for a currency question — the UK subdomain advertised
+    // "FREE DELIVERY OVER $50" in dollars, which is exactly what an
+    // unlocalised Shopify storefront looks like — and that question is now
+    // answered.
     //
-    // CURRENCY NOT CONFIRMED, and that half is now enforced rather than only
-    // described: this entry is listed in CURRENCY_UNCONFIRMED at the foot of
-    // this file, and the guard there throws if it is enabled while the dollar
-    // question below is still open. The delivery cost and the currency are two
-    // separate blockers; shipping:discover can only settle the first.
-    enabled: false,
+    // Currency probe, run 32254603051 job 96073283174, 2026-08-19T12:49Z,
+    // commit 14eede4: the plain origin quotes a US GitHub runner GBP, settles
+    // GBP, at rate 1, and every UK-market address tried (?country=GB, both
+    // localisation cookies, Accept-Language en-GB) returns the same currency
+    // and the identical three prices (35.00, 35.00, 35.00) — no conversion
+    // anywhere. /en-gb, /gb, /uk and /en-uk all 404, expected of a
+    // single-market store. robots.txt allowed every request the probe made.
+    // Removed from CURRENCY_UNCONFIRMED at the foot of this file on that
+    // evidence.
+    //
+    // The same run read /products.json and got a real Shopify payload back
+    // (ghali-imperial, ghali-elegante, ode-to-rose-royale among the priced
+    // rows), so `shopifyStorefront` is set below rather than left unset.
+    //
+    // Enabled on that: currency confirmed, robots permit, products.json
+    // works. What is still missing is a standard delivery cost — the $50
+    // marketing figure above is not this shop's flat rate, and no other
+    // source has stated one — which is why `standardGbp` stays null. That is
+    // not a reason to keep the shop off the site: an unstated cost renders as
+    // "delivery not stated" and can never be shown as cheapest (see
+    // tests/registry.test.ts's `unstated` list), it is simply never invented.
+    enabled: true,
     adapter: 'unknown',
+    shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
       standardGbp: null,
@@ -1921,13 +2037,13 @@ export const RETAILERS: readonly Retailer[] = [
       confidence: 'unverified',
       notes:
         'A UK subdomain exists (uk.zimayaperfumes.com), which is why this is a retailer rather ' +
-        'than a houses.ts entry, on the same reasoning as French Avenue and Armaf. But the UK ' +
-        'site advertises "FREE DELIVERY OVER $50" in dollars, so it is not confirmed that it ' +
-        'actually prices and ships in sterling — a Shopify storefront left unlocalised would ' +
-        'look exactly like this. Confirm the checkout currency before enabling: currency is ' +
-        "declared 'GBP' above because the type permits nothing else, which is itself the claim " +
-        'being flagged here. Third-party UK stockists quote £50 and £80 free-delivery ' +
-        'thresholds, but those are their terms, not this shop\'s.',
+        'than a houses.ts entry, on the same reasoning as French Avenue and Armaf. The UK site ' +
+        'advertises "FREE DELIVERY OVER $50" in dollars, which is marketing copy rather than a ' +
+        "confirmed flat rate — currency itself is separately confirmed sterling, see this " +
+        'entry\'s comment above. Third-party UK stockists quote £50 and £80 free-delivery ' +
+        "thresholds, but those are their terms, not this shop's. Standard cost below any " +
+        'threshold not found anywhere — read uk.zimayaperfumes.com/policies/shipping-policy ' +
+        'directly.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -1939,6 +2055,27 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.khadlaj-perfumes.co.uk',
     tiers: ['mideast'],
     singleBrandOnly: 'Khadlaj',
+    // Confirmed Shopify, currency NOT confirmed sterling — a dead end worth
+    // recording rather than a to-do.
+    //
+    // Currency probe, run 32255506486 job 96076159301, 2026-08-19T12:59Z,
+    // commit 14eede4: /products.json answered with a real Shopify payload
+    // (khadlaj-titan-100-ml-eau-de-parfum-spray-for-men, 110.00; a
+    // grand-collection set at 210.00 with a 300.00 compare_at) — so this shop
+    // is Shopify. But every one of the nine ways of asking quoted this US
+    // runner USD at rate 1, including the UK-market addresses this repo now
+    // tries (?country=GB, both localisation cookies, Accept-Language en-GB):
+    // none of them settled GBP the way al-haramain's or Escentric Molecules'
+    // did. /en-gb, /gb, /uk and /en-uk all 404. Nothing measured here
+    // suggests this shop has a sterling price list reachable from any address
+    // tried. Added to CURRENCY_UNCONFIRMED at the foot of this file on that
+    // evidence — a stronger basis than a marketing-copy hunch, since this is
+    // a currency the storefront itself served.
+    //
+    // `shopifyStorefront` deliberately left unset: the mechanism this repo
+    // uses to opt a retailer into the /products.json route is meant to
+    // signal a *priceable* Shopify shop, and this one cannot be priced from
+    // any address this repo knows how to ask.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -1952,7 +2089,7 @@ export const RETAILERS: readonly Retailer[] = [
         "The brand's own .co.uk site exists but its delivery cost was not found; only third-party " +
         'UK stockists (Emirates Oud free over £50, Perfume Heaven free over £40) turned up, and ' +
         "those are not this shop's terms. The shipping:discover run will try khadlaj-perfumes." +
-        'co.uk directly.',
+        'co.uk directly. Moot until the currency question above is resolved.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -2131,6 +2268,18 @@ export const RETAILERS: readonly Retailer[] = [
     homepage: 'https://www.bathandbodyworks.co.uk',
     tiers: ['designer'],
     singleBrandOnly: 'Bath & Body Works',
+    // NOT Shopify — checked, not guessed, across two runs. Currency probe,
+    // run 32255284750 job 96075537892, 2026-08-19T12:57Z, commit 14eede4:
+    // robots.txt did not answer at all ("COULD NOT ASK"), so nothing was
+    // requested that pass. Retried, run 32256639926 job 96079766579,
+    // 2026-08-19T13:11Z, commit fc97aad: robots.txt answered this time and
+    // permitted every request (home page 200 for all nine ways of asking),
+    // but /products.json came back "not a Shopify products payload" on every
+    // one of them — the multinational US parent's UK site is not on Shopify.
+    // No candidate published a currency either. A dead end for the Shopify
+    // route specifically; this shop is a large non-Shopify retailer and
+    // would need a different strategy (the ordinary sitemap walk, or a
+    // dedicated adapter) if it is ever pursued.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -3034,18 +3183,26 @@ export const RETAILERS: readonly Retailer[] = [
  * build re-arms the trap and removes the only thing standing in front of it.
  */
 export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
-  [
-    'zimaya',
-    'uk.zimayaperfumes.com advertises "FREE DELIVERY OVER $50" in dollars, so it is not ' +
-      'confirmed that it prices or ships in sterling; an unlocalised Shopify storefront looks ' +
-      'exactly like this.',
-  ],
+  // zimaya was removed from this list on 2026-08-19, on the evidence the list
+  // itself asks for: currency probe, run 32254603051 job 96073283174, read a
+  // sterling price list off the shop's own storefront at rate 1, identically
+  // through six separate ways of asking. See the comment on its registry
+  // entry above for what that run established. It is now `enabled: true`.
   // fragrancehub was removed from this list on 2026-08-19, on the evidence the
   // list itself asks for: Price verification run 23, job 95684340039, read a
   // sterling price list off the shop's own storefront at rate 1 through eight
   // separate ways of asking. See the comment on its registry entry above for
   // what that run did and did not establish. It remains `enabled: false` for
   // unrelated reasons, so nothing about this removal puts a price on the site.
+  [
+    'khadlaj',
+    'khadlaj-perfumes.co.uk is confirmed Shopify (products.json returns a real payload, ' +
+      'priced products among them) but every one of nine ways of asking — origin, ?country=GB, ' +
+      'both localisation cookies, Accept-Language en-GB, and the /en-gb /gb /uk /en-uk market ' +
+      'paths — either 404s or quotes this runner USD at rate 1, none settling GBP. Currency ' +
+      'probe, run 32255506486 job 96076159301, 2026-08-19T12:59Z. Nothing measured suggests a ' +
+      'sterling price list is reachable from any address this repo knows how to ask.',
+  ],
   [
     'paco-perfumerias',
     'A Spanish retailer (pacoperfumerias.com) with a UK-targeted Awin programme. Whether that ' +
