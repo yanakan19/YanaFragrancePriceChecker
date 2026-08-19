@@ -1486,6 +1486,29 @@
 
   /* ── price history chart ───────────────────────────────────────────────── */
   .history-block { margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); }
+  /* Heading and range control share a row, control to the right on a wide
+     card and wrapping under the heading when there is no room for both. */
+  .history-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 10px; flex-wrap: wrap;
+  }
+  .history-head > .gone-head { margin: 0; padding: 0; border: 0; }
+  .history-scopes { display: flex; gap: 4px; }
+  .history-scope {
+    font: inherit; font-size: 12px; line-height: 1;
+    padding: 5px 9px; border-radius: 999px; cursor: pointer;
+    background: transparent; color: var(--ink-2);
+    border: 1px solid var(--line);
+  }
+  .history-scope:hover:not([disabled]) { border-color: var(--accent); color: var(--ink); }
+  .history-scope.is-on {
+    background: var(--accent-sf); border-color: var(--accent); color: var(--accent);
+    font-weight: 600;
+  }
+  /* A range this fragrance has too little data to draw is shown and refused,
+     rather than hidden — a missing "This week" reads as a bug, a greyed one
+     reads as an answer. */
+  .history-scope[disabled] { opacity: .4; cursor: not-allowed; }
   .history-chart { position: relative; margin-top: 10px; }
   .history-svg { width: 100%; height: 160px; display: block; overflow: visible; }
   /* --chart-band carries its own alpha, so no opacity multiplier: the fill

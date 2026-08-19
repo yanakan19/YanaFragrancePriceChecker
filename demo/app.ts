@@ -1387,10 +1387,98 @@ const HISTORY_SPAN: { first: string; last: string } | null = (() => {
  * the svg rather than inside it, size themselves in real CSS pixels and
  * stay perfectly round regardless of how the chart around them stretches.
  */
+/**
+ * The scopes offered above the chart, longest name first for the reader and
+ * shortest window first in the control.
+ *
+ * Days, not calendar months or years, because the axis is built by counting
+ * days forward from a start key — a "this month" that meant "since the 1st"
+ * would be one day long on the 2nd and thirty-one on the 31st, which makes
+ * the same chart mean something different depending on when it is opened.
+ */
+const HISTORY_SCOPES = [
+  { id: 'week', label: 'This week', days: 7 },
+  { id: 'month', label: 'This month', days: 30 },
+  { id: 'year', label: 'This year', days: 365 },
+] as const;
+
+/** Shift a YYYY-MM-DD key by a whole number of days. */
+function shiftDayKey(key: string, days: number): string {
+  return dayKey(new Date(new Date(`${key}T00:00:00Z`).getTime() + days * 86_400_000).toISOString());
+}
+
 function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): string {
   const raw = priceHistoryFor(f.id);
   if (raw.length < 2 || HISTORY_SPAN === null) return '';
-  const points = dailyHistory(raw, HISTORY_SPAN.first, HISTORY_SPAN.last, isCurrentlyPurchasable);
+
+  // Where this fragrance's own record starts, rather than where the site's
+  // does. Previously every chart was drawn across the whole site history, so
+  // a fragrance first seen last week opened with a fortnight of empty floor
+  // before its line began — space that said nothing except that other
+  // fragrances are older.
+  const ownFirstDay = raw.map((p) => dayKey(p.at)).sort()[0] ?? HISTORY_SPAN.first;
+
+  // Every scope ends on the site's most recent day, not this fragrance's, so
+  // the right-hand edge is always today's price for anything still on sale —
+  // the carry-forward in dailyHistory is what fills the gap, and it stops at
+  // the last sighting for anything that has since sold out.
+  const to = HISTORY_SPAN.last;
+
+  const panels = HISTORY_SCOPES.map((scope) => {
+    const windowStart = shiftDayKey(to, -(scope.days - 1));
+    const from = windowStart > ownFirstDay ? windowStart : ownFirstDay;
+    const points = dailyHistory(raw, from, to, isCurrentlyPurchasable);
+    return { scope, points, body: priceHistoryBody(points, isCurrentlyPurchasable) };
+  });
+
+  // A scope with fewer than two real readings inside it has nothing to draw,
+  // so it is offered as a disabled control rather than silently missing: the
+  // reader can see that "this week" exists and simply has too little in it.
+  const usable = panels.filter((p) => p.body !== null);
+  if (usable.length === 0) return '';
+  // Default to the shortest scope that actually has a line in it. Asking for
+  // "this week" and getting an empty frame would read as a broken chart.
+  const active = usable[0]!;
+
+  const tabs = panels
+    .map((p) => {
+      const on = p.scope.id === active.scope.id;
+      const dead = p.body === null;
+      return `<button
+        type="button"
+        class="history-scope${on ? ' is-on' : ''}"
+        data-history-scope="${p.scope.id}"
+        aria-pressed="${on}"
+        ${dead ? 'disabled aria-disabled="true" title="Not enough recorded prices in this range"' : ''}
+      >${esc(p.scope.label)}</button>`;
+    })
+    .join('');
+
+  const bodies = panels
+    .filter((p) => p.body !== null)
+    .map((p) => `<div class="history-panel" data-history-panel="${p.scope.id}"${p.scope.id === active.scope.id ? '' : ' hidden'}>${p.body}</div>`)
+    .join('');
+
+  return `<div class="history-block" data-history-block>
+    <div class="history-head">
+      <p class="gone-head t-eyebrow">Price history</p>
+      <div class="history-scopes" role="group" aria-label="Price history range">${tabs}</div>
+    </div>
+    ${bodies}
+  </div>`;
+}
+
+/**
+ * One chart, for one already-windowed run of days. Returns null when the
+ * window holds too little to draw honestly.
+ *
+ * Split out of priceHistoryChart so the same drawing code serves every scope
+ * — three windows over the same data, not three near-copies of a chart.
+ */
+function priceHistoryBody(
+  points: DailyHistoryPoint[],
+  isCurrentlyPurchasable: boolean,
+): string | null {
   // Two days on which a price was actually *read* — not two days that have a
   // price. The axis below now always spans the site's whole history, so
   // points.length is identical for every fragrance and tests nothing; and
@@ -1400,7 +1488,7 @@ function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): s
   // one afternoon. Same bar as before this chart gained a full calendar
   // axis: at least two real readings, or no chart.
   const priced = points.filter((p) => p.priceGbp !== null);
-  if (points.filter((p) => p.priceGbp !== null && !p.isCarried).length < 2) return '';
+  if (points.filter((p) => p.priceGbp !== null && !p.isCarried).length < 2) return null;
 
   const W = 600;
   const H = 160;
@@ -1512,9 +1600,7 @@ function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): s
     .map((i) => `<span class="history-xlabel" style="left:${xPct(i).toFixed(2)}%">${esc(shortDate(points[i]!.dateKey))}</span>`)
     .join('');
 
-  return `<div class="history-block">
-    <p class="gone-head t-eyebrow">Price history</p>
-    <div class="history-chart" data-history-chart>
+  return `<div class="history-chart" data-history-chart>
       <svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" class="history-svg" aria-hidden="true" focusable="false">
         <path d="${areaPath}" class="history-area" />
         <path d="${linePath}" class="history-line" />
@@ -1522,9 +1608,7 @@ function priceHistoryChart(f: DemoFragrance, isCurrentlyPurchasable: boolean): s
       ${dots}
       <div class="history-tip" data-history-tip hidden></div>
     </div>
-    <div class="history-xaxis">${xAxis}</div>
-    <p class="notes-source t-caption">One point for every day since ${esc(shortDate(`${HISTORY_SPAN.first}T00:00:00Z`))}: the cheapest live price recorded that day, or carried flat from the last day it changed. Grey points on the baseline are days with no price recorded at all, before this fragrance appeared on the site or after it stopped being available; they are not a price of zero. Tap or hover a point for the exact price, retailer and date.</p>
-  </div>`;
+    <div class="history-xaxis">${xAxis}</div>`;
 }
 
 function notesBlock(f: DemoFragrance): string {
@@ -4403,6 +4487,28 @@ function init(): void {
       return;
     }
     if (pinnedHistoryDot && !t.closest('.history-tip')) hideHistoryTip();
+
+    // Switching the chart's range. Every scope was rendered up front, so this
+    // only swaps which one is shown — no re-render, and no refetch of history
+    // that is already in the page. A pinned tip belongs to the chart being
+    // hidden, so it goes with it.
+    const scopeBtn = t.closest<HTMLElement>('[data-history-scope]');
+    if (scopeBtn && !scopeBtn.hasAttribute('disabled')) {
+      const block = scopeBtn.closest('[data-history-block]');
+      const want = scopeBtn.getAttribute('data-history-scope');
+      if (block && want) {
+        hideHistoryTip();
+        for (const b of block.querySelectorAll<HTMLElement>('[data-history-scope]')) {
+          const on = b.getAttribute('data-history-scope') === want;
+          b.classList.toggle('is-on', on);
+          b.setAttribute('aria-pressed', String(on));
+        }
+        for (const panel of block.querySelectorAll<HTMLElement>('[data-history-panel]')) {
+          panel.hidden = panel.getAttribute('data-history-panel') !== want;
+        }
+      }
+      return;
+    }
 
     // An internal link that carries a real href, so it can be copied and
     // opened in a new tab, but navigates through the router when clicked
