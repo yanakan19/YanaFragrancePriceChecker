@@ -3201,6 +3201,20 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'cultbeauty.co.uk',
     homepage: 'https://www.cultbeauty.co.uk',
     tiers: ['designer', 'niche'],
+    // Currency probe, run 32277974545 job 96149760375, 2026-08-19T16:48Z:
+    // robots.txt answers with no disallow, and the bare origin serves
+    // sterling — home 200, quotes GBP, no conversion — to a GitHub Actions
+    // runner. Every other request shape (?country=GB, both cookies,
+    // Accept-Language) agrees at GBP; /en-gb, /gb, /uk, /en-uk all 404 (no
+    // market-prefix layout). So currency is genuinely confirmed sterling from
+    // CI, at the plain origin, same shape as perfume-market-uk and debenhams.
+    // Not Shopify: /products.json 404s at every address tried (matches the
+    // Apify-evaluation comment below). `enabled` stays false: no proven
+    // harvest route yet (sitemap-discovery is the generic fallback and has
+    // not been run against this shop) and standardGbp is still null with no
+    // known ingestion route to join the "unstated" list on — see
+    // tests/registry.test.ts. Currency is no longer the gap; a route or a
+    // real delivery figure is.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
