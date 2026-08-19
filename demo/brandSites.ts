@@ -23,7 +23,7 @@ import { marketOf } from '../src/catalogue/brandSiteCheck.js';
  * cruder count on 2026-08-17, 664 distinct raw strings by that same cruder
  * count on 2026-08-19 — the catalogue grows between harvests, so treat this
  * as "the count on the day someone last measured it," not a fixed total).
- * 232 of those 662 resolve here as of this measurement (35.0%, re-measured
+ * 251 of those 662 resolve here as of this measurement (37.9%, re-measured
  * after this pass's own additions — the 662/168 figures above are the count
  * at the start of the pass). This list is still only the highest-volume
  * brands so far, not a finished set.
@@ -537,6 +537,28 @@ export const BRAND_SITES: Record<string, string> = {
   'ramon monegal': 'https://ramonmonegal.com/',
   alezz: 'https://alezz-oud.com/en/alezz-perfumes/c179816661',
   'pairfum london': 'https://www.pairfum.com/', // British house; domain itself carries no UK marker
+  'guy laroche': 'https://www.guylaroche.com/fragrances',
+  aramis: 'https://aramisbrand.com/',
+  sisley: 'https://www.sisley-paris.com/en-GB/',
+  'vera wang': 'https://www.verawang.com/',
+  'john varvatos': 'https://www.johnvarvatos.com/',
+  thameen: 'https://thameenfragrance.com/', // British house; domain itself carries no UK marker
+  'roger gallet': 'https://en.roger-gallet.com/',
+  'molton brown': 'https://www.moltonbrown.co.uk/',
+  courreges: 'https://www.courreges.com/',
+  replay: 'https://www.replayjeans.com/',
+  benetton: 'https://us.benetton.com/',
+  // normalizeBrand strips digits, so "100 Bon" collapses to "bon" — a real,
+  // if surprising, key rather than the empty-string dead end "4711" hits
+  // above, since this name has letters left over once the digits go.
+  bon: 'https://www.100bon.com/en',
+  furla: 'https://www.furla.com/us/en/eshop/women/accessories/fragrances/',
+  iceberg: 'https://www.iceberg.com/',
+  mexx: 'https://www.mexx.com/',
+  'gloria vanderbilt': 'https://gloriavanderbilt-jeans.com/perfume/',
+  'rue broca': 'https://ruebrocaparfums.com/',
+  gres: 'https://www.parfumsgres.com/en',
+  'paloma picasso': 'https://paloma-picasso.com/',
 };
 
 /**
