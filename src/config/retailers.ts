@@ -1601,6 +1601,16 @@ export const RETAILERS: readonly Retailer[] = [
     // Shopify route specifically; this shop would need the ordinary sitemap
     // walk (crawlViaSitemap) if it is ever pursued, which is untouched by
     // this finding.
+    //
+    // robots.txt has since tightened. Shipping probe, run 32279443137 job
+    // 96154463621, 2026-08-19T17:03Z — under four hours after the currency
+    // probe above — found `/` itself now disallowed ("0 pages UNREACHABLE",
+    // both the home page and /policies/shipping-policy refused). Whatever
+    // permitted every request at 13:06Z no longer does at 17:03Z: robots.txt
+    // is the shop's own instruction and it changed, not a bug in either
+    // probe. Recorded as a second reason this stays off, not just "no
+    // route yet" — a sitemap walk would need to ask the same now-disallowed
+    // origin, so crawlViaSitemap is blocked too, not merely untried.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
