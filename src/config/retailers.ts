@@ -2650,8 +2650,40 @@ export const RETAILERS: readonly Retailer[] = [
     domain: 'beautypie.com',
     homepage: 'https://www.beautypie.com',
     tiers: ['designer'],
+    // ── Currency + route, 2026-08-19 ───────────────────────────────────────
+    // Currency probe, run 32277342412 job 96147763012, 2026-08-19T16:41Z:
+    // confirmed Shopify (/products.json returns a real payload — the-dynamo-
+    // deep-led-collagen-boosting-mask at 299.00, two Reena Simon candles at
+    // 65.00 — at every address that answered) and confirmed sterling, but not
+    // at the plain origin: the bare domain quotes this US runner USD settling
+    // GBP at rate 1.35, and every cookie/header variant does the same. Only
+    // `?country=GB` settles GBP at rate 1 with no conversion — meta.json 200,
+    // home 200, and the identical three prices above served with no
+    // conversion applied. STERLING, confirmed, specifically at that address.
+    // `shopifyStorefront: true` below is set on that evidence, the same
+    // ibraq/KAYALI basis: a real priceable Shopify payload, not just a theme
+    // guess. The existing `resolveUkMarket` sweep in
+    // `crawlViaShopifyProducts` already tries `?country=GB` on its own — see
+    // `src/catalogue/shopifyProductsCrawl.ts` — so no further wiring was
+    // needed to reach this address; the harvest asks the same way this probe
+    // did. `catalogue: null` is fine as-is: the Shopify route never reads
+    // `catalogue.sections`, and no category URL has been found or is needed.
+    //
+    // `enabled` stays false. Not for retrieval or currency any more — both
+    // are now proven — but for the one question the 2026-08-19 Apify review
+    // below raised and deliberately left open: Beauty Pie is a membership
+    // retailer whose products are "priced at cost to members," and the
+    // figures this probe read (including via the public, unauthenticated
+    // `?country=GB` /products.json, so not gated behind a login) may be that
+    // member price rather than a figure any visitor can act on without also
+    // paying for membership. This probe did not read a product PAGE — only
+    // the bulk variant feed — so it cannot settle whether the page discloses
+    // a non-member price alongside it or requires membership to check out at
+    // all. That is the one remaining blocker: read one live product page,
+    // then decide.
     enabled: false,
     adapter: 'unknown',
+    shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
       standardGbp: null,
