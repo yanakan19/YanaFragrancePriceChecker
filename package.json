@@ -33,6 +33,7 @@
     "awin:memberships": "tsx scripts/awin-memberships.ts",
     "price:verify": "tsx scripts/price-verify.ts",
     "currency:probe": "tsx scripts/currency-probe.ts",
+    "brand:probe": "tsx scripts/brand-site-probe.ts",
     "storefront:reprice": "tsx scripts/storefront-reprice.ts",
     "images:check": "tsx scripts/image-link-check.ts",
     "icons": "tsx scripts/generate-icons.ts",
