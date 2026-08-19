@@ -2414,7 +2414,15 @@ export const RETAILERS: readonly Retailer[] = [
       notes:
         'Search only surfaced the US site\'s $50 threshold, which is not this UK site\'s terms. ' +
         'No standard-delivery cost for bathandbodyworks.co.uk found. Fine fragrance mists rather ' +
-        'than EDP/EDT in the main, worth confirming isFragrance actually recognises their listings.',
+        'than EDP/EDT in the main, worth confirming isFragrance actually recognises their ' +
+        'listings — fragranceOnlyCatalogue is deliberately NOT set here, unlike a single-house ' +
+        'storefront, precisely because this shop sells mostly non-fragrance body/bath product ' +
+        'and the concentration-word title test is what keeps that out; see that field\'s own doc ' +
+        'comment in src/types/retailer.ts, which names this shop specifically. Shipping probe, ' +
+        'run 32279983083 job 96156214531, 2026-08-19T17:09Z: robots.txt still permits every ' +
+        'request, but every candidate delivery path came back either 404 or a genuine server ' +
+        'error (/pages/help: HTTP 500) — "0 pages UNREACHABLE". Not a robots.txt refusal this ' +
+        'time, a live 500 from their own server; worth retrying rather than treating as settled.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
