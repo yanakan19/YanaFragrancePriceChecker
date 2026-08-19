@@ -2058,9 +2058,10 @@ function brandView(): string {
         <h2 class="org-hero-name t-page">${esc(b)}</h2>
         ${
           site
-            ? `<a class="brand-site-link" href="${esc(site)}" target="_blank" rel="noopener nofollow">
+            ? `<a class="brand-site-link" href="${esc(site.url)}" target="_blank" rel="noopener nofollow">
                  <span class="control-ico">${ICON_EXTERNAL}</span>
                  <span>Open Brand Website</span>
+                 <span class="brand-site-flag ${site.uk ? 'is-uk' : 'is-nonuk'}">${site.uk ? 'UK Site' : 'Non-UK Site'}</span>
                </a>`
             : `<p class="org-hero-domain dimmer t-caption">Official site not yet confirmed</p>`
         }

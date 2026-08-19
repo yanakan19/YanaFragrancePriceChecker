@@ -1,3 +1,5 @@
+import { marketOf } from '../src/catalogue/brandSiteCheck.js';
+
 /**
  * Verified official brand websites, keyed by brand name.
  *
@@ -8,14 +10,21 @@
  * this registry runs on (see the `blurb` field on Retailer for the same
  * discipline applied to retailers).
  *
- * The catalogue currently spans 629 distinct brand strings raw from retailer
- * feeds (measured 2026-08-17: `grep -o '"brand": "[^"]*"'` over
- * demo/catalogue.generated.ts's product section, deduplicated). Casing and
- * punctuation duplicates such as "Dolce & Gabbana" vs "DOLCE&GABBANA" no
- * longer occur — slugify()/brandKey() collapse those at ingest — so this
- * file's coverage (112 of 629 brands resolve here as of 2026-08-17, 17.8%)
- * is against real distinct houses, not inflated by spelling variants. This
- * list is only the highest-volume brands so far, not a finished set.
+ * Measured 2026-08-19 by running buildBrandCanon() from src/catalogue/
+ * brandName.ts — the module that actually decides one canonical display
+ * spelling per house — over every "brand" string in demo/catalogue.generated.ts,
+ * then checking each canonical name against this file, minus "Unbranded" and
+ * "vendor-unknown" (feed artifacts, not houses; see the worklist comment
+ * below). That is a stricter count than a raw grep-and-dedupe of the feed
+ * strings: it collapses "ARMAF"/"Armaf", "Paco Rabanne"/"Rabanne" and similar
+ * pairs to one house the way the app itself does, rather than counting each
+ * spelling separately. By that measure the live catalogue currently carries
+ * 662 real houses (this number moves as the harvest runs; it was 629 by the
+ * cruder count on 2026-08-17, 664 distinct raw strings by that same cruder
+ * count on 2026-08-19 — the catalogue grows between harvests, so treat this
+ * as "the count on the day someone last measured it," not a fixed total).
+ * 168 of those 662 resolve here as of this measurement (25.4%). This list is
+ * still only the highest-volume brands so far, not a finished set.
  */
 export const BRAND_SITES: Record<string, string> = {
   'calvin klein': 'https://www.calvinklein.co.uk/',
@@ -275,6 +284,151 @@ export const BRAND_SITES: Record<string, string> = {
   // Ted Baker's own physical fragrance stores closed; this collection page
   // on the brand's own site is still where it sells fragrance directly.
   'ted baker': 'https://www.tedbaker.com/collections/womens-fragrance',
+
+  // ── Alias-drift repair, 2026-08-19 ────────────────────────────────────────
+  // Not new research — buildBrandCanon() in src/catalogue/brandName.ts (the
+  // module that decides one canonical display spelling per house) has moved
+  // since several entries above were added, so the exact string this file
+  // looks up under has drifted out from under an already-verified URL, and
+  // the lookup silently missed despite the URL being fine. Found by running
+  // every canonical brand name in the live catalogue against BRAND_SITES and
+  // checking for a near-miss (see the audit note at the head of this file for
+  // how). Each line below points at the same URL as its established match
+  // above; nothing here is a new site.
+  'assaf trading llc': 'https://assaf.ae/', // = assaf
+  alwataniah: 'https://www.alwataniah.com/', // = al wataniah
+  'bujairami perfumes uae': 'https://bujairami.ae/', // = bujairami
+  // Parenthesised trading name: catalogue's canonical spelling for this house
+  // is "Ibrahim Al Qurashi (IBRAQ)"; normalizeBrand turns the parens into
+  // spaces, so the key needs them spelled out as spaces too.
+  'ibrahim al qurashi ibraq': 'https://ibraquk.com/', // = ibraq
+  'gissah perfumes uae': 'https://gissahuae.com/', // = gissah
+  'reef perfumes': 'https://www.reef-parfum.com/en/', // = reef
+  // "Chloé" — normalizeBrand is ASCII-only ([^a-z]+), so the accented é drops
+  // out as punctuation rather than folding to "e" the way brandName.ts's own
+  // KNOWN_ALIASES table does for Estée Lauder and Lancôme. That leaves the
+  // key as "chlo", not "chloe" — a second, narrower bug from the same root
+  // cause as those two, not a new house.
+  chlo: 'https://www.chloe.com/en-gb/c/fragrances', // = chloe
+  'swiss arabian uae': 'https://swissarabian.com/', // = swiss arabian
+  'swiss arabian global': 'https://swissarabian.com/', // = swiss arabian
+  'swiss arabian ksa': 'https://swissarabian.com/', // = swiss arabian
+  // Amouage's own site titles itself "Amouage – The House of Amouage"
+  // (amouage.com/pages/our-story, checked 2026-08-19), so this is the fuller
+  // trading name some feeds use, not a different company.
+  'the house of amouage': 'https://amouage.com/', // = amouage
+  // Mugler's house name before its 2021 shortening; some feeds still send it.
+  'thierry mugler': 'https://www.mugler.co.uk/', // = mugler
+  memo: 'https://www.memoparis.com/', // = memo paris
+  'dumont perfumes uae': 'https://www.dumontparis.com/', // = dumont
+  // Hugo Boss now markets its fragrance line under the bare "BOSS" name
+  // (hugoboss.com/boss-fragrances-inspiration/, checked 2026-08-19); same
+  // company, same site as the "hugo boss" key already above.
+  boss: 'https://www.hugoboss.com/uk/', // = hugo boss
+  // Sub-line of Armaf carrying the parent's own name as a prefix.
+  'armaf le parfait': 'https://armaf.uk/', // = armaf
+
+  // ── Staged confirmation sweep, 2026-08-19 ─────────────────────────────────
+  // Same network limit as every earlier block: this sandbox's own egress is
+  // blocked (docs/INGESTION.md), so nothing below was opened directly. Unlike
+  // the earlier blocks, though, this pass had WebSearch rather than raw HTTP —
+  // real search results (titles, snippets, and the URLs search actually
+  // returned), read and cross-checked rather than pattern-guessed. The method
+  // was staged per the brief: a plain "<brand> official site" search first; a
+  // UK-targeted follow-up (co.uk, site:, "<brand> UK") wherever the first pass
+  // only turned up a global address or nothing; a third pass on name variants
+  // and parent-company searches for what was still unresolved. Every entry
+  // below is what that process actually returned, not an inferred pattern —
+  // where it returned nothing usable, the brand was left out rather than
+  // guessed (see the unresolved list this same session kept in its own commit
+  // message and PR notes).
+  //
+  // The UK/Non-UK label a reader sees is not hand-set anywhere in this file —
+  // officialSiteFor computes it from the URL itself via marketOf() (see that
+  // function's doc above). That classifier is deliberately narrow: it reads a
+  // `.co.uk` domain, a `uk.` subdomain, or a leading `/uk/`-or-`/en-gb/`-style
+  // path segment, and nothing else. Two real shapes fall through it and are
+  // called out inline below rather than worked around, since reusing the
+  // probe's own classifier means taking its blind spots as they are: a path
+  // where the market marker isn't the very first segment (`/shop/gb/en/...`),
+  // and a domain that spells "uk" into its own name without a formal
+  // subdomain, path or TLD marker (`cachareluk.com`). Both are genuinely UK
+  // addresses that will still render "Non-UK Site" — a false negative, which
+  // is the safe direction to be wrong in here.
+  'the body shop': 'https://www.thebodyshop.com/',
+  // uk.policelifestyle.com, not the .com root's own /uk-en/ path — that path
+  // segment reads "uk-en" (country before language), which marketOf's path
+  // regex parses as market "en", not "uk"; the subdomain is unambiguous where
+  // the path would have been silently wrong.
+  police: 'https://uk.policelifestyle.com/',
+  'louis cardin': 'https://www.louiscardin.com/',
+  escentric: 'https://www.escentric.com/', // catalogue also carries this brand bare as "Escentric"
+  'escentric molecule': 'https://www.escentric.com/', // singular spelling variant
+  'escentric molecules': 'https://www.escentric.com/',
+  'jo loves': 'https://www.joloves.com/',
+  // Paris Corner's own Émir collection page, same domain as the existing
+  // "paris corner" entry above — a line, not a separate company.
+  emir: 'https://pariscorner.ae/',
+  // Same house, same reasoning as Émir above.
+  'pendora scents': 'https://pariscorner.ae/',
+  // Owned by Sterling Perfumes Industries LLC (Dubai); no standalone Jenny
+  // Glow domain turned up in search, only this brand page on the parent's own
+  // site — sterlingparfums.com, not a retailer.
+  'jenny glow': 'https://www.sterlingparfums.com/brand/fragrance/jenny-glow',
+  // British perfumer since 1730, Jermyn Street — but florislondon.com carries
+  // no .co.uk, uk. or /uk/ marker of its own (us.florislondon.com is the only
+  // region-marked address that turned up), so this reads Non-UK here despite
+  // being a British house.
+  'floris london': 'https://www.florislondon.com/',
+  // /shop/gb/en/ is a real UK path, but "shop" is the URL's first segment,
+  // not "gb" — outside what marketOf's path check reads. See this block's own
+  // header note on that blind spot.
+  'salvatore ferragamo': 'https://www.ferragamo.com/shop/gb/en/',
+  // Catalogue's canonical spelling for the accented house name; m-w.de is the
+  // parent company's own site (English section), not a guessed pattern.
+  'm urer wirtz': 'https://www.m-w.de/en/',
+  'maurer wirtz': 'https://www.m-w.de/en/', // ASCII-spelled variant, no umlaut, some feeds use this
+  'yardley london': 'https://yardleylondon.co.uk/',
+  guess: 'https://www.guess.eu/en-gb/guess/women/accessories/fragrances',
+  // British house, but dunhill.com itself carries no UK marker (no UK-specific
+  // path turned up in search) — Non-UK here for the same reason as Floris
+  // London above.
+  dunhill: 'https://www.dunhill.com/',
+  'alfred dunhill': 'https://www.dunhill.com/', // full trading name a few feeds use
+  // Catalogue's canonical spelling is plain "Maison Margiela"; the existing
+  // "maison martin margiela" key above already points here under the fuller
+  // name some feeds still use.
+  'maison margiela': 'https://www.maisonmargiela.com/en-gb/',
+  'karl lagerfeld': 'https://www.karllagerfeld.com/en-gb/',
+  // risala.ae's own title names the company directly. "Risala Elite" (a
+  // separate, higher-volume canonical brand in this catalogue) is NOT aliased
+  // here: search turned up only third-party retailers and a separate
+  // Fragrantica designer page for it, never confirmation it is the same
+  // company's own line rather than a similarly-named one — left unresolved
+  // rather than assumed.
+  risala: 'https://risala.ae/',
+  escada: 'https://www.escada.com/',
+  'nina ricci': 'https://www.ninaricci.com/',
+  'roberto cavalli': 'https://www.robertocavalli.com/',
+  lanvin: 'https://www.lanvin.com/',
+  'laurent mazzone': 'https://www.lmparfums.com/en-us',
+  caron: 'https://www.parfumscaron.com/en',
+  'tommy hilfiger': 'https://uk.tommy.com/',
+  'milton lloyd': 'https://uk.milton-lloyd.com/',
+  coach: 'https://uk.coach.com/',
+  'paris bleu': 'https://parisbleu.com/',
+  'street origins': 'https://streetorigins.co/',
+  laverne: 'https://laverne.com/en',
+  'abercrombie fitch': 'https://www.abercrombie.com/',
+  'oscar de la renta': 'https://www.oscardelarenta.com/',
+  boucheron: 'https://www.boucheron.com/',
+  embark: 'https://www.embarkperfumes.com/',
+  // cachareluk.com's own title reads "Cacharel Perfume, Aftershave, Noa
+  // Perfume UK Official Website" — genuinely their UK storefront — but the
+  // word "uk" is baked into the domain label rather than sitting in a
+  // subdomain, path or TLD position marketOf reads, so this renders Non-UK.
+  // See this block's own header note; not fixed here on purpose.
+  cacharel: 'https://cachareluk.com/',
 };
 
 /**
@@ -341,7 +495,32 @@ function normalizeBrand(brand: string): string {
     .trim();
 }
 
-/** The brand's own official site, if we have verified one — never invented. */
-export function officialSiteFor(brand: string): string | null {
-  return BRAND_SITES[normalizeBrand(brand)] ?? null;
+/**
+ * The brand's own official site, if we have verified one — never invented —
+ * plus whether it is a UK storefront, so a reader knows before clicking.
+ *
+ * `uk` is computed once, at module load, from the same market-detection rule
+ * `scripts/brand-site-probe.ts` uses to judge a probed landing address
+ * (`marketOf` in src/catalogue/brandSiteCheck.ts): a `.co.uk` domain, a `uk.`
+ * subdomain, or a `/uk/` or `/en-gb/` path counts as UK; a plain global `.com`
+ * with no market marker does not, and is labelled Non-UK rather than guessed
+ * at. Reusing that function rather than a second copy is deliberate — the
+ * probe's classifier and this label must never quietly disagree about what
+ * "UK" means for the same URL.
+ */
+export interface BrandSite {
+  url: string;
+  uk: boolean;
+}
+
+export function officialSiteFor(brand: string): BrandSite | null {
+  const url = BRAND_SITES[normalizeBrand(brand)];
+  if (!url) return null;
+  // marketOf reports the /en-gb/ path shape as "gb" rather than "uk" — the
+  // same synonym classifyLanding's own sameMarket() normalises before
+  // comparing two markets. Doing the same normalisation here, rather than
+  // teaching marketOf a new return value, keeps the one classifier the probe
+  // depends on unchanged.
+  const market = marketOf(url);
+  return { url, uk: market === 'uk' || market === 'gb' };
 }

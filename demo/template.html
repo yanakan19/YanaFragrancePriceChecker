@@ -1085,6 +1085,24 @@
     .brand-site-link:hover .control-ico { color: var(--accent); }
   }
 
+  /* Which market the link above actually opens, so a reader knows before
+     clicking rather than after landing on it. --ok (green) is this app's
+     existing "confirmed fine" token, reused here for "yes, UK" rather than
+     invented fresh; Non-UK is deliberately neutral rather than --warn, since
+     a brand with only a global site is not a fault, just a fact worth
+     flagging (see officialSiteFor's own doc in demo/brandSites.ts). */
+  .brand-site-flag {
+    margin-left: 2px; padding: 2px 7px; border-radius: 999px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: .01em;
+    text-transform: uppercase; white-space: nowrap;
+  }
+  .brand-site-flag.is-uk {
+    color: var(--ok); background: color-mix(in srgb, var(--ok) 14%, transparent);
+  }
+  .brand-site-flag.is-nonuk {
+    color: var(--faint); background: var(--surface-2);
+  }
+
   .fact-list { list-style: none; margin: 8px 0 6px; padding: 0; }
   .fact-list li {
     font-size: 13px; color: var(--ink-2); padding: 6px 0 6px 14px;
