@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 71 retailers, 36 of them `enabled: true`. Every one of them is a legitimate
+ * 79 retailers, 36 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -4768,6 +4768,353 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
   },
+  {
+    id: 'asda',
+    name: 'Asda',
+    domain: 'groceries.asda.com',
+    homepage: 'https://groceries.asda.com',
+    tiers: ['designer'],
+    // Added 2026-08-20 from WebSearch result URLs and titles alone — no page
+    // opened, this sandbox has no egress. Asda sells fragrance online through
+    // two separate storefronts on two subdomains, which is the first thing
+    // anyone crawling it has to decide between:
+    //
+    //   groceries.asda.com  the grocery shelf — /shelf/fragrance/womens-
+    //                       fragrance/1818823464 and asda.com/groceries/
+    //                       toiletries-beauty/make-up-nails/fragrance/
+    //                       mens-fragrances both surfaced in search results
+    //   direct.asda.com     George at ASDA — /george/collections/fragrance/
+    //                       D28M8,default,sc.html and its men's/women's
+    //                       siblings, whose result snippets name Calvin
+    //                       Klein and Hugo Boss
+    //
+    // `domain` is set to the grocery side because that is Asda-the-
+    // supermarket, which is what was asked for, and because George's
+    // ",default,sc.html" URL shape is a Demandware/Salesforce Commerce
+    // catalogue address rather than a plain path. Which of the two actually
+    // yields parseable listings is unmeasured; if the George side turns out
+    // to be the one that answers, this field is where that gets recorded.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from any Asda domain: not its delivery terms, not its ' +
+        'robots.txt, not its checkout currency. Grocery delivery is slot-booked rather than a ' +
+        'flat per-order rate — the same shape problem recorded on the Tesco entry — so no ' +
+        'figure is entered. George at ASDA on direct.asda.com may well have a flat parcel rate; ' +
+        'nobody has read it. No affiliate programme has been researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'sainsburys',
+    name: "Sainsbury's",
+    domain: 'sainsburys.co.uk',
+    homepage: 'https://www.sainsburys.co.uk',
+    tiers: ['designer'],
+    // Added 2026-08-20 from WebSearch result URLs and titles alone — no page
+    // opened, this sandbox has no egress. Two generations of URL turned up in
+    // the same search, which matters for anything that has to still resolve
+    // next month:
+    //
+    //   /gol-ui/groceries/beauty-and-cosmetics/fragrances/c:1018916 and
+    //   /gol-ui/groceries/beauty-and-cosmetics/fragrances/for-her/c:1018914
+    //   and .../mens-grooming/shaving-and-beard-care/aftershave/c:1018981
+    //     — the current Groceries Online UI, category-id addressed
+    //
+    //   /webapp/wcs/stores/servlet/gb/groceries/... ?krypto=<long opaque
+    //   blob>&ddkey=...
+    //     — a WebSphere Commerce legacy address carrying a signed, expiring
+    //       "krypto" parameter. Deliberately NOT recorded as a catalogue URL
+    //       anywhere: it is session-scoped, it is exactly the kind of
+    //       parameter this repo strips rather than commits, and an entry
+    //       point that expires is not an entry point.
+    //
+    // "gol-ui" is a client-rendered application, on the evidence of the name
+    // and the id-in-path routing, which would put this shop in the same
+    // bracket as Boots/Selfridges/John Lewis/Zara above — reachable, but with
+    // no schema.org JSON-LD for parseListings to read. That is a suspicion
+    // from a URL shape, not a measurement, and is written here as one.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        "Nothing here has been read from sainsburys.co.uk itself: not its delivery terms, not " +
+        'its robots.txt, not its checkout currency. Grocery delivery is slot-booked rather than ' +
+        'a flat per-order rate, so no figure is entered. No affiliate programme has been ' +
+        'researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'morrisons',
+    name: 'Morrisons',
+    domain: 'groceries.morrisons.com',
+    homepage: 'https://groceries.morrisons.com',
+    tiers: ['designer'],
+    // Added 2026-08-20 from WebSearch result URLs and titles alone — no page
+    // opened, this sandbox has no egress. The most encouraging of the grocers
+    // on URL shape alone, for two reasons.
+    //
+    // First, it has individually addressable product pages of the form
+    // /products/{slug}/{numeric id} — search results returned
+    // /products/paco-rabanne-pour-homme-aftershave-lotion/113683477 and
+    // /products/joop-homme-aftershave/106199290 — which is the shape a
+    // sitemap walk can enumerate and a JSON-LD parser can read one at a time.
+    // Asda's and Sainsbury's fragrance results were category listings only.
+    //
+    // Second, those two products are Paco Rabanne and Joop!, i.e. real
+    // designer bottles rather than gift sets and body sprays, and a third
+    // named in the same results is Davidoff Cool Water. A supermarket that
+    // stocks only Lynx duos is not a price source for this site; this one is
+    // not that.
+    //
+    // Categories seen: /categories/toiletries-beauty/gifting-fragrances/
+    // aftershave-fragrances-for-him/180870 (numeric) and
+    // .../perfume-fragrances-for-her/8eb91d51-126d-4a61-9a95-cf77e083a6f1
+    // (uuid). Two id schemes in one category tree is worth noting before
+    // anyone writes a URL template against it.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from groceries.morrisons.com itself: not its delivery ' +
+        'terms, not its robots.txt, not its checkout currency. Grocery delivery is slot-booked ' +
+        'rather than a flat per-order rate, so no figure is entered. No affiliate programme has ' +
+        'been researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'ocado',
+    name: 'Ocado',
+    domain: 'ocado.com',
+    homepage: 'https://www.ocado.com',
+    tiers: ['designer'],
+    // Added 2026-08-20 from WebSearch result URLs and titles alone — no page
+    // opened, this sandbox has no egress. Has a genuine general fragrance
+    // category rather than only home fragrance:
+    // /categories/health-beauty-personal-care/fragrance/11e8eb7a-b47d-4ac1-
+    // a686-9e1ae4b2aeee, whose result summary names Burberry, Hugo Boss,
+    // Jimmy Choo and Calvin Klein. Separately carries an M&S-at-Ocado
+    // homeware/beauty tree (/categories/m-s/...), which is M&S stock sold by
+    // Ocado — note marks-and-spencer already exists as its own entry above,
+    // so anything harvested here would need care not to be double-counted
+    // against that one as if two shops were competing.
+    //
+    // Ranked below Morrisons despite the better brand list because no
+    // individually addressable product URL surfaced at all — every Ocado
+    // result was a category page with a uuid — and a category-only site is
+    // the case a sitemap walk handles worst.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [2, 4],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from ocado.com itself: not its delivery terms, not its ' +
+        'robots.txt, not its checkout currency. Ocado delivery is slot-booked and tied to a ' +
+        'Smart Pass membership scheme, neither of which this model prices in, so no figure is ' +
+        'entered. No affiliate programme has been researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'savers',
+    name: 'Savers',
+    domain: 'savers.co.uk',
+    homepage: 'https://www.savers.co.uk',
+    tiers: ['designer'],
+    // Added 2026-08-20 from WebSearch result URLs and titles alone — no page
+    // opened, this sandbox has no egress. Not a grocer: a 500-plus-store
+    // health, home and beauty discounter owned by AS Watson, which is the
+    // same group that owns Superdrug — already in this registry above, on
+    // `adapter: 'proxied'`, and currently returning nothing. Whatever
+    // Superdrug's storefront does about bots, this one may well do too, and
+    // that is a reason to measure it rather than to assume either way.
+    //
+    // Fragrance URLs seen: /perfume/womens-perfumes/c/for-her,
+    // /Perfume/Women's-Perfumes/Fragrance/c/fragrance and
+    // /perfume/Shop-All-Fragrance-Clearance/c/shop-all-fragrance. The
+    // "/c/{code}" suffix is the SAP Commerce (Hybris) category convention,
+    // which is a conventional server-rendered stack rather than a grocery
+    // SPA — the reason this is ranked above the grocers for likely
+    // crawlability despite being a much smaller shop.
+    //
+    // One caution recorded because it was seen and would be dishonest to
+    // drop: a consumer-reviews aggregator surfaced in the same search
+    // carrying complaints about undelivered orders, unresolved refunds and
+    // suspected counterfeit perfume. That is third-party review-site
+    // reputation, not a finding about this shop, and it is not evidence of
+    // anything — but this registry sends real people to real checkouts, so a
+    // human should look before this one is ever switched on.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from savers.co.uk itself: not its delivery terms, not its ' +
+        'robots.txt, not its checkout currency. Search summaries mention free Click & Collect, ' +
+        'which is not a delivery rate, so nothing is entered. No affiliate programme has been ' +
+        'researched; a third-party affiliate directory suggested there is none on the major ' +
+        'networks, which is not the same as having checked Awin and Rakuten directly.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'bm-stores',
+    name: 'B&M',
+    domain: 'bmstores.co.uk',
+    homepage: 'https://www.bmstores.co.uk',
+    tiers: ['designer'],
+    // Added 2026-08-20 from WebSearch result URLs and titles alone — no page
+    // opened, this sandbox has no egress. Variety discounter, 700-plus
+    // stores. Fragrance tree at /products/health-and-beauty/fragrance with
+    // /men-s-fragrance, /women-s-fragrance and a ?page=N pagination
+    // parameter that appeared in the results themselves (?page=2, ?page=3),
+    // so the paging convention is at least visible from outside. Result
+    // summaries name Joop!, Davidoff, Hugo Boss and Victoria Beckham, so
+    // designer stock rather than own-label.
+    //
+    // Note the plain hierarchical paths with no id segment and no session
+    // parameter — the friendliest URL shape of anything in this batch.
+    // Whether the pages behind them carry product JSON-LD is unmeasured.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from bmstores.co.uk itself: not its delivery terms, not ' +
+        'its robots.txt, not its checkout currency. No delivery figure of any kind appeared in ' +
+        'the search summaries read for this entry. No affiliate programme has been researched; ' +
+        'a third-party affiliate directory suggested there is none on the major networks, which ' +
+        'is not the same as having checked Awin and Rakuten directly.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'the-range',
+    name: 'The Range',
+    domain: 'therange.co.uk',
+    homepage: 'https://www.therange.co.uk',
+    tiers: ['designer'],
+    // Added 2026-08-20 from WebSearch result URLs and titles alone — no page
+    // opened, this sandbox has no egress. Fragrance tree at
+    // /health-and-beauty/fragrances-and-gifting/perfumes-and-aftershaves/
+    // with /male-aftershave-and-fragrance/ and a
+    // /female-fragrance-and-perfumes/designer-fragrances-eau-de-parfum leaf;
+    // result summaries name Calvin Klein, Paco Rabanne and David Beckham.
+    // Plain hierarchical paths, no ids, no session parameters.
+    //
+    // The only shop in this batch with an affiliate programme found: an
+    // Awin merchant profile at ui.awin.com/merchant-profile/5238 titled "The
+    // Range Affiliate Programme" appeared as a search result in its own
+    // right. That is `awinPending` territory — a confirmed merchant we have
+    // not applied to — and it is recorded that way below rather than as
+    // anything live. A commission rate ("2% rising to 8%") appeared in a
+    // third-party blog summarising the programme; it is not repeated in the
+    // config, because a rate read off a blog is not a rate.
+    //
+    // Worth more than a scrape route if it lands: an approved Awin
+    // programme gives a product feed with prices and an image licence in the
+    // terms, which is the difference between hot-linking someone's
+    // photography unlicensed and being invited to.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from therange.co.uk itself: not its delivery terms, not ' +
+        'its robots.txt, not its checkout currency. Search summaries mention home delivery and ' +
+        'reserve & collect without naming a rate, so nothing is entered.',
+    },
+    catalogue: null,
+    // Merchant id 5238 read off the title of an ui.awin.com/merchant-profile
+    // search result, not from a logged-in Awin session. `awinPending` is the
+    // right shape for that: confirmed merchant, no application made, nothing
+    // claimed about a relationship. Applying is a human action.
+    affiliate: { ...awinPending('5238') },
+  },
+  {
+    id: 'home-bargains',
+    name: 'Home Bargains',
+    domain: 'home.bargains',
+    homepage: 'https://home.bargains',
+    tiers: ['designer'],
+    // Added 2026-08-20 from WebSearch result URLs and titles alone — no page
+    // opened, this sandbox has no egress. Variety discounter, 600-plus
+    // stores, and the only entry in this batch whose search results included
+    // a dedicated designer-fragrance hub: /brand/designerfragrances/
+    // designer-fragrances, alongside /category/975/fragrances.
+    //
+    // Two live domains appeared in the same search and this entry has to
+    // pick one: home.bargains (used above, and the one carrying the designer
+    // hub) and homebargains.co.uk, whose fragrance URL is
+    // /category/22-fragrances.aspx — an older ASP.NET address. Which is
+    // canonical and whether one redirects to the other is unmeasured, and it
+    // is the first thing a probe against this entry should settle, because
+    // `domain` is what every crawl route builds its requests from.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from either Home Bargains domain: not its delivery terms, ' +
+        'not its robots.txt, not its checkout currency. Search summaries mention home delivery ' +
+        'without naming a rate, so nothing is entered. No affiliate programme has been ' +
+        'researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
 ] as const;
 
 /**
@@ -5060,6 +5407,65 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'about perfumedirect.com comes from WebSearch snippets; its checkout currency has not ' +
       'been read. One positive sterling reading from a currency probe is what would remove ' +
       'this id.',
+  ],
+  [
+    'asda',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about groceries.asda.com comes from WebSearch result URLs and titles; its checkout ' +
+      'currency has not been read. One positive sterling reading from a currency probe is what ' +
+      'would remove this id.',
+  ],
+  [
+    'sainsburys',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about sainsburys.co.uk comes from WebSearch result URLs and titles; its checkout ' +
+      'currency has not been read. One positive sterling reading from a currency probe is what ' +
+      'would remove this id.',
+  ],
+  [
+    'morrisons',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about groceries.morrisons.com comes from WebSearch result URLs and titles; its checkout ' +
+      'currency has not been read. One positive sterling reading from a currency probe is what ' +
+      'would remove this id.',
+  ],
+  [
+    'ocado',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about ocado.com comes from WebSearch result URLs and titles; its checkout currency has ' +
+      'not been read. One positive sterling reading from a currency probe is what would remove ' +
+      'this id.',
+  ],
+  [
+    'savers',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about savers.co.uk comes from WebSearch result URLs and titles; its checkout currency ' +
+      'has not been read. One positive sterling reading from a currency probe is what would ' +
+      'remove this id.',
+  ],
+  [
+    'bm-stores',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about bmstores.co.uk comes from WebSearch result URLs and titles; its checkout currency ' +
+      'has not been read. One positive sterling reading from a currency probe is what would ' +
+      'remove this id.',
+  ],
+  [
+    'the-range',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about therange.co.uk comes from WebSearch result URLs and titles; its checkout currency ' +
+      'has not been read. Note that a confirmed Awin merchant profile is not a currency ' +
+      'reading either — Nicchia Luxury was enabled on an Awin feed\'s GBP column and that is ' +
+      'the entry this list exists because of. One positive sterling reading from a currency ' +
+      'probe is what would remove this id.',
+  ],
+  [
+    'home-bargains',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about home.bargains comes from WebSearch result URLs and titles; its checkout currency ' +
+      'has not been read, and which of its two live domains is canonical has not been ' +
+      'established either. One positive sterling reading from a currency probe is what would ' +
+      'remove this id.',
   ],
   [
     'tesco',
