@@ -582,11 +582,38 @@ export const RETAILERS: readonly Retailer[] = [
     //     behind that approval gate — and returned no priced listing.
     //   - run 18, job 96348413008: HTTP 502 Bad Gateway from Apify's own
     //     API, an Apify-side failure rather than anything about this shop.
+    //   - run 19, job 96350053274, 2026-08-20T07:35Z — the one that answers
+    //     the question:
     //
-    // So: free routes are exhausted and understood, the actor tier is
-    // reachable but has not yet produced a usable render here, and the most
-    // promising version of it is one console click away. Not yet shown
-    // gettable; not shown ungettable either.
+    //         [actor] rendered 4 section page(s), 0 listings parsed, 0 priced
+    //         [actor] …/womens-fragrance/_/N-a63?page=1:   HTTP 200, 1067905 bytes
+    //         [actor] …/mens-aftershave/_/N-a61?page=1:    HTTP 200, 1122939 bytes
+    //         [actor] …/unisex-fragrance/_/N-nx23?page=1:  HTTP 200, 1063812 bytes
+    //         [actor] …/fragrance-sets/…?page=1:           HTTP 200, 1019324 bytes
+    //
+    // ── What that changes ───────────────────────────────────────────────────
+    // The actor tier works. All four of this shop's real category pages came
+    // back rendered, HTTP 200, at about a megabyte each — the JavaScript ran
+    // and the grid was painted. Retrieval, the thing every entry in this file
+    // has treated as the hard part for John Lewis, is solved.
+    //
+    // The remaining gap is extraction, which is a different problem with a
+    // different fix. `parseListings` (src/catalogue/jsonld.ts) reads
+    // schema.org Product nodes out of JSON-LD and nothing else, deliberately
+    // — "one parser, one truth" is why every route in this repo produces
+    // comparable data. These rendered pages carry no such node: 4.2 MB of
+    // real John Lewis fragrance grid, zero Product markup in it.
+    //
+    // So this shop is not blocked on money, on IP reputation, on JavaScript
+    // or on permission. It is blocked on the fact that its category pages do
+    // not publish structured product data, and the honest options are all
+    // extraction-side: render this shop's *product* pages instead (which
+    // almost certainly do carry JSON-LD, but at one metered page per product,
+    // exactly the cost shape docs/INGESTION.md forbids), or teach the
+    // pipeline a second extraction format, which is a decision about "one
+    // parser, one truth" and not one to take quietly inside a retailer entry.
+    // Neither is attempted here. What is now established, and was not before,
+    // is which of the two questions is actually open.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
