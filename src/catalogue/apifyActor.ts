@@ -55,6 +55,37 @@
  * dark tier with a little headroom, cheap enough to be a sane starting point
  * before any real cost has been measured. Revisit once it has.
  *
+ * ── VERIFIED 2026-08-20: this works, and what it does not fix ─────────────
+ * Everything the section below says is unproven has now been run for real,
+ * and the answer splits cleanly in two.
+ *
+ * Retrieval works. Harvest probe run 19, job 96350053274, against John Lewis:
+ *
+ *     [actor] rendered 4 section page(s), 0 listings parsed, 0 priced
+ *     [actor] …/womens-fragrance/_/N-a63?page=1:  HTTP 200, 1067905 bytes
+ *     [actor] …/mens-aftershave/_/N-a61?page=1:   HTTP 200, 1122939 bytes
+ *     [actor] …/unisex-fragrance/_/N-nx23?page=1: HTTP 200, 1063812 bytes
+ *     [actor] …/fragrance-sets/…?page=1:          HTTP 200, 1019324 bytes
+ *
+ * Four real category pages of a shop whose sitemap will not answer this
+ * network at all, each about a megabyte, each with the JavaScript run and the
+ * grid painted. The design in this header is sound and the route is live.
+ *
+ * Extraction is now the open question, and it is a different one. That run
+ * parsed zero listings out of 4.2 MB of rendered fragrance grid, because
+ * `parseListings` reads schema.org Product nodes from JSON-LD and nothing
+ * else — deliberately, since "one parser, one truth" is what makes every
+ * route in this repo produce comparable data — and those pages carry none.
+ * A shop whose category pages do publish JSON-LD will work through this
+ * module today. A shop whose pages do not cannot be fixed by spending more
+ * here, however many pages are rendered.
+ *
+ * Two other things the first live runs established, both recorded in full at
+ * their own definitions below: `apify/puppeteer-scraper` cannot start at all
+ * until the account owner approves its permissions by hand (see
+ * ACTOR_APPROVAL_REFUSAL), and a call to the synchronous endpoint can outlast
+ * its own abort signal by many minutes (see ACTOR_CALL_TIMEOUT_MS).
+ *
  * ── What has and has not been verified ──────────────────────────────────
  * Built against Apify's publicly documented REST API
  * (docs.apify.com/api/v2 — specifically the "run Actor synchronously and get
