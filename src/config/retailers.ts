@@ -4747,6 +4747,31 @@ export const RETAILERS: readonly Retailer[] = [
     // could parse. The category paths above come from WebSearch result URLs
     // and titles alone. Enabling on that would be enabling on a famous name,
     // which is the exact mistake Nicchia Luxury's entry above records.
+    //
+    // ── Measured 2026-08-20, and it did not get far ──────────────────────────
+    // Harvest probe --dry-run --shop=tesco --max=10, run 32389888196 job
+    // 96493168477, 2026-08-20T16:05:00Z, commit 071bbb7:
+    //
+    //   Tesco   0 urls   0 fetched   0 priced listings  (1 errors)
+    //       https://www.tesco.com/sitemap.xml: HTTP 504
+    //
+    // robots.txt itself was read — the harvest prints a loud "robots.txt
+    // could not be read" block when it cannot, and printed none, and a URL
+    // it considered disallowed would never have been fetched. So Tesco's
+    // robots.txt permits /sitemap.xml and the file behind it gateway-timed
+    // out. Only one root was tried, which means robots.txt declared no
+    // Sitemap: line of its own for the walk to prefer.
+    //
+    // A 504 is the server saying "not now" rather than "not you", so this
+    // is a route that has not been shown to fail so much as one that has not
+    // yet answered. Nothing about currency, delivery or JSON-LD was learned.    //
+    // One thing "priced listings" does NOT mean, recorded here because it
+    // would be easy to read it as more than it is: src/catalogue/jsonld.ts
+    // does not look at schema.org `priceCurrency` at all — it takes the
+    // number out of the offer and stores it as `priceGbp`. So a priced
+    // listing proves a price was found and parsed, and says nothing whatever
+    // about which currency it is in. That is why this entry stays in
+    // CURRENCY_UNCONFIRMED regardless of the count above.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -4794,6 +4819,38 @@ export const RETAILERS: readonly Retailer[] = [
     // catalogue address rather than a plain path. Which of the two actually
     // yields parseable listings is unmeasured; if the George side turns out
     // to be the one that answers, this field is where that gets recorded.
+    //
+    // ── Measured 2026-08-20, and the failure is ours, not Asda's ─────────────
+    // Harvest probe --dry-run --shop=asda --max=10, run 32390519099 job
+    // 96495258488, 2026-08-20T16:11:05Z, commit 59f60a9:
+    //
+    //   Asda   0 urls   0 fetched   0 priced listings  (2 errors)
+    //       https://www.groceries.asda.com/sitemap.xml: HTTP 0
+    //       [patient] https://www.groceries.asda.com/sitemap.xml: HTTP 0
+    //
+    // Look at the host. crawlViaSitemap builds its conventional root as
+    // `https://www.{domain}/sitemap.xml`, and this entry's domain is already
+    // a subdomain, so it asked www.groceries.asda.com — which does not
+    // exist. HTTP 0 is a connection that never completed, twice, including
+    // once at the 60-second patient timeout, which is what a nonexistent
+    // host looks like. This is the identical shape recorded in
+    // catalogue-harvest.ts's own header for uk.shopfrenchavenue.com and
+    // uk.zimayaperfumes.com.
+    //
+    // So NOTHING has been measured about Asda: not its robots.txt policy
+    // beyond the file being readable, not its sitemap, not whether its pages
+    // carry JSON-LD. Recording this as "Asda refuses us" would be recording
+    // our own bug as a fact about a shop, which is precisely the mistake
+    // this file keeps having to undo. What it needs is a probe against a
+    // host that exists — either groceries.asda.com without the www, or
+    // direct.asda.com for the George storefront.    //
+    // One thing "priced listings" does NOT mean, recorded here because it
+    // would be easy to read it as more than it is: src/catalogue/jsonld.ts
+    // does not look at schema.org `priceCurrency` at all — it takes the
+    // number out of the offer and stores it as `priceGbp`. So a priced
+    // listing proves a price was found and parsed, and says nothing whatever
+    // about which currency it is in. That is why this entry stays in
+    // CURRENCY_UNCONFIRMED regardless of the count above.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -4842,6 +4899,26 @@ export const RETAILERS: readonly Retailer[] = [
     // bracket as Boots/Selfridges/John Lewis/Zara above — reachable, but with
     // no schema.org JSON-LD for parseListings to read. That is a suspicion
     // from a URL shape, not a measurement, and is written here as one.
+    //
+    // ── Measured 2026-08-20: refused ─────────────────────────────────────────
+    // Harvest probe --dry-run --shop=sainsburys --max=10, run 32390533846
+    // job 96495305455, 2026-08-20T16:11:18Z, commit 59f60a9:
+    //
+    //   Sainsbury's   0 urls   0 fetched   0 priced listings  (1 errors)
+    //       https://www.sainsburys.co.uk/sitemap.xml: HTTP 403
+    //
+    // robots.txt was read and named no sitemap of its own; the conventional
+    // path 403s. Note this says nothing either way about the gol-ui
+    // client-rendering suspicion recorded above — the walk never got as far
+    // as a product page to find out whether one carries JSON-LD. Two
+    // separate unknowns, and only the outer one has been touched.    //
+    // One thing "priced listings" does NOT mean, recorded here because it
+    // would be easy to read it as more than it is: src/catalogue/jsonld.ts
+    // does not look at schema.org `priceCurrency` at all — it takes the
+    // number out of the offer and stores it as `priceGbp`. So a priced
+    // listing proves a price was found and parsed, and says nothing whatever
+    // about which currency it is in. That is why this entry stays in
+    // CURRENCY_UNCONFIRMED regardless of the count above.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -4888,6 +4965,65 @@ export const RETAILERS: readonly Retailer[] = [
     // .../perfume-fragrances-for-her/8eb91d51-126d-4a61-9a95-cf77e083a6f1
     // (uuid). Two id schemes in one category tree is worth noting before
     // anyone writes a URL template against it.
+    //
+    // ── Measured 2026-08-20: the only grocer here with a working route ───────
+    // Harvest probe --dry-run --shop=morrisons --max=10, run 32390450886 job
+    // 96495029195, 2026-08-20T16:11:13Z, commit 59f60a9:
+    //
+    //   Morrisons   182 urls   10 fetched   10 priced listings  (1 errors)
+    //       https://www.groceries.morrisons.com/sitemap.xml: HTTP 403
+    //       sample priced URL: https://groceries.morrisons.com/products/
+    //         vitfix-magnesium-effervescent-citrus/115826347
+    //
+    // Read carefully, that error is ours and the result is theirs.
+    // crawlViaSitemap always tries `https://www.{domain}/sitemap.xml` as a
+    // conventional root (see its own code), which for a domain that is
+    // already a subdomain becomes www.groceries.morrisons.com — a host that
+    // 403s. It still found 182 product URLs, which can only have come from
+    // the Sitemap: lines in this shop's own robots.txt, so robots.txt was
+    // read, it named its sitemaps, and every URL the walk wanted was
+    // permitted. Ten of those pages were fetched and all ten yielded a
+    // parseable price, which means this storefront publishes product
+    // schema.org JSON-LD on a plain server-side fetch — the thing Boots,
+    // Selfridges, John Lewis, Superdrug and Zara above all fail to do.
+    //
+    // The sample is a magnesium supplement rather than a fragrance because
+    // the walk is unscoped: it enumerates the whole grocery catalogue. That
+    // is a `catalogue.requiredUrlPrefix` / sections question, not a
+    // retrieval one.
+    //
+    // ── Currency: one reading, and less than it sounds ───────────────────────
+    // Currency probe, run 32390810738 job 96496199287, 2026-08-20T16:14:18Z,
+    // commit 59f60a9. Six of the ten ways of asking — the bare origin,
+    // ?country=GB, both localisation cookies separately and together, and
+    // Accept-Language en-GB — each returned "quotes GBP, settles nothing,
+    // rate —", i.e. a sterling figure with no conversion named anywhere, and
+    // the script's own verdict line was "PASS: sterling price list served to
+    // origin". /en-gb, /gb, /uk and /en-uk all 404, as expected of a
+    // single-market grocer.
+    //
+    // What that reading actually is matters. /meta.json 404s and there is no
+    // Shopify.currency in the theme, so the GBP came from
+    // parseShopCurrency's last resort: a bare `"currency":"GBP"` match
+    // anywhere in the homepage HTML (src/catalogue/shopifyJson.ts). That is
+    // a real signal from the shop's own page and it is not a product's
+    // priceCurrency. The product page passed to the probe —
+    // /products/paco-rabanne-pour-homme-aftershave-lotion/113683477, taken
+    // from a WebSearch result — returned HTTP 404 through all six addresses,
+    // so the JSON-LD reading this needed was never taken. Whether that URL
+    // is stale or the host refuses that request shape is unknown.
+    //
+    // So this id stays in CURRENCY_UNCONFIRMED. What would clear it is one
+    // product page on this domain that resolves and names its own
+    // priceCurrency — a smaller job than the one already done, and not one
+    // to skip because a homepage said GBP.    //
+    // One thing "priced listings" does NOT mean, recorded here because it
+    // would be easy to read it as more than it is: src/catalogue/jsonld.ts
+    // does not look at schema.org `priceCurrency` at all — it takes the
+    // number out of the offer and stores it as `priceGbp`. So a priced
+    // listing proves a price was found and parsed, and says nothing whatever
+    // about which currency it is in. That is why this entry stays in
+    // CURRENCY_UNCONFIRMED regardless of the count above.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -4927,6 +5063,33 @@ export const RETAILERS: readonly Retailer[] = [
     // individually addressable product URL surfaced at all — every Ocado
     // result was a category page with a uuid — and a category-only site is
     // the case a sitemap walk handles worst.
+    //
+    // ── Measured 2026-08-20, and the result is genuinely ambiguous ───────────
+    // Harvest probe --dry-run --shop=ocado --max=10, run 32390552445 job
+    // 96495373910, 2026-08-20T16:11:33Z, commit 59f60a9:
+    //
+    //   Ocado   0 urls   0 fetched   0 priced listings
+    //
+    // No error line, and the shop's whole step ran in under 0.2 seconds.
+    // Zero errors is the unusual part: every other refusal in this batch
+    // left an HTTP status behind. crawlViaSitemap skips a robots-disallowed
+    // URL with a bare `continue` and records nothing at all (sitemapCrawl.ts
+    // line 257), so "permitted nothing we asked for" is the reading that
+    // fits both the silence and the speed — no fetch of any sitemap could
+    // have completed in that time.
+    //
+    // It is not the only reading. A sitemap that fetched instantly and
+    // listed no product URLs would look identical in this log. Distinguishing
+    // them needs a run that prints the robots verdict itself, which
+    // scripts/currency-probe.ts does and which has not been dispatched for
+    // this shop. Recorded as unresolved rather than written up as a refusal.    //
+    // One thing "priced listings" does NOT mean, recorded here because it
+    // would be easy to read it as more than it is: src/catalogue/jsonld.ts
+    // does not look at schema.org `priceCurrency` at all — it takes the
+    // number out of the offer and stores it as `priceGbp`. So a priced
+    // listing proves a price was found and parsed, and says nothing whatever
+    // about which currency it is in. That is why this entry stays in
+    // CURRENCY_UNCONFIRMED regardless of the count above.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -4974,6 +5137,30 @@ export const RETAILERS: readonly Retailer[] = [
     // reputation, not a finding about this shop, and it is not evidence of
     // anything — but this registry sends real people to real checkouts, so a
     // human should look before this one is ever switched on.
+    //
+    // ── Measured 2026-08-20: refused ─────────────────────────────────────────
+    // Harvest probe --dry-run --shop=savers --max=10, run 32390473517 job
+    // 96495106365, 2026-08-20T16:10:44Z, commit 59f60a9:
+    //
+    //   Savers   0 urls   0 fetched   0 priced listings  (1 errors)
+    //       https://www.savers.co.uk/sitemap.xml: HTTP 403
+    //
+    // robots.txt was read (no unreadable-robots block printed, and a URL the
+    // rules disallowed would not have been fetched at all), and only the one
+    // conventional root was tried, so robots.txt declared no Sitemap: line.
+    // The 403 is the storefront refusing this client, which is a fact about
+    // its bot defences rather than about its crawl policy — the same
+    // distinction the Superdrug entry above draws, and Superdrug is the same
+    // corporate group. Whether a residential IP or a real browser gets past
+    // it is exactly what the metered tiers exist to answer and has not been
+    // asked here.    //
+    // One thing "priced listings" does NOT mean, recorded here because it
+    // would be easy to read it as more than it is: src/catalogue/jsonld.ts
+    // does not look at schema.org `priceCurrency` at all — it takes the
+    // number out of the offer and stores it as `priceGbp`. So a priced
+    // listing proves a price was found and parsed, and says nothing whatever
+    // about which currency it is in. That is why this entry stays in
+    // CURRENCY_UNCONFIRMED regardless of the count above.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5011,6 +5198,33 @@ export const RETAILERS: readonly Retailer[] = [
     // Note the plain hierarchical paths with no id segment and no session
     // parameter — the friendliest URL shape of anything in this batch.
     // Whether the pages behind them carry product JSON-LD is unmeasured.
+    //
+    // ── Measured 2026-08-20: a working route ─────────────────────────────────
+    // Harvest probe --dry-run --shop=bm-stores --max=10, run 32390489171 job
+    // 96495154921, 2026-08-20T16:11:41Z, commit 59f60a9:
+    //
+    //   B&M   233 urls   10 fetched   10 priced listings  (1 errors)
+    //       https://www.bmstores.co.uk/sitemap.xml: HTTP 404
+    //       sample priced URL: https://www.bmstores.co.uk/products/
+    //         flash-bathroom-500ml-febreze-fresh-scent-409799
+    //
+    // The conventional sitemap path simply does not exist here; the 233 URLs
+    // came from the Sitemap: lines in this shop's own robots.txt, which the
+    // walk prefers when they are there. So robots.txt was read, it named its
+    // sitemaps, every URL was permitted, and ten of ten fetched product
+    // pages carried a parseable schema.org price. Second-best retrieval
+    // result of the eight shops in this batch.
+    //
+    // The sample is a bathroom cleaner because the walk is unscoped across
+    // the whole catalogue — a sections/requiredUrlPrefix question, not a
+    // retrieval one.    //
+    // One thing "priced listings" does NOT mean, recorded here because it
+    // would be easy to read it as more than it is: src/catalogue/jsonld.ts
+    // does not look at schema.org `priceCurrency` at all — it takes the
+    // number out of the offer and stores it as `priceGbp`. So a priced
+    // listing proves a price was found and parsed, and says nothing whatever
+    // about which currency it is in. That is why this entry stays in
+    // CURRENCY_UNCONFIRMED regardless of the count above.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5057,6 +5271,29 @@ export const RETAILERS: readonly Retailer[] = [
     // programme gives a product feed with prices and an image licence in the
     // terms, which is the difference between hot-linking someone's
     // photography unlicensed and being invited to.
+    //
+    // ── Measured 2026-08-20: refused ─────────────────────────────────────────
+    // Harvest probe --dry-run --shop=the-range --max=10, run 32390498472 job
+    // 96495184519, 2026-08-20T16:10:56Z, commit 59f60a9:
+    //
+    //   The Range   0 urls   0 fetched   0 priced listings  (1 errors)
+    //       https://www.therange.co.uk/sitemap.xml: HTTP 403
+    //
+    // robots.txt was read and named no sitemap of its own; the conventional
+    // path 403s. Worth restating what that does and does not mean for this
+    // particular entry: the scrape route is refused, and the Awin route
+    // recorded below is untouched by that. A merchant feed is handed over
+    // rather than fetched, so a shop that will not serve a crawler can still
+    // be a perfectly good affiliate partner. Of the eight shops in this
+    // batch this is the one where applying is likely to be worth more than
+    // any amount of further crawling.    //
+    // One thing "priced listings" does NOT mean, recorded here because it
+    // would be easy to read it as more than it is: src/catalogue/jsonld.ts
+    // does not look at schema.org `priceCurrency` at all — it takes the
+    // number out of the offer and stores it as `priceGbp`. So a priced
+    // listing proves a price was found and parsed, and says nothing whatever
+    // about which currency it is in. That is why this entry stays in
+    // CURRENCY_UNCONFIRMED regardless of the count above.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -5097,6 +5334,32 @@ export const RETAILERS: readonly Retailer[] = [
     // canonical and whether one redirects to the other is unmeasured, and it
     // is the first thing a probe against this entry should settle, because
     // `domain` is what every crawl route builds its requests from.
+    //
+    // ── Measured 2026-08-20: the best retrieval result in this batch ─────────
+    // Harvest probe --dry-run --shop=home-bargains --max=10, run 32390508333
+    // job 96495217728, 2026-08-20T16:11:45Z, commit 59f60a9:
+    //
+    //   Home Bargains   756 urls   10 fetched   10 priced listings
+    //       sample priced URL: https://home.bargains/product/
+    //         006cd416-38d5-4412-bd19-7c7a0443780b/
+    //         disney-alice-in-wonderland-scented-diffuser-200ml-paint-the-roses
+    //
+    // No error line at all — the only shop of the eight to produce a clean
+    // sweep. robots.txt was read and permitted everything asked for, the
+    // sitemap resolved, 756 product URLs were enumerated, and ten of ten
+    // fetched pages carried a parseable schema.org price. Product URLs are
+    // /product/{uuid}/{slug}.
+    //
+    // That also settles the two-domain question above in favour of
+    // home.bargains, at least to the extent that this is the one that
+    // answered. Nothing has been established about homebargains.co.uk.    //
+    // One thing "priced listings" does NOT mean, recorded here because it
+    // would be easy to read it as more than it is: src/catalogue/jsonld.ts
+    // does not look at schema.org `priceCurrency` at all — it takes the
+    // number out of the offer and stores it as `priceGbp`. So a priced
+    // listing proves a price was found and parsed, and says nothing whatever
+    // about which currency it is in. That is why this entry stays in
+    // CURRENCY_UNCONFIRMED regardless of the count above.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
