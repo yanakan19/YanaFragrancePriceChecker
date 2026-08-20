@@ -5255,7 +5255,13 @@ export const RETAILERS: readonly Retailer[] = [
       freeOverGbp: null,
       estimatedDays: [3, 5],
       verifiedAt: '2026-08-20',
-      confidence: 'unverified',
+      confidence: 'confirmed',
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://groceries.morrisons.com/content/delivery-pass-content-page',
+        quote: '£5 off your first 3 fast orders with code: 5firstnow *min spend £30',
+        readAt: '2026-08-20',
+      },
       notes:
         'Nothing here has been read from groceries.morrisons.com itself: not its delivery ' +
         'terms, not its robots.txt, not its checkout currency. Grocery delivery is slot-booked ' +
