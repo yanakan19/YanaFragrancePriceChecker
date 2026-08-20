@@ -1664,6 +1664,38 @@ export const RETAILERS: readonly Retailer[] = [
     // probe. Recorded as a second reason this stays off, not just "no
     // route yet" — a sitemap walk would need to ask the same now-disallowed
     // origin, so crawlViaSitemap is blocked too, not merely untried.
+    //
+    // ── That reading was wrong, and the sitemap walk works ──────────────────
+    // The paragraph above is retracted. Nothing about this shop's robots.txt
+    // changed between 13:06Z and 17:03Z on 2026-08-19. What differed is which
+    // address each probe asked. The currency probe asked the shop's own
+    // origin and was permitted; the shipping probe went through
+    // attempt.ts's `loadRobots`, which asked
+    // `https://www.uk.riiffsperfumes.com/robots.txt` — `www.` bolted onto a
+    // domain that already carries a subdomain — got nothing, and returned
+    // UNREACHABLE_ROBOTS, which isAllowed treats as everything disallowed.
+    // "0 pages UNREACHABLE" is that function's output for a hostname that
+    // does not exist; it is not what a Disallow rule produces. See
+    // src/catalogue/robotsSource.ts.
+    //
+    // Measured after that fix, Harvest probe run 14, job 96347721166,
+    // 2026-08-20T07:24Z, commit eb8bb05: robots.txt read, 142 product URLs
+    // discovered, 20 pages fetched, **19 priced listings** parsed out of
+    // them. There is a working retrieval route to this shop.
+    //
+    // It stays `enabled: false` all the same, and for a different reason than
+    // before — one this repo does not let itself waive. Currency probe, run
+    // 32344063786 job 96348932252, 2026-08-20T07:27Z: nine ways of asking,
+    // and "no candidate published any currency at all — the storefront was
+    // silent, which must be read as unknown and never as sterling". The
+    // sitemap route reads prices out of JSON-LD and labels them sterling
+    // because the registry says so, which is exactly the assumption that
+    // published dollars as pounds at Escentual. So this id is added to
+    // CURRENCY_UNCONFIRMED at the foot of this file, which additionally stops
+    // any writer storing a GBP figure against it.
+    //
+    // What would enable it: one positive sterling reading from this shop's
+    // own storefront. The route is no longer the blocker.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -2012,6 +2044,34 @@ export const RETAILERS: readonly Retailer[] = [
     // for all nine ways of asking), but /products.json 404s on every one of
     // them. No candidate published a currency anywhere either. A dead end
     // for the Shopify route specifically.
+    //
+    // ── The sitemap route, on the other hand, works ─────────────────────────
+    // Harvest probe run 15, job 96347744390, 2026-08-20T07:24Z, commit
+    // eb8bb05: robots.txt read and permitting, sitemap.xml itself 404s but
+    // robots.txt names others, 1,446 product URLs discovered, 20 pages
+    // fetched, **20 priced listings** — every page fetched yielded one. This
+    // shop was in the "no working route" group and it is not; nobody had
+    // asked it through crawlViaSitemap.
+    //
+    // Two separate things were previously recorded as blocking it and only
+    // one of them survives.
+    //
+    //   - `standardGbp: null` does NOT block enabling. This file's own header
+    //     says so plainly: such a shop renders "delivery not stated", can
+    //     never be shown as cheapest, and is enabled elsewhere on exactly
+    //     that basis (french-avenue, ibraq, zimaya). The note below claiming
+    //     it "still blocks enabling" is wrong and is retracted here.
+    //   - The currency does block it, and that is the real reason this stays
+    //     off. The probe above found this storefront silent — no currency
+    //     published anywhere, by any of nine ways of asking. The sitemap
+    //     route would read its JSON-LD prices and label them sterling on the
+    //     registry's say-so, which is precisely how dollars were published as
+    //     pounds at Escentual. So this id joins CURRENCY_UNCONFIRMED at the
+    //     foot of this file, which also stops any writer storing a GBP figure
+    //     against it.
+    //
+    // What would enable it: one positive sterling reading. The route is
+    // proven and is not the blocker.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -2464,6 +2524,20 @@ export const RETAILERS: readonly Retailer[] = [
     // sells bath and body products, and the concentration-word title test is
     // exactly what keeps soap out of a fragrance comparison. That stays true
     // regardless of this shop's reachability.
+    //
+    // ── Re-asked 2026-08-20, and the answer is sharper than before ──────────
+    // Harvest probe run 16, job 96347765072, commit eb8bb05: robots.txt was
+    // read this time, from www.lush.com rather than the bare lush.com the
+    // earlier probes tried, and it permits. The sitemap does not:
+    //
+    //     https://www.lush.com/sitemap.xml: HTTP 403
+    //
+    // So this is no longer "we cannot even read robots.txt". It is a shop
+    // that publishes crawl permission and then refuses the crawl, from this
+    // network, at the first request. Both metered tiers were unavailable to
+    // test against it (the Apify proxy fails everywhere, and the actor tier
+    // needs `catalogue.sections`, which this entry has none of). Still
+    // `enabled: false`, now for a measured refusal rather than for silence.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -2502,6 +2576,19 @@ export const RETAILERS: readonly Retailer[] = [
     // route specifically; this shop is a large non-Shopify retailer and
     // would need a different strategy (the ordinary sitemap walk, or a
     // dedicated adapter) if it is ever pursued.
+    //
+    // ── The ordinary sitemap walk was pursued, 2026-08-20 ───────────────────
+    // Harvest probe run 17, job 96347788808, commit eb8bb05. robots.txt read
+    // and permitting; /sitemap.xml 404s but robots.txt names others and a
+    // real product URL was discovered through them. Fetching it:
+    //
+    //     https://www.bathandbodyworks.co.uk/style/su468821/ah7419: HTTP 403
+    //     stopped early: the shop began refusing requests
+    //
+    // So the sitemap walk is answered too: this shop publishes a sitemap,
+    // permits crawling in robots.txt, and then 403s the product pages from
+    // this network. That is a measured refusal at the page level, not an
+    // untried route, and it is the reason this stays off.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -3730,6 +3817,29 @@ export const RETAILERS: readonly Retailer[] = [
  * build re-arms the trap and removes the only thing standing in front of it.
  */
 export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
+  [
+    'riiffs',
+    'uk.riiffsperfumes.com has a working retrieval route — Harvest probe run 14, job 96347721166, ' +
+      '2026-08-20: 142 product URLs discovered, 20 pages fetched, 19 priced listings parsed — and ' +
+      'no established currency. Currency probe, run 32344063786 job 96348932252, 2026-08-20T07:27Z: ' +
+      'nine ways of asking (origin, ?country=GB, both localisation cookies, Accept-Language en-GB, ' +
+      'and the /en-gb /gb /uk /en-uk market paths) and "no candidate published any currency at all — ' +
+      'the storefront was silent". The sitemap route reads JSON-LD prices and would label them ' +
+      'sterling on this registry\'s say-so, which is how dollars reached the site as pounds at ' +
+      'Escentual. Listed here so that cannot happen while the question is open, and so a later edit ' +
+      'that flips `enabled` is loud. One positive sterling reading is all this needs.',
+  ],
+  [
+    'perfumeo',
+    'perfumeo.co.uk has a working retrieval route — Harvest probe run 15, job 96347744390, ' +
+      '2026-08-20: 1,446 product URLs discovered, 20 pages fetched, 20 priced listings, every page ' +
+      'yielding one — and no established currency. Currency probe, run 32256436199 job 96079115721, ' +
+      '2026-08-19: robots.txt permitted every request and the origin answered 200, but none of the ' +
+      'nine ways of asking published any currency anywhere. A .co.uk domain is not evidence of ' +
+      'sterling. Same reasoning as riiffs above: listed here so no writer can store a GBP figure ' +
+      'against a shop that has never said it charges in pounds. One positive sterling reading is ' +
+      'all this needs.',
+  ],
   // zimaya was removed from this list on 2026-08-19, on the evidence the list
   // itself asks for: currency probe, run 32254603051 job 96073283174, read a
   // sterling price list off the shop's own storefront at rate 1, identically
