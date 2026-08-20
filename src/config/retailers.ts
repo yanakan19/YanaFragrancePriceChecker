@@ -397,6 +397,37 @@ export const RETAILERS: readonly Retailer[] = [
     // stating plainly: this shop is not gettable by any means this repo is
     // willing to use. What would change it is Boots' own affiliate feed —
     // permission rather than technique.
+    //
+    // ── The proxy tier, re-tried 2026-08-20 with checkApifyAccount live ─────
+    // apifyAccount.ts's own header records the proxy tier's password as
+    // possibly wrong, not merely broken: run 7 (job 96343392189) could not
+    // tell "our secret is wrong" apart from "the shop refuses every request".
+    // Harvest probe run 25, job 96420938621, 2026-08-20T12:13Z, ran the free
+    // preflight first and settled that question for good:
+    //
+    //     Apify account: urkoppan, plan FREE
+    //     Apify proxy groups available: BUYPROXIES94952, GOOGLE_SERP,
+    //         RESIDENTIAL, UNBLOCKER
+    //     APIFY_PROXY_PASSWORD matches this account's proxy password.
+    //
+    // The credential is correct. The proxy tier was then tried against this
+    // shop anyway (one attempt, as the credential check alone does not prove
+    // requests succeed) and failed identically to every prior run:
+    //
+    //     [proxied] https://www.boots.com/robots.txt: HTTP 0 — TypeError:
+    //         fetch failed (Error: Request was cancelled.)
+    //
+    // So the earlier finding stands, now on firmer ground: this is not a
+    // wrong-password problem and never was, once the password is right. Every
+    // proxied request still fails at the transport layer before it reaches
+    // Boots at all — the same "TypeError: fetch failed" apifyAccount.ts
+    // documents at every shop, not something specific to this one. The actor
+    // tier fired next (proxy having yielded nothing) and reproduced the
+    // identical 2,513-byte challenge page from run 20 above, so nothing about
+    // this shop's own answer has changed. What is now ruled out is "maybe the
+    // secret is just wrong" — it is not, and the proxy tier's failure is a
+    // separate, still-open transport question this run does not have the
+    // budget to chase further.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {

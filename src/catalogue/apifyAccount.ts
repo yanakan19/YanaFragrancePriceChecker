@@ -35,6 +35,18 @@
  *
  * Nothing here changes behaviour. It only means a run that is about to fail
  * expensively says why first.
+ *
+ * ── The question this actually settled, confirmed 2026-08-20T12:13Z ─────────
+ * Harvest probe run 25, job 96420938621, against boots — the first run to
+ * both call this preflight AND retry a shop through the proxy tier in the
+ * same breath — read `APIFY_PROXY_PASSWORD matches this account's proxy
+ * password` and then watched the proxied request fail anyway, identically to
+ * run 7 above: `TypeError: fetch failed (Error: Request was cancelled.)`. So
+ * the secret was never the cause, at least as of this measurement — the
+ * transport itself does not complete a request through this project's proxy
+ * configuration, for a reason this preflight cannot see (it only asks Apify's
+ * REST API, never opens the CONNECT tunnel itself). That is a narrower,
+ * harder question than "which secret is wrong", and it is still open.
  */
 
 /** What the account preflight found, in a shape safe to print. */
