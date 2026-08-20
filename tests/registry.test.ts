@@ -190,6 +190,7 @@ describe('retailer registry', () => {
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'al-haramain',
         'armaf',
+        'avon',
         'fragrancehub',
         'french-avenue',
         'ibraq',
