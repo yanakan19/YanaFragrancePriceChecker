@@ -892,6 +892,26 @@ export const RETAILERS: readonly Retailer[] = [
     // src/catalogue/apifyActor.ts) is the fallback if a real run shows the
     // refusal survives a residential IP alone. Neither has run for real —
     // no Apify credential exists in this environment.
+    //
+    // ── The actor route, attempted 2026-08-20, third stall of four ──────────
+    // Dispatched scripts/apify-blob-probe.ts against this shop's own
+    // catalogue.sections[0] (the "fragrance" section) — first-ever actor
+    // attempt against this shop, now that APIFY_TOKEN is live. Run
+    // 32368997004, 2026-08-20T12:28Z: the actor render step sat in progress
+    // for 12+ minutes with no result and was cancelled by hand.
+    //
+    // Third stall of four shops attempted this pass (Selfridges succeeded in
+    // under 5 minutes; John Lewis stalled twice; Zara stalled once) — see
+    // John Lewis's own entry for the fuller reasoning. Worth stating
+    // plainly given the count: three of four dispatches through this tier
+    // today never returned within a reasonable watch window, which reads
+    // less like a per-shop quirk and more like a property of the actor tier
+    // itself under this account's current plan (FREE, per checkApifyAccount
+    // — see apifyAccount.ts and the Boots entry's own measurement of that).
+    // Not established as a plan limit, just the pattern this pass's four
+    // data points show. Retrieval, extraction and the proxy/IP-block
+    // question above all remain exactly as unproven for this shop as before
+    // this pass.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
