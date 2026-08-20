@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 70 retailers, 36 of them `enabled: true`. Every one of them is a legitimate
+ * 71 retailers, 36 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -4684,6 +4684,90 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
   },
+  {
+    id: 'tesco',
+    name: 'Tesco',
+    domain: 'tesco.com',
+    homepage: 'https://www.tesco.com',
+    tiers: ['designer'],
+    // The first supermarket in this registry, and it arrives with a
+    // distinction that has to be made before any price of theirs is ever
+    // shown, because getting it wrong misattributes both the price and the
+    // delivery terms to a company that set neither.
+    //
+    // ── Two different shops share this domain ────────────────────────────────
+    // The owner pasted https://www.tesco.com/shop/en-GB/products/326671463
+    // (their copy carried stkn/msclkid/gclid/tw_adid/utm_* click-ids from a
+    // live ad session; every query parameter is stripped here and nothing
+    // but the canonical path is written down — see the note below about what
+    // that path is worth anyway).
+    //
+    // A /shop/en-GB/products/{id} address is Tesco MARKETPLACE, not Tesco.
+    // Marketplace is Tesco's third-party selling programme, running on
+    // Mirakl — the same platform B&Q, Screwfix, Currys and Superdrug use —
+    // where approved outside sellers list alongside Tesco's own range. Read
+    // from WebSearch summaries of Which?'s and lovemoney's coverage of the
+    // launch and from Mirakl's own description of how a Mirakl shop works
+    // (no page opened; this sandbox has no egress). Three facts from that
+    // reading decide the question:
+    //
+    //   - the seller sets the price, not Tesco;
+    //   - the seller charges its own separate delivery fee and dispatches
+    //     the item itself, separately from any Tesco shop;
+    //   - Tesco's own terms disclaim responsibility for delivery, returns,
+    //     refunds and complaints on Marketplace items.
+    //
+    // This registry models exactly one shipping policy per retailer and
+    // attributes every listing to the named shop. A Marketplace listing
+    // breaks both halves at once: it would show a third party's price under
+    // Tesco's name and price it with Tesco's delivery terms, which do not
+    // apply to it. That is the same class of error as a foreign-currency
+    // price published as sterling — a number that is real somewhere and
+    // wrong here. So /shop/ is out of scope for this entry permanently, and
+    // not merely unproven. If this ever changes, it changes because
+    // Retailer grows a way to say "this offer is a marketplace offer, sold
+    // and delivered by someone else", which it does not have.
+    //
+    // Tesco's OWN fragrance range is a different matter and is why this
+    // entry exists at all. It sits under
+    // /groceries/en-GB/shop/health-and-beauty/perfumes-aftershaves-and-gift-
+    // sets/ and its men's counterpart under
+    // /groceries/en-GB/shop/health-and-beauty/men's-toiletries/aftershave-
+    // and-men's-fragrances/. Those are Tesco's prices under Tesco's own
+    // grocery delivery, which is the comparable thing. Search summaries name
+    // Calvin Klein, Hugo Boss, Police and Armaf in it, so it is designer
+    // stock and not only body sprays. Note that /groceries/ has its own
+    // /shop/marketplace/ subtree, which is Marketplace again wearing a
+    // grocery URL and is excluded on the same grounds.
+    //
+    // ── Why it is off ────────────────────────────────────────────────────────
+    // Nothing about tesco.com has been read from tesco.com. Not its
+    // robots.txt, not its checkout currency, not its delivery terms, not
+    // whether any of those category pages publish product JSON-LD a fetch
+    // could parse. The category paths above come from WebSearch result URLs
+    // and titles alone. Enabling on that would be enabling on a famous name,
+    // which is the exact mistake Nicchia Luxury's entry above records.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from tesco.com itself: not its delivery terms, not its ' +
+        'robots.txt, not its checkout currency. Tesco grocery delivery is slot-booked rather ' +
+        'than a flat per-order rate, which is a shape this model has no field for, so no figure ' +
+        'is entered even provisionally. Separately, the delivery terms on a Tesco Marketplace ' +
+        "item are the third-party seller's and not Tesco's at all — see this entry's comment " +
+        'above for why that route is excluded outright. No affiliate programme has been ' +
+        'researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
 ] as const;
 
 /**
@@ -4976,6 +5060,16 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'about perfumedirect.com comes from WebSearch snippets; its checkout currency has not ' +
       'been read. One positive sterling reading from a currency probe is what would remove ' +
       'this id.',
+  ],
+  [
+    'tesco',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about tesco.com comes from WebSearch result URLs and titles; its checkout currency has ' +
+      'not been read. Being the largest grocer in the country is not a measurement — the ' +
+      'reason this list exists is that a famous domain reads as self-evidently sterling right ' +
+      'up until it is asked. One positive sterling reading from a currency probe is what would ' +
+      'remove this id, and it would still leave the Marketplace exclusion in this entry\'s own ' +
+      'comment standing, which is a separate question from currency.',
   ],
 ]);
 
