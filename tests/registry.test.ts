@@ -187,6 +187,13 @@ describe('retailer registry', () => {
       // route is `sitemapHarvestConfirmed: true` rather than any of the three
       // this test used to check for — see that field's own doc comment in
       // src/types/retailer.ts for why it exists and what it asserts.
+      // perfumeo joined the same day on the fragrancehub side of that split:
+      // shipping probe, run 32279620206 job 96155027469, read its delivery
+      // page directly and confirmed NO RATE STATED, a genuine
+      // standardRateNotPublished shape rather than an unread page. Cleared
+      // CURRENCY_UNCONFIRMED the same way riiffs did — a sterling reading off
+      // its own product page's JSON-LD, not the shop's origin — and carries
+      // the same `sitemapHarvestConfirmed: true` route.
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'al-haramain',
         'armaf',
@@ -195,6 +202,7 @@ describe('retailer registry', () => {
         'french-avenue',
         'ibraq',
         'manchester-ouds',
+        'perfumeo',
         'riiffs',
         'zimaya',
       ]);
