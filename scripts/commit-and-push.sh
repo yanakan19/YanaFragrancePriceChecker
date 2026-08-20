@@ -218,10 +218,67 @@ resolve_generated_conflicts() {
         return 1
       fi
     done
+
+    # The regenerate writes more tracked files than GENERATED_PATHS names, and
+    # whatever it writes that nobody stages stops the rebase dead. This is the
+    # bug that killed runs #266 and #268 (both 2026-08-20, jobs 96398950549
+    # and 96452805773): two complete harvests, 10:46:58→11:58:02 and
+    # 14:02:07→15:12:19 by their own step timestamps, discarded at the last
+    # step with every conflict already correctly resolved.
+    #
+    # The file was demo/sitemap.xml. `npm run demo` ends in
+    # `tsx scripts/build-sitemap.ts`, which writes it; it is tracked; and it is
+    # named by none of the eight call sites in catalogue-daily.yml, nor by the
+    # ninth in price-verify.yml, so it is never staged here — no invocation of
+    # this script anywhere in .github/workflows/ passes it. Grepping the
+    # workflows for "sitemap" returns only references to the *harvest route* of
+    # that name, never the file. Both runs logged it rewritten before they
+    # died — "demo/sitemap.xml  14727 URLs" at 12:02:13.49 in #266, and
+    # "demo/sitemap.xml  15257 URLs" at 15:16:44.87 in #268, 0.45s and 0.35s
+    # respectively before the failure.
+    #
+    # What git then says is a lie, and it cost two investigations:
+    #
+    #     You must edit all merge conflicts and then
+    #     mark them as resolved using git add
+    #
+    # There were no unmerged entries. `git rebase --continue` prints that exact
+    # text for an *unstaged change to a tracked file*, which is a different
+    # condition entirely. The runs' own logs prove the index was clean: the
+    # next line they printed was "Could not start a rebase", and the branch
+    # below that emits it is reachable only when `git diff --diff-filter=U`
+    # returns nothing at all.
+    #
+    # Discarding rather than staging is deliberate, and it is the same
+    # judgement — for the same reason — as the pre-rebase discard further down:
+    # everything unstaged at this point is build output reproducible from the
+    # inputs already committed, and demo/sitemap.xml in particular has never
+    # been part of a harvest commit. Staging it would also clear the rebase,
+    # but it would quietly widen every caller's committed set to whatever the
+    # build happens to touch, which is how a file nobody chose ends up in the
+    # history. Restoring from the index instead keeps the resolved content for
+    # everything staged above and reverts only the collateral. Written against
+    # `git diff --name-only`, not `git status --porcelain`, because at this
+    # point every file resolved above is legitimately staged and porcelain
+    # would report those too — the question here is only what is unstaged.
+    if [ -n "$(git diff --name-only)" ]; then
+      echo "Discarding build output the regenerate wrote outside the committed set."
+      if ! git checkout -- .; then
+        echo "::error::Could not discard the regenerate's uncommitted build output." >&2
+        return 1
+      fi
+    fi
   fi
 
   if ! GIT_EDITOR=true git rebase --continue; then
+    # Dump both states rather than trusting git's message. The message is what
+    # sent runs #266 and #268 looking for a conflict that did not exist, so the
+    # next reader gets the two facts that actually distinguish the cases:
+    # unmerged paths mean a resolution above was genuinely missed, unstaged
+    # paths mean the regenerate wrote something outside the set staged here.
     echo "::error::git rebase --continue failed after conflicts appeared resolved." >&2
+    echo "::error::Still unmerged: [$(git diff --name-only --diff-filter=U | tr '\n' ' ')]" >&2
+    echo "::error::Still unstaged: [$(git diff --name-only | tr '\n' ' ')]" >&2
     return 1
   fi
 }
@@ -262,14 +319,32 @@ for attempt in 1 2 3 4 5; do
     if resolve_generated_conflicts; then
       echo "Conflicts were confined to generated files and raw harvest snapshots; resolved and continued."
     elif [ -z "$(git diff --name-only --diff-filter=U)" ]; then
-      # No conflicted paths means the rebase never started — a dirty tree, a
-      # network failure, a detached HEAD. Saying "conflicts in a file that is
-      # not generated" here would be a lie, and it was: that is exactly what
-      # this printed when the real message underneath was "cannot pull with
-      # rebase: You have unstaged changes", sending the next reader after a
-      # conflict that did not exist.
-      git rebase --abort 2>/dev/null || true
-      echo "::error::Could not start a rebase onto origin/${branch}. See the git error above." >&2
+      # No conflicted paths, so this is not a disagreement about a file. It is
+      # one of two different failures, and they need different words.
+      #
+      # Either the rebase never started — a dirty tree, a network failure, a
+      # detached HEAD — or it started, stopped on conflicts, and something went
+      # wrong while resolving them. Saying "conflicts in a file that is not
+      # generated" for the first case would be a lie, and it was: that is
+      # exactly what this printed when the real message underneath was "cannot
+      # pull with rebase: You have unstaged changes", sending the next reader
+      # after a conflict that did not exist.
+      #
+      # Telling the two apart by asking git whether a rebase is in progress,
+      # rather than assuming: runs #266 and #268 (2026-08-20) landed in the
+      # second case and were reported as the first, so their logs said the
+      # rebase had never started when in fact it had reached
+      # `git rebase --continue` with every conflict resolved. That single wrong
+      # word is most of why the cause took as long to find as it did.
+      if [ -d "$(git rev-parse --git-path rebase-merge)" ] ||
+         [ -d "$(git rev-parse --git-path rebase-apply)" ]; then
+        git rebase --abort 2>/dev/null || true
+        echo "::error::A rebase onto origin/${branch} started and stopped on conflicts, but could" >&2
+        echo "::error::not be carried through. Nothing is unmerged, so this is not a file" >&2
+        echo "::error::disagreement — see the errors above for what actually failed." >&2
+      else
+        echo "::error::Could not start a rebase onto origin/${branch}. See the git error above." >&2
+      fi
       echo "::error::Nothing was pushed." >&2
       exit 1
     else
