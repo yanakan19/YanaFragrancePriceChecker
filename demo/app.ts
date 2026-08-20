@@ -43,6 +43,7 @@ import {
 import { productArt, type ArtSize } from './photo.js';
 import { AA_TEXT, contrastRatio, parseColour, type Rgba } from './contrast.js';
 import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './gender.js';
+import { VOLUME_BANDS, volumeBandFor, type VolumeBand } from './volumeBands.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
@@ -145,7 +146,7 @@ const state = {
   // would not make sense, and one implementation covers Browse, Search, Deals,
   // a retailer's page, a brand's page and a note's page alike.
   facetsOpen: false,
-  facetVolume: new Set<number>(),
+  facetVolume: new Set<VolumeBand>(),
   facetConcentration: new Set<string>(),
   facetGender: new Set<GenderReading>(),
   facetPriceBand: new Set<PriceBand>(),
@@ -403,7 +404,7 @@ function genderOf(f: DemoFragrance): GenderReading {
  * self-defeating — see the header comment above.
  */
 function passesFacets(f: DemoFragrance, exclude: FacetGroup | null): boolean {
-  if (exclude !== 'volume' && state.facetVolume.size && !state.facetVolume.has(f.sizeMl)) return false;
+  if (exclude !== 'volume' && state.facetVolume.size && !state.facetVolume.has(volumeBandFor(f.sizeMl))) return false;
   if (exclude !== 'concentration' && state.facetConcentration.size && !state.facetConcentration.has(f.concentration)) return false;
   if (exclude !== 'gender' && state.facetGender.size && !state.facetGender.has(genderOf(f))) return false;
   if (exclude !== 'tier' && state.facetTier.size && !state.facetTier.has(f.tier)) return false;
@@ -439,7 +440,7 @@ interface FacetOption {
  * result, or every count would just read as "however many are left".
  */
 function facetGroups(list: DemoFragrance[]) {
-  const volume = new Map<number, number>();
+  const volume = new Map<VolumeBand, number>();
   const concentration = new Map<string, number>();
   const gender = new Map<GenderReading, number>();
   const priceBand = new Map<PriceBand, number>();
@@ -449,7 +450,10 @@ function facetGroups(list: DemoFragrance[]) {
 
   for (const f of list) {
     const rows = rowsFor(f);
-    if (passesFacets(f, 'volume')) volume.set(f.sizeMl, (volume.get(f.sizeMl) ?? 0) + 1);
+    if (passesFacets(f, 'volume')) {
+      const band = volumeBandFor(f.sizeMl);
+      volume.set(band, (volume.get(band) ?? 0) + 1);
+    }
     if (passesFacets(f, 'concentration')) {
       concentration.set(f.concentration, (concentration.get(f.concentration) ?? 0) + 1);
     }
@@ -485,7 +489,13 @@ function facetGroups(list: DemoFragrance[]) {
   const notStated = concentrationOptions.filter((o) => o.value === CONCENTRATION_NOT_STATED);
 
   return {
-    volume: toOptions(volume, (v) => `${v}ml`),
+    // Fixed order, not alphabetical or by count — same reason as priceBand
+    // below: VOLUME_BANDS is already narrowest-to-widest, and that is the
+    // order a reader expects a size filter to read in, not the order counts
+    // happen to sort in.
+    volume: VOLUME_BANDS.filter((b) => (volume.get(b.id) ?? 0) > 0).map((b) => ({
+      value: b.id, label: b.label, count: volume.get(b.id)!,
+    })),
     concentration: [...concentrationOptions.filter((o) => o.value !== CONCENTRATION_NOT_STATED), ...notStated],
     // Fixed order rather than alphabetical or by count, so "Not stated" is
     // always the last option and the three stated readings always sit in the
@@ -574,7 +584,7 @@ function facetsBlock(list: DemoFragrance[]): string {
        </div></fieldset>`
     : '';
 
-  const panel = `${group('Volume', 'volume', g.volume, (v) => state.facetVolume.has(Number(v)))}
+  const panel = `${group('Volume', 'volume', g.volume, (v) => state.facetVolume.has(v as VolumeBand))}
     ${group('Concentration', 'concentration', g.concentration, (v) => state.facetConcentration.has(v))}
     ${genderGroup()}
     ${group('Price', 'priceBand', g.priceBand, (v) => state.facetPriceBand.has(v as PriceBand))}
@@ -4782,7 +4792,7 @@ function init(): void {
       // read differently by group id.
       if (group === 'onSale') state.facetOnSale = !state.facetOnSale;
       else if (group === 'inStock') state.facetInStock = !state.facetInStock;
-      else if (group === 'volume') toggleInSet(state.facetVolume, Number(value));
+      else if (group === 'volume') toggleInSet(state.facetVolume, value as VolumeBand);
       else if (group === 'concentration') toggleInSet(state.facetConcentration, value);
       else if (group === 'gender') toggleInSet(state.facetGender, value as GenderReading);
       else if (group === 'priceBand') toggleInSet(state.facetPriceBand, value as PriceBand);
