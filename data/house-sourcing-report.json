@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-20T10:29:12.244Z",
+  "checkedAt": "2026-08-20T13:37:14.486Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -57,21 +57,19 @@
       "houseId": "pairfum-london",
       "name": "Pairfum London",
       "origin": "https://www.pairfum.com",
-      "routeUsed": null,
+      "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 0,
+      "listings": 2,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
-        "https://www.pairfum.com/product_cat-sitemap.xml: HTTP 429",
         "stopped early: the house began refusing requests"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "single-brand seller (InovAir Ltd, trading as Pairfum London), so this is a house rather than a retailers.ts entry despite already being UK-based and GBP-priced — no other shop stocks this brand to compare against",
-        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere",
-        "no listings retrieved from the storefront on this run"
+        "delivery threshold conflicts across sources (£50 free-over in one, £120 in another) — read pairfum.com directly before quoting either figure anywhere"
       ]
     },
     {
@@ -148,7 +146,7 @@
       "currency": "USD",
       "listings": 60,
       "pricedInGbp": 60,
-      "withPhoto": 60,
+      "withPhoto": 59,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -163,9 +161,9 @@
       "origin": "https://surrati.ae",
       "routeUsed": "shopify-products-json",
       "currency": "AED",
-      "listings": 106,
+      "listings": 107,
       "pricedInGbp": 0,
-      "withPhoto": 106,
+      "withPhoto": 107,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -195,9 +193,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 38,
-      "pricedInGbp": 38,
-      "withPhoto": 38,
+      "listings": 110,
+      "pricedInGbp": 110,
+      "withPhoto": 110,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
