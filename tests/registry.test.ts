@@ -146,9 +146,15 @@ describe('retailer registry', () => {
       // charges in was never established. This list only covers *enabled*
       // retailers, so a disabled one drops out of it — that is the list
       // tracking the registry, not a delivery figure having been found.
+      // fragrancehub joined on being enabled 2026-08-20: its shop publishes
+      // a £90 free-delivery threshold and no flat standard rate at all —
+      // recorded on the entry via standardRateNotPublished with the policy
+      // page quoted, so this is a shop that does not state the figure, not a
+      // figure nobody has looked for.
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'al-haramain',
         'armaf',
+        'fragrancehub',
         'french-avenue',
         'ibraq',
         'manchester-ouds',

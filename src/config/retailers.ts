@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 58 retailers, 32 of them `enabled: true`. Every one of them is a legitimate
+ * 58 retailers, 33 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -3888,10 +3888,18 @@ export const RETAILERS: readonly Retailer[] = [
     // confirmed read the previous note said was still missing. `adapter` stays
     // 'unknown' because no harvest has actually run against this shop yet.
     //
-    // Still off, and the blocker is commercial rather than technical: no
-    // affiliate programme is confirmed. Nothing here is a reason to flip
-    // `enabled` — a delivery cost and an affiliate route are both still open.
-    enabled: false,
+    // Enabled 2026-08-20 on the owner's direct instruction ("Add Fragrance
+    // Hub (priority retailer)"), and the gates genuinely pass: sterling and
+    // the Shopify route are CI-proven above, robots permits, and the shipping
+    // block's £90 free-delivery threshold was read off the shop's own policy
+    // page. The paragraph that used to sit here held it back for having no
+    // confirmed affiliate programme — reasoning several enabled entries in
+    // this file never had applied to them (kayali, zara and the mideast
+    // houses all ship with NO_AFFILIATE_YET), which the 2026-08-19 audit
+    // flagged as inconsistent. Links resolve to the plain retailer URL until
+    // a programme exists, exactly as they do for every other unaffiliated
+    // shop here.
+    enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
     currency: 'GBP',
