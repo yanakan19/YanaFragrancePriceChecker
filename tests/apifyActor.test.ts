@@ -297,3 +297,32 @@ describe('the approval refusal, and the actor that takes no user code', () => {
     });
   });
 });
+
+describe('the budget charges only for work Apify actually took on', () => {
+  beforeEach(() => {
+    mockFetch.mockReset();
+  });
+
+  const cfg = { token: 'tok', country: 'GB', actorId: 'apify~puppeteer-scraper', fallbackActorId: null };
+
+  it('spends nothing when the run is refused before it starts', async () => {
+    mockFetch.mockImplementation(
+      async () => new Response(JSON.stringify({ error: { type: ACTOR_APPROVAL_REFUSAL } }), { status: 403 }),
+    );
+    const renderer = apifyActorRenderer(cfg);
+    await renderer.render(['https://a.test/1', 'https://a.test/2', 'https://a.test/3', 'https://a.test/4']);
+    // Probe run 12 reported "4 of 10 budgeted" having rendered nothing at all.
+    expect(renderer.used()).toBe(0);
+  });
+
+  it('still spends the budget on pages that really were rendered', async () => {
+    mockFetch.mockImplementation(async () =>
+      new Response(JSON.stringify([{ url: 'https://a.test/1', html: '<html>x</html>' }]), { status: 200 }),
+    );
+    const renderer = apifyActorRenderer(cfg);
+    await renderer.render(['https://a.test/1', 'https://a.test/2']);
+    // Both were handed to a run that started; the second simply came back empty,
+    // which is a rendering outcome and is billed like one.
+    expect(renderer.used()).toBe(2);
+  });
+});

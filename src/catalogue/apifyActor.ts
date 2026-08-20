@@ -129,6 +129,23 @@ export const ACTOR_APPROVAL_REFUSAL = 'full-permission-actor-not-approved';
 /** Runs a real browser, takes no user-supplied code. */
 export const FALLBACK_ACTOR_ID = 'apify~website-content-crawler';
 
+/**
+ * Marks a failure where Apify refused the run outright rather than starting
+ * it. The distinction is money: a rejected run never launches a browser, so
+ * it bills nothing, and counting its pages against MAX_ACTOR_PAGES_PER_RUN
+ * would spend a real budget on work that never happened. Measured on probe
+ * run 12, job 96345673451, which reported "Apify actor pages rendered this
+ * run: 4 of 10 budgeted" having rendered nothing at all — four pages of a
+ * ten-page ceiling gone, so a full sweep would have had six left for every
+ * remaining shop on the strength of one refusal.
+ */
+export const RUN_REJECTED_PREFIX = 'Apify actor run failed:';
+
+/** Whether a result describes a run Apify refused to start, rather than a page that rendered badly. */
+export function wasRunRejected(res: HttpResponse): boolean {
+  return Boolean(res.error?.startsWith(RUN_REJECTED_PREFIX));
+}
+
 export function apifyActorConfigFromEnv(env: NodeJS.ProcessEnv = process.env): ApifyActorConfig | null {
   const token = env.APIFY_TOKEN;
   if (!token) return null;
@@ -317,7 +334,7 @@ async function runOneActor(
       // real money to ask again. Truncated because an HTML error page from an
       // intermediary would otherwise flood the run log.
       const detail = (await res.text().catch(() => '')).replace(/\s+/g, ' ').slice(0, 300);
-      const message = `Apify actor run failed: HTTP ${res.status}${detail ? ` — ${detail}` : ''}`;
+      const message = `${RUN_REJECTED_PREFIX} HTTP ${res.status}${detail ? ` — ${detail}` : ''}`;
       for (const url of capped) results.set(url, { status: res.status, body: '', ok: false, error: message });
       return results;
     }
@@ -389,7 +406,11 @@ export function apifyActorRenderer(
 
       const capped = urls.slice(0, remaining);
       const rendered = await renderPagesViaApifyActor(config, capped, capped.length);
-      used += capped.length;
+      // Only pages Apify actually took on. See RUN_REJECTED_PREFIX.
+      used += capped.filter((url) => {
+        const res = rendered.get(url);
+        return !res || !wasRunRejected(res);
+      }).length;
 
       for (const skipped of urls.slice(remaining)) {
         rendered.set(skipped, {
