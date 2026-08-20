@@ -54,7 +54,13 @@ describe('retailer registry', () => {
     // read. Disabled, and in CURRENCY_UNCONFIRMED: the entry exists to give
     // currency:probe, run from CI where the network reaches it, something to
     // ask.
-    expect(RETAILERS).toHaveLength(58);
+    //
+    // Harrods, Next, Avon and Sephora UK added 2026-08-20, the first batch of
+    // an owner-requested expansion (Harrods, Next and Avon named directly;
+    // department stores and niche specialists more broadly). Same basis as
+    // FragranceHub: WebSearch snippets only, nothing opened directly, all
+    // four disabled and in CURRENCY_UNCONFIRMED.
+    expect(RETAILERS).toHaveLength(62);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was

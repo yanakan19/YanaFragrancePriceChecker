@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 58 retailers, 33 of them `enabled: true`. Every one of them is a legitimate
+ * 62 retailers, 33 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -3930,6 +3930,156 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
   },
+
+  // ── 2026-08-20: department stores and a fashion retailer, named by the
+  // owner or found while looking for what they named ─────────────────────
+  {
+    id: 'harrods',
+    name: 'Harrods',
+    domain: 'harrods.com',
+    homepage: 'https://www.harrods.com/en-gb',
+    tiers: ['designer', 'niche'],
+    // Named by the owner directly ("Harrods ... called out for niche
+    // perfume"), added 2026-08-20 from WebSearch snippets of harrods.com
+    // alone — this sandbox has no egress, so no page here has actually been
+    // opened. /en-gb/perfume is the general fragrance department (Chanel,
+    // Dior, Tom Ford, CREED among the houses named in search results);
+    // Salon de Parfums (harrods.com/en-gb/c/departments/salon-de-parfums) is
+    // a distinct in-store-and-online section of 25 hand-selected niche
+    // houses — Bond No. 9, Xerjoff, Roja Parfums, Henry Jacques were named —
+    // which is why both tiers are claimed rather than just one.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      // A search snippet describes "complimentary UK delivery on orders
+      // over £100", but that is marketing copy read secondhand, not a
+      // shipping:discover run against Harrods' own delivery page — see
+      // fragrancehub's entry above for the same distinction — so the figure
+      // is named here, not stored as freeOverGbp.
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from harrods.com itself: not its delivery terms, not its ' +
+        'robots.txt, not its checkout currency. The £100 free-delivery figure above and the ' +
+        'brand list in the tiers comment both come from WebSearch result snippets, quoted as ' +
+        'far as they go and no further. No affiliate programme has been researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'next',
+    name: 'Next',
+    domain: 'next.co.uk',
+    homepage: 'https://www.next.co.uk',
+    tiers: ['designer'],
+    // Named by the owner directly. Added 2026-08-20 from WebSearch snippets
+    // of next.co.uk/beauty/fragrance and next.co.uk/shop/beauty/fragrance
+    // alone — no page opened, this sandbox has no egress. A fashion
+    // retailer with a real, dedicated fragrance department: designer brands
+    // named in results include Hugo Boss, Jean Paul Gaultier, Jimmy Choo,
+    // Tom Ford, Prada, Dolce & Gabbana, Gucci and Rabanne, alongside Next's
+    // own house fragrance line — multi-brand, so no singleBrandOnly (unlike
+    // Zara and Avon below, which sell only their own name).
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from next.co.uk itself: not its delivery terms, not its ' +
+        'robots.txt, not its checkout currency. Search snippets mention "next day delivery" as ' +
+        'an available express option but state no standard flat rate or free-delivery ' +
+        "threshold, so neither field is filled from a marketing claim the way fragrancehub's " +
+        "£90 or Harrods' £100 were. No affiliate programme has been researched.",
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'avon',
+    name: 'Avon',
+    domain: 'avon.uk.com',
+    homepage: 'https://avon.uk.com',
+    tiers: ['designer'],
+    singleBrandOnly: 'Avon',
+    // Named by the owner directly. Added 2026-08-20 from WebSearch snippets
+    // of avon.uk.com/collections/fragrance and related category pages alone
+    // — no page opened, this sandbox has no egress. Every fragrance named
+    // in results (Far Away, Little Black Dress, Attraction) is an Avon
+    // house line rather than a third-party designer brand, the same
+    // structure as Zara's own-name perfume line above, so singleBrandOnly
+    // is set on that basis rather than assumed from the "direct-sales"
+    // reputation alone.
+    //
+    // The URLs surfaced by search follow a /collections/ path shape —
+    // avon.uk.com/collections/fragrance, /collections/womens-perfume — the
+    // same shape Bloom Perfumery, Les Senteurs and Perfume Direct below all
+    // show too, which is suggestive of a Shopify storefront. That is a
+    // pattern in search-result URLs, not a read of /products.json, so
+    // `shopifyStorefront` stays unset here and on every entry added today.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      // A search snippet describes "Free delivery available on orders over
+      // £25", marketing copy read secondhand rather than a shipping:discover
+      // run against Avon's own delivery page, so the figure is named here
+      // and not stored as freeOverGbp.
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from avon.uk.com itself: not its delivery terms, not its ' +
+        'robots.txt, not its checkout currency. The £25 free-delivery figure above comes from a ' +
+        'WebSearch result snippet, quoted as far as it goes and no further. No affiliate ' +
+        'programme has been researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'sephora-uk',
+    name: 'Sephora UK',
+    domain: 'sephora.co.uk',
+    homepage: 'https://www.sephora.co.uk',
+    tiers: ['designer', 'niche'],
+    // Added 2026-08-20 from WebSearch snippets of sephora.co.uk/fragrances
+    // alone — no page opened, this sandbox has no egress. Launched in the
+    // UK 17 October 2022 (per a Woman & Home piece surfaced in results) at
+    // this exact domain, "over 300 makeup, fragrance, skin & hair brands",
+    // both mass designer houses (Chanel, Dior, Tom Ford named) and niche
+    // indie brands (Kayali named) in the one storefront — hence both tiers.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from sephora.co.uk itself: not its delivery terms, not its ' +
+        'robots.txt, not its checkout currency. A search snippet mentions "free delivery & ' +
+        'returns for all My Sephora Members" — a loyalty-scheme perk, not a standard-delivery ' +
+        'figure, and the membership caveat this registry already applies to Boots Advantage and ' +
+        'Superdrug Beautycard applies here too, so nothing is recorded from it. No affiliate ' +
+        'programme has been researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
 ] as const;
 
 /**
@@ -4133,6 +4283,43 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'currency_probe and currency_probe_require_gbp. A human may decide that clears the bar. ' +
       'This id stays here until one does, and the deciding is the point: it is not a thing to ' +
       'infer from a green tick.',
+  ],
+  [
+    'harrods',
+    'Listed here on the day it was added, before anyone had opened the shop — the only moment ' +
+      'at which this list can be complete. Everything known about harrods.com is drawn from ' +
+      'WebSearch snippets of its own perfume and Salon de Parfums pages; nobody has reached its ' +
+      'checkout, read its robots.txt, or confirmed what currency it actually settles a UK order ' +
+      'in. A famous UK department store is not the same claim as a measured sterling price list ' +
+      '— Nicchia Luxury ran enabled on a less careful version of that same assumption for three ' +
+      'days (see its own entry above). One positive sterling reading from a currency probe ' +
+      'against harrods.com itself is what would remove this id.',
+  ],
+  [
+    'next',
+    "Listed here on the day it was added, before anyone had opened the shop. Everything known " +
+      "about next.co.uk's fragrance department comes from WebSearch snippets; its checkout " +
+      'currency has not been read. A .co.uk domain is not evidence of sterling pricing on its ' +
+      'own — uk.zimayaperfumes.com quotes dollars. One positive sterling reading from a ' +
+      'currency probe is what would remove this id.',
+  ],
+  [
+    'avon',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about avon.uk.com comes from WebSearch snippets of its /collections pages; its checkout ' +
+      'currency has not been read, and the /collections URL shape is only suggestive of ' +
+      'Shopify, not a read of /products.json. One positive sterling reading from a currency ' +
+      'probe is what would remove this id.',
+  ],
+  [
+    'sephora-uk',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about sephora.co.uk comes from WebSearch snippets; its checkout currency has not been ' +
+      'read. Sephora UK is a UK-launched storefront of a larger international group, and this ' +
+      'registry has already seen a UK-branded shop quote the wrong currency to this tooling by ' +
+      'default and settle GBP only on request (see escentual\'s and fragrancehub\'s own entries ' +
+      'above) — a reason for a probe, not for an assumption either way. One positive sterling ' +
+      'reading from a currency probe is what would remove this id.',
   ],
 ]);
 
