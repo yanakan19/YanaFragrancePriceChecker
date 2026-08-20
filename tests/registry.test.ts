@@ -82,7 +82,20 @@ describe('retailer registry', () => {
     // site:cheapsmells.com / site:cheapsmells.co.uk WebSearch returned no
     // page from either domain, only third parties talking about it, which
     // is not the same as a domain confirmed to resolve.
-    expect(RETAILERS).toHaveLength(70);
+    //
+    // Tesco added 2026-08-20 — the first supermarket in this registry, and
+    // added disabled with a boundary drawn inside it rather than around it.
+    // The owner pasted a tesco.com product URL, and that URL turned out to be
+    // a Tesco MARKETPLACE listing (/shop/en-GB/products/{id}), i.e. a
+    // third-party seller on Tesco's Mirakl platform who sets their own price,
+    // charges their own separate delivery and handles their own returns, with
+    // Tesco's terms disclaiming all three. That is not a Tesco price and
+    // cannot be shown as one. Tesco's own grocery fragrance range
+    // (/groceries/en-GB/shop/health-and-beauty/perfumes-aftershaves-and-gift-
+    // sets/) is the comparable thing and is what the entry is for. Same
+    // evidential basis as the twelve above: WebSearch only, nothing opened,
+    // disabled, and in CURRENCY_UNCONFIRMED.
+    expect(RETAILERS).toHaveLength(71);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
