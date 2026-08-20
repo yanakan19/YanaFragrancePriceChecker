@@ -956,6 +956,36 @@ export const RETAILERS: readonly Retailer[] = [
     // answered the same actor with a 2.5 kB challenge page — this shop is
     // reachable, and what stands between it and the site is a parser
     // question, not a permission or a spending one.
+    //
+    // ── The hydration-blob hypothesis, checked and answered ─────────────────
+    // The next question this raised: if not JSON-LD, does the same rendered
+    // page carry its product data in a framework hydration blob instead —
+    // `__NEXT_DATA__`, `window.__PRELOADED_STATE__`, Apollo state — which
+    // would be far cheaper to extract than a second general parser?
+    // scripts/apify-blob-probe.ts (added to answer exactly this) re-rendered
+    // the same section URL and scanned the result. Run 32367317128, job
+    // 96419581995, 2026-08-20T12:09Z, 949,036 bytes:
+    //
+    //     Next.js __NEXT_DATA__:            not found
+    //     Nuxt __NUXT__:                     not found
+    //     generic __PRELOADED_STATE__:       not found
+    //     generic __INITIAL_STATE__:         not found
+    //     Apollo __APOLLO_STATE__:           not found
+    //     React Server Components self.__next_f: FOUND, 18 bytes — no
+    //         price-shaped or name-shaped keys
+    //
+    // No. This page is a Next.js App Router page streamed through React
+    // Server Components, not a client-hydrated page carrying a synchronous
+    // JSON state object. `self.__next_f.push` is RSC's own streaming
+    // protocol marker, not a data blob — 18 bytes is a stub call, and RSC's
+    // actual payload (if any is even present in this particular render) is
+    // chunked and framed in a shape this project's regex-based scan cannot
+    // extract, and that a general JSON-LD parser was never going to touch
+    // either way. The cheap-extractor hypothesis does not hold for this
+    // shop: getting product data out of this specific render would mean
+    // parsing RSC's streaming format specifically, not adding one more
+    // known-marker case to a generic blob scanner. Recorded as a measured
+    // negative, not an unexplored option.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
