@@ -427,8 +427,7 @@
      removed with it. The bar keeps its --line border. */
   .brandmark {
     font-size: 21px; font-weight: 800; letter-spacing: -.03em;
-    margin: 0; flex: 1; min-width: 0; white-space: nowrap;
-    overflow: hidden; text-overflow: ellipsis;
+    margin: 0; flex: none; white-space: nowrap;
     /* It is a <button>, not an <h1>, so it can act as the "go home" control
        the top corner of a page conventionally is. Reset the button chrome
        browsers add by default. */
@@ -438,11 +437,25 @@
   .brandmark:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
   .brandmark em, .hero-wordmark em { font-style: normal; color: var(--accent); }
 
+  /* The five nav buttons' own row, separate from the brandmark, so a phone
+     too narrow for all five plus the wordmark scrolls this row sideways
+     rather than starving the wordmark of space to make room. Until Today's
+     Deals joined the bar, four short words and the wordmark always fit
+     without help; a thirteen character label does not, and shrinking the
+     wordmark to fit it used to leave "PriceS..." on a 375px phone (see the
+     old @media rules this replaced) — the brand mark, cut off, on every
+     single page load. Scrolling this row instead is the same trick .subnav
+     already uses below for the same reason. */
+  .nav-items {
+    display: flex; align-items: center; gap: 20px; flex: 1 1 auto; min-width: 0;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .nav-items::-webkit-scrollbar { display: none; }
   /* Quiet rank, drawn as a tab: no box at all until it is the current one,
      and then --ink text over a 2px --accent underline. Both levels of
      navigation say "you are here" the same way — see .subnavbtn below. */
   .navbtn {
-    display: inline-flex; align-items: center;
+    display: inline-flex; align-items: center; flex: none;
     background: none; border: 0; padding: 0; cursor: pointer;
     font: inherit; font-size: 15.5px; font-weight: 500; color: var(--ink-2);
     border-bottom: 2px solid transparent; white-space: nowrap;
@@ -450,19 +463,16 @@
   .navbtn.on { color: var(--ink); border-bottom-color: var(--accent); }
   .navbtn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
   .navbtn:active { transform: scale(.94); }
-  /* Four nav items plus the wordmark is tight on a phone: at the old 20px gap
-     the wordmark was the flexible child, so it lost the space and rendered as
-     "PriceS...". Closing the gaps up gives it back roughly 30px, which is
-     enough for the full mark. Desktop keeps the roomier spacing. */
   @media (max-width: 560px) {
     .bar-row { gap: 13px; }
+    .nav-items { gap: 13px; }
     .navbtn { font-size: 14.5px; }
     .brandmark { font-size: 19.5px; }
   }
-  /* Smallest phones still in circulation (iPhone 13 mini is 375px) need one
-     more step, or the wordmark clips again. */
+  /* Smallest phones still in circulation (iPhone 13 mini is 375px). */
   @media (max-width: 430px) {
     .bar-row { gap: 10px; }
+    .nav-items { gap: 10px; }
     .navbtn { font-size: 13.5px; }
     .brandmark { font-size: 18px; }
   }
@@ -2288,7 +2298,7 @@
 
 <!-- The first thing a keyboard reaches, and the first thing a screen reader
      meets. Without it, getting to a fragrance list means tabbing through the
-     brandmark, four nav buttons and the search box on every single page. It
+     brandmark, five nav buttons and the search box on every single page. It
      is off-screen until focused, which is the only correct way to do this:
      display:none would take it out of the tab order and defeat the purpose. -->
 <a class="skip-link" href="#view">Skip to the main content</a>
@@ -2301,10 +2311,13 @@
   <div class="bar">
     <div class="bar-row">
       <button class="brandmark" id="brand-home" aria-label="PriceSniffs, go to home">Price<em>Sniffs</em></button>
-      <button class="navbtn" id="nav-home">Home</button>
-      <button class="navbtn" id="nav-explore">Explore</button>
-      <button class="navbtn" id="nav-about">About</button>
-      <button class="navbtn" id="nav-settings">Settings</button>
+      <div class="nav-items">
+        <button class="navbtn" id="nav-home">Home</button>
+        <button class="navbtn" id="nav-deals">Today’s Deals</button>
+        <button class="navbtn" id="nav-explore">Explore</button>
+        <button class="navbtn" id="nav-about">About</button>
+        <button class="navbtn" id="nav-settings">Settings</button>
+      </div>
     </div>
     <input type="search" id="search" placeholder="Quick search" aria-label="Quick search by fragrance name" />
     <nav class="subnav" id="subnav" hidden></nav>

@@ -178,7 +178,7 @@ export interface Deal {
 }
 
 /**
- * "Top Deals Today" — a fixed snapshot refreshed at most every 6 hours, not
+ * "Today's Deals" — a fixed snapshot refreshed at most every 6 hours, not
  * recomputed on every hourly build the way everything else here is. See
  * scripts/build-deals.ts's own header comment for why deals move on a
  * schedule instead of reshuffling under a reader mid-visit.

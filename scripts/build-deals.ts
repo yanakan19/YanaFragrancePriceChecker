@@ -1,5 +1,5 @@
 /**
- * Snapshots "Top Deals Today" onto a fixed 6-hourly cadence.
+ * Snapshots "Today's Deals" onto a fixed 6-hourly cadence.
  *
  *   npm run deals:build
  *

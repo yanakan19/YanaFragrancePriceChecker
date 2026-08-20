@@ -5,16 +5,21 @@
  * in `src/`, bundled unchanged, so the demo cannot drift from what ships.
  *
  * ── Structure ────────────────────────────────────────────────────────────────
- * Three top level places, and one level of subpages beneath the middle one:
+ * Four top level places. Only one of them, the middle one, carries a level of
+ * subpages beneath it:
  *
- *   Home      the mark, what this is, and the popular rail
- *   Explore   Brands · Deals · Retailers · Notes · Search
- *   Settings  preferences, contact, legal
+ *   Home           the mark, what this is, and the popular rail
+ *   Today's Deals  the discounted-fragrance snapshot, a flat list with no
+ *                  leaves of its own
+ *   Explore        Brands · Retailers · Notes · Search
+ *   Settings       preferences, contact, legal
  *
  * Everything else (a fragrance, a retailer, a note, a legal document) is a leaf
  * reached from one of those and always carries a Back control. Nothing is ever
  * more than two taps from Home, which is the whole reason the subpages live
- * under Explore rather than crowding the top bar.
+ * under Explore rather than crowding the top bar. Today's Deals sits in the
+ * bar itself rather than under Explore precisely because it has no subpages to
+ * hide: there is nothing a tab would be saving the reader from.
  *
  * House style for every reader facing string in this file: no hyphens, no en
  * dashes, no em dashes. Where a compound would normally take a hyphen, reword
@@ -62,9 +67,9 @@ import {
   type YannyIntent, type YannyResult, type YannyEvent, type YannyHealth,
 } from './virtualYanny.js';
 
-type View = 'home' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account' | 'design' | 'notFound';
+type View = 'home' | 'deals' | 'explore' | 'browse' | 'detail' | 'retailer' | 'brand' | 'note' | 'legal' | 'about' | 'settings' | 'account' | 'design' | 'notFound';
 type AuthTab = 'signIn' | 'signUp';
-type ExploreTab = 'brands' | 'deals' | 'retailers' | 'notes' | 'search';
+type ExploreTab = 'brands' | 'retailers' | 'notes' | 'search';
 type DisplayMode = 'dark' | 'light' | 'system';
 type Layout = 'mobile' | 'desktop';
 type BrandSort = 'az' | 'za';
@@ -1885,7 +1890,20 @@ function brandsPanel(): string {
   return `${controls}<ul class="brand-list">${out}</ul>`;
 }
 
-/* ── explore: deals ──────────────────────────────────────────────────────── */
+/* ── deals ────────────────────────────────────────────────────────────────
+   Promoted out of Explore to a top level page in the top bar, between Home
+   and Explore. Was one of the Explore subnav tabs until the owner asked for
+   it to sit at the same level as Home and Explore rather than a tap inside
+   the latter — see the top-of-file structure comment. The internal name
+   (dealsPanel, state.dealSort, the 'deals' route and view) is unchanged: this
+   was a presentation move, not a data or routing one, and the URL /deals
+   still resolves to the same place it always has. */
+
+/** The page shell: a heading (Explore's own tabs used to do that job) over
+ *  the unchanged panel below. */
+function dealsView(): string {
+  return `<div class="page-head"><h2 class="t-page">Today’s Deals</h2></div>${dealsPanel()}`;
+}
 
 function dealsPanel(): string {
   // A deal tile leads with the bottle's photo, so a fragrance with none —
@@ -2405,7 +2423,6 @@ function searchPanel(): string {
 
 const TABS: { id: ExploreTab; label: string }[] = [
   { id: 'brands', label: 'Brands' },
-  { id: 'deals', label: 'Top Deals Today' },
   { id: 'retailers', label: 'Retailers' },
   { id: 'notes', label: 'Notes' },
   { id: 'search', label: 'Search' },
@@ -2415,13 +2432,11 @@ function exploreView(): string {
   const panel =
     state.tab === 'brands'
       ? brandsPanel()
-      : state.tab === 'deals'
-        ? dealsPanel()
-        : state.tab === 'retailers'
-          ? retailersPanel()
-          : state.tab === 'notes'
-            ? notesPanel()
-            : searchPanel();
+      : state.tab === 'retailers'
+        ? retailersPanel()
+        : state.tab === 'notes'
+          ? notesPanel()
+          : searchPanel();
   return `<div class="explore">${panel}</div>`;
 }
 
@@ -3032,6 +3047,7 @@ function currentRoute(): Route {
 
   switch (state.view) {
     case 'home': return { name: 'home', param: '', query: {} };
+    case 'deals': return { name: 'deals', param: '', query: {} };
     case 'browse': return { name: 'search', param: '', query };
     case 'detail': return { name: 'fragrance', param: state.fragranceId, query: {} };
     case 'retailer': return { name: 'retailer', param: state.retailerId, query: {} };
@@ -3078,7 +3094,12 @@ function applyRoute(route: Route): boolean {
       state.view = 'browse';
       return true;
 
-    case 'brands': case 'deals': case 'retailers': case 'notes':
+    // Deals is a top level view in its own right now, not a tab under
+    // Explore, so it gets state.view set directly rather than falling into
+    // the brands/retailers/notes case below that also sets state.tab.
+    case 'deals': state.view = 'deals'; return true;
+
+    case 'brands': case 'retailers': case 'notes':
       state.view = 'explore';
       state.tab = route.name as ExploreTab;
       return true;
@@ -4203,29 +4224,31 @@ function render(): void {
   const body =
     state.view === 'home'
       ? homeView()
-      : state.view === 'explore'
-        ? exploreView()
-        : state.view === 'browse'
-          ? browseView()
-          : state.view === 'detail'
-            ? detailView()
-            : state.view === 'retailer'
-              ? retailerView()
-              : state.view === 'brand'
-                ? brandView()
-                : state.view === 'note'
-                  ? noteView()
-                  : state.view === 'about'
-                    ? aboutView()
-                    : state.view === 'design'
-                      ? designView()
-                      : state.view === 'settings'
-                        ? settingsView()
-                        : state.view === 'account'
-                          ? accountView()
-                          : state.view === 'notFound'
-                            ? notFoundView()
-                            : legalView();
+      : state.view === 'deals'
+        ? dealsView()
+        : state.view === 'explore'
+          ? exploreView()
+          : state.view === 'browse'
+            ? browseView()
+            : state.view === 'detail'
+              ? detailView()
+              : state.view === 'retailer'
+                ? retailerView()
+                : state.view === 'brand'
+                  ? brandView()
+                  : state.view === 'note'
+                    ? noteView()
+                    : state.view === 'about'
+                      ? aboutView()
+                      : state.view === 'design'
+                        ? designView()
+                        : state.view === 'settings'
+                          ? settingsView()
+                          : state.view === 'account'
+                            ? accountView()
+                            : state.view === 'notFound'
+                              ? notFoundView()
+                              : legalView();
 
   // What this page tells a search engine it is. Applied on every render
   // because the site is one document: without this, /fragrance/ean-123 and
@@ -4262,6 +4285,7 @@ function render(): void {
     : '';
 
   ($('#nav-home') as HTMLElement).classList.toggle('on', state.view === 'home');
+  ($('#nav-deals') as HTMLElement).classList.toggle('on', state.view === 'deals');
   ($('#nav-explore') as HTMLElement).classList.toggle('on', inExplore || state.view === 'browse');
   ($('#nav-about') as HTMLElement).classList.toggle('on', state.view === 'about');
   // Account has no top bar entry of its own yet (see settingsView's own
@@ -4454,6 +4478,7 @@ function init(): void {
 
   $('#nav-home').addEventListener('click', goHome);
   $('#brand-home').addEventListener('click', goHome);
+  $('#nav-deals').addEventListener('click', () => go('deals'));
   $('#nav-explore').addEventListener('click', () => openExplore(state.tab));
   $('#nav-about').addEventListener('click', () => go('about'));
   $('#nav-settings').addEventListener('click', () => go('settings'));
