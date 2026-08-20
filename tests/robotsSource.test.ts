@@ -6,6 +6,7 @@ import {
   loadRobotsResilient,
   probeRobots,
   robotsHeaderVariants,
+  robotsTextFromRenderedHtml,
 } from '../src/catalogue/robotsSource.js';
 import { isAllowed } from '../src/catalogue/robots.js';
 import type { HttpResponse } from '../src/catalogue/attempt.js';
@@ -237,5 +238,52 @@ describe('probeRobots with a fallback header set', () => {
 describe('robotsHeaderVariants', () => {
   it('is exactly one extra way of asking, not a rotation', () => {
     expect(robotsHeaderVariants({ 'user-agent': 'Mozilla/5.0' })).toEqual([{ 'user-agent': 'Mozilla/5.0' }]);
+  });
+});
+
+/**
+ * The last route to a shop whose robots.txt neither the runner nor the proxy
+ * can fetch. Reading the rules is the point; obeying them is still the only
+ * thing done with them.
+ */
+describe('robotsTextFromRenderedHtml', () => {
+  it('recovers the file Chrome painted inside its <pre>', () => {
+    const html =
+      '<html><head></head><body><pre style="word-wrap: break-word; white-space: pre-wrap;">' +
+      'User-agent: *\nDisallow: /checkout\nSitemap: https://x.test/sitemap.xml' +
+      '</pre></body></html>';
+    expect(robotsTextFromRenderedHtml(html)).toBe(
+      'User-agent: *\nDisallow: /checkout\nSitemap: https://x.test/sitemap.xml',
+    );
+  });
+
+  it('unescapes what the renderer escaped', () => {
+    const html = '<pre>User-agent: *\nDisallow: /a?b=1&amp;c=2</pre>';
+    expect(robotsTextFromRenderedHtml(html)).toContain('/a?b=1&c=2');
+  });
+
+  it('reads a robots.txt a server mislabelled as HTML, with no <pre> at all', () => {
+    const html = '<html><body>User-agent: *\nDisallow: /admin</body></html>';
+    expect(robotsTextFromRenderedHtml(html)).toBe('User-agent: *\nDisallow: /admin');
+  });
+
+  it('refuses a rendered error page, which must never read as "nothing forbidden"', () => {
+    expect(
+      robotsTextFromRenderedHtml('<html><body><h1>Access Denied</h1><p>You do not have permission.</p></body></html>'),
+    ).toBeNull();
+    expect(robotsTextFromRenderedHtml('<pre>Service Unavailable</pre>')).toBeNull();
+  });
+
+  it('refuses an empty render', () => {
+    expect(robotsTextFromRenderedHtml('')).toBeNull();
+  });
+
+  it('hands back something parseRobots turns into a real refusal', () => {
+    const text = robotsTextFromRenderedHtml('<pre>User-agent: *\nDisallow: /</pre>')!;
+    const rules = readRobotsResponse({ ok: true, status: 200, body: text });
+    expect(rules.kind).toBe('rules');
+    if (rules.kind === 'rules') {
+      expect(isAllowed(rules.rules, 'https://x.test/beauty/fragrance/')).toBe(false);
+    }
   });
 });
