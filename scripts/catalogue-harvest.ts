@@ -40,10 +40,13 @@ import { reconcile } from '../src/catalogue/reconcile.js';
 import { crawlViaSitemap, type SitemapCrawlResult } from '../src/catalogue/sitemapCrawl.js';
 import { crawlViaShopifyProducts } from '../src/catalogue/shopifyProductsCrawl.js';
 import { quarantinePrices } from '../src/catalogue/priceQuarantine.js';
-import { loadRobots, BROWSER_HEADERS, type Http } from '../src/catalogue/attempt.js';
+import { BROWSER_HEADERS, BOT_HEADERS, type Http } from '../src/catalogue/attempt.js';
 import { isAllowed } from '../src/catalogue/robots.js';
+import { loadRobotsResilient } from '../src/catalogue/robotsSource.js';
 import { parseListings } from '../src/catalogue/jsonld.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
+import { titleWithSizeFromUrl } from '../src/catalogue/sizeFromUrl.js';
+import { looksLikeTimeouts, SLOW_SHOP_TIMEOUT_MS } from '../src/catalogue/strategy.js';
 import {
   apifyProxyConfigFromEnv, apifyProxyHttp, MAX_PROXIED_REQUESTS_PER_RUN,
 } from '../src/catalogue/apifyProxy.js';
@@ -127,9 +130,32 @@ const now = new Date().toISOString();
 // scraping it anyway would be exactly the "improve it into a crawler"
 // mistake docs/INGESTION.md warns against, on a partner who already handed
 // the data over for free. npm run catalogue:feed is that route instead.
-const shops = RETAILERS.filter(
+const enabledShops = RETAILERS.filter(
   (r) => r.enabled && r.adapter !== 'affiliate-feed' && (!onlyShop || r.id === onlyShop),
 );
+
+// ── Registry order starves the shops that need a run most ───────────────────
+// The harvest step in .github/workflows/catalogue-daily.yml is capped at 60
+// minutes and run 261 (job 96314578076) used 60m12s of it — the cap landed
+// mid-sweep, inside Emirates Oud. Every shop after that point in RETAILERS
+// order was never attempted at all: kayali, zara, debenhams, lush,
+// bath-body-works-uk and the rest simply do not appear in that run's output.
+// They had been enabled for days and read as "harvested, found nothing" when
+// the truth was "never asked".
+//
+// Registry order is alphabetical-ish by when a shop was added, which is
+// unrelated to anything. Ordering by whether a shop has ever produced a live
+// snapshot is not: a shop still on fixtures is the one whose result is
+// unknown, and it is also the cheap one to ask, because a shop with no route
+// fails in seconds while a shop with a working route spends its whole
+// per-shop budget. Putting the unknowns first therefore costs the known-good
+// shops almost nothing and is the difference between a never-live shop being
+// measured every run and never being measured at all.
+const neverLiveYet = (id: string) => store.read(id).source !== 'live';
+const shops = [
+  ...enabledShops.filter((r) => neverLiveYet(r.id)),
+  ...enabledShops.filter((r) => !neverLiveYet(r.id)),
+];
 
 console.log(`\nSitemap harvest`);
 console.log(`shops    ${shops.length}`);
@@ -152,7 +178,13 @@ const neverLive: string[] = [];
 const zeroThisRun: string[] = [];
 
 for (const retailer of shops) {
-  const robots = await loadRobots(retailer, http);
+  // Not attempt.ts's `loadRobots`, which only ever asks `www.{domain}`. Two
+  // enabled shops in this registry carry a subdomain in `domain`
+  // (uk.shopfrenchavenue.com, uk.zimayaperfumes.com), so that address does not
+  // resolve, the failure reads as "robots.txt unreachable", and every URL is
+  // then treated as disallowed with no error line to show for it — see
+  // src/catalogue/robotsSource.ts for the measurement.
+  const robots = await loadRobotsResilient(retailer, http, BOT_HEADERS);
   const gapMs = Math.max(
     retailer.catalogue?.minRequestGapMs ?? 1500,
     (robots.crawlDelaySeconds ?? 0) * 1000,
@@ -278,6 +310,19 @@ for (const retailer of shops) {
       result = await crawlViaSitemap({
         retailer, http, robots, maxPages, gapMs, headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat, ...sweep,
       });
+      // Whatever the /products.json attempt learned must survive the fallback.
+      // It used not to: `result` was replaced wholesale by the sitemap walk's
+      // own result, and with it went the only record of why the Shopify route
+      // returned nothing. That is precisely how French Avenue and IBRAQ came
+      // to report `0 urls  0 fetched  0 priced listings` with no error at all
+      // on every run since they were enabled (run 261, job 96314578076) —
+      // both routes had failed, and neither had left anything to read.
+      result.errors.push(
+        shopifyResult.isShopify
+          ? `[products.json] Shopify payload but 0 listings from ${shopifyResult.pagesFetched} page(s)`
+          : `[products.json] not a Shopify storefront (${shopifyResult.pagesFetched} page(s) tried)`,
+        ...shopifyResult.errors.map((e) => `[products.json] ${e}`),
+      );
     }
   } else {
     result = await crawlViaSitemap({
@@ -297,9 +342,39 @@ for (const retailer of shops) {
   // everything usually 403s that as well, and NO_RESTRICTIONS must never be
   // assumed just because the free fetch failed.
   let robotsForActor = robots;
+
+  // ── Free tier 0.5: the shop was slow, not blocked ─────────────────────────
+  // Tried before either metered tier and before them for a reason: a shop
+  // whose every error is "HTTP 0" never refused us, it just had not answered
+  // when createHttp's 25-second deadline fired. Neither a residential IP nor
+  // a headless browser fixes a server that needs longer to think, so paying
+  // for either would be money spent on the wrong diagnosis. See
+  // `looksLikeTimeouts` in src/catalogue/strategy.ts for what qualifies and
+  // for the John Lewis measurement that motivated it. One retry, one shop's
+  // budget, no credential.
+  let viaPatience = false;
+  if (withPrice.length === 0 && looksLikeTimeouts(result.errors)) {
+    console.log(`      ${retailer.name}: every failure was a timeout, retrying once at ${SLOW_SHOP_TIMEOUT_MS / 1000}s`);
+    const patientHttp = createHttp({ timeoutMs: SLOW_SHOP_TIMEOUT_MS });
+    const patientRobots = await loadRobotsResilient(retailer, patientHttp, BOT_HEADERS);
+    robotsForActor = patientRobots;
+    const retry = await crawlViaSitemap({
+      retailer, http: patientHttp, robots: patientRobots, maxPages, gapMs,
+      headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat, ...sweep,
+    });
+    const retryWithPrice = retry.listings.filter((l) => l.priceGbp !== null);
+    if (retryWithPrice.length > 0) {
+      result = retry;
+      withPrice = retryWithPrice;
+      viaPatience = true;
+    } else {
+      result.errors.push(...retry.errors.map((e) => `[patient] ${e}`));
+    }
+  }
+
   if (withPrice.length === 0 && useProxy) {
     const proxiedHttp = apifyProxyHttp(proxyConfig!);
-    const proxiedRobots = await loadRobots(retailer, proxiedHttp);
+    const proxiedRobots = await loadRobotsResilient(retailer, proxiedHttp, BOT_HEADERS);
     robotsForActor = proxiedRobots;
     const retry = await crawlViaSitemap({
       retailer, http: proxiedHttp, robots: proxiedRobots, maxPages, gapMs: 0,
@@ -331,9 +406,12 @@ for (const retailer of shops) {
 
     if (allowed.length === 0) {
       result.errors.push(
-        `[actor] every section URL disallowed by robots.txt, or robots.txt unreachable`,
+        robotsForActor.unavailable
+          ? `[actor] robots.txt unreachable, so no section URL may be rendered`
+          : `[actor] every section URL disallowed by robots.txt`,
       );
     } else {
+      console.log(`      ${retailer.name}: rendering ${allowed.length} section page(s) through the Apify actor`);
       const rendered = await actorRenderer!.render(allowed.map((t) => t.url));
       const listings = allowed.flatMap(({ id, url }) => {
         const res = rendered.get(url);
@@ -350,10 +428,40 @@ for (const retailer of shops) {
         viaActor = true;
         actorPartial = true;
       } else {
-        result.errors.push(`[actor] rendered ${allowed.length} section page(s), 0 priced listings`);
+        // The actor is the most expensive thing this pipeline can do, so when
+        // it comes back with nothing the run has to say precisely what it got
+        // — an API rejection, an empty render and an unrendered URL are three
+        // different problems with three different fixes, and "0 priced
+        // listings" alone distinguishes none of them.
+        result.errors.push(
+          `[actor] rendered ${allowed.length} section page(s), ` +
+            `${listings.length} listings parsed, 0 priced`,
+        );
+        for (const { url } of allowed) {
+          const res = rendered.get(url);
+          result.errors.push(
+            `[actor] ${url}: ` +
+              (res
+                ? `HTTP ${res.status}, ${res.body.length} bytes${res.error ? `, ${res.error}` : ''}`
+                : 'no result returned'),
+          );
+        }
       }
     }
   }
+
+  // A size the shop states in its own product URL but omits from the title,
+  // put back where every consumer of a listing already looks for it. Recovery
+  // of a stated fact, never a guess — see src/catalogue/sizeFromUrl.ts for
+  // what qualifies and for the Zimaya measurement (84 priced listings, all 84
+  // rejected for having no size, 50 of them carrying one in their URL).
+  let sizesRecovered = 0;
+  withPrice = withPrice.map((l) => {
+    const titled = titleWithSizeFromUrl(l.rawTitle, l.url);
+    if (titled === l.rawTitle) return l;
+    sizesRecovered++;
+    return { ...l, rawTitle: titled };
+  });
 
   totalListings += withPrice.length;
   if (withPrice.length > 0) reached++;
@@ -362,11 +470,16 @@ for (const retailer of shops) {
     `  ${retailer.name.padEnd(20)} ${String(result.urlsDiscovered).padStart(5)} urls  ` +
       `${String(result.pagesFetched).padStart(3)} fetched  ` +
       `${String(withPrice.length).padStart(3)} priced listings` +
+      (viaPatience ? '  [via longer timeout]' : '') +
       (viaProxy ? '  [via Apify proxy]' : '') +
       (viaActor ? '  [via Apify actor]' : '') +
+      (sizesRecovered ? `  [${sizesRecovered} sizes read from product URLs]` : '') +
       (result.errors.length ? `  (${result.errors.length} errors)` : ''),
   );
-  for (const e of result.errors.slice(0, 1)) console.log(`      ${e}`);
+  // Four rather than one. A shop that failed through several tiers has one
+  // error per tier, and the first alone is the cheapest tier's — which is
+  // never the one worth reading when a later, paid tier is what just ran.
+  for (const e of result.errors.slice(0, 4)) console.log(`      ${e}`);
 
   // A shop that fetched its full budget and priced nothing, with no errors to
   // read, is the one failure this log used to be unable to describe. Show what

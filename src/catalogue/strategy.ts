@@ -238,3 +238,49 @@ export function explain(memory: StrategyMemory, retailerId: string): string[] {
     return `${s}: ${rate}, ${detail}, score ${score(r).toFixed(2)}`;
   });
 }
+
+/**
+ * ── A free tier before the paid ones: a shop that is slow, not blocked ──────
+ *
+ * `scripts/catalogue-harvest.ts` escalates a shop that yielded nothing to the
+ * Apify proxy and then to the Apify actor, both metered. Neither fixes the
+ * failure John Lewis actually has.
+ *
+ * Measured, run 261 (job 96314578076, 2026-08-20T04:29Z):
+ *
+ *     John Lewis               0 urls    0 fetched    0 priced listings  (2 errors)
+ *         https://www.johnlewis.com/sitemap.xml: HTTP 0
+ *
+ * `HTTP 0` is this codebase's marker for "no response at all" — see
+ * `createHttp` in httpFetch.ts, which returns status 0 when its own
+ * `AbortController` fires. The default deadline there is 25 seconds. So the
+ * shop never refused us: it was still thinking when we hung up. That is not
+ * an IP problem (nothing to proxy around) and not a JavaScript problem
+ * (nothing was rendered because nothing arrived), and paying either metered
+ * tier to re-ask the same slow server the same question is money spent on the
+ * wrong diagnosis.
+ *
+ * The right first response to a timeout is to wait longer, once, for free.
+ * These two exports are what let the harvest do that before it reaches for a
+ * credential.
+ */
+
+/** A longer deadline for one retry against a shop that timed out at the default. */
+export const SLOW_SHOP_TIMEOUT_MS = 60_000;
+
+/**
+ * Whether a run's errors describe a shop that never answered, rather than one
+ * that answered with a refusal.
+ *
+ * True only when at least one error is a timeout and *none* is a refusal: a
+ * shop that 403s some paths and times out on others is a blocked shop with a
+ * slow edge, and waiting longer will not change its mind. Kept pure, and kept
+ * here rather than in the script, so it can be asserted without a network.
+ */
+export function looksLikeTimeouts(errors: readonly string[]): boolean {
+  if (errors.length === 0) return false;
+  const timedOut = errors.some((e) => /: HTTP 0\b/.test(e) || /abort/i.test(e));
+  if (!timedOut) return false;
+  const refused = errors.some((e) => /: HTTP (4\d\d|5\d\d)\b/.test(e));
+  return !refused;
+}
