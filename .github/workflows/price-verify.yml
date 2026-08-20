@@ -100,6 +100,10 @@ on:
         description: "Optional page to render instead of the shop's first catalogue.sections URL."
         type: string
         default: ''
+      amazon_probe:
+        description: 'Instead of verifying, measure amazon.co.uk honestly: read its robots.txt, obey it literally, and only fetch what it permits. Ignores "shop". Writes nothing, stores no price.'
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -140,7 +144,7 @@ jobs:
       # keys every listing and reports exactly what it would change, without
       # touching a snapshot or committing anything.
       - name: Dry-run the storefront re-price
-        if: ${{ inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe && !inputs.apify_blob_probe }}
+        if: ${{ inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe && !inputs.apify_blob_probe && !inputs.amazon_probe }}
         run: |
           npm run storefront:reprice -- --dry-run \
             ${{ inputs.shop && format('--shop={0}', inputs.shop) || '' }}
@@ -220,8 +224,21 @@ jobs:
             --shop=${{ inputs.shop }} \
             ${{ inputs.apify_blob_probe_url && format('--url={0}', inputs.apify_blob_probe_url) || '' }}
 
+      # Amazon UK, exactly once per dispatch, exactly as honestly as every
+      # other shop in this registry: robots.txt read and obeyed literally,
+      # only the paths it permits fetched, no challenge bypassing and no
+      # escalation beyond the plain BROWSER_HEADERS fetch tier — see
+      # scripts/amazon-probe.ts's own header for the full reasoning and the
+      # registry entry's own comment for the licensing/PA-API blockers this
+      # does not touch. Not continue-on-error, for the same reason as the
+      # other read-then-report probes above: this run's own log is the whole
+      # deliverable.
+      - name: Measure amazon.co.uk honestly
+        if: ${{ inputs.amazon_probe }}
+        run: npm run amazon:probe
+
       - name: Verify prices against live storefronts
-        if: ${{ !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe && !inputs.apify_blob_probe }}
+        if: ${{ !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe && !inputs.apify_blob_probe && !inputs.amazon_probe }}
         continue-on-error: true
         run: |
           npm run price:verify -- \
@@ -231,7 +248,7 @@ jobs:
             --budget-ms=${{ inputs.budget_ms || '240000' }}
 
       - name: Commit the drift report
-        if: ${{ inputs.commit_report && !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe && !inputs.apify_blob_probe }}
+        if: ${{ inputs.commit_report && !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe && !inputs.apify_blob_probe && !inputs.amazon_probe }}
         run: |
           ./scripts/commit-and-push.sh \
             "Price verification: measured drift $(date -u +%Y-%m-%dT%H:%MZ)" \
