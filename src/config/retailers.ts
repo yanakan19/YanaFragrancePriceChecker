@@ -3948,6 +3948,18 @@ export const RETAILERS: readonly Retailer[] = [
     // a distinct in-store-and-online section of 25 hand-selected niche
     // houses — Bond No. 9, Xerjoff, Roja Parfums, Henry Jacques were named —
     // which is why both tiers are claimed rather than just one.
+    //
+    // Currency probe, run 98, job 96415230154, 2026-08-20T11:52Z: every one
+    // of the nine ways of asking got HTTP 403 on both the theme's meta
+    // signal and the bare page — origin, /en-gb, /gb, /uk, /en-uk, both
+    // cookies, ?country=GB-shaped and Accept-Language en-GB alike. A clean,
+    // uniform block rather than a mixed result, the same shape this
+    // registry already has for Selfridges (see its own entry above,
+    // "Live spike... HTTP 403 from a datacentre IP before any markup was
+    // served. Bot mitigation, not a parsing problem."). Nothing about
+    // currency was established either way — a 403 answers nothing — so this
+    // stays on CURRENCY_UNCONFIRMED, now for a different, harder reason than
+    // "unread": what has been read is a refusal.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -4023,11 +4035,31 @@ export const RETAILERS: readonly Retailer[] = [
     // The URLs surfaced by search follow a /collections/ path shape —
     // avon.uk.com/collections/fragrance, /collections/womens-perfume — the
     // same shape Bloom Perfumery, Les Senteurs and Perfume Direct below all
-    // show too, which is suggestive of a Shopify storefront. That is a
-    // pattern in search-result URLs, not a read of /products.json, so
-    // `shopifyStorefront` stays unset here and on every entry added today.
+    // show too, which was suggestive of a Shopify storefront but, on its
+    // own, only a pattern in search-result URLs rather than a read of
+    // /products.json. That has since been read directly:
+    //
+    // Currency probe, run 102, job 96416797227, 2026-08-20T11:58Z: the bare
+    // origin and five of the other eight ways of asking (?country=GB, both
+    // cookies separately, both together, Accept-Language en-GB) all answered
+    // meta 200 / home 200, quoting AND settling GBP at rate 1 — no
+    // conversion anywhere. /en-gb, /gb, /uk, /en-uk all 404, expected of a
+    // single-market store (the same shape Zimaya's entry documents).
+    // Removed from CURRENCY_UNCONFIRMED at the foot of this file on that
+    // evidence. The same run read /products.json and got a real Shopify
+    // payload back at every address — three priced rows
+    // (her-wisdom-sim-sim-whipped-oil-body-cream at 9.60,
+    // her-wisdom-sim-sim-indulgent-glow-bath-and-shower-oil at 10.00,
+    // her-wisdom-sim-sim-caring-skin-and-hair-perfume-mist at 8.40; none of
+    // the three sampled happen to be fragrance, which says nothing about
+    // whether the collections named above carry any) — so
+    // `shopifyStorefront` is set below rather than left unset. `adapter`
+    // stays 'unknown': no harvest has actually run against this shop yet,
+    // and nothing here proposes enabling it on a currency-and-route reading
+    // alone.
     enabled: false,
     adapter: 'unknown',
+    shopifyStorefront: true,
     currency: 'GBP',
     shipping: {
       standardGbp: null,
@@ -4040,10 +4072,10 @@ export const RETAILERS: readonly Retailer[] = [
       verifiedAt: '2026-08-20',
       confidence: 'unverified',
       notes:
-        'Nothing here has been read from avon.uk.com itself: not its delivery terms, not its ' +
-        'robots.txt, not its checkout currency. The £25 free-delivery figure above comes from a ' +
-        'WebSearch result snippet, quoted as far as it goes and no further. No affiliate ' +
-        'programme has been researched.',
+        'Delivery terms have not been read from avon.uk.com itself, only its checkout currency ' +
+        'and Shopify route (see the comment above this entry). The £25 free-delivery figure ' +
+        'above comes from a WebSearch result snippet, quoted as far as it goes and no further. ' +
+        'No affiliate programme has been researched.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -4060,6 +4092,14 @@ export const RETAILERS: readonly Retailer[] = [
     // this exact domain, "over 300 makeup, fragrance, skin & hair brands",
     // both mass designer houses (Chanel, Dior, Tom Ford named) and niche
     // indie brands (Kayali named) in the one storefront — hence both tiers.
+    //
+    // Currency probe, run 99, job 96416155239, 2026-08-20T11:56Z: every one
+    // of the nine ways of asking got meta 404 / home 403, uniformly across
+    // origin, /en-gb, /gb, /uk, /en-uk, both cookies, ?country=GB and
+    // Accept-Language en-GB. Same shape as Harrods' entry above — a clean
+    // refusal, not a mixed reading — and nothing about currency was
+    // established either way. Stays on CURRENCY_UNCONFIRMED for that reason
+    // rather than "unread".
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -4096,8 +4136,22 @@ export const RETAILERS: readonly Retailer[] = [
     // British retailer, founded 1991; acquired by US-based Ulta Beauty in
     // July 2025 per a Wikipedia snippet — noted because a change of
     // ownership is exactly the kind of event that can move a storefront's
-    // settlement currency, so this is not assumed to still behave as a
-    // purely-British operation just because the shop itself is.
+    // settlement currency, so this was not assumed to still behave as a
+    // purely-British operation just because the shop itself is. It was
+    // checked instead of assumed:
+    //
+    // Currency probe, run 100, job 96416323928, 2026-08-20T11:57Z: the bare
+    // origin and six of the other eight ways of asking (/uk, ?country=GB,
+    // both cookies separately, both together, Accept-Language en-GB) all
+    // answered HTTP 200 and quoted GBP with no conversion — STERLING. /en-gb,
+    // /gb and /en-uk 404, which reads as this shop simply not using that
+    // market-path shape rather than a refusal (the ones that do resolve all
+    // agree). Removed from CURRENCY_UNCONFIRMED at the foot of this file on
+    // that evidence. Not a confirmed Shopify storefront, though: every
+    // address tried for /products.json 404'd in the same run, so
+    // `shopifyStorefront` stays unset and `adapter` stays 'unknown' — the
+    // currency question is answered, the ingestion route is not, and
+    // nothing here proposes enabling this shop on a currency reading alone.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
@@ -4112,8 +4166,8 @@ export const RETAILERS: readonly Retailer[] = [
       verifiedAt: '2026-08-20',
       confidence: 'unverified',
       notes:
-        'Nothing here has been read from spacenk.com itself: not its delivery terms, not its ' +
-        'robots.txt, not its checkout currency. The £25 free-delivery figure above comes from a ' +
+        'Delivery terms have not been read from spacenk.com itself, only its checkout currency ' +
+        '(see the comment above this entry). The £25 free-delivery figure above comes from a ' +
         'WebSearch result snippet, quoted as far as it goes and no further. No affiliate ' +
         'programme has been researched.',
     },
@@ -4576,14 +4630,15 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
   ],
   [
     'harrods',
-    'Listed here on the day it was added, before anyone had opened the shop — the only moment ' +
-      'at which this list can be complete. Everything known about harrods.com is drawn from ' +
-      'WebSearch snippets of its own perfume and Salon de Parfums pages; nobody has reached its ' +
-      'checkout, read its robots.txt, or confirmed what currency it actually settles a UK order ' +
-      'in. A famous UK department store is not the same claim as a measured sterling price list ' +
-      '— Nicchia Luxury ran enabled on a less careful version of that same assumption for three ' +
-      'days (see its own entry above). One positive sterling reading from a currency probe ' +
-      'against harrods.com itself is what would remove this id.',
+    'Currency probe, run 98, job 96415230154, 2026-08-20T11:52Z: every one of the nine ways of ' +
+      'asking got HTTP 403 on both the meta signal and the bare page, uniformly — the same clean ' +
+      'block this file already has on Selfridges (see its own entry above). A 403 answers ' +
+      'nothing about currency; it is not evidence for sterling any more than against it. A ' +
+      'famous UK department store is not the same claim as a measured sterling price list — ' +
+      'Nicchia Luxury ran enabled on a less careful version of that same assumption for three ' +
+      'days (see its own entry above). One positive sterling reading — which will need residential ' +
+      "retrieval given this block, per docs/INGESTION.md's usual escalation — is what would " +
+      'remove this id.',
   ],
   [
     'next',
@@ -4593,33 +4648,33 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'own — uk.zimayaperfumes.com quotes dollars. One positive sterling reading from a ' +
       'currency probe is what would remove this id.',
   ],
-  [
-    'avon',
-    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
-      'about avon.uk.com comes from WebSearch snippets of its /collections pages; its checkout ' +
-      'currency has not been read, and the /collections URL shape is only suggestive of ' +
-      'Shopify, not a read of /products.json. One positive sterling reading from a currency ' +
-      'probe is what would remove this id.',
-  ],
+  // avon was removed from this list on 2026-08-20, on the evidence the list
+  // itself asks for: currency probe, run 102, job 96416797227, read a
+  // sterling price list off the shop's own storefront at rate 1, through six
+  // of nine ways of asking, and confirmed a real Shopify /products.json
+  // payload in the same run. See the comment on its registry entry above
+  // for what that run established. It remains `enabled: false` — currency
+  // and route are proven, enabling is still a separate judgement nobody has
+  // made yet.
   [
     'sephora-uk',
-    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
-      'about sephora.co.uk comes from WebSearch snippets; its checkout currency has not been ' +
-      'read. Sephora UK is a UK-launched storefront of a larger international group, and this ' +
-      'registry has already seen a UK-branded shop quote the wrong currency to this tooling by ' +
-      'default and settle GBP only on request (see escentual\'s and fragrancehub\'s own entries ' +
-      'above) — a reason for a probe, not for an assumption either way. One positive sterling ' +
-      'reading from a currency probe is what would remove this id.',
+    'Currency probe, run 99, job 96416155239, 2026-08-20T11:56Z: every one of the nine ways of ' +
+      'asking got meta 404 / home 403, uniformly — the same clean block as Harrods\' entry above, ' +
+      'not a mixed reading. A 403/404 pair answers nothing about currency either way. Sephora UK ' +
+      'is a UK-launched storefront of a larger international group, and this registry has ' +
+      'already seen a UK-branded shop quote the wrong currency to this tooling by default and ' +
+      'settle GBP only on request (see escentual\'s and fragrancehub\'s own entries above) — one ' +
+      'more reason not to assume either way. One positive sterling reading is what would remove ' +
+      'this id.',
   ],
-  [
-    'space-nk',
-    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
-      'about spacenk.com comes from WebSearch snippets; its checkout currency has not been ' +
-      "read. Acquired by the US's Ulta Beauty in July 2025 per a Wikipedia snippet — a change " +
-      'of ownership is exactly the kind of event that can move a settlement currency, one more ' +
-      'reason a probe is needed rather than an assumption. One positive sterling reading from a ' +
-      'currency probe is what would remove this id.',
-  ],
+  // space-nk was removed from this list on 2026-08-20, on the evidence the
+  // list itself asks for: currency probe, run 100, job 96416323928, read a
+  // sterling price list off the shop's own storefront at rate 1, through
+  // seven of nine ways of asking. See the comment on its registry entry
+  // above for what that run did and did not establish (in particular:
+  // currency yes, a confirmed /products.json route no). It remains
+  // `enabled: false` — a confirmed currency is not, by itself, a decision to
+  // fetch from a shop with no proven ingestion route.
   [
     'house-of-fraser',
     'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
