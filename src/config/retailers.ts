@@ -3857,16 +3857,15 @@ export const RETAILERS: readonly Retailer[] = [
     // Disabled, and unlike most entries here that is not merely "nobody has
     // looked yet". Three separate things block it, and none of them is code:
     //
-    //   1. There is no legitimate way to read Amazon's prices without the
-    //      Product Advertising API (PA-API 5.0), and PA-API keys are issued
-    //      only to an approved Associates account that has already made
-    //      qualifying sales. The API is how you would build the thing that
-    //      produces the sales, so the gate closes on itself. Scraping is the
-    //      other route and is not one: it breaches their terms, and a price
-    //      this project could not source or defend is the opposite of what
-    //      every other entry in this file is for.
-    //   2. PA-API's terms restrict how long a retrieved price may be retained
-    //      and displayed. This repo stores prices at rest in
+    //   1. There is no legitimate way to read Amazon's prices without an
+    //      approved API, and that API's own eligibility gate closes on
+    //      itself — see the 2026-08-20 update below for what actually
+    //      changed here and what did not. Scraping is the other route and is
+    //      not one: it breaches their terms, and a price this project could
+    //      not source or defend is the opposite of what every other entry in
+    //      this file is for.
+    //   2. The API's terms restrict how long a retrieved price may be
+    //      retained and displayed. This repo stores prices at rest in
     //      data/catalogue/*.json and keeps demo/priceHistory.generated.ts
     //      deliberately, so the storage model and the licence may be in
     //      direct conflict. NOBODY HAS READ THE CURRENT OPERATING AGREEMENT —
@@ -3894,6 +3893,63 @@ export const RETAILERS: readonly Retailer[] = [
     // run against amazon.co.uk, and none of that is an oversight — it is
     // the deliberate absence this entry has held since 2026-08-16, held
     // again now on inspection rather than by default.
+    //
+    // ── Measured honestly, 2026-08-20, and the API status updated ──────────
+    // The owner has now asked for Amazon four times, so this pass did two
+    // things: attempted the shop exactly like every other retailer here, and
+    // checked what actually happened to PA-API, which this entry had cited
+    // as "scheduled for retirement 2026-05-15" — a date already past.
+    //
+    // What WebSearch found (sourced, not assumed): PA-API v5 did retire, on
+    // schedule — Offers V1 went first, 2026-01-31, and the endpoint fully
+    // retired 2026-05-15 after an 2026-04-30 recommended-migration date. Its
+    // replacement is the Amazon Creators API, OAuth 2.0 rather than PA-API's
+    // AWS-signature scheme, documented at
+    // affiliate-program.amazon.com/creatorsapi. The eligibility gate did not
+    // loosen — if anything it sharpened: an approved Creators account needs
+    // at least 10 qualified Associates referral sales in the trailing 30
+    // days to hold API access at all, checked continuously, not once at
+    // signup, and access is suspended within days of falling below that
+    // rather than revoked outright once you have ever cleared it. Blocker 1
+    // above stands exactly as written, now against the Creators API instead
+    // of PA-API: the API is still how you would build the thing that
+    // produces the sales, so the gate still closes on itself. Blocker 2
+    // needs re-reading against the Creators API's own current terms should
+    // this ever get closer to attempted — nobody has done that yet either.
+    // (Sources: affiliate-program.amazon.com/creatorsapi and its own
+    // /docs page, both read via WebSearch snippets in this environment,
+    // which still has no direct egress to open either page — see
+    // docs/INGESTION.md.)
+    //
+    // The measurement: scripts/amazon-probe.ts (added this pass) treats
+    // amazon.co.uk exactly like every other shop — robots.txt read and
+    // obeyed literally, only permitted paths fetched, no escalation beyond
+    // plain BROWSER_HEADERS. Run 32368003975, job 96422545919,
+    // 2026-08-20T12:19:43Z:
+    //
+    //     https://www.amazon.co.uk/robots.txt: HTTP 200 — 93 disallow
+    //         rules, 8 allow rules, 0 sitemaps. Neither /s nor any prefix of
+    //         it is disallowed.
+    //     https://www.amazon.co.uk/s?k=perfume:    PERMITTED — HTTP 503,
+    //         1,427 bytes
+    //     https://www.amazon.co.uk/s?k=fragrance:  PERMITTED — HTTP 503,
+    //         1,427 bytes
+    //
+    // robots.txt permits the ordinary keyword-search page every visitor
+    // uses. Amazon then refuses it anyway, at the HTTP layer, to a plain
+    // browser-headers GitHub Actions request — a live technical block, not a
+    // robots.txt refusal, and one this project's own rules do not permit
+    // working around (no challenge bypass, no headless escalation beyond
+    // what every other shop gets, and Boots' own entry is the record of
+    // what that ceiling looks like when a shop actually holds it). No search
+    // page was fetched successfully, so no product page was ever attempted
+    // — the script refuses to construct a /dp/<ASIN> link rather than name
+    // one it never actually saw. No price was read, stored, or invented.
+    //
+    // So: three independent blockers (API eligibility, retention terms,
+    // multi-seller pricing) and now a fourth, purely technical one (the
+    // one permitted path Amazon's own robots.txt names returns 503 to this
+    // network). Nothing here supports enabling a route.
     enabled: false,
     adapter: 'unknown',
     currency: 'GBP',
