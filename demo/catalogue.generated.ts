@@ -167,6 +167,48 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-6290360378602",
+    "brand": "French Avenue",
+    "name": "Cocoa Morado",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360378602",
+    "shops": 6,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Cocoa-Morado-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-170031285.jpg?v=1751223102",
+    "notes": {
+      "top": [
+        "Saffron",
+        "Cinnamon",
+        "Nutmeg",
+        "Cardamom",
+        "Pink Pepper",
+        "Ginger"
+      ],
+      "middle": [
+        "Agarwood",
+        "Oud",
+        "Dates",
+        "Myrrh",
+        "Incense",
+        "Sugar Cane",
+        "Caramel",
+        "Amberwood",
+        "Davana"
+      ],
+      "base": [
+        "Leather",
+        "Madagascar Vanilla",
+        "Cacao Butter",
+        "Benzoin",
+        "Tonka",
+        "Labdanum",
+        "Patchouli",
+        "Musk",
+        "Mate"
+      ]
+    }
+  },
+  {
     "id": "ean-6290360378053",
     "brand": "French Avenue",
     "name": "Vulcan Feu",
@@ -1272,40 +1314,33 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290360378602",
+    "id": "ean-6290360375687",
     "brand": "French Avenue",
-    "name": "Cocoa Morado",
+    "name": "Azzure Aoud",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6290360378602",
+    "ean": "6290360375687",
     "shops": 5,
-    "image": "https://manchesterouds.com/cdn/shop/files/cocoa-morado-edp-100ml-french-avenue-1368703.webp?v=1786194466&width=1920",
+    "image": "https://manchesterouds.com/cdn/shop/files/azzure-aoud-edp-100ml-french-avenue-2367933.webp?v=1786194485&width=1920",
     "notes": {
       "top": [
-        "Cardamom",
-        "Cinnamon",
+        "Passionfruit",
         "Saffron",
-        "Nutmeg",
-        "Ginger"
+        "Rose"
       ],
       "middle": [
-        "Amberwood",
-        "Agarwood",
-        "Incense",
-        "Caramel",
-        "Davana",
-        "Myrrh",
-        "Dates",
-        "Oud"
+        "Oud",
+        "Benzoin",
+        "Patchouli"
       ],
       "base": [
-        "Cacao Butter",
-        "Patchouli",
-        "Labdanum",
-        "Benzoin",
         "Leather",
-        "Tonka",
-        "Musk"
+        "Guaiac Wood",
+        "Amber",
+        "Vanilla",
+        "Labdanum",
+        "Cedarwood",
+        "Sandalwood"
       ]
     }
   },
@@ -1329,6 +1364,34 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Leather",
         "Vanilla",
         "Benzoin"
+      ]
+    }
+  },
+  {
+    "id": "ean-6290360375694",
+    "brand": "French Avenue",
+    "name": "Liquid Brun",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360375694",
+    "shops": 5,
+    "image": "https://manchesterouds.com/cdn/shop/files/liquid-brun-edp-100ml-french-avenue-4207862.webp?v=1786194509&width=1920",
+    "notes": {
+      "top": [
+        "Cinnamon",
+        "Bergamot",
+        "Cardamom",
+        "Orange Blossom"
+      ],
+      "middle": [
+        "Bourbon Vanilla",
+        "Elemi"
+      ],
+      "base": [
+        "Musk",
+        "Praline",
+        "Ambroxan",
+        "Guaiac Wood"
       ]
     }
   },
@@ -2872,6 +2935,25 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-6290171075639",
+    "brand": "Zimaya",
+    "name": "Tiramisu Coco",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290171075639",
+    "shops": 5,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-Coco-Perfume-100ml-EDP-Zimaya-By-Afnan-169376984.jpg?v=1749428306",
+    "notes": {
+      "top": [],
+      "middle": [],
+      "base": [
+        "Brown sugar",
+        "Vanilla",
+        "Amber"
+      ]
+    }
+  },
+  {
     "id": "ean-8028713570285",
     "brand": "Acqua Di Parma",
     "name": "Blu Mediterraneo Fico di Amalfi",
@@ -4317,17 +4399,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6290360375687",
-    "brand": "French Avenue",
-    "name": "Azzure Aoud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360375687",
-    "shops": 4,
-    "image": "https://manchesterouds.com/cdn/shop/files/azzure-aoud-edp-100ml-french-avenue-2367933.webp?v=1786194485&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-6290360370187",
     "brand": "French Avenue",
     "name": "Essence de Blanc",
@@ -4352,17 +4423,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Ambergris"
       ]
     }
-  },
-  {
-    "id": "ean-6290360375694",
-    "brand": "French Avenue",
-    "name": "Liquid Brun",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360375694",
-    "shops": 4,
-    "image": "https://manchesterouds.com/cdn/shop/files/liquid-brun-edp-100ml-french-avenue-4207862.webp?v=1786194509&width=1920",
-    "notes": null
   },
   {
     "id": "ean-6298042001800",
@@ -8118,15 +8178,29 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6290171075639",
+    "id": "ean-6290171075622",
     "brand": "Zimaya",
-    "name": "Tiramisu Coco",
+    "name": "Tiramisu Caramel",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6290171075639",
+    "ean": "6290171075622",
     "shops": 4,
-    "image": "https://bgstatic.net/photos/184701_ml.jpg",
-    "notes": null
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-Caramel-Perfume-100ml-EDP-Zimaya-By-Afnan-169362894.jpg?v=1749338959",
+    "notes": {
+      "top": [
+        "Caramel"
+      ],
+      "middle": [
+        "Honey",
+        "Wood",
+        "Coumarin"
+      ],
+      "base": [
+        "Vanilla Bean Extract",
+        "Whiskey Accord",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-085715167804",
@@ -8994,7 +9068,10 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
         "Amber"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
   {
     "id": "ean-6294015131024",
     "brand": "Armaf",
@@ -9005,10 +9082,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://www.justmylook.com/cdn/shop/files/ARM0004.png?v=1758900964&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6085010094977",
     "brand": "Armaf",
@@ -12463,6 +12537,30 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-9032445264221-default-title",
+    "brand": "French Avenue",
+    "name": "Enigma Deux",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Enigma-Deux-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-184724489.png?v=1771617509",
+    "notes": {
+      "top": [
+        "Warm Spices",
+        "Cognac Accords"
+      ],
+      "middle": [
+        "Oud",
+        "Tonka Bean"
+      ],
+      "base": [
+        "Amber",
+        "Vanilla"
+      ]
+    }
+  },
+  {
     "id": "emirates-oud-15432706982237-100ml",
     "brand": "French Avenue",
     "name": "Grecia",
@@ -12486,6 +12584,112 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "Musk",
         "Tonka Bean",
         "Cacao"
+      ]
+    }
+  },
+  {
+    "id": "ean-6290360379340",
+    "brand": "French Avenue",
+    "name": "Opus Magnum",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360379340",
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opus-Magnum-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-163825257.jpg?v=1740775345",
+    "notes": {
+      "top": [
+        "Olibanum",
+        "Anis",
+        "Elemi-harpiks",
+        "Kardemomme",
+        "Basilikum og Bergamott"
+      ],
+      "middle": [
+        "Tobakk"
+      ],
+      "base": [
+        "Olibanum",
+        "Bourbon Vanilje",
+        "Myrra",
+        "Bjørketjære",
+        "Benzoin",
+        "Agarwood"
+      ]
+    }
+  },
+  {
+    "id": "ean-6290360376714",
+    "brand": "French Avenue",
+    "name": "Pinnace",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360376714",
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pinnace-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-170030060.jpg?v=1751222615",
+    "notes": {
+      "top": [
+        "Grapefruit",
+        "Orange"
+      ],
+      "middle": [
+        "Mint",
+        "Blackcurrant"
+      ],
+      "base": [
+        "Ambroxan",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-9416644460893-default-title",
+    "brand": "French Avenue",
+    "name": "Pinnace Noir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pinnace-Noir-100ml-EDP-French-Avenue-by-Fragrance-World-170030252.jpg?v=1751222722",
+    "notes": {
+      "top": [
+        "Apple",
+        "Orange Blossom",
+        "Bergamot",
+        "Lemon"
+      ],
+      "middle": [
+        "Cinnamon",
+        "Geranium",
+        "Clove",
+        "Brazilian Rosewood"
+      ],
+      "base": [
+        "Vanilla",
+        "Sandalwood",
+        "Cedarwood"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-15082087186781-default-title",
+    "brand": "French Avenue",
+    "name": "Pinnace Oryn",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pinnace-Oryn-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-163860255.jpg?v=1741038858",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Orange",
+        "Mandarin"
+      ],
+      "middle": [
+        "Ginger"
+      ],
+      "base": [
+        "Ambergris"
       ]
     }
   },
@@ -12596,6 +12800,56 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "Tonka Beans",
         "Patchouli"
       ]
+    }
+  },
+  {
+    "id": "ean-6290360375656",
+    "brand": "French Avenue",
+    "name": "Sultry Woods",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": "6290360375656",
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sultry-Woods-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-169530022.jpg?v=1750210342",
+    "notes": {
+      "top": [
+        "Turkish Rose",
+        "Geranium",
+        "Cardamom"
+      ],
+      "middle": [
+        "Cypriol Oil",
+        "Osmanthus",
+        "Amber"
+      ],
+      "base": [
+        "Leather",
+        "Vetiver",
+        "Elemi"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-14702323925341-default-title",
+    "brand": "French Avenue",
+    "name": "Sweet Paradise",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sweet-Paradise-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-152815374.jpg?v=1730899413",
+    "notes": {
+      "top": [
+        "Ambrette Musk",
+        "Mandarin"
+      ],
+      "middle": [
+        "Orris",
+        "Peach",
+        "Peony",
+        "Rose"
+      ],
+      "base": []
     }
   },
   {
@@ -16708,7 +16962,10 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://bgstatic.net/photos/178543_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "ean-6290360591513",
     "brand": "Lattafa",
@@ -16921,10 +17178,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
         "Patchouli"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6291108738276",
     "brand": "Lattafa",
@@ -22243,6 +22497,56 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-6290171075646",
+    "brand": "Zimaya",
+    "name": "Modhesh Aura",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290171075646",
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Modhesh-Aura-Perfume-100ml-EDP-Zimaya-By-Afnan-178738599.png?v=1772775615",
+    "notes": {
+      "top": [
+        "Woods",
+        "Lavender",
+        "Bergamot",
+        "Mint"
+      ],
+      "middle": [],
+      "base": [
+        "Tonka Beans",
+        "Vanilla",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "ean-6290171072874",
+    "brand": "Zimaya",
+    "name": "Night Shadow",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290171072874",
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/night-shadow-perfume-100ml-edp-zimaya-by-afnan-emirates-oud-1-103913055.jpg?v=1772775345",
+    "notes": {
+      "top": [
+        "Incense",
+        "Rose",
+        "Raspberry"
+      ],
+      "middle": [
+        "Birch",
+        "Saffron"
+      ],
+      "base": [
+        "Benzoin",
+        "Geranium",
+        "Oud"
+      ]
+    }
+  },
+  {
     "id": "ean-6290171070269",
     "brand": "Zimaya",
     "name": "Oud Is Great",
@@ -22268,15 +22572,63 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290171075622",
+    "id": "ean-6290171071020",
     "brand": "Zimaya",
-    "name": "Tiramisu Caramel",
+    "name": "Rabab Gems",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6290171075622",
+    "ean": "6290171071020",
     "shops": 3,
-    "image": "https://bgstatic.net/photos/184957_ml.jpg",
-    "notes": null
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/rabab-gems-perfume-100ml-edp-zimaya-by-afnan-emirates-oud-1-103912820.jpg?v=1772775356",
+    "notes": {
+      "top": [
+        "Pineapple",
+        "Hyacinth"
+      ],
+      "middle": [
+        "Jasmine",
+        "Pink Pepper",
+        "Iris"
+      ],
+      "base": [
+        "Amber",
+        "Patchouli",
+        "Vanilla",
+        "Vetiver",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-9066321903965-default-title",
+    "brand": "Zimaya",
+    "name": "Royal Paragon",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 3,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/royal-paragon-perfume-100ml-edp-zimaya-by-afnan-emirates-oud-1-103913992.jpg?v=1772775752",
+    "notes": {
+      "top": [
+        "Apple",
+        "Lavender",
+        "Bergamot",
+        "Mandarin Orange"
+      ],
+      "middle": [
+        "Geranium",
+        "Violet",
+        "Jasmine"
+      ],
+      "base": [
+        "Vanilla",
+        "Cardamom",
+        "Sandalwood",
+        "Pepper",
+        "Patchouli",
+        "Guaiac Wood"
+      ]
+    }
   },
   {
     "id": "mybeauty-boutique-shopify-gb-8338368364681-44927289524361",
@@ -24309,7 +24661,10 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/151559_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-0085715089977",
     "brand": "Anna Sui",
@@ -24454,10 +24809,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/92650_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8411061934227",
     "brand": "Antonio Puig",
@@ -31587,7 +31939,10 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://allbeauty.com/cdn/shop/files/4020.jpg?v=1786619791&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "ean-3386460078320",
     "brand": "Coach",
@@ -31708,10 +32063,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.thefragrancecounter.co.uk/user/products/large/coachgoldsmallbottle.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3386460156707",
     "brand": "Coach",
@@ -36705,6 +37057,29 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-8906903060829-default-title",
+    "brand": "French Avenue",
+    "name": "Amber D'or",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/amber-d-or-perfume-100ml-edp-fa-paris-by-fragrance-world-emirates-oud-2.jpg?v=1713056571",
+    "notes": {
+      "top": [
+        "Bergamot"
+      ],
+      "middle": [
+        "Melon",
+        "Pineapple"
+      ],
+      "base": [
+        "Vanilla",
+        "Musk"
+      ]
+    }
+  },
+  {
     "id": "ean-6298042001206",
     "brand": "French Avenue",
     "name": "Atlantis",
@@ -36714,6 +37089,43 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.beautybase.com/cdn/shop/files/1756288999-17373100.jpg?v=1763398837&width=1920",
     "notes": null
+  },
+  {
+    "id": "the-beauty-store-uk-tbsukdk2-38892",
+    "brand": "French Avenue",
+    "name": "Divin Aoud",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Divin-Aoud-Perfume-100ml-French-Avenue-by-Fragrance-World-180427434.png?v=1763359010",
+    "notes": {
+      "top": [
+        "Lemon",
+        "Lime",
+        "Bergamot"
+      ],
+      "middle": [
+        "Rose",
+        "Ylang-Ylang",
+        "Jasmine",
+        "Fig"
+      ],
+      "base": [
+        "Orris Root",
+        "Civet",
+        "Agarwood",
+        "Oud",
+        "Ambergris",
+        "Oakmoss",
+        "Musk",
+        "Sandalwood",
+        "Saffron",
+        "Patchouli",
+        "Birch",
+        "Cinnamon"
+      ]
+    }
   },
   {
     "id": "ean-6290360378114",
@@ -36741,17 +37153,6 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416685654153-45147049787529",
-    "brand": "French Avenue",
-    "name": "Enigma Deux",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61zM3alOX8L.jpg?v=1767982822",
-    "notes": null
   },
   {
     "id": "ean-6290360379524",
@@ -36829,6 +37230,30 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-14702398996829-default-title",
+    "brand": "French Avenue",
+    "name": "Ighwa",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ighwa-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-152815729.jpg?v=1730900091",
+    "notes": {
+      "top": [
+        "Mandarin",
+        "Coriander Seed",
+        "Pepper Pink"
+      ],
+      "middle": [],
+      "base": [
+        "Leather",
+        "Musk",
+        "Vanilla",
+        "Moss"
+      ]
+    }
+  },
+  {
     "id": "emirates-oud-16155772879197-default-title",
     "brand": "French Avenue",
     "name": "Jasmere",
@@ -36892,69 +37317,6 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290360379340",
-    "brand": "French Avenue",
-    "name": "Opus Magnum",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360379340",
-    "shops": 2,
-    "image": "https://bgstatic.net/photos/186694_ml.jpg",
-    "notes": null
-  },
-  {
-    "id": "ean-6290360376714",
-    "brand": "French Avenue",
-    "name": "Pinnace",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360376714",
-    "shops": 2,
-    "image": "https://bgstatic.net/photos/189048_ml.jpg",
-    "notes": {
-      "top": [],
-      "middle": [
-        "Mint",
-        "Blackcurrant"
-      ],
-      "base": []
-    }
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416685424777-45147049525385",
-    "brand": "French Avenue",
-    "name": "Pinnace Noir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61lUwqjI7oL.jpg?v=1767982814",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416685785225-45147049918601",
-    "brand": "French Avenue",
-    "name": "Pinnace Oryn",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61QgWEblKHL.jpg?v=1767982826",
-    "notes": {
-      "top": [
-        "Orange",
-        "Bergamot",
-        "French Avenue"
-      ],
-      "middle": [
-        "French Avenue"
-      ],
-      "base": [
-        "French Avenue"
-      ]
-    }
-  },
-  {
     "id": "ean-6298042001893",
     "brand": "French Avenue",
     "name": "Ripple",
@@ -36997,6 +37359,61 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
       ],
       "base": [
         "Oakwood Co2 Lmr"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-9416546025821-default-title",
+    "brand": "French Avenue",
+    "name": "Royal Blend Nero",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Nero-100ml-EDP-FA-Paris-by-Fragrance-World-153647133.jpg?v=1732636578",
+    "notes": {
+      "top": [
+        "Nutmeg",
+        "Apple",
+        "Bergamot"
+      ],
+      "middle": [
+        "Cinnamon",
+        "Dry Wood",
+        "Saffron"
+      ],
+      "base": [
+        "Vanilla",
+        "Tonka",
+        "Benzoin",
+        "Musk"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-9256039514461-default-title",
+    "brand": "French Avenue",
+    "name": "Spectre Ghost",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spectre-Ghost-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184726566.png?v=1771619897",
+    "notes": {
+      "top": [
+        "Ginger",
+        "Cardamom",
+        "Bergamot"
+      ],
+      "middle": [
+        "Pink Pepper",
+        "Blackcurrant",
+        "Rose"
+      ],
+      "base": [
+        "Vanilla",
+        "Cedarwood",
+        "Patchouli"
       ]
     }
   },
@@ -37054,38 +37471,58 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290360375656",
+    "id": "ean-6290360375120",
     "brand": "French Avenue",
-    "name": "Sultry Woods",
+    "name": "Sultan The Conqueror",
     "concentration": "Eau de Parfum",
     "sizeMl": 80,
-    "ean": "6290360375656",
+    "ean": "6290360375120",
     "shops": 2,
-    "image": "https://bgstatic.net/photos/186682_ml.jpg",
-    "notes": null
-  },
-  {
-    "id": "mybeauty-boutique-shopify-gb-8416685752457-45147049885833",
-    "brand": "French Avenue",
-    "name": "Sweet Paradise",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Emn2OZhRL.jpg?v=1767982824",
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sultan-The-Conqueror-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184724156.png?v=1771616733",
     "notes": {
       "top": [
-        "Mandarin"
+        "Cardamom",
+        "Cumin",
+        "Cinnamon",
+        "Clary Sage"
       ],
       "middle": [
-        "Orris",
-        "Peach",
-        "Peony",
-        "Rose"
+        "Leather",
+        "Incense",
+        "Cedarwood"
       ],
       "base": [
-        "Heliotrope",
-        "Barley accord"
+        "Oud",
+        "Labdanum",
+        "Amber",
+        "Patchouli",
+        "Guaiac Wood"
+      ]
+    }
+  },
+  {
+    "id": "ean-6290360375014",
+    "brand": "French Avenue",
+    "name": "Sultan The Founder",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": "6290360375014",
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sultan-The-Founder-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184723989.png?v=1771616731",
+    "notes": {
+      "top": [
+        "Oud",
+        "Patchouli"
+      ],
+      "middle": [
+        "Ambrette",
+        "Cashmere Wood",
+        "Moss"
+      ],
+      "base": [
+        "Civet",
+        "Labdanum",
+        "Amberwood"
       ]
     }
   },
@@ -37115,6 +37552,33 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
         "Cedarwood",
         "Tonka Bean",
         "Vetiver"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-9416638595421-default-title",
+    "brand": "French Avenue",
+    "name": "Tropical Kiss",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tropical-Kiss-80ml-EDP-French-Avenue-by-Fragrance-World-169530545.jpg?v=1750210481",
+    "notes": {
+      "top": [
+        "Chamomile",
+        "Mango",
+        "Orange Blossom"
+      ],
+      "middle": [
+        "Coconut",
+        "Ylang-Ylang",
+        "Orris"
+      ],
+      "base": [
+        "Vanilla",
+        "Amber",
+        "Benzoin"
       ]
     }
   },
@@ -38489,7 +38953,10 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "ean-3274872495487",
     "brand": "Givenchy",
@@ -38659,10 +39126,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/93659_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3600551124902",
     "brand": "Gloria Vanderbilt",
@@ -45201,7 +45665,10 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/189713_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   {
     "id": "ean-6291108738689",
     "brand": "Lattafa",
@@ -45436,10 +45903,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
         "Benzoin"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6298043160049",
     "brand": "Lattafa",
@@ -52311,7 +52775,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "ean-6291105873871",
     "brand": "Orchid",
@@ -52443,10 +52910,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6291105873741",
     "brand": "Orchid",
@@ -59093,7 +59557,10 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/180649_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
   {
     "id": "ean-8016741812637",
     "brand": "V Canto",
@@ -59225,10 +59692,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/179469_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614274024784",
     "brand": "Valentino",
@@ -60939,6 +61403,35 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-9066311057757-default-title",
+    "brand": "Zimaya",
+    "name": "Amber Is Great",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amber-Is-Great-Perfume-100ml-EDP-Zimaya-By-Afnan-176694940.jpg?v=1772775372",
+    "notes": {
+      "top": [
+        "Sweet Woody",
+        "Saffron",
+        "Citrus"
+      ],
+      "middle": [
+        "Aromatic",
+        "Amber",
+        "Orange",
+        "Citrus Peel"
+      ],
+      "base": [
+        "Fresh Spicy",
+        "Ambergris",
+        "Oakmoss",
+        "Ancient Woods"
+      ]
+    }
+  },
+  {
     "id": "ean-6290171074885",
     "brand": "Zimaya",
     "name": "Anhaar Valley",
@@ -61020,15 +61513,28 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290171075646",
+    "id": "ean-6290171077282",
     "brand": "Zimaya",
-    "name": "Modhesh Aura",
+    "name": "Mazaaj Rhythm",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6290171075646",
+    "ean": "6290171077282",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/ZMYA0016_4592e4f5-1f58-4127-a8ae-696b9b360c1e.png?v=1758900973&width=1000",
-    "notes": null
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mazaaj-Rhythm-Perfume-100ml-EDP-Zimaya-by-Afnan-179806524.jpg?v=1762296600",
+    "notes": {
+      "top": [
+        "Grapefruit",
+        "Bergamot"
+      ],
+      "middle": [
+        "Ginger",
+        "Green Apple"
+      ],
+      "base": [
+        "Musk",
+        "Amber"
+      ]
+    }
   },
   {
     "id": "ean-6290171070276",
@@ -61042,26 +61548,54 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6290171072874",
+    "id": "emirates-oud-9066315219293-default-title",
     "brand": "Zimaya",
-    "name": "Night Shadow",
+    "name": "Musk Is Great",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6290171072874",
+    "ean": null,
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/ZMYA0015_f7e718dc-c452-41a3-a0f1-5fe1aeb3dffd.png?v=1758900973&width=1000",
-    "notes": null
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Musk-Is-Great-Perfume-100ml-EDP-Zimaya-By-Afnan-176694327.jpg?v=1772775679",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Mandarin Orange"
+      ],
+      "middle": [
+        "Magnolia",
+        "Black Currant"
+      ],
+      "base": [
+        "Musk",
+        "White Musk",
+        "Sandalwood"
+      ]
+    }
   },
   {
-    "id": "ean-6290171071020",
+    "id": "emirates-oud-9066312204637-default-title",
     "brand": "Zimaya",
-    "name": "Rabab Gems",
+    "name": "Oud Is Great",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
-    "ean": "6290171071020",
+    "ean": null,
     "shops": 2,
-    "image": "https://bgstatic.net/photos/182851_ml.jpg",
-    "notes": null
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Oud-Is-Great-Perfume-100ml-EDP-Zimaya-By-Afnan-176694743.jpg?v=1772775705",
+    "notes": {
+      "top": [
+        "Saffron",
+        "Nutmeg",
+        "Lavender"
+      ],
+      "middle": [
+        "Agarwood",
+        "Oud"
+      ],
+      "base": [
+        "Patchouli",
+        "Musk"
+      ]
+    }
   },
   {
     "id": "ean-6290171075295",
@@ -61108,39 +61642,6 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "justmylook-zmya0007",
-    "brand": "Zimaya",
-    "name": "Royal Paragon",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 2,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10045648.jpg?v=1763142746",
-    "notes": {
-      "top": [
-        "Apple",
-        "Lavender",
-        "Bergamot",
-        "Mandarin",
-        "Orange"
-      ],
-      "middle": [
-        "Geranium",
-        "Violet",
-        "Jasmine"
-      ],
-      "base": [
-        "Vanilla",
-        "Cardamom",
-        "Sandalwood",
-        "Pepper",
-        "Patchouli",
-        "Guaiac Wood",
-        "Caramelised Coffee"
-      ]
-    }
-  },
-  {
     "id": "ean-6290171077213",
     "brand": "Zimaya",
     "name": "Sharaf Divine",
@@ -61150,6 +61651,35 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/190566_ml.jpg",
     "notes": null
+  },
+  {
+    "id": "emirates-oud-15706636026205-default-title",
+    "brand": "Zimaya",
+    "name": "Sharaf Divine",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "10408351203670",
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sharaf-Divine-Perfume-100ml-EDP-Zimaya-By-Afnan-185058861.webp?v=1772776470",
+    "notes": {
+      "top": [
+        "Bergamot",
+        "Cinnamon",
+        "Raspberry"
+      ],
+      "middle": [
+        "Caramel",
+        "Apple",
+        "Rose"
+      ],
+      "base": [
+        "Tonka",
+        "Cognac",
+        "Moss",
+        "Vanilla",
+        "Amber"
+      ]
+    }
   },
   {
     "id": "ean-6290171074199",
@@ -61163,6 +61693,66 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "emirates-oud-9080401232221-default-title",
+    "brand": "Zimaya",
+    "name": "Sharaf The Club",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sharaf-The-Club-Perfume-100ml-EDP-Zimaya-By-Afnan-185058950.jpg?v=1772776741",
+    "notes": {
+      "top": [
+        "Pineapple",
+        "Bergamot",
+        "Apple",
+        "White Flowers"
+      ],
+      "middle": [
+        "Orange Blossom",
+        "Birch",
+        "Amber"
+      ],
+      "base": [
+        "Oakmoss",
+        "Musk",
+        "Ambergris"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-15804449653085-default-title",
+    "brand": "Zimaya",
+    "name": "Tiramisu S'mores",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "10408376435030",
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-S_mores-Perfume-100ml-EDP-Zimaya-By-Afnan-181372597.png?v=1765251596",
+    "notes": {
+      "top": [
+        "Marshmallow",
+        "Chocolate",
+        "Coffee",
+        "Nectarine Blossom",
+        "Bergamot"
+      ],
+      "middle": [
+        "Vanilla",
+        "Biscuit",
+        "Almond",
+        "Milk",
+        "Musk"
+      ],
+      "base": [
+        "Caramel",
+        "Sugar",
+        "Amber",
+        "Musk"
+      ]
+    }
+  },
+  {
     "id": "ean-6290171074090",
     "brand": "Zimaya",
     "name": "Zukhruf Black",
@@ -61172,6 +61762,33 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/184523_ml.jpg",
     "notes": null
+  },
+  {
+    "id": "ean-6290171074083",
+    "brand": "Zimaya",
+    "name": "Zukhruf Pink",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290171074083",
+    "shops": 2,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Zukhruf-Pink-Perfume-100ml-EDP-Zimaya-By-Afnan-169991574.jpg?v=1772775625",
+    "notes": {
+      "top": [
+        "Orchid",
+        "Heliotrope",
+        "Vanilla"
+      ],
+      "middle": [
+        "Musk",
+        "Marshmallow",
+        "Almond Milk"
+      ],
+      "base": [
+        "Amber",
+        "Vanilla",
+        "Sandalwood"
+      ]
+    }
   },
   {
     "id": "ean-5013692280808",
@@ -66179,7 +66796,10 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "al-haramain-ahp1664",
     "brand": "Al Haramain",
@@ -66376,10 +66996,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
+  },
   {
     "id": "al-haramain-ahp1891",
     "brand": "Al Haramain",
@@ -74962,7 +75579,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1764929994-86575200.jpg?v=1772624808&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "ean-6290361916971",
     "brand": "Arabiyat",
@@ -75172,10 +75792,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-9051697611101-default-title",
     "brand": "Ard Al Zaafaran",
@@ -82852,7 +83469,10 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
         "Guaiac Wood"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338173100169-44926990778505",
     "brand": "Atkinsons",
@@ -83192,10 +83812,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/Arabianoud.jpg?v=1781713489&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
+  },
   {
     "id": "ean-5055170270130",
     "brand": "Attar & Co",
@@ -90329,7 +90946,10 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/60315_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "ean-5045252648988",
     "brand": "Burberry",
@@ -90541,10 +91161,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsukdk2-10566",
     "brand": "Bvlgari",
@@ -96577,7 +97194,10 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/CHL0019_95bddcb6-2150-4082-81c1-2c5b64066153.png?v=1765452236&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "justmylook-chl0021",
     "brand": "Chloé",
@@ -96762,10 +97382,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/179903_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3616303459659",
     "brand": "Chloé",
@@ -102583,7 +103200,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
       ],
       "base": []
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16314817806685-default-title",
     "brand": "Dkhoon Emirates",
@@ -102975,10 +103595,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-16314798145885-default-title",
     "brand": "Dkhoon Emirates",
@@ -109014,7 +109631,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/616zV5vCiXL.jpg?v=1767982480",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416676511881-45147039629449",
     "brand": "Emporio Armani",
@@ -109209,10 +109829,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "Sandalwood"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3616304203619",
     "brand": "Escada",
@@ -118673,7 +119290,10 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
         "Patchouli"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9059081355613-default-title",
     "brand": "Fragrance World",
@@ -119065,10 +119685,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Three-Dimension-Perfume-Oil-10ml-Fragrance-World-123460590.jpg?v=1714513421",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-9077486551389-default-title",
     "brand": "Fragrance World",
@@ -120428,7 +121045,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9416621654365-default-title",
     "brand": "French Avenue",
-    "name": "Aether Extrait Perfume French Avenue by Fragrance World",
+    "name": "Aether Extrait",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -120450,40 +121067,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "Musk",
         "Oakmoss",
         "Amberwood"
-      ]
-    }
-  },
-  {
-    "id": "the-beauty-store-uk-tbsukdk2-38393",
-    "brand": "French Avenue",
-    "name": "Amber D'or",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-8906903060829-default-title",
-    "brand": "French Avenue",
-    "name": "Amber D'or Perfume French Avenue by Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/amber-d-or-perfume-100ml-edp-fa-paris-by-fragrance-world-emirates-oud-2.jpg?v=1713056571",
-    "notes": {
-      "top": [
-        "Bergamot"
-      ],
-      "middle": [
-        "Melon",
-        "Pineapple"
-      ],
-      "base": [
-        "Vanilla",
-        "Musk"
       ]
     }
   },
@@ -120519,7 +121102,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9852056011101-default-title",
     "brand": "French Avenue",
-    "name": "Amber Saffron Perfume French Avenue by Fragrance World",
+    "name": "Amber Saffron",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -120927,37 +121510,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-14731403919709-default-title",
-    "brand": "French Avenue",
-    "name": "Azzure Aoud Perfume French Avenue by Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Azzure-Aoud-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-170031076.jpg?v=1751223044",
-    "notes": {
-      "top": [
-        "Passionfruit",
-        "Saffron",
-        "Rose"
-      ],
-      "middle": [
-        "Oud",
-        "Benzoin",
-        "Patchouli"
-      ],
-      "base": [
-        "Leather",
-        "Guaiac Wood",
-        "Amber",
-        "Vanilla",
-        "Labdanum",
-        "Cedarwood",
-        "Sandalwood"
-      ]
-    }
-  },
-  {
     "id": "mybeauty-boutique-shopify-gb-8416685588617-45147049721993",
     "brand": "French Avenue",
     "name": "Black Kabul",
@@ -121004,48 +121556,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-14917051416925-default-title",
-    "brand": "French Avenue",
-    "name": "Cocoa Morado Perfume French Avenue By Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Cocoa-Morado-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-170031285.jpg?v=1751223102",
-    "notes": {
-      "top": [
-        "Saffron",
-        "Cinnamon",
-        "Nutmeg",
-        "Cardamom",
-        "Pink Pepper",
-        "Ginger"
-      ],
-      "middle": [
-        "Agarwood",
-        "Oud",
-        "Dates",
-        "Myrrh",
-        "Incense",
-        "Sugar Cane",
-        "Caramel",
-        "Amberwood",
-        "Davana"
-      ],
-      "base": [
-        "Leather",
-        "Madagascar Vanilla",
-        "Cacao Butter",
-        "Benzoin",
-        "Tonka",
-        "Labdanum",
-        "Patchouli",
-        "Musk",
-        "Mate"
-      ]
-    }
-  },
-  {
     "id": "ean-6290360378749",
     "brand": "French Avenue",
     "name": "Cosmic Tonka",
@@ -121083,57 +121593,9 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     }
   },
   {
-    "id": "the-beauty-store-uk-tbsukdk2-38892",
-    "brand": "French Avenue",
-    "name": "Divin Aoud",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-9032467775837-default-title",
-    "brand": "French Avenue",
-    "name": "Divin Aoud French Avenue by Fragrance World",
-    "concentration": "Not stated",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Divin-Aoud-Perfume-100ml-French-Avenue-by-Fragrance-World-180427434.png?v=1763359010",
-    "notes": {
-      "top": [
-        "Lemon",
-        "Lime",
-        "Bergamot"
-      ],
-      "middle": [
-        "Rose",
-        "Ylang-Ylang",
-        "Jasmine",
-        "Fig"
-      ],
-      "base": [
-        "Orris Root",
-        "Civet",
-        "Agarwood",
-        "Oud",
-        "Ambergris",
-        "Oakmoss",
-        "Musk",
-        "Sandalwood",
-        "Saffron",
-        "Patchouli",
-        "Birch",
-        "Cinnamon"
-      ]
-    }
-  },
-  {
     "id": "emirates-oud-15752247050589-default-title",
     "brand": "French Avenue",
-    "name": "Divin Asylum French Avenue by Fragrance World",
+    "name": "Divin Asylum",
     "concentration": "Not stated",
     "sizeMl": 100,
     "ean": null,
@@ -121191,7 +121653,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15082127917405-default-title",
     "brand": "French Avenue",
-    "name": "Eclair Affair Perfume French Avenue By Fragrance World",
+    "name": "Eclair Affair",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -121224,7 +121686,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9852033925469-default-title",
     "brand": "French Avenue",
-    "name": "El Dorado Extrait Perfume French Avenue by Fragrance World",
+    "name": "El Dorado Extrait",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -121276,33 +121738,9 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-9032445264221-default-title",
-    "brand": "French Avenue",
-    "name": "Enigma Deux Perfume French Avenue by Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Enigma-Deux-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-184724489.png?v=1771617509",
-    "notes": {
-      "top": [
-        "Warm Spices",
-        "Cognac Accords"
-      ],
-      "middle": [
-        "Oud",
-        "Tonka Bean"
-      ],
-      "base": [
-        "Amber",
-        "Vanilla"
-      ]
-    }
-  },
-  {
     "id": "emirates-oud-9032441790813-default-title",
     "brand": "French Avenue",
-    "name": "Enigma Quatre Perfume French Avenue by Fragrance World",
+    "name": "Enigma Quatre",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -121330,7 +121768,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9032457748829-default-title",
     "brand": "French Avenue",
-    "name": "Enigma Trois Perfume French Avenue by Fragrance World",
+    "name": "Enigma Trois",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -121371,7 +121809,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9029709955421-default-title",
     "brand": "French Avenue",
-    "name": "Expose Pour Elle Perfume French Avenue by Fragrance World",
+    "name": "Expose Pour Elle",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -121389,7 +121827,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9029710905693-default-title",
     "brand": "French Avenue",
-    "name": "Expose Unisex French Avenue by Fragrance World",
+    "name": "Expose Unisex",
     "concentration": "Not stated",
     "sizeMl": 100,
     "ean": null,
@@ -121415,29 +121853,9 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15438206042461-default-title",
-    "brand": "French Avenue",
-    "name": "Fierte Luna",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fierte-Luna-Perfume-80ml-EDP-French-Avenue-169962018.jpg?v=1750907045",
-    "notes": {
-      "top": [],
-      "middle": [
-        "Honey",
-        "Cinnamon",
-        "Cashmeran",
-        "Jasmine"
-      ],
-      "base": []
-    }
-  },
-  {
     "id": "emirates-oud-9851996635485-default-title",
     "brand": "French Avenue",
-    "name": "Fierte Perfume French Avenue by Fragrance World",
+    "name": "Fierte",
     "concentration": "Eau de Parfum",
     "sizeMl": 80,
     "ean": null,
@@ -121459,6 +121877,26 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "Suede",
         "Cedar"
       ]
+    }
+  },
+  {
+    "id": "emirates-oud-15438206042461-default-title",
+    "brand": "French Avenue",
+    "name": "Fierte Luna",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 80,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fierte-Luna-Perfume-80ml-EDP-French-Avenue-169962018.jpg?v=1750907045",
+    "notes": {
+      "top": [],
+      "middle": [
+        "Honey",
+        "Cinnamon",
+        "Cashmeran",
+        "Jasmine"
+      ],
+      "base": []
     }
   },
   {
@@ -121662,7 +122100,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15417250120029-default-title",
     "brand": "French Avenue",
-    "name": "Genesis Perfume Set French Avenue by Fragrance World",
+    "name": "Genesis Perfume Set",
     "concentration": "Eau de Parfum",
     "sizeMl": 90,
     "ean": null,
@@ -121815,17 +122253,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "Vetiver"
       ]
     }
-  },
-  {
-    "id": "justmylook-frav0004",
-    "brand": "French Avenue",
-    "name": "Ghost Spectre",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/FRAV0004_298b2ae4-f374-4dca-b9d0-3b4056b8fdb1.png?v=1771605436&width=1000",
-    "notes": null
   },
   {
     "id": "emirates-oud-15441395450205-default-title",
@@ -121991,49 +122418,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "mybeauty-boutique-shopify-gb-8416686178441-45147050377353",
-    "brand": "French Avenue",
-    "name": "Ighwa",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51vJP6h4t3L.jpg?v=1767982841",
-    "notes": {
-      "top": [
-        "Mandarin",
-        "Coriander Seed",
-        "Pink Pepper"
-      ],
-      "middle": [],
-      "base": []
-    }
-  },
-  {
-    "id": "emirates-oud-14702398996829-default-title",
-    "brand": "French Avenue",
-    "name": "Ighwa Perfume French Avenue by Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ighwa-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-152815729.jpg?v=1730900091",
-    "notes": {
-      "top": [
-        "Mandarin",
-        "Coriander Seed",
-        "Pepper Pink"
-      ],
-      "middle": [],
-      "base": [
-        "Leather",
-        "Musk",
-        "Vanilla",
-        "Moss"
-      ]
-    }
-  },
-  {
     "id": "emirates-oud-16425305866589-default-title",
     "brand": "French Avenue",
     "name": "Imperial Ocean",
@@ -122116,7 +122500,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9416615166301-default-title",
     "brand": "French Avenue",
-    "name": "Irida Extrait Perfume French Avenue by Fragrance World",
+    "name": "Irida Extrait",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -122186,37 +122570,9 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "emirates-oud-9416532033885-default-title",
-    "brand": "French Avenue",
-    "name": "Liquid Brun Perfume French Avenue by Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Liquid-Brun-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-170030882.jpg?v=1751222936",
-    "notes": {
-      "top": [
-        "Cinnamon",
-        "Bergamot",
-        "Cardamom",
-        "Orange Blossom"
-      ],
-      "middle": [
-        "Bourbon Vanilla",
-        "Elemi"
-      ],
-      "base": [
-        "Musk",
-        "Praline",
-        "Ambroxan",
-        "Guaiac Wood"
-      ]
-    }
-  },
-  {
     "id": "emirates-oud-9416597340509-default-title",
     "brand": "French Avenue",
-    "name": "Lumiere Elle Perfume French Avenue by Fragrance World",
+    "name": "Lumiere Elle",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -122243,7 +122599,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9416588132701-default-title",
     "brand": "French Avenue",
-    "name": "Lumiere Garcon French Avenue by Fragrance World",
+    "name": "Lumiere Garcon",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -122270,7 +122626,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9674817044829-default-title",
     "brand": "French Avenue",
-    "name": "Luscious Perfume French Avenue by Fragrance World",
+    "name": "Luscious",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -122387,7 +122743,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-14702346469725-default-title",
     "brand": "French Avenue",
-    "name": "Muse Perfume French Avenue by Fragrance World",
+    "name": "Muse",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -122591,36 +122947,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15161315459421-default-title",
-    "brand": "French Avenue",
-    "name": "Opus Magnum Perfume French Avenue By Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opus-Magnum-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-163825257.jpg?v=1740775345",
-    "notes": {
-      "top": [
-        "Olibanum",
-        "Anis",
-        "Elemi-harpiks",
-        "Kardemomme",
-        "Basilikum og Bergamott"
-      ],
-      "middle": [
-        "Tobakk"
-      ],
-      "base": [
-        "Olibanum",
-        "Bourbon Vanilje",
-        "Myrra",
-        "Bjørketjære",
-        "Benzoin",
-        "Agarwood"
-      ]
-    }
-  },
-  {
     "id": "emirates-oud-15655513686365-default-title",
     "brand": "French Avenue",
     "name": "Paradigm",
@@ -122672,82 +122998,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "Cashmere",
         "Ambergris",
         "Vetiver"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-9416644460893-default-title",
-    "brand": "French Avenue",
-    "name": "Pinnace Noir French Avenue by Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pinnace-Noir-100ml-EDP-French-Avenue-by-Fragrance-World-170030252.jpg?v=1751222722",
-    "notes": {
-      "top": [
-        "Apple",
-        "Orange Blossom",
-        "Bergamot",
-        "Lemon"
-      ],
-      "middle": [
-        "Cinnamon",
-        "Geranium",
-        "Clove",
-        "Brazilian Rosewood"
-      ],
-      "base": [
-        "Vanilla",
-        "Sandalwood",
-        "Cedarwood"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15082087186781-default-title",
-    "brand": "French Avenue",
-    "name": "Pinnace Oryn Perfume French Avenue By Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pinnace-Oryn-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-163860255.jpg?v=1741038858",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Orange",
-        "Mandarin"
-      ],
-      "middle": [
-        "Ginger"
-      ],
-      "base": [
-        "Ambergris"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-9416648884573-default-title",
-    "brand": "French Avenue",
-    "name": "Pinnace Perfume French Avenue by Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pinnace-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-170030060.jpg?v=1751222615",
-    "notes": {
-      "top": [
-        "Grapefruit",
-        "Orange"
-      ],
-      "middle": [
-        "Mint",
-        "Blackcurrant"
-      ],
-      "base": [
-        "Ambroxan",
-        "Musk"
       ]
     }
   },
@@ -122814,7 +123064,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9032470135133-default-title",
     "brand": "French Avenue",
-    "name": "Roses D’Emotion Perfume French Avenue by Fragrance World",
+    "name": "Roses D’Emotion",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -122838,7 +123088,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9416654520669-default-title",
     "brand": "French Avenue",
-    "name": "Royal Blend Extrait Perfume French Avenue by Fragrance World",
+    "name": "Royal Blend Extrait",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -122858,45 +123108,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "Vanilla",
         "Tonka",
         "Sandalwood"
-      ]
-    }
-  },
-  {
-    "id": "manchester-ouds-ff-royal-blend-nero-100",
-    "brand": "French Avenue",
-    "name": "Royal Blend Nero",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://manchesterouds.com/cdn/shop/files/royal-blend-nero-edp-100ml-french-avenue-3668924.webp?v=1786194476&width=1920",
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-9416546025821-default-title",
-    "brand": "French Avenue",
-    "name": "Royal Blend Nero French Avenue by Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Nero-100ml-EDP-FA-Paris-by-Fragrance-World-153647133.jpg?v=1732636578",
-    "notes": {
-      "top": [
-        "Nutmeg",
-        "Apple",
-        "Bergamot"
-      ],
-      "middle": [
-        "Cinnamon",
-        "Dry Wood",
-        "Saffron"
-      ],
-      "base": [
-        "Vanilla",
-        "Tonka",
-        "Benzoin",
-        "Musk"
       ]
     }
   },
@@ -123011,47 +123222,9 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290360372723",
-    "brand": "French Avenue",
-    "name": "Spectre Ghost",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290360372723",
-    "shops": 1,
-    "image": "https://manchesterouds.com/cdn/shop/files/spectre-ghost-edp-100ml-french-avenue-1849350.webp?v=1786194486&width=1920",
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-9256039514461-default-title",
-    "brand": "French Avenue",
-    "name": "Spectre Ghost Perfume French Avenue by Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spectre-Ghost-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184726566.png?v=1771619897",
-    "notes": {
-      "top": [
-        "Ginger",
-        "Cardamom",
-        "Bergamot"
-      ],
-      "middle": [
-        "Pink Pepper",
-        "Blackcurrant",
-        "Rose"
-      ],
-      "base": [
-        "Vanilla",
-        "Cedarwood",
-        "Patchouli"
-      ]
-    }
-  },
-  {
     "id": "emirates-oud-8888896061789-default-title",
     "brand": "French Avenue",
-    "name": "Spectre Perfume French Avenue by Fragrance World",
+    "name": "Spectre",
     "concentration": "Eau de Parfum",
     "sizeMl": 80,
     "ean": null,
@@ -123078,9 +123251,20 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     }
   },
   {
+    "id": "ean-6290360372723",
+    "brand": "French Avenue",
+    "name": "Spectre Ghost",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "6290360372723",
+    "shops": 1,
+    "image": "https://manchesterouds.com/cdn/shop/files/spectre-ghost-edp-100ml-french-avenue-1849350.webp?v=1786194486&width=1920",
+    "notes": null
+  },
+  {
     "id": "emirates-oud-9451374608733-default-title",
     "brand": "French Avenue",
-    "name": "Spectre Wraith Perfume French Avenue by Fragrance World",
+    "name": "Spectre Wraith",
     "concentration": "Eau de Parfum",
     "sizeMl": 80,
     "ean": null,
@@ -123103,137 +123287,9 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-6290360375120",
-    "brand": "French Avenue",
-    "name": "Sultan The Conqueror",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": "6290360375120",
-    "shops": 1,
-    "image": "https://images2.productserve.com/noimage.gif",
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-9184430621021-default-title",
-    "brand": "French Avenue",
-    "name": "Sultan The Conqueror Perfume French Avenue by Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sultan-The-Conqueror-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184724156.png?v=1771616733",
-    "notes": {
-      "top": [
-        "Cardamom",
-        "Cumin",
-        "Cinnamon",
-        "Clary Sage"
-      ],
-      "middle": [
-        "Leather",
-        "Incense",
-        "Cedarwood"
-      ],
-      "base": [
-        "Oud",
-        "Labdanum",
-        "Amber",
-        "Patchouli",
-        "Guaiac Wood"
-      ]
-    }
-  },
-  {
-    "id": "ean-6290360375014",
-    "brand": "French Avenue",
-    "name": "Sultan The Founder",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": "6290360375014",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738068711-06258600.jpg?v=1763397025&width=1920",
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-9176439095645-default-title",
-    "brand": "French Avenue",
-    "name": "Sultan The Founder Perfume French Avenue by Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sultan-The-Founder-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184723989.png?v=1771616731",
-    "notes": {
-      "top": [
-        "Oud",
-        "Patchouli"
-      ],
-      "middle": [
-        "Ambrette",
-        "Cashmere Wood",
-        "Moss"
-      ],
-      "base": [
-        "Civet",
-        "Labdanum",
-        "Amberwood"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-9416628437341-default-title",
-    "brand": "French Avenue",
-    "name": "Sultry Woods Perfume French Avenue by Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sultry-Woods-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-169530022.jpg?v=1750210342",
-    "notes": {
-      "top": [
-        "Turkish Rose",
-        "Geranium",
-        "Cardamom"
-      ],
-      "middle": [
-        "Cypriol Oil",
-        "Osmanthus",
-        "Amber"
-      ],
-      "base": [
-        "Leather",
-        "Vetiver",
-        "Elemi"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-14702323925341-default-title",
-    "brand": "French Avenue",
-    "name": "Sweet Paradise Perfume French Avenue by Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sweet-Paradise-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-152815374.jpg?v=1730899413",
-    "notes": {
-      "top": [
-        "Ambrette Musk",
-        "Mandarin"
-      ],
-      "middle": [
-        "Orris",
-        "Peach",
-        "Peony",
-        "Rose"
-      ],
-      "base": []
-    }
-  },
-  {
     "id": "emirates-oud-9354821435741-default-title",
     "brand": "French Avenue",
-    "name": "The Fire French Avenue by Fragrance World",
+    "name": "The Fire",
     "concentration": "Extrait de Parfum",
     "sizeMl": 60,
     "ean": null,
@@ -123256,7 +123312,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9354838770013-default-title",
     "brand": "French Avenue",
-    "name": "The Night French Avenue by Fragrance World",
+    "name": "The Night",
     "concentration": "Extrait de Parfum",
     "sizeMl": 60,
     "ean": null,
@@ -123278,7 +123334,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9032438645085-default-title",
     "brand": "French Avenue",
-    "name": "The Promise French Avenue by Fragrance World",
+    "name": "The Promise",
     "concentration": "Extrait de Parfum",
     "sizeMl": 60,
     "ean": null,
@@ -123303,7 +123359,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9354851811677-default-title",
     "brand": "French Avenue",
-    "name": "The Shadow French Avenue by Fragrance World",
+    "name": "The Shadow",
     "concentration": "Extrait de Parfum",
     "sizeMl": 60,
     "ean": null,
@@ -123329,7 +123385,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9032472789341-default-title",
     "brand": "French Avenue",
-    "name": "Tobacco D’feu Perfume French Avenue by Fragrance World",
+    "name": "Tobacco D’feu",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -123350,44 +123406,6 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
         "Agarwood",
         "Frankincense",
         "Sandalwood"
-      ]
-    }
-  },
-  {
-    "id": "justmylook-frav0013",
-    "brand": "French Avenue",
-    "name": "Tropical Kiss",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/FRAV0013.png?v=1756720382&width=1000",
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-9416638595421-default-title",
-    "brand": "French Avenue",
-    "name": "Tropical Kiss French Avenue by Fragrance World",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 80,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tropical-Kiss-80ml-EDP-French-Avenue-by-Fragrance-World-169530545.jpg?v=1750210481",
-    "notes": {
-      "top": [
-        "Chamomile",
-        "Mango",
-        "Orange Blossom"
-      ],
-      "middle": [
-        "Coconut",
-        "Ylang-Ylang",
-        "Orris"
-      ],
-      "base": [
-        "Vanilla",
-        "Amber",
-        "Benzoin"
       ]
     }
   },
@@ -127164,10 +127182,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/184850_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3274872501669",
     "brand": "Givenchy",
@@ -127292,7 +127307,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/179543_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsukdk2-10882",
     "brand": "Givenchy",
@@ -133471,10 +133489,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/HB0152.png?v=1740748907&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3616304247750",
     "brand": "Hugo Boss",
@@ -133607,7 +133622,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15765650112861-default-title",
     "brand": "Ibraheem Al Qurashi",
@@ -139832,10 +139850,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
         "Sandalwood"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416703185033-45147072299145",
     "brand": "Juliette Has a Gun",
@@ -139955,7 +139970,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/81RYJAQZSSS.jpg?v=1763146912",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "armaf-jut36101006",
     "brand": "Just Jacks",
@@ -147075,10 +147093,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
         "Sandalwood"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15403099128157-default-title",
     "brand": "Lattafa",
@@ -147325,7 +147340,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9047519199581-default-title",
     "brand": "Lattafa",
@@ -155867,10 +155885,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "Cotton Flower"
       ]
     }
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15644473459037-default-title",
     "brand": "Maison Alhambra",
@@ -156115,7 +156130,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
         "Vanilla"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15612331229533-default-title",
     "brand": "Maison Alhambra",
@@ -164102,10 +164120,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1755705426-88901700.jpg?v=1763398731&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614274520538",
     "brand": "Miu Miu",
@@ -164215,7 +164230,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1755706407-49168000.jpg?v=1763398742&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "ean-0008080124913",
     "brand": "Molton Brown",
@@ -170303,10 +170321,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1713785085-09827000.jpg?v=1763389799&width=1920",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6291106810363",
     "brand": "ORIENTICA",
@@ -170416,7 +170431,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1626701674-99891700.jpg?v=1763390021&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "ean-6291106810370",
     "brand": "ORIENTICA",
@@ -175080,7 +175098,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15695834546525-default-title",
     "brand": "Pendora Scents",
-    "name": "Adine Perfume Pendora Scents by Paris Corner",
+    "name": "Adine",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175101,7 +175119,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16363060494685-default-title",
     "brand": "Pendora Scents",
-    "name": "Attractus Perfume Pendora Scents by Paris Corner",
+    "name": "Attractus",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175129,7 +175147,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15513328484701-default-title",
     "brand": "Pendora Scents",
-    "name": "Bachelor Homme Sport Perfume Pendora Scents by Paris Corner",
+    "name": "Bachelor Homme Sport",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175157,7 +175175,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15442726289757-default-title",
     "brand": "Pendora Scents",
-    "name": "Blackberry Wish Perfume Pendora Scents by Paris Corner",
+    "name": "Blackberry Wish",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175179,51 +175197,9 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-15486673551709-default-title",
-    "brand": "Pendora Scents",
-    "name": "Bombinate Intense Pendora Scents by Paris Corner",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bombinate-Intense-100ml-EDP-Pendora-Scents-by-Paris-Corner-173842627.jpg?v=1752012974",
-    "notes": {
-      "top": [
-        "Cherries"
-      ],
-      "middle": [
-        "Red Peony"
-      ],
-      "base": [
-        "Vanilla"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15486686003549-default-title",
-    "brand": "Pendora Scents",
-    "name": "Bombinate New Way Pendora Scents by Paris Corner",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bombinate-New-Way-100ml-EDP-Pendora-Scents-by-Paris-Corner-173843057.jpg?v=1752013216",
-    "notes": {
-      "top": [
-        "Starfruit"
-      ],
-      "middle": [
-        "Jasmine"
-      ],
-      "base": [
-        "Madagascar Vanilla"
-      ]
-    }
-  },
-  {
     "id": "emirates-oud-15486668144989-default-title",
     "brand": "Pendora Scents",
-    "name": "Bombinate Pendora Scents by Paris Corner",
+    "name": "Bombinate",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175251,9 +175227,51 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     }
   },
   {
+    "id": "emirates-oud-15486673551709-default-title",
+    "brand": "Pendora Scents",
+    "name": "Bombinate Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bombinate-Intense-100ml-EDP-Pendora-Scents-by-Paris-Corner-173842627.jpg?v=1752012974",
+    "notes": {
+      "top": [
+        "Cherries"
+      ],
+      "middle": [
+        "Red Peony"
+      ],
+      "base": [
+        "Vanilla"
+      ]
+    }
+  },
+  {
+    "id": "emirates-oud-15486686003549-default-title",
+    "brand": "Pendora Scents",
+    "name": "Bombinate New Way",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bombinate-New-Way-100ml-EDP-Pendora-Scents-by-Paris-Corner-173843057.jpg?v=1752013216",
+    "notes": {
+      "top": [
+        "Starfruit"
+      ],
+      "middle": [
+        "Jasmine"
+      ],
+      "base": [
+        "Madagascar Vanilla"
+      ]
+    }
+  },
+  {
     "id": "emirates-oud-15081941270877-default-title",
     "brand": "Pendora Scents",
-    "name": "Camaro Homme Intense Perfume Pendora Scents by Paris Corner",
+    "name": "Camaro Homme Intense",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175264,7 +175282,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15002603553117-default-title",
     "brand": "Pendora Scents",
-    "name": "Charuto Mysterious Tobacco Perfume Pendora Scents by Paris Corner",
+    "name": "Charuto Mysterious Tobacco",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175275,7 +175293,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15002576781661-default-title",
     "brand": "Pendora Scents",
-    "name": "Charuto Tobacco Vanille Perfume Pendora Scents by Paris Corner",
+    "name": "Charuto Tobacco Vanille",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175294,7 +175312,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15463252033885-default-title",
     "brand": "Pendora Scents",
-    "name": "Clasico De Profondo Pendora Scents by Paris Corner",
+    "name": "Clasico De Profondo",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175321,7 +175339,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15442726879581-default-title",
     "brand": "Pendora Scents",
-    "name": "Cornflower Delight Perfume Pendora Scents by Paris Corner",
+    "name": "Cornflower Delight",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175342,7 +175360,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15442725077341-default-title",
     "brand": "Pendora Scents",
-    "name": "Fig Fete Perfume Pendora Scents by Paris Corner",
+    "name": "Fig Fete",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175366,7 +175384,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15442722783581-default-title",
     "brand": "Pendora Scents",
-    "name": "Honeyed Fantasy Perfume Pendora Scents by Paris Corner",
+    "name": "Honeyed Fantasy",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175392,7 +175410,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16363077108061-default-title",
     "brand": "Pendora Scents",
-    "name": "Intima Red Perfume Pendora Scents by Paris Corner",
+    "name": "Intima Red",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175418,7 +175436,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15002616824157-default-title",
     "brand": "Pendora Scents",
-    "name": "La Nuit Perfume Pendora Scents by Paris Corner",
+    "name": "La Nuit",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175452,7 +175470,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15486700912989-default-title",
     "brand": "Pendora Scents",
-    "name": "Megaron Perfume Pendora Scents by Paris Corner",
+    "name": "Megaron",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175478,7 +175496,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15434680107357-default-title",
     "brand": "Pendora Scents",
-    "name": "Milano Platina Perfume Pendora Scents by Paris Corner",
+    "name": "Milano Platina",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175510,7 +175528,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15081953657181-default-title",
     "brand": "Pendora Scents",
-    "name": "Milano Prive Perfume Pendora Scents by Paris Corner",
+    "name": "Milano Prive",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175534,7 +175552,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15464850587997-default-title",
     "brand": "Pendora Scents",
-    "name": "Narceine Poudree Perfume Pendora Scents by Paris Corner",
+    "name": "Narceine Poudree",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175558,7 +175576,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15442725208413-default-title",
     "brand": "Pendora Scents",
-    "name": "Nectarine Haze Perfume Pendora Scents by Paris Corner",
+    "name": "Nectarine Haze",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175576,7 +175594,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15081980756317-default-title",
     "brand": "Pendora Scents",
-    "name": "Noir D'Arabie Perfume Pendora Scents by Paris Corner",
+    "name": "Noir D'Arabie",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175587,7 +175605,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15442714886493-default-title",
     "brand": "Pendora Scents",
-    "name": "Noir En Leather Perfume Pendora Scents by Paris Corner",
+    "name": "Noir En Leather",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175605,7 +175623,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15463246791005-default-title",
     "brand": "Pendora Scents",
-    "name": "Nuit De Passion Pendora Scents by Paris Corner",
+    "name": "Nuit De Passion",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175626,7 +175644,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15442723144029-default-title",
     "brand": "Pendora Scents",
-    "name": "Oud Holidays Perfume Pendora Scents by Paris Corner",
+    "name": "Oud Holidays",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175653,7 +175671,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15464853569885-default-title",
     "brand": "Pendora Scents",
-    "name": "Oud Imperious Perfume Pendora Scents by Paris Corner",
+    "name": "Oud Imperious",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175678,7 +175696,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15442725798237-default-title",
     "brand": "Pendora Scents",
-    "name": "Poppy Pulse Perfume Pendora Scents by Paris Corner",
+    "name": "Poppy Pulse",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175702,7 +175720,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15161276367197-default-title",
     "brand": "Pendora Scents",
-    "name": "Roses Vanilla Perfume Pendora Scents by Paris Corner",
+    "name": "Roses Vanilla",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175721,7 +175739,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15486667915613-default-title",
     "brand": "Pendora Scents",
-    "name": "She Passionate Pendora Scents by Paris Corner",
+    "name": "She Passionate",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175750,7 +175768,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15513331073373-default-title",
     "brand": "Pendora Scents",
-    "name": "Tudor Perfume Pendora Scents by Paris Corner",
+    "name": "Tudor",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -175777,7 +175795,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15486714642781-default-title",
     "brand": "Pendora Scents",
-    "name": "Wayfarer Intense Perfume Pendora Scents by Paris Corner",
+    "name": "Wayfarer Intense",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -177887,10 +177905,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71eIFlP1mhL.jpg?v=1763147068",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338414076041-44927392907401",
     "brand": "Prime Collection",
@@ -178071,7 +178086,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
         "Musk"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9021400645981-default-title",
     "brand": "Privee Couture Collection",
@@ -186351,10 +186369,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
       ],
       "base": []
     }
-  }
-];
-
-const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15430639583581-default-title",
     "brand": "Risala Elite",
@@ -186625,7 +186640,10 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
         "Tonka"
       ]
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15430642106717-default-title",
     "brand": "Risala Elite",
@@ -192948,10 +192966,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/164390_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416773439625-45147161034889",
     "brand": "Teaology",
@@ -193068,7 +193083,10 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
       "middle": [],
       "base": []
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "ean-5060412678216",
     "brand": "Ted Baker",
@@ -199252,10 +199270,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51-ROl-LO-L.jpg?v=1763142487",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338297782409-44927205736585",
     "brand": "Versace",
@@ -199413,7 +199428,10 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/64995_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsukdk2-00916",
     "brand": "Versace",
@@ -202444,7 +202462,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16155820589405-default-title",
     "brand": "Zimaya",
-    "name": "Al Embratur Absolu Zimaya by Afnan",
+    "name": "Al Embratur Absolu",
     "concentration": "Not stated",
     "sizeMl": 100,
     "ean": null,
@@ -202488,46 +202506,6 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/190790_ml.jpg",
     "notes": null
-  },
-  {
-    "id": "justmylook-zmya0001",
-    "brand": "Zimaya",
-    "name": "Amber Is Great",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/ZMYA0001.png?v=1758900966&width=1000",
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-9066311057757-default-title",
-    "brand": "Zimaya",
-    "name": "Amber Is Great Perfume Zimaya By Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amber-Is-Great-Perfume-100ml-EDP-Zimaya-By-Afnan-176694940.jpg?v=1772775372",
-    "notes": {
-      "top": [
-        "Sweet Woody",
-        "Saffron",
-        "Citrus"
-      ],
-      "middle": [
-        "Aromatic",
-        "Amber",
-        "Orange",
-        "Citrus Peel"
-      ],
-      "base": [
-        "Fresh Spicy",
-        "Ambergris",
-        "Oakmoss",
-        "Ancient Woods"
-      ]
-    }
   },
   {
     "id": "ean-6290171074991",
@@ -202576,7 +202554,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16155837694301-default-title",
     "brand": "Zimaya",
-    "name": "Daiman Eclipse Perfume Zimaya by Afnan",
+    "name": "Daiman Eclipse",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -202603,7 +202581,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "emirates-oud-16155861188957-default-title",
     "brand": "Zimaya",
-    "name": "Daiman Eden Perfume Zimaya by Afnan",
+    "name": "Daiman Eden",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -202644,7 +202622,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9066227269981-default-title",
     "brand": "Zimaya",
-    "name": "Fatima Perfume Zimaya By Afnan",
+    "name": "Fatima",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -202683,7 +202661,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9066240409949-default-title",
     "brand": "Zimaya",
-    "name": "Fatima Velvet Love Perfume Zimaya By Afnan",
+    "name": "Fatima Velvet Love",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -202735,7 +202713,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9066354016605-default-title",
     "brand": "Zimaya",
-    "name": "Grandeur Perfume Zimaya By Afnan",
+    "name": "Grandeur",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -202761,7 +202739,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9066318397789-default-title",
     "brand": "Zimaya",
-    "name": "Happy Oud Perfume Zimaya By Afnan",
+    "name": "Happy Oud",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -202826,127 +202804,6 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-6290171077282",
-    "brand": "Zimaya",
-    "name": "Mazaaj Rhythm",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290171077282",
-    "shops": 1,
-    "image": "https://www.beautybase.com/cdn/shop/files/1762427749-86319000.jpg?v=1763399394&width=1920",
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-15723845812573-default-title",
-    "brand": "Zimaya",
-    "name": "Mazaaj Rhythm Perfume Zimaya by Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mazaaj-Rhythm-Perfume-100ml-EDP-Zimaya-by-Afnan-179806524.jpg?v=1762296600",
-    "notes": {
-      "top": [
-        "Grapefruit",
-        "Bergamot"
-      ],
-      "middle": [
-        "Ginger",
-        "Green Apple"
-      ],
-      "base": [
-        "Musk",
-        "Amber"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15676075180381-default-title",
-    "brand": "Zimaya",
-    "name": "Modhesh Aura Perfume Zimaya By Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Modhesh-Aura-Perfume-100ml-EDP-Zimaya-By-Afnan-178738599.png?v=1772775615",
-    "notes": {
-      "top": [
-        "Woods",
-        "Lavender",
-        "Bergamot",
-        "Mint"
-      ],
-      "middle": [],
-      "base": [
-        "Tonka Beans",
-        "Vanilla",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "justmylook-zmya0011",
-    "brand": "Zimaya",
-    "name": "Musk Is Great",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/ZMYA0011.png?v=1758900966&width=1000",
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-9066315219293-default-title",
-    "brand": "Zimaya",
-    "name": "Musk Is Great Perfume Zimaya By Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Musk-Is-Great-Perfume-100ml-EDP-Zimaya-By-Afnan-176694327.jpg?v=1772775679",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Mandarin Orange"
-      ],
-      "middle": [
-        "Magnolia",
-        "Black Currant"
-      ],
-      "base": [
-        "Musk",
-        "White Musk",
-        "Sandalwood"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-9066287792477-default-title",
-    "brand": "Zimaya",
-    "name": "Night Shadow Perfume Zimaya By Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/night-shadow-perfume-100ml-edp-zimaya-by-afnan-emirates-oud-1-103913055.jpg?v=1772775345",
-    "notes": {
-      "top": [
-        "Incense",
-        "Rose",
-        "Raspberry"
-      ],
-      "middle": [
-        "Birch",
-        "Saffron"
-      ],
-      "base": [
-        "Benzoin",
-        "Geranium",
-        "Oud"
-      ]
-    }
-  },
-  {
     "id": "ean-6290171074458",
     "brand": "Zimaya",
     "name": "Noor Jazz",
@@ -202991,73 +202848,9 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "justmylook-zmya0002",
-    "brand": "Zimaya",
-    "name": "Oud Is Great",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/ZMYA0002.png?v=1758900966&width=1000",
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-9066312204637-default-title",
-    "brand": "Zimaya",
-    "name": "Oud Is Great Perfume Zimaya By Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Oud-Is-Great-Perfume-100ml-EDP-Zimaya-By-Afnan-176694743.jpg?v=1772775705",
-    "notes": {
-      "top": [
-        "Saffron",
-        "Nutmeg",
-        "Lavender"
-      ],
-      "middle": [
-        "Agarwood",
-        "Oud"
-      ],
-      "base": [
-        "Patchouli",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-9066276127069-default-title",
-    "brand": "Zimaya",
-    "name": "Rabab Gems Perfume Zimaya By Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/rabab-gems-perfume-100ml-edp-zimaya-by-afnan-emirates-oud-1-103912820.jpg?v=1772775356",
-    "notes": {
-      "top": [
-        "Pineapple",
-        "Hyacinth"
-      ],
-      "middle": [
-        "Jasmine",
-        "Pink Pepper",
-        "Iris"
-      ],
-      "base": [
-        "Amber",
-        "Patchouli",
-        "Vanilla",
-        "Vetiver",
-        "Musk"
-      ]
-    }
-  },
-  {
     "id": "emirates-oud-9066260693341-default-title",
     "brand": "Zimaya",
-    "name": "Rabab Perfume Zimaya By Afnan",
+    "name": "Rabab",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -203081,7 +202874,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15468624576861-default-title",
     "brand": "Zimaya",
-    "name": "Rabab Pulp Perfume Zimaya By Afnan",
+    "name": "Rabab Pulp",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -203103,7 +202896,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "emirates-oud-9066348839261-default-title",
     "brand": "Zimaya",
-    "name": "Red Carpet Paragon Perfume Zimaya By Afnan",
+    "name": "Red Carpet Paragon",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -203130,7 +202923,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15723851710813-default-title",
     "brand": "Zimaya",
-    "name": "Reverie Aqua Perfume Zimaya By Afnan",
+    "name": "Reverie Aqua",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -203156,40 +202949,9 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     }
   },
   {
-    "id": "emirates-oud-9066321903965-default-title",
-    "brand": "Zimaya",
-    "name": "Royal Paragon Perfume Zimaya By Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/royal-paragon-perfume-100ml-edp-zimaya-by-afnan-emirates-oud-1-103913992.jpg?v=1772775752",
-    "notes": {
-      "top": [
-        "Apple",
-        "Lavender",
-        "Bergamot",
-        "Mandarin Orange"
-      ],
-      "middle": [
-        "Geranium",
-        "Violet",
-        "Jasmine"
-      ],
-      "base": [
-        "Vanilla",
-        "Cardamom",
-        "Sandalwood",
-        "Pepper",
-        "Patchouli",
-        "Guaiac Wood"
-      ]
-    }
-  },
-  {
     "id": "emirates-oud-8961560379741-default-title",
     "brand": "Zimaya",
-    "name": "Sharaf Blend Perfume Zimaya By Afnan",
+    "name": "Sharaf Blend",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -203215,85 +202977,6 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-10408351203670",
-    "brand": "Zimaya",
-    "name": "Sharaf Divine",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10408351203670",
-    "shops": 1,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/CE18303F-5F8A-48AE-B569-00D88AAB6BA3.webp?v=1777415119&width=1000",
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-15706636026205-default-title",
-    "brand": "Zimaya",
-    "name": "Sharaf Divine Perfume Zimaya By Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sharaf-Divine-Perfume-100ml-EDP-Zimaya-By-Afnan-185058861.webp?v=1772776470",
-    "notes": {
-      "top": [
-        "Bergamot",
-        "Cinnamon",
-        "Raspberry"
-      ],
-      "middle": [
-        "Caramel",
-        "Apple",
-        "Rose"
-      ],
-      "base": [
-        "Tonka",
-        "Cognac",
-        "Moss",
-        "Vanilla",
-        "Amber"
-      ]
-    }
-  },
-  {
-    "id": "justmylook-zmya0008",
-    "brand": "Zimaya",
-    "name": "Sharaf The Club",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://www.justmylook.com/cdn/shop/files/zimaya-sharaf-the-club-eau-de-parfum-100ml-p35720-108195_image.jpg?v=1721322385&width=1000",
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-9080401232221-default-title",
-    "brand": "Zimaya",
-    "name": "Sharaf The Club Perfume Zimaya By Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sharaf-The-Club-Perfume-100ml-EDP-Zimaya-By-Afnan-185058950.jpg?v=1772776741",
-    "notes": {
-      "top": [
-        "Pineapple",
-        "Bergamot",
-        "Apple",
-        "White Flowers"
-      ],
-      "middle": [
-        "Orange Blossom",
-        "Birch",
-        "Amber"
-      ],
-      "base": [
-        "Oakmoss",
-        "Musk",
-        "Ambergris"
-      ]
-    }
-  },
-  {
     "id": "ean-6290171075998",
     "brand": "Zimaya",
     "name": "Siada Nova",
@@ -203314,93 +202997,6 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/182863_ml.jpg",
     "notes": null
-  },
-  {
-    "id": "emirates-oud-15437553566045-default-title",
-    "brand": "Zimaya",
-    "name": "Tiramisu Caramel Perfume Zimaya By Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-Caramel-Perfume-100ml-EDP-Zimaya-By-Afnan-169362894.jpg?v=1749338959",
-    "notes": {
-      "top": [
-        "Caramel"
-      ],
-      "middle": [
-        "Honey",
-        "Wood",
-        "Coumarin"
-      ],
-      "base": [
-        "Vanilla Bean Extract",
-        "Whiskey Accord",
-        "Musk"
-      ]
-    }
-  },
-  {
-    "id": "emirates-oud-15438186709341-default-title",
-    "brand": "Zimaya",
-    "name": "Tiramisu Coco Perfume Zimaya By Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-Coco-Perfume-100ml-EDP-Zimaya-By-Afnan-169376984.jpg?v=1749428306",
-    "notes": {
-      "top": [],
-      "middle": [],
-      "base": [
-        "Brown sugar",
-        "Vanilla",
-        "Amber"
-      ]
-    }
-  },
-  {
-    "id": "ean-10408376435030",
-    "brand": "Zimaya",
-    "name": "Tiramisu S'mores",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "10408376435030",
-    "shops": 1,
-    "image": "https://oudarabian.co.uk/cdn/shop/files/3C3F9D5A-4099-4A12-AC47-F8F2805FA056.webp?v=1777415332&width=1000",
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-15804449653085-default-title",
-    "brand": "Zimaya",
-    "name": "Tiramisu S'mores Perfume Zimaya By Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-S_mores-Perfume-100ml-EDP-Zimaya-By-Afnan-181372597.png?v=1765251596",
-    "notes": {
-      "top": [
-        "Marshmallow",
-        "Chocolate",
-        "Coffee",
-        "Nectarine Blossom",
-        "Bergamot"
-      ],
-      "middle": [
-        "Vanilla",
-        "Biscuit",
-        "Almond",
-        "Milk",
-        "Musk"
-      ],
-      "base": [
-        "Caramel",
-        "Sugar",
-        "Amber",
-        "Musk"
-      ]
-    }
   },
   {
     "id": "ean-6290171071983",
@@ -203434,44 +203030,6 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
-  {
-    "id": "ean-6290171074083",
-    "brand": "Zimaya",
-    "name": "Zukhruf Pink",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "6290171074083",
-    "shops": 1,
-    "image": "https://bgstatic.net/photos/183716_ml.jpg",
-    "notes": null
-  },
-  {
-    "id": "emirates-oud-15468638175581-default-title",
-    "brand": "Zimaya",
-    "name": "Zukhruf Pink Perfume Zimaya By Afnan",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Zukhruf-Pink-Perfume-100ml-EDP-Zimaya-By-Afnan-169991574.jpg?v=1772775625",
-    "notes": {
-      "top": [
-        "Orchid",
-        "Heliotrope",
-        "Vanilla"
-      ],
-      "middle": [
-        "Musk",
-        "Marshmallow",
-        "Almond Milk"
-      ],
-      "base": [
-        "Amber",
-        "Vanilla",
-        "Sandalwood"
-      ]
-    }
   },
   {
     "id": "ean-0679614361434",
@@ -203853,6 +203411,80 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://thebeautystore.com/products/estee-lauder-youth-dew-eau-de-parfum-spray-67ml",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290360378602": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/french-avenue-cocoa-morado-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-17T16:21:42.727Z",
+      "firstSeenAt": "2026-08-08T14:30:40.092Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738061215-92497000.jpg?v=1763397024&width=1920"
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 27.65,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=42927052191&a=3026001&m=6561",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/184711_ml.jpg"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/cocoa-morado-perfume-100ml-edp-french-avenue-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Cocoa-Morado-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-170031285.jpg?v=1751223102"
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://manchesterouds.com/products/cocoa-morado-edp-100ml",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/cocoa-morado-edp-100ml-french-avenue-1368703.webp?v=1786194466&width=1920"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 29.99,
+      "wasPrice": 58.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687291&a=3026001&m=106925",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51zs1Y47_tL.jpg?v=1767982828"
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://thebeautystore.com/products/french-avenue-cocoa-morado-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-20T04:30:42.941Z",
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
       "isNew": false,
@@ -207423,66 +207055,66 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-6290360378602": [
+  "ean-6290360375687": [
     {
       "retailerId": "beautybase",
-      "price": 35,
+      "price": 36.95,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-cocoa-morado-eau-de-parfum-100ml-spray",
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/french-avenue-azzure-aoud-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-17T16:21:42.727Z",
       "firstSeenAt": "2026-08-08T14:30:40.092Z",
       "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738061215-92497000.jpg?v=1763397024&width=1920"
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 27.65,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42927052191&a=3026001&m=6561",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/184711_ml.jpg"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738074984-82163400.jpg?v=1763397021&width=1920"
     },
     {
       "retailerId": "manchester-ouds",
       "price": 22.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://manchesterouds.com/products/cocoa-morado-edp-100ml",
+      "stock": "outOfStock",
+      "url": "https://manchesterouds.com/products/azzure-aoud-edp-100ml",
       "fetchedAt": "2026-08-20T04:30:42.941Z",
       "firstSeenAt": "2026-08-11T18:11:23.403Z",
       "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/cocoa-morado-edp-100ml-french-avenue-1368703.webp?v=1786194466&width=1920"
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/azzure-aoud-edp-100ml-french-avenue-2367933.webp?v=1786194485&width=1920"
     },
     {
-      "retailerId": "mybeauty-boutique",
-      "price": 29.99,
-      "wasPrice": 58.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687291&a=3026001&m=106925",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51zs1Y47_tL.jpg?v=1767982828"
-    },
-    {
-      "retailerId": "the-beauty-store-uk",
-      "price": 28.99,
+      "retailerId": "perfume-click",
+      "price": 29.25,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://thebeautystore.com/products/french-avenue-cocoa-morado-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "url": "https://www.awin1.com/pclick.php?p=44566847793&a=3026001&m=6561",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://bgstatic.net/photos/190966_ml.jpg"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/azzure-aoud-perfume-80ml-edp-french-avenue-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Azzure-Aoud-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-170031076.jpg?v=1751223044"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/french-avenue-azzure-aoud-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-19T22:20:38.504Z",
+      "firstSeenAt": "2026-08-08T22:27:14.777Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0002_6a3b3285-fd37-401a-b35a-2cfd0d8416a9.png?v=1771605437&width=1000"
     }
   ],
   "ean-6290360378091": [
@@ -207545,6 +207177,68 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
       "isNew": false,
       "imageUrl": null
+    }
+  ],
+  "ean-6290360375694": [
+    {
+      "retailerId": "beautybase",
+      "price": 35,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/french-avenue-liquid-brun-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-17T06:45:35.161Z",
+      "firstSeenAt": "2026-08-08T03:23:59.585Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1737455812-49592700.jpg?v=1763395487&width=1920"
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://manchesterouds.com/products/liquid-brun-edp-100ml",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/liquid-brun-edp-100ml-french-avenue-4207862.webp?v=1786194509&width=1920"
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 25.75,
+      "wasPrice": 35,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44017252479&a=3026001&m=6561",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/184532_ml.jpg"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/liquid-brun-perfume-100ml-edp-fa-paris-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Liquid-Brun-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-170030882.jpg?v=1751222936"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 26.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/french-avenue-liquid-brun-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-19T22:20:38.504Z",
+      "firstSeenAt": "2026-08-08T22:27:14.777Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0007_20-_201.png?v=1772395424&width=1000"
     }
   ],
   "ean-6298042001831": [
@@ -212755,6 +212449,68 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "ean-6290171075639": [
+    {
+      "retailerId": "beautybase",
+      "price": 29,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/zimaya-tiramisu-coco-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-17T10:27:23.070Z",
+      "firstSeenAt": "2026-08-08T10:31:17.299Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1730815582-75789300.jpg?v=1763396404&width=1920"
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 19.6,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=42484619746&a=3026001&m=6561",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/184701_ml.jpg"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": 35,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/tiramisu-coco-zimaya",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-Coco-Perfume-100ml-EDP-Zimaya-By-Afnan-169376984.jpg?v=1749428306"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 20.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/zimaya-tiramisu-coco-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-19T16:26:32.339Z",
+      "firstSeenAt": "2026-08-08T11:26:50.485Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0013.png?v=1758900972&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 23.99,
+      "wasPrice": 40.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661689513&a=3026001&m=106925",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71LU5h4cU5L.jpg?v=1767986458"
+    }
+  ],
   "ean-8028713570285": [
     {
       "retailerId": "perfume-click",
@@ -216955,56 +216711,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0006_a7550c80-00a4-4ff5-aa16-d54de4e4ead8.png?v=1771605437&width=1000"
     }
   ],
-  "ean-6290360375687": [
-    {
-      "retailerId": "beautybase",
-      "price": 36.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/french-avenue-azzure-aoud-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-17T16:21:42.727Z",
-      "firstSeenAt": "2026-08-08T14:30:40.092Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738074984-82163400.jpg?v=1763397021&width=1920"
-    },
-    {
-      "retailerId": "manchester-ouds",
-      "price": 22.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://manchesterouds.com/products/azzure-aoud-edp-100ml",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/azzure-aoud-edp-100ml-french-avenue-2367933.webp?v=1786194485&width=1920"
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 29.25,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44566847793&a=3026001&m=6561",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/190966_ml.jpg"
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 26.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/french-avenue-azzure-aoud-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-19T22:20:38.504Z",
-      "firstSeenAt": "2026-08-08T22:27:14.777Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0002_6a3b3285-fd37-401a-b35a-2cfd0d8416a9.png?v=1771605437&width=1000"
-    }
-  ],
   "ean-6290360370187": [
     {
       "retailerId": "perfume-click",
@@ -217053,56 +216759,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
       "isNew": false,
       "imageUrl": null
-    }
-  ],
-  "ean-6290360375694": [
-    {
-      "retailerId": "beautybase",
-      "price": 35,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-liquid-brun-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-17T06:45:35.161Z",
-      "firstSeenAt": "2026-08-08T03:23:59.585Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1737455812-49592700.jpg?v=1763395487&width=1920"
-    },
-    {
-      "retailerId": "manchester-ouds",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://manchesterouds.com/products/liquid-brun-edp-100ml",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/liquid-brun-edp-100ml-french-avenue-4207862.webp?v=1786194509&width=1920"
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 25.75,
-      "wasPrice": 35,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44017252479&a=3026001&m=6561",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/184532_ml.jpg"
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 26.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/french-avenue-liquid-brun-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-19T22:20:38.504Z",
-      "firstSeenAt": "2026-08-08T22:27:14.777Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0007_20-_201.png?v=1772395424&width=1000"
     }
   ],
   "ean-6298042001800": [
@@ -228005,54 +227661,54 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
-  "ean-6290171075639": [
+  "ean-6290171075622": [
     {
       "retailerId": "beautybase",
       "price": 29,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/zimaya-tiramisu-coco-eau-de-parfum-100ml-spray",
+      "url": "https://www.beautybase.com/products/zimaya-tiramisu-caramel-eau-de-parfum-100ml-spray",
       "fetchedAt": "2026-08-17T10:27:23.070Z",
       "firstSeenAt": "2026-08-08T10:31:17.299Z",
       "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1730815582-75789300.jpg?v=1763396404&width=1920"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1730816328-14517900.jpg?v=1763396405&width=1920"
     },
     {
       "retailerId": "perfume-click",
-      "price": 19.6,
-      "wasPrice": 40,
+      "price": 18.35,
+      "wasPrice": 35,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42484619746&a=3026001&m=6561",
+      "url": "https://www.awin1.com/pclick.php?p=42159923120&a=3026001&m=6561",
       "fetchedAt": "2026-08-20T00:51:02.991Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/184701_ml.jpg"
+      "imageUrl": "https://bgstatic.net/photos/184957_ml.jpg"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": 35,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/tiramisu-caramel-zimaya",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-Caramel-Perfume-100ml-EDP-Zimaya-By-Afnan-169362894.jpg?v=1749338959"
     },
     {
       "retailerId": "justmylook",
-      "price": 20.99,
+      "price": 21.49,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.justmylook.com/products/zimaya-tiramisu-coco-eau-de-parfum-100ml",
+      "url": "https://www.justmylook.com/products/zimaya-tiramisu-caramel-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-19T16:26:32.339Z",
       "firstSeenAt": "2026-08-08T11:26:50.485Z",
       "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0013.png?v=1758900972&width=1000"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 23.99,
-      "wasPrice": 40.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661689513&a=3026001&m=106925",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71LU5h4cU5L.jpg?v=1767986458"
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0014_b2a5628d-12e7-4c64-b4bc-67ca48f4b429.png?v=1758900972&width=1000"
     }
   ],
   "ean-085715167804": [
@@ -238961,6 +238617,44 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "emirates-oud-9032445264221-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 22.5,
+      "wasPrice": 35,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/enigma-deux-perfume-100ml-edp-fa-paris-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Enigma-Deux-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-184724489.png?v=1771617509"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 27.49,
+      "wasPrice": 49.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687288&a=3026001&m=106925",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61zM3alOX8L.jpg?v=1767982822"
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "price": 24.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://thebeautystore.com/products/french-avenue-enigma-deux-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "emirates-oud-15432706982237-100ml": [
     {
       "retailerId": "emirates-oud",
@@ -238997,6 +238691,158 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-09T12:46:11.571Z",
       "isNew": false,
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0009.png?v=1756720380&width=1000"
+    }
+  ],
+  "ean-6290360379340": [
+    {
+      "retailerId": "perfume-click",
+      "price": 43.8,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43494864249&a=3026001&m=6561",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/186694_ml.jpg"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": 50,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/opus-magnum-perfume-by-french-avenue-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opus-Magnum-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-163825257.jpg?v=1740775345"
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "price": 41.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://thebeautystore.com/products/french-avenue-opus-magnum-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "ean-6290360376714": [
+    {
+      "retailerId": "perfume-click",
+      "price": 26.45,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43008776002&a=3026001&m=6561",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/189048_ml.jpg"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": 45,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/pinnace-perfume-100ml-edp-fa-paris-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pinnace-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-170030060.jpg?v=1751222615"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 34.99,
+      "wasPrice": 67.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687295&a=3026001&m=106925",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51ogSfwIg9L.jpg?v=1767982834"
+    }
+  ],
+  "emirates-oud-9416644460893-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": 45,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/pinnace-noir-100ml-edp-fa-paris-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pinnace-Noir-100ml-EDP-French-Avenue-by-Fragrance-World-170030252.jpg?v=1751222722"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 36.99,
+      "wasPrice": 66.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687283&a=3026001&m=106925",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61lUwqjI7oL.jpg?v=1767982814"
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "price": 30.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://thebeautystore.com/products/french-avenue-pinnace-noir-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
+  "emirates-oud-15082087186781-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": 45,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/pinnace-oryn-perfume-100ml-edp-french-avenue-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pinnace-Oryn-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-163860255.jpg?v=1741038858"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 35.99,
+      "wasPrice": 66.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687290&a=3026001&m=106925",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61QgWEblKHL.jpg?v=1767982826"
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "price": 32.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://thebeautystore.com/products/french-avenue-pinnace-oryn-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-6298042001923": [
@@ -239187,6 +239033,82 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Aromatix-Royal-Taboo-Extrait-de-Parfum-100ml-French-Avenue-179805330.jpg?v=1762015615"
+    }
+  ],
+  "ean-6290360375656": [
+    {
+      "retailerId": "perfume-click",
+      "price": 33.9,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43494864251&a=3026001&m=6561",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/186682_ml.jpg"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": 45,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/sultry-woods-perfume-80ml-edp-fa-paris-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sultry-Woods-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-169530022.jpg?v=1750210342"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 35.99,
+      "wasPrice": 66.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687298&a=3026001&m=106925",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71yxDI99SnL.jpg?v=1767982838"
+    }
+  ],
+  "emirates-oud-14702323925341-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/sweet-paradise-perfume-100ml-edp-french-avenue-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sweet-Paradise-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-152815374.jpg?v=1730899413"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 34.49,
+      "wasPrice": 62.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687289&a=3026001&m=106925",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Emn2OZhRL.jpg?v=1767982824"
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "price": 30.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://thebeautystore.com/products/french-avenue-sweet-paradise-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null
     }
   ],
   "ean-3614273636513": [
@@ -262521,6 +262443,82 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10045651.jpg?v=1763142737"
     }
   ],
+  "ean-6290171075646": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/zimaya-modhesh-aura-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-17T20:30:14.142Z",
+      "firstSeenAt": "2026-08-08T22:27:14.777Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1743756261-91422500.jpg?v=1763397538&width=1920"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 35,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/modhesh-aura-zimaya",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Modhesh-Aura-Perfume-100ml-EDP-Zimaya-By-Afnan-178738599.png?v=1772775615"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 19.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/zimaya-modhesh-aura-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-19T20:35:57.540Z",
+      "firstSeenAt": "2026-08-08T15:27:51.348Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0016_4592e4f5-1f58-4127-a8ae-696b9b360c1e.png?v=1758900973&width=1000"
+    }
+  ],
+  "ean-6290171072874": [
+    {
+      "retailerId": "beautybase",
+      "price": 25,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/zimaya-night-shadow-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-16T02:59:16.630Z",
+      "firstSeenAt": "2026-08-05T22:56:46.276Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727346282-60665500.jpg?v=1763393666&width=1920"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 18.99,
+      "wasPrice": 30,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/night-shadow-perfume-100ml-edp-zimaya-by-afnan",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/night-shadow-perfume-100ml-edp-zimaya-by-afnan-emirates-oud-1-103913055.jpg?v=1772775345"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 16.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/zimaya-night-shadow-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-19T18:31:44.382Z",
+      "firstSeenAt": "2026-08-08T14:30:40.092Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0015_f7e718dc-c452-41a3-a0f1-5fe1aeb3dffd.png?v=1758900973&width=1000"
+    }
+  ],
   "ean-6290171070269": [
     {
       "retailerId": "beautybase",
@@ -262559,42 +262557,80 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/712a9DXXk9L.jpg?v=1767986437"
     }
   ],
-  "ean-6290171075622": [
-    {
-      "retailerId": "beautybase",
-      "price": 29,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/zimaya-tiramisu-caramel-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-17T10:27:23.070Z",
-      "firstSeenAt": "2026-08-08T10:31:17.299Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1730816328-14517900.jpg?v=1763396405&width=1920"
-    },
+  "ean-6290171071020": [
     {
       "retailerId": "perfume-click",
-      "price": 18.35,
+      "price": 20.7,
       "wasPrice": 35,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42159923120&a=3026001&m=6561",
+      "url": "https://www.awin1.com/pclick.php?p=44916283404&a=3026001&m=6561",
       "fetchedAt": "2026-08-20T00:51:02.991Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/184957_ml.jpg"
+      "imageUrl": "https://bgstatic.net/photos/182851_ml.jpg"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 34.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/rabab-gems-perfume-100ml-edp-zimaya-by-afnan",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/rabab-gems-perfume-100ml-edp-zimaya-by-afnan-emirates-oud-1-103912820.jpg?v=1772775356"
     },
     {
       "retailerId": "justmylook",
-      "price": 21.49,
+      "price": 18.5,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.justmylook.com/products/zimaya-tiramisu-caramel-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-19T16:26:32.339Z",
-      "firstSeenAt": "2026-08-08T11:26:50.485Z",
+      "url": "https://www.justmylook.com/products/zimaya-rabab-gems-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T22:56:46.276Z",
       "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0014_b2a5628d-12e7-4c64-b4bc-67ca48f4b429.png?v=1758900972&width=1000"
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0006_3f523ec6-0b5e-42a6-925a-bdee4d7f93b8.png?v=1758900966&width=1000"
+    }
+  ],
+  "emirates-oud-9066321903965-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 16.99,
+      "wasPrice": 24.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/royal-paragon-zimaya",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/royal-paragon-perfume-100ml-edp-zimaya-by-afnan-emirates-oud-1-103913992.jpg?v=1772775752"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 17.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/zimaya-royal-paragon-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-18T12:39:25.476Z",
+      "firstSeenAt": "2026-08-05T22:56:46.276Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0007.png?v=1758900966&width=1000"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 20.99,
+      "wasPrice": 34.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43157930781&a=3026001&m=106925",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10045648.jpg?v=1763142746"
     }
   ],
   "mybeauty-boutique-shopify-gb-8338368364681-44927289524361": [
@@ -288571,6 +288607,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0012_0c29be3d-3a38-4262-b623-de34240367c1.png?v=1756720380&width=1000"
     }
   ],
+  "emirates-oud-8906903060829-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 22.5,
+      "wasPrice": 35,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/amber-dor-perfume-100ml-edp-fa-paris-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/amber-d-or-perfume-100ml-edp-fa-paris-by-fragrance-world-emirates-oud-2.jpg?v=1713056571"
+    },
+    {
+      "retailerId": "the-beauty-store-uk",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://thebeautystore.com/products/french-avenue-amber-dor-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null
+    }
+  ],
   "ean-6298042001206": [
     {
       "retailerId": "beautybase",
@@ -288597,6 +288659,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": null
     }
   ],
+  "the-beauty-store-uk-tbsukdk2-38892": [
+    {
+      "retailerId": "the-beauty-store-uk",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://thebeautystore.com/products/french-avenue-divin-aoud-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "isNew": false,
+      "imageUrl": null
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/divin-aoud-perfume-100ml-fa-paris-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Divin-Aoud-Perfume-100ml-French-Avenue-by-Fragrance-World-180427434.png?v=1763359010"
+    }
+  ],
   "ean-6290360378114": [
     {
       "retailerId": "perfume-click",
@@ -288621,32 +288709,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51w6CI-IofL.jpg?v=1767982838"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416685654153-45147049787529": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 27.49,
-      "wasPrice": 49.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687288&a=3026001&m=106925",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61zM3alOX8L.jpg?v=1767982822"
-    },
-    {
-      "retailerId": "the-beauty-store-uk",
-      "price": 24.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://thebeautystore.com/products/french-avenue-enigma-deux-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-19T18:31:44.382Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "ean-6290360379524": [
@@ -288727,6 +288789,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Grow-Perfume-100ml-EDP-French-Avenue-184347166.png?v=1770857199"
     }
   ],
+  "emirates-oud-14702398996829-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 39.99,
+      "wasPrice": 50,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/ighwa-perfume-100ml-edp-french-avenue-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ighwa-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-152815729.jpg?v=1730900091"
+    },
+    {
+      "retailerId": "mybeauty-boutique",
+      "price": 44.49,
+      "wasPrice": 80.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.awin1.com/pclick.php?p=43661687299&a=3026001&m=106925",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51vJP6h4t3L.jpg?v=1767982841"
+    }
+  ],
   "emirates-oud-16155772879197-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -288803,110 +288891,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Obsidian-Perfume-100ml-EDP-French-Avenue-183496326.webp?v=1768705572"
-    }
-  ],
-  "ean-6290360379340": [
-    {
-      "retailerId": "perfume-click",
-      "price": 43.8,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43494864249&a=3026001&m=6561",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/186694_ml.jpg"
-    },
-    {
-      "retailerId": "the-beauty-store-uk",
-      "price": 41.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://thebeautystore.com/products/french-avenue-opus-magnum-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-19T18:31:44.382Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "ean-6290360376714": [
-    {
-      "retailerId": "perfume-click",
-      "price": 26.45,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43008776002&a=3026001&m=6561",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/189048_ml.jpg"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 34.99,
-      "wasPrice": 67.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687295&a=3026001&m=106925",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51ogSfwIg9L.jpg?v=1767982834"
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416685424777-45147049525385": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 36.99,
-      "wasPrice": 66.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687283&a=3026001&m=106925",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61lUwqjI7oL.jpg?v=1767982814"
-    },
-    {
-      "retailerId": "the-beauty-store-uk",
-      "price": 30.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://thebeautystore.com/products/french-avenue-pinnace-noir-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-19T18:31:44.382Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "mybeauty-boutique-shopify-gb-8416685785225-45147049918601": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 35.99,
-      "wasPrice": 66.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687290&a=3026001&m=106925",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61QgWEblKHL.jpg?v=1767982826"
-    },
-    {
-      "retailerId": "the-beauty-store-uk",
-      "price": 32.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://thebeautystore.com/products/french-avenue-pinnace-oryn-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-19T18:31:44.382Z",
-      "isNew": false,
-      "imageUrl": null
     }
   ],
   "ean-6298042001893": [
@@ -288987,6 +288971,58 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Bourbon-Extrait-De-Parfum-100ml-French-Avenue-168753380.jpg?v=1748003224"
     }
   ],
+  "emirates-oud-9416546025821-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/royal-blend-nero-100ml-edp-fa-paris-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Nero-100ml-EDP-FA-Paris-by-Fragrance-World-153647133.jpg?v=1732636578"
+    },
+    {
+      "retailerId": "manchester-ouds",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://manchesterouds.com/products/royal-blend-nero-edp-100ml",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/royal-blend-nero-edp-100ml-french-avenue-3668924.webp?v=1786194476&width=1920"
+    }
+  ],
+  "emirates-oud-9256039514461-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 29.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/spectre-ghost-perfume-100ml-edp-fa-paris-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spectre-Ghost-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184726566.png?v=1771619897"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/french-avenue-ghost-spectre-eau-de-parfum-80ml",
+      "fetchedAt": "2026-08-19T22:20:38.504Z",
+      "firstSeenAt": "2026-08-08T22:27:14.777Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0004_298b2ae4-f374-4dca-b9d0-3b4056b8fdb1.png?v=1771605436&width=1000"
+    }
+  ],
   "ean-6298042002364": [
     {
       "retailerId": "beautybase",
@@ -289039,56 +289075,56 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spirito-Mystic-100ml-Extrait-De-Parfum-French-Avenue-194136213.jpg?v=1782928985"
     }
   ],
-  "ean-6290360375656": [
+  "ean-6290360375120": [
     {
       "retailerId": "perfume-click",
-      "price": 33.9,
+      "price": 26.1,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43494864251&a=3026001&m=6561",
+      "url": "https://www.awin1.com/pclick.php?p=44677421086&a=3026001&m=6561",
       "fetchedAt": "2026-08-20T00:51:02.991Z",
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/186682_ml.jpg"
+      "imageUrl": "https://images2.productserve.com/noimage.gif"
     },
     {
-      "retailerId": "mybeauty-boutique",
-      "price": 35.99,
-      "wasPrice": 66.99,
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": 40,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687298&a=3026001&m=106925",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
+      "url": "https://emiratesoud.co.uk/products/sultan-the-conqueror-perfume-80ml-edp-french-avenue-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71yxDI99SnL.jpg?v=1767982838"
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sultan-The-Conqueror-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184724156.png?v=1771616733"
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416685752457-45147049885833": [
+  "ean-6290360375014": [
     {
-      "retailerId": "mybeauty-boutique",
-      "price": 34.49,
-      "wasPrice": 62.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687289&a=3026001&m=106925",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51Emn2OZhRL.jpg?v=1767982824"
-    },
-    {
-      "retailerId": "the-beauty-store-uk",
-      "price": 30.99,
+      "retailerId": "beautybase",
+      "price": 36,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://thebeautystore.com/products/french-avenue-sweet-paradise-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-19T18:31:44.382Z",
+      "url": "https://www.beautybase.com/products/french-avenue-sultan-the-founder-eau-de-parfum-80ml-spray",
+      "fetchedAt": "2026-08-17T16:21:42.727Z",
+      "firstSeenAt": "2026-08-08T14:30:40.092Z",
       "isNew": false,
-      "imageUrl": null
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738068711-06258600.jpg?v=1763397025&width=1920"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": 40,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/sultan-the-founder-perfume-80ml-edp-french-avenue-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sultan-The-Founder-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184723989.png?v=1771616731"
     }
   ],
   "ean-6290360379517": [
@@ -289115,6 +289151,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Thunder-Perfume-100ml-EDP-French-Avenue-175526343.jpg?v=1755887032"
+    }
+  ],
+  "emirates-oud-9416638595421-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 34.99,
+      "wasPrice": 45,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/tropical-kiss-80ml-edp-fa-paris-by-fragrance-world",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tropical-Kiss-80ml-EDP-French-Avenue-by-Fragrance-World-169530545.jpg?v=1750210481"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 29.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/french-avenue-tropical-kiss-eau-de-parfum-80ml",
+      "fetchedAt": "2026-08-17T18:35:33.800Z",
+      "firstSeenAt": "2026-08-09T23:29:35.966Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0013.png?v=1756720382&width=1000"
     }
   ],
   "emirates-oud-15235425993053-default-title": [
@@ -334851,6 +334913,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71u54yEIxTL.jpg?v=1767986436"
     }
   ],
+  "emirates-oud-9066311057757-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 34.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/amber-is-great-zimaya",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amber-Is-Great-Perfume-100ml-EDP-Zimaya-By-Afnan-176694940.jpg?v=1772775372"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 17.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/zimaya-amber-is-great-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T22:56:46.276Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0001.png?v=1758900966&width=1000"
+    }
+  ],
   "ean-6290171074885": [
     {
       "retailerId": "perfume-click",
@@ -335007,30 +335095,30 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mazaaj-Infused-Perfume-100ml-EDP-Zimaya-179891880.jpg?v=1762297031"
     }
   ],
-  "ean-6290171075646": [
+  "ean-6290171077282": [
     {
       "retailerId": "beautybase",
-      "price": 25,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/zimaya-modhesh-aura-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-17T20:30:14.142Z",
-      "firstSeenAt": "2026-08-08T22:27:14.777Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1743756261-91422500.jpg?v=1763397538&width=1920"
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 19.99,
+      "price": 29.99,
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.justmylook.com/products/zimaya-modhesh-aura-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-19T20:35:57.540Z",
-      "firstSeenAt": "2026-08-08T15:27:51.348Z",
+      "url": "https://www.beautybase.com/products/zimaya-mazaaj-rhythm-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-18T22:18:55.485Z",
+      "firstSeenAt": "2026-08-10T21:39:43.387Z",
       "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0016_4592e4f5-1f58-4127-a8ae-696b9b360c1e.png?v=1758900973&width=1000"
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1762427749-86319000.jpg?v=1763399394&width=1920"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 24.99,
+      "wasPrice": 30,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/mazaaj-rhythm-zimaya",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mazaaj-Rhythm-Perfume-100ml-EDP-Zimaya-by-Afnan-179806524.jpg?v=1762296600"
     }
   ],
   "ean-6290171070276": [
@@ -335059,18 +335147,18 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://bgstatic.net/photos/184517_ml.jpg"
     }
   ],
-  "ean-6290171072874": [
+  "emirates-oud-9066315219293-default-title": [
     {
-      "retailerId": "beautybase",
-      "price": 25,
-      "wasPrice": null,
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 34.99,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.beautybase.com/products/zimaya-night-shadow-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-16T02:59:16.630Z",
-      "firstSeenAt": "2026-08-05T22:56:46.276Z",
+      "url": "https://emiratesoud.co.uk/products/musk-is-great-zimaya",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1727346282-60665500.jpg?v=1763393666&width=1920"
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Musk-Is-Great-Perfume-100ml-EDP-Zimaya-By-Afnan-176694327.jpg?v=1772775679"
     },
     {
       "retailerId": "justmylook",
@@ -335078,37 +335166,37 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "wasPrice": null,
       "promoEndsAt": null,
       "stock": "inStock",
-      "url": "https://www.justmylook.com/products/zimaya-night-shadow-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-19T18:31:44.382Z",
-      "firstSeenAt": "2026-08-08T14:30:40.092Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0015_f7e718dc-c452-41a3-a0f1-5fe1aeb3dffd.png?v=1758900973&width=1000"
-    }
-  ],
-  "ean-6290171071020": [
-    {
-      "retailerId": "perfume-click",
-      "price": 20.7,
-      "wasPrice": 35,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44916283404&a=3026001&m=6561",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/182851_ml.jpg"
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 18.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/zimaya-rabab-gems-eau-de-parfum-100ml",
+      "url": "https://www.justmylook.com/products/zimaya-musk-is-great-eau-de-parfum-100ml",
       "fetchedAt": "2026-08-18T08:37:44.110Z",
       "firstSeenAt": "2026-08-05T22:56:46.276Z",
       "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0006_3f523ec6-0b5e-42a6-925a-bdee4d7f93b8.png?v=1758900966&width=1000"
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0011.png?v=1758900966&width=1000"
+    }
+  ],
+  "emirates-oud-9066312204637-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 34.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/oud-is-great-zimaya",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Oud-Is-Great-Perfume-100ml-EDP-Zimaya-By-Afnan-176694743.jpg?v=1772775705"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 15.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/zimaya-oud-is-great-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T22:56:46.276Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0002.png?v=1758900966&width=1000"
     }
   ],
   "ean-6290171075295": [
@@ -335189,32 +335277,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/61cKKenyoYL.jpg?v=1767986439"
     }
   ],
-  "justmylook-zmya0007": [
-    {
-      "retailerId": "justmylook",
-      "price": 17.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/zimaya-royal-paragon-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-18T12:39:25.476Z",
-      "firstSeenAt": "2026-08-05T22:56:46.276Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0007.png?v=1758900966&width=1000"
-    },
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 20.99,
-      "wasPrice": 34.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43157930781&a=3026001&m=106925",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/10045648.jpg?v=1763142746"
-    }
-  ],
   "ean-6290171077213": [
     {
       "retailerId": "beautybase",
@@ -335239,6 +335301,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/190566_ml.jpg"
+    }
+  ],
+  "emirates-oud-15706636026205-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 27.99,
+      "wasPrice": 35,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/sharaf-divine-zimaya",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sharaf-Divine-Perfume-100ml-EDP-Zimaya-By-Afnan-185058861.webp?v=1772776470"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 27.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-20T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/zimaya-sharaf-divine-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-20T02:51:24.867Z",
+      "firstSeenAt": "2026-08-05T15:12:19.785Z",
+      "isNew": false,
+      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/CE18303F-5F8A-48AE-B569-00D88AAB6BA3.webp?v=1777415119&width=1000"
     }
   ],
   "ean-6290171074199": [
@@ -335267,6 +335355,58 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://bgstatic.net/photos/184698_ml.jpg"
     }
   ],
+  "emirates-oud-9080401232221-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 22.99,
+      "wasPrice": 35,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/sharaf-club-perfume-100ml-edp-zimaya-by-afnan",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sharaf-The-Club-Perfume-100ml-EDP-Zimaya-By-Afnan-185058950.jpg?v=1772776741"
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/zimaya-sharaf-the-club-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-18T08:37:44.110Z",
+      "firstSeenAt": "2026-08-05T22:56:46.276Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/zimaya-sharaf-the-club-eau-de-parfum-100ml-p35720-108195_image.jpg?v=1721322385&width=1000"
+    }
+  ],
+  "emirates-oud-15804449653085-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 27.99,
+      "wasPrice": 35,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/tiramisu-smores-zimaya",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-S_mores-Perfume-100ml-EDP-Zimaya-By-Afnan-181372597.png?v=1765251596"
+    },
+    {
+      "retailerId": "oud-arabian",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-08-20T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://oudarabian.co.uk/products/zimaya-tiramisu-smores-100ml-eau-de-parfum",
+      "fetchedAt": "2026-08-20T02:51:24.867Z",
+      "firstSeenAt": "2026-08-05T15:12:19.785Z",
+      "isNew": false,
+      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/3C3F9D5A-4099-4A12-AC47-F8F2805FA056.webp?v=1777415332&width=1000"
+    }
+  ],
   "ean-6290171074090": [
     {
       "retailerId": "perfume-click",
@@ -335291,6 +335431,32 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71t9YRB9HAL.jpg?v=1767986443"
+    }
+  ],
+  "ean-6290171074083": [
+    {
+      "retailerId": "perfume-click",
+      "price": 21.45,
+      "wasPrice": 45,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=42159923123&a=3026001&m=6561",
+      "fetchedAt": "2026-08-20T00:51:02.991Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/183716_ml.jpg"
+    },
+    {
+      "retailerId": "emirates-oud",
+      "price": 19.99,
+      "wasPrice": 34.99,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/zukhruf-pink-zimaya-by-afnan",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Zukhruf-Pink-Perfume-100ml-EDP-Zimaya-By-Afnan-169991574.jpg?v=1772775625"
     }
   ],
   "ean-5013692280808": [
@@ -390187,34 +390353,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Aether-Extrait-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-169531429.jpg?v=1750210730"
     }
   ],
-  "the-beauty-store-uk-tbsukdk2-38393": [
-    {
-      "retailerId": "the-beauty-store-uk",
-      "price": 22.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://thebeautystore.com/products/french-avenue-amber-dor-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-19T18:31:44.382Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "emirates-oud-8906903060829-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 22.5,
-      "wasPrice": 35,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/amber-dor-perfume-100ml-edp-fa-paris-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/amber-d-or-perfume-100ml-edp-fa-paris-by-fragrance-world-emirates-oud-2.jpg?v=1713056571"
-    }
-  ],
   "emirates-oud-15618612134237-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -390481,20 +390619,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Axis-Perfume-100ml-EDP-French-Avenue-170026050.jpg?v=1751056186"
     }
   ],
-  "emirates-oud-14731403919709-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/azzure-aoud-perfume-80ml-edp-french-avenue-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Azzure-Aoud-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-170031076.jpg?v=1751223044"
-    }
-  ],
   "mybeauty-boutique-shopify-gb-8416685588617-45147049721993": [
     {
       "retailerId": "mybeauty-boutique",
@@ -390537,20 +390661,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Chaos-Extrait-Perfume-100ml-EDP-French-Avenue-175525175.jpg?v=1755886931"
     }
   ],
-  "emirates-oud-14917051416925-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/cocoa-morado-perfume-100ml-edp-french-avenue-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Cocoa-Morado-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-170031285.jpg?v=1751223102"
-    }
-  ],
   "ean-6290360378749": [
     {
       "retailerId": "perfume-click",
@@ -390577,34 +390687,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Della-Equestrian-Series-Perfume-100ml-EDP-By-French-Avenue-169228161.jpg?v=1749003884"
-    }
-  ],
-  "the-beauty-store-uk-tbsukdk2-38892": [
-    {
-      "retailerId": "the-beauty-store-uk",
-      "price": 28.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://thebeautystore.com/products/french-avenue-divin-aoud-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-19T18:31:44.382Z",
-      "isNew": false,
-      "imageUrl": null
-    }
-  ],
-  "emirates-oud-9032467775837-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/divin-aoud-perfume-100ml-fa-paris-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Divin-Aoud-Perfume-100ml-French-Avenue-by-Fragrance-World-180427434.png?v=1763359010"
     }
   ],
   "emirates-oud-15752247050589-default-title": [
@@ -390691,20 +390773,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Elinor-Green-Perfume-100ml-EDP-French-Avenue-177031911.jpg?v=1758306320"
     }
   ],
-  "emirates-oud-9032445264221-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 22.5,
-      "wasPrice": 35,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/enigma-deux-perfume-100ml-edp-fa-paris-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Enigma-Deux-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-184724489.png?v=1771617509"
-    }
-  ],
   "emirates-oud-9032441790813-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -390775,20 +390843,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/expose-unisexe-perfume-100ml-fa-paris-by-fragrance-world-emirates-oud.jpg?v=1713057669"
     }
   ],
-  "emirates-oud-15438206042461-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 42.99,
-      "wasPrice": 60,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/fierte-luna-french-avenue",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fierte-Luna-Perfume-80ml-EDP-French-Avenue-169962018.jpg?v=1750907045"
-    }
-  ],
   "emirates-oud-9851996635485-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -390801,6 +390855,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fierte-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-153653923.jpg?v=1732638676"
+    }
+  ],
+  "emirates-oud-15438206042461-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 42.99,
+      "wasPrice": 60,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://emiratesoud.co.uk/products/fierte-luna-french-avenue",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Fierte-Luna-Perfume-80ml-EDP-French-Avenue-169962018.jpg?v=1750907045"
     }
   ],
   "ean-6298042001534": [
@@ -390999,20 +391067,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Genesis-Virgo-Perfume-90ml-EDP-French-Avenue-169234281.jpg?v=1749005947"
     }
   ],
-  "justmylook-frav0004": [
-    {
-      "retailerId": "justmylook",
-      "price": 26.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/french-avenue-ghost-spectre-eau-de-parfum-80ml",
-      "fetchedAt": "2026-08-19T22:20:38.504Z",
-      "firstSeenAt": "2026-08-08T22:27:14.777Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0004_298b2ae4-f374-4dca-b9d0-3b4056b8fdb1.png?v=1771605436&width=1000"
-    }
-  ],
   "emirates-oud-15441395450205-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -391111,34 +391165,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://images2.productserve.com/noimage.gif"
     }
   ],
-  "mybeauty-boutique-shopify-gb-8416686178441-45147050377353": [
-    {
-      "retailerId": "mybeauty-boutique",
-      "price": 44.49,
-      "wasPrice": 80.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=43661687299&a=3026001&m=106925",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51vJP6h4t3L.jpg?v=1767982841"
-    }
-  ],
-  "emirates-oud-14702398996829-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": 50,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/ighwa-perfume-100ml-edp-french-avenue-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ighwa-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-152815729.jpg?v=1730900091"
-    }
-  ],
   "emirates-oud-16425305866589-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -391235,20 +391261,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-05T17:27:59.465Z",
       "isNew": false,
       "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/6C535346-DA99-4D6E-8862-ED9EE52EB473.webp?v=1779423045&width=1600"
-    }
-  ],
-  "emirates-oud-9416532033885-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/liquid-brun-perfume-100ml-edp-fa-paris-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Liquid-Brun-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-170030882.jpg?v=1751222936"
     }
   ],
   "emirates-oud-9416597340509-default-title": [
@@ -391461,20 +391473,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opus-Grande-Perfume-100ml-EDP-French-Avenue-169532995.jpg?v=1750211431"
     }
   ],
-  "emirates-oud-15161315459421-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 39.99,
-      "wasPrice": 50,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/opus-magnum-perfume-by-french-avenue-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Opus-Magnum-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-163825257.jpg?v=1740775345"
-    }
-  ],
   "emirates-oud-15655513686365-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -391501,48 +391499,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pierce-Equestrian-Series-Perfume-100ml-EDP-French-Avenue-169228765.jpg?v=1749003960"
-    }
-  ],
-  "emirates-oud-9416644460893-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": 45,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/pinnace-noir-100ml-edp-fa-paris-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pinnace-Noir-100ml-EDP-French-Avenue-by-Fragrance-World-170030252.jpg?v=1751222722"
-    }
-  ],
-  "emirates-oud-15082087186781-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": 45,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/pinnace-oryn-perfume-100ml-edp-french-avenue-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pinnace-Oryn-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-163860255.jpg?v=1741038858"
-    }
-  ],
-  "emirates-oud-9416648884573-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": 45,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/pinnace-perfume-100ml-edp-fa-paris-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Pinnace-Perfume-100ml-EDP-French-Avenue-by-Fragrance-World-170030060.jpg?v=1751222615"
     }
   ],
   "the-beauty-store-uk-tbsukdk2-39028": [
@@ -391615,34 +391571,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Extract-Perfume-100ml-EDP-FA-Paris-by-Fragrance-World-153647820.jpg?v=1732636624"
     }
   ],
-  "manchester-ouds-ff-royal-blend-nero-100": [
-    {
-      "retailerId": "manchester-ouds",
-      "price": 23.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://manchesterouds.com/products/royal-blend-nero-edp-100ml",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/royal-blend-nero-edp-100ml-french-avenue-3668924.webp?v=1786194476&width=1920"
-    }
-  ],
-  "emirates-oud-9416546025821-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/royal-blend-nero-100ml-edp-fa-paris-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Royal-Blend-Nero-100ml-EDP-FA-Paris-by-Fragrance-World-153647133.jpg?v=1732636578"
-    }
-  ],
   "emirates-oud-15464871133533-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -391713,34 +391641,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Solitaire-Perfume-100ml-EDP-French-Avenue-181317126.png?v=1764892275"
     }
   ],
-  "ean-6290360372723": [
-    {
-      "retailerId": "manchester-ouds",
-      "price": 22.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://manchesterouds.com/products/spectre-ghost-edp-100ml",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T18:11:23.403Z",
-      "isNew": false,
-      "imageUrl": "https://manchesterouds.com/cdn/shop/files/spectre-ghost-edp-100ml-french-avenue-1849350.webp?v=1786194486&width=1920"
-    }
-  ],
-  "emirates-oud-9256039514461-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/spectre-ghost-perfume-100ml-edp-fa-paris-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spectre-Ghost-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184726566.png?v=1771619897"
-    }
-  ],
   "emirates-oud-8888896061789-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -391755,6 +391655,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spectre-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184726461.png?v=1771619820"
     }
   ],
+  "ean-6290360372723": [
+    {
+      "retailerId": "manchester-ouds",
+      "price": 22.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://manchesterouds.com/products/spectre-ghost-edp-100ml",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T18:11:23.403Z",
+      "isNew": false,
+      "imageUrl": "https://manchesterouds.com/cdn/shop/files/spectre-ghost-edp-100ml-french-avenue-1849350.webp?v=1786194486&width=1920"
+    }
+  ],
   "emirates-oud-9451374608733-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -391767,90 +391681,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Spectre-Wraith-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184726625.png?v=1771620005"
-    }
-  ],
-  "ean-6290360375120": [
-    {
-      "retailerId": "perfume-click",
-      "price": 26.1,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44677421086&a=3026001&m=6561",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://images2.productserve.com/noimage.gif"
-    }
-  ],
-  "emirates-oud-9184430621021-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/sultan-the-conqueror-perfume-80ml-edp-french-avenue-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sultan-The-Conqueror-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184724156.png?v=1771616733"
-    }
-  ],
-  "ean-6290360375014": [
-    {
-      "retailerId": "beautybase",
-      "price": 36,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/french-avenue-sultan-the-founder-eau-de-parfum-80ml-spray",
-      "fetchedAt": "2026-08-17T16:21:42.727Z",
-      "firstSeenAt": "2026-08-08T14:30:40.092Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1738068711-06258600.jpg?v=1763397025&width=1920"
-    }
-  ],
-  "emirates-oud-9176439095645-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/sultan-the-founder-perfume-80ml-edp-french-avenue-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sultan-The-Founder-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-184723989.png?v=1771616731"
-    }
-  ],
-  "emirates-oud-9416628437341-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": 45,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/sultry-woods-perfume-80ml-edp-fa-paris-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sultry-Woods-Perfume-80ml-EDP-French-Avenue-by-Fragrance-World-169530022.jpg?v=1750210342"
-    }
-  ],
-  "emirates-oud-14702323925341-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 29.99,
-      "wasPrice": 40,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/sweet-paradise-perfume-100ml-edp-french-avenue-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sweet-Paradise-Perfume-100ml-EDP-French-Avenue-By-Fragrance-World-152815374.jpg?v=1730899413"
     }
   ],
   "emirates-oud-9354821435741-default-title": [
@@ -391921,34 +391751,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/tobacco-d-feu-perfume-100ml-edp-fa-paris-by-fragrance-world-emirates-oud.jpg?v=1713057756"
-    }
-  ],
-  "justmylook-frav0013": [
-    {
-      "retailerId": "justmylook",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/french-avenue-tropical-kiss-eau-de-parfum-80ml",
-      "fetchedAt": "2026-08-17T18:35:33.800Z",
-      "firstSeenAt": "2026-08-09T23:29:35.966Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/FRAV0013.png?v=1756720382&width=1000"
-    }
-  ],
-  "emirates-oud-9416638595421-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 34.99,
-      "wasPrice": 45,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/tropical-kiss-80ml-edp-fa-paris-by-fragrance-world",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tropical-Kiss-80ml-EDP-French-Avenue-by-Fragrance-World-169530545.jpg?v=1750210481"
     }
   ],
   "ean-6298042000933": [
@@ -442295,6 +442097,20 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Blackberry-Wish-Perfume-100ml-EDP-Pendora-Scents-by-Paris-Corner-169440168.jpg?v=1749691585"
     }
   ],
+  "emirates-oud-15486668144989-default-title": [
+    {
+      "retailerId": "emirates-oud",
+      "price": 16.99,
+      "wasPrice": 29.99,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://emiratesoud.co.uk/products/bombinate-pendora-scents-paris-corner",
+      "fetchedAt": "2026-08-20T04:30:42.941Z",
+      "firstSeenAt": "2026-08-11T16:50:39.271Z",
+      "isNew": false,
+      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bombinate-100ml-EDP-Pendora-Scents-by-Paris-Corner-173842028.jpg?v=1752012730"
+    }
+  ],
   "emirates-oud-15486673551709-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -442321,20 +442137,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bombinate-New-Way-100ml-EDP-Pendora-Scents-by-Paris-Corner-173843057.jpg?v=1752013216"
-    }
-  ],
-  "emirates-oud-15486668144989-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 16.99,
-      "wasPrice": 29.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/bombinate-pendora-scents-paris-corner",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Bombinate-100ml-EDP-Pendora-Scents-by-Paris-Corner-173842028.jpg?v=1752012730"
     }
   ],
   "emirates-oud-15081941270877-default-title": [
@@ -469805,34 +469607,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://bgstatic.net/photos/190790_ml.jpg"
     }
   ],
-  "justmylook-zmya0001": [
-    {
-      "retailerId": "justmylook",
-      "price": 17.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/zimaya-amber-is-great-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T22:56:46.276Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0001.png?v=1758900966&width=1000"
-    }
-  ],
-  "emirates-oud-9066311057757-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 34.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/amber-is-great-zimaya",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Amber-Is-Great-Perfume-100ml-EDP-Zimaya-By-Afnan-176694940.jpg?v=1772775372"
-    }
-  ],
   "ean-6290171074991": [
     {
       "retailerId": "beautybase",
@@ -470099,90 +469873,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://bgstatic.net/photos/183044_ml.jpg"
     }
   ],
-  "ean-6290171077282": [
-    {
-      "retailerId": "beautybase",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/zimaya-mazaaj-rhythm-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-18T22:18:55.485Z",
-      "firstSeenAt": "2026-08-10T21:39:43.387Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1762427749-86319000.jpg?v=1763399394&width=1920"
-    }
-  ],
-  "emirates-oud-15723845812573-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": 30,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/mazaaj-rhythm-zimaya",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Mazaaj-Rhythm-Perfume-100ml-EDP-Zimaya-by-Afnan-179806524.jpg?v=1762296600"
-    }
-  ],
-  "emirates-oud-15676075180381-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 35,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/modhesh-aura-zimaya",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Modhesh-Aura-Perfume-100ml-EDP-Zimaya-By-Afnan-178738599.png?v=1772775615"
-    }
-  ],
-  "justmylook-zmya0011": [
-    {
-      "retailerId": "justmylook",
-      "price": 16.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/zimaya-musk-is-great-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T22:56:46.276Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0011.png?v=1758900966&width=1000"
-    }
-  ],
-  "emirates-oud-9066315219293-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 34.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/musk-is-great-zimaya",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Musk-Is-Great-Perfume-100ml-EDP-Zimaya-By-Afnan-176694327.jpg?v=1772775679"
-    }
-  ],
-  "emirates-oud-9066287792477-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 18.99,
-      "wasPrice": 30,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/night-shadow-perfume-100ml-edp-zimaya-by-afnan",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/night-shadow-perfume-100ml-edp-zimaya-by-afnan-emirates-oud-1-103913055.jpg?v=1772775345"
-    }
-  ],
   "ean-6290171074458": [
     {
       "retailerId": "perfume-click",
@@ -470237,48 +469927,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T20:34:55.929Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1_4f729143-59dd-4850-858c-1c0c553783f5.jpg?v=1781703247&width=1920"
-    }
-  ],
-  "justmylook-zmya0002": [
-    {
-      "retailerId": "justmylook",
-      "price": 15.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/zimaya-oud-is-great-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T22:56:46.276Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/ZMYA0002.png?v=1758900966&width=1000"
-    }
-  ],
-  "emirates-oud-9066312204637-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 34.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/oud-is-great-zimaya",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Oud-Is-Great-Perfume-100ml-EDP-Zimaya-By-Afnan-176694743.jpg?v=1772775705"
-    }
-  ],
-  "emirates-oud-9066276127069-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 34.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/rabab-gems-perfume-100ml-edp-zimaya-by-afnan",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/rabab-gems-perfume-100ml-edp-zimaya-by-afnan-emirates-oud-1-103912820.jpg?v=1772775356"
     }
   ],
   "emirates-oud-9066260693341-default-title": [
@@ -470337,20 +469985,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Reverie-Aqua-Perfume-100ml-EDP-Zimaya-By-Afnan-179806751.jpg?v=1762018039"
     }
   ],
-  "emirates-oud-9066321903965-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 16.99,
-      "wasPrice": 24.99,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/royal-paragon-zimaya",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/royal-paragon-perfume-100ml-edp-zimaya-by-afnan-emirates-oud-1-103913992.jpg?v=1772775752"
-    }
-  ],
   "emirates-oud-8961560379741-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -470363,62 +469997,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sharaf-Blend-Perfume-100ml-EDP-Zimaya-By-Afnan-185058758.webp?v=1772776449"
-    }
-  ],
-  "ean-10408351203670": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 27.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-20T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/zimaya-sharaf-divine-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-20T02:51:24.867Z",
-      "firstSeenAt": "2026-08-05T15:12:19.785Z",
-      "isNew": false,
-      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/CE18303F-5F8A-48AE-B569-00D88AAB6BA3.webp?v=1777415119&width=1000"
-    }
-  ],
-  "emirates-oud-15706636026205-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 27.99,
-      "wasPrice": 35,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://emiratesoud.co.uk/products/sharaf-divine-zimaya",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sharaf-Divine-Perfume-100ml-EDP-Zimaya-By-Afnan-185058861.webp?v=1772776470"
-    }
-  ],
-  "justmylook-zmya0008": [
-    {
-      "retailerId": "justmylook",
-      "price": 23.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/zimaya-sharaf-the-club-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-18T08:37:44.110Z",
-      "firstSeenAt": "2026-08-05T22:56:46.276Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/zimaya-sharaf-the-club-eau-de-parfum-100ml-p35720-108195_image.jpg?v=1721322385&width=1000"
-    }
-  ],
-  "emirates-oud-9080401232221-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 22.99,
-      "wasPrice": 35,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/sharaf-club-perfume-100ml-edp-zimaya-by-afnan",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sharaf-The-Club-Perfume-100ml-EDP-Zimaya-By-Afnan-185058950.jpg?v=1772776741"
     }
   ],
   "ean-6290171075998": [
@@ -470447,62 +470025,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/182863_ml.jpg"
-    }
-  ],
-  "emirates-oud-15437553566045-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": 35,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/tiramisu-caramel-zimaya",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-Caramel-Perfume-100ml-EDP-Zimaya-By-Afnan-169362894.jpg?v=1749338959"
-    }
-  ],
-  "emirates-oud-15438186709341-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 24.99,
-      "wasPrice": 35,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/tiramisu-coco-zimaya",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-Coco-Perfume-100ml-EDP-Zimaya-By-Afnan-169376984.jpg?v=1749428306"
-    }
-  ],
-  "ean-10408376435030": [
-    {
-      "retailerId": "oud-arabian",
-      "price": 26.99,
-      "wasPrice": null,
-      "promoEndsAt": "2027-08-20T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://oudarabian.co.uk/products/zimaya-tiramisu-smores-100ml-eau-de-parfum",
-      "fetchedAt": "2026-08-20T02:51:24.867Z",
-      "firstSeenAt": "2026-08-05T15:12:19.785Z",
-      "isNew": false,
-      "imageUrl": "https://oudarabian.co.uk/cdn/shop/files/3C3F9D5A-4099-4A12-AC47-F8F2805FA056.webp?v=1777415332&width=1000"
-    }
-  ],
-  "emirates-oud-15804449653085-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 27.99,
-      "wasPrice": 35,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/tiramisu-smores-zimaya",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Tiramisu-S_mores-Perfume-100ml-EDP-Zimaya-By-Afnan-181372597.png?v=1765251596"
     }
   ],
   "ean-6290171071983": [
@@ -470545,34 +470067,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
       "isNew": false,
       "imageUrl": null
-    }
-  ],
-  "ean-6290171074083": [
-    {
-      "retailerId": "perfume-click",
-      "price": 21.45,
-      "wasPrice": 45,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=42159923123&a=3026001&m=6561",
-      "fetchedAt": "2026-08-20T00:51:02.991Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/183716_ml.jpg"
-    }
-  ],
-  "emirates-oud-15468638175581-default-title": [
-    {
-      "retailerId": "emirates-oud",
-      "price": 19.99,
-      "wasPrice": 34.99,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://emiratesoud.co.uk/products/zukhruf-pink-zimaya-by-afnan",
-      "fetchedAt": "2026-08-20T04:30:42.941Z",
-      "firstSeenAt": "2026-08-11T16:50:39.271Z",
-      "isNew": false,
-      "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Zukhruf-Pink-Perfume-100ml-EDP-Zimaya-By-Afnan-169991574.jpg?v=1772775625"
     }
   ],
   "ean-0679614361434": [

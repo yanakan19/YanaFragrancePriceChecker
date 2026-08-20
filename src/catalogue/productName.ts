@@ -518,6 +518,61 @@ export function brandTitleEnds(title: string, candidates: (string | null)[]): st
 }
 
 /**
+ * The manufacturers named in a trailing "<brand> by <house>" credit —
+ * "Zimaya By Afnan", "Pendora Scents by Paris Corner" — that brandTitleEnds
+ * alone can never reach, because the title does not end with the brand: it
+ * ends with the house that made it, one word later.
+ *
+ * A small, explicit, measured set, the same discipline
+ * NOMINAL_AFTER_FRENCH_ARTICLE above already uses for "which generic-tier
+ * word actually carries the 'Le X' shape" — not "any word after by", which is
+ * the rule that was tried and rejected. 170 CATALOGUE titles contain a `by
+ * <word>` construction and the overwhelming majority are real fragrance
+ * names, not a brand credit: "By Night" (Christina Aguilera's whole name),
+ * "Wanted By Night" (Azzaro), "Flower by Kenzo ..." (Kenzo's own line,
+ * several flankers), "Chloe by Chloe Rollerball", "F by Ferragamo Free Time"
+ * and "F by Ferragamo Black" (Salvatore Ferragamo), "Guess by Marciano"
+ * (Guess's own diffusion line). Every one of those must survive untouched —
+ * see tests/productName.test.ts for all of them pinned.
+ *
+ * Checked against the full harvest (every rawTitle in data/catalogue/*.json)
+ * for the exact narrow shape this strips: a candidate brand anchored
+ * immediately before " by ", brandKey-matched the same way brandTitleEnds
+ * matches its own candidates, with nothing but the house's name following it
+ * to the end of the title. 115 titles carry that shape; 14 of them are the
+ * counter-examples just listed, where the word after "by" is not a
+ * manufacturer at all ("Night", "Marciano", "The Fireplace", "Petra") but
+ * part of the fragrance's own name — and every one of those 14 is *also*
+ * followed by more of the title (a concentration, a size, "Rollerball") after
+ * the word right past "by", the same "this is not actually the end" tell
+ * displayName's own pipeline already resolves for most of them by stripping
+ * the brand off the *front* first (see the module's `s` variable) before this
+ * function ever runs. What is left once concentration, size and any opening
+ * brand are already stripped and only genuinely mattered here — Guess's own
+ * "Guess by Marciano" — is excluded because "Marciano" is not a name any
+ * shop anywhere in the catalogue sells fragrance under; "Afnan", "Fragrance
+ * World" and "Paris Corner" are, 62, 3 and 3 rawTitle/rawBrand rows
+ * respectively (`grep -c '"rawBrand": "Afnan"' data/catalogue/*.json` etc.).
+ * The remaining 101 titles are all real: one retailer (Emirates Oud)
+ * crediting three real manufacturers (Afnan, Fragrance World, Paris Corner)
+ * this way for their own sub-brands (Zimaya, Pendora Scents, French Avenue).
+ *
+ * Returns the whole span to remove — "Zimaya By Afnan", not just "Zimaya" —
+ * so the caller need not know the house was ever there.
+ */
+const KNOWN_TRAILING_HOUSES = new Set(['afnan', 'fragranceworld', 'pariscorner']);
+
+export function brandTitleEndsWithHouse(title: string, candidates: (string | null)[]): string | null {
+  const m = title.match(/\s+by\s+(\S(?:.*\S)?)\s*$/i);
+  if (!m) return null;
+  if (!KNOWN_TRAILING_HOUSES.has(brandKey(m[1]!))) return null;
+  const pre = title.slice(0, m.index!);
+  const closer = brandTitleEnds(pre, candidates);
+  if (!closer) return null;
+  return title.slice(pre.length - closer.length);
+}
+
+/**
  * Remove the one occurrence of a matched CONCENTRATION_SPECIFIC phrase that
  * actually states the strength, skipping any occurrence sitting directly
  * after an elided "L'" — see precededByElidedArticle for the shape and why
@@ -650,7 +705,14 @@ export function displayName(title: string, brand: string | null, displayedBrand:
   // spray-word and concentration strips above never touch the true tail —
   // the brand a shop appends sits after all of that in the raw text, so it
   // still sits at the end of `s` once the rest is gone.
-  const closer = brandTitleEnds(s, [displayedBrand, brand]);
+  //
+  // Tried first, and only for the narrow measured shape it covers, is
+  // brandTitleEndsWithHouse — "<brand> by <house>", where the title closes
+  // with the manufacturer's own credit rather than the bare brand. See that
+  // function's own comment for why the check has to stay this narrow: a
+  // generic "brand anywhere, then by, then anything" rule is exactly the one
+  // that was measured and rejected for wrecking 14 real fragrance names.
+  const closer = brandTitleEndsWithHouse(s, [displayedBrand, brand]) ?? brandTitleEnds(s, [displayedBrand, brand]);
   if (closer) {
     s = s.slice(0, s.length - closer.length);
     // A shop that appends its own brand often prefixes that append with the

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
-  CONCENTRATION_NOT_STATED, brandTitleOpens, brandTitleEnds, concentration, displayName, stripRedundantSize,
+  CONCENTRATION_NOT_STATED, brandTitleOpens, brandTitleEnds, brandTitleEndsWithHouse, concentration, displayName,
+  stripRedundantSize,
 } from '../src/catalogue/productName.js';
 
 /**
@@ -212,6 +213,121 @@ describe('brandTitleEnds: which spelling of the brand the title actually closes 
     expect(brandTitleEnds('Costa de Amalfi Perfume 100ml EDP Dunhill London', ['Dunhill', 'Dunhill London'])).toBe(
       'Dunhill London',
     );
+  });
+});
+
+describe('brandTitleEndsWithHouse: a manufacturer credited at the very end, "<brand> by <house>"', () => {
+  // The reported bug, verbatim from data/catalogue/emirates-oud.json: the same
+  // Zimaya bottle read as two cards on the Zimaya brand page because Emirates
+  // Oud's own titles credit the manufacturer behind Zimaya ("Zimaya By
+  // Afnan") where every other shop's title just says "Zimaya". brandTitleEnds
+  // alone can never reach this — the title does not end with the brand, it
+  // ends with the house that made it, one word later.
+  it.each([
+    ['Sharaf Divine Perfume 100ml EDP Zimaya By Afnan', 'Zimaya', 'Zimaya By Afnan'],
+    ['Sharaf Blend Perfume 100ml EDP Zimaya By Afnan', 'Zimaya', 'Zimaya By Afnan'],
+    ['Adine Perfume 100ml EDP Pendora Scents by Paris Corner', 'Pendora Scents', 'Pendora Scents by Paris Corner'],
+    ['Divin Asylum Perfume 100ml French Avenue by Fragrance World', 'French Avenue', 'French Avenue by Fragrance World'],
+  ])('%s -> %s', (title, candidate, expected) => {
+    expect(brandTitleEndsWithHouse(title, [candidate, candidate])).toBe(expected);
+  });
+
+  // The measured breadth behind this feature: 170 CATALOGUE titles contain a
+  // `by <word>` construction, and checking every one for this exact anchored
+  // shape (a candidate brand immediately before " by ", brandKey-matched the
+  // same way brandTitleEnds matches its own candidates) finds 115 — of which
+  // 14 are not a manufacturer credit at all but a real fragrance name that
+  // happens to end the same way. "Afnan", "Fragrance World" and "Paris
+  // Corner" are real manufacturers with their own products elsewhere in the
+  // catalogue (measured: 62, 3 and 3 rawBrand rows respectively); "Night",
+  // "Marciano", "The Fireplace" and "Petra" are not, so this refuses all 14
+  // — see the function's own comment for the full reasoning. A rule that
+  // stripped any word after "by" would have wrecked every one of these.
+  it.each([
+    ['Guess by Marciano', 'Guess'], // Guess's own diffusion line, not a Marciano credit.
+    ['Wanted By Night', 'Azzaro'], // Azzaro's own fragrance name.
+    ['By Night', 'Christina Aguilera'], // The whole fragrance name.
+    ['F by Ferragamo Free Time', 'Salvatore Ferragamo'], // Ferragamo's own line.
+  ])('refuses a house that is not a known manufacturer: %s', (title, candidate) => {
+    expect(brandTitleEndsWithHouse(title, [candidate, candidate])).toBeNull();
+  });
+
+  it('refuses when nothing before "by" matches a brand candidate', () => {
+    expect(brandTitleEndsWithHouse('Flower by Kenzo', ['Flower', 'Flower'])).toBeNull();
+  });
+
+  it('refuses when there is no "by" at all', () => {
+    expect(brandTitleEndsWithHouse('Shaghaf Oud Perfume 75ml Swiss Arabian', ['Swiss Arabian', 'Swiss Arabian'])).toBeNull();
+  });
+});
+
+describe('displayName: a shop that credits the manufacturer at the end, "<brand> by <house>"', () => {
+  // The reported bug itself: two cards for the same Zimaya bottle on the
+  // Zimaya brand page — "Sharaf Divine" from Oud Arabian (£31.98) and "Sharaf
+  // Divine Perfume..." from Emirates Oud (sold out) — because Emirates Oud's
+  // title carried "Zimaya By Afnan" (Zimaya is one of Afnan's sub-brands)
+  // where brandTitleEnds' own end-anchored match never fires: the title does
+  // not end with "Zimaya", it ends with "Afnan". Verbatim from
+  // data/catalogue/emirates-oud.json.
+  it.each([
+    ['Sharaf Divine Perfume 100ml EDP Zimaya By Afnan', 'Zimaya', 'Zimaya', 'Sharaf Divine'],
+    ['Sharaf Blend Perfume 100ml EDP Zimaya By Afnan', 'Zimaya', 'Zimaya', 'Sharaf Blend'],
+    ['Sharaf The Club Perfume 100ml EDP Zimaya By Afnan', 'Zimaya', 'Zimaya', 'Sharaf The Club'],
+    ['Adine Perfume 100ml EDP Pendora Scents by Paris Corner', 'Pendora Scents', 'Pendora Scents', 'Adine'],
+    ['Divin Asylum Perfume 100ml French Avenue by Fragrance World', 'French Avenue', 'French Avenue', 'Divin Asylum'],
+  ])('%s -> %s', (title, raw, displayed, expected) => {
+    expect(displayName(title, raw, displayed)).toBe(expected);
+  });
+
+  // "Perfume" survives the ordinary concentration strip here because "EDP",
+  // not the word "Perfume", is what named the concentration — the exact same
+  // filler-word case brandTitleEnds' own "Shaghaf Oud" fix already handles
+  // for the plain trailing-brand shape, reused here for free because this
+  // strip removes the whole "<brand> by <house>" span the same way that one
+  // removes a bare trailing brand.
+  it('strips the stray "Perfume" filler left in front of the removed credit', () => {
+    expect(displayName('Sharaf Divine Perfume 100ml EDP Zimaya By Afnan', 'Zimaya', 'Zimaya')).toBe('Sharaf Divine');
+  });
+
+  // The counter-examples this has to survive without breaking, all real,
+  // verbatim CATALOGUE names — pinned exactly as they read today (measured
+  // with npm run catalogue:demo before and after this change: byte-for-byte
+  // identical) so a future widening of this feature cannot start eating them.
+  it.each([
+    // "By Night" is the whole fragrance name, not a manufacturer credit.
+    ['Christina Aguilera By Night Eau De Parfum 50ml', 'Christina Aguilera', 'Christina Aguilera', 'By Night'],
+    // Azzaro's own name, same shape.
+    ['Azzaro Wanted By Night Eau De Parfum 100ml Spray', 'Azzaro', 'Azzaro', 'Wanted By Night'],
+    // Kenzo's own flanker line — "Kenzo" here is the real fragrance's name,
+    // not a house crediting itself twice.
+    ['Flower by Kenzo Eau De Toilette Légère 30ml Spray', 'Kenzo', 'Kenzo', 'Flower by Kenzo Légère'],
+    // Chloé's own "Chloe by Chloe" line. rawBrand is the accented "Chloé"
+    // here, which does not literally open the unaccented title, so the front
+    // "Chloe" stays exactly as it does today.
+    ['Chloe by Chloe Eau De Parfum Rollerball 10ml', 'Chloé', 'Chloé', 'Chloe by Chloe Rollerball'],
+    // Salvatore Ferragamo's own "F by Ferragamo" line.
+    ['Salvatore Ferragamo F by Ferragamo Free Time Eau de Toilette 100ml Spray', 'Salvatore Ferragamo', 'Salvatore Ferragamo', 'F by Ferragamo Free Time'],
+    // Guess's own "Guess by Marciano" diffusion line — "Marciano" is not a
+    // manufacturer anywhere else in the catalogue, so this is refused.
+    ['Guess Guess by Marciano Eau de Toilette 100ml Spray', 'Guess', 'Guess', 'Guess by Marciano'],
+  ])('does not touch a real "by" name: %s -> %s', (title, raw, displayed, expected) => {
+    expect(displayName(title, raw, displayed)).toBe(expected);
+  });
+
+  // The other, unrelated trap this same bug report named: a fragrance's own
+  // name legitimately containing its brand mid-string, not at the trailing
+  // "by" position at all. None of these have "by" in them — pinned here as
+  // the companion counter-examples to the "by" cases above, all real,
+  // verbatim CATALOGUE names, unaffected by this feature because it never
+  // fires without a "by" in the title.
+  it.each([
+    ['Ramz Lattafa Silver Perfume 100ml Lattafa', 'Lattafa', 'Lattafa', 'Ramz Lattafa Silver'],
+    ['My Burberry Blush Eau De Parfum 30ml Spray', 'Burberry', 'Burberry', 'My Burberry Blush'],
+    ['Miss Armaf Attitude Eau De Parfum 100ml', 'Armaf', 'Armaf', 'Miss Armaf Attitude'],
+    ["Kenzo L'Eau Kenzo Pour Homme Eau de Toilette 100ml Spray", 'Kenzo', 'Kenzo', "L'Eau Kenzo Pour Homme"],
+    ['Cartier Pasha de Cartier Edition Noire Sport Eau de Toilette 100ml', 'Cartier', 'Cartier', 'Pasha de Cartier Edition Noire Sport'],
+  ])('does not touch a real brand-mid-string name: %s -> %s', (title, raw, displayed, expected) => {
+    expect(displayName(title, raw, displayed)).toBe(expected);
   });
 });
 
