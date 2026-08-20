@@ -179,6 +179,14 @@ describe('retailer registry', () => {
       // recorded on the entry via standardRateNotPublished with the policy
       // page quoted, so this is a shop that does not state the figure, not a
       // figure nobody has looked for.
+      // riiffs joined the same day for a genuinely different reason than
+      // fragrancehub: nobody has read its delivery page at all (see the
+      // entry's own shipping.notes), not "read and found silent". It is here
+      // because a sterling reading finally cleared CURRENCY_UNCONFIRMED (see
+      // src/config/retailers.ts's own removal comment) and its ingestion
+      // route is `sitemapHarvestConfirmed: true` rather than any of the three
+      // this test used to check for — see that field's own doc comment in
+      // src/types/retailer.ts for why it exists and what it asserts.
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'al-haramain',
         'armaf',
@@ -186,11 +194,15 @@ describe('retailer registry', () => {
         'french-avenue',
         'ibraq',
         'manchester-ouds',
+        'riiffs',
         'zimaya',
       ]);
       for (const r of unstated) {
         expect(
-          r.catalogue !== null || r.adapter === 'affiliate-feed' || r.shopifyStorefront === true,
+          r.catalogue !== null ||
+            r.adapter === 'affiliate-feed' ||
+            r.shopifyStorefront === true ||
+            r.sitemapHarvestConfirmed === true,
           `${r.name} is enabled with no way to fetch anything`,
         ).toBe(true);
       }

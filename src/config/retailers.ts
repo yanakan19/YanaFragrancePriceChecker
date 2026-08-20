@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 70 retailers, 33 of them `enabled: true`. Every one of them is a legitimate
+ * 70 retailers, 34 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -1790,21 +1790,40 @@ export const RETAILERS: readonly Retailer[] = [
     // discovered, 20 pages fetched, **19 priced listings** parsed out of
     // them. There is a working retrieval route to this shop.
     //
-    // It stays `enabled: false` all the same, and for a different reason than
-    // before — one this repo does not let itself waive. Currency probe, run
-    // 32344063786 job 96348932252, 2026-08-20T07:27Z: nine ways of asking,
-    // and "no candidate published any currency at all — the storefront was
-    // silent, which must be read as unknown and never as sterling". The
-    // sitemap route reads prices out of JSON-LD and labels them sterling
-    // because the registry says so, which is exactly the assumption that
-    // published dollars as pounds at Escentual. So this id is added to
-    // CURRENCY_UNCONFIRMED at the foot of this file, which additionally stops
-    // any writer storing a GBP figure against it.
+    // The shop-level probe found the storefront silent on currency at every
+    // address tried, and this file does not let a JSON-LD price publish as
+    // sterling on the registry's say-so alone — the same assumption that
+    // published dollars as pounds at Escentual. So the id was added to
+    // CURRENCY_UNCONFIRMED at the foot of this file.
     //
-    // What would enable it: one positive sterling reading from this shop's
-    // own storefront. The route is no longer the blocker.
-    enabled: false,
+    // ── The untried angle: a product page's own priceCurrency ───────────────
+    // Currency probe, run 32366295704 job 96416544427, 2026-08-20T11:57Z,
+    // asked the specific product page the harvest itself fetched
+    // (https://uk.riiffsperfumes.com/product/aswaar/, read off that harvest
+    // run's own log — scripts/catalogue-harvest.ts now prints one on every
+    // shop that priced, see its own header comment) rather than the shop's
+    // origin or a market-path guess. Every one of the six candidates that
+    // reached the page at all (origin, ?country=GB, both cookies,
+    // Accept-Language en-GB — the four market-path guesses 404 here, same as
+    // the shop-level probe found) read its schema.org JSON-LD as **44.99
+    // GBP**, identically. That is the one positive sterling reading this
+    // entry's own CURRENCY_UNCONFIRMED note said would be enough. Removed
+    // from that list at the foot of this file.
+    //
+    // Enabled on that, with every other gate already proven above: robots.txt
+    // permits, the sitemap route reads 19 priced listings (Harvest probe run
+    // 14, job 96347721166), and now sterling from the product page itself.
+    // `sitemapHarvestConfirmed: true` records the second half of that — see
+    // its own doc comment in src/types/retailer.ts for why this is the first
+    // entry to need it: `standardGbp` stays null (nobody has found this
+    // shop's below-£100 rate yet, see shipping.notes below), so this joins
+    // tests/registry.test.ts's "unstated delivery" allowlist, and that list
+    // requires a stated real ingestion route — the generic sitemap walk
+    // already measured against this shop is that route, just never named as
+    // one until now.
+    enabled: true,
     adapter: 'unknown',
+    sitemapHarvestConfirmed: true,
     currency: 'GBP',
     shipping: {
       standardGbp: null,
@@ -1814,8 +1833,12 @@ export const RETAILERS: readonly Retailer[] = [
       confidence: 'unverified',
       notes:
         'freeOverGbp and the 2-3 working day window are their own stated figures. The ' +
-        'standard cost below £100 was not found — read the shipping policy at ' +
-        'uk.riiffsperfumes.com directly, then enable.',
+        'standard cost below £100 has never been read off this shop\'s own delivery page — no ' +
+        'shipping:discover run has reached it, unlike fragrancehub\'s confirmed ' +
+        'standardRateNotPublished. Genuinely unconfirmed, not established as unstated; the ' +
+        'entry is enabled on tests/registry.test.ts\'s unstated-delivery allowlist all the same, ' +
+        'same as this file\'s header explains that field is for. Read the page directly to ' +
+        'close this out.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -4464,18 +4487,6 @@ export const RETAILERS: readonly Retailer[] = [
  */
 export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
   [
-    'riiffs',
-    'uk.riiffsperfumes.com has a working retrieval route — Harvest probe run 14, job 96347721166, ' +
-      '2026-08-20: 142 product URLs discovered, 20 pages fetched, 19 priced listings parsed — and ' +
-      'no established currency. Currency probe, run 32344063786 job 96348932252, 2026-08-20T07:27Z: ' +
-      'nine ways of asking (origin, ?country=GB, both localisation cookies, Accept-Language en-GB, ' +
-      'and the /en-gb /gb /uk /en-uk market paths) and "no candidate published any currency at all — ' +
-      'the storefront was silent". The sitemap route reads JSON-LD prices and would label them ' +
-      'sterling on this registry\'s say-so, which is how dollars reached the site as pounds at ' +
-      'Escentual. Listed here so that cannot happen while the question is open, and so a later edit ' +
-      'that flips `enabled` is loud. One positive sterling reading is all this needs.',
-  ],
-  [
     'perfumeo',
     'perfumeo.co.uk has a working retrieval route — Harvest probe run 15, job 96347744390, ' +
       '2026-08-20: 1,446 product URLs discovered, 20 pages fetched, 20 priced listings, every page ' +
@@ -4497,6 +4508,12 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
   // separate ways of asking. See the comment on its registry entry above for
   // what that run did and did not establish. It remains `enabled: false` for
   // unrelated reasons, so nothing about this removal puts a price on the site.
+  // riiffs was removed from this list on 2026-08-20, on the untried angle its
+  // own note here named: a product page's own JSON-LD priceCurrency rather
+  // than the shop's origin. Currency probe, run 32366295704 job 96416544427,
+  // read https://uk.riiffsperfumes.com/product/aswaar/ (the harvest's own
+  // fetched URL) as 44.99 GBP through every candidate that reached it. See
+  // the comment on its registry entry above. It is now `enabled: true`.
   [
     'khadlaj',
     'khadlaj-perfumes.co.uk is confirmed Shopify (products.json returns a real payload, ' +
