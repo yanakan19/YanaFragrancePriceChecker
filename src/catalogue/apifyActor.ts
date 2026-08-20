@@ -126,6 +126,13 @@ export interface ApifyActorConfig {
  */
 export const ACTOR_APPROVAL_REFUSAL = 'full-permission-actor-not-approved';
 
+/**
+ * Hard ceiling on one call to the synchronous endpoint, which Apify documents
+ * as timing out at 300 seconds itself. See the race in `runOneActor` for why
+ * a timer is needed alongside the abort signal rather than instead of it.
+ */
+export const ACTOR_CALL_TIMEOUT_MS = 280_000;
+
 /** Runs a real browser, takes no user-supplied code. */
 export const FALLBACK_ACTOR_ID = 'apify~website-content-crawler';
 
@@ -218,6 +225,7 @@ export async function renderPagesViaApifyActor(
 ): Promise<Map<string, HttpResponse>> {
   const results = new Map<string, HttpResponse>();
   if (urls.length === 0) return results;
+
 
   const capped = urls.slice(0, maxPages);
   for (const overBudget of urls.slice(maxPages)) {
@@ -316,14 +324,40 @@ async function runOneActor(
   // Comfortably inside the synchronous endpoint's own 300s ceiling — see this
   // module's header on why that margin was judged enough without ever having
   // timed a real run.
-  const timer = setTimeout(() => controller.abort(), 280_000);
+  const timer = setTimeout(() => controller.abort(), ACTOR_CALL_TIMEOUT_MS);
   try {
-    const res = await fetch(endpoint, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(body),
-      signal: controller.signal,
-    });
+    // ── Why the abort signal is not trusted on its own ─────────────────────
+    // Harvest probe run 19, job 96350053274: one actor call against John
+    // Lewis's four section pages ran past 280 seconds, past 560 (which is
+    // what two sequential calls could account for), and was still going when
+    // the job's own 20-minute cap killed it. An AbortController bounds a
+    // fetch that is waiting or streaming; it evidently does not bound this
+    // endpoint, which holds the connection open while the actor works.
+    //
+    // In a one-shop probe that costs a wasted run. In the scheduled sweep it
+    // is far worse: the harvest step has a 60-minute cap and a hung actor
+    // call inside it takes down every shop after it, which is exactly how
+    // run 157 lost an hour of harvesting to an uncapped step. So the call is
+    // raced against a timer that resolves on its own. A promise that never
+    // settles cannot then hold up the run — the caller gets a clear timeout
+    // for those URLs and the sweep moves on.
+    const raced = await Promise.race([
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(body),
+        signal: controller.signal,
+      }),
+      new Promise<'timeout'>((resolve) => setTimeout(() => resolve('timeout'), ACTOR_CALL_TIMEOUT_MS + 5_000)),
+    ]);
+
+    if (raced === 'timeout') {
+      const message =
+        `Apify actor call exceeded ${(ACTOR_CALL_TIMEOUT_MS + 5_000) / 1000}s and was abandoned`;
+      for (const url of capped) results.set(url, { status: 0, body: '', ok: false, error: message });
+      return results;
+    }
+    const res = raced;
 
     if (!res.ok) {
       // Apify answers a rejected run with a JSON body naming the reason —
