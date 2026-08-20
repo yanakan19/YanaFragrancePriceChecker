@@ -105,27 +105,65 @@ export function resolveRobotsReadings(readings: readonly RobotsReading[]): Robot
   return UNREACHABLE_ROBOTS;
 }
 
+/** What one candidate address actually did, for a run report. */
+export interface RobotsAttempt {
+  url: string;
+  status: number;
+  error: string | null;
+}
+
+export interface RobotsProbe {
+  rules: RobotsRules;
+  /** Every address asked, in order, with what it answered. */
+  attempts: RobotsAttempt[];
+}
+
 /**
- * Fetch robots.txt from the first candidate address that answers with one.
+ * Fetch robots.txt from the first candidate address that answers with one,
+ * keeping a record of what each address did.
+ *
+ * The record is the point. "robots.txt unreachable" is a conclusion this
+ * pipeline is obliged to act on — it stops the crawl, and correctly, since a
+ * shop that might be refusing must not be crawled on the assumption that it is
+ * not. But it is also the single least actionable line a run can print, and
+ * until now it was all a run could print: the underlying HTTP status and error
+ * were discarded inside this function. A connection reset from the shop's edge,
+ * a 503 from an origin having a bad minute, and a 407 from a mistyped proxy
+ * password are three completely different problems, and one of them is ours.
  *
  * Short-circuits on the first published file, so the ordinary apex-domain shop
  * still costs exactly one request, the same as `loadRobots` always did.
  */
-export async function loadRobotsResilient(
+export async function probeRobots(
   retailer: { domain: string; homepage?: string },
   http: Http,
   headers: Record<string, string>,
-): Promise<RobotsRules> {
+): Promise<RobotsProbe> {
   const readings: RobotsReading[] = [];
+  const attempts: RobotsAttempt[] = [];
+
   for (const url of robotsCandidateUrls(retailer)) {
     let reading: RobotsReading;
     try {
-      reading = readRobotsResponse(await http(url, headers));
-    } catch {
+      const res = await http(url, headers);
+      attempts.push({ url, status: res.status, error: res.error ?? null });
+      reading = readRobotsResponse(res);
+    } catch (err) {
+      attempts.push({ url, status: 0, error: String(err).slice(0, 160) });
       reading = { kind: 'unreachable' };
     }
     readings.push(reading);
     if (reading.kind === 'rules') break;
   }
-  return resolveRobotsReadings(readings);
+
+  return { rules: resolveRobotsReadings(readings), attempts };
+}
+
+/** `probeRobots` for a caller that only wants the decision. */
+export async function loadRobotsResilient(
+  retailer: { domain: string; homepage?: string },
+  http: Http,
+  headers: Record<string, string>,
+): Promise<RobotsRules> {
+  return (await probeRobots(retailer, http, headers)).rules;
 }
