@@ -179,6 +179,34 @@ const PRODUCT_SITEMAP = /(^|[^a-z])(product|item|sku|catalog)/i;
  * names its aisles behaves exactly as before; a shop that does not now returns
  * candidates instead of silence, and the fragrance test in
  * scripts/build-demo-catalogue.ts is what finally decides what is a scent.
+ *
+ * ── Known limitation: a shop that names its aisles starves its products ─────
+ * "Only used when the scented set is empty" is wholesale, and that is the
+ * flaw. A retailer whose *category* URLs contain a fragrance word fills
+ * `scented` with aisle signs, `generic` is then never consulted however many
+ * real product URLs it holds, and the walk spends its entire page budget
+ * fetching pages that were never going to carry a Product node.
+ *
+ * Measured on Debenhams, which files categories under
+ * /categories/beauty-*-fragrance. Harvest probe run 9, job 96343533243:
+ *
+ *     Debenhams  741 urls  53 fetched  0 priced listings
+ *     fetched but nothing priced, e.g.:
+ *       https://www.debenhams.com/categories/beauty-sale-fragrance
+ *       https://www.debenhams.com/categories/beauty-mens-fragrance
+ *
+ * Nothing was blocked: robots.txt permits, the sitemaps serve, 741 genuine
+ * fragrance URLs came back. All 53 fetched were categories.
+ *
+ * The shape of the fix is to rank rather than choose — a URL whose parent
+ * sitemap says it lists products is a better product candidate than one that
+ * merely has a fragrance word in its path, and the generic set should be
+ * appended after the scented one rather than discarded, since
+ * `selectUrlsToFetch` only ever takes a budget's worth from the front.
+ * Deliberately not done here: it changes which URLs all 29 enabled shops
+ * fetch, and that is not a change to make without a full sweep to measure it
+ * against. Recorded so the next person has the diagnosis rather than the
+ * symptom.
  */
 async function discover(
   options: SitemapCrawlOptions,
