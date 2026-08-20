@@ -378,6 +378,25 @@ export const RETAILERS: readonly Retailer[] = [
     // exists in this environment, so neither tier has ever run for real. The
     // owner adding either secret to the repo's Actions settings is what
     // turns this from a design into a measurement.
+    //
+    // ── Measured, 2026-08-20. This shop beats the real browser too ──────────
+    // Harvest probe run 20, job 96351658923, with APIFY_TOKEN live:
+    //
+    //     [actor] rendered 1 section page(s), 0 listings parsed, 0 priced
+    //     [actor] https://www.boots.com/fragrance/shop-all-fragrance?pageNo=1:
+    //         HTTP 200, 2513 bytes
+    //
+    // Two and a half kilobytes. Read that against the same tier's output for
+    // Selfridges (949,307 bytes) and John Lewis (about a megabyte per page)
+    // on the same day through the same actor: those are rendered fragrance
+    // grids, and this is a challenge page wearing a 200. Boots is refusing a
+    // real Chromium browser on a UK residential IP, which is the strongest
+    // retrieval this project has and the last one available to it.
+    //
+    // That is a genuine answer rather than an untried route, and it is worth
+    // stating plainly: this shop is not gettable by any means this repo is
+    // willing to use. What would change it is Boots' own affiliate feed —
+    // permission rather than technique.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -884,6 +903,28 @@ export const RETAILERS: readonly Retailer[] = [
     // src/catalogue/apifyActor.ts) is the fallback if a real run shows the
     // refusal survives a residential IP alone. Neither has run for real —
     // no Apify credential exists in this environment.
+    //
+    // ── Measured, 2026-08-20. The actor gets in; the markup is the problem ──
+    // Harvest probe run 21, job 96351681373, with APIFY_TOKEN live:
+    //
+    //     https://www.selfridges.com/sitemap.xml: HTTP 403
+    //     [actor] rendered 1 section page(s), 0 listings parsed, 0 priced
+    //     [actor] https://www.selfridges.com/GB/en/cat/beauty/fragrance/?pn=1:
+    //         HTTP 200, 949307 bytes
+    //
+    // The free route is refused exactly as this entry describes, and the
+    // actor walks straight past that refusal: 949 kB of real, rendered
+    // Selfridges fragrance page from a shop that 403s every plain request
+    // this project makes. The IP-level block is beaten.
+    //
+    // And nothing came out of it, because `parseListings` reads schema.org
+    // Product nodes from JSON-LD and this page publishes none. That is the
+    // same wall John Lewis hit on the same day through the same tier (see its
+    // entry), and it is worth separating from the block that precedes it:
+    // retrieval here is solved and extraction is not. Unlike Boots — which
+    // answered the same actor with a 2.5 kB challenge page — this shop is
+    // reachable, and what stands between it and the site is a parser
+    // question, not a permission or a spending one.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
