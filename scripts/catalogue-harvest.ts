@@ -583,10 +583,16 @@ for (const retailer of shops) {
       (sizesRecovered ? `  [${sizesRecovered} sizes read from product URLs]` : '') +
       (result.errors.length ? `  (${result.errors.length} errors)` : ''),
   );
-  // Four rather than one. A shop that failed through several tiers has one
-  // error per tier, and the first alone is the cheapest tier's — which is
-  // never the one worth reading when a later, paid tier is what just ran.
-  for (const e of result.errors.slice(0, 4)) console.log(`      ${e}`);
+  // Metered-tier errors first, then the rest. A shop that failed through
+  // every tier accumulates one error per tier and the free tier's come first
+  // in the array, so a plain "print the first few" buries exactly the lines
+  // that cost money to produce — which is what happened to John Lewis on
+  // probe run 13 (job 96347018835): the actor ran for 47 seconds, wrote five
+  // per-URL diagnostics, and every one of them was cut off by the cheaper
+  // tiers' four.
+  const metered = result.errors.filter((e) => e.startsWith('[actor]'));
+  const rest = result.errors.filter((e) => !e.startsWith('[actor]'));
+  for (const e of [...metered, ...rest].slice(0, 8)) console.log(`      ${e}`);
 
   // A shop that fetched its full budget and priced nothing, with no errors to
   // read, is the one failure this log used to be unable to describe. Show what
