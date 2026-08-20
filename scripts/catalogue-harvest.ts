@@ -41,11 +41,14 @@ import { crawlViaSitemap, type SitemapCrawlResult } from '../src/catalogue/sitem
 import { crawlViaShopifyProducts } from '../src/catalogue/shopifyProductsCrawl.js';
 import { quarantinePrices } from '../src/catalogue/priceQuarantine.js';
 import { BROWSER_HEADERS, BOT_HEADERS, type Http } from '../src/catalogue/attempt.js';
-import { isAllowed } from '../src/catalogue/robots.js';
-import { probeRobots, robotsHeaderVariants } from '../src/catalogue/robotsSource.js';
+import { isAllowed, parseRobots } from '../src/catalogue/robots.js';
+import {
+  probeRobots, robotsHeaderVariants, robotsCandidateUrls, robotsTextFromRenderedHtml,
+} from '../src/catalogue/robotsSource.js';
 import { parseListings } from '../src/catalogue/jsonld.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import { titleWithSizeFromUrl } from '../src/catalogue/sizeFromUrl.js';
+import { checkApifyAccount } from '../src/catalogue/apifyAccount.js';
 import { looksLikeTimeouts, SLOW_SHOP_TIMEOUT_MS } from '../src/catalogue/strategy.js';
 import {
   apifyProxyConfigFromEnv, apifyProxyHttp, MAX_PROXIED_REQUESTS_PER_RUN,
@@ -120,6 +123,18 @@ if (allowMetered && !actorConfig) {
   console.log('--allow-metered was passed but APIFY_TOKEN is not set. Skipping real-browser retrieval.\n');
 } else if (useActor) {
   console.log(`Apify actor available. Shops still yielding nothing after the proxy retry get a real-browser render, capped at ${MAX_ACTOR_PAGES_PER_RUN} pages for the whole run.\n`);
+}
+
+// One free question, asked before any metered work: what does this account
+// actually have? It costs no proxy traffic and no compute units, and it
+// separates "the shop refused us" from "our credential is wrong" — a
+// distinction the harvest cannot otherwise make, and one that was already
+// costing every proxied request in every run. See apifyAccount.ts.
+if (useActor) {
+  for (const line of (await checkApifyAccount(actorConfig!.token, proxyConfig?.password ?? null)).lines) {
+    console.log(line);
+  }
+  console.log('');
 }
 
 // A shop that will not hand its robots.txt to `pricesniffsbot` gets asked
@@ -448,6 +463,35 @@ for (const retailer of shops) {
   // reasoning docs/INGESTION.md sets out for every tier here, applied to a
   // route that costs roughly ten times as much per page.
   if (withPrice.length === 0 && useActor && retailer.catalogue) {
+    // ── When the only way to read the rules is to render them ───────────────
+    // A shop whose robots.txt neither the runner nor the proxy can fetch is a
+    // shop this pipeline must treat as entirely forbidden, and rightly — but
+    // that is a verdict reached on no evidence, and it is permanent. The
+    // actor is a real browser on a residential IP and is the one route left
+    // that can see the file. So it renders robots.txt first, at the cost of
+    // one page, and then the file decides: parsed by the same parseRobots,
+    // for the same pricesniffsbot, and a Disallow that covers a section URL
+    // stops that URL exactly as it always would. See
+    // robotsTextFromRenderedHtml's own comment for why reading a shop's
+    // published crawl policy in order to obey it is the opposite of evading
+    // it.
+    if (robotsForActor.unavailable) {
+      const robotsUrl = robotsCandidateUrls(retailer)[0]!;
+      console.log(`      ${retailer.name}: robots.txt unreadable every other way, rendering it through the actor`);
+      const renderedRobots = await actorRenderer!.render([robotsUrl]);
+      const painted = renderedRobots.get(robotsUrl);
+      const text = painted?.ok ? robotsTextFromRenderedHtml(painted.body) : null;
+      if (text) {
+        robotsForActor = parseRobots(text, 'pricesniffsbot');
+        console.log(`      ${retailer.name}: robots.txt read through the actor, ${text.split('\n').length} lines`);
+      } else {
+        result.errors.push(
+          `[actor] ${robotsUrl}: rendered but no robots.txt directives found` +
+            (painted?.error ? ` — ${painted.error}` : ` (HTTP ${painted?.status ?? 0})`),
+        );
+      }
+    }
+
     const targets = retailer.catalogue.sections.map((section) => ({
       id: section.id,
       url: section.urlTemplate.replace('{page}', String(retailer.catalogue!.firstPage)),
