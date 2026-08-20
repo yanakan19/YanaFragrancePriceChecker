@@ -1,4 +1,4 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
+import { describe, expect, it, vi, beforeEach, afterEach } from 'vitest';
 
 /**
  * Same shape as tests/apifyProxy.test.ts, and the same caveat: these exercise
@@ -18,6 +18,7 @@ const {
   MAX_ACTOR_PAGES_PER_RUN,
   FALLBACK_ACTOR_ID,
   ACTOR_APPROVAL_REFUSAL,
+  ACTOR_CALL_TIMEOUT_MS,
 } = await import('../src/catalogue/apifyActor.js');
 
 function jsonResponse(body: unknown, status = 200): Response {
@@ -324,5 +325,36 @@ describe('the budget charges only for work Apify actually took on', () => {
     // Both were handed to a run that started; the second simply came back empty,
     // which is a rendering outcome and is billed like one.
     expect(renderer.used()).toBe(2);
+  });
+});
+
+describe('a call that never comes back cannot hold up the sweep', () => {
+  beforeEach(() => {
+    mockFetch.mockReset();
+    vi.useFakeTimers();
+  });
+
+  it('abandons the call and reports it, rather than waiting forever', async () => {
+    // Probe run 19 (job 96350053274) hung well past the abort signal's own
+    // deadline and was killed by the job cap. In the scheduled sweep that
+    // would take down every shop after it.
+    mockFetch.mockImplementation(() => new Promise(() => {}));
+
+    const pending = renderPagesViaApifyActor(
+      { token: 'tok', country: 'GB', actorId: 'apify~puppeteer-scraper', fallbackActorId: null },
+      ['https://a.test/1'],
+    );
+    await vi.advanceTimersByTimeAsync(ACTOR_CALL_TIMEOUT_MS + 6_000);
+    const results = await pending;
+
+    const res = results.get('https://a.test/1');
+    expect(res?.ok).toBe(false);
+    expect(res?.error).toContain('exceeded');
+    // Abandoning a call that never started billing is not spending.
+    expect(res?.status).toBe(0);
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
   });
 });
