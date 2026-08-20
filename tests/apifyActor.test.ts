@@ -358,3 +358,58 @@ describe('a call that never comes back cannot hold up the sweep', () => {
     vi.useRealTimers();
   });
 });
+
+/**
+ * The leak that turned four successful runs into "stalls".
+ *
+ * Promise.race settles on the winner but never cancels the losers, and Node
+ * keeps the event loop alive while a timer is pending. So when the fetch won
+ * — which is what every *successful* actor call does — the losing 285-second
+ * timer stayed live, and the process sat there long after the result was
+ * already in hand. Four runs were read as hung and cancelled by hand on that
+ * basis (John Lewis 24s and 19s, Zara 23s, Superdrug 27s), and the one nobody
+ * killed logged a 286-second render step: the timer expiring on its own.
+ *
+ * vi.getTimerCount() is the direct assertion — it counts what is still
+ * scheduled. Against the version of this module that had no handle on the
+ * race timer, this test fails with a count of 1.
+ */
+describe('a finished call leaves no timer behind', () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+    mockFetch.mockReset();
+  });
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
+  const config = { token: 'tok', country: 'GB', actorId: 'apify~puppeteer-scraper', fallbackActorId: null };
+
+  it('clears both timers when the actor answers', async () => {
+    mockFetch.mockResolvedValue(
+      jsonResponse([{ url: 'https://a.test/1', html: '<html>ok</html>', status: 200 }]),
+    );
+
+    const results = await renderPagesViaApifyActor(config, ['https://a.test/1']);
+
+    expect(results.get('https://a.test/1')?.ok).toBe(true);
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  // The same leak on the two other paths a call can leave by: an HTTP error
+  // and a thrown fetch. Both return early from inside the try, which is
+  // exactly where a finally-only cleanup can be got wrong.
+  it('clears both timers when the actor answers with an error status', async () => {
+    mockFetch.mockResolvedValue(jsonResponse({ error: 'nope' }, 402));
+    const results = await renderPagesViaApifyActor(config, ['https://a.test/1']);
+    expect(results.get('https://a.test/1')?.ok).toBe(false);
+    expect(vi.getTimerCount()).toBe(0);
+  });
+
+  it('clears both timers when the call throws', async () => {
+    mockFetch.mockRejectedValue(new Error('socket hang up'));
+    const results = await renderPagesViaApifyActor(config, ['https://a.test/1']);
+    expect(results.get('https://a.test/1')?.ok).toBe(false);
+    expect(vi.getTimerCount()).toBe(0);
+  });
+});

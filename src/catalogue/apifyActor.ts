@@ -356,6 +356,26 @@ async function runOneActor(
   // module's header on why that margin was judged enough without ever having
   // timed a real run.
   const timer = setTimeout(() => controller.abort(), ACTOR_CALL_TIMEOUT_MS);
+  // ── Why this handle exists, and what it cost not to have one ─────────────
+  // The losing side of the race below used to be an anonymous setTimeout with
+  // nothing holding its handle, so it could never be cleared. Promise.race
+  // settles on the first promise but does not cancel the others, and Node
+  // keeps the event loop alive for a pending timer — so every actor call that
+  // *succeeded* left a live 285-second timer behind it and the process sat
+  // silent long after the answer was already in the log.
+  //
+  // That is not a theoretical leak. It is why four actor runs today were read
+  // as stalls and cancelled by hand after they had already printed complete,
+  // successful results: John Lewis answered in 24s (job 96421371936, killed at
+  // 3m47s) and again in 19s (job 96423240334, killed at 1m58s), Zara in 23s
+  // (job 96423941633, killed at 2m04s), Superdrug in 27s (job 96424955880,
+  // killed at 40s). The one that was not killed, Selfridges (job
+  // 96419581995), reported a render step of 286 seconds — ACTOR_CALL_TIMEOUT_MS
+  // + 5_000 plus overhead, i.e. it was not fast, it simply waited out the
+  // leaked timer. Those four cancellations then became a written record that
+  // the actor tier "stalls", which was never true and sent the next several
+  // passes chasing a plan limit that does not exist.
+  let raceTimer: ReturnType<typeof setTimeout> | undefined;
   try {
     // ── Why the abort signal is not trusted on its own ─────────────────────
     // Harvest probe run 19, job 96350053274: one actor call against John
@@ -379,7 +399,9 @@ async function runOneActor(
         body: JSON.stringify(body),
         signal: controller.signal,
       }),
-      new Promise<'timeout'>((resolve) => setTimeout(() => resolve('timeout'), ACTOR_CALL_TIMEOUT_MS + 5_000)),
+      new Promise<'timeout'>((resolve) => {
+        raceTimer = setTimeout(() => resolve('timeout'), ACTOR_CALL_TIMEOUT_MS + 5_000);
+      }),
     ]);
 
     if (raced === 'timeout') {
@@ -435,6 +457,11 @@ async function runOneActor(
     for (const url of capped) results.set(url, { status: 0, body: '', ok: false, error: message });
   } finally {
     clearTimeout(timer);
+    // Both timers, on every path out — including the early `return results`
+    // inside the try, which is precisely the path a *successful* call takes.
+    // Clearing only the abort timer here is what left the leak in place for
+    // exactly the calls that worked.
+    clearTimeout(raceTimer);
   }
 
   return results;
