@@ -65,7 +65,24 @@ describe('retailer registry', () => {
     // same day, second batch of the same expansion — two more department
     // stores and the first independent niche perfumery. Same basis again:
     // WebSearch only, disabled, in CURRENCY_UNCONFIRMED.
-    expect(RETAILERS).toHaveLength(66);
+    //
+    // Bloom Perfumery, Shy Mimosa, Perfume Price and Perfume Direct added
+    // the same day, closing out the expansion at twelve new entries: two
+    // more independent niche perfumeries (Bloom in Covent Garden, Shy
+    // Mimosa in Bristol) and two independent discount fragrance specialists
+    // (Perfume Price, a registered UK company per Companies House; Perfume
+    // Direct, Manchester-founded 2018). Same basis again: WebSearch only,
+    // disabled, in CURRENCY_UNCONFIRMED. Sephora UK, Space NK, ASOS, Argos,
+    // Perfume Price, Perfume Direct, CheapSmells, Bloom Perfumery, Les
+    // Senteurs and Shy Mimosa were all suggested as candidates worth
+    // checking; ASOS and Argos were confirmed real (both sell genuine
+    // multi-brand fragrance ranges) but left out to keep this batch to the
+    // department-store/niche-specialist/independent-perfumery shape the
+    // request asked for, and CheapSmells was dropped outright — a
+    // site:cheapsmells.com / site:cheapsmells.co.uk WebSearch returned no
+    // page from either domain, only third parties talking about it, which
+    // is not the same as a domain confirmed to resolve.
+    expect(RETAILERS).toHaveLength(70);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was

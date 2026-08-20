@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 66 retailers, 33 of them `enabled: true`. Every one of them is a legitimate
+ * 70 retailers, 33 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -4223,6 +4223,153 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
   },
+  {
+    id: 'bloom-perfumery',
+    name: 'Bloom Perfumery',
+    domain: 'bloomperfume.co.uk',
+    homepage: 'https://bloomperfume.co.uk',
+    tiers: ['niche'],
+    // Added 2026-08-20 from WebSearch snippets alone — no page opened, this
+    // sandbox has no egress. Domain chosen deliberately: search turned up
+    // bloomperfume.co.uk, bloomperfume.com, bloomperfumery.shop,
+    // bloomperfumeshop.shop, getbloomperfumery.shop and
+    // visitbloomperfume.shop all describing the same Covent Garden shop —
+    // the kind of domain sprawl this registry has already seen turn out to
+    // be genuinely fraudulent (see Space NK's entry above, whose own help
+    // centre warns of exactly this pattern). bloomperfume.co.uk is the one
+    // used for its actual account pages in results
+    // (bloom@bloomperfume.co.uk as the contact address, /pages/about and
+    // /pages/new-store as real subpages) and matches the shop's own Covent
+    // Garden business listings, which is the basis for treating it as
+    // canonical rather than guessed — not a guarantee, since nothing here
+    // has actually been opened. Independent niche perfumery, 4 Slingsby
+    // Place, London WC2E 9AB; houses named in results: Etat Libre d'Orange,
+    // Ormonde Jayne, Imaginary Authors.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from bloomperfume.co.uk itself: not its delivery terms, ' +
+        'not its robots.txt, not its checkout currency. No delivery figure of any kind turned ' +
+        'up in the WebSearch snippets read for this entry. No affiliate programme has been ' +
+        'researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'shy-mimosa',
+    name: 'Shy Mimosa',
+    domain: 'shymimosa.co.uk',
+    homepage: 'https://www.shymimosa.co.uk',
+    tiers: ['niche'],
+    // Added 2026-08-20 from WebSearch snippets of
+    // shymimosa.co.uk/perfume-shop/ alone — no page opened, this sandbox
+    // has no egress. Independent niche perfumery boutique in Bristol, both
+    // a physical shop and an online store; houses named in results: Le
+    // Galion, Mendittorosa Odori d'Anima, Marc-Antoine Barrois, and its own
+    // Shy Mimosa house line alongside them — multi-brand, so no
+    // singleBrandOnly.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      // A search snippet gave a specific figure — "Delivery price for
+      // orders under £100.00 is £4.99" — more precise than the "free over
+      // £X" lines this entry's siblings carry, but it is still a WebSearch
+      // snippet rather than a shipping:discover read of the shop's own
+      // delivery page, so it is named here rather than stored.
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from shymimosa.co.uk itself: not its delivery terms, not ' +
+        'its robots.txt, not its checkout currency. A WebSearch snippet stated "Delivery price ' +
+        'for orders under £100.00 is £4.99" — quoted as far as it goes and no further, and not ' +
+        'promoted to standardGbp/freeOverGbp on the same basis as every other entry added ' +
+        'today. No affiliate programme has been researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'perfume-price',
+    name: 'Perfume Price',
+    domain: 'perfumeprice.co.uk',
+    homepage: 'https://www.perfumeprice.co.uk',
+    tiers: ['designer'],
+    // Added 2026-08-20 from WebSearch snippets alone — no page opened, this
+    // sandbox has no egress. A registered UK company (PERFUMEPRICE.CO.UK
+    // LTD, Companies House number 09965068, per a gov.uk search result),
+    // which is a stronger legitimacy signal than most entries added today
+    // get. Describes itself as fragrance-only, discount designer bottles
+    // (Gucci, Calvin Klein, Dior named in results). Trustpilot reviews
+    // (5,593 considered, per the snippet) read as largely positive; a
+    // Reviews.io snippet for the same shop reads less favourably, with
+    // historical complaints about product quality and delivery — both
+    // recorded here rather than only the flattering one.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      // A search snippet describes "free delivery over £25", marketing copy
+      // read secondhand rather than a shipping:discover run against the
+      // shop's own delivery page, so the figure is named here and not
+      // stored as freeOverGbp.
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from perfumeprice.co.uk itself: not its delivery terms, ' +
+        'not its robots.txt, not its checkout currency. The £25 free-delivery figure above ' +
+        'comes from a WebSearch result snippet, quoted as far as it goes and no further. No ' +
+        'affiliate programme has been researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'perfume-direct',
+    name: 'Perfume Direct',
+    domain: 'perfumedirect.com',
+    homepage: 'https://www.perfumedirect.com',
+    tiers: ['designer'],
+    // Added 2026-08-20 from WebSearch snippets of
+    // perfumedirect.com/collections/all and perfumedirect.com/pages/about-us
+    // alone — no page opened, this sandbox has no egress. Founded 2018 in
+    // Manchester, UK, per its own About page snippet; also trades through a
+    // Superdrug Marketplace storefront, which is a different retailer
+    // relationship from the direct site this entry describes. Designer
+    // houses named in results: Jimmy Choo, Calvin Klein, Montblanc, Dolce &
+    // Gabbana, Mugler, Hugo Boss, Paco Rabanne, Issey Miyake, Prada.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from perfumedirect.com itself: not its delivery terms, not ' +
+        'its robots.txt, not its checkout currency. Search snippets mention "fast UK delivery" ' +
+        'without a rate or a free-delivery threshold, so neither field is filled from a ' +
+        'marketing claim. No affiliate programme has been researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
 ] as const;
 
 /**
@@ -4495,6 +4642,36 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
     'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
       'about lessenteurs.com comes from WebSearch snippets; its checkout currency has not been ' +
       'read. One positive sterling reading from a currency probe is what would remove this id.',
+  ],
+  [
+    'bloom-perfumery',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about bloomperfume.co.uk comes from WebSearch snippets — see this entry\'s own registry ' +
+      'comment for the domain-sprawl caution that went into even choosing which of six ' +
+      'candidate domains to enter here. Its checkout currency has not been read. One positive ' +
+      'sterling reading from a currency probe is what would remove this id.',
+  ],
+  [
+    'shy-mimosa',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about shymimosa.co.uk comes from WebSearch snippets, including the one specific delivery ' +
+      "figure (£4.99 under £100) recorded in this entry's shipping.notes; its checkout " +
+      'currency has not been read. One positive sterling reading from a currency probe is what ' +
+      'would remove this id.',
+  ],
+  [
+    'perfume-price',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about perfumeprice.co.uk comes from WebSearch snippets, including its Companies House ' +
+      'registration; its checkout currency has not been read. One positive sterling reading ' +
+      'from a currency probe is what would remove this id.',
+  ],
+  [
+    'perfume-direct',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about perfumedirect.com comes from WebSearch snippets; its checkout currency has not ' +
+      'been read. One positive sterling reading from a currency probe is what would remove ' +
+      'this id.',
   ],
 ]);
 
