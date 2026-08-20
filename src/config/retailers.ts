@@ -2767,6 +2767,43 @@ export const RETAILERS: readonly Retailer[] = [
     // unlike a standardGbp: null entry this does not need one to join
     // tests/registry.test.ts's "unstated" list, because it is not on it. The
     // Awin application from 2026-08-11 is still `pending`.
+    //
+    // ── That route was finally exercised, 2026-08-20, and it half-works ─────
+    // This shop had been enabled for days without ever being attempted: the
+    // harvest step's 60-minute cap landed mid-sweep every run and everything
+    // after Emirates Oud in registry order was never asked (run 261, job
+    // 96314578076). It is asked now — scripts/catalogue-harvest.ts sweeps
+    // never-live shops first for exactly this reason — and here is what it
+    // gets. Harvest probe run 5, job 96342208089, at 20 pages, and run 9,
+    // job 96343533243, at 70:
+    //
+    //     Debenhams  741 urls  53 fetched  0 priced listings
+    //     https://www.debenhams.com/sitemap.xml: HTTP 404
+    //     fetched but nothing priced, e.g.:
+    //       https://www.debenhams.com/categories/beauty-sale-fragrance
+    //       https://www.debenhams.com/categories/beauty-mens-fragrance
+    //       https://www.debenhams.com/categories/beauty-fragrance-parfum-mens
+    //
+    // Nothing is blocked. robots.txt reads and permits, the sitemaps it
+    // names are served, and 741 genuine fragrance URLs come out of them. All
+    // 53 pages fetched were *category* pages, and category pages carry no
+    // schema.org Product node, so the walk spends its whole budget on aisle
+    // signs rather than products.
+    //
+    // The cause is in the discovery pass, not in this shop.
+    // crawlViaSitemap's `discover` keeps two sets — URLs whose own path
+    // names a fragrance word, and URLs whose parent sitemap says it lists
+    // products — and uses the second only when the first is empty. Debenhams
+    // files its categories under /categories/beauty-*-fragrance, so the
+    // first set is large and wrong, and the product URLs never get a turn.
+    // Any retailer that names its aisles after fragrance has the same shape.
+    //
+    // Left `enabled: true` rather than switched off, deliberately: this is a
+    // shop with confirmed sterling, permitted crawling, a sourced delivery
+    // cost and 741 of its own URLs in hand, which is a route not yet aimed
+    // properly rather than a shop that cannot be compared. Not fixed here —
+    // reordering that discovery pass changes which URLs all 29 shops fetch,
+    // which is not a change to make without a sweep to measure it against.
     enabled: true,
     adapter: 'unknown',
     currency: 'GBP',
