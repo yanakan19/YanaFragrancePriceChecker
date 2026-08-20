@@ -611,10 +611,17 @@ for (const retailer of shops) {
   // any host that is not the retailer's own domain, so guessing is not an
   // option. This was previously only ever logged for the zero-priced case
   // above, so proving sterling on a shop that already harvests (riiffs,
-  // perfumeo) meant reading source to find sampledUrls existed at all. One
-  // line, always available once a run has actually fetched pages.
-  if (withPrice.length > 0 && result.sampledUrls.length > 0) {
-    console.log(`      sample fetched URL: ${result.sampledUrls[0]}`);
+  // perfumeo) meant reading source to find sampledUrls existed at all.
+  //
+  // Deliberately `withPrice[0]!.url`, not `result.sampledUrls[0]`: sampledUrls
+  // is every fetched URL in fetch order regardless of outcome, so its first
+  // entry can be the one page in the batch that was a category/index URL
+  // rather than a product — riiffs' own first run printed
+  // uk.riiffsperfumes.com/shop/ this way, which carries no JSON-LD Product
+  // node to probe. withPrice is already filtered to listings a real price was
+  // parsed from, so its URL is guaranteed to be a genuine product page.
+  if (withPrice.length > 0) {
+    console.log(`      sample priced URL: ${withPrice[0]!.url}`);
   }
 
   if (withPrice.length === 0) {
