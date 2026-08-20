@@ -92,6 +92,14 @@ on:
         description: 'Fail the run if any brand link is broken or lands off its published address. Leave off to look; turn on when the run is meant to BE the evidence.'
         type: boolean
         default: false
+      apify_blob_probe:
+        description: "Instead of verifying, render the shop named in \"shop\" through the Apify actor and scan the HTML for a JS-hydration state blob (__NEXT_DATA__ etc). Needs APIFY_TOKEN. Writes nothing; prints redacted findings only."
+        type: boolean
+        default: false
+      apify_blob_probe_url:
+        description: "Optional page to render instead of the shop's first catalogue.sections URL."
+        type: string
+        default: ''
 
 permissions:
   contents: write
@@ -132,7 +140,7 @@ jobs:
       # keys every listing and reports exactly what it would change, without
       # touching a snapshot or committing anything.
       - name: Dry-run the storefront re-price
-        if: ${{ inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe }}
+        if: ${{ inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe && !inputs.apify_blob_probe }}
         run: |
           npm run storefront:reprice -- --dry-run \
             ${{ inputs.shop && format('--shop={0}', inputs.shop) || '' }}
@@ -191,8 +199,29 @@ jobs:
             --limit=${{ inputs.brand_site_probe_limit || '0' }} \
             ${{ inputs.brand_site_probe_require_all_ok && '--require-all-ok' || '' }}
 
+      # The unchecked hypothesis behind Selfridges, John Lewis, Zara and
+      # Superdrug: the actor tier proved retrieval for the bot-defended majors
+      # (see each entry's own comment and src/catalogue/apifyActor.ts), but
+      # `parseListings` reads only schema.org JSON-LD and their category pages
+      # carry none. Their rendered HTML might carry the same product data in a
+      # framework hydration blob instead — cheaper to extract from than a
+      # second general parser, if it is there and if it holds prices. This
+      # answers that for one shop's one category page per dispatch.
+      #
+      # Not continue-on-error: with only one page rendered, a failure here is
+      # the whole answer for this dispatch, not a partial one to paper over.
+      - name: Probe an Apify actor render for a hydration blob
+        if: ${{ inputs.apify_blob_probe }}
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
+        run: |
+          npm run apify:blob-probe -- \
+            --shop=${{ inputs.shop }} \
+            ${{ inputs.apify_blob_probe_url && format('--url={0}', inputs.apify_blob_probe_url) || '' }}
+
       - name: Verify prices against live storefronts
-        if: ${{ !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe }}
+        if: ${{ !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe && !inputs.apify_blob_probe }}
         continue-on-error: true
         run: |
           npm run price:verify -- \
@@ -202,7 +231,7 @@ jobs:
             --budget-ms=${{ inputs.budget_ms || '240000' }}
 
       - name: Commit the drift report
-        if: ${{ inputs.commit_report && !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe }}
+        if: ${{ inputs.commit_report && !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe && !inputs.apify_blob_probe }}
         run: |
           ./scripts/commit-and-push.sh \
             "Price verification: measured drift $(date -u +%Y-%m-%dT%H:%MZ)" \
