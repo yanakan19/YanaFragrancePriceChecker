@@ -4080,7 +4080,15 @@ export const RETAILERS: readonly Retailer[] = [
     // stays 'unknown': no harvest has actually run against this shop yet,
     // and nothing here proposes enabling it on a currency-and-route reading
     // alone.
-    enabled: false,
+    // Enabled 2026-08-20: the owner named this shop directly ("include avon
+    // on perfumes"), and its probe cleared the same bar kayali and
+    // fragrancehub were enabled on the same week — sterling at rate 1 on six
+    // of nine request shapes AND a real Shopify /products.json payload (run
+    // 102, job 96416797227; recorded in full above). Single-brand storefront,
+    // so its offers surface on brand and fragrance pages only, per the
+    // singleBrandOnly rules. Delivery rate unstated -> the unstated-delivery
+    // allowlist in tests/registry.test.ts, same as fragrancehub.
+    enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
     currency: 'GBP',
