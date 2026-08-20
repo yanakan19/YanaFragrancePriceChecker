@@ -887,12 +887,58 @@ export interface BrandSite {
   uk: boolean;
 }
 
+/**
+ * Spellings to try after the brand's own key misses, in order.
+ *
+ * Every one of these is a *fallback*: it is only ever consulted once
+ * `BRAND_SITES[primaryKey]` has already come back undefined, so none of them
+ * can change what an already-resolving brand resolves to. That is the whole
+ * safety argument for adding them — the worst case is a brand that had no
+ * link still has no link.
+ *
+ * Both rules were found by measurement, not guessed at. Running
+ * `officialSiteFor` over every canonical house in the live catalogue
+ * (demo/catalogue.generated.ts, 723 houses on 2026-08-20) left 64 entries in
+ * this file that no house reached, while 451 houses had no link — and 11 of
+ * those misses were the same two spelling mismatches repeated:
+ *
+ *  - "and" written out where this file keys the ampersand form.
+ *    normalizeBrand strips "&" to whitespace, so "Dolce & Gabbana" keys as
+ *    'dolce gabbana'; a feed writing "Dolce and Gabbana" keys as
+ *    'dolce and gabbana' and misses. Same for Viktor & Rolf, Abercrombie &
+ *    Fitch, Roger & Gallet, Tiffany & Co.
+ *  - A trailing market word. "ARMAF UK" and "French Avenue UK" are the same
+ *    houses as 'armaf' and 'french avenue'; the feed just appended where it
+ *    ships to.
+ *
+ * Checked before adding: folding "and" out of every existing key, and
+ * stripping a trailing " uk" from every existing key, produces no case where
+ * two keys holding *different* URLs collapse onto one another. So neither
+ * rule can silently hand a brand another brand's website.
+ */
+function fallbackKeys(primaryKey: string): string[] {
+  const keys: string[] = [];
+  const withoutAnd = primaryKey.split(' ').filter((w) => w !== 'and').join(' ');
+  if (withoutAnd !== primaryKey && withoutAnd !== '') keys.push(withoutAnd);
+  for (const k of [primaryKey, withoutAnd]) {
+    const withoutUk = k.replace(/ uk$/, '');
+    if (withoutUk !== k && withoutUk !== '' && !keys.includes(withoutUk)) keys.push(withoutUk);
+  }
+  return keys;
+}
+
 export function officialSiteFor(brand: string): BrandSite | null {
   const primaryKey = normalizeBrand(brand);
   // The digit-keeping fallback only ever runs for the empty-string case (see
   // its own doc comment above) — everything else resolves on primaryKey
   // exactly as it always has.
-  const url = BRAND_SITES[primaryKey] ?? (primaryKey === '' ? BRAND_SITES[normalizeBrandKeepingDigits(brand)] : undefined);
+  let url = BRAND_SITES[primaryKey] ?? (primaryKey === '' ? BRAND_SITES[normalizeBrandKeepingDigits(brand)] : undefined);
+  if (!url) {
+    for (const key of fallbackKeys(primaryKey)) {
+      url = BRAND_SITES[key];
+      if (url) break;
+    }
+  }
   if (!url) return null;
   // marketOf reports the /en-gb/ path shape as "gb" rather than "uk" — the
   // same synonym classifyLanding's own sameMarket() normalises before
