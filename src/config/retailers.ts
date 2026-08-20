@@ -2373,6 +2373,41 @@ export const RETAILERS: readonly Retailer[] = [
     // Haramain/Armaf/French Avenue/IBRAQ elsewhere in this file).
     // robots.txt permitted every request made. `shopifyStorefront` set
     // below; `adapter` no longer names a feed that does not exist.
+    //
+    // ── `catalogue: null` here is deliberate, and is not why anything is
+    //    missing ────────────────────────────────────────────────────────────
+    // Recorded because the opposite was assumed and acted on: that this shop
+    // yields nothing because the crawler has no section URLs to walk, and
+    // that the fix is to invent some. It is not. `crawlViaShopifyProducts`
+    // (src/catalogue/shopifyProductsCrawl.ts) builds its own address from
+    // `retailer.domain` alone — `https://{domain}/products.json?limit=...` —
+    // and never reads `catalogue` at all. scripts/catalogue-harvest.ts only
+    // falls through to `crawlViaSitemap`, which is the route that does need
+    // sections, when the Shopify route comes back not-Shopify or empty. It
+    // does neither here.
+    //
+    // Measured rather than reasoned: harvest probe --dry-run --shop=
+    // the-beauty-store-uk, run 32388845816 job 96489829499,
+    // 2026-08-20T15:56:24Z, commit 378bebe, with `catalogue` still null as it
+    // is below. 20 pages fetched, 400 urls, 400 priced listings, sample
+    // https://thebeautystore.com/products/armani-acqua-di-gio-parfum-refill-
+    // bottle-150ml, and the log's own line "sterling market: ?country=GB
+    // (Shopify Markets' country parameter) — the origin quotes this runner
+    // something else", which is the ?country=GB fact above still holding.
+    //
+    // The stored snapshot agrees and is larger, because the scheduled crawl
+    // is not capped at 20 pages: data/catalogue/the-beauty-store-uk.json at
+    // commit 378bebe holds 4,902 listings, all 4,902 priced, 4,832 with a
+    // photo, 4,622 in stock, source 'live', updatedAt 2026-08-20T07:33:23Z.
+    // Among them is the exact product the owner pasted — /products/paco-
+    // rabanne-pure-xs-eau-de-parfum-spray-50ml at £29.99, in stock — which
+    // is also present in demo/catalogue.generated.ts, so it is on the site
+    // and not merely on disk.
+    //
+    // Adding section URLs here would therefore be dead configuration on the
+    // live route and a second, slower way to read the same storefront on the
+    // fallback. If this shop ever stops being Shopify, that is the moment to
+    // write a `catalogue` block — and to measure it, not guess it.
     enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
@@ -2396,6 +2431,9 @@ export const RETAILERS: readonly Retailer[] = [
         'Identity confirmed: The Beauty Store London Ltd, company 10805437, VAT GB325347215. '  +
         'Note the storefront is thebeautystore.com, not the .co.uk domain first assumed here.',
     },
+    // Not an omission — see the "`catalogue: null` here is deliberate" block
+    // in this entry's own comment above for the run that proves the Shopify
+    // route reaches 400 priced listings with this field exactly as it is.
     catalogue: null,
     affiliate: {
       network: 'awin',
