@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 70 retailers, 34 of them `enabled: true`. Every one of them is a legitimate
+ * 70 retailers, 36 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -2191,19 +2191,37 @@ export const RETAILERS: readonly Retailer[] = [
     //     never be shown as cheapest, and is enabled elsewhere on exactly
     //     that basis (french-avenue, ibraq, zimaya). The note below claiming
     //     it "still blocks enabling" is wrong and is retracted here.
-    //   - The currency does block it, and that is the real reason this stays
-    //     off. The probe above found this storefront silent — no currency
-    //     published anywhere, by any of nine ways of asking. The sitemap
-    //     route would read its JSON-LD prices and label them sterling on the
-    //     registry's say-so, which is precisely how dollars were published as
-    //     pounds at Escentual. So this id joins CURRENCY_UNCONFIRMED at the
-    //     foot of this file, which also stops any writer storing a GBP figure
-    //     against it.
+    //   - The currency did block it, until now. The probe above found this
+    //     storefront silent — no currency published anywhere, by any of nine
+    //     ways of asking. The sitemap route would read its JSON-LD prices and
+    //     label them sterling on the registry's say-so, which is precisely
+    //     how dollars were published as pounds at Escentual. So this id
+    //     joined CURRENCY_UNCONFIRMED at the foot of this file, which also
+    //     stopped any writer storing a GBP figure against it.
     //
-    // What would enable it: one positive sterling reading. The route is
-    // proven and is not the blocker.
-    enabled: false,
+    // ── The untried angle: a product page's own priceCurrency ───────────────
+    // Currency probe, run 32366445247 job 96416932763, 2026-08-20T11:59Z,
+    // asked the specific product page the harvest itself fetched
+    // (https://perfumeo.co.uk/products/petra-viola-by-lattafa-100ml-eau-de-parfum-2/,
+    // read off that harvest run's own log the same way riiffs' was — see
+    // catalogue-harvest.ts's own header comment on printing a sample priced
+    // URL) rather than the shop's origin or a market-path guess. Every one
+    // of the six candidates that reached the page at all (origin, ?country=
+    // GB, both localisation cookies, Accept-Language en-GB — the four
+    // market-path guesses 404 here, same as the shop-level probe found) read
+    // its schema.org JSON-LD as **49.99 GBP**, identically. That is the one
+    // positive sterling reading this entry's own CURRENCY_UNCONFIRMED note
+    // said would be enough. Removed from that list at the foot of this file.
+    //
+    // Enabled on that: sitemap route proven (20 priced listings, above),
+    // robots.txt permits, delivery page genuinely read and confirmed to
+    // state no flat rate (not merely unstated), and now sterling from the
+    // product page itself. `sitemapHarvestConfirmed: true` records the
+    // ingestion-route half — see its own doc comment in src/types/retailer.ts,
+    // added for riiffs earlier today, the first entry to need it.
+    enabled: true,
     adapter: 'unknown',
+    sitemapHarvestConfirmed: true,
     currency: 'GBP',
     shipping: {
       standardGbp: null,
@@ -2212,13 +2230,13 @@ export const RETAILERS: readonly Retailer[] = [
       verifiedAt: '2026-08-05',
       confidence: 'unverified',
       notes:
-        'Read directly now, not just searched for: shipping probe, run 32279620206 job ' +
+        'Read directly, not just searched for: shipping probe, run 32279620206 job ' +
         '96155027469, 2026-08-19T17:05Z, fetched 4 pages of perfumeo.co.uk (+1 footer link ' +
         'followed) and confirmed NO RATE STATED — the delivery page exists and was read, it ' +
         'simply never names a flat standard charge, the same shape beauty-pie and ' +
         'cult-beauty-global\'s delivery pages show. Not a retrieval failure to fix; there is no ' +
-        'figure on the page to find. Still blocks enabling on the same standardGbp: null basis ' +
-        'as before.',
+        'figure on the page to find, which is why this stays enabled on ' +
+        'tests/registry.test.ts\'s unstated-delivery allowlist rather than blocked.',
     },
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
@@ -4494,17 +4512,6 @@ export const RETAILERS: readonly Retailer[] = [
  * build re-arms the trap and removes the only thing standing in front of it.
  */
 export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
-  [
-    'perfumeo',
-    'perfumeo.co.uk has a working retrieval route — Harvest probe run 15, job 96347744390, ' +
-      '2026-08-20: 1,446 product URLs discovered, 20 pages fetched, 20 priced listings, every page ' +
-      'yielding one — and no established currency. Currency probe, run 32256436199 job 96079115721, ' +
-      '2026-08-19: robots.txt permitted every request and the origin answered 200, but none of the ' +
-      'nine ways of asking published any currency anywhere. A .co.uk domain is not evidence of ' +
-      'sterling. Same reasoning as riiffs above: listed here so no writer can store a GBP figure ' +
-      'against a shop that has never said it charges in pounds. One positive sterling reading is ' +
-      'all this needs.',
-  ],
   // zimaya was removed from this list on 2026-08-19, on the evidence the list
   // itself asks for: currency probe, run 32254603051 job 96073283174, read a
   // sterling price list off the shop's own storefront at rate 1, identically
@@ -4522,6 +4529,12 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
   // read https://uk.riiffsperfumes.com/product/aswaar/ (the harvest's own
   // fetched URL) as 44.99 GBP through every candidate that reached it. See
   // the comment on its registry entry above. It is now `enabled: true`.
+  // perfumeo was removed from this list the same day, on the same angle:
+  // Currency probe, run 32366445247 job 96416932763, read
+  // https://perfumeo.co.uk/products/petra-viola-by-lattafa-100ml-eau-de-parfum-2/
+  // (the harvest's own fetched URL) as 49.99 GBP through every candidate
+  // that reached it. See the comment on its registry entry above. It is now
+  // `enabled: true`.
   [
     'khadlaj',
     'khadlaj-perfumes.co.uk is confirmed Shopify (products.json returns a real payload, ' +
