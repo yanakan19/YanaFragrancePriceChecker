@@ -49,6 +49,7 @@ import { productArt, type ArtSize } from './photo.js';
 import { AA_TEXT, contrastRatio, parseColour, type Rgba } from './contrast.js';
 import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './gender.js';
 import { VOLUME_BANDS, volumeBandFor, type VolumeBand } from './volumeBands.js';
+import { LIST_SORT_OPTIONS, sortFragrances, type BrowseSort, type ListSort } from './listSort.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
@@ -80,7 +81,8 @@ type NoteLayerFilter = NoteLayer | 'any';
 /** Sort for a fragrance list scoped to one note, brand or retailer. Same
  *  vocabulary as the rest of the app: alphabetical both ways (Brands),
  *  price both ways (Deals). */
-type ListSort = 'az' | 'za' | 'price-low' | 'price-high';
+// ListSort, BrowseSort and sortFragrances live in demo/listSort.ts — see that
+// file's header for why they are not inline here.
 
 /** One of the price bands offered under the Price facet. */
 type PriceBand = '0-20' | '20-30' | '30-50' | '50-80' | '80-150' | '150-300' | '300+';
@@ -137,6 +139,9 @@ const state = {
   noteLayer: 'any' as NoteLayerFilter,
   noteDetailSort: 'az' as ListSort,
   noteDetailFilter: 'all' as BrandFilter,
+  // Browse and search. Defaults to the order this list already arrived in, so
+  // the control's existence changes nothing until a reader uses it.
+  browseSort: 'stocked' as BrowseSort,
   brandDetailSort: 'az' as ListSort,
   retailerDetailSort: 'az' as ListSort,
   retailerDetailFilter: 'all' as BrandFilter,
@@ -871,43 +876,24 @@ function control(id: string, label: string, ico: string, options: { value: strin
   </label>`;
 }
 
-/**
- * The one sort applied to a fragrance list scoped to a single note, brand or
- * retailer: alphabetical both ways, price both ways. Shared so the three
- * pages that use it cannot drift into three slightly different orderings.
- */
-/**
- * Every sort ends on bottle size, smallest first.
- *
- * Without that last step the four sorts here only ever compared brand, name or
- * price, all three of which are identical across the sizes of one perfume — so
- * the three Versace Dylan Blue bottles came out in whatever order the input
- * happened to be in, which read as 10ml, 50ml, 30ml. Size ascending is the
- * tiebreaker in all four directions, including Z to A: reversing the alphabet
- * is a statement about names, not a reason to start listing bottles largest
- * first. See compareVariants in demo/data.ts.
- */
-function sortFragrances(list: DemoFragrance[], sort: ListSort): DemoFragrance[] {
-  return [...list].sort((a, b) => {
-    if (sort === 'az' || sort === 'za') {
-      const names = `${a.brand} ${a.name}`.localeCompare(`${b.brand} ${b.name}`);
-      if (names !== 0) return sort === 'az' ? names : -names;
-      return compareVariants(a, b);
-    }
-    const diff = lowestPrice(a.id) - lowestPrice(b.id);
-    if (diff !== 0) return sort === 'price-low' ? diff : -diff;
-    const names = `${a.brand} ${a.name}`.localeCompare(`${b.brand} ${b.name}`);
-    if (names !== 0) return names;
-    return compareVariants(a, b);
-  });
+/** The sort dropdown offered on a note, brand or retailer page. The
+ *  comparator itself and the option list are in demo/listSort.ts. */
+function listSortControl(id: string, current: ListSort): string {
+  return control(id, 'Sort fragrances', ICON_SORT, LIST_SORT_OPTIONS, current);
 }
 
-function listSortControl(id: string, current: ListSort): string {
-  return control(id, 'Sort fragrances', ICON_SORT, [
-    { value: 'az', label: 'A To Z' },
-    { value: 'za', label: 'Z To A' },
-    { value: 'price-low', label: 'Lowest Price' },
-    { value: 'price-high', label: 'Highest Price' },
+/**
+ * The same control for browse and search, with the stock ranking kept as an
+ * option rather than thrown away.
+ *
+ * "Most Stocked" leads because it is what this list already did — see
+ * BrowseSort — so a reader who never opens this control sees exactly the page
+ * they saw before it existed.
+ */
+function browseSortControl(current: BrowseSort): string {
+  return control('browse-sort', 'Sort fragrances', ICON_SORT, [
+    { value: 'stocked', label: 'Most Stocked' },
+    ...LIST_SORT_OPTIONS,
   ], current);
 }
 
@@ -1153,20 +1139,32 @@ function browseView(): string {
   // With no brand or query in play this is the leading list, which is capped:
   // an 879 row wall is not a starting point anyone can use.
   const isTop = !state.brand && !state.query.trim();
-  const list = isTop ? faceted.slice(0, TOP_N) : faceted;
+  // The cap is applied *before* the chosen sort, deliberately. Sorting the
+  // whole catalogue by price and then taking 50 would show the fifty cheapest
+  // bottles on the site, which is a different page from the one this is; the
+  // cap picks the fifty most stocked, and the sort then arranges those fifty.
+  // On a search or a brand there is no cap and the distinction does not arise.
+  const capped = isTop ? faceted.slice(0, TOP_N) : faceted;
+  const list = state.browseSort === 'stocked' ? capped : sortFragrances(capped, state.browseSort);
   const title = state.brand ?? (state.query.trim() ? `Results for "${state.query.trim()}"` : `Most stocked`);
 
   return `
     <button class="back" data-back-home>Back</button>
     <div class="page-head"><h2 class="t-page">${esc(title)}</h2><span class="count t-count">${list.length}</span></div>
     ${
-      isTop
+      isTop && state.browseSort === 'stocked'
         ? `<p class="panel-note t-body">Ranked by how many of our ${SHOP_COUNT} shops carry each one, then by brand
              and name where that ties. Oils are not listed here. This is stock breadth, not a measure of
              what sells: nothing here counts views or purchases, so it is never presented as if it did.</p>`
-        : ''
+        : isTop
+          ? `<p class="panel-note t-body">The ${TOP_N} most stocked fragrances, in the order you chose. Oils are
+               not listed here.</p>`
+          : ''
     }
-    <div class="controls">${facetsBlock(filtered)}</div>
+    <div class="controls">
+      ${browseSortControl(state.browseSort)}
+      ${facetsBlock(filtered)}
+    </div>
     ${fragranceList(list, 'Nothing here matches that search.')}`;
 }
 
@@ -4848,6 +4846,7 @@ function init(): void {
     else if (id === 'deal-sort') state.dealSort = value as DealSort;
     else if (id === 'note-sort') state.noteSort = value as NoteSort;
     else if (id === 'note-layer') state.noteLayer = value as NoteLayerFilter;
+    else if (id === 'browse-sort') state.browseSort = value as BrowseSort;
     else if (id === 'note-detail-sort') state.noteDetailSort = value as ListSort;
     else if (id === 'note-detail-filter') state.noteDetailFilter = value as BrandFilter;
     else if (id === 'brand-detail-sort') state.brandDetailSort = value as ListSort;
