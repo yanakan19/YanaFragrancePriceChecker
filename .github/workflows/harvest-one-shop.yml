@@ -1,0 +1,87 @@
+name: Harvest probe (one shop)
+
+# Ask one shop, report exactly what came back, write nothing.
+#
+# ── Why this is not just a catalogue-daily dispatch ─────────────────────────
+# It is the same harvest code, the same credentials and the same escalation
+# tiers as the "Harvest via sitemap" step in catalogue-daily.yml. What differs
+# is everything around it, and that is the whole point.
+#
+# A catalogue-daily dispatch aimed at a single shop still pays for the houses
+# harvest (~7 minutes), the full app rebuild (~4), the image-link sweep (~20)
+# and the commits between them. Measured on run 262, which asked one question
+# — does the Apify actor work against Harvey Nichols — and took over half an
+# hour to finish saying so, of which the harvest itself was one second.
+#
+# Worse, it takes the `catalogue` concurrency group with it for that whole
+# half hour. That group exists because two crawls writing snapshots at once
+# would race and lose listings, which is correct and must not be weakened. But
+# it means every diagnostic dispatch either queues behind a ~90-minute
+# scheduled run or makes one queue behind it, and a shop that needs three
+# rounds of "read the log, fix, ask again" cannot get them in a working day.
+#
+# This workflow is always `--dry-run`. It writes no snapshot, so it cannot
+# race the scheduled crawl, so it needs no concurrency group at all and can
+# run beside one. Fixing a shop happens here; the scheduled crawl then picks
+# the fix up on its own next tick and commits the listings for real. Nothing
+# reaches data/catalogue through this file — check `--dry-run` is still on the
+# command below before trusting that sentence.
+#
+# Metered by default, unlike catalogue-daily's own default, because the shops
+# worth pointing this at are exactly the ones the free routes already failed.
+# It is capped the same way every other caller is: MAX_ACTOR_PAGES_PER_RUN in
+# src/catalogue/apifyActor.ts is a whole-run ceiling of 10 rendered pages and
+# is not overridable from here. One shop per run, deliberately.
+
+on:
+  workflow_dispatch:
+    inputs:
+      shop:
+        description: 'The retailer id to ask, e.g. harvey-nichols. One shop per run.'
+        type: string
+        required: true
+      harvest_max:
+        description: 'Product pages to fetch. Small on purpose — this is a diagnostic, not a harvest.'
+        type: string
+        default: '20'
+      allow_metered:
+        description: 'Allow the Apify proxy and actor tiers. On by default: the shops worth probing here are the ones the free routes already failed.'
+        type: boolean
+        default: true
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    # Generous next to the work, tight next to catalogue-daily's 100. The
+    # Apify actor's synchronous endpoint alone can hold a request for up to
+    # 300 seconds (see apifyActor.ts), and a slow shop retried at the 60s
+    # timeout can spend a few minutes more, but nothing here walks a whole
+    # catalogue.
+    timeout-minutes: 20
+
+    steps:
+      # Shallow on purpose. Nothing here replays commit history — that is
+      # build-price-history.ts's need, and it does not run in this workflow.
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # Both credentials are passed unconditionally. catalogue-harvest.ts
+      # checks for each itself and prints a clear line leaving that tier
+      # unavailable when its secret is absent, so an environment with neither
+      # still runs the free routes and still reports what they found.
+      - name: Ask one shop
+        env:
+          APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+        run: |
+          npm run harvest -- \
+            --shop=${{ inputs.shop }} \
+            --max=${{ inputs.harvest_max }} \
+            --dry-run \
+            ${{ inputs.allow_metered && '--allow-metered' || '' }}
