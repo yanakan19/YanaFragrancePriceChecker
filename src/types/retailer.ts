@@ -439,6 +439,29 @@ export interface Retailer {
    */
   shopifyStorefront?: boolean;
   /**
+   * A Harvest probe has actually run `crawlViaSitemap` against this
+   * retailer's own sitemap and come back with real, priced listings — not a
+   * guess that the generic route "should" work, a measured run and job id
+   * recorded in this entry's own comment.
+   *
+   * Every enabled retailer with `catalogue: null` and `adapter: 'unknown'`
+   * already gets tried through this same generic sitemap-discovery route
+   * (see scripts/catalogue-harvest.ts and src/catalogue/sitemapCrawl.ts) —
+   * debenhams, lush-while-it-was-enabled, oud-arabian and bellavita-luxury
+   * all shipped on exactly that basis, with no field here to say so, because
+   * none of them also carried `standardGbp: null`. This field exists for the
+   * shop that does both at once: tests/registry.test.ts's "unstated delivery"
+   * allowlist requires a real, stated ingestion route before it will let a
+   * retailer with no known delivery cost stay enabled, and until riiffs this
+   * route had never been the one doing the proving. Unset (not merely
+   * `false`) for every retailer this has not been measured for — same
+   * "not yet confirmed" convention as `shopifyStorefront` above, and the
+   * same reason: setting it without a real harvest run behind it would be
+   * exactly the invented-route problem this registry's own header warns
+   * against.
+   */
+  sitemapHarvestConfirmed?: boolean;
+  /**
    * This retailer's affiliate feed has been *measured* to publish prices the
    * shop does not charge, so its own Shopify storefront is the price of
    * record instead — see src/catalogue/feedPriceRepair.ts for the mechanism
