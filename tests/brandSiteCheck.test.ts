@@ -50,6 +50,26 @@ describe('marketOf', () => {
     expect(marketOf('https://www.dolcegabbana.com/en-gb/beauty/')).toBe('gb');
   });
 
+  // /en/gb/ says the same thing as /en-gb/. Reading only the first segment
+  // found "en", which names no market, and discarded the path — so Acqua di
+  // Parma's real UK storefront was labelled "Non-UK Site" on its brand page.
+  it('reads a market from a slash-separated language and region', () => {
+    expect(marketOf('https://www.acquadiparma.com/en/gb/')).toBe('gb');
+  });
+
+  // The first segment still wins when it names a market itself, so the
+  // /uk/en/ ordering several houses use is untouched by the rule above.
+  it('prefers a market named by the first path segment', () => {
+    expect(marketOf('https://www.kenzo.com/uk/en/')).toBe('uk');
+    expect(marketOf('https://www.furla.com/us/en/eshop/')).toBe('us');
+  });
+
+  // A language pair naming no country stays unreadable rather than being
+  // forced into one — /en/xx/ is not a market statement.
+  it('reports no market when neither path segment names a country', () => {
+    expect(marketOf('https://www.example.com/en/xx/')).toBeNull();
+  });
+
   // The distinction the whole classifier rests on: a global .com names no
   // market, which is not the same as naming a foreign one.
   it('reports no market for a plain global site', () => {

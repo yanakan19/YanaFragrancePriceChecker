@@ -108,6 +108,13 @@ export function registrableDomain(hostname: string): string {
  * Returns null when an address names no market at all, which is the ordinary
  * case for a single global site and must never be confused with "not UK".
  */
+/**
+ * Two-letter codes a bare path segment or subdomain is allowed to be read as a
+ * market. Deliberately short: every addition makes some section name
+ * ("/it/" for a range called Italia) readable as a country.
+ */
+const KNOWN_MARKETS = ['uk', 'gb', 'us', 'ae', 'fr', 'de', 'es', 'it'];
+
 export function marketOf(url: string): string | null {
   let parsed: URL;
   try {
@@ -127,7 +134,17 @@ export function marketOf(url: string): string | null {
     // country codes this registry uses, plus any language-REGION pair, which
     // is unambiguous by shape.
     if (pathMatch[2]) return region;
-    if (['uk', 'gb', 'us', 'ae', 'fr', 'de', 'es', 'it'].includes(region)) return region;
+    if (KNOWN_MARKETS.includes(region)) return region;
+    // Slash-separated language then region: /en/gb/ is the same statement as
+    // /en-gb/, just punctuated differently, and reading only the first segment
+    // gets it exactly backwards — "en" is not a market, so the whole path was
+    // discarded and acquadiparma.com/en/gb/ read as no-market, which on a .com
+    // means the brand page labelled a genuine UK storefront "Non-UK Site".
+    // Only consulted when the first segment failed to name a market itself, so
+    // the /uk/en/ ordering that hermes.com, kenzo.com and zara.com use still
+    // resolves on that first segment exactly as before.
+    const second = path.match(/^\/[a-z]{2}\/([a-z]{2})(?:\/|$)/);
+    if (second && KNOWN_MARKETS.includes(second[1]!)) return second[1]!;
   }
 
   // Subdomain: uk.house.com, ae.house.com.
