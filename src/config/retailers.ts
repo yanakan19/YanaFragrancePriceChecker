@@ -2606,6 +2606,22 @@ export const RETAILERS: readonly Retailer[] = [
     // storefront shape this one does not have — that is a gap in what this
     // probe can see, not a finding that Zara's published GBP price is
     // wrong.
+    //
+    // ── The actor route, attempted 2026-08-20, and stalled the same way as
+    //    John Lewis ─────────────────────────────────────────────────────────
+    // APIFY_TOKEN is live now, so this shop's own catalogue.sections[0] was
+    // dispatched through scripts/apify-blob-probe.ts to test both retrieval
+    // and the hydration-blob extraction hypothesis at once. Run 32368679808,
+    // 2026-08-20T12:24Z: the actor render step sat in progress for 14+
+    // minutes with no result and was cancelled by hand. Selfridges' own
+    // comparably-scoped render finished in under 5 minutes both times it has
+    // run; this is the second shop today (after John Lewis) to stall this
+    // way rather than answer either question. Recorded as measured
+    // "reproducibly slow or stuck for this shop's render", not "unproven"
+    // and not "impossible" — see John Lewis's own entry for the fuller
+    // reasoning this shares. Retrieval, extraction and currency all remain
+    // exactly as unproven for this shop as before this pass; nothing here
+    // moved any of them forward or back.
     enabled: true,
     adapter: 'headless',
     currency: 'GBP',
