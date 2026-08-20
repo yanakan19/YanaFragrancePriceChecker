@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-20T21:43:01.372Z",
+  "checkedAt": "2026-08-20T23:27:49.853Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,7 +59,7 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 13,
+      "listings": 18,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
@@ -193,10 +193,12 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 120,
-      "pricedInGbp": 120,
-      "withPhoto": 120,
-      "errors": [],
+      "listings": 116,
+      "pricedInGbp": 116,
+      "withPhoto": 116,
+      "errors": [
+        "stopped early: exceeded this house's time budget"
+      ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
