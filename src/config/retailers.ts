@@ -4764,7 +4764,8 @@ export const RETAILERS: readonly Retailer[] = [
     //
     // A 504 is the server saying "not now" rather than "not you", so this
     // is a route that has not been shown to fail so much as one that has not
-    // yet answered. Nothing about currency, delivery or JSON-LD was learned.    //
+    // yet answered. Nothing about currency, delivery or JSON-LD was learned.
+    //
     // One thing "priced listings" does NOT mean, recorded here because it
     // would be easy to read it as more than it is: src/catalogue/jsonld.ts
     // does not look at schema.org `priceCurrency` at all — it takes the
@@ -4843,7 +4844,28 @@ export const RETAILERS: readonly Retailer[] = [
     // our own bug as a fact about a shop, which is precisely the mistake
     // this file keeps having to undo. What it needs is a probe against a
     // host that exists — either groceries.asda.com without the www, or
-    // direct.asda.com for the George storefront.    //
+    // direct.asda.com for the George storefront.
+    //
+    // ── That probe was then run, and Asda does refuse us ─────────────────────
+    // Currency probe, run 32391415231 job 96498178427, 2026-08-20T16:20:37Z,
+    // commit 64edae7. scripts/currency-probe.ts builds its origin as
+    // `retailer.domain` with any leading `www.` stripped, so it asked the
+    // host that actually exists — groceries.asda.com — which is exactly the
+    // gap the harvest probe above could not cover.
+    //
+    // robots.txt was reachable (the script exits early with its own message
+    // when it is not, and instead ran all ten candidates). Every one of the
+    // ten — bare origin, /en-gb, /gb, /uk, /en-uk, ?country=GB, both
+    // localisation cookies separately and together, Accept-Language en-GB —
+    // returned HTTP 403 for both the homepage and /meta.json. Ten for ten.
+    //
+    // So this is now a finding about Asda rather than about our URL
+    // building: the storefront refuses this client at the edge, on the
+    // correct host, whatever it is asked. No currency was published because
+    // no document was served. Same bracket as Boots and Superdrug above, and
+    // like them the open question is whether a residential IP or a real
+    // browser gets through — neither has been tried here.
+    //
     // One thing "priced listings" does NOT mean, recorded here because it
     // would be easy to read it as more than it is: src/catalogue/jsonld.ts
     // does not look at schema.org `priceCurrency` at all — it takes the
@@ -4911,7 +4933,8 @@ export const RETAILERS: readonly Retailer[] = [
     // path 403s. Note this says nothing either way about the gol-ui
     // client-rendering suspicion recorded above — the walk never got as far
     // as a product page to find out whether one carries JSON-LD. Two
-    // separate unknowns, and only the outer one has been touched.    //
+    // separate unknowns, and only the outer one has been touched.
+    //
     // One thing "priced listings" does NOT mean, recorded here because it
     // would be easy to read it as more than it is: src/catalogue/jsonld.ts
     // does not look at schema.org `priceCurrency` at all — it takes the
@@ -5016,7 +5039,20 @@ export const RETAILERS: readonly Retailer[] = [
     // So this id stays in CURRENCY_UNCONFIRMED. What would clear it is one
     // product page on this domain that resolves and names its own
     // priceCurrency — a smaller job than the one already done, and not one
-    // to skip because a homepage said GBP.    //
+    // to skip because a homepage said GBP.
+    //
+    // ── Affiliate: a lead, and not a good enough one to write into config ────
+    // A WebSearch for a Morrisons programme returned listings on several
+    // third-party affiliate directories (FlexOffers, Skimlinks, VigLink,
+    // FMTC, Cuelinks among them) naming a "Morrisons Grocery" programme, and
+    // summaries describing it as running on FlexOffers and Tradedoubler with
+    // commission restricted to new customers above a basket threshold.
+    // Nothing there is Awin, Rakuten, Impact or CJ, and none of it was read
+    // on a network's own page — affiliate directories carry stale and
+    // second-hand programme data as a matter of course. `affiliate` below
+    // therefore stays NO_AFFILIATE_YET rather than claiming a network this
+    // registry has no shape for and nobody has confirmed.
+    //
     // One thing "priced listings" does NOT mean, recorded here because it
     // would be easy to read it as more than it is: src/catalogue/jsonld.ts
     // does not look at schema.org `priceCurrency` at all — it takes the
@@ -5082,7 +5118,26 @@ export const RETAILERS: readonly Retailer[] = [
     // listed no product URLs would look identical in this log. Distinguishing
     // them needs a run that prints the robots verdict itself, which
     // scripts/currency-probe.ts does and which has not been dispatched for
-    // this shop. Recorded as unresolved rather than written up as a refusal.    //
+    // this shop. Recorded as unresolved rather than written up as a refusal.
+    //
+    // ── Partly resolved the same day: a challenge, not a refusal ─────────────
+    // Currency probe, run 32391500310 job 96498456655, 2026-08-20T16:22:02Z,
+    // commit 665ebb6. robots.txt was reachable, and all ten ways of asking
+    // got the homepage back as HTTP 202 — Accepted, not OK. A 202 on a
+    // document request is the signature of a bot challenge or interstitial
+    // served in place of the page, which is a different thing from the 403
+    // Asda returns and from the 403s Savers, The Range and Sainsbury's
+    // return. /meta.json and /products.json both 404 at every address, and
+    // no candidate published any currency at all — the probe's own words,
+    // "the storefront was silent, which must be read as unknown and never as
+    // sterling".
+    //
+    // What that adds to the ambiguity above: the host answers, and answers
+    // every request shape identically, so "the sitemap fetch failed" is not
+    // the explanation for the harvest's silent zero. It does not on its own
+    // prove robots.txt was what stopped the walk, and no run has printed
+    // that verdict directly, so the paragraph above stands as written.
+    //
     // One thing "priced listings" does NOT mean, recorded here because it
     // would be easy to read it as more than it is: src/catalogue/jsonld.ts
     // does not look at schema.org `priceCurrency` at all — it takes the
@@ -5153,7 +5208,8 @@ export const RETAILERS: readonly Retailer[] = [
     // distinction the Superdrug entry above draws, and Superdrug is the same
     // corporate group. Whether a residential IP or a real browser gets past
     // it is exactly what the metered tiers exist to answer and has not been
-    // asked here.    //
+    // asked here.
+    //
     // One thing "priced listings" does NOT mean, recorded here because it
     // would be easy to read it as more than it is: src/catalogue/jsonld.ts
     // does not look at schema.org `priceCurrency` at all — it takes the
@@ -5217,7 +5273,8 @@ export const RETAILERS: readonly Retailer[] = [
     //
     // The sample is a bathroom cleaner because the walk is unscoped across
     // the whole catalogue — a sections/requiredUrlPrefix question, not a
-    // retrieval one.    //
+    // retrieval one.
+    //
     // One thing "priced listings" does NOT mean, recorded here because it
     // would be easy to read it as more than it is: src/catalogue/jsonld.ts
     // does not look at schema.org `priceCurrency` at all — it takes the
@@ -5286,7 +5343,8 @@ export const RETAILERS: readonly Retailer[] = [
     // rather than fetched, so a shop that will not serve a crawler can still
     // be a perfectly good affiliate partner. Of the eight shops in this
     // batch this is the one where applying is likely to be worth more than
-    // any amount of further crawling.    //
+    // any amount of further crawling.
+    //
     // One thing "priced listings" does NOT mean, recorded here because it
     // would be easy to read it as more than it is: src/catalogue/jsonld.ts
     // does not look at schema.org `priceCurrency` at all — it takes the
@@ -5352,7 +5410,8 @@ export const RETAILERS: readonly Retailer[] = [
     //
     // That also settles the two-domain question above in favour of
     // home.bargains, at least to the extent that this is the one that
-    // answered. Nothing has been established about homebargains.co.uk.    //
+    // answered. Nothing has been established about homebargains.co.uk.
+    //
     // One thing "priced listings" does NOT mean, recorded here because it
     // would be easy to read it as more than it is: src/catalogue/jsonld.ts
     // does not look at schema.org `priceCurrency` at all — it takes the
