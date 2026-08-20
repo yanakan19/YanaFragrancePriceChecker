@@ -1,16 +1,16 @@
 {
-  "repricedAt": "2026-08-20T09:17:58.385Z",
+  "repricedAt": "2026-08-20T15:19:05.838Z",
   "dryRun": false,
   "outcomes": [
     {
       "retailerId": "mybeauty-boutique",
-      "ok": true,
-      "reason": "repriced from the storefront",
-      "products": 9354,
+      "ok": false,
+      "reason": "storefront read failed: page 13: HTTP 500 — snapshot left untouched",
+      "products": 3000,
       "storefrontCurrency": "GBP",
       "active": 8908,
-      "keyed": 8902,
-      "agreed": 8902,
+      "keyed": 0,
+      "agreed": 0,
       "corrected": 0,
       "wasOverstated": 0,
       "wasUnderstated": 0,
