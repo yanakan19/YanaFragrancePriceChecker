@@ -285,7 +285,26 @@ const TIER_LABEL: Record<RetailerTier, string> = {
  * Inventing any of that would be exactly the thing this project refuses to do.
  */
 const TOP_N = 50;
-const POPULAR = BY_POPULARITY.slice(0, 12);
+
+/**
+ * Oils are kept out of the leading list, on the owner's instruction
+ * (2026-08-20).
+ *
+ * A perfume oil is a different product from a bottle of eau de parfum — sold
+ * by the roller or the tola, worn differently, priced on a scale that does not
+ * compare — so a list whose whole job is "here is what the UK's shops stock,
+ * ranked" reads better without them mixed in. 298 of the catalogue's products
+ * carry the "Perfume Oil" concentration as of this change (counted over
+ * demo/catalogue.generated.ts, 2026-08-20).
+ *
+ * Excluded from the front-page rail and from the capped Most Stocked list
+ * only. An oil still has its own page, still appears under its brand, still
+ * comes back in a search for it, and still carries every price we have for it
+ * — this hides nothing, it only declines to rank oils against sprays.
+ */
+const isOil = (f: DemoFragrance): boolean => f.concentration === 'Perfume Oil';
+
+const POPULAR = BY_POPULARITY.filter((f) => !isOil(f)).slice(0, 12);
 
 /**
  * Prices come from the catalogue crawl and the affiliate feed, never from a
@@ -1099,7 +1118,14 @@ function homeView(): string {
 
 function visibleFragrances(): DemoFragrance[] {
   const q = state.query.trim().toLowerCase();
+  // No brand and no query means this is the leading Most Stocked list rather
+  // than a brand page or a search, and oils are kept out of that one list (see
+  // isOil). Dropped here rather than at the slice in browseView so the facet
+  // counts and the row count agree with what is actually listed — a facet
+  // offering "17 Perfume Oil" on a page that shows none is worse than either.
+  const isTop = !state.brand && !q;
   return BY_POPULARITY.filter((f) => {
+    if (isTop && isOil(f)) return false;
     if (state.brand && f.brand !== state.brand) return false;
     if (!q) return true;
     return `${f.brand} ${f.name} ${f.concentration}`.toLowerCase().includes(q);
@@ -1120,9 +1146,9 @@ function browseView(): string {
     <div class="page-head"><h2 class="t-page">${esc(title)}</h2><span class="count t-count">${list.length}</span></div>
     ${
       isTop
-        ? `<p class="panel-note t-body">Ranked by how many of our ${SHOP_COUNT} shops carry each one, cheapest first
-             where that ties. This is stock breadth, not a measure of what sells: nothing here counts
-             views or purchases, so it is never presented as if it did.</p>`
+        ? `<p class="panel-note t-body">Ranked by how many of our ${SHOP_COUNT} shops carry each one, then by brand
+             and name where that ties. Oils are not listed here. This is stock breadth, not a measure of
+             what sells: nothing here counts views or purchases, so it is never presented as if it did.</p>`
         : ''
     }
     <div class="controls">${facetsBlock(filtered)}</div>
