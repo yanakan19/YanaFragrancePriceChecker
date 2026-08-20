@@ -95,7 +95,42 @@ describe('retailer registry', () => {
     // sets/) is the comparable thing and is what the entry is for. Same
     // evidential basis as the twelve above: WebSearch only, nothing opened,
     // disabled, and in CURRENCY_UNCONFIRMED.
-    expect(RETAILERS).toHaveLength(71);
+    //
+    // Asda, Sainsbury's, Morrisons, Ocado, Savers, B&M, The Range and Home
+    // Bargains added the same day, answering the other half of the same
+    // request — "try find other major UK supermarkets for this as well".
+    // Four grocers and four volume discounters, all disabled, all in
+    // CURRENCY_UNCONFIRMED, all sourced from WebSearch result URLs and
+    // titles with no page opened. What each entry actually records is its
+    // URL shape and whether the brands named in its own search results are
+    // designer bottles or own-label, because that is what separates a real
+    // price source from a shelf of body sprays.
+    //
+    // Three named candidates were checked and deliberately NOT added, which
+    // is a finding rather than an omission:
+    //
+    //   Waitrose  — every fragrance URL returned was home fragrance:
+    //               /candles_and_home_fragrance, /home_fragrance_gifts, and
+    //               a "Luxury Fragrance" page that sits under
+    //               household/laundry_and_detergents/fabric_conditioner. No
+    //               personal designer fragrance range surfaced at all.
+    //   Iceland   — no fragrance, perfume or aftershave page on
+    //               iceland.co.uk or thefoodwarehouse.com appeared in a
+    //               search aimed directly at it. Own-label frozen food
+    //               specialist; the fragrance results were unrelated
+    //               businesses with similar names.
+    //   Aldi      — sells fragrance, but its own Lacura line, described in
+    //               its own results and third-party coverage as alternatives
+    //               to designer scents. A dupe is not the product this site
+    //               compares, and Aldi's non-food is Specialbuys — stock
+    //               that by Aldi's own description is not restocked once
+    //               sold out, which is the opposite of the stable product
+    //               identity a price comparison needs.
+    //
+    // Lidl, Co-op, Wilko and Poundland were named in the same request and
+    // are simply not researched — no search was run against them, and this
+    // note says so rather than implying they were ruled out.
+    expect(RETAILERS).toHaveLength(79);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
