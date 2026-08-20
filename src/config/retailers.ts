@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 62 retailers, 33 of them `enabled: true`. Every one of them is a legitimate
+ * 66 retailers, 33 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -4080,6 +4080,149 @@ export const RETAILERS: readonly Retailer[] = [
     catalogue: null,
     affiliate: { ...NO_AFFILIATE_YET },
   },
+  {
+    id: 'space-nk',
+    name: 'Space NK',
+    domain: 'spacenk.com',
+    homepage: 'https://www.spacenk.com/uk',
+    tiers: ['niche'],
+    // Added 2026-08-20 from WebSearch snippets of spacenk.com/uk/fragrance
+    // alone — no page opened, this sandbox has no egress. Space NK's own
+    // help centre (help.spacenk.com) states in as many words that
+    // "www.spacenk.com is the only genuine and legitimate website for Space
+    // NK" and warns of fraudulent lookalikes — worth recording given how
+    // many near-miss domains turned up for Bloom Perfumery below. Prestige/
+    // niche houses named in results: Byredo, Maison Margiela, Diptyque.
+    // British retailer, founded 1991; acquired by US-based Ulta Beauty in
+    // July 2025 per a Wikipedia snippet — noted because a change of
+    // ownership is exactly the kind of event that can move a storefront's
+    // settlement currency, so this is not assumed to still behave as a
+    // purely-British operation just because the shop itself is.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      // A search snippet describes "free delivery over £25 on their UK
+      // site", marketing copy read secondhand rather than a
+      // shipping:discover run against Space NK's own delivery page, so the
+      // figure is named here and not stored as freeOverGbp.
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from spacenk.com itself: not its delivery terms, not its ' +
+        'robots.txt, not its checkout currency. The £25 free-delivery figure above comes from a ' +
+        'WebSearch result snippet, quoted as far as it goes and no further. No affiliate ' +
+        'programme has been researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'house-of-fraser',
+    name: 'House of Fraser',
+    domain: 'houseoffraser.co.uk',
+    homepage: 'https://www.houseoffraser.co.uk',
+    tiers: ['designer'],
+    // Added 2026-08-20 from WebSearch snippets of
+    // houseoffraser.co.uk/beauty/perfumes alone — no page opened, this
+    // sandbox has no egress. British department-store chain, part of
+    // Frasers Group, 22 UK/Ireland locations per a Wikipedia snippet; the
+    // site itself now brands its pages "FRASERS" in the page titles search
+    // returned, though the domain and the shop name it trades under are
+    // still houseoffraser.co.uk / House of Fraser. Designer houses named
+    // in results: Paco Rabanne, Marc Jacobs, Dolce & Gabbana, Gucci, Calvin
+    // Klein, BOSS.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from houseoffraser.co.uk itself: not its delivery terms, ' +
+        'not its robots.txt, not its checkout currency. No delivery figure of any kind turned ' +
+        'up in the WebSearch snippets read for this entry, so nothing is recorded even as a ' +
+        'marketing-copy caveat. No affiliate programme has been researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'marks-and-spencer',
+    name: 'Marks & Spencer',
+    domain: 'marksandspencer.com',
+    homepage: 'https://www.marksandspencer.com',
+    tiers: ['designer'],
+    // Added 2026-08-20 from WebSearch snippets of
+    // marksandspencer.com/l/beauty/womens-perfume and
+    // marksandspencer.com/l/beauty/discover alone — no page opened, this
+    // sandbox has no egress. Sells its own house fragrance lines (Studio,
+    // Discover, Apothecary — a Grazia piece said Discover sold "over one
+    // million bottles" in the first three months of 2026 alone) alongside
+    // third-party designer brands named in results (Estée Lauder, Clinique,
+    // L'Occitane), so this is multi-brand and no singleBrandOnly is set,
+    // unlike Avon above.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from marksandspencer.com itself: not its delivery terms, ' +
+        'not its robots.txt, not its checkout currency. No delivery figure of any kind turned ' +
+        'up in the WebSearch snippets read for this entry. No affiliate programme has been ' +
+        'researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
+  {
+    id: 'les-senteurs',
+    name: 'Les Senteurs',
+    domain: 'lessenteurs.com',
+    homepage: 'https://www.lessenteurs.com',
+    tiers: ['niche'],
+    // Added 2026-08-20 from WebSearch snippets of
+    // lessenteurs.com/collections/fragrance alone — no page opened, this
+    // sandbox has no egress. Describes itself (per search results) as
+    // "London's oldest independent perfumery"; physical shop at 71
+    // Elizabeth Street, SW1W 9PJ, online at online@lessenteurs.com. Niche
+    // houses named in results: Parfum d'Empire, Thomas de Monaco, Dusita,
+    // Tauer, Papillon, Cloon Keen — an independent specialist rather than a
+    // department store, which is the category the owner's brief asked for
+    // beyond the named retailers.
+    enabled: false,
+    adapter: 'unknown',
+    currency: 'GBP',
+    shipping: {
+      standardGbp: null,
+      // A search snippet describes "free UK delivery on orders over £150",
+      // marketing copy read secondhand rather than a shipping:discover run
+      // against the shop's own delivery page, so the figure is named here
+      // and not stored as freeOverGbp.
+      freeOverGbp: null,
+      estimatedDays: [3, 5],
+      verifiedAt: '2026-08-20',
+      confidence: 'unverified',
+      notes:
+        'Nothing here has been read from lessenteurs.com itself: not its delivery terms, not ' +
+        'its robots.txt, not its checkout currency. The £150 free-delivery figure above comes ' +
+        'from a WebSearch result snippet, quoted as far as it goes and no further. No affiliate ' +
+        'programme has been researched.',
+    },
+    catalogue: null,
+    affiliate: { ...NO_AFFILIATE_YET },
+  },
 ] as const;
 
 /**
@@ -4320,6 +4463,38 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'default and settle GBP only on request (see escentual\'s and fragrancehub\'s own entries ' +
       'above) — a reason for a probe, not for an assumption either way. One positive sterling ' +
       'reading from a currency probe is what would remove this id.',
+  ],
+  [
+    'space-nk',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about spacenk.com comes from WebSearch snippets; its checkout currency has not been ' +
+      "read. Acquired by the US's Ulta Beauty in July 2025 per a Wikipedia snippet — a change " +
+      'of ownership is exactly the kind of event that can move a settlement currency, one more ' +
+      'reason a probe is needed rather than an assumption. One positive sterling reading from a ' +
+      'currency probe is what would remove this id.',
+  ],
+  [
+    'house-of-fraser',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about houseoffraser.co.uk comes from WebSearch snippets; its checkout currency has not ' +
+      'been read. A .co.uk domain is not evidence of sterling pricing on its own — ' +
+      'uk.zimayaperfumes.com quotes dollars. One positive sterling reading from a currency ' +
+      'probe is what would remove this id.',
+  ],
+  [
+    'marks-and-spencer',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about marksandspencer.com comes from WebSearch snippets; its checkout currency has not ' +
+      'been read. A famous UK high-street name is not the same claim as a measured sterling ' +
+      'price list — Nicchia Luxury ran enabled on a less careful version of that same ' +
+      'assumption for three days (see its own entry above). One positive sterling reading from ' +
+      'a currency probe is what would remove this id.',
+  ],
+  [
+    'les-senteurs',
+    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
+      'about lessenteurs.com comes from WebSearch snippets; its checkout currency has not been ' +
+      'read. One positive sterling reading from a currency probe is what would remove this id.',
   ],
 ]);
 

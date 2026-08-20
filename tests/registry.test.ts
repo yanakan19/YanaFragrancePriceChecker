@@ -60,7 +60,12 @@ describe('retailer registry', () => {
     // department stores and niche specialists more broadly). Same basis as
     // FragranceHub: WebSearch snippets only, nothing opened directly, all
     // four disabled and in CURRENCY_UNCONFIRMED.
-    expect(RETAILERS).toHaveLength(62);
+    //
+    // Space NK, House of Fraser, Marks & Spencer and Les Senteurs added the
+    // same day, second batch of the same expansion — two more department
+    // stores and the first independent niche perfumery. Same basis again:
+    // WebSearch only, disabled, in CURRENCY_UNCONFIRMED.
+    expect(RETAILERS).toHaveLength(66);
 
     // And the file's own header has to say the same thing. It said "Nineteen
     // UK retailers" while this assertion said 55 and passed — the number was
