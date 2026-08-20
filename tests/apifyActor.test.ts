@@ -121,8 +121,30 @@ describe('renderPagesViaApifyActor', () => {
       status: 402,
       body: '',
       ok: false,
-      error: 'Apify actor run failed: HTTP 402',
+      // The reason Apify gave, not just the status. This is the most
+      // expensive tier in the pipeline and the one place where "it failed"
+      // without a reason costs money to ask again.
+      error: 'Apify actor run failed: HTTP 402 — {"error":"nope"}',
     });
+  });
+
+  it('reports an error envelope wearing a 2xx rather than calling it zero listings', async () => {
+    mockFetch.mockResolvedValue(jsonResponse({ error: { type: 'actor-not-found' } }));
+    const results = await renderPagesViaApifyActor(config, ['https://shop.example/a']);
+    const res = results.get('https://shop.example/a');
+    expect(res?.ok).toBe(false);
+    expect(res?.error).toContain('actor-not-found');
+  });
+
+  it('does not call a Puppeteer helper that current Puppeteer no longer has', async () => {
+    mockFetch.mockResolvedValue(jsonResponse([]));
+    await renderPagesViaApifyActor(config, ['https://shop.example/a']);
+    const body = JSON.parse(String(mockFetch.mock.calls[0]![1]!.body)) as { pageFunction: string };
+    // Removed in Puppeteer 22. Calling it makes the page function throw, the
+    // actor writes no dataset item, and the caller cannot tell that from a
+    // page that genuinely rendered nothing.
+    expect(body.pageFunction).not.toContain('waitForTimeout');
+    expect(body.pageFunction).toContain('setTimeout');
   });
 
   it('fails every url closed on a network error, without throwing', async () => {
