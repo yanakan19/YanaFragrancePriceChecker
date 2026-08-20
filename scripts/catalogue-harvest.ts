@@ -410,7 +410,9 @@ for (const retailer of shops) {
     console.log(`      ${retailer.name}: every failure was a timeout, retrying once at ${SLOW_SHOP_TIMEOUT_MS / 1000}s`);
     const patientHttp = createHttp({ timeoutMs: SLOW_SHOP_TIMEOUT_MS });
     const patientRobots = (await probeRobots(retailer, patientHttp, BOT_HEADERS, ROBOTS_FALLBACK_HEADERS)).rules;
-    robotsForActor = patientRobots;
+    // Only if it is better than what we already have — see the note on the
+    // proxied assignment below for the bug this shape prevents.
+    if (!patientRobots.unavailable) robotsForActor = patientRobots;
     const retry = await crawlViaSitemap({
       retailer, http: patientHttp, robots: patientRobots, maxPages, gapMs,
       headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat, ...sweep,
@@ -440,7 +442,18 @@ for (const retailer of shops) {
         console.log(`        [proxied] ${a.url}: HTTP ${a.status}${a.error ? ` — ${a.error}` : ''}`);
       }
     }
-    robotsForActor = proxiedRobots;
+    // Adopted only when it actually says something. This used to be an
+    // unconditional assignment, and it cost John Lewis the actor tier
+    // entirely: that shop's robots.txt reads perfectly well from the runner,
+    // the proxy tier then failed (as it fails everywhere — see
+    // apifyAccount.ts), and its `unavailable` result overwrote the good rules
+    // with "we know nothing". The actor block below then found every section
+    // URL disallowed and rendered nothing, reporting "robots.txt unreachable"
+    // about a shop whose robots.txt this very run had already read. Probe run
+    // 10, job 96344415693: "Apify actor pages rendered this run: 0 of 10".
+    // Knowledge must never be lost by a later, failed attempt to re-acquire
+    // it.
+    if (!proxiedRobots.unavailable) robotsForActor = proxiedRobots;
     const retry = await crawlViaSitemap({
       retailer, http: proxiedHttp, robots: proxiedRobots, maxPages, gapMs: 0,
       headers: BROWSER_HEADERS, knownUrls, onProgress: heartbeat,
