@@ -664,6 +664,26 @@ export const RETAILERS: readonly Retailer[] = [
     // parser, one truth" and not one to take quietly inside a retailer entry.
     // Neither is attempted here. What is now established, and was not before,
     // is which of the two questions is actually open.
+    //
+    // ── The hydration-blob hypothesis: attempted twice, answered by neither ──
+    // Selfridges' own entry records the same question checked and ruled out
+    // for its render (no known state-blob marker, only an 18-byte RSC
+    // streaming stub). The same check was attempted here via
+    // scripts/apify-blob-probe.ts, twice, on 2026-08-20: dispatch
+    // 32367872684 (12:15Z) and its retry 32368455831 (12:21Z). Both were
+    // cancelled by hand after 20+ minutes with the actor render step still
+    // in progress and no result — a genuinely different failure shape from
+    // Selfridges' comparably-sized page, which rendered in under 5 minutes
+    // both times it has ever been asked. This is not the documented
+    // "synchronous call can outlast its own timeout" note in
+    // apifyActor.ts's header resolving eventually; both attempts were killed
+    // rather than watched to a conclusion, so "reproducibly slow or stuck"
+    // is as far as this pass can honestly say — not "impossible", and not
+    // "the blob is there", just unanswered within the budget two attempts
+    // bought it. A third attempt with a longer watch, or the async
+    // run-then-poll pattern Apify's own docs recommend for exactly this
+    // shape of run (see apifyActor.ts's header), is the next thing to try,
+    // not a retry of the same synchronous call a third time.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
