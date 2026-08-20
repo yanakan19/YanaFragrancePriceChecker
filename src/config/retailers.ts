@@ -45,9 +45,10 @@ import { brandKey } from '../catalogue/brandName.js';
  * Six programmes are live and monetised (`status: 'active'`): Fragrance Click,
  * MyBeauty.Boutique, Glorious Beauty, The Beauty Store UK and Nicchia Luxury
  * through Awin, Emirates Oud through its own in-house tool. Their links carry
- * tracking; every other entry's resolve to the plain retailer URL. Ten
- * retailers are confirmed Awin merchants; 22 applications are in flight and 25
- * entries have not been researched at all. See `docs/AFFILIATE_SETUP.md` for
+ * tracking; every other entry's resolve to the plain retailer URL. Twelve
+ * retailers are confirmed Awin merchants and one (Selfridges) a confirmed
+ * Partnerize merchant; 21 applications are in flight and 46 entries have not
+ * been researched at all. See `docs/AFFILIATE_SETUP.md` for
  * how to apply, and `npm run affiliate:status` for the current breakdown —
  * that command reads the array, so it is right when this paragraph is not.
  */
@@ -665,25 +666,75 @@ export const RETAILERS: readonly Retailer[] = [
     // Neither is attempted here. What is now established, and was not before,
     // is which of the two questions is actually open.
     //
-    // ── The hydration-blob hypothesis: attempted twice, answered by neither ──
-    // Selfridges' own entry records the same question checked and ruled out
-    // for its render (no known state-blob marker, only an 18-byte RSC
-    // streaming stub). The same check was attempted here via
-    // scripts/apify-blob-probe.ts, twice, on 2026-08-20: dispatch
-    // 32367872684 (12:15Z) and its retry 32368455831 (12:21Z). Both were
-    // cancelled by hand after 20+ minutes with the actor render step still
-    // in progress and no result — a genuinely different failure shape from
-    // Selfridges' comparably-sized page, which rendered in under 5 minutes
-    // both times it has ever been asked. This is not the documented
-    // "synchronous call can outlast its own timeout" note in
-    // apifyActor.ts's header resolving eventually; both attempts were killed
-    // rather than watched to a conclusion, so "reproducibly slow or stuck"
-    // is as far as this pass can honestly say — not "impossible", and not
-    // "the blob is there", just unanswered within the budget two attempts
-    // bought it. A third attempt with a longer watch, or the async
-    // run-then-poll pattern Apify's own docs recommend for exactly this
-    // shape of run (see apifyActor.ts's header), is the next thing to try,
-    // not a retry of the same synchronous call a third time.
+    // ── The hydration-blob hypothesis: answered, and the "stall" above was ──
+    // ── never a stall — corrected 2026-08-20 by reading the raw job logs ────
+    // The two dispatches this entry used to describe as cancelled after
+    // "20+ minutes with no result" (32367872684, 32368455831) were re-read
+    // directly from the GitHub Actions API rather than from a human's
+    // impression of a watched terminal, and neither claim survives that:
+    //
+    //   - Run 32367872684, job 96421371936: the render step ran from
+    //     12:15:32Z to 12:19:19Z — 3m47s total, not 20 minutes — and the
+    //     actor itself answered in under 24s. By 12:15:56Z the log already
+    //     showed the full result:
+    //
+    //         rendered 1,058,463 bytes
+    //         Next.js __NEXT_DATA__: FOUND, 215,243 bytes — price-shaped
+    //             keys: false, name-shaped keys: true, currency key: false
+    //         other application/json script blocks by id:
+    //             __EXPERIMENTATION_CONFIG__, __PAGE_EXPERIENCES_DATA__,
+    //             __EXPERIMENTATION_DATA__, __NEXT_DATA__
+    //
+    //   - Run 32368455831, job 96423240334 (the "retry"): render step ran
+    //     12:22:13Z–12:24:11Z (1m58s), actor answered by 12:22:32Z (19s),
+    //     same finding — __NEXT_DATA__ FOUND, 163,568 bytes this time,
+    //     name-shaped keys true, price-shaped and currency both false.
+    //
+    // So the hydration-blob hypothesis was answered, twice, with the same
+    // positive result, well before either job was cancelled — the opposite
+    // of "answered by neither". What actually happened is a client-side bug,
+    // not an Apify or account-tier limit: src/catalogue/apifyActor.ts's
+    // `runOneActor` races the real fetch against
+    // `new Promise((resolve) => setTimeout(() => resolve('timeout'),
+    // ACTOR_CALL_TIMEOUT_MS + 5_000))` (apifyActor.ts:382) to bound a hung
+    // call. When the real fetch wins the race, as it did here in under 24s,
+    // that losing timer is never cleared — `Promise.race` does not cancel
+    // its losers — so a live setTimeout for up to 285s keeps the Node
+    // process (and the CI step, which has no more log lines to print) alive
+    // long after the useful work is already done and printed. Both runs
+    // here were cancelled by hand inside that dead window (3m47s and 1m58s
+    // in, both under the 285s the leaked timer would have needed to fire on
+    // its own) and read as "stuck" purely because nothing new appeared in
+    // the log — not because retrieval, the actor, or the FREE plan were
+    // slow. Selfridges' own entry records a comparable render finishing "in
+    // under 5 minutes" on two occasions; re-read against this same bug, one
+    // of those (job 96419581995) measured its render step at 12:09:05Z–
+    // 12:13:51Z — 4m46s, i.e. 286 seconds, essentially exactly
+    // ACTOR_CALL_TIMEOUT_MS + 5_000 to the second. That was not a fast,
+    // healthy actor call either; it was the same leaked timer running to
+    // its own natural end because nobody cancelled it first. Recorded here
+    // as a code action, not fixed in this pass — apifyActor.ts is this
+    // project's crawl core and a two-line fix (track and clearTimeout the
+    // second promise's timer, or replace the manual race with
+    // `AbortSignal.timeout`) belongs to whoever next touches that file, not
+    // to a change buried inside a retailer entry.
+    //
+    // What this leaves for extraction: `__NEXT_DATA__` is present on this
+    // shop's rendered category pages, twice confirmed, in the 160–220 kB
+    // range, and its own regex-based key scan (deliberately crude — see
+    // scripts/apify-blob-probe.ts's redaction rules) reads name-shaped keys
+    // as present and both price-shaped and currency keys as absent. That is
+    // consistent with a props payload built for the page chrome (product
+    // names, breadcrumbs, experimentation flags — note the sibling
+    // `__EXPERIMENTATION_DATA__`/`__PAGE_EXPERIENCES_DATA__` blocks) rather
+    // than one carrying this shop's own priced catalogue, but a heuristic
+    // key-name scan saying "no price key" is not the same claim as a human
+    // reading the actual JSON structure once retrieved without being
+    // cancelled mid-flight. That reading — is there a priced product array
+    // nested inside `__NEXT_DATA__.props.pageProps` or similar, the way
+    // Next.js apps commonly shape it — is the concrete next step, and it
+    // needs the timer bug fixed first so the run is not mistaken for a
+    // hang and killed before anyone gets to look.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -704,6 +755,32 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 50, minRequestGapMs: 2500,
     },
+    // ── Affiliate, researched 2026-08-20 — no confirmed programme found ────
+    // WebSearch (this sandbox has no fetch access to ui.awin.com,
+    // rakutenadvertising.com or johnlewis.com itself — every one of those
+    // returned EGRESS_BLOCKED from WebFetch here) turned up nothing that
+    // clears this project's own "never guess a network" bar. What exists:
+    // several low-quality affiliate-aggregator listings (VigLink/Sovrn
+    // Commerce, Skimlinks) carry a "John Lewis & Partners Affiliate
+    // Program" page, and separate search summaries asserted, inconsistently
+    // across queries, that the underlying network is Awin, Impact and CJ —
+    // three different answers for the same shop, none traceable to a
+    // primary source (an actual ui.awin.com merchant profile, a Rakuten or
+    // CJ programme page, or johnlewis.com's own affiliate page). Sovrn
+    // Commerce and Skimlinks are themselves not primary affiliate networks
+    // in the Awin/Rakuten/CJ sense — they auto-monetise outbound links
+    // across many merchants under their own umbrella deals rather than
+    // offering a per-merchant product feed, and that shape of tool commonly
+    // excludes exactly this site's use case (comparison/aggregation) in its
+    // own terms, the same issue Superdrug's own entry already flags for a
+    // named network. Recorded as unresearched rather than attached to any
+    // of the three guesses. The concrete owner action: search "John Lewis"
+    // from inside the Awin dashboard the Boots/LOOKFANTASTIC/Superdrug
+    // entries above already draw on (this sandbox cannot reach
+    // ui.awin.com to do that search itself), and from the Rakuten
+    // Advertising publisher search once that pending signup clears — both
+    // are a few minutes' work for a logged-in human and neither is
+    // guessable from here.
     affiliate: { ...NO_AFFILIATE_YET },
   },
   {
@@ -893,25 +970,50 @@ export const RETAILERS: readonly Retailer[] = [
     // refusal survives a residential IP alone. Neither has run for real —
     // no Apify credential exists in this environment.
     //
-    // ── The actor route, attempted 2026-08-20, third stall of four ──────────
+    // ── The actor route, attempted 2026-08-20 — corrected the same day ──────
     // Dispatched scripts/apify-blob-probe.ts against this shop's own
     // catalogue.sections[0] (the "fragrance" section) — first-ever actor
-    // attempt against this shop, now that APIFY_TOKEN is live. Run
-    // 32368997004, 2026-08-20T12:28Z: the actor render step sat in progress
-    // for 12+ minutes with no result and was cancelled by hand.
+    // attempt against this shop, now that APIFY_TOKEN is live. This entry
+    // used to say the render step "sat in progress for 12+ minutes with no
+    // result and was cancelled by hand" and read it as a third stall of
+    // four. Reading job 96424955880's own log directly (GitHub Actions API,
+    // not a human's impression of a watched terminal) shows something
+    // different: the render succeeded in 27 seconds and the job was
+    // cancelled 40 seconds after the step started, with the result already
+    // printed —
     //
-    // Third stall of four shops attempted this pass (Selfridges succeeded in
-    // under 5 minutes; John Lewis stalled twice; Zara stalled once) — see
-    // John Lewis's own entry for the fuller reasoning. Worth stating
-    // plainly given the count: three of four dispatches through this tier
-    // today never returned within a reasonable watch window, which reads
-    // less like a per-shop quirk and more like a property of the actor tier
-    // itself under this account's current plan (FREE, per checkApifyAccount
-    // — see apifyAccount.ts and the Boots entry's own measurement of that).
-    // Not established as a plan limit, just the pattern this pass's four
-    // data points show. Retrieval, extraction and the proxy/IP-block
-    // question above all remain exactly as unproven for this shop as before
-    // this pass.
+    //     Rendering Superdrug: https://www.superdrug.com/fragrance/c/fragrance?page=1
+    //     rendered 1,092,576 bytes
+    //     Next.js __NEXT_DATA__: not found      Nuxt __NUXT__: not found
+    //     generic __PRELOADED_STATE__: not found  generic __INITIAL_STATE__: not found
+    //     Apollo __APOLLO_STATE__: not found    React Server Components self.__next_f: not found
+    //     other application/json script blocks by id: spartacus-app-state
+    //     ##[error]The operation was canceled.
+    //
+    // Retrieval works and is fast — a real, 1.09 MB rendered fragrance grid,
+    // same shape as every other Class-1 shop's actor render this file
+    // records. There was a result; it was just never read, because the run
+    // was cancelled inside the dead window a leaked timer in
+    // apifyActor.ts's `runOneActor` produces on every call whose fetch wins
+    // its own race (see John Lewis's entry for the mechanism and the fix
+    // this implies). "Property of the actor tier" was the wrong read on the
+    // pattern — it was a property of this project's own client code, now
+    // named rather than blamed on Apify or the FREE plan.
+    //
+    // What the corrected result actually gives: none of the five generic
+    // hydration-blob markers this probe knows, but a named block —
+    // `spartacus-app-state` — that none of them are. Spartacus is SAP
+    // Commerce Cloud's own storefront framework, and this shop's URL shape
+    // (`/fragrance/c/fragrance`, a `/c/{code}` category path) is the
+    // classic SAP Commerce Cloud / Hybris pattern, so the name is a
+    // plausible fit rather than a coincidence — genuinely unexplored,
+    // because the run that found it was mistaken for a failure and its
+    // output never read until this correction. Whether `spartacus-app-state`
+    // carries this shop's actual priced catalogue (Spartacus state trees
+    // commonly do hold product/cart data client-side) is the concrete next
+    // step, not yet attempted: dump that block's structure — redacted, the
+    // same way every other marker here already is — once the timer bug no
+    // longer makes a 27-second answer look like a hang.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -1026,6 +1128,22 @@ export const RETAILERS: readonly Retailer[] = [
     // parsing RSC's streaming format specifically, not adding one more
     // known-marker case to a generic blob scanner. Recorded as a measured
     // negative, not an unexplored option.
+    //
+    // ── A correction to "under 5 minutes both times", 2026-08-20 ────────────
+    // John Lewis's own entry above documents a client-side bug found by
+    // reading this shop's job logs directly through the GitHub API: this
+    // probe's render step (job 96419581995) measured 12:09:05Z–12:13:51Z,
+    // 286 seconds — essentially exactly apifyActor.ts's leaked
+    // `ACTOR_CALL_TIMEOUT_MS + 5_000` (285s) timer, not a healthy actor call
+    // finishing promptly. The actual render+scan almost certainly completed
+    // in the same ~20–30s every other shop's version of this probe has
+    // shown; this run simply was not cancelled early, so it ran out its
+    // full dead window before the process could exit. "Retrieval works and
+    // is fast" still stands — the render itself succeeds — but "in under 5
+    // minutes" should be read as "the whole step took under 5 minutes
+    // because of a timer leak", not as a measurement of how long this shop
+    // actually takes to render. See John Lewis's entry for the fix this
+    // implies (apifyActor.ts's runOneActor, not touched in this pass).
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -1050,7 +1168,56 @@ export const RETAILERS: readonly Retailer[] = [
       ],
       firstPage: 1, maxPages: 50, minRequestGapMs: 2500,
     },
-    affiliate: { ...NO_AFFILIATE_YET },
+    // ── Affiliate, researched 2026-08-20 — not Awin, not Rakuten ────────────
+    // PerformanceIN (industry trade press, 18 May 2022, "Selfridges Chooses
+    // Partnerize to Consolidate Its Global Affiliate Programme") reports
+    // Selfridges moved its affiliate programme onto Partnerize and
+    // explicitly retired its legacy Awin and Rakuten programmes as part of
+    // that move — corroborated independently by a third-party affiliate
+    // directory listing ("Selfridges Affiliate Program | Partnerize")
+    // describing live programme terms: no PPC bidding on Selfridges' own
+    // brand terms, only valid voucher codes may be promoted, email
+    // marketing needs prior approval, and sub-affiliate networks must be
+    // disclosed. Neither source states whether price-comparison sites are
+    // accepted — unlike Superdrug's entry, which has that answer in
+    // writing, this one does not, and it should be treated as an open
+    // question to ask during application rather than assumed either way.
+    //
+    // This matters for sequencing: the owner's Awin and Rakuten publisher
+    // applications already in progress will not reach this merchant even
+    // once approved, because (per this 2022 report) Selfridges is not
+    // listed on either marketplace — Partnerize is a separate account, its
+    // own signup, with its own brand-by-brand application inside it. That
+    // is four years old as a data point and was not re-confirmed live from
+    // this sandbox (selfridges.com and every Selfridges-affiliate page
+    // WebFetch was pointed at returned EGRESS_BLOCKED here) — worth a
+    // one-message check ("does Selfridges still run its programme on
+    // Partnerize?") before the owner spends time on a second network
+    // signup, rather than assumed current four years on.
+    //
+    // No merchant ID: Partnerize does not publish a public per-merchant
+    // profile URL the way Awin's `ui.awin.com/merchant-profile/{id}` does,
+    // so there is nothing to cite in `publisherId`'s place — left null
+    // rather than invented. `deeplinkTemplate` is null for the same reason:
+    // Partnerize's own link shape was not found from a primary source in
+    // this pass, so nothing is guessed here either.
+    affiliate: {
+      network: 'partnerize',
+      verified: true,
+      status: 'not-applied',
+      publisherId: null,
+      deeplinkTemplate: null,
+      querySuffixTemplate: null,
+      signupUrl: 'https://partnerize.com/partners',
+      notes:
+        'Sourced from PerformanceIN, 18 May 2022: Selfridges consolidated its affiliate ' +
+        'programme onto Partnerize, retiring Awin and Rakuten. Not the same network as the ' +
+        "owner's pending Awin/Rakuten applications — this needs its own Partnerize publisher " +
+        'signup, then a separate application to the Selfridges programme inside it. Whether ' +
+        'PriceSniffs (a comparison site) is accepted is unconfirmed either way; ask during ' +
+        'application. Four-year-old sourcing, not re-verified live from this sandbox — worth ' +
+        "re-checking Selfridges' own affiliate page before the owner spends time on the signup.",
+    },
   },
   {
     id: 'harvey-nichols',
@@ -2665,21 +2832,41 @@ export const RETAILERS: readonly Retailer[] = [
     // probe can see, not a finding that Zara's published GBP price is
     // wrong.
     //
-    // ── The actor route, attempted 2026-08-20, and stalled the same way as
-    //    John Lewis ─────────────────────────────────────────────────────────
+    // ── The actor route, attempted 2026-08-20 — corrected the same day ──────
     // APIFY_TOKEN is live now, so this shop's own catalogue.sections[0] was
     // dispatched through scripts/apify-blob-probe.ts to test both retrieval
-    // and the hydration-blob extraction hypothesis at once. Run 32368679808,
-    // 2026-08-20T12:24Z: the actor render step sat in progress for 14+
-    // minutes with no result and was cancelled by hand. Selfridges' own
-    // comparably-scoped render finished in under 5 minutes both times it has
-    // run; this is the second shop today (after John Lewis) to stall this
-    // way rather than answer either question. Recorded as measured
-    // "reproducibly slow or stuck for this shop's render", not "unproven"
-    // and not "impossible" — see John Lewis's own entry for the fuller
-    // reasoning this shares. Retrieval, extraction and currency all remain
-    // exactly as unproven for this shop as before this pass; nothing here
-    // moved any of them forward or back.
+    // and the hydration-blob extraction hypothesis at once. This entry used
+    // to describe run 32368679808 as sitting "in progress for 14+ minutes
+    // with no result" and read it as a stall shared with John Lewis. Job
+    // 96423941633's own log, read directly via the GitHub Actions API,
+    // shows the render answered in 23 seconds and the job was cancelled
+    // 2m04s after the step started — well inside, not past, a reasonable
+    // watch window:
+    //
+    //     Rendering Zara: https://www.zara.com/uk/en/woman-beauty-perfumes-l1415.html?page=1
+    //     rendered 2,924,033 bytes
+    //     Next.js __NEXT_DATA__: not found   Nuxt __NUXT__: not found
+    //     generic __PRELOADED_STATE__: not found  generic __INITIAL_STATE__: not found
+    //     Apollo __APOLLO_STATE__: not found  React Server Components self.__next_f: not found
+    //     No known hydration-blob marker found in this page.
+    //     ##[error]The operation was canceled.
+    //
+    // So both questions this run was meant to answer are in fact answered,
+    // not stalled: retrieval works (2.92 MB rendered, the largest of this
+    // pass's four renders) and none of the six known hydration-blob markers
+    // are present — a genuine negative, not a timeout. The "stall" was the
+    // same client-side artifact John Lewis's and Superdrug's entries now
+    // document: apifyActor.ts's `runOneActor` leaves an uncleared setTimeout
+    // running for up to 285s after a fetch that wins its own race, which
+    // keeps the CI step showing no new output long after the real answer is
+    // already in the log, and this run was cancelled by hand inside that
+    // dead window rather than left to exit on its own. "FREE plan" and
+    // "actor tier" were the wrong things to blame; see John Lewis's entry
+    // for the mechanism. Retrieval is now proven for this shop; extraction
+    // remains open exactly as before, since a plain JSON-LD parser and every
+    // known hydration-blob marker both come up empty, and this render's own
+    // markup would need a shop-specific extractor to go further — not
+    // pursued here.
     enabled: true,
     adapter: 'headless',
     currency: 'GBP',
