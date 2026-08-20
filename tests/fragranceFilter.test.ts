@@ -100,7 +100,11 @@ describe('isFragrance: fragranceOnlyCatalogue shops', () => {
 describe('fragranceOnlyCatalogue is opt-in and deliberately narrow', () => {
   it('is set on exactly the shops a human has vouched for', () => {
     const flagged = RETAILERS.filter((r) => r.fragranceOnlyCatalogue).map((r) => r.id).sort();
-    expect(flagged).toEqual(['escentric-molecules']);
+    // Zimaya joined on the same evidence Escentric Molecules did, and only
+    // after its whole harvested catalogue was read title by title: 84
+    // listings, every one a fine fragrance, none naming a concentration. See
+    // its entry in src/config/retailers.ts.
+    expect(flagged).toEqual(['escentric-molecules', 'zimaya']);
   });
 
   // The trap this guards. LUSH and Bath & Body Works are also single-brand,

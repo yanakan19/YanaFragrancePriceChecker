@@ -2070,6 +2070,34 @@ export const RETAILERS: readonly Retailer[] = [
     // not a reason to keep the shop off the site: an unstated cost renders as
     // "delivery not stated" and can never be shown as cheapest (see
     // tests/registry.test.ts's `unstated` list), it is simply never invented.
+    // ── Harvested 84, published 0, and why that is now 50 ────────────────────
+    // Run 261 (job 96314578076, 2026-08-20T04:29Z) stored 84 real, in-stock,
+    // sterling-priced listings from this shop and the site showed none of
+    // them. `isFragrance` requires a size before it will treat a listing as a
+    // comparable bottle, and Zimaya titles its products with the name alone:
+    // "Ghali Imperial", "Ode to Rose Royale", "Rabab Gems". Not one of the 84
+    // titles carried a size.
+    //
+    // Two separate things were in the way and both are answered here.
+    //
+    // 1. The size. 50 of the 84 state it in the product URL Zimaya itself
+    //    publishes — /products/al-kaser-100ml, /products/itqan-gold-edp-100ml
+    //    — which is the retailer stating the size, in a field this repo
+    //    already holds, in a place nothing was reading. scripts/catalogue-
+    //    harvest.ts now reads it (src/catalogue/sizeFromUrl.ts). The other 34
+    //    state it nowhere and stay out: this recovers a stated size, it never
+    //    invents one, so this shop reaches the site with 50 bottles, not 84.
+    //
+    // 2. The concentration word. Zimaya names nothing "eau de parfum" either,
+    //    so the general test would still have rejected all 84. Checked title
+    //    by title against the harvested snapshot before setting the flag
+    //    below: all 84 are fine fragrances — no body spray, no deodorant, no
+    //    bath or body line of any kind, which is exactly the trap
+    //    fragranceOnlyCatalogue's own doc comment warns about with LUSH and
+    //    Bath & Body Works. This is the Escentric Molecules case again: a
+    //    single house naming its products after itself rather than after a
+    //    concentration.
+    fragranceOnlyCatalogue: true,
     enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
