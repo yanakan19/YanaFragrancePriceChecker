@@ -16,6 +16,8 @@ const {
   renderPagesViaApifyActor,
   apifyActorRenderer,
   MAX_ACTOR_PAGES_PER_RUN,
+  FALLBACK_ACTOR_ID,
+  ACTOR_APPROVAL_REFUSAL,
 } = await import('../src/catalogue/apifyActor.js');
 
 function jsonResponse(body: unknown, status = 200): Response {
@@ -29,7 +31,12 @@ describe('apifyActorConfigFromEnv', () => {
 
   it('reads the token and defaults country and actor', () => {
     const config = apifyActorConfigFromEnv({ APIFY_TOKEN: 'tok123' });
-    expect(config).toEqual({ token: 'tok123', country: 'GB', actorId: 'apify~puppeteer-scraper' });
+    expect(config).toEqual({
+      token: 'tok123',
+      country: 'GB',
+      actorId: 'apify~puppeteer-scraper',
+      fallbackActorId: FALLBACK_ACTOR_ID,
+    });
   });
 
   it('falls back to the proxy country before the GB default', () => {
@@ -46,11 +53,14 @@ describe('apifyActorConfigFromEnv', () => {
     });
     expect(config?.country).toBe('GB');
     expect(config?.actorId).toBe('someoneelse~scraper');
+    // An explicitly named actor is honoured as named. Quietly running a
+    // different one than the one asked for would be worse than failing.
+    expect(config?.fallbackActorId).toBeNull();
   });
 });
 
 describe('renderPagesViaApifyActor', () => {
-  const config = { token: 'tok123', country: 'GB', actorId: 'apify~puppeteer-scraper' };
+  const config = { token: 'tok123', country: 'GB', actorId: 'apify~puppeteer-scraper', fallbackActorId: null };
 
   beforeEach(() => {
     mockFetch.mockReset();
@@ -170,7 +180,7 @@ describe('renderPagesViaApifyActor', () => {
 });
 
 describe('apifyActorRenderer running total', () => {
-  const config = { token: 'tok123', country: 'GB', actorId: 'apify~puppeteer-scraper' };
+  const config = { token: 'tok123', country: 'GB', actorId: 'apify~puppeteer-scraper', fallbackActorId: null };
 
   beforeEach(() => {
     mockFetch.mockReset();
@@ -206,5 +216,84 @@ describe('apifyActorRenderer running total', () => {
 
   it('defaults to the module wide cap', () => {
     expect(MAX_ACTOR_PAGES_PER_RUN).toBe(10);
+  });
+});
+
+/**
+ * The wall the first real actor run hit: apify/puppeteer-scraper takes a
+ * pageFunction, so Apify classes it as needing full account access and
+ * refuses to start it until a human approves it once in the console. Probe
+ * run 11, job 96345230824.
+ */
+describe('the approval refusal, and the actor that takes no user code', () => {
+  beforeEach(() => {
+    mockFetch.mockReset();
+  });
+
+  const withFallback = {
+    token: 'tok123',
+    country: 'GB',
+    actorId: 'apify~puppeteer-scraper',
+    fallbackActorId: FALLBACK_ACTOR_ID,
+  };
+
+  const refusal = () =>
+    new Response(JSON.stringify({ error: { type: ACTOR_APPROVAL_REFUSAL, message: 'approve it' } }), {
+      status: 403,
+    });
+
+  it('tries the code-free actor when the first one is refused for approval', async () => {
+    mockFetch
+      .mockResolvedValueOnce(refusal())
+      .mockResolvedValueOnce(jsonResponse([{ url: 'https://shop.example/a', html: '<html>a</html>' }]));
+
+    const results = await renderPagesViaApifyActor(withFallback, ['https://shop.example/a']);
+
+    expect(mockFetch).toHaveBeenCalledTimes(2);
+    expect(String(mockFetch.mock.calls[1]![0])).toContain(FALLBACK_ACTOR_ID);
+    expect(results.get('https://shop.example/a')?.ok).toBe(true);
+  });
+
+  it('does not try a second actor for any other failure, which would fail the same way twice', async () => {
+    mockFetch.mockResolvedValue(jsonResponse({ error: { type: 'rate-limit-exceeded' } }, 429));
+    await renderPagesViaApifyActor(withFallback, ['https://shop.example/a']);
+    expect(mockFetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not try a second actor when the first one worked', async () => {
+    mockFetch.mockResolvedValue(jsonResponse([{ url: 'https://shop.example/a', html: '<html>a</html>' }]));
+    await renderPagesViaApifyActor(withFallback, ['https://shop.example/a']);
+    expect(mockFetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('reports the approval refusal when the fallback is refused too, so the owner sees what to click', async () => {
+    // A fresh Response per call: a body can only be read once.
+    mockFetch.mockImplementation(async () => refusal());
+    const results = await renderPagesViaApifyActor(withFallback, ['https://shop.example/a']);
+    expect(mockFetch).toHaveBeenCalledTimes(2);
+    expect(results.get('https://shop.example/a')?.error).toContain(ACTOR_APPROVAL_REFUSAL);
+  });
+
+  it('asks the code-free actor for raw HTML, not the readable prose it defaults to', async () => {
+    mockFetch
+      .mockResolvedValueOnce(refusal())
+      .mockResolvedValueOnce(jsonResponse([]));
+    await renderPagesViaApifyActor(withFallback, ['https://shop.example/a']);
+
+    const body = JSON.parse(String(mockFetch.mock.calls[1]![1]!.body)) as Record<string, unknown>;
+    expect(body.saveHtml).toBe(true);
+    // Both of these default to stripping the page to prose, which deletes
+    // every <script type="application/ld+json"> — the only thing being
+    // looked for.
+    expect(body.htmlTransformer).toBe('none');
+    expect(body.removeElementsCssSelector).toBe('');
+    // Page one of each section and no further.
+    expect(body.maxCrawlDepth).toBe(0);
+    expect(body.crawlerType).toBe('playwright:chrome');
+    expect(body.proxyConfiguration).toEqual({
+      useApifyProxy: true,
+      apifyProxyGroups: ['RESIDENTIAL'],
+      apifyProxyCountry: 'GB',
+    });
   });
 });

@@ -89,18 +89,62 @@ export interface ApifyActorConfig {
   country: string;
   /** Actor to run, in `owner~name` form (the shape the Apify API path needs). */
   actorId: string;
+  /**
+   * Actor to try when the first one is refused for a reason a different actor
+   * could avoid — see `ACTOR_APPROVAL_REFUSAL` and `FALLBACK_ACTOR_ID`.
+   * Null disables the fallback entirely.
+   */
+  fallbackActorId: string | null;
 }
+
+/**
+ * ── The wall the first real actor run hit ────────────────────────────────────
+ * Harvest probe run 11, job 96345230824, 2026-08-20T07:11Z — the first time
+ * this module ever reached Apify with a live token:
+ *
+ *     Apify actor run failed: HTTP 403 — { "error": {
+ *       "type": "full-permission-actor-not-approved",
+ *       "message": "This Actor requires full access to your account. You must
+ *        approve its permissions before running it:
+ *        https://console.apify.com/actors/YJCnS9qogi9XxDgLB?approvePermissions=true" } }
+ *
+ * That is not a bug and not a plan limit. `apify/puppeteer-scraper` takes a
+ * `pageFunction` — arbitrary JavaScript that Apify then runs — so Apify
+ * classes it as needing full account access and will not start it until the
+ * account owner approves it once, by hand, in the console. Every
+ * pageFunction-shaped actor (`web-scraper`, `cheerio-scraper`, this one) is in
+ * the same category for the same reason. No code change can grant that
+ * approval, and none should try to.
+ *
+ * So the fallback below is an actor that takes no user code at all.
+ * `apify/website-content-crawler` renders with a real browser and hands back
+ * the page, configured entirely through declared input fields. Whether it is
+ * exempt from the approval gate is a question only a live run answers, which
+ * is exactly why it is a fallback and not a replacement: if it is exempt, the
+ * actor tier works today; if it is not, the run says so with the same clear
+ * error and the owner's single click on the URL above fixes the primary route.
+ */
+export const ACTOR_APPROVAL_REFUSAL = 'full-permission-actor-not-approved';
+
+/** Runs a real browser, takes no user-supplied code. */
+export const FALLBACK_ACTOR_ID = 'apify~website-content-crawler';
 
 export function apifyActorConfigFromEnv(env: NodeJS.ProcessEnv = process.env): ApifyActorConfig | null {
   const token = env.APIFY_TOKEN;
   if (!token) return null;
+  const actorId = env.APIFY_ACTOR_ID ?? 'apify~puppeteer-scraper';
   return {
     token,
     // Falls back to the proxy's own country variable before the GB default,
     // so a run that has already set APIFY_PROXY_COUNTRY for the proxy route
     // does not have to state the same UK intent twice.
     country: env.APIFY_ACTOR_COUNTRY ?? env.APIFY_PROXY_COUNTRY ?? 'GB',
-    actorId: env.APIFY_ACTOR_ID ?? 'apify~puppeteer-scraper',
+    actorId,
+    // An explicitly chosen actor is honoured as chosen: someone naming
+    // APIFY_ACTOR_ID has made a decision, and silently running a different
+    // actor than the one they named would be worse than failing.
+    fallbackActorId:
+      env.APIFY_ACTOR_ID || actorId === FALLBACK_ACTOR_ID ? null : FALLBACK_ACTOR_ID,
   };
 }
 
@@ -168,26 +212,88 @@ export async function renderPagesViaApifyActor(
     });
   }
 
-  const endpoint =
-    `https://api.apify.com/v2/acts/${config.actorId}/run-sync-get-dataset-items` +
-    `?token=${encodeURIComponent(config.token)}`;
+  const attempts: string[] = [config.actorId];
+  if (config.fallbackActorId) attempts.push(config.fallbackActorId);
 
-  const body = {
-    startUrls: capped.map((url) => ({ url })),
+  let last: Map<string, HttpResponse> | null = null;
+  for (const actorId of attempts) {
+    const attempt = await runOneActor(config, actorId, capped);
+    if ([...attempt.values()].some((r) => r.ok)) {
+      for (const [url, res] of attempt) results.set(url, res);
+      return results;
+    }
+    last = attempt;
+    // Only an approval refusal is worth asking a different actor about. Any
+    // other failure — a bad proxy group, a page that rendered empty, a
+    // timeout — would fail the same way twice and would cost twice as much to
+    // find that out.
+    const refusedForApproval = [...attempt.values()].some((r) => r.error?.includes(ACTOR_APPROVAL_REFUSAL));
+    if (!refusedForApproval) break;
+  }
+
+  for (const [url, res] of last ?? []) results.set(url, res);
+  return results;
+}
+
+/** The input each actor's own schema expects. See ACTOR_APPROVAL_REFUSAL for why there are two. */
+function actorInput(config: ApifyActorConfig, actorId: string, urls: string[]): Record<string, unknown> {
+  const proxyConfiguration = {
+    useApifyProxy: true,
+    apifyProxyGroups: ['RESIDENTIAL'],
+    apifyProxyCountry: config.country,
+  };
+
+  if (actorId === FALLBACK_ACTOR_ID) {
+    return {
+      startUrls: urls.map((url) => ({ url })),
+      proxyConfiguration,
+      // A real browser, which is the entire reason this tier exists.
+      crawlerType: 'playwright:chrome',
+      // Page one of each section and no further: this actor follows links by
+      // default, and a crawl that wandered would spend the whole budget in one
+      // shop's navigation.
+      maxCrawlDepth: 0,
+      maxCrawlPages: urls.length,
+      maxConcurrency: 1,
+      // The raw HTML is the only field this project wants; `text` and
+      // `markdown` are this actor's usual output and are useless to a JSON-LD
+      // parser.
+      saveHtml: true,
+      saveMarkdown: false,
+      // Both of these default to stripping the page down to readable prose —
+      // which deletes every <script type="application/ld+json"> on it, i.e.
+      // precisely and only the thing being looked for.
+      htmlTransformer: 'none',
+      removeElementsCssSelector: '',
+    };
+  }
+
+  return {
+    startUrls: urls.map((url) => ({ url })),
     pageFunction: PAGE_FUNCTION_SOURCE,
-    proxyConfiguration: {
-      useApifyProxy: true,
-      apifyProxyGroups: ['RESIDENTIAL'],
-      apifyProxyCountry: config.country,
-    },
+    proxyConfiguration,
     headless: true,
     maxRequestRetries: 1,
-    maxPagesPerCrawl: capped.length,
+    maxPagesPerCrawl: urls.length,
     // Sequential rather than the actor's own default concurrency: predictable
     // cost, and no reason to hit a shop with several requests at once when a
     // free crawl of the same shop already runs at a polite, deliberate gap.
     maxConcurrency: 1,
   };
+}
+
+async function runOneActor(
+  config: ApifyActorConfig,
+  actorId: string,
+  capped: string[],
+): Promise<Map<string, HttpResponse>> {
+  const results = new Map<string, HttpResponse>();
+
+  const endpoint =
+    `https://api.apify.com/v2/acts/${actorId}/run-sync-get-dataset-items` +
+    `?token=${encodeURIComponent(config.token)}`;
+
+  const body = actorInput(config, actorId, capped);
 
   const controller = new AbortController();
   // Comfortably inside the synchronous endpoint's own 300s ceiling — see this

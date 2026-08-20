@@ -874,10 +874,48 @@ export const RETAILERS: readonly Retailer[] = [
     // Nichols has never shown. The route itself (browser-render strategy /
     // Apify actor tier) is already wired generically in
     // scripts/catalogue-harvest.ts against the section below — nothing
-    // shop-specific needed beyond this comment. Unproven against this shop
-    // specifically: no Apify credential exists in this environment, so
-    // nothing here has run for real. The owner adding APIFY_TOKEN is what
-    // turns this from a design into a measurement.
+    // shop-specific needed beyond this comment.
+    //
+    // ── Measured, 2026-08-20, with APIFY_TOKEN live for the first time ──────
+    // The paragraph above ends "the owner adding APIFY_TOKEN is what turns
+    // this from a design into a measurement". It has been added, and the
+    // measurement contradicts the design's premise.
+    //
+    // Harvest probe run 2, job 96342150229, and run 7, job 96343392189:
+    //
+    //     https://www.harveynichols.com/robots.txt: HTTP 503   (bot UA)
+    //     https://harveynichols.com/robots.txt:     HTTP 503   (bot UA)
+    //     https://www.harveynichols.com/robots.txt: HTTP 503   (browser UA)
+    //     https://harveynichols.com/robots.txt:     HTTP 503   (browser UA)
+    //
+    // Four attempts, two hostnames, two user-agents, all inside one second.
+    // This shop is not serving a script-rendered page to us any more; it is
+    // not serving us anything. That is a change since 2026-08-10, when
+    // data/strategy-memory.json recorded HTTP 200 on four separate strategies
+    // against it — so the "200 with an empty grid" story above was true and
+    // is now out of date. The current failure is an IP-level refusal of the
+    // network the runner sits on, which is exactly the shape this file calls
+    // 'proxied' elsewhere, not 'headless'. `adapter` is left as 'headless'
+    // only because that remains untested: nothing has yet got past the
+    // refusal to find out what the page contains.
+    //
+    // Both metered tiers were tried and neither could get past it either:
+    //
+    //   - The Apify proxy fails at every shop, not just this one, with
+    //     "TypeError: fetch failed (Error: Request was cancelled.)" on every
+    //     request. See src/catalogue/apifyAccount.ts.
+    //   - The Apify actor is refused before it starts. Run 11, job
+    //     96345230824: HTTP 403 `full-permission-actor-not-approved` —
+    //     "This Actor requires full access to your account. You must approve
+    //     its permissions before running it." apify/puppeteer-scraper takes a
+    //     pageFunction, so Apify will not run it until the account owner
+    //     approves it once, by hand, in the console. That is an owner action;
+    //     no code change can grant it.
+    //
+    // So this shop is not yet shown to be gettable OR ungettable. What is
+    // established is that every route currently available to this project
+    // fails before reaching its markup, and which single click would let the
+    // most promising one be tried at all.
     adapter: 'headless',
     currency: 'GBP',
     shipping: {
