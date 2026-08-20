@@ -4,6 +4,8 @@ import {
   readRobotsResponse,
   resolveRobotsReadings,
   loadRobotsResilient,
+  probeRobots,
+  robotsHeaderVariants,
 } from '../src/catalogue/robotsSource.js';
 import { isAllowed } from '../src/catalogue/robots.js';
 import type { HttpResponse } from '../src/catalogue/attempt.js';
@@ -155,5 +157,85 @@ describe('loadRobotsResilient', () => {
     };
     const rules = await loadRobotsResilient({ domain: 'boom.test', homepage: 'https://boom.test' }, http, {});
     expect(rules.unavailable).toBe(true);
+  });
+});
+
+/**
+ * The Harvey Nichols case: both addresses answer 503 to `pricesniffsbot`,
+ * instantly, from a CDN edge — a bot wall's fixed answer, not an origin under
+ * load. Asking the same public file the way a browser would is what makes it
+ * possible to obey the policy the file states.
+ */
+describe('probeRobots with a fallback header set', () => {
+  const BOT = { 'user-agent': 'pricesniffsbot' };
+  const BROWSER = { 'user-agent': 'Mozilla/5.0' };
+
+  it('asks a second way only when the first way got nothing usable', async () => {
+    const asked: Array<[string, string]> = [];
+    const http = async (url: string, headers: Record<string, string>) => {
+      asked.push([url, headers['user-agent']!]);
+      if (headers['user-agent'] === 'pricesniffsbot') return res({ status: 503 });
+      return res({ ok: true, status: 200, body: 'User-agent: *\nDisallow: /checkout' });
+    };
+
+    const probe = await probeRobots(
+      { domain: 'harveynichols.com', homepage: 'https://www.harveynichols.com' },
+      http,
+      BOT,
+      [BROWSER],
+    );
+
+    expect(asked).toEqual([
+      ['https://www.harveynichols.com/robots.txt', 'pricesniffsbot'],
+      ['https://www.harveynichols.com/robots.txt', 'Mozilla/5.0'],
+    ]);
+    expect(probe.rules.unavailable).toBe(false);
+    // Obeyed, not bypassed.
+    expect(isAllowed(probe.rules, 'https://www.harveynichols.com/checkout')).toBe(false);
+    expect(isAllowed(probe.rules, 'https://www.harveynichols.com/beauty/fragrance/')).toBe(true);
+  });
+
+  it('still stops dead when the file it finally reads forbids everything', async () => {
+    const http = async (_url: string, headers: Record<string, string>) =>
+      headers['user-agent'] === 'pricesniffsbot'
+        ? res({ status: 503 })
+        : res({ ok: true, status: 200, body: 'User-agent: *\nDisallow: /' });
+
+    const probe = await probeRobots({ domain: 'shut.test', homepage: 'https://shut.test' }, http, BOT, [BROWSER]);
+    expect(isAllowed(probe.rules, 'https://shut.test/anything')).toBe(false);
+  });
+
+  it('does not ask a second way when the bot request already got the file', async () => {
+    const asked: string[] = [];
+    const http = async (_url: string, headers: Record<string, string>) => {
+      asked.push(headers['user-agent']!);
+      return res({ ok: true, status: 200, body: 'User-agent: *\nAllow: /' });
+    };
+    await probeRobots({ domain: 'fine.test', homepage: 'https://fine.test' }, http, BOT, [BROWSER]);
+    expect(asked).toEqual(['pricesniffsbot']);
+  });
+
+  it('does not ask a second way for a plain 404, which is already an answer', async () => {
+    const asked: string[] = [];
+    const http = async (_url: string, headers: Record<string, string>) => {
+      asked.push(headers['user-agent']!);
+      return res({ status: 404 });
+    };
+    const probe = await probeRobots({ domain: 'none.test', homepage: 'https://none.test' }, http, BOT, [BROWSER]);
+    expect(asked).toEqual(['pricesniffsbot', 'pricesniffsbot']);
+    expect(isAllowed(probe.rules, 'https://none.test/x')).toBe(true);
+  });
+
+  it('records every attempt, so a run can say what actually happened', async () => {
+    const http = async () => res({ status: 503 });
+    const probe = await probeRobots({ domain: 'x.test', homepage: 'https://x.test' }, http, BOT, [BROWSER]);
+    expect(probe.attempts.map((a) => a.status)).toEqual([503, 503, 503, 503]);
+    expect(probe.rules.unavailable).toBe(true);
+  });
+});
+
+describe('robotsHeaderVariants', () => {
+  it('is exactly one extra way of asking, not a rotation', () => {
+    expect(robotsHeaderVariants({ 'user-agent': 'Mozilla/5.0' })).toEqual([{ 'user-agent': 'Mozilla/5.0' }]);
   });
 });
