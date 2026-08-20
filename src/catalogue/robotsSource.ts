@@ -138,25 +138,81 @@ export async function probeRobots(
   retailer: { domain: string; homepage?: string },
   http: Http,
   headers: Record<string, string>,
+  /**
+   * Header sets to try after `headers` on a candidate that did not hand over
+   * the file. Empty by default, so a caller that passes nothing behaves
+   * exactly as before — see `robotsHeaderVariants` for the one caller that
+   * does pass something and why.
+   */
+  fallbackHeaders: readonly Record<string, string>[] = [],
 ): Promise<RobotsProbe> {
   const readings: RobotsReading[] = [];
   const attempts: RobotsAttempt[] = [];
 
   for (const url of robotsCandidateUrls(retailer)) {
-    let reading: RobotsReading;
-    try {
-      const res = await http(url, headers);
-      attempts.push({ url, status: res.status, error: res.error ?? null });
-      reading = readRobotsResponse(res);
-    } catch (err) {
-      attempts.push({ url, status: 0, error: String(err).slice(0, 160) });
-      reading = { kind: 'unreachable' };
+    for (const variant of [headers, ...fallbackHeaders]) {
+      let reading: RobotsReading;
+      try {
+        const res = await http(url, variant);
+        attempts.push({ url, status: res.status, error: res.error ?? null });
+        reading = readRobotsResponse(res);
+      } catch (err) {
+        attempts.push({ url, status: 0, error: String(err).slice(0, 160) });
+        reading = { kind: 'unreachable' };
+      }
+      readings.push(reading);
+      // The file itself, or a straight "there is no file". Either settles this
+      // address and there is nothing a different header set could add.
+      if (reading.kind !== 'unreachable') break;
     }
-    readings.push(reading);
-    if (reading.kind === 'rules') break;
+    if (readings[readings.length - 1]?.kind === 'rules') break;
   }
 
   return { rules: resolveRobotsReadings(readings), attempts };
+}
+
+/**
+ * ── Asking a second way for the file, and only for the file ─────────────────
+ *
+ * Measured, Harvest probe run 2 (job 96342150229, 2026-08-20T06:57Z):
+ *
+ *     https://www.harveynichols.com/robots.txt: HTTP 503
+ *     https://harveynichols.com/robots.txt:     HTTP 503
+ *
+ * Both addresses, both answering instantly, to a request identifying itself as
+ * `pricesniffsbot`. A 503 that arrives in under a second from a CDN edge is
+ * not an origin having a bad minute; it is a bot wall's fixed answer. This
+ * shop was reachable from a GitHub runner as recently as 2026-08-10, when the
+ * probe recorded HTTP 200 on four separate strategies against it
+ * (data/strategy-memory.json), so what changed is who it will answer, not
+ * whether it is up.
+ *
+ * `loadRobots` has always treated a 4xx as "no file published, therefore
+ * nothing forbidden" — its own comment says "or the bot wall answered instead
+ * of the file". A 503 is the same event wearing a different number, but it
+ * must not be given the same treatment, because a genuine 503 from a genuinely
+ * struggling server is exactly when a crawler should back off. So the response
+ * to it here is not to assume permission. It is to ask again for the same
+ * public file the way a browser would.
+ *
+ * That distinction is the whole justification and it is worth being precise
+ * about. This changes how the *file* is requested; it changes nothing about
+ * how the file is *obeyed*. `parseRobots` still reads the rules for
+ * `pricesniffsbot`, still falls back to the `*` group, and `isAllowed` still
+ * refuses every path either forbids. If Harvey Nichols' robots.txt turns out
+ * to say `Disallow: /`, this code will have fetched it only to stop. Reading a
+ * site's published crawl policy is the opposite of evading it — and a wall
+ * that hides robots.txt from a crawler while serving the pages beneath it is
+ * one that makes compliance impossible, which cannot be the outcome a
+ * compliance mechanism is supposed to produce.
+ *
+ * Only ever tried when the first ask came back with nothing usable, so a shop
+ * that answers its bot normally still costs exactly one request.
+ */
+export function robotsHeaderVariants(
+  browserHeaders: Record<string, string>,
+): readonly Record<string, string>[] {
+  return [browserHeaders];
 }
 
 /** `probeRobots` for a caller that only wants the decision. */

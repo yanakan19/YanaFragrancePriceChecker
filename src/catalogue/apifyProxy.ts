@@ -95,7 +95,18 @@ export function apifyProxyHttp(config: ApifyProxyConfig, maxRequests = MAX_PROXI
       const body = await res.text();
       return { status: res.status, body, ok: res.ok };
     } catch (err) {
-      return { status: 0, body: '', ok: false, error: String(err).slice(0, 160) };
+      // undici reports every tunnel failure as the same opaque
+      // "TypeError: fetch failed" and puts the actual reason in `cause`. The
+      // reasons are not interchangeable: "Proxy response (407) !== 200 when
+      // HTTP Tunneling" means our password is wrong or is the API token
+      // rather than the proxy password (see this module's header on the two
+      // being different secrets), while a DNS or connect error means the
+      // proxy host is unreachable from here. Measured on Harvest probe run 2,
+      // job 96342150229: every proxied request in that run reported nothing
+      // but "TypeError: fetch failed", which named neither.
+      const cause = (err as { cause?: unknown }).cause;
+      const detail = cause ? ` (${String(cause).slice(0, 120)})` : '';
+      return { status: 0, body: '', ok: false, error: `${String(err).slice(0, 160)}${detail}` };
     } finally {
       clearTimeout(timer);
     }

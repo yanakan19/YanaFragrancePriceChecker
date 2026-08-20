@@ -42,7 +42,7 @@ import { crawlViaShopifyProducts } from '../src/catalogue/shopifyProductsCrawl.j
 import { quarantinePrices } from '../src/catalogue/priceQuarantine.js';
 import { BROWSER_HEADERS, BOT_HEADERS, type Http } from '../src/catalogue/attempt.js';
 import { isAllowed } from '../src/catalogue/robots.js';
-import { probeRobots, loadRobotsResilient } from '../src/catalogue/robotsSource.js';
+import { probeRobots, robotsHeaderVariants } from '../src/catalogue/robotsSource.js';
 import { parseListings } from '../src/catalogue/jsonld.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import { titleWithSizeFromUrl } from '../src/catalogue/sizeFromUrl.js';
@@ -122,6 +122,13 @@ if (allowMetered && !actorConfig) {
   console.log(`Apify actor available. Shops still yielding nothing after the proxy retry get a real-browser render, capped at ${MAX_ACTOR_PAGES_PER_RUN} pages for the whole run.\n`);
 }
 
+// A shop that will not hand its robots.txt to `pricesniffsbot` gets asked
+// once more the way a browser would — for the file, and only for the file.
+// See robotsHeaderVariants' own comment for the Harvey Nichols measurement
+// behind this and for why reading a published crawl policy is the opposite of
+// evading it.
+const ROBOTS_FALLBACK_HEADERS = robotsHeaderVariants(BROWSER_HEADERS);
+
 const http: Http = createHttp();
 
 const store = new CatalogueStore(resolve(root, 'data/catalogue'));
@@ -184,7 +191,7 @@ for (const retailer of shops) {
   // resolve, the failure reads as "robots.txt unreachable", and every URL is
   // then treated as disallowed with no error line to show for it — see
   // src/catalogue/robotsSource.ts for the measurement.
-  const robotsProbe = await probeRobots(retailer, http, BOT_HEADERS);
+  const robotsProbe = await probeRobots(retailer, http, BOT_HEADERS, ROBOTS_FALLBACK_HEADERS);
   const robots = robotsProbe.rules;
   // An unreachable robots.txt stops this shop dead — isAllowed treats it as
   // everything disallowed, which is the right call and is why the run has to
@@ -367,7 +374,7 @@ for (const retailer of shops) {
   if (withPrice.length === 0 && looksLikeTimeouts(result.errors)) {
     console.log(`      ${retailer.name}: every failure was a timeout, retrying once at ${SLOW_SHOP_TIMEOUT_MS / 1000}s`);
     const patientHttp = createHttp({ timeoutMs: SLOW_SHOP_TIMEOUT_MS });
-    const patientRobots = await loadRobotsResilient(retailer, patientHttp, BOT_HEADERS);
+    const patientRobots = (await probeRobots(retailer, patientHttp, BOT_HEADERS, ROBOTS_FALLBACK_HEADERS)).rules;
     robotsForActor = patientRobots;
     const retry = await crawlViaSitemap({
       retailer, http: patientHttp, robots: patientRobots, maxPages, gapMs,
@@ -385,7 +392,7 @@ for (const retailer of shops) {
 
   if (withPrice.length === 0 && useProxy) {
     const proxiedHttp = apifyProxyHttp(proxyConfig!);
-    const proxiedProbe = await probeRobots(retailer, proxiedHttp, BOT_HEADERS);
+    const proxiedProbe = await probeRobots(retailer, proxiedHttp, BOT_HEADERS, ROBOTS_FALLBACK_HEADERS);
     const proxiedRobots = proxiedProbe.rules;
     // Same reasoning as the direct probe above, and more urgent: a failure
     // here can be *ours* — a mistyped or wrong-kind credential answers 407,
