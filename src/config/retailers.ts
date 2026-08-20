@@ -548,6 +548,45 @@ export const RETAILERS: readonly Retailer[] = [
     // convention for "known to need paid retrieval", now that the 404 is
     // resolved and this design has actually been done — not because the
     // 403 evidence the other Class-1 shops have has been reproduced here.
+    //
+    // ── The cheaper-route recheck was done, 2026-08-20 ──────────────────────
+    // "A longer plain-fetch timeout might fix this for free" was the right
+    // thing to try first and it does not work. scripts/catalogue-harvest.ts
+    // now recognises a shop whose every error is a timeout and retries it
+    // once at 60 seconds before either metered tier (see `looksLikeTimeouts`
+    // in src/catalogue/strategy.ts). Harvest probe run 12, job 96345673451:
+    //
+    //     John Lewis: every failure was a timeout, retrying once at 60s
+    //     https://www.johnlewis.com/sitemap.xml:   HTTP 0
+    //     https://www.johnlewis.com/siteindex.xml: HTTP 0
+    //     [patient] https://www.johnlewis.com/sitemap.xml:   HTTP 0
+    //     [patient] https://www.johnlewis.com/siteindex.xml: HTTP 0
+    //
+    // Both sitemap addresses, at 25 seconds and again at 60. robots.txt
+    // itself reads perfectly well from a runner, which is what makes this
+    // shop different from Harvey Nichols: nothing is refusing us, the
+    // sitemap endpoints simply never answer. "Slow to answer" is confirmed;
+    // "would be fine with more patience" is refuted.
+    //
+    // That leaves the section URLs below, which crawlViaSitemap never
+    // touches — it walks sitemaps only. The actor tier does use them, and
+    // this shop is the first in the project ever to reach it: run 12
+    // rendered all four sections (after a separate fix, since the failing
+    // proxy retry had been overwriting this shop's perfectly good robots.txt
+    // with "unknown" and thereby disallowing everything). What came back:
+    //
+    //   - run 12: HTTP 403 `full-permission-actor-not-approved`. The
+    //     pageFunction actor needs the account owner's one-time approval.
+    //   - run 13, job 96347018835: the code-free fallback actor
+    //     (apify/website-content-crawler) ran for 47 seconds — so it is NOT
+    //     behind that approval gate — and returned no priced listing.
+    //   - run 18, job 96348413008: HTTP 502 Bad Gateway from Apify's own
+    //     API, an Apify-side failure rather than anything about this shop.
+    //
+    // So: free routes are exhausted and understood, the actor tier is
+    // reachable but has not yet produced a usable render here, and the most
+    // promising version of it is one console click away. Not yet shown
+    // gettable; not shown ungettable either.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
