@@ -606,6 +606,17 @@ for (const retailer of shops) {
     for (const u of result.sampledUrls.slice(0, 3)) console.log(`        ${u}`);
   }
 
+  // A shop that DID price is exactly the one a currency probe needs a real
+  // product page from — `npm run currency:probe -- --product=<url>` refuses
+  // any host that is not the retailer's own domain, so guessing is not an
+  // option. This was previously only ever logged for the zero-priced case
+  // above, so proving sterling on a shop that already harvests (riiffs,
+  // perfumeo) meant reading source to find sampledUrls existed at all. One
+  // line, always available once a run has actually fetched pages.
+  if (withPrice.length > 0 && result.sampledUrls.length > 0) {
+    console.log(`      sample fetched URL: ${result.sampledUrls[0]}`);
+  }
+
   if (withPrice.length === 0) {
     zeroThisRun.push(retailer.id);
     if (prior.source !== 'live') neverLive.push(retailer.id);
