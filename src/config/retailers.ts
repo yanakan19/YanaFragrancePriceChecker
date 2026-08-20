@@ -1461,6 +1461,21 @@ export const RETAILERS: readonly Retailer[] = [
     // tests/registry.test.ts's `unstated` list): the offer renders "delivery
     // not stated" and can never be shown as cheapest, it is simply never
     // invented.
+    //
+    // ── Enabled and still dark for days; the reason, and the fix ────────────
+    // Every run from that enabling until 2026-08-20 reported this shop as
+    // `0 urls  0 fetched  0 priced listings` with no error line at all (run
+    // 261, job 96314578076, is one of many). Nothing was wrong with the shop.
+    // `loadRobots` asked `https://www.uk.shopfrenchavenue.com/robots.txt` —
+    // `www.` bolted onto a domain that already carries a subdomain — which
+    // does not resolve; a DNS failure is not a 4xx, so it read as "robots.txt
+    // unreachable", which isAllowed treats as everything disallowed, and a
+    // disallowed URL is skipped without an error line. See
+    // src/catalogue/robotsSource.ts for the full measurement.
+    //
+    // After the fix, Harvest probe run 3, job 96342168489, 2026-08-20T06:57Z,
+    // commit 11f2d06: 141 urls discovered, 9 pages fetched, 141 priced
+    // listings. The first real data this shop has ever produced.
     enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
@@ -1651,6 +1666,21 @@ export const RETAILERS: readonly Retailer[] = [
     // a reason to keep it off the site (see tests/registry.test.ts's
     // `unstated` list): the offer renders "delivery not stated" and can
     // never be shown as cheapest, it is simply never invented.
+    //
+    // ── Enabled and still dark, for the same reason as French Avenue ────────
+    // Reported `0 urls  0 fetched  0 priced listings` with no error on every
+    // run since (run 261, job 96314578076, among them). `loadRobots` asked
+    // `https://www.ibraquk.com/robots.txt`; this storefront serves its apex
+    // and not `www`, so that address never answered, which read as "robots.txt
+    // unreachable" and therefore as everything disallowed — silently, because
+    // a disallowed URL is skipped without an error line. Note this entry's own
+    // comment above already recorded "robots.txt permitted every request": the
+    // currency probe asked the right host and got a real answer. Only the
+    // harvest asked the wrong one. See src/catalogue/robotsSource.ts.
+    //
+    // After the fix, Harvest probe run 4, job 96342189471, 2026-08-20T06:57Z,
+    // commit 11f2d06: 95 urls discovered, 6 pages fetched, 95 priced
+    // listings. The first real data this shop has ever produced.
     enabled: true,
     adapter: 'unknown',
     shopifyStorefront: true,
@@ -2097,6 +2127,10 @@ export const RETAILERS: readonly Retailer[] = [
     //    Bath & Body Works. This is the Escentric Molecules case again: a
     //    single house naming its products after itself rather than after a
     //    concentration.
+    //
+    // Measured after both changes, Harvest probe run 6, job 96342235367,
+    // 2026-08-20T06:57Z, commit 11f2d06: 84 urls, 6 pages fetched, 84 priced
+    // listings, "50 sizes read from product URLs" — the predicted 50 exactly.
     fragranceOnlyCatalogue: true,
     enabled: true,
     adapter: 'unknown',

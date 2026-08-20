@@ -137,9 +137,29 @@ const now = new Date().toISOString();
 // scraping it anyway would be exactly the "improve it into a crawler"
 // mistake docs/INGESTION.md warns against, on a partner who already handed
 // the data over for free. npm run catalogue:feed is that route instead.
+//
+// `--shop=<id>` together with `--dry-run` asks about one named retailer and
+// writes nothing, so it may ask about a disabled one — the same bypass, for
+// the same reason, that scripts/catalogue-probe.ts's own `--shop` already
+// documents: a candidate cannot be shown to have a working route without
+// being asked, and switching it on to find out is exactly backwards. Four
+// registry entries are currently off with "no working route" as the recorded
+// reason (riiffs, perfumeo, bath-body-works-uk, lush), and at least one of
+// those readings is now known to have come from the www-subdomain robots bug
+// this file's robots probe fixes — see src/catalogue/attempt.ts's loadRobots
+// comment. Without --dry-run the enabled flag is absolute, so nothing a
+// disabled shop says can ever reach data/catalogue.
+const askingAboutOneNamedShop = onlyShop !== null && dryRun;
 const enabledShops = RETAILERS.filter(
-  (r) => r.enabled && r.adapter !== 'affiliate-feed' && (!onlyShop || r.id === onlyShop),
+  (r) =>
+    (r.enabled || askingAboutOneNamedShop) &&
+    r.adapter !== 'affiliate-feed' &&
+    (!onlyShop || r.id === onlyShop),
 );
+
+if (askingAboutOneNamedShop && enabledShops.some((r) => !r.enabled)) {
+  console.log(`${onlyShop} is disabled in the registry; asking anyway because this is a dry run that writes nothing.\n`);
+}
 
 // ── Registry order starves the shops that need a run most ───────────────────
 // The harvest step in .github/workflows/catalogue-daily.yml is capped at 60
