@@ -113,16 +113,25 @@ export function apifyActorConfigFromEnv(env: NodeJS.ProcessEnv = process.env): A
  * actor's own documented page-function arguments.
  */
 const PAGE_FUNCTION_SOURCE = `async function pageFunction(context) {
-  const { page, request } = context;
+  const { page, request, response } = context;
   // A category grid drawn by client-side script needs a moment after load
   // to finish painting. This is a fixed wait rather than a per-shop selector
   // because no per-shop selector has ever been confirmed against a real
   // render — see this module's header on what remains unverified.
-  await page.waitForTimeout(2500);
+  //
+  // Deliberately NOT Puppeteer's own wait-for-timeout page helper. That
+  // helper was deprecated in Puppeteer 20 and removed in Puppeteer 22
+  // (January 2024), and the actor this runs in tracks a current Puppeteer —
+  // so the call throws "is not a function", the page function fails, and the
+  // actor writes no dataset item for the URL at all. From the caller's side
+  // that is indistinguishable from a page that rendered nothing, which is the
+  // most expensive possible way to learn about a one-line API change. A plain
+  // timer has no such dependency.
+  await new Promise(function (resolve) { setTimeout(resolve, 2500); });
   return {
     url: request.url,
     html: await page.content(),
-    status: context.response ? context.response.status() : null,
+    status: response ? response.status() : null,
   };
 }`;
 
@@ -194,12 +203,30 @@ export async function renderPagesViaApifyActor(
     });
 
     if (!res.ok) {
-      const message = `Apify actor run failed: HTTP ${res.status}`;
+      // Apify answers a rejected run with a JSON body naming the reason —
+      // an actor id that does not exist, a proxy group the plan does not
+      // include, an input field the actor's schema rejects. The status alone
+      // distinguishes none of those, and this is the most expensive tier in
+      // the pipeline: the one place where "it failed" without a reason costs
+      // real money to ask again. Truncated because an HTML error page from an
+      // intermediary would otherwise flood the run log.
+      const detail = (await res.text().catch(() => '')).replace(/\s+/g, ' ').slice(0, 300);
+      const message = `Apify actor run failed: HTTP ${res.status}${detail ? ` — ${detail}` : ''}`;
       for (const url of capped) results.set(url, { status: res.status, body: '', ok: false, error: message });
       return results;
     }
 
-    const items = (await res.json()) as Array<{ url?: string; html?: string; status?: number | null }>;
+    const payload: unknown = await res.json();
+    if (!Array.isArray(payload)) {
+      // The documented success shape is an array of dataset items. Anything
+      // else is an error envelope wearing a 2xx, and reporting it verbatim
+      // beats reporting "0 listings".
+      const message = `Apify actor returned a non-array payload: ${JSON.stringify(payload).slice(0, 300)}`;
+      for (const url of capped) results.set(url, { status: res.status, body: '', ok: false, error: message });
+      return results;
+    }
+
+    const items = payload as Array<{ url?: string; html?: string; status?: number | null }>;
     const seen = new Set<string>();
     for (const item of items) {
       if (!item.url) continue;

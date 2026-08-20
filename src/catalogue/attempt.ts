@@ -3,8 +3,9 @@ import type { RawListing } from './types.js';
 import type { AttemptResult, StrategyId } from './strategy.js';
 import { parseListings } from './jsonld.js';
 import {
-  isAllowed, parseRobots, UNREACHABLE_ROBOTS, NO_RESTRICTIONS, type RobotsRules,
+  isAllowed, type RobotsRules,
 } from './robots.js';
+import { loadRobotsResilient } from './robotsSource.js';
 
 /**
  * Runs one retrieval strategy against one shop and reports what happened.
@@ -93,21 +94,31 @@ export interface Attempt {
   discovered?: { sectionUrls?: string[] };
 }
 
-/** Fetch robots.txt once per shop, so every later decision can respect it. */
+/**
+ * Fetch robots.txt once per shop, so every later decision can respect it.
+ *
+ * This used to ask exactly one address — `https://www.{domain}/robots.txt` —
+ * and hold off entirely when it did not answer. That is right for an apex
+ * domain and wrong for the several registry entries whose `domain` already
+ * carries a subdomain, where `www.uk.example.com` need not resolve at all. A
+ * DNS failure is not a 4xx, so it took the "unreachable" branch, and
+ * `isAllowed` correctly treats unreachable as everything disallowed — leaving
+ * a perfectly cooperative shop looking, silently, like one that refused us.
+ *
+ * The measured cost of that: Riiffs Perfumes (`uk.riiffsperfumes.com`) was
+ * recorded in `src/config/retailers.ts` as having tightened its robots.txt to
+ * disallow `/`, on the strength of a shipping probe (run 32279443137, job
+ * 96154463621) that reported "0 pages UNREACHABLE" — which is what this
+ * function returns for a hostname that does not exist, not what a shop's own
+ * Disallow rule produces. A currency probe four hours earlier had found the
+ * same shop permitting every request.
+ *
+ * The candidate ordering and precedence now live in `robotsSource.ts`, tested
+ * without a network. Behaviour for an apex-domain shop is unchanged, including
+ * the request count: the first candidate that publishes a file ends the search.
+ */
 export async function loadRobots(retailer: Retailer, http: Http): Promise<RobotsRules> {
-  try {
-    const res = await http(`https://www.${retailer.domain}/robots.txt`, BOT_HEADERS);
-
-    if (res.ok && res.body) return parseRobots(res.body, 'pricesniffsbot');
-
-    // 4xx means no file, or the bot wall answered instead of the file. Either
-    // way the shop has published no restrictions, so we are not forbidden.
-    // 5xx and network failures mean hold off until it recovers.
-    if (res.status >= 400 && res.status < 500) return NO_RESTRICTIONS;
-    return UNREACHABLE_ROBOTS;
-  } catch {
-    return UNREACHABLE_ROBOTS;
-  }
+  return loadRobotsResilient(retailer, http, BOT_HEADERS);
 }
 
 async function fetchAndParse(
