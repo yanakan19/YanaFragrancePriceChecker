@@ -30,6 +30,14 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.12.0',
+    date: '21 Aug 2026',
+    title: 'An honest note where a retailer has no Trustpilot rating hooked up',
+    points: [
+      'Retailer pages with no Trustpilot rating connected now say so plainly, instead of just leaving that part of the page blank',
+    ],
+  },
+  {
     version: 'v3.11.0',
     date: '20 Aug 2026',
     title: "Today's Deals gets its own tab, and four new retailers go live",
