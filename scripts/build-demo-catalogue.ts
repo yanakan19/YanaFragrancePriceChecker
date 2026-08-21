@@ -143,6 +143,15 @@ export interface Notes {
   top: string[];
   middle: string[];
   base: string[];
+  /**
+   * Which offer these notes were actually read from, so the app can name and
+   * link the retailer instead of a generic "the retailer listing it". Null
+   * only if `parseNotes` somehow succeeded with no attributable offer, which
+   * `pickNotes` never does today (see its own doc) but is kept nullable so
+   * an app render that forgets to check it fails safe onto the old wording
+   * rather than a broken link.
+   */
+  source: { retailerId: string; url: string } | null;
 }
 
 /** Groups spelling variants for the Notes key so counting them once, not once per spelling. */
@@ -192,7 +201,7 @@ const canonicalNoteName = (s: string): string => NOTE_ALIASES[noteKey(s)] ?? s;
  * text they agree exactly, but this is not a claim to be quoting the maker
  * directly.
  */
-function parseNotes(description: string | null | undefined): Notes | null {
+function parseNotes(description: string | null | undefined): Omit<Notes, 'source'> | null {
   if (!description) return null;
 
   // Each section runs until the next label or the end of the copy. Feeds
@@ -289,14 +298,19 @@ function parseNotes(description: string | null | undefined): Notes | null {
   return { top, middle, base };
 }
 
-/** Notes from whichever offer published them most recently. */
+/**
+ * Notes from whichever offer published them most recently, tagged with which
+ * offer that was. The provenance is what lets the app say "As published by
+ * [Retailer]" instead of a generic line, and link back to the exact page the
+ * notes were read from — see notesBlock in demo/app.ts.
+ */
 function pickNotes(offers: Offer[]): Notes | null {
   const withCopy = offers
     .filter((o) => o.description)
     .sort((a, b) => b.fetchedAt.localeCompare(a.fetchedAt));
   for (const o of withCopy) {
     const parsed = parseNotes(o.description);
-    if (parsed) return parsed;
+    if (parsed) return { ...parsed, source: { retailerId: o.retailerId, url: o.url } };
   }
   return null;
 }
@@ -830,6 +844,13 @@ export interface Notes {
   top: string[];
   middle: string[];
   base: string[];
+  /**
+   * Which offer these notes were actually read from, so the app can name and
+   * link the retailer instead of a generic "the retailer listing it". Null
+   * only if a future build somehow produces notes with no attributable
+   * offer; today's pickNotes never does.
+   */
+  source: { retailerId: string; url: string } | null;
 }
 
 export interface CatalogueEntry {
