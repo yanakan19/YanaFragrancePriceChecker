@@ -51,6 +51,7 @@ import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './ge
 import { VOLUME_BANDS, volumeBandFor, type VolumeBand } from './volumeBands.js';
 import { LIST_SORT_OPTIONS, sortFragrances, type BrowseSort, type ListSort } from './listSort.js';
 import { trustpilotStateFor } from './trustpilotWidget.js';
+import { deliveryLines } from './deliveryFacts.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
@@ -2009,46 +2010,6 @@ function monogram(name: string): string {
   return `<span class="monogram" style="--mh:${monogramHue(name)}" aria-hidden="true">${esc(initials || '?')}</span>`;
 }
 
-function deliveryLines(r: Retailer): string[] {
-  const s = r.shipping;
-  const lines: string[] = [];
-  lines.push(
-    s.standardGbp === null
-      ? // Two different facts wear the same null, and the line said the
-        // stronger of them for both. "This shop does not publish a standard
-        // delivery cost" is a claim about the shop, and it is only ours to
-        // make once someone has read their delivery page and found none —
-        // which is what standardRateNotPublished records. Without it all we
-        // can say is that we do not have the figure.
-        s.standardRateNotPublished
-        ? 'Delivery not stated. This shop publishes no standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest'
-        : 'Delivery not stated. We have not established this shop’s standard delivery cost, so its prices here are item prices only and it is never ranked as cheapest'
-      : s.standardGbp === 0
-        ? 'Free standard delivery on every order'
-        : `Standard delivery ${formatGbp(s.standardGbp)}`,
-  );
-  // Which of these figures has actually been read off the shop's own delivery
-  // page, said once per shop rather than repeated against every number.
-  lines.push(
-    s.confidence === 'confirmed'
-      ? s.source
-        ? `Read from this shop’s own delivery page on ${s.source.readAt}`
-        : 'Confirmed against this shop’s own delivery page'
-      : 'Not yet confirmed with the shop. These delivery terms came from research, not from their own delivery page',
-  );
-  if (s.freeOverGbp !== null && s.freeOverGbp > 0) {
-    lines.push(`Free once you spend ${formatGbp(s.freeOverGbp)}`);
-  } else if (s.freeOverGbp === null) {
-    lines.push('No spend based free delivery');
-  }
-  const [lo, hi] = s.estimatedDays;
-  lines.push(lo === hi ? `Arrives in about ${lo} working days` : `Arrives in about ${lo} to ${hi} working days`);
-  if (s.membershipPerk) {
-    lines.push(`${s.membershipPerk.scheme}: ${s.membershipPerk.description}`);
-  }
-  return lines;
-}
-
 /**
  * How many fragrances a retailer currently lists, as the plainest mark that
  * says so: `(n)` when we hold real live data, `(-)` when we do not — a shop
@@ -2180,10 +2141,19 @@ function retailerView(): string {
 
 /**
  * A brand's own profile: the same org-hero shape as a retailer, official
- * website in place of delivery facts, its fragrances underneath. The
- * website line only appears once `officialSiteFor` has a verified entry —
- * absent rather than a guessed domain, same rule as everywhere else a link
- * leaves this app.
+ * website first, its fragrances underneath. The website line only appears
+ * once `officialSiteFor` has a verified entry — absent rather than a
+ * guessed domain, same rule as everywhere else a link leaves this app.
+ *
+ * Where this brand runs its own UK shop (`ownShop`), its delivery terms
+ * render the same way retailerView() already shows any other shop's —
+ * `deliveryLines()`, the shared helper, so "delivery not stated" reads
+ * identically here as it does on the shop's own retailer page rather than
+ * inventing a second wording for the same fact. Scoped to `ownShop` only,
+ * not every retailer stocking this brand's fragrances: those already get
+ * their own delivery facts on each fragrance's own comparison row, and
+ * repeating every listed shop's terms here would duplicate that rather than
+ * add anything a reader does not already have.
  */
 function brandView(): string {
   const b = state.brandProfile;
@@ -2232,7 +2202,10 @@ function brandView(): string {
                 ownShop.enabled
                   ? ', and its own price is compared below like any other shop’s.'
                   : ', but its delivery terms are not confirmed yet, so its price is not compared.'
-              }</p>`
+              }</p>
+               <ul class="fact-list">
+                 ${deliveryLines(ownShop).map((l) => `<li>${esc(l)}</li>`).join('')}
+               </ul>`
             : ''
         }
       </div>
