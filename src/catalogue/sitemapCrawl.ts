@@ -208,6 +208,29 @@ const PRODUCT_SITEMAP = /(^|[^a-z])(product|item|sku|catalog)/i;
  * against. Recorded so the next person has the diagnosis rather than the
  * symptom.
  */
+
+/**
+ * True when `domain` already carries a subdomain in front of its
+ * registrable name — `groceries.asda.com`, `uk.shopfrenchavenue.com` — as
+ * opposed to a bare domain that merely sits under a two-label UK-style TLD
+ * such as `.co.uk` (`notino.co.uk`, three raw labels, no subdomain). Not a
+ * general public-suffix-list implementation — just enough of one to cover
+ * the compound TLDs this registry's real domains actually use (see
+ * src/config/retailers.ts) so the conventional sitemap root neither doubles
+ * up `www.` nor prepends it onto a host that does not exist.
+ */
+const COMPOUND_TLDS = new Set([
+  'co.uk', 'org.uk', 'me.uk', 'ltd.uk', 'plc.uk', 'net.uk', 'sch.uk', 'ac.uk', 'gov.uk',
+  'uk.com', 'uk.net', 'uk.org',
+]);
+function hasExistingSubdomain(domain: string): boolean {
+  const labels = domain.split('.');
+  if (labels.length <= 2) return false;
+  const lastTwo = labels.slice(-2).join('.');
+  const bareLabelCount = COMPOUND_TLDS.has(lastTwo) ? 3 : 2;
+  return labels.length > bareLabelCount;
+}
+
 async function discover(
   options: SitemapCrawlOptions,
   budget: number,
@@ -230,9 +253,24 @@ async function discover(
   // robots.txt's own sitemaps are only trusted where they already agree — an
   // unscoped root is never a fallback for a pinned shop, because falling back
   // to it is exactly the currency mistake the pin exists to prevent.
+  // `retailer.domain` is sometimes already a subdomain (`groceries.asda.com`,
+  // `groceries.morrisons.com`, `uk.shopfrenchavenue.com` — see
+  // src/config/retailers.ts) rather than a bare registrable domain.
+  // Unconditionally prepending `www.` turned those into a host that does not
+  // exist (`www.groceries.asda.com` — HTTP 0/403, see this entry's own
+  // comment in retailers.ts around line 5028, and today's real Morrisons
+  // probe log showing the identical `www.groceries.morrisons.com` 403).
+  // scripts/currency-probe.ts avoids this by stripping any leading `www.`
+  // rather than adding one; `hasExistingSubdomain` below extends that same
+  // idea to hosts whose subdomain isn't literally `www.` — so a bare domain
+  // still gets `www.` added (unchanged from before) but an already-
+  // subdomained one is left alone rather than getting a second label glued
+  // on front.
+  const bareDomain = retailer.domain.replace(/^www\./, '');
+  const host = hasExistingSubdomain(bareDomain) ? bareDomain : `www.${bareDomain}`;
   const conventional = requiredPrefix
-    ? `https://www.${retailer.domain}${requiredPrefix}/sitemap.xml`
-    : `https://www.${retailer.domain}/sitemap.xml`;
+    ? `https://${host}${requiredPrefix}/sitemap.xml`
+    : `https://${host}/sitemap.xml`;
   const roots = (robots.sitemaps.length ? [...robots.sitemaps.slice(0, 5)] : []).filter(underPrefix);
   if (!roots.includes(conventional)) roots.unshift(conventional);
 
