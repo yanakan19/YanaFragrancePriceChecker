@@ -93,6 +93,7 @@ export function presentOffer(
     ageSeconds: Number.isFinite(fetchedMs)
       ? Math.max(0, Math.round((now.getTime() - fetchedMs) / 1000))
       : 0,
+    rating: offer.rating ?? null,
   };
 }
 

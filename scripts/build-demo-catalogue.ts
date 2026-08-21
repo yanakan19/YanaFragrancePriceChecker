@@ -114,6 +114,13 @@ interface Offer {
   imageUrl: string | null;
   /** The retailer's own copy, read only to extract labelled notes from. */
   description: string | null;
+  /**
+   * The retailer's own aggregateRating, read only to pick a product-level
+   * rating from — see pickRating. Carried at the offer level for the same
+   * reason description is: it is per-listing data, and which offer it came
+   * from matters for attribution.
+   */
+  rating: { value: number; count: number | null } | null;
 }
 
 interface Product {
@@ -605,6 +612,7 @@ for (const { retailer, listings } of eligible) {
       isNew: isNewListing(l, now),
       imageUrl: IMAGE_ALLOWED.has(l.retailerId) ? l.imageUrl : null,
       description: l.description ?? null,
+      rating: l.rating ?? null,
     };
 
     if (existing) {
@@ -838,6 +846,12 @@ export interface CrawledOffer {
   firstSeenAt: string;
   isNew: boolean;
   imageUrl: string | null;
+  /**
+   * This retailer's own published rating for this listing, read from its
+   * schema.org aggregateRating — see src/catalogue/jsonld.ts. Null wherever
+   * the source publishes none; never defaulted or guessed.
+   */
+  rating: { value: number; count: number | null } | null;
 }
 
 export interface Notes {
@@ -914,6 +928,7 @@ export function offersFor(productId: string): RawOffer[] {
     url: o.url,
     promoEndsAt: o.promoEndsAt,
     fetchedAt: o.fetchedAt,
+    rating: o.rating,
   }));
 }
 

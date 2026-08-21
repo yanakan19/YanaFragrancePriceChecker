@@ -33,6 +33,15 @@ export interface RawOffer {
   promoEndsAt?: string | null;
   /** When this offer was captured, ISO-8601. Drives the staleness indicator. */
   fetchedAt: string;
+  /**
+   * This retailer's own published rating for this listing, read from its
+   * schema.org aggregateRating (src/catalogue/jsonld.ts) — never computed,
+   * never carried over from a different retailer's rating of the same
+   * fragrance. `count` is null where the source states a star value with no
+   * review count. Absent or null wherever the source publishes none; never
+   * defaulted or guessed.
+   */
+  rating?: { value: number; count: number | null } | null;
 }
 
 /** The was/now/percentage triple, present only on a genuine retailer promotion. */
@@ -114,4 +123,6 @@ export interface PresentedOffer {
   fetchedAt: string;
   /** Age of the captured price in seconds, for the "checked N min ago" label. */
   ageSeconds: number;
+  /** This retailer's own published rating for this listing — see RawOffer. */
+  rating: { value: number; count: number | null } | null;
 }

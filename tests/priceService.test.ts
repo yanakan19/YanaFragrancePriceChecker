@@ -213,6 +213,21 @@ describe('presentOffer', () => {
     const future = offer('boots', 80, 'inStock', { fetchedAt: '2026-08-01T12:05:00Z' });
     expect(presentOffer(future, boots, NOW).ageSeconds).toBe(0);
   });
+
+  // This retailer's own published rating, carried through from RawOffer to
+  // PresentedOffer unchanged — the same "read off this offer, attributed to
+  // this offer" shape as the discount and delivery fields above, never
+  // computed or borrowed from a different retailer's rating of the same
+  // fragrance. jsonld.ts is what actually reads the rating off a real page;
+  // this proves the value it produces survives the presentation step.
+  it('carries a retailer-published rating through unchanged', () => {
+    const withRating = offer('boots', 80, 'inStock', { rating: { value: 4.6, count: 128 } });
+    expect(presentOffer(withRating, boots, NOW).rating).toEqual({ value: 4.6, count: 128 });
+  });
+
+  it('is null, never invented, when the offer carries no rating', () => {
+    expect(presentOffer(offer('boots', 80), boots, NOW).rating).toBeNull();
+  });
 });
 
 describe('result grouping', () => {
