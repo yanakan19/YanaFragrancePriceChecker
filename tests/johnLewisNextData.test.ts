@@ -278,7 +278,22 @@ describe('renderedState registry', () => {
   });
 
   it('returns nothing for a shop with no reader rather than guessing at its markup', () => {
-    expect(hasRenderedStateParser('selfridges')).toBe(false);
+    // Boots is the standing example: state probe 32505341082, job 96844124899,
+    // rendered 2,513 bytes of challenge page through a real browser on a
+    // residential UK IP. There is nothing on that page for any reader to read.
+    expect(hasRenderedStateParser('boots')).toBe(false);
+    expect(
+      parseRenderedState('boots', pageWith(REAL_PRODUCTS), {
+        sectionId: 'fragrance',
+        pageUrl: PAGE_URL,
+      }),
+    ).toEqual([]);
+  });
+
+  it('does not hand a John Lewis page to the Selfridges reader, or the reverse', () => {
+    // Both shops have a reader; neither reader is a general one. Selfridges'
+    // reads an RSC flight stream and finds nothing in a __NEXT_DATA__ block.
+    expect(hasRenderedStateParser('selfridges')).toBe(true);
     expect(
       parseRenderedState('selfridges', pageWith(REAL_PRODUCTS), {
         sectionId: 'fragrance',
