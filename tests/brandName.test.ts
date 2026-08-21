@@ -93,4 +93,33 @@ describe('buildBrandCanon', () => {
     expect(canon.get('Armani')).toBe('Giorgio Armani');
     expect(canon.get('Emporio Armani')).toBe('Emporio Armani');
   });
+
+  // One feed puts the product line in the brand field, producing 51 separate
+  // "Armaf - X" brand strings — measured against demo/catalogue.generated.ts
+  // on 2026-08-21 (see the KNOWN_ALIASES comment above this table's Armaf
+  // block for the full count and the sample-checking that ruled out any of
+  // the 51 being a genuinely different house). A representative sample here,
+  // not all 51 — the block above is the authoritative list.
+  it('folds the "Armaf - <line>" feed artefact into plain Armaf, not 51 separate houses', () => {
+    const canon = buildBrandCanon([
+      'Armaf', 'Armaf - Club De Nuit', 'Armaf - Derby', 'Armaf - Ego',
+      "Armaf - L'Homme", 'Armaf - Lions Club', 'Armaf - SHK',
+    ]);
+    expect(canon.get('Armaf - Club De Nuit')).toBe('Armaf');
+    expect(canon.get('Armaf - Derby')).toBe('Armaf');
+    expect(canon.get('Armaf - Ego')).toBe('Armaf');
+    expect(canon.get("Armaf - L'Homme")).toBe('Armaf');
+    expect(canon.get('Armaf - Lions Club')).toBe('Armaf');
+    expect(canon.get('Armaf - SHK')).toBe('Armaf');
+    expect(canon.get('Armaf')).toBe('Armaf');
+  });
+
+  it('does not fold an unrelated brand that merely shares the Armaf prefix', () => {
+    // brandKey already keeps 'Armaf' and 'Armaf Online Shop' apart (see
+    // brandKey's own test above); this checks the alias table does not
+    // accidentally widen that back out for a string the fold was never
+    // measured against.
+    const canon = buildBrandCanon(['Armaf', 'Armaf Online Shop']);
+    expect(canon.get('Armaf Online Shop')).toBe('Armaf Online Shop');
+  });
 });

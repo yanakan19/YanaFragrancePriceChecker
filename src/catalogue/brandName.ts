@@ -252,6 +252,92 @@ const KNOWN_ALIASES: Record<string, string> = {
   // the same direction as the Lattafa/Rabanne pairs above.
   [brandKey('Blue Stratos')]: 'Blue Stratos',
   [brandKey('Parfums Bleu Limited')]: 'Blue Stratos',
+
+  // Found 2026-08-21: one feed puts the product line in the brand field
+  // instead of the house name, producing "Armaf - Club De Nuit",
+  // "Armaf - Derby", "Armaf - Ego" and so on as 51 separate brand strings —
+  // measured by filtering demo/catalogue.generated.ts's own CATALOGUE brand
+  // list for /^Armaf\s*-\s*/i, 51 distinct matches across 178 products, none
+  // holding more than 52 (Club De Nuit is Armaf's best-known line). This is
+  // the same "canon-fold" shape as the rest of this table, not a new
+  // mechanism, and it is safe on the evidence actually available:
+  //
+  //   - Plain "Armaf" already carries 255 real products, several of them
+  //     the exact same lines split above ("Club De Nuit Bling",
+  //     "Club De Nuit Maleka" among them) — a different retailer's feed
+  //     tags the identical house correctly, which is what confirms these
+  //     51 strings are a feed artefact rather than 51 genuinely separate
+  //     houses that happen to share a five-letter prefix.
+  //   - Every one of the 51 lines' sample product names was read by hand
+  //     before writing this table (Bucephalus, Checkmate, Lion's Club,
+  //     Miss Armaf and the rest are all real, documented Armaf sub-lines,
+  //     not a coincidental name collision with an unrelated house).
+  //
+  // What this fold does NOT do, flagged rather than fixed: for roughly a
+  // quarter of the 178 products (Delicacy's 2, Delights' 4, Landi's 11,
+  // Oros Pure's 6, and 1 of Le Parfait's 4 — measured against each
+  // product's own `name` field, not guessed), the line word appears ONLY in
+  // the brand string being folded away here, nowhere in the product name
+  // itself ("Cotton Candy" under Delicacy, "Affecte" under Oros Pure). This
+  // fold loses that sub-line context for those products the same way it
+  // would if the brand string had simply been deleted — folding the brand
+  // is still correct (Armaf is genuinely the house), but reattaching the
+  // line name to the product's own `name` field is a separate, larger
+  // question (what format, whether it duplicates what other lines already
+  // repeat in their own name, whether it belongs here or in fragranceId.ts)
+  // that this narrow canon-fold commit deliberately leaves for its own task
+  // rather than guessing an answer here.
+  [brandKey('Armaf - Arabia')]: 'Armaf',
+  [brandKey('Armaf - Art')]: 'Armaf',
+  [brandKey('Armaf - Beach Party')]: 'Armaf',
+  [brandKey('Armaf - Beau')]: 'Armaf',
+  [brandKey('Armaf - Bucephalus')]: 'Armaf',
+  [brandKey('Armaf - Checkmate')]: 'Armaf',
+  [brandKey('Armaf - Club De Nuit')]: 'Armaf',
+  [brandKey('Armaf - Connoisseur')]: 'Armaf',
+  [brandKey('Armaf - Craze')]: 'Armaf',
+  [brandKey('Armaf - Delicacy')]: 'Armaf',
+  [brandKey('Armaf - Delights')]: 'Armaf',
+  [brandKey('Armaf - Derby')]: 'Armaf',
+  [brandKey('Armaf - Effects')]: 'Armaf',
+  [brandKey('Armaf - Ego')]: 'Armaf',
+  [brandKey('Armaf - Eter')]: 'Armaf',
+  [brandKey('Armaf - Eternia')]: 'Armaf',
+  [brandKey('Armaf - Excellus')]: 'Armaf',
+  [brandKey('Armaf - Fade')]: 'Armaf',
+  [brandKey('Armaf - Hunter')]: 'Armaf',
+  [brandKey('Armaf - Infinity')]: 'Armaf',
+  [brandKey("Armaf - L'Homme")]: 'Armaf',
+  [brandKey('Armaf - La Rosa')]: 'Armaf',
+  [brandKey('Armaf - Landi')]: 'Armaf',
+  [brandKey('Armaf - Le Femme')]: 'Armaf',
+  [brandKey('Armaf - Le Parfait')]: 'Armaf',
+  [brandKey('Armaf - Legasi')]: 'Armaf',
+  [brandKey('Armaf - Lionheart')]: 'Armaf',
+  [brandKey('Armaf - Lions Club')]: 'Armaf',
+  [brandKey('Armaf - Miss Armaf')]: 'Armaf',
+  [brandKey('Armaf - Niche')]: 'Armaf',
+  [brandKey('Armaf - Nomad')]: 'Armaf',
+  [brandKey('Armaf - Ombre')]: 'Armaf',
+  [brandKey('Armaf - Oros Pure')]: 'Armaf',
+  [brandKey('Armaf - Perle')]: 'Armaf',
+  [brandKey('Armaf - Private Key')]: 'Armaf',
+  [brandKey('Armaf - Provenzano')]: 'Armaf',
+  [brandKey('Armaf - SHK')]: 'Armaf',
+  [brandKey('Armaf - Scentasy')]: 'Armaf',
+  [brandKey('Armaf - Shades')]: 'Armaf',
+  [brandKey('Armaf - Signature Night')]: 'Armaf',
+  [brandKey('Armaf - Space Age')]: 'Armaf',
+  [brandKey('Armaf - Spartacus')]: 'Armaf',
+  [brandKey('Armaf - Tag')]: 'Armaf',
+  [brandKey('Armaf - Tennis')]: 'Armaf',
+  [brandKey('Armaf - The Inventor')]: 'Armaf',
+  [brandKey('Armaf - The Pride')]: 'Armaf',
+  [brandKey('Armaf - Tres')]: 'Armaf',
+  [brandKey('Armaf - Uniq')]: 'Armaf',
+  [brandKey('Armaf - Venetian')]: 'Armaf',
+  [brandKey('Armaf - Ventana')]: 'Armaf',
+  [brandKey('Armaf - Voyage')]: 'Armaf',
 };
 
 /** True when a string uses ordinary mixed case rather than shouting or whispering. */
