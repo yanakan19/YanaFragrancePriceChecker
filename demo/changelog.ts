@@ -30,6 +30,18 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.11.0',
+    date: '20 Aug 2026',
+    title: "Today's Deals gets its own tab, and four new retailers go live",
+    points: [
+      "Today's Deals moved out of the Explore menu and into its own tab in the main navigation, between Home and Explore",
+      'Added a sort menu to search and browse results, including a way to sort by bottle size',
+      'Bottle size filtering now groups into five simple ranges instead of a separate option for every exact millilitre',
+      'Four more retailers went live: Avon, Riiffs Perfumes, Perfumeo and FragranceHub',
+      "Fixed several UK brand website links that were wrongly labelled as international, and connected 7 more brands to their official site",
+    ],
+  },
+  {
     version: 'v3.10.0',
     date: '19 Aug 2026',
     title: 'Product photos are back, and the price chart gets a range picker',
