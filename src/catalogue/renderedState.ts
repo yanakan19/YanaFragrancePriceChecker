@@ -1,5 +1,6 @@
 import type { RawListing } from './types.js';
 import { parseJohnLewisListings } from './johnLewisNextData.js';
+import { parseSelfridgesListings } from './selfridgesRsc.js';
 
 /**
  * The one place a rendered page is allowed a second reading.
@@ -48,6 +49,7 @@ type RenderedStateParser = (html: string, options: RenderedStateParseOptions) =>
 
 const PARSERS: Record<string, RenderedStateParser> = {
   'john-lewis': parseJohnLewisListings,
+  selfridges: parseSelfridgesListings,
 };
 
 /** Whether this shop has a second reading available at all. */
