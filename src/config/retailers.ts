@@ -429,6 +429,32 @@ export const RETAILERS: readonly Retailer[] = [
     // secret is just wrong" — it is not, and the proxy tier's failure is a
     // separate, still-open transport question this run does not have the
     // budget to chase further.
+    //
+    // ── Closed, 2026-08-21: the actor tier confirms the challenge page ───
+    // State probe run 32505341082, job 96844124899, 16:54Z, one rendered page
+    // of /fragrance/shop-all-fragrance?pageNo=1 through the actor — a real
+    // headless browser on a residential UK IP, the strongest retrieval this
+    // repo has:
+    //
+    //     rendered 2,513 bytes
+    //     JSON-LD blocks: 0; parseListings(): 0 listing(s)
+    //     "£" price-shaped strings in the rendered markup: 0 (0 distinct)
+    //     Script blocks carrying an id: 0
+    //     ### RSC flight stream: no self.__next_f.push chunks
+    //     ### API-shaped addresses named in the markup: 0 distinct
+    //
+    // The same 2,513-byte challenge page the plain-fetch route has always
+    // got, now through the one tier that had not been asked since the
+    // leaked-timer fix. Zero of everything: no structured data, no painted
+    // price, no state block, no endpoint the page names to itself. This is
+    // not an extraction problem — there is nothing on the page to extract —
+    // and it is not a retrieval problem this repo can spend its way out of.
+    //
+    // No further scraping effort belongs here. The route is the affiliate
+    // programme (Awin, applied, merchant 2041, below), which is permission
+    // rather than technique. Deliberately not registered in
+    // src/catalogue/renderedState.ts; tests/johnLewisNextData.test.ts asserts
+    // this shop has no reader and cites this run for why.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -735,6 +761,43 @@ export const RETAILERS: readonly Retailer[] = [
     // Next.js apps commonly shape it — is the concrete next step, and it
     // needs the timer bug fixed first so the run is not mistaken for a
     // hang and killed before anyone gets to look.
+    //
+    // ── That reading was done, 2026-08-21, and the answer is yes ───────────
+    // State probe run 32503415608, job 96838106561, 16:33Z — one rendered
+    // page of the womens-fragrance section, 1,060,957 bytes, through the new
+    // scripts/apify-state-probe.ts, which prints JSON key paths rather than a
+    // yes/no per known marker:
+    //
+    //     JSON-LD blocks: 4; parseListings(): 0 listing(s)
+    //     "£" price-shaped strings in the rendered markup: 477 (83 distinct)
+    //     #__NEXT_DATA__ type=application/json 216,448 bytes
+    //     candidate product array:
+    //         props.pageProps.productListingData.products[] — 74 object(s)
+    //     key presence across all 74: productId, title, brand, image, url,
+    //         variantPriceRange, outOfStock, isAvailableToOrder, attributes …
+    //
+    // So the "price-shaped keys: false" above is a false negative, and the
+    // paragraph reasoning from it — that this payload is page chrome rather
+    // than a priced catalogue — is wrong. It is the catalogue. The price sits
+    // at `variantPriceRange.value.min`/`.max`, with a £-marked twin at
+    // `variantPriceRange.display.min`/`.max`, under a parent no `"price":`
+    // regex was going to reach. Run 32504051993, job 96840113636, confirmed
+    // the identical structure on the mens-aftershave section.
+    //
+    // src/catalogue/johnLewisNextData.ts now reads it, registered in
+    // src/catalogue/renderedState.ts and consulted by
+    // scripts/catalogue-harvest.ts only after parseListings has returned
+    // nothing for a rendered page. What it will and will not claim is in that
+    // module's header; the short version is that a card whose variants
+    // disagree on price (CHANEL Coco Mademoiselle Crush Absolu, £117 to £160
+    // across 50ml and 100ml, one title naming neither) is stored as a listing
+    // with no price rather than priced at a guess, and that a price is only
+    // read when the shop's own display string starts with £.
+    //
+    // This entry's `enabled: true` and `currency: 'GBP'` are unchanged by that
+    // work — the shop was already enabled, already rendering four section
+    // pages per metered sweep, and already getting nothing for them. The
+    // difference is that those renders now produce listings.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -1014,6 +1077,37 @@ export const RETAILERS: readonly Retailer[] = [
     // step, not yet attempted: dump that block's structure — redacted, the
     // same way every other marker here already is — once the timer bug no
     // longer makes a 27-second answer look like a hang.
+    //
+    // ── That step was taken, 2026-08-21, and its premise was wrong ────────
+    // State probe run 32503824167, job 96839386128, 16:37Z, one rendered page
+    // of /fragrance/c/fragrance?page=1, 1,101,636 bytes:
+    //
+    //     JSON-LD blocks: 1; parseListings(): 60 listing(s)
+    //     #json-ld type=application/ld+json 30,153 bytes
+    //     #spartacus-app-state type=application/json 742,007 bytes
+    //     @graph[].itemListElement[].item.name  ×60
+    //         e.g. Hugo Boss BOSS Bottled Aftershave 100ml
+    //     @graph[].itemListElement[].item.offers.price  ×60  e.g. 26.8
+    //     @graph[].itemListElement[].item.offers.priceCurrency  ×60  e.g. GBP
+    //
+    // This shop needs no new parser and never did. Its rendered category page
+    // publishes an ItemList of 60 schema.org Products with prices and an
+    // explicit priceCurrency, and `parseListings` — the one parser, unchanged
+    // — reads all 60 of them. The `spartacus-app-state` line of enquiry was a
+    // dead end in the most benign way: that block is 742 kB of CMS layout,
+    // navigation and translation strings, and the only product-shaped
+    // collection in it is `cx-state.translations.chunks.entities.product`,
+    // which is UI copy. It is deliberately NOT registered in
+    // src/catalogue/renderedState.ts, and that module's header says why.
+    //
+    // Why this shop has produced nothing so far is therefore not extraction
+    // at all: the actor run that would have shown this (job 96424955880) was
+    // killed at 40 seconds by the leaked-timer bug fixed in 16297ca, before
+    // its result printed. A metered harvest should now find these 60.
+    //
+    // The `priceCurrency: "GBP"` on all 60 is a real sterling reading, but it
+    // is recorded here as evidence and not acted on — currency confirmation
+    // is its own step with its own proof requirement, and is not done here.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -1144,6 +1238,45 @@ export const RETAILERS: readonly Retailer[] = [
     // because of a timer leak", not as a measurement of how long this shop
     // actually takes to render. See John Lewis's entry for the fix this
     // implies (apifyActor.ts's runOneActor, not touched in this pass).
+    //
+    // ── Not a dead end: the RSC stream carries a typed grid, 2026-08-21 ──
+    // State probe run 32505063770, job 96843269238, 16:51Z, one rendered page
+    // of /GB/en/cat/beauty/fragrance/?pn=1, 964,069 bytes:
+    //
+    //     JSON-LD blocks: 1; parseListings(): 0 listing(s)
+    //       #breadcrumb-schema type=application/ld+json 273 bytes
+    //     ### RSC flight stream: 19 chunk(s), 459,936 chars assembled
+    //       "price" as a key: first at 398417
+    //       "sku": first at 398478
+    //
+    // The page's only JSON-LD really is a breadcrumb, as recorded above. But
+    // the 19 `self.__next_f.push` chunks reassemble into 460 kB of flight
+    // stream, and at offset 398,417 sits a GraphQL result set that labels its
+    // own types:
+    //
+    //     "products":[{"__typename":"Product",
+    //       "name":"Atelier des Fleurs Cedrus de Nuit Eau de Parfum 150ml",
+    //       "seoKey":"chloe-atelier-des-fleurs-…-150ml_R04693967",
+    //       "brand":"CHLOE","productId":"R04693967",
+    //       "lowestPrice":[{"currency":"GBP","price":231,
+    //         "markdownPrice":null,"prevMarkdownPrice":null}], …
+    //
+    // Three complete records in that one window: £231, £115 and £375. The
+    // records carry no URL, so the address was measured off the same grid's
+    // own anchors rather than constructed — run 32505707116, job 96845282753
+    // — and is `/GB/en/product/{seoKey}/`, not the `/GB/en/cat/` this shop's
+    // category pages use.
+    //
+    // src/catalogue/selfridgesRsc.ts reads it, registered in
+    // src/catalogue/renderedState.ts. Two limits, both argued in that
+    // module's header: stock is always null, because the stream never states
+    // availability anywhere in its 459,936 characters, and a record carrying
+    // a markdown is stored unpriced, because no captured record establishes
+    // whether a reduced product's current price is in `price` or in
+    // `markdownPrice`.
+    //
+    // This shop stays as it is below. Extraction is proven; currency
+    // confirmation is a separate step and has not been done here.
     adapter: 'proxied',
     currency: 'GBP',
     shipping: {
@@ -2912,6 +3045,36 @@ export const RETAILERS: readonly Retailer[] = [
     // (zara.com/us/en/search?searchTerm=) during the same search, not
     // queried directly against /uk/en/ here — kept for shape-consistency
     // with every other entry's required field, not asserted as measured.
+    // ── Re-probed 2026-08-21 after the timer fix: retrieval and partial
+    // ── extraction both work; whether anything is priced is still open ────
+    // Item 18a of the 2026-08-20 backlog asked for exactly one thing: re-probe
+    // this shop now that 16297ca has stopped a 23-second answer looking like a
+    // hang. State probe run 32506369776, job 96847334075, 17:06Z, one rendered
+    // page of woman-beauty-perfumes-l1415:
+    //
+    //     rendered 2,940,171 bytes
+    //     JSON-LD blocks: 1; parseListings(): 7 listing(s)
+    //     "£" price-shaped strings in the rendered markup: 0 (0 distinct)
+    //     Script blocks carrying an id: 0
+    //     ### RSC flight stream: no self.__next_f.push chunks
+    //
+    // Three things follow. Retrieval works and is not marginal — 2.9 MB, the
+    // largest render this project has taken from any shop. The existing
+    // parser does find product markup here, seven items of it, so this is not
+    // a John Lewis-style "no schema.org anywhere" case and needs no
+    // rendered-state reader; it is deliberately absent from
+    // src/catalogue/renderedState.ts. And the page paints no £ string at all,
+    // which for a UK storefront showing prices on every card means the price
+    // is written some other way — a bare number with the currency stated
+    // elsewhere, most likely — so whether those seven listings are *priced*
+    // is precisely the question this run does not answer.
+    //
+    // That is the open item, and it is answerable free: `npm run harvest
+    // --shop=zara --dry-run --allow-metered` reports parsed and priced
+    // separately per section. The state probe now prints a priced count of its
+    // own too, added in the same commit as this note for the next run. What is
+    // ruled out already is the timer bug, a bot wall, an empty render, and any
+    // need for a second extraction format here.
     catalogue: {
       searchUrlTemplate: 'https://www.zara.com/uk/en/search?searchTerm={q}',
       sections: [
