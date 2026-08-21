@@ -1229,6 +1229,17 @@ function offerRow(row: PresentedOffer, isBest: boolean, bestTag: string | null =
   if (row.delivery.spendMoreForFreeGbp !== null) {
     sub.push(`${formatGbp(row.delivery.spendMoreForFreeGbp)} more for free postage`);
   }
+  // This retailer's own published rating for this listing — read from its
+  // schema.org aggregateRating (src/catalogue/jsonld.ts), never computed and
+  // never borrowed from a different shop's rating of the same fragrance.
+  // Fragrantica's own ratings are off limits (its ToS forbids scraping them,
+  // see docs/SCRAPING.md); this is the legitimate substitute, shown only
+  // where a retailer actually publishes one.
+  if (row.rating) {
+    sub.push(
+      `★ ${row.rating.value.toFixed(1)}${row.rating.count !== null ? ` (${row.rating.count})` : ''}`,
+    );
+  }
 
   return `<li class="offer ${isBest ? 'best' : ''} ${row.isPurchasable ? '' : 'unavail'}">
     <a class="offer-link" href="${esc(row.outboundUrl)}" rel="nofollow noopener" target="_blank">
