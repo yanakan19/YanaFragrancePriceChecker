@@ -83,6 +83,17 @@ export interface RawListing {
    * still not a licence to assume sterling.
    */
   nativePrice?: { amount: number; currency: string } | null;
+  /**
+   * The retailer's own `aggregateRating`, read off the same schema.org
+   * Product node as the price — the legitimate substitute for a
+   * Fragrantica-style rating, since that site's own ToS forbids scraping its
+   * reviews (see docs/SCRAPING.md). `count` is null where a source publishes
+   * a star value with no review count; never invented. Optional because only
+   * the JSON-LD route (src/catalogue/jsonld.ts) currently reads it — every
+   * other adapter leaves it absent, which must read as "not captured", never
+   * as "no reviews".
+   */
+  rating?: { value: number; count: number | null } | null;
 }
 
 /** Where a listing is in its life at a retailer. */

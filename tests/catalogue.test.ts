@@ -246,6 +246,46 @@ describe('parseListings', () => {
   it('returns nothing for a page with no Product markup', () => {
     expect(parseListings('<html><body>nothing here</body></html>', OPTS)).toEqual([]);
   });
+
+  it('reads an aggregateRating carried on the same Product node as the price', () => {
+    const html = page({
+      '@type': 'Product', name: 'X', sku: 'x',
+      offers: { price: '10.00' },
+      aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.6', reviewCount: '128' },
+    });
+    expect(parseListings(html, OPTS)[0]?.rating).toEqual({ value: 4.6, count: 128 });
+  });
+
+  it('accepts ratingCount as an alias for reviewCount', () => {
+    const html = page({
+      '@type': 'Product', name: 'X', sku: 'x',
+      aggregateRating: { ratingValue: 4.2, ratingCount: 9 },
+    });
+    expect(parseListings(html, OPTS)[0]?.rating).toEqual({ value: 4.2, count: 9 });
+  });
+
+  it('keeps a rating with a star value but no published review count', () => {
+    const html = page({
+      '@type': 'Product', name: 'X', sku: 'x',
+      aggregateRating: { ratingValue: '4.9' },
+    });
+    expect(parseListings(html, OPTS)[0]?.rating).toEqual({ value: 4.9, count: null });
+  });
+
+  it('does not invent a rating when the page carries none', () => {
+    const html = page({ '@type': 'Product', name: 'X', sku: 'x', offers: { price: '10.00' } });
+    expect(parseListings(html, OPTS)[0]?.rating).toBeNull();
+  });
+
+  it('does not invent a rating from a reviewCount with no ratingValue', () => {
+    // A count with no star figure is not a rating anyone could show — the
+    // schema-absence case must not silently zero it into "0 stars".
+    const html = page({
+      '@type': 'Product', name: 'X', sku: 'x',
+      aggregateRating: { reviewCount: '40' },
+    });
+    expect(parseListings(html, OPTS)[0]?.rating).toBeNull();
+  });
 });
 
 /* ── reconcile ─────────────────────────────────────────────────────────────── */
