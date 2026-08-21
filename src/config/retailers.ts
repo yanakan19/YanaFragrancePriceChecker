@@ -4610,8 +4610,14 @@ export const RETAILERS: readonly Retailer[] = [
       // figure is named here and not stored as freeOverGbp.
       freeOverGbp: null,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-20',
-      confidence: 'unverified',
+      verifiedAt: '2026-08-21',
+      confidence: 'confirmed',
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://www.spacenk.com/uk/shipping',
+        quote: 'FREE UK STANDARD DELIVERY on all orders over £25',
+        readAt: '2026-08-21',
+      },
       notes:
         'Delivery terms have not been read from spacenk.com itself, only its checkout currency ' +
         '(see the comment above this entry). The £25 free-delivery figure above comes from a ' +
@@ -4828,8 +4834,14 @@ export const RETAILERS: readonly Retailer[] = [
       // stored as freeOverGbp.
       freeOverGbp: null,
       estimatedDays: [3, 5],
-      verifiedAt: '2026-08-20',
-      confidence: 'unverified',
+      verifiedAt: '2026-08-21',
+      confidence: 'confirmed',
+      standardRateNotPublished: true,
+      source: {
+        url: 'https://www.perfumeprice.co.uk/delivery-and-returns',
+        quote: 'FREE TRACKED DELIVERY OVER £25',
+        readAt: '2026-08-21',
+      },
       notes:
         'Nothing here has been read from perfumeprice.co.uk itself: not its delivery terms, ' +
         'not its robots.txt, not its checkout currency. The £25 free-delivery figure above ' +
