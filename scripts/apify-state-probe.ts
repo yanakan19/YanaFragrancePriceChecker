@@ -461,7 +461,27 @@ safely('RSC flight stream', () => {
   }
 });
 
-// ── 6. API addresses the page itself names ────────────────────────────────
+// ── 6. Product-shaped links the page paints ──────────────────────────────
+// A state blob that carries a product's identity but not its address is only
+// most of an extractor. Selfridges' RSC payload is exactly that: it names a
+// `seoKey` per product and no URL anywhere near it, and a parser cannot store
+// a listing whose Buy button points at a guess. The grid's own anchors are
+// where the real answer is, and they are free — a shop that paints a product
+// card paints a link to it.
+safely('product-shaped links', () => {
+  const hrefs = new Set<string>();
+  for (const m of html.matchAll(/href="([^"]{8,240})"/g)) {
+    const href = m[1];
+    // An id-bearing path, which is what a product link is and a nav link is
+    // not: a run of four or more digits, or an underscore-joined code.
+    if (href && /\/[^/"]*(?:\d{4,}|_[A-Za-z]?\d{3,})[^/"]*\/?$/.test(href)) hrefs.add(href);
+  }
+  const sample = [...hrefs].slice(0, 15);
+  console.log(`\n### id-bearing links in the markup: ${hrefs.size} distinct (showing ${sample.length})`);
+  for (const h of sample) console.log(`  ${h}`);
+});
+
+// ── 7. API addresses the page itself names ────────────────────────────────
 // If the state blob carries no price, the page had to get one from somewhere,
 // and an endpoint it names in its own markup is the cheapest possible next
 // lead — a JSON URL may answer to a plain fetch or the proxy tier, neither of
