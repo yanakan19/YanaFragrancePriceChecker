@@ -1201,6 +1201,32 @@ export const RETAILERS: readonly Retailer[] = [
     // rather than invented. `deeplinkTemplate` is null for the same reason:
     // Partnerize's own link shape was not found from a primary source in
     // this pass, so nothing is guessed here either.
+    //
+    // ── Re-verification attempt, 2026-08-21 — WebSearch only, still not a ────
+    // ── primary source, but the 2022 finding looks current ───────────────────
+    // WebFetch to selfridges.com and Partnerize's own site is still
+    // EGRESS_BLOCKED from this sandbox, same as when the finding above was
+    // first recorded, so this could only be re-checked via WebSearch, which
+    // does work here. Result: CONFIRMED CURRENT, on secondary evidence, not
+    // CONTRADICTED. Two independent affiliate-network aggregator listings
+    // dated well after the 2022 PerformanceIN article both name Partnerize
+    // as Selfridges' live affiliate network today — a hienergyrocket.com
+    // listing titled "Selfridges Affiliate Program | Partnerize" and a
+    // cuelinks.com listing dated "April 2026" (payout 1.35% per sale, 7-day
+    // cookie, marked paused by the advertiser there specifically, which
+    // reads as that one aggregator's own campaign status rather than
+    // Selfridges pausing the programme generally — affplus.com and affi.io
+    // list it as a live Partnerize programme with no pause noted). No
+    // search turned up any report of Selfridges moving off Partnerize back
+    // to Awin, Rakuten, CJ or Impact, or any 2023-2026-dated source
+    // contradicting the 2022 move. Neither aggregator is Selfridges or
+    // Partnerize themselves, so this is still not the primary-source
+    // confirmation a WebFetch to selfridges.com's own affiliate page would
+    // give — but it is real evidence from four years later than the
+    // original source, not just its age alone, and it points the same way.
+    // On this, the Partnerize signup at partnerize.com/partners looks worth
+    // the owner's time rather than worth delaying for a fresher signal.
+    // `enabled` and pricing are unchanged by this comment.
     affiliate: {
       network: 'partnerize',
       verified: true,
