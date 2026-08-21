@@ -1,0 +1,76 @@
+name: State probe (one shop)
+
+# Render ONE page of ONE shop and print the structure of whatever
+# machine-readable state it carries. Writes nothing.
+#
+# ── Why this is not harvest-one-shop.yml ───────────────────────────────────
+# That workflow runs the real harvest against one shop, which renders every
+# catalogue section that shop has configured — four pages for John Lewis — and
+# then reports what `parseListings` made of them, which for these shops is
+# always the same answer: nothing. It is the right tool for "does retrieval
+# work"; it is a poor and needlessly expensive tool for "what is actually in
+# the page", because it renders four pages to tell you a fact one page carries
+# and prints byte counts rather than key paths.
+#
+# scripts/apify-state-probe.ts renders exactly one URL and prints the JSON key
+# paths, types and a full candidate product record. Same credential, same
+# MAX_ACTOR_PAGES_PER_RUN ceiling in src/catalogue/apifyActor.ts, one quarter
+# of the render cost of a John Lewis harvest probe.
+#
+# No concurrency group, for the same reason harvest-one-shop.yml has none: it
+# writes no snapshot, so it cannot race the scheduled crawl and does not need
+# to hold the `catalogue` group to run. It will queue behind nothing and block
+# nothing.
+#
+# One shop per run. The Apify plan behind APIFY_TOKEN is the free tier with a
+# $5 monthly credit that does not roll over, so dispatch these one at a time
+# and read the log — the script prints the account's month-to-date spend both
+# before and after the render precisely so the next dispatch is an informed
+# one.
+
+on:
+  workflow_dispatch:
+    inputs:
+      shop:
+        description: 'The retailer id to render, e.g. john-lewis. One shop per run.'
+        type: string
+        required: true
+      section:
+        description: 'Which catalogue section id to render. Defaults to the first one the shop has.'
+        type: string
+        required: false
+      url:
+        description: 'Render this exact URL instead of a catalogue section. Overrides `section`.'
+        type: string
+        required: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    # One render, and src/catalogue/apifyActor.ts abandons its own call at
+    # ACTOR_CALL_TIMEOUT_MS + 5s (285s). Ten minutes is that plus install and
+    # a wide margin, and well inside harvest-one-shop.yml's 20.
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      # APIFY_PROXY_PASSWORD is passed only so the account preflight can say
+      # whether it matches the account's real proxy password. This script never
+      # opens the proxy tunnel.
+      - name: Probe one shop's page state
+        env:
+          APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+        run: |
+          npm run apify:state-probe -- \
+            --shop=${{ inputs.shop }} \
+            ${{ inputs.section && format('--section={0}', inputs.section) || '' }} \
+            ${{ inputs.url && format('--url={0}', inputs.url) || '' }}
