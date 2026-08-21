@@ -170,6 +170,33 @@ function imageUrl(node: JsonValue): string | null {
   return null;
 }
 
+/**
+ * A retailer's own `aggregateRating`, read straight off the same Product node
+ * the price comes from — never computed, never defaulted, never carried over
+ * from a different listing of the same fragrance.
+ *
+ * `ratingValue` is required: a review count with no star value is not a
+ * rating anyone could show. `reviewCount` (the schema.org name most sites
+ * use) and `ratingCount` (seen on a handful of sites instead, meaning the
+ * same thing) are both accepted, in that order; either can be absent without
+ * discarding a real `ratingValue` — a shop that publishes "4.6 stars" but not
+ * how many reviews back it is still publishing a real rating, just an
+ * incomplete one, and the caller decides whether that is enough to show.
+ */
+function aggregateRating(node: JsonValue): { value: number; count: number | null } | null {
+  const blocks = flatten(node['aggregateRating']);
+  const rating = blocks[0];
+  if (!rating) return null;
+
+  const value = parsePrice(rating['ratingValue']);
+  if (value === null) return null;
+
+  const countRaw = str(rating['reviewCount']) ?? str(rating['ratingCount']);
+  const count = countRaw !== null ? Number.parseInt(countRaw, 10) : null;
+
+  return { value, count: count !== null && Number.isFinite(count) ? count : null };
+}
+
 /** Any of the identifier fields a retailer might expose, best first. */
 function gtin(node: JsonValue): string | null {
   for (const key of ['gtin13', 'gtin', 'gtin12', 'gtin14', 'gtin8', 'ean', 'productID']) {
@@ -262,6 +289,7 @@ export function parseListings(html: string, options: ParseOptions): RawListing[]
       promoEndsAt: isoDate(offer?.['priceValidUntil']),
       inStock: parseAvailability(offer?.['availability']),
       sectionId: options.sectionId,
+      rating: aggregateRating(node),
     });
   }
 
