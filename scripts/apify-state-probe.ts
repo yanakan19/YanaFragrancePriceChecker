@@ -228,7 +228,7 @@ for (const s of named) {
  * in apify-blob-probe.ts reading a real price as absent.
  */
 const INTERESTING =
-  /(price|amount|value|currenc|cost|rrp|was|sale|offer|name|title|brand|stock|availab|sku|code|ean|gtin|upc|image|url|link|promo|discount|display|formatted|variant|size|volume)/i;
+  /(price|amount|value|currenc|cost|rrp|was|sale|offer|name|title|brand|stock|availab|sku|code|ean|gtin|upc|image|url|link|promo|discount|reduc|display|formatted|variant|size|volume)/i;
 
 /** Short keys a substring test would either miss or drown in false matches. */
 const INTERESTING_EXACT = /^(id|now|then|from|min|max)$/i;
@@ -264,7 +264,7 @@ function sample(v: unknown): string {
 function walk(node: unknown, path: string, out: Map<string, PathStat>, depth: number): void {
   if (depth > 14) return;
   if (Array.isArray(node)) {
-    for (const item of node.slice(0, 40)) walk(item, `${path}[]`, out, depth + 1);
+    for (const item of node.slice(0, 200)) walk(item, `${path}[]`, out, depth + 1);
     return;
   }
   if (node && typeof node === 'object') {
@@ -358,8 +358,34 @@ function report(label: string, raw: string): void {
     return;
   }
   console.log(`  candidate product array: ${found.path} — ${found.items.length} object(s)`);
-  const one = JSON.stringify(found.items[0], null, 1) ?? '';
-  console.log(`  first element (capped at 6000 chars):\n${one.slice(0, 6000)}`);
+
+  // Per-key presence across the whole collection, not just the sampled few.
+  // "Every product in this grid carries a price" is the claim a parser is
+  // built on, and one printed record cannot support it while a count over all
+  // 74 of them can.
+  const presence = new Map<string, number>();
+  for (const item of found.items) {
+    for (const k of Object.keys(item as Record<string, unknown>)) {
+      presence.set(k, (presence.get(k) ?? 0) + 1);
+    }
+  }
+  console.log(
+    `  key presence across all ${found.items.length}: ` +
+      [...presence.entries()]
+        .sort((a, b) => b[1] - a[1])
+        .map(([k, n]) => `${k}=${n}`)
+        .join(', '),
+  );
+
+  // Three records rather than one, because a parser needs a fixture and a
+  // fixture of a single row proves only that the row parses. Three costs
+  // nothing extra — the render is already paid for — and catches the shape
+  // differences (a reduction, an out-of-stock, a single-variant price) that a
+  // first row picked at random usually does not have.
+  for (const [i, item] of found.items.slice(0, 3).entries()) {
+    const one = JSON.stringify(item, null, 1) ?? '';
+    console.log(`  element ${i} (capped at 4000 chars):\n${one.slice(0, 4000)}`);
+  }
 }
 
 safely('JSON script blocks', () => {
