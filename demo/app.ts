@@ -50,6 +50,7 @@ import { AA_TEXT, contrastRatio, parseColour, type Rgba } from './contrast.js';
 import { GENDER_LABEL, GENDER_ORDER, readGender, type GenderReading } from './gender.js';
 import { VOLUME_BANDS, volumeBandFor, type VolumeBand } from './volumeBands.js';
 import { LIST_SORT_OPTIONS, sortFragrances, type BrowseSort, type ListSort } from './listSort.js';
+import { trustpilotStateFor } from './trustpilotWidget.js';
 import { COMPANY, LEGAL_PAGES, legalPage } from './legal.js';
 import { CHANGELOG } from './changelog.js';
 import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
@@ -2078,30 +2079,33 @@ function retailersPanel(): string {
 /**
  * Trustpilot's own "TrustBox" embed, in its Micro Star template — a compact
  * star rating and review count, right-sized for sitting under delivery facts
- * rather than a full review carousel. Absent entirely below a configured
- * `trustpilotBusinessId`, the same rule as every other external fact in this
- * app: nothing shown is better than something guessed, and there is no way
- * to derive this id from a domain alone (see the field's own comment in
- * src/types/retailer.ts). The fallback link inside is Trustpilot's own
- * convention — if their script never loads (blocked, offline, slow), a
- * plain link to the real review page is what a reader sees instead of a
- * blank box.
+ * rather than a full review carousel. `trustpilotStateFor` (demo/
+ * trustpilotWidget.ts) decides which of two things this is: the widget, once
+ * a `trustpilotBusinessId` is configured, or an honest "No Trustpilot
+ * reviews available" note in its place — the owner's explicit call, so a
+ * reader sees a stated absence rather than silence indistinguishable from
+ * "this shop has no delivery facts either". The fallback link inside the
+ * widget itself is Trustpilot's own convention — if their script never loads
+ * (blocked, offline, slow), a plain link to the real review page is what a
+ * reader sees instead of a blank box.
  */
 function trustpilotWidget(r: Retailer): string {
-  if (!r.trustpilotBusinessId) return '';
-  const reviewUrl = `https://uk.trustpilot.com/review/${esc(r.domain)}`;
+  const state = trustpilotStateFor(r);
+  if (state.kind === 'unavailable') {
+    return `<p class="trustpilot-unavailable t-caption dimmer">${esc(state.message)}</p>`;
+  }
   return `<div class="trustpilot-block">
     <div
       class="trustpilot-widget"
       data-trustpilot-widget
       data-locale="en-GB"
       data-template-id="5419b6ffb0d04a076446a9af"
-      data-businessunit-id="${esc(r.trustpilotBusinessId)}"
+      data-businessunit-id="${esc(state.businessId)}"
       data-style-height="24px"
       data-style-width="100%"
       data-theme="dark"
     >
-      <a href="${reviewUrl}" target="_blank" rel="noopener nofollow">See reviews on Trustpilot</a>
+      <a href="${esc(state.reviewUrl)}" target="_blank" rel="noopener nofollow">See reviews on Trustpilot</a>
     </div>
   </div>`;
 }
