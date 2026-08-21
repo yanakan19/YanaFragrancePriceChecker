@@ -36,6 +36,7 @@ import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEMO_FRAGRANCES } from '../demo/data.js';
 import { CRAWLED } from '../demo/catalogue.generated.js';
+import { RETAILERS } from '../src/config/retailers.js';
 import type { StockState } from '../src/types/offer.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -65,9 +66,30 @@ interface RawDeal {
  */
 const BUYABLE: ReadonlySet<StockState> = new Set<StockState>(['inStock', 'lowStock']);
 
+/**
+ * Brand-direct storefronts (`retailer.singleBrandOnly`) are kept off Today's
+ * Deals, the same call retailersPanel() in demo/app.ts already makes for the
+ * Retailers directory and demo/data.ts's rankableShopCount now makes for the
+ * Most Stocked rail: a house discounting its own line is not the kind of
+ * market comparison this page exists to surface, and it still gets shown in
+ * full on the fragrance's own page and the brand's own page either way. A
+ * genuine discount from any other shop on the same fragrance is unaffected —
+ * this only ever removes a brand-direct shop's own offer from consideration,
+ * never the fragrance itself.
+ */
+const SINGLE_BRAND_ONLY_IDS = new Set(
+  RETAILERS.filter((r) => r.singleBrandOnly).map((r) => r.id),
+);
+
 const deals: RawDeal[] = DEMO_FRAGRANCES.flatMap((fragrance) => {
   const reduced = (CRAWLED[fragrance.id] ?? [])
-    .filter((o) => BUYABLE.has(o.stock) && o.wasPrice !== null && o.wasPrice > o.price)
+    .filter(
+      (o) =>
+        BUYABLE.has(o.stock) &&
+        o.wasPrice !== null &&
+        o.wasPrice > o.price &&
+        !SINGLE_BRAND_ONLY_IDS.has(o.retailerId),
+    )
     .sort((a, b) => a.price - b.price);
   const best = reduced[0];
   if (!best || best.wasPrice === null) return [];

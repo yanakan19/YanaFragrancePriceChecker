@@ -29,7 +29,19 @@ export interface DemoFragrance {
   sizeMl: number;
   ean: string | null;
   tier: RetailerTier;
-  /** How many shops stock it. Doubles as the popularity signal for now. */
+  /**
+   * The Most Stocked ranking signal — how many *general* shops carry it,
+   * deliberately not the true "how many shops stock it" figure. A
+   * brand-direct storefront (`retailer.singleBrandOnly`) selling its own
+   * fragrance is real availability and still counts on the fragrance's own
+   * page and the brand's own page (both read the live offer rows, not this
+   * field), but it says nothing about how widely the *market* has picked
+   * the product up — every listing on a brand's own line, exclusively,
+   * would otherwise crowd the leading rail with that one house's products
+   * ranked purely on it selling to itself. See rankableShopCount below for
+   * the exact exclusion and retailersPanel() in demo/app.ts for the same
+   * call already made for the Retailers directory.
+   */
   popularity: number;
   photoUrl: string | null;
   /** Only ever notes a source explicitly labelled. Null means genuinely unknown. */
@@ -88,6 +100,33 @@ function priceTierFor(id: string, brand: string): RetailerTier {
   return lowest >= 150 ? 'niche' : 'designer';
 }
 
+/**
+ * Retailer ids that exist to sell one house's own line, not a general
+ * comparison source — the same set retailersPanel() in demo/app.ts already
+ * excludes from the Retailers directory. 11 of the 14 registry entries with
+ * `singleBrandOnly` set are `enabled: true` today (2026-08-21); 9 of those
+ * 11 currently carry any live listing at all (riiffs and zara harvest zero
+ * right now) — this set is built from the registry field itself, so it
+ * tracks whichever of those 11 actually contribute an offer to a given
+ * fragrance without needing to hardcode either count here.
+ */
+const SINGLE_BRAND_ONLY_IDS = new Set(
+  RETAILERS.filter((r) => r.singleBrandOnly).map((r) => r.id),
+);
+
+/**
+ * How many *general* shops carry this fragrance — entry.shops minus any
+ * offer from a brand-direct storefront (see DemoFragrance.popularity's own
+ * doc for why). Recomputed from CRAWLED rather than trusting entry.shops
+ * directly, because entry.shops is exactly `p.offers.length` with no
+ * retailer-type distinction (scripts/build-demo-catalogue.ts) — the two
+ * numbers agree exactly whenever no brand-direct shop contributed a listing
+ * for this fragrance, and differ only where one did.
+ */
+function rankableShopCount(id: string): number {
+  return (CRAWLED[id] ?? []).filter((o) => !SINGLE_BRAND_ONLY_IDS.has(o.retailerId)).length;
+}
+
 export const DEMO_FRAGRANCES: DemoFragrance[] = CATALOGUE.map((entry) => ({
   id: entry.id,
   brand: entry.brand,
@@ -96,7 +135,7 @@ export const DEMO_FRAGRANCES: DemoFragrance[] = CATALOGUE.map((entry) => ({
   sizeMl: entry.sizeMl,
   ean: entry.ean,
   tier: priceTierFor(entry.id, entry.brand),
-  popularity: entry.shops,
+  popularity: rankableShopCount(entry.id),
   photoUrl: entry.image,
   notes: entry.notes,
 }));
