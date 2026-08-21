@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-20T23:27:49.853Z",
+  "checkedAt": "2026-08-21T02:03:14.062Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,7 +59,7 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 18,
+      "listings": 26,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
@@ -193,9 +193,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 116,
-      "pricedInGbp": 116,
-      "withPhoto": 116,
+      "listings": 110,
+      "pricedInGbp": 110,
+      "withPhoto": 110,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
