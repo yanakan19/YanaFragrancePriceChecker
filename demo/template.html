@@ -1321,6 +1321,19 @@
      panel, with this list's own live counts. */
   .facet-note { margin: 8px 0 0; max-width: 46ch; }
   .notes-source { margin: 10px 0 0; }
+  /* Same icon-then-label shape as .footer-link below, at the notes block's own
+     caption size rather than the footer's fixed one, so "As published by X"
+     reads as a quiet in-place link rather than a separate control. */
+  .notes-source-link {
+    display: inline-flex; align-items: center; gap: 4px;
+    color: inherit; text-decoration: none; font: inherit;
+  }
+  .notes-source-link .notes-source-ico { display: inline-flex; }
+  .notes-source-link .notes-source-ico .ico { width: 12px; height: 12px; }
+  .notes-source-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (hover: hover) and (pointer: fine) {
+    .notes-source-link:hover { color: var(--accent); }
+  }
 
   /* ── full search ───────────────────────────────────────────────────────── */
   .search-big {

@@ -1671,12 +1671,22 @@ function notesBlock(f: DemoFragrance): string {
              .map((n) => `<button class="note-chip" data-note="${esc(n)}">${esc(titleCase(n))}</button>`)
              .join('')}</p>
          </div>`;
+  // Provenance is only ever missing for notes a future build somehow produced
+  // with no attributable offer (see Notes.source's own doc) or a retailer id
+  // that no longer resolves — both fall back to the old, unlinked wording
+  // rather than rendering a broken link or a made-up name.
+  const source = f.notes.source;
+  const sourceRetailer = source ? getRetailer(source.retailerId) : undefined;
+  const sourceLine =
+    source && sourceRetailer
+      ? `<a class="notes-source-link" href="${esc(source.url)}" target="_blank" rel="noopener nofollow">As published by ${esc(sourceRetailer.name)}<span class="notes-source-ico" aria-hidden="true">${ICON_EXTERNAL}</span></a>`
+      : 'As published by the retailer listing it.';
   return `<div class="notes-block">
     <p class="gone-head t-eyebrow">Notes</p>
     ${layer('Top', 'top', f.notes.top)}
     ${layer('Middle', 'middle', f.notes.middle)}
     ${layer('Base', 'base', f.notes.base)}
-    <p class="notes-source t-caption">As published by the retailer listing it.</p>
+    <p class="notes-source t-caption">${sourceLine}</p>
   </div>`;
 }
 
