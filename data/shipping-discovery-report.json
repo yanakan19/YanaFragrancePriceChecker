@@ -1,18 +1,8 @@
 {
-  "checkedAt": "2026-08-21T08:43:51.803Z",
-  "wrote": 2,
+  "checkedAt": "2026-08-21T20:25:47.950Z",
+  "wrote": 1,
   "eligible": 62,
   "heldForLaterRuns": [
-    "the-range",
-    "the-fragrance-shop",
-    "the-perfume-shop",
-    "very",
-    "al-haramain",
-    "allbeauty",
-    "armaf",
-    "bath-body-works-uk",
-    "beauty-bay",
-    "beauty-flash",
     "fragrancehub",
     "wowcher",
     "zara",
@@ -54,13 +44,155 @@
     "house-of-fraser",
     "les-senteurs",
     "marks-and-spencer",
-    "morrisons"
+    "morrisons",
+    "next",
+    "ocado",
+    "perfume-direct",
+    "perfume-price",
+    "sainsburys",
+    "savers",
+    "sephora-uk",
+    "shy-mimosa",
+    "space-nk",
+    "tesco"
   ],
   "outcomes": [
     {
-      "retailerId": "next",
-      "name": "Next",
-      "homepage": "https://www.next.co.uk",
+      "retailerId": "the-range",
+      "name": "The Range",
+      "homepage": "https://www.therange.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "currentConfidence": "unverified",
+      "enabled": false,
+      "pagesTried": 17,
+      "linksFound": [],
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
+        "steps": [
+          "https://www.therange.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [
+        "https://www.therange.co.uk/: HTTP 403",
+        "https://www.therange.co.uk/policies/shipping-policy: HTTP 403",
+        "https://www.therange.co.uk/pages/shipping-policy: HTTP 403",
+        "https://www.therange.co.uk/pages/shipping-details: HTTP 403",
+        "https://www.therange.co.uk/pages/delivery-information: HTTP 403",
+        "https://www.therange.co.uk/pages/shipping: HTTP 403",
+        "https://www.therange.co.uk/pages/delivery: HTTP 403",
+        "https://www.therange.co.uk/shipping-policy: HTTP 403",
+        "https://www.therange.co.uk/delivery: HTTP 403",
+        "https://www.therange.co.uk/shipping: HTTP 403",
+        "https://www.therange.co.uk/pages/faq: HTTP 403",
+        "https://www.therange.co.uk/pages/shipping-returns: HTTP 403",
+        "https://www.therange.co.uk/pages/delivery-returns: HTTP 403",
+        "https://www.therange.co.uk/pages/shipping-info: HTTP 403",
+        "https://www.therange.co.uk/pages/help: HTTP 403",
+        "https://www.therange.co.uk/policies/refund-policy: HTTP 403",
+        "https://www.therange.co.uk/pages/terms-of-service: HTTP 403"
+      ],
+      "patch": null,
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "the-fragrance-shop",
+      "name": "The Fragrance Shop",
+      "homepage": "https://www.thefragranceshop.co.uk",
+      "currentStandardGbp": 3.49,
+      "currentFreeOverGbp": 40,
+      "currentConfidence": "unverified",
+      "enabled": true,
+      "pagesTried": 17,
+      "linksFound": [],
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
+        "steps": [
+          "https://www.thefragranceshop.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [
+        "https://www.thefragranceshop.co.uk/: HTTP 403",
+        "https://www.thefragranceshop.co.uk/policies/shipping-policy: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/shipping-policy: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/shipping-details: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/delivery-information: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/shipping: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/delivery: HTTP 403",
+        "https://www.thefragranceshop.co.uk/shipping-policy: HTTP 403",
+        "https://www.thefragranceshop.co.uk/delivery: HTTP 403",
+        "https://www.thefragranceshop.co.uk/shipping: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/faq: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/shipping-returns: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/delivery-returns: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/shipping-info: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/help: HTTP 403",
+        "https://www.thefragranceshop.co.uk/policies/refund-policy: HTTP 403",
+        "https://www.thefragranceshop.co.uk/pages/terms-of-service: HTTP 403"
+      ],
+      "patch": null,
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "the-perfume-shop",
+      "name": "The Perfume Shop",
+      "homepage": "https://www.theperfumeshop.com",
+      "currentStandardGbp": 3.5,
+      "currentFreeOverGbp": 25,
+      "currentConfidence": "unverified",
+      "enabled": true,
+      "pagesTried": 17,
+      "linksFound": [],
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.theperfumeshop.com/products.json?limit=250"
+        ]
+      },
+      "errors": [
+        "https://www.theperfumeshop.com/: HTTP 403",
+        "https://www.theperfumeshop.com/policies/shipping-policy: HTTP 403",
+        "https://www.theperfumeshop.com/pages/shipping-policy: HTTP 403",
+        "https://www.theperfumeshop.com/pages/shipping-details: HTTP 403",
+        "https://www.theperfumeshop.com/pages/delivery-information: HTTP 403",
+        "https://www.theperfumeshop.com/pages/shipping: HTTP 403",
+        "https://www.theperfumeshop.com/pages/delivery: HTTP 403",
+        "https://www.theperfumeshop.com/shipping-policy: HTTP 403",
+        "https://www.theperfumeshop.com/delivery: HTTP 403",
+        "https://www.theperfumeshop.com/shipping: HTTP 403",
+        "https://www.theperfumeshop.com/pages/faq: HTTP 403",
+        "https://www.theperfumeshop.com/pages/shipping-returns: HTTP 403",
+        "https://www.theperfumeshop.com/pages/delivery-returns: HTTP 403",
+        "https://www.theperfumeshop.com/pages/shipping-info: HTTP 403",
+        "https://www.theperfumeshop.com/pages/help: HTTP 403",
+        "https://www.theperfumeshop.com/policies/refund-policy: HTTP 403",
+        "https://www.theperfumeshop.com/pages/terms-of-service: HTTP 403"
+      ],
+      "patch": null,
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "very",
+      "name": "very.co.uk",
+      "homepage": "https://www.very.co.uk",
       "currentStandardGbp": null,
       "currentFreeOverGbp": null,
       "currentConfidence": "unverified",
@@ -76,17 +208,867 @@
         "rates": [],
         "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
         "steps": [
-          "https://www.next.co.uk/products.json?limit=250"
+          "https://www.very.co.uk/products.json?limit=250"
         ]
       },
-      "errors": [],
+      "errors": [
+        "https://www.very.co.uk/: HTTP 403",
+        "https://www.very.co.uk/policies/shipping-policy: HTTP 403",
+        "https://www.very.co.uk/pages/shipping-policy: HTTP 403",
+        "https://www.very.co.uk/pages/shipping-details: HTTP 403",
+        "https://www.very.co.uk/pages/delivery-information: HTTP 403",
+        "https://www.very.co.uk/pages/shipping: HTTP 403",
+        "https://www.very.co.uk/pages/delivery: HTTP 403",
+        "https://www.very.co.uk/shipping-policy: HTTP 403",
+        "https://www.very.co.uk/delivery: HTTP 403",
+        "https://www.very.co.uk/shipping: HTTP 403",
+        "https://www.very.co.uk/pages/faq: HTTP 403",
+        "https://www.very.co.uk/pages/shipping-returns: HTTP 403",
+        "https://www.very.co.uk/pages/delivery-returns: HTTP 403",
+        "https://www.very.co.uk/pages/shipping-info: HTTP 403",
+        "https://www.very.co.uk/pages/help: HTTP 403",
+        "https://www.very.co.uk/policies/refund-policy: HTTP 403",
+        "https://www.very.co.uk/pages/terms-of-service: HTTP 403"
+      ],
       "patch": null,
-      "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
     },
     {
-      "retailerId": "ocado",
-      "name": "Ocado",
-      "homepage": "https://www.ocado.com",
+      "retailerId": "al-haramain",
+      "name": "Al Haramain Perfumes",
+      "homepage": "https://alharamainperfumes.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": 50,
+      "currentConfidence": "confirmed",
+      "enabled": true,
+      "pagesTried": 18,
+      "linksFound": [
+        {
+          "url": "https://alharamainperfumes.co.uk/en-us/pages/delivery-information",
+          "linkText": "Delivery & Collection"
+        },
+        {
+          "url": "https://alharamainperfumes.co.uk/en-us/pages/shipping-policy",
+          "linkText": "Shipping Policy"
+        }
+      ],
+      "findings": [
+        {
+          "url": "https://alharamainperfumes.co.uk/en-us/pages/delivery-information",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": null,
+          "freeOverGbp": 50,
+          "caveats": [],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE UK Delivery on orders over £50",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE UK Delivery on orders over £50 (Royal Mail Standard Service)",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://alharamainperfumes.co.uk/en-us/pages/shipping-policy",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": null,
+          "freeOverGbp": 50,
+          "caveats": [
+            "page names 2 different free-delivery thresholds (£50.00, £150.00)"
+          ],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE UK Delivery on orders over £50",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "Orders over £50 are entitled to free delivery which will be shipped out through 48 Tracked service with the option to select a faster tracked service at checkout.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 150,
+              "sentence": "Half-Price Shipping when you spend over £150 - (Minimum Value will slightly vary based upon Currency differences)",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 150,
+              "sentence": "Half-Price Shipping when you spend over £150 - (Minimum Value will slightly vary based upon Currency differences)",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://alharamainperfumes.co.uk/policies/shipping-policy",
+          "status": 200,
+          "foundBy": "path",
+          "standardGbp": null,
+          "freeOverGbp": 50,
+          "caveats": [],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE UK Delivery on orders over £50",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://alharamainperfumes.co.uk/pages/shipping-policy",
+          "status": 200,
+          "foundBy": "path",
+          "standardGbp": null,
+          "freeOverGbp": 50,
+          "caveats": [
+            "page names 2 different free-delivery thresholds (£50.00, £150.00)"
+          ],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE UK Delivery on orders over £50",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "Orders over £50 are entitled to free delivery which will be shipped out through 48 Tracked service with the option to select a faster tracked service at checkout.",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 150,
+              "sentence": "Half-Price Shipping when you spend over £150 - (Minimum Value will slightly vary based upon Currency differences)",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 150,
+              "sentence": "Half-Price Shipping when you spend over £150 - (Minimum Value will slightly vary based upon Currency differences)",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://alharamainperfumes.co.uk/pages/delivery-information",
+          "status": 200,
+          "foundBy": "path",
+          "standardGbp": null,
+          "freeOverGbp": 50,
+          "caveats": [],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE UK Delivery on orders over £50",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE UK Delivery on orders over £50 (Royal Mail Standard Service)",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://alharamainperfumes.co.uk/policies/refund-policy",
+          "status": 200,
+          "foundBy": "path",
+          "standardGbp": null,
+          "freeOverGbp": 50,
+          "caveats": [],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 50,
+              "sentence": "FREE UK Delivery on orders over £50",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [],
+      "patch": {
+        "retailerId": "al-haramain",
+        "action": "confirm-absence",
+        "detail": "page states delivery terms and publishes no standard rate (https://alharamainperfumes.co.uk/en-us/pages/delivery-information)",
+        "write": {
+          "confidence": "confirmed",
+          "verifiedAt": "2026-08-21",
+          "source": {
+            "url": "https://alharamainperfumes.co.uk/en-us/pages/delivery-information",
+            "quote": "FREE UK Delivery on orders over £50 (Royal Mail Standard Service)",
+            "readAt": "2026-08-21"
+          },
+          "standardRateNotPublished": true
+        }
+      },
+      "verdict": "NO RATE PUBLISHED: page states delivery terms and publishes no standard rate (https://alharamainperfumes.co.uk/en-us/pages/delivery-information)"
+    },
+    {
+      "retailerId": "allbeauty",
+      "name": "Allbeauty",
+      "homepage": "https://www.allbeauty.com",
+      "currentStandardGbp": 3.95,
+      "currentFreeOverGbp": 25,
+      "currentConfidence": "unverified",
+      "enabled": true,
+      "pagesTried": 17,
+      "linksFound": [
+        {
+          "url": "https://www.allbeauty.com/pages/delivery-information",
+          "linkText": "Delivery"
+        },
+        {
+          "url": "https://www.allbeauty.com/policies/shipping-policy",
+          "linkText": "shipping"
+        }
+      ],
+      "findings": [
+        {
+          "url": "https://www.allbeauty.com/pages/delivery-information",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": 3.95,
+          "freeOverGbp": 25,
+          "caveats": [
+            "page names 6 different delivery charges (£9.95, £7.95, £11.95, £6.95, £3.95, £14.95) — confirm which is standard",
+            "page names 3 different free-delivery thresholds (£25.00, £125.00, £75.00)"
+          ],
+          "standardRateNotStated": false,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "FREE UK Delivery over £25",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Spend £25.00 more for FREE UK delivery",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Free over £25",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE When You Spend Over £125",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 9.95,
+              "sentence": "Standard Delivery £9.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE when you spend over £125",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 7.95,
+              "sentence": "Standard Delivery £7.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 75,
+              "sentence": "FREE When You Spend Over £75",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 11.95,
+              "sentence": "Standard Delivery £11.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 11.95,
+              "sentence": "Standard Delivery £11.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 11.95,
+              "sentence": "Standard Delivery £11.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Standard Delivery £6.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 75,
+              "sentence": "FREE When You Spend Over £75.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Standard Delivery £6.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 75,
+              "sentence": "FREE When You Spend Over £75.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 3.95,
+              "sentence": "Standard Delivery £3.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "FREE when you spend over £25.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Standard Delivery £6.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 75,
+              "sentence": "FREE When You Spend Over £75.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 9.95,
+              "sentence": "Standard Delivery £9.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE When You Spend Over £125.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 14.95,
+              "sentence": "Standard Delivery £14.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 3.95,
+              "sentence": "Standard Delivery £3.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "FREE when you spend over £25.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 11.95,
+              "sentence": "Standard Delivery £11.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 9.95,
+              "sentence": "Standard Delivery £9.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE When You Spend Over £125.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 9.95,
+              "sentence": "Standard Delivery £9.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE When You Spend Over £125.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Standard Delivery £6.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 75,
+              "sentence": "FREE When You Spend Over £75.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 9.95,
+              "sentence": "Standard Delivery £9.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE When You Spend Over £125.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 9.95,
+              "sentence": "Standard Delivery £9.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE When You Spend Over £125.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 9.95,
+              "sentence": "Standard Delivery £9.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE When You Spend Over £125.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Standard Delivery £6.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 75,
+              "sentence": "FREE When You Spend Over £75.00",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://www.allbeauty.com/policies/shipping-policy",
+          "status": 200,
+          "foundBy": "link",
+          "standardGbp": null,
+          "freeOverGbp": 25,
+          "caveats": [
+            "delivery described as free with no threshold and no rate — confirm it is unconditional before recording 0"
+          ],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "FREE UK Delivery over £25",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Spend £25.00 more for FREE UK delivery",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-unconditional",
+              "amountGbp": 0,
+              "sentence": "Is delivery free?",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Free standard delivery on UK orders over £25.",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://www.allbeauty.com/delivery",
+          "status": 200,
+          "foundBy": "path",
+          "standardGbp": 3.95,
+          "freeOverGbp": 25,
+          "caveats": [
+            "page names 6 different delivery charges (£9.95, £7.95, £11.95, £6.95, £3.95, £14.95) — confirm which is standard",
+            "page names 3 different free-delivery thresholds (£25.00, £125.00, £75.00)"
+          ],
+          "standardRateNotStated": false,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "FREE UK Delivery over £25",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Spend £25.00 more for FREE UK delivery",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Free over £25",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE When You Spend Over £125",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 9.95,
+              "sentence": "Standard Delivery £9.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE when you spend over £125",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 7.95,
+              "sentence": "Standard Delivery £7.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 75,
+              "sentence": "FREE When You Spend Over £75",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 11.95,
+              "sentence": "Standard Delivery £11.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 11.95,
+              "sentence": "Standard Delivery £11.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 11.95,
+              "sentence": "Standard Delivery £11.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Standard Delivery £6.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 75,
+              "sentence": "FREE When You Spend Over £75.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Standard Delivery £6.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 75,
+              "sentence": "FREE When You Spend Over £75.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 3.95,
+              "sentence": "Standard Delivery £3.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "FREE when you spend over £25.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Standard Delivery £6.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 75,
+              "sentence": "FREE When You Spend Over £75.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 9.95,
+              "sentence": "Standard Delivery £9.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE When You Spend Over £125.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 14.95,
+              "sentence": "Standard Delivery £14.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 3.95,
+              "sentence": "Standard Delivery £3.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "FREE when you spend over £25.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 11.95,
+              "sentence": "Standard Delivery £11.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 9.95,
+              "sentence": "Standard Delivery £9.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE When You Spend Over £125.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 9.95,
+              "sentence": "Standard Delivery £9.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE When You Spend Over £125.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Standard Delivery £6.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 75,
+              "sentence": "FREE When You Spend Over £75.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 9.95,
+              "sentence": "Standard Delivery £9.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE When You Spend Over £125.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 9.95,
+              "sentence": "Standard Delivery £9.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE When You Spend Over £125.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 9.95,
+              "sentence": "Standard Delivery £9.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 125,
+              "sentence": "FREE When You Spend Over £125.00",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "standard-cost",
+              "amountGbp": 6.95,
+              "sentence": "Standard Delivery £6.95",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 75,
+              "sentence": "FREE When You Spend Over £75.00",
+              "isUpgradeTier": false
+            }
+          ]
+        },
+        {
+          "url": "https://www.allbeauty.com/policies/refund-policy",
+          "status": 200,
+          "foundBy": "path",
+          "standardGbp": null,
+          "freeOverGbp": 25,
+          "caveats": [],
+          "standardRateNotStated": true,
+          "evidence": [
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "FREE UK Delivery over £25",
+              "isUpgradeTier": false
+            },
+            {
+              "kind": "free-threshold",
+              "amountGbp": 25,
+              "sentence": "Spend £25.00 more for FREE UK delivery",
+              "isUpgradeTier": false
+            }
+          ]
+        }
+      ],
+      "quote": null,
+      "errors": [],
+      "patch": {
+        "retailerId": "allbeauty",
+        "action": "disagrees",
+        "detail": "registry holds £3.95 but this page states delivery terms and names no flat rate — the stored figure may have come from somewhere that no longer says it (https://www.allbeauty.com/policies/refund-policy)",
+        "write": null
+      },
+      "verdict": "DISAGREES: registry holds £3.95 but this page states delivery terms and names no flat rate — the stored figure may have come from somewhere that no longer says it (https://www.allbeauty.com/policies/refund-policy)"
+    },
+    {
+      "retailerId": "armaf",
+      "name": "Armaf",
+      "homepage": "https://armaf.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "currentConfidence": "unverified",
+      "enabled": true,
+      "pagesTried": 17,
+      "linksFound": [
+        {
+          "url": "https://armaf.uk/pages/shipping-details",
+          "linkText": "Shipping Policy"
+        }
+      ],
+      "findings": [],
+      "quote": null,
+      "errors": [
+        "https://armaf.uk/cart/shipping_rates.json: disallowed by robots.txt — checkout estimator not attempted"
+      ],
+      "patch": null,
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "bath-body-works-uk",
+      "name": "Bath & Body Works",
+      "homepage": "https://www.bathandbodyworks.co.uk",
+      "currentStandardGbp": null,
+      "currentFreeOverGbp": null,
+      "currentConfidence": "unverified",
+      "enabled": false,
+      "pagesTried": 17,
+      "linksFound": [],
+      "findings": [],
+      "quote": {
+        "ok": false,
+        "postcode": "SW1A 1AA",
+        "quotedAgainst": null,
+        "basketGbp": null,
+        "rates": [],
+        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "steps": [
+          "https://www.bathandbodyworks.co.uk/products.json?limit=250"
+        ]
+      },
+      "errors": [
+        "https://www.bathandbodyworks.co.uk/pages/help: HTTP 500"
+      ],
+      "patch": null,
+      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
+    },
+    {
+      "retailerId": "beauty-bay",
+      "name": "Beauty Bay",
+      "homepage": "https://www.beautybay.com",
       "currentStandardGbp": null,
       "currentFreeOverGbp": null,
       "currentConfidence": "unverified",
@@ -100,9 +1082,9 @@
         "quotedAgainst": null,
         "basketGbp": null,
         "rates": [],
-        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "error": "products.json: Unexpected token '<', \"<!doctype \"... is not valid JSON",
         "steps": [
-          "https://www.ocado.com/products.json?limit=250"
+          "https://www.beautybay.com/products.json?limit=250"
         ]
       },
       "errors": [],
@@ -110,175 +1092,9 @@
       "verdict": "NO PAGE FOUND: none of the candidate paths exist on this shop"
     },
     {
-      "retailerId": "perfume-direct",
-      "name": "Perfume Direct",
-      "homepage": "https://www.perfumedirect.com",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 2,
-      "linksFound": [
-        {
-          "url": "https://www.perfumedirect.com/pages/delivery-options",
-          "linkText": "Shipping & Delivery"
-        },
-        {
-          "url": "https://www.perfumedirect.com/policies/shipping-policy",
-          "linkText": "Shipping"
-        }
-      ],
-      "findings": [
-        {
-          "url": "https://www.perfumedirect.com/pages/delivery-options",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": 2.99,
-          "freeOverGbp": 50,
-          "caveats": [],
-          "standardRateNotStated": false,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "free shipping over £50",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 2.99,
-              "sentence": "Standard Delivery - £2.99 (2-4 business days)",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 7.99,
-              "sentence": "Royal Mail Special Delivery Next Day - £7.99 > £16.99 (1 business day)",
-              "isUpgradeTier": true
-            },
-            {
-              "kind": "free-unconditional",
-              "amountGbp": 0,
-              "sentence": "Free Shipping",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 50,
-              "sentence": "Orders over £50 will qualify for Free Shipping.",
-              "isUpgradeTier": false
-            }
-          ]
-        }
-      ],
-      "quote": null,
-      "errors": [],
-      "patch": {
-        "retailerId": "perfume-direct",
-        "action": "propose-rate",
-        "detail": "page states £2.99 and the registry holds no rate — a human sets a first figure, never this tool: \"Standard Delivery - £2.99 (2-4 business days)\" (https://www.perfumedirect.com/pages/delivery-options)",
-        "write": null
-      },
-      "verdict": "PROPOSE-RATE: page states £2.99 and the registry holds no rate — a human sets a first figure, never this tool: \"Standard Delivery - £2.99 (2-4 business days)\" (https://www.perfumedirect.com/pages/delivery-options)"
-    },
-    {
-      "retailerId": "perfume-price",
-      "name": "Perfume Price",
-      "homepage": "https://www.perfumeprice.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 18,
-      "linksFound": [
-        {
-          "url": "https://www.perfumeprice.co.uk/delivery-and-returns",
-          "linkText": "FREE UK TRACKED 48 DELIVERY UK Only more details here >"
-        }
-      ],
-      "findings": [
-        {
-          "url": "https://www.perfumeprice.co.uk/delivery-and-returns",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": null,
-          "freeOverGbp": 25,
-          "caveats": [],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 25,
-              "sentence": "FREE TRACKED DELIVERY OVER £25",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 25,
-              "sentence": "FREE TRACKED DELIVERY OVER £25",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 25,
-              "sentence": "Free over £25",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://www.perfumeprice.co.uk/delivery",
-          "status": 200,
-          "foundBy": "path",
-          "standardGbp": null,
-          "freeOverGbp": 25,
-          "caveats": [],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 25,
-              "sentence": "FREE TRACKED DELIVERY OVER £25",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 25,
-              "sentence": "FREE TRACKED DELIVERY OVER £25",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 25,
-              "sentence": "Free over £25",
-              "isUpgradeTier": false
-            }
-          ]
-        }
-      ],
-      "quote": null,
-      "errors": [],
-      "patch": {
-        "retailerId": "perfume-price",
-        "action": "confirm-absence",
-        "detail": "page states delivery terms and publishes no standard rate (https://www.perfumeprice.co.uk/delivery-and-returns)",
-        "write": {
-          "confidence": "confirmed",
-          "verifiedAt": "2026-08-21",
-          "source": {
-            "url": "https://www.perfumeprice.co.uk/delivery-and-returns",
-            "quote": "FREE TRACKED DELIVERY OVER £25",
-            "readAt": "2026-08-21"
-          },
-          "standardRateNotPublished": true
-        }
-      },
-      "verdict": "NO RATE PUBLISHED: page states delivery terms and publishes no standard rate (https://www.perfumeprice.co.uk/delivery-and-returns)"
-    },
-    {
-      "retailerId": "sainsburys",
-      "name": "Sainsbury's",
-      "homepage": "https://www.sainsburys.co.uk",
+      "retailerId": "beauty-flash",
+      "name": "Beauty Flash",
+      "homepage": "https://www.beautyflash.co.uk",
       "currentStandardGbp": null,
       "currentFreeOverGbp": null,
       "currentConfidence": "unverified",
@@ -292,359 +1108,32 @@
         "quotedAgainst": null,
         "basketGbp": null,
         "rates": [],
-        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
+        "error": "products.json: HTTP 403 — refused before any catalogue was served (bot mitigation, or blocked egress from this runner)",
         "steps": [
-          "https://www.sainsburys.co.uk/products.json?limit=250"
+          "https://www.beautyflash.co.uk/products.json?limit=250"
         ]
       },
       "errors": [
-        "https://www.sainsburys.co.uk/: HTTP 403",
-        "https://www.sainsburys.co.uk/policies/shipping-policy: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/shipping-policy: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/shipping-details: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/delivery-information: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/shipping: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/delivery: HTTP 403",
-        "https://www.sainsburys.co.uk/shipping-policy: HTTP 403",
-        "https://www.sainsburys.co.uk/delivery: HTTP 403",
-        "https://www.sainsburys.co.uk/shipping: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/faq: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/shipping-returns: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/delivery-returns: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/shipping-info: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/help: HTTP 403",
-        "https://www.sainsburys.co.uk/policies/refund-policy: HTTP 403",
-        "https://www.sainsburys.co.uk/pages/terms-of-service: HTTP 403"
+        "https://www.beautyflash.co.uk/: HTTP 403",
+        "https://www.beautyflash.co.uk/policies/shipping-policy: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/shipping-policy: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/shipping-details: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/delivery-information: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/shipping: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/delivery: HTTP 403",
+        "https://www.beautyflash.co.uk/shipping-policy: HTTP 403",
+        "https://www.beautyflash.co.uk/delivery: HTTP 403",
+        "https://www.beautyflash.co.uk/shipping: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/faq: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/shipping-returns: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/delivery-returns: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/shipping-info: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/help: HTTP 403",
+        "https://www.beautyflash.co.uk/policies/refund-policy: HTTP 403",
+        "https://www.beautyflash.co.uk/pages/terms-of-service: HTTP 403"
       ],
       "patch": null,
       "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
-    },
-    {
-      "retailerId": "savers",
-      "name": "Savers",
-      "homepage": "https://www.savers.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 17,
-      "linksFound": [],
-      "findings": [],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
-        "steps": [
-          "https://www.savers.co.uk/products.json?limit=250"
-        ]
-      },
-      "errors": [
-        "https://www.savers.co.uk/: HTTP 403",
-        "https://www.savers.co.uk/policies/shipping-policy: HTTP 403",
-        "https://www.savers.co.uk/pages/shipping-policy: HTTP 403",
-        "https://www.savers.co.uk/pages/shipping-details: HTTP 403",
-        "https://www.savers.co.uk/pages/delivery-information: HTTP 403",
-        "https://www.savers.co.uk/pages/shipping: HTTP 403",
-        "https://www.savers.co.uk/pages/delivery: HTTP 403",
-        "https://www.savers.co.uk/shipping-policy: HTTP 403",
-        "https://www.savers.co.uk/delivery: HTTP 403",
-        "https://www.savers.co.uk/shipping: HTTP 403",
-        "https://www.savers.co.uk/pages/faq: HTTP 403",
-        "https://www.savers.co.uk/pages/shipping-returns: HTTP 403",
-        "https://www.savers.co.uk/pages/delivery-returns: HTTP 403",
-        "https://www.savers.co.uk/pages/shipping-info: HTTP 403",
-        "https://www.savers.co.uk/pages/help: HTTP 403",
-        "https://www.savers.co.uk/policies/refund-policy: HTTP 403",
-        "https://www.savers.co.uk/pages/terms-of-service: HTTP 403"
-      ],
-      "patch": null,
-      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
-    },
-    {
-      "retailerId": "sephora-uk",
-      "name": "Sephora UK",
-      "homepage": "https://www.sephora.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 17,
-      "linksFound": [],
-      "findings": [],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 404 — no Shopify catalogue at this origin",
-        "steps": [
-          "https://www.sephora.co.uk/products.json?limit=250"
-        ]
-      },
-      "errors": [
-        "https://www.sephora.co.uk/: HTTP 403",
-        "https://www.sephora.co.uk/policies/shipping-policy: HTTP 403",
-        "https://www.sephora.co.uk/pages/shipping-policy: HTTP 403",
-        "https://www.sephora.co.uk/pages/shipping-details: HTTP 403",
-        "https://www.sephora.co.uk/pages/delivery-information: HTTP 403",
-        "https://www.sephora.co.uk/pages/shipping: HTTP 403",
-        "https://www.sephora.co.uk/pages/delivery: HTTP 403",
-        "https://www.sephora.co.uk/shipping-policy: HTTP 403",
-        "https://www.sephora.co.uk/delivery: HTTP 403",
-        "https://www.sephora.co.uk/shipping: HTTP 403",
-        "https://www.sephora.co.uk/pages/faq: HTTP 403",
-        "https://www.sephora.co.uk/pages/shipping-returns: HTTP 403",
-        "https://www.sephora.co.uk/pages/delivery-returns: HTTP 403",
-        "https://www.sephora.co.uk/pages/shipping-info: HTTP 403",
-        "https://www.sephora.co.uk/pages/help: HTTP 403",
-        "https://www.sephora.co.uk/policies/refund-policy: HTTP 403",
-        "https://www.sephora.co.uk/pages/terms-of-service: HTTP 403"
-      ],
-      "patch": null,
-      "verdict": "UNREACHABLE: no delivery page could be fetched — see errors"
-    },
-    {
-      "retailerId": "shy-mimosa",
-      "name": "Shy Mimosa",
-      "homepage": "https://www.shymimosa.co.uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 2,
-      "linksFound": [
-        {
-          "url": "https://www.shymimosa.co.uk/delivery-info/",
-          "linkText": "Delivery Information"
-        }
-      ],
-      "findings": [
-        {
-          "url": "https://www.shymimosa.co.uk/delivery-info/",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": 4.99,
-          "freeOverGbp": 100,
-          "caveats": [],
-          "standardRateNotStated": false,
-          "evidence": [
-            {
-              "kind": "standard-cost",
-              "amountGbp": 4.99,
-              "sentence": "Our current cost for delivery (excluding magazines) is £4.99.",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "free-threshold",
-              "amountGbp": 100,
-              "sentence": "All orders over £100.00 are free of delivery costs.",
-              "isUpgradeTier": false
-            }
-          ]
-        }
-      ],
-      "quote": null,
-      "errors": [],
-      "patch": {
-        "retailerId": "shy-mimosa",
-        "action": "propose-rate",
-        "detail": "page states £4.99 and the registry holds no rate — a human sets a first figure, never this tool: \"Our current cost for delivery (excluding magazines) is £4.99.\" (https://www.shymimosa.co.uk/delivery-info/)",
-        "write": null
-      },
-      "verdict": "PROPOSE-RATE: page states £4.99 and the registry holds no rate — a human sets a first figure, never this tool: \"Our current cost for delivery (excluding magazines) is £4.99.\" (https://www.shymimosa.co.uk/delivery-info/)"
-    },
-    {
-      "retailerId": "space-nk",
-      "name": "Space NK",
-      "homepage": "https://www.spacenk.com/uk",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 17,
-      "linksFound": [],
-      "findings": [
-        {
-          "url": "https://www.spacenk.com/uk/shipping",
-          "status": 200,
-          "foundBy": "path",
-          "standardGbp": null,
-          "freeOverGbp": 25,
-          "caveats": [],
-          "standardRateNotStated": true,
-          "evidence": [
-            {
-              "kind": "free-threshold",
-              "amountGbp": 25,
-              "sentence": "FREE UK STANDARD DELIVERY on all orders over £25",
-              "isUpgradeTier": false
-            }
-          ]
-        }
-      ],
-      "quote": null,
-      "errors": [],
-      "patch": {
-        "retailerId": "space-nk",
-        "action": "confirm-absence",
-        "detail": "page states delivery terms and publishes no standard rate (https://www.spacenk.com/uk/shipping)",
-        "write": {
-          "confidence": "confirmed",
-          "verifiedAt": "2026-08-21",
-          "source": {
-            "url": "https://www.spacenk.com/uk/shipping",
-            "quote": "FREE UK STANDARD DELIVERY on all orders over £25",
-            "readAt": "2026-08-21"
-          },
-          "standardRateNotPublished": true
-        }
-      },
-      "verdict": "NO RATE PUBLISHED: page states delivery terms and publishes no standard rate (https://www.spacenk.com/uk/shipping)"
-    },
-    {
-      "retailerId": "tesco",
-      "name": "Tesco",
-      "homepage": "https://www.tesco.com",
-      "currentStandardGbp": null,
-      "currentFreeOverGbp": null,
-      "currentConfidence": "unverified",
-      "enabled": false,
-      "pagesTried": 22,
-      "linksFound": [
-        {
-          "url": "https://www.tesco.com/deliverysaver/",
-          "linkText": "Delivery Saver"
-        },
-        {
-          "url": "https://www.tesco.com/deliverysaver/?=&amp;icid=Grocerywebfooter_DeliverySaver",
-          "linkText": "Delivery Saver"
-        },
-        {
-          "url": "https://www.tesco.com/deliverysaver?icid=dchp_wk24_dsr_delivery_bs08_w",
-          "linkText": "Save on deliveries You could save £176 on delivery, Click+Collect and collection charges with Delivery Saver‡‡ See plans"
-        },
-        {
-          "url": "https://www.tesco.com/shop/en-GB/zone/tesco-delivery-click-and-collect",
-          "linkText": "Click+Collect"
-        },
-        {
-          "url": "https://www.tesco.com/groceries/en-gb/slots/ondemand?icid=dchp_wk24_wsh_summer_bs06_w",
-          "linkText": "Busy week ahead? We&#x27;ve got you. From staples to sweet treats, get it delivered from as little as 20 minutes with Whoosh‡ Book a Whoosh slot"
-        }
-      ],
-      "findings": [
-        {
-          "url": "https://www.tesco.com/deliverysaver/",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": 2.49,
-          "freeOverGbp": null,
-          "caveats": [
-            "page names 2 different delivery charges (£176.00, £2.49) — confirm which is standard"
-          ],
-          "standardRateNotStated": false,
-          "evidence": [
-            {
-              "kind": "standard-cost",
-              "amountGbp": 176,
-              "sentence": "Save £176 on delivery and collection charges*",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 2.49,
-              "sentence": "Sign up to Delivery Saver from £2.49 a month and you won’t have to pay for your slot.",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://www.tesco.com/deliverysaver/?=&amp;icid=Grocerywebfooter_DeliverySaver",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": 2.49,
-          "freeOverGbp": null,
-          "caveats": [
-            "page names 2 different delivery charges (£176.00, £2.49) — confirm which is standard"
-          ],
-          "standardRateNotStated": false,
-          "evidence": [
-            {
-              "kind": "standard-cost",
-              "amountGbp": 176,
-              "sentence": "Save £176 on delivery and collection charges*",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 2.49,
-              "sentence": "Sign up to Delivery Saver from £2.49 a month and you won’t have to pay for your slot.",
-              "isUpgradeTier": false
-            }
-          ]
-        },
-        {
-          "url": "https://www.tesco.com/deliverysaver?icid=dchp_wk24_dsr_delivery_bs08_w",
-          "status": 200,
-          "foundBy": "link",
-          "standardGbp": 2.49,
-          "freeOverGbp": null,
-          "caveats": [
-            "page names 2 different delivery charges (£176.00, £2.49) — confirm which is standard"
-          ],
-          "standardRateNotStated": false,
-          "evidence": [
-            {
-              "kind": "standard-cost",
-              "amountGbp": 176,
-              "sentence": "Save £176 on delivery and collection charges*",
-              "isUpgradeTier": false
-            },
-            {
-              "kind": "standard-cost",
-              "amountGbp": 2.49,
-              "sentence": "Sign up to Delivery Saver from £2.49 a month and you won’t have to pay for your slot.",
-              "isUpgradeTier": false
-            }
-          ]
-        }
-      ],
-      "quote": {
-        "ok": false,
-        "postcode": "SW1A 1AA",
-        "quotedAgainst": null,
-        "basketGbp": null,
-        "rates": [],
-        "error": "products.json: HTTP 504",
-        "steps": [
-          "https://www.tesco.com/products.json?limit=250"
-        ]
-      },
-      "errors": [
-        "https://www.tesco.com/shop/en-GB/zone/tesco-delivery-click-and-collect: HTTP 403",
-        "https://www.tesco.com/policies/shipping-policy: HTTP 0 AbortError: This operation was aborted",
-        "https://www.tesco.com/pages/shipping-policy: HTTP 504",
-        "https://www.tesco.com/pages/shipping-details: HTTP 504",
-        "https://www.tesco.com/pages/delivery-information: HTTP 504",
-        "https://www.tesco.com/pages/shipping: HTTP 504",
-        "https://www.tesco.com/pages/delivery: HTTP 504",
-        "https://www.tesco.com/shipping-policy: HTTP 0 AbortError: This operation was aborted",
-        "https://www.tesco.com/delivery: HTTP 0 AbortError: This operation was aborted",
-        "https://www.tesco.com/shipping: HTTP 504",
-        "https://www.tesco.com/pages/faq: HTTP 504",
-        "https://www.tesco.com/pages/shipping-returns: HTTP 504",
-        "https://www.tesco.com/pages/delivery-returns: HTTP 504",
-        "https://www.tesco.com/pages/shipping-info: HTTP 504",
-        "https://www.tesco.com/pages/help: HTTP 504",
-        "https://www.tesco.com/policies/refund-policy: HTTP 0 AbortError: This operation was aborted",
-        "https://www.tesco.com/pages/terms-of-service: HTTP 504"
-      ],
-      "patch": null,
-      "verdict": "AMBIGUOUS: candidate £2.49 but the page is unclear — page names 2 different delivery charges (£176.00, £2.49) — confirm which is standard"
     }
   ]
 }
