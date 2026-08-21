@@ -242,14 +242,34 @@ describe('retailer registry', () => {
       // CURRENCY_UNCONFIRMED the same way riiffs did — a sterling reading off
       // its own product page's JSON-LD, not the shop's origin — and carries
       // the same `sitemapHarvestConfirmed: true` route.
+      // home-bargains and bm-stores joined 2026-08-21, on the riiffs/perfumeo
+      // route: both cleared CURRENCY_UNCONFIRMED on a sterling
+      // schema.org priceCurrency reading off their own harvest-fetched sample
+      // product page (see each entry's own comment and CURRENCY_UNCONFIRMED's
+      // own removal notes in src/config/retailers.ts for the run and job
+      // ids), and both carry `sitemapHarvestConfirmed: true` from the same
+      // 10-of-10-priced harvest probe that produced the sample URL — home
+      // Bargains' the cleanest sweep of the whole batch it was measured in,
+      // with zero errors at all.
+      // morrisons joined the same day, on the same route, after a second
+      // currency probe finally reached a resolving product page (its first
+      // attempt, a WebSearch-sourced URL, had 404'd) and read that page's
+      // schema.org priceCurrency as sterling. Its standardGbp stays null on
+      // purpose — grocery delivery is slot-booked, not a flat per-order rate
+      // — but it carries `sitemapHarvestConfirmed: true` from the same
+      // 10-of-10-priced harvest probe that produced the sample URL the
+      // currency probe used.
       expect(unstated.map((r) => r.id).sort()).toEqual([
         'al-haramain',
         'armaf',
         'avon',
+        'bm-stores',
         'fragrancehub',
         'french-avenue',
+        'home-bargains',
         'ibraq',
         'manchester-ouds',
+        'morrisons',
         'perfumeo',
         'riiffs',
         'zimaya',

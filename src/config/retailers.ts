@@ -4,7 +4,7 @@ import { brandKey } from '../catalogue/brandName.js';
 /**
  * The PriceSniffs retailer registry.
  *
- * 79 retailers, 36 of them `enabled: true`. Every one of them is a legitimate
+ * 79 retailers, 39 of them `enabled: true`. Every one of them is a legitimate
  * stockist and every one is fine to send a customer to — see the header
  * comment in `src/types/retailer.ts` for why there is no `trusted` flag here
  * and what replaced it.
@@ -5261,10 +5261,19 @@ export const RETAILERS: readonly Retailer[] = [
     // so the JSON-LD reading this needed was never taken. Whether that URL
     // is stale or the host refuses that request shape is unknown.
     //
-    // So this id stays in CURRENCY_UNCONFIRMED. What would clear it is one
-    // product page on this domain that resolves and names its own
-    // priceCurrency — a smaller job than the one already done, and not one
-    // to skip because a homepage said GBP.
+    // ── Currency: confirmed 2026-08-21, on a resolving product page ──────────
+    // Currency probe, run 32503927947 job 96839718465, 2026-08-21T16:38:34Z,
+    // --product=https://groceries.morrisons.com/products/
+    // vitfix-magnesium-effervescent-citrus/115826347 — the harvest's own
+    // sample priced URL above, and a genuinely different, resolving address
+    // from the paco-rabanne URL that 404'd on 2026-08-20. This time the
+    // JSON-LD reading was taken: "page 3.5 GBP" through every one of the six
+    // ways of asking that reached the page, alongside the same
+    // origin-quotes-GBP market-address signal as before. A resolving product
+    // page naming its own priceCurrency is exactly the smaller, narrower gap
+    // the note above asked for, so the reading stands on the strong evidence
+    // this time, not the weak homepage one. Removed from CURRENCY_UNCONFIRMED
+    // below on that evidence and enabled.
     //
     // ── Affiliate: a lead, and not a good enough one to write into config ────
     // A WebSearch for a Morrisons programme returned listings on several
@@ -5281,12 +5290,20 @@ export const RETAILERS: readonly Retailer[] = [
     // One thing "priced listings" does NOT mean, recorded here because it
     // would be easy to read it as more than it is: src/catalogue/jsonld.ts
     // does not look at schema.org `priceCurrency` at all — it takes the
-    // number out of the offer and stores it as `priceGbp`. So a priced
-    // listing proves a price was found and parsed, and says nothing whatever
-    // about which currency it is in. That is why this entry stays in
-    // CURRENCY_UNCONFIRMED regardless of the count above.
-    enabled: false,
+    // number out of the offer and stores it as `priceGbp`. That is why the
+    // 10-of-10 count above did not by itself clear this entry — the currency
+    // note above did that separately.
+    //
+    // sitemapHarvestConfirmed is set on the same basis as the note above:
+    // a real, measured crawlViaSitemap pass with 10-of-10 priced listings
+    // (run 32390450886 job 96495029195), the riiffs/perfumeo shape that
+    // tests/registry.test.ts's "unstated delivery" allowlist requires a real
+    // ingestion route on record for. The `www.` prefix bug the same comment
+    // above blamed for this entry's one harvest error was fixed separately
+    // (see sitemapCrawl.ts and its own commit) and is not re-measured here.
+    enabled: true,
     adapter: 'unknown',
+    sitemapHarvestConfirmed: true,
     currency: 'GBP',
     shipping: {
       standardGbp: null,
@@ -5509,12 +5526,28 @@ export const RETAILERS: readonly Retailer[] = [
     // One thing "priced listings" does NOT mean, recorded here because it
     // would be easy to read it as more than it is: src/catalogue/jsonld.ts
     // does not look at schema.org `priceCurrency` at all — it takes the
-    // number out of the offer and stores it as `priceGbp`. So a priced
-    // listing proves a price was found and parsed, and says nothing whatever
-    // about which currency it is in. That is why this entry stays in
-    // CURRENCY_UNCONFIRMED regardless of the count above.
-    enabled: false,
+    // number out of the offer and stores it as `priceGbp`. That is why the
+    // 10-of-10 count above did not by itself clear this entry.
+    //
+    // ── Currency: confirmed 2026-08-21, on a real product page ───────────────
+    // Currency probe, run 32503013366 job 96836834119, 2026-08-21T16:28:03Z,
+    // --product=https://www.bmstores.co.uk/products/flash-bathroom-500ml-
+    // febreze-fresh-scent-409799 (the sample priced URL the harvest probe
+    // above already fetched, not a guess). The market-address sweep found no
+    // Shopify.currency and no /meta.json, same silence as this domain's other
+    // readings — but the product page's own schema.org JSON-LD labelled its
+    // price "1.89 GBP" identically through every way of asking that reached
+    // it. That is the shop's own label on its own price, on its own page.
+    // Removed from CURRENCY_UNCONFIRMED below on that evidence and enabled.
+    // Harvest probe run 32390489171 job 96495154921 above is a real,
+    // measured crawlViaSitemap pass with 10-of-10 priced listings, so
+    // sitemapHarvestConfirmed is set rather than left unstated — this is the
+    // riiffs/perfumeo shape: enabled with standardGbp still null below, so
+    // tests/registry.test.ts's "unstated delivery" allowlist needs a real
+    // ingestion route on record, and this is it.
+    enabled: true,
     adapter: 'unknown',
+    sitemapHarvestConfirmed: true,
     currency: 'GBP',
     shipping: {
       standardGbp: null,
@@ -5646,12 +5679,30 @@ export const RETAILERS: readonly Retailer[] = [
     // One thing "priced listings" does NOT mean, recorded here because it
     // would be easy to read it as more than it is: src/catalogue/jsonld.ts
     // does not look at schema.org `priceCurrency` at all — it takes the
-    // number out of the offer and stores it as `priceGbp`. So a priced
-    // listing proves a price was found and parsed, and says nothing whatever
-    // about which currency it is in. That is why this entry stays in
-    // CURRENCY_UNCONFIRMED regardless of the count above.
-    enabled: false,
+    // number out of the offer and stores it as `priceGbp`. That is why the
+    // 10-of-10 count above did not by itself clear this entry.
+    //
+    // ── Currency: confirmed 2026-08-21, on a real product page ───────────────
+    // Currency probe, run 32502916682 job 96836526874, 2026-08-21T16:26:48Z,
+    // --product=https://home.bargains/product/006cd416-38d5-4412-bd19-7c7a0443780b/
+    // disney-alice-in-wonderland-scented-diffuser-200ml-paint-the-roses (the
+    // sample priced URL the harvest probe above already fetched, not a guess).
+    // The market-address sweep found no Shopify.currency and no /meta.json —
+    // same silence as every other reading on this domain — but the product
+    // page itself carries schema.org JSON-LD, and its priceCurrency read GBP
+    // identically through all six ways of asking: "page 4.99 GBP". That is
+    // the shop's own label on its own price, on its own page, which is the
+    // standard this file asks for. Removed from CURRENCY_UNCONFIRMED below on
+    // that evidence and enabled. Harvest probe run 32390508333 job
+    // 96495217728 above is a real, measured crawlViaSitemap pass with
+    // 10-of-10 priced listings — the cleanest sweep of any shop in this
+    // batch — so sitemapHarvestConfirmed is set rather than left unstated:
+    // the riiffs/perfumeo shape, enabled with standardGbp still null below,
+    // which is exactly what tests/registry.test.ts's "unstated delivery"
+    // allowlist requires a real ingestion route on record for.
+    enabled: true,
     adapter: 'unknown',
+    sitemapHarvestConfirmed: true,
     currency: 'GBP',
     shipping: {
       standardGbp: null,
@@ -5730,6 +5781,24 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
   // (the harvest's own fetched URL) as 49.99 GBP through every candidate
   // that reached it. See the comment on its registry entry above. It is now
   // `enabled: true`.
+  // home-bargains was removed from this list on 2026-08-21, on the same
+  // angle: Currency probe, run 32502916682 job 96836526874, read the
+  // harvest's own sample priced URL (a Disney diffuser on home.bargains) as
+  // "4.99 GBP" via schema.org JSON-LD through every candidate that reached
+  // it. See the comment on its registry entry above. It is now `enabled: true`.
+  // bm-stores was removed from this list the same day, on the same angle:
+  // Currency probe, run 32503013366 job 96836834119, read the harvest's own
+  // sample priced URL (a Febreze bathroom spray on bmstores.co.uk) as
+  // "1.89 GBP" via schema.org JSON-LD through every candidate that reached
+  // it. See the comment on its registry entry above. It is now `enabled: true`.
+  // morrisons was removed from this list the same day, on the narrower gap
+  // its own note here had already named: the previous product URL tried
+  // (paco-rabanne-pour-homme-aftershave-lotion) 404'd, so a second, genuinely
+  // resolving product page was needed. Currency probe, run 32503927947 job
+  // 96839718465, read the harvest's own sample priced URL
+  // (vitfix-magnesium-effervescent-citrus) as "3.5 GBP" via schema.org
+  // JSON-LD through every candidate that reached it. See the comment on its
+  // registry entry above. It is now `enabled: true`.
   [
     'khadlaj',
     'khadlaj-perfumes.co.uk is confirmed Shopify (products.json returns a real payload, ' +
@@ -5976,13 +6045,6 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'would remove this id.',
   ],
   [
-    'morrisons',
-    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
-      'about groceries.morrisons.com comes from WebSearch result URLs and titles; its checkout ' +
-      'currency has not been read. One positive sterling reading from a currency probe is what ' +
-      'would remove this id.',
-  ],
-  [
     'ocado',
     'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
       'about ocado.com comes from WebSearch result URLs and titles; its checkout currency has ' +
@@ -5997,13 +6059,6 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'remove this id.',
   ],
   [
-    'bm-stores',
-    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
-      'about bmstores.co.uk comes from WebSearch result URLs and titles; its checkout currency ' +
-      'has not been read. One positive sterling reading from a currency probe is what would ' +
-      'remove this id.',
-  ],
-  [
     'the-range',
     'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
       'about therange.co.uk comes from WebSearch result URLs and titles; its checkout currency ' +
@@ -6011,14 +6066,6 @@ export const CURRENCY_UNCONFIRMED: ReadonlyMap<string, string> = new Map([
       'reading either — Nicchia Luxury was enabled on an Awin feed\'s GBP column and that is ' +
       'the entry this list exists because of. One positive sterling reading from a currency ' +
       'probe is what would remove this id.',
-  ],
-  [
-    'home-bargains',
-    'Listed here on the day it was added, before anyone had opened the shop. Everything known ' +
-      'about home.bargains comes from WebSearch result URLs and titles; its checkout currency ' +
-      'has not been read, and which of its two live domains is canonical has not been ' +
-      'established either. One positive sterling reading from a currency probe is what would ' +
-      'remove this id.',
   ],
   [
     'tesco',
