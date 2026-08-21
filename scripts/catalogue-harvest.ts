@@ -46,6 +46,7 @@ import {
   probeRobots, robotsHeaderVariants, robotsCandidateUrls, robotsTextFromRenderedHtml,
 } from '../src/catalogue/robotsSource.js';
 import { parseListings } from '../src/catalogue/jsonld.js';
+import { parseRenderedState } from '../src/catalogue/renderedState.js';
 import { createHttp } from '../src/catalogue/httpFetch.js';
 import { titleWithSizeFromUrl } from '../src/catalogue/sizeFromUrl.js';
 import { checkApifyAccount } from '../src/catalogue/apifyAccount.js';
@@ -520,11 +521,27 @@ for (const retailer of shops) {
     } else {
       console.log(`      ${retailer.name}: rendering ${allowed.length} section page(s) through the Apify actor`);
       const rendered = await actorRenderer!.render(allowed.map((t) => t.url));
+      let viaRenderedState = 0;
       const listings = allowed.flatMap(({ id, url }) => {
         const res = rendered.get(url);
         if (!res?.ok || !res.body) return [];
-        return parseListings(res.body, { sectionId: id, pageUrl: url });
+
+        const fromJsonLd = parseListings(res.body, { sectionId: id, pageUrl: url });
+        if (fromJsonLd.length > 0) return fromJsonLd;
+
+        // Only where the parser has already found nothing, and only for a shop
+        // that has a reader registered. See src/catalogue/renderedState.ts for
+        // why this second reading exists and how narrow it is meant to stay.
+        const fromState = parseRenderedState(retailer.id, res.body, { sectionId: id, pageUrl: url });
+        viaRenderedState += fromState.length;
+        return fromState;
       });
+      if (viaRenderedState > 0) {
+        console.log(
+          `      ${retailer.name}: ${viaRenderedState} listing(s) read from the rendered page's own` +
+            ` state after JSON-LD found none`,
+        );
+      }
       const actorWithPrice = listings.filter((l) => l.priceGbp !== null);
 
       if (actorWithPrice.length > 0) {
