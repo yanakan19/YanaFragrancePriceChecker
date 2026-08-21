@@ -193,7 +193,16 @@ function safely(label: string, fn: () => void): void {
 // change in it is visible without re-reading a retailer entry.
 const jsonLd = extractJsonLdBlocks(html);
 const parsed = parseListings(html, { sectionId: section?.id ?? 'probe', pageUrl: url });
-console.log(`JSON-LD blocks: ${jsonLd.length}; parseListings(): ${parsed.length} listing(s)`);
+// Priced separately from parsed, because they are different answers and the
+// Zara run (32506369776, job 96847334075) is why: "parseListings(): 7
+// listing(s)" reads as a partial success and says nothing about whether a
+// single one of those seven carries a price, which is the only thing that
+// decides whether that shop can be harvested.
+const priced = parsed.filter((l) => l.priceGbp !== null);
+console.log(
+  `JSON-LD blocks: ${jsonLd.length}; parseListings(): ${parsed.length} listing(s), ${priced.length} priced` +
+    (priced.length ? ` — first: ${priced[0]!.rawTitle.slice(0, 60)} at ${priced[0]!.priceGbp}` : ''),
+);
 
 // ── 2. Is priced text even present in the painted markup? ─────────────────
 // Independent of any state blob: if a real browser painted a grid, the prices
