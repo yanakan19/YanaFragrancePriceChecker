@@ -424,9 +424,37 @@ safely('RSC flight stream', () => {
       const at = stream.indexOf(probe);
       console.log(`  ${JSON.stringify(probe)}: ${at < 0 ? 'absent' : `first at ${at}`}`);
     }
-    const priceAt = stream.search(/"(price|currentPrice|amount|value)"\s*:/);
-    if (priceAt >= 0) {
-      console.log(`  window around first price-shaped key:\n${stream.slice(Math.max(0, priceAt - 1200), priceAt + 1800)}`);
+    // ── One window per anchor, not one window per "price-shaped" guess ──────
+    // The Selfridges run (32504714179, job 96842167898) is why. Its stream
+    // reported `"price"` first at 398,417 and `sku` at 398,478 — a product
+    // record, clearly — and then printed a window of the top-level navigation
+    // menu, because the loose /"(price|amount|value)"\s*:/ this replaces
+    // matched `"value":{"hex":"#b60218"}` in a link colour at 14,848 and never
+    // looked further. A single window on a 460,000-character stream has to
+    // land on the right anchor first time or the whole render is wasted, so
+    // there are now several, each on an exact key, deduplicated where two
+    // land close enough to share one.
+    const anchors: Array<[string, RegExp]> = [
+      ['"price" as a key', /"price"\s*:/],
+      ['"sku" as a key', /"sku"\s*:/],
+      ['a GBP currency value', /"[A-Za-z]*[Cc]urrency[A-Za-z]*"\s*:\s*"GBP"/],
+      ['a sterling amount', /"[^"]*"\s*:\s*"£/],
+    ];
+    const shown: number[] = [];
+    for (const [label, pattern] of anchors) {
+      const at = stream.search(pattern);
+      if (at < 0) {
+        console.log(`  no window for ${label}: not present`);
+        continue;
+      }
+      if (shown.some((prev) => Math.abs(prev - at) < 2_000)) {
+        console.log(`  window for ${label} at ${at} overlaps one already shown`);
+        continue;
+      }
+      shown.push(at);
+      console.log(
+        `  window around ${label}, at ${at}:\n${stream.slice(Math.max(0, at - 1200), at + 2200)}`,
+      );
     }
   } else {
     console.log('\n### RSC flight stream: no self.__next_f.push chunks');
