@@ -30,6 +30,18 @@ export interface ChangelogEntry {
 
 export const CHANGELOG: ChangelogEntry[] = [
   {
+    version: 'v3.10.0',
+    date: '19 Aug 2026',
+    title: 'Product photos are back, and the price chart gets a range picker',
+    points: [
+      'Photos are now showing for thousands of products that had none before — roughly half the catalogue was missing a picture the shop had actually published all along',
+      "Fixed two separate bugs that were splitting or wrongly merging listings for the same fragrance, including Swiss Arabian's Shaghaf Oud and Jimmy Choo's I Want Choo Le Parfum",
+      'The price history chart on a fragrance page can now be switched between this week, this month and this year, and starts from when that fragrance was first tracked instead of opening with empty space',
+      'Brand website links now say upfront whether they lead to a UK site or an international one',
+      'Skincare items like face and eye serums no longer show up mixed in with fragrances',
+    ],
+  },
+  {
     version: 'v3.9.0',
     date: '18 Aug 2026',
     title: 'Accounts and wishlists go live, and duplicate listings merged',
