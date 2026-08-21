@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-21T19:35:50.004Z",
+  "checkedAt": "2026-08-21T21:37:38.226Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -190,18 +190,17 @@
       "houseId": "paris-corner",
       "name": "Paris Corner",
       "origin": "https://pariscorner.ae",
-      "routeUsed": "sitemap-jsonld",
-      "currency": "AED",
-      "listings": 106,
-      "pricedInGbp": 106,
-      "withPhoto": 106,
+      "routeUsed": null,
+      "currency": null,
+      "listings": 0,
+      "pricedInGbp": 0,
+      "withPhoto": 0,
       "errors": [
-        "stopped early: exceeded this house's time budget"
+        "robots.txt unreachable at https://pariscorner.ae and https://www.pariscorner.ae — holding off rather than guessing we are welcome"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
-        "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending",
-        "prices are in AED, not GBP — needs a UK price source before these are comparable"
+        "their own site states delivery is offered exclusively within the UAE — a UK buyer very likely cannot check out here at all, so this entry may end up catalogue-only permanently rather than pending"
       ]
     },
     {
@@ -265,14 +264,12 @@
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded",
-        "https://maisonalhambra.co/sitemap_index.xml: HTTP 404"
+        "robots.txt unreachable at https://maisonalhambra.co and https://www.maisonalhambra.co — holding off rather than guessing we are welcome"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
         "a Lattafa Perfumes Industries brand, so it shares a manufacturer with the Lattafa entry above but is sold separately",
-        "several near-identical domains exist (themaison-alhambra.com, maisonalhambraperfume.com, maisonalhambras.com) — only maisonalhambra.co presents itself as the official one, confirm before trusting listings from any other",
-        "no listings retrieved from the storefront on this run"
+        "several near-identical domains exist (themaison-alhambra.com, maisonalhambraperfume.com, maisonalhambras.com) — only maisonalhambra.co presents itself as the official one, confirm before trusting listings from any other"
       ]
     },
     {
