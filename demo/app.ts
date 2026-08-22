@@ -57,6 +57,7 @@ import { CHANGELOG } from './changelog.js';
 import { isNewAt, offersFor, SHOP_COUNT, HOUSE_PRODUCTS } from './catalogue.generated.js';
 import { priceHistoryFor, PRICE_HISTORY } from './priceHistory.generated.js';
 import { officialSiteFor } from './brandSites.js';
+import { fragranceLinksFor } from './fragranceLinks.js';
 import { matchRoute, routeToPath, slugify, basePath, type Route, type RouteName } from './router.js';
 import { headFor, type HeadTags, type HeadInput } from './head.js';
 import { SUPABASE_CONFIGURED } from './supabase.js';
@@ -950,6 +951,38 @@ function brandButton(brand: string): string {
   return `<button type="button" class="phead-brand t-eyebrow" data-brand="${esc(brand)}">${esc(brand)}</button>`;
 }
 
+/**
+ * "Official Site" + "Fragrantica" under a fragrance's own title block —
+ * item 11 of the 2026-08-20 backlog. Reuses `.brand-site-link`, the exact
+ * pill brandView() already renders for the brand-homepage link, so both
+ * links read at the same text size and left-aligned the same way that link
+ * already does on the brand page — a second visual language here would make
+ * the two pages disagree about what an official-site link looks like.
+ *
+ * Official Site is absent (renders nothing) when `officialSiteFor` has no
+ * entry for this brand — same rule brandView() already follows, never a
+ * placeholder. Fragrantica always renders: it's a constructed search link,
+ * not a lookup that can miss. See demo/fragranceLinks.ts for why each link
+ * is scoped the way it is.
+ */
+function fragranceLinksBlock(f: DemoFragrance): string {
+  const links = fragranceLinksFor(f.brand, f.name);
+  return `<div class="frag-links-row">
+    ${
+      links.officialSite
+        ? `<a class="brand-site-link" href="${esc(links.officialSite.url)}" target="_blank" rel="noopener nofollow">
+             <span class="control-ico">${ICON_EXTERNAL}</span>
+             <span>Official Site</span>
+           </a>`
+        : ''
+    }
+    <a class="brand-site-link" href="${esc(links.fragranticaSearchUrl)}" target="_blank" rel="noopener nofollow">
+      <span class="control-ico">${ICON_EXTERNAL}</span>
+      <span>Fragrantica</span>
+    </a>
+  </div>`;
+}
+
 function priceLine(f: DemoFragrance): string {
   const best = bestOffer(rowsFor(f));
   if (!best) return `<span class="amt none">Sold out</span>`;
@@ -1804,6 +1837,7 @@ function detailView(): string {
         <div class="hero-art">${productArt(frag.photoUrl, 'lg', `${frag.brand} ${frag.name}`)}</div>
         ${brandButton(frag.brand)}
         ${productHead(frag, 'div', 't-page')}
+        ${fragranceLinksBlock(frag)}
         ${wishlistButton(frag.id)}
         ${
           best
