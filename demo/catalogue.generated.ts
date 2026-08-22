@@ -4294,7 +4294,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
   {
     "id": "ean-6295199800942",
     "brand": "Armaf",
-    "name": "Island Bliss",
+    "name": "Delights Island Bliss",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "6295199800942",
@@ -4324,7 +4324,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
   {
     "id": "ean-6295199811771",
     "brand": "Armaf",
-    "name": "Island Breeze",
+    "name": "Delights Island Breeze",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "6295199811771",
@@ -11485,7 +11485,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
   {
     "id": "ean-6295199810613",
     "brand": "Armaf",
-    "name": "Bon Bon",
+    "name": "Delights Bon Bon",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "6295199810613",
@@ -12381,7 +12381,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
   {
     "id": "ean-6295199800959",
     "brand": "Armaf",
-    "name": "Yum Yum",
+    "name": "Delights Yum Yum",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "6295199800959",
@@ -31571,7 +31571,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-6295199805329",
     "brand": "Armaf",
-    "name": "Cool Ace",
+    "name": "Tennis Cool Ace",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "6295199805329",
@@ -31930,7 +31930,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-6295199805336",
     "brand": "Armaf",
-    "name": "Match Point",
+    "name": "Tennis Match Point",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": "6295199805336",
@@ -32783,7 +32783,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "armaf-arf32106631",
     "brand": "Armaf",
-    "name": "Profumi D'Art 01, Acqua Mia",
+    "name": "Landi Profumi D'Art 01, Acqua Mia",
     "concentration": "Eau de Parfum",
     "sizeMl": 105,
     "ean": null,
@@ -32813,7 +32813,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "armaf-arf32106633",
     "brand": "Armaf",
-    "name": "Profumi D'Art 02, Voglie Di Mare",
+    "name": "Landi Profumi D'Art 02, Voglie Di Mare",
     "concentration": "Eau de Parfum",
     "sizeMl": 105,
     "ean": null,
@@ -32862,7 +32862,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "armaf-arf32106635",
     "brand": "Armaf",
-    "name": "Profumi D'Art 03, Legni Dolci Bruciati",
+    "name": "Landi Profumi D'Art 03, Legni Dolci Bruciati",
     "concentration": "Eau de Parfum",
     "sizeMl": 105,
     "ean": null,
@@ -32889,7 +32889,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "armaf-arf32106637",
     "brand": "Armaf",
-    "name": "Profumi D'Art 07, Rosa Del Deserto",
+    "name": "Landi Profumi D'Art 07, Rosa Del Deserto",
     "concentration": "Eau de Parfum",
     "sizeMl": 105,
     "ean": null,
@@ -32935,7 +32935,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "armaf-arf32106641",
     "brand": "Armaf",
-    "name": "Profumi D'Art 11, Acqua Tua",
+    "name": "Landi Profumi D'Art 11, Acqua Tua",
     "concentration": "Eau de Parfum",
     "sizeMl": 105,
     "ean": null,
@@ -32957,7 +32957,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-6295199815038",
     "brand": "Armaf",
-    "name": "Red Velvet",
+    "name": "Delicacy Red Velvet",
     "concentration": "Eau de Parfum",
     "sizeMl": 70,
     "ean": "6295199815038",
@@ -92543,7 +92543,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "armaf-arf32109971",
     "brand": "Armaf",
-    "name": "Affecte",
+    "name": "Oros Pure Affecte",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -92821,7 +92821,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "armaf-arf32109961",
     "brand": "Armaf",
-    "name": "Blooming Maguey",
+    "name": "Oros Pure Blooming Maguey",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -92887,7 +92887,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "armaf-arf32109956",
     "brand": "Armaf",
-    "name": "Cloisonne",
+    "name": "Oros Pure Cloisonne",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -93727,7 +93727,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32121262",
     "brand": "Armaf",
-    "name": "Cotton Candy",
+    "name": "Delicacy Cotton Candy",
     "concentration": "Eau de Parfum",
     "sizeMl": 70,
     "ean": null,
@@ -93850,7 +93850,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32109966",
     "brand": "Armaf",
-    "name": "Evening Rose",
+    "name": "Oros Pure Evening Rose",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -94159,7 +94159,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32105820",
     "brand": "Armaf",
-    "name": "Miss Attitude",
+    "name": "Miss Armaf Attitude",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -94170,7 +94170,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32105815",
     "brand": "Armaf",
-    "name": "Miss Chic",
+    "name": "Miss Armaf Chic",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -94181,7 +94181,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32105814",
     "brand": "Armaf",
-    "name": "Miss Dazzling",
+    "name": "Miss Armaf Dazzling",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -94192,7 +94192,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32105826",
     "brand": "Armaf",
-    "name": "Miss Grandeur",
+    "name": "Miss Armaf Grandeur",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -94203,7 +94203,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32105822",
     "brand": "Armaf",
-    "name": "Miss Magnifiq",
+    "name": "Miss Armaf Magnifiq",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -94214,7 +94214,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32105812",
     "brand": "Armaf",
-    "name": "Miss Mistique",
+    "name": "Miss Armaf Mistique",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -94225,7 +94225,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32105823",
     "brand": "Armaf",
-    "name": "Miss Voce Vive",
+    "name": "Miss Armaf Voce Vive",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -94702,7 +94702,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32106648",
     "brand": "Armaf",
-    "name": "Profumi D'Art 04, Only Oud",
+    "name": "Landi Profumi D'Art 04, Only Oud",
     "concentration": "Eau de Parfum",
     "sizeMl": 105,
     "ean": null,
@@ -94713,7 +94713,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32106649",
     "brand": "Armaf",
-    "name": "Profumi D'Art 06, Vaniglia Esotica",
+    "name": "Landi Profumi D'Art 06, Vaniglia Esotica",
     "concentration": "Eau de Parfum",
     "sizeMl": 105,
     "ean": null,
@@ -94724,7 +94724,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32106639",
     "brand": "Armaf",
-    "name": "Profumi D'Art 10, Belin Che Cana",
+    "name": "Landi Profumi D'Art 10, Belin Che Cana",
     "concentration": "Eau de Parfum",
     "sizeMl": 105,
     "ean": null,
@@ -94735,7 +94735,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32106643",
     "brand": "Armaf",
-    "name": "Profumi D'Art 12, Per Me Ma",
+    "name": "Landi Profumi D'Art 12, Per Me Ma",
     "concentration": "Eau de Parfum",
     "sizeMl": 105,
     "ean": null,
@@ -94746,7 +94746,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32106645",
     "brand": "Armaf",
-    "name": "Profumi D'Art 13, E Tanta Roba",
+    "name": "Landi Profumi D'Art 13, E Tanta Roba",
     "concentration": "Eau de Parfum",
     "sizeMl": 105,
     "ean": null,
@@ -94757,7 +94757,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32106647",
     "brand": "Armaf",
-    "name": "Profumi D'Art 14, Latte Di Tuberosa",
+    "name": "Landi Profumi D'Art 14, Latte Di Tuberosa",
     "concentration": "Eau de Parfum",
     "sizeMl": 105,
     "ean": null,
@@ -94779,7 +94779,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32102765",
     "brand": "Armaf",
-    "name": "Sacre Bleu",
+    "name": "Oros Pure Sacre Bleu",
     "concentration": "Eau de Toilette",
     "sizeMl": 85,
     "ean": null,
@@ -95010,7 +95010,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "armaf-arf32109976",
     "brand": "Armaf",
-    "name": "Twist Debois",
+    "name": "Oros Pure Twist Debois",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
