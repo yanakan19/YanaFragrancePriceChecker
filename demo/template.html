@@ -1095,6 +1095,16 @@
     .brand-site-link:hover .control-ico { color: var(--accent); }
   }
 
+  /* Official Site + Fragrantica, under a fragrance's own title block. Same
+     .brand-site-link pill as the brand page's own official-site link, so the
+     two pages agree on what this kind of link looks like — left-aligned by
+     the row itself, not centred with the rest of the hero. */
+  .frag-links-row {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+    justify-content: flex-start;
+  }
+  .frag-links-row .brand-site-link { margin-top: 10px; }
+
   /* Which market the link above actually opens, so a reader knows before
      clicking rather than after landing on it. --ok (green) is this app's
      existing "confirmed fine" token, reused here for "yes, UK" rather than
