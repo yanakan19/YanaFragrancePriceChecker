@@ -116,7 +116,10 @@ export function headFor(input: HeadInput): HeadTags {
   switch (route.name) {
     case 'home':
       return {
-        title: 'PriceSniffs: compare UK fragrance prices',
+        // The owner's own instruction: the tab should say the brand name and
+        // nothing else here. Every other route earns a "PriceSniffs: " prefix
+        // plus a page-specific part; home is just the part before the colon.
+        title: 'PriceSniffs',
         description: describe(
           products && shops
             ? `Compare ${products} fragrances across ${shops} UK shops, sorted by the price you actually pay including delivery.`
@@ -129,7 +132,10 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'fragrance':
       return {
-        title: clamp(leafName ? `${leafName} price comparison` : 'Fragrance price comparison', TITLE_MAX),
+        title: clamp(
+          leafName ? `PriceSniffs: ${leafName} price comparison` : 'PriceSniffs: fragrance price comparison',
+          TITLE_MAX,
+        ),
         description: describe(
           leafName
             ? `${leafName}: ${leafDetail ?? 'every UK shop we track that stocks it, with delivery included in the price shown'}.`
@@ -142,7 +148,10 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'brand':
       return {
-        title: clamp(leafName ? `${leafName} fragrances, price compared` : 'Brand fragrances', TITLE_MAX),
+        title: clamp(
+          leafName ? `PriceSniffs: ${leafName} fragrances, price compared` : 'PriceSniffs: brand fragrances',
+          TITLE_MAX,
+        ),
         description: describe(
           leafName
             ? `Every ${leafName} fragrance stocked by the UK shops we track${leafDetail ? `, ${leafDetail}` : ''}.`
@@ -155,7 +164,13 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'retailer':
       return {
-        title: clamp(leafName ? `${leafName}: fragrance prices` : 'Retailer fragrance prices', TITLE_MAX),
+        // Not `PriceSniffs: ${leafName}: fragrance prices` — a second colon
+        // right after the brand one reads as a broken title, so the shop
+        // name drops straight into the phrase instead of introducing one.
+        title: clamp(
+          leafName ? `PriceSniffs: ${leafName} fragrance prices` : 'PriceSniffs: retailer fragrance prices',
+          TITLE_MAX,
+        ),
         description: describe(
           leafName
             ? `What ${leafName} charges for the fragrances they stock${leafDetail ? `, ${leafDetail}` : ''}, next to every other UK shop we track.`
@@ -168,7 +183,10 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'note':
       return {
-        title: clamp(leafName ? `${leafName} fragrances` : 'Fragrances by note', TITLE_MAX),
+        title: clamp(
+          leafName ? `PriceSniffs: ${leafName} fragrances` : 'PriceSniffs: fragrances by note',
+          TITLE_MAX,
+        ),
         description: describe(
           leafName
             ? `Fragrances whose shops list ${leafName} among their notes${leafDetail ? `, ${leafDetail}` : ''}.`
@@ -181,7 +199,7 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'brands':
       return {
-        title: 'Fragrance brands',
+        title: 'PriceSniffs: fragrance brands',
         description: describe(
           'Every fragrance brand stocked by the UK shops we track, with how many bottles each one has on the site.',
           SITE_TAIL,
@@ -192,7 +210,7 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'retailers':
       return {
-        title: 'UK fragrance shops we compare',
+        title: 'PriceSniffs: UK fragrance shops we compare',
         description: describe(
           shops
             ? `The ${shops} UK shops whose prices this site reads, what each one charges for delivery, and how those figures were checked.`
@@ -205,7 +223,7 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'notes':
       return {
-        title: 'Fragrance notes',
+        title: 'PriceSniffs: fragrance notes',
         description: describe(
           'Browse by the notes the shops themselves publish, from vanilla and oud to iris and vetiver, never notes we guessed at.',
           SITE_TAIL,
@@ -216,7 +234,7 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'deals':
       return {
-        title: 'Fragrance price drops today',
+        title: 'PriceSniffs: fragrance price drops today',
         description: describe(
           'Bottles that cost less today than the last price recorded for them, measured against this site’s own price history rather than a shop’s claim.',
           SITE_TAIL,
@@ -227,7 +245,9 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'about':
       return {
-        title: 'About PriceSniffs',
+        // Not "PriceSniffs: About PriceSniffs" — the brand name would land
+        // twice in five words.
+        title: 'PriceSniffs: about',
         description: describe(
           'How this site gets its prices, what it earns from affiliate links, and the rule it holds to: never publish a number nobody checked.',
           SITE_TAIL,
@@ -236,9 +256,19 @@ export function headFor(input: HeadInput): HeadTags {
         noindex: false,
       };
 
-    case 'legal':
+    case 'legal': {
+      // Two of legal.ts's own page titles already say "PriceSniffs" ("About
+      // PriceSniffs", "How PriceSniffs works"), so prefixing those verbatim
+      // would land the brand name twice in one title. Swapped for the part
+      // that still reads correctly after "PriceSniffs: " once said once;
+      // every other legal page title has no such collision and passes
+      // straight through.
+      const legalPart =
+        leafName === 'About PriceSniffs' ? 'about'
+        : leafName === 'How PriceSniffs works' ? 'how it works'
+        : leafName;
       return {
-        title: clamp(leafName ? `${leafName}` : 'Terms and privacy', TITLE_MAX),
+        title: clamp(legalPart ? `PriceSniffs: ${legalPart}` : 'PriceSniffs: terms and privacy', TITLE_MAX),
         description: describe(
           leafName === 'Privacy'
             ? 'What this site collects, which is almost nothing: no analytics, no tracking cookies, and a display preference kept on your own device.'
@@ -248,10 +278,11 @@ export function headFor(input: HeadInput): HeadTags {
         canonical,
         noindex: false,
       };
+    }
 
     case 'design':
       return {
-        title: 'Design system',
+        title: 'PriceSniffs: design system',
         description: describe(
           'The colours, type scale and icons this site is built from, rendered live from the same tokens the pages themselves use.',
           SITE_TAIL,
@@ -264,7 +295,7 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'search':
       return {
-        title: 'Search fragrances',
+        title: 'PriceSniffs: search fragrances',
         description: describe(
           'Search the catalogue by brand, fragrance name or concentration.',
           SITE_TAIL,
@@ -278,7 +309,7 @@ export function headFor(input: HeadInput): HeadTags {
     case 'account':
     case 'settings':
       return {
-        title: route.name === 'account' ? 'Your account' : 'Settings',
+        title: route.name === 'account' ? 'PriceSniffs: your account' : 'PriceSniffs: settings',
         description: describe(
           route.name === 'account'
             ? 'Sign in to save fragrances to your list.'
@@ -291,7 +322,7 @@ export function headFor(input: HeadInput): HeadTags {
 
     case 'notFound':
       return {
-        title: 'Page not found',
+        title: 'PriceSniffs: page not found',
         description: 'That address does not match anything on this site.',
         canonical,
         noindex: true,
