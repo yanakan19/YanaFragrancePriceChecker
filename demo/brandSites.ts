@@ -751,22 +751,105 @@ export const BRAND_SITES: Record<string, string> = {
   // and collection pages.
   'angel schlesser': 'https://www.angelschlesserparfums.com/en/',
 
+  // ── Job A coverage pass, 2026-08-22 ───────────────────────────────────────
+  // Same method as the sweeps above (WebSearch only — this session's network
+  // is also locked at the gateway), working down the "no entry at all"
+  // worklist by product count. Every URL below was confirmed as a page the
+  // brand's own manufacturer/licensee actually publishes (an About page, a
+  // named product-category tree, or a company profile explicitly tying the
+  // domain to the house), not a retailer that happens to stock the brand.
+  //
+  // PC Design Perfumes SARL (Paris) is the manufacturer behind five house
+  // names this catalogue carries as separate brands — New Brand, New Brand
+  // Prestige, New Brand Parfums and Cuba Paris among them — confirmed by its
+  // own site (pcdesignperfumes.com) carrying dedicated, branded
+  // product-category pages for each rather than a single mixed shop list.
+  'new brand': 'https://pcdesignperfumes.com/new-brand/',
+  // Catalogue also carries this house under its fuller trading name; same
+  // manufacturer, same landing page as "new brand" above.
+  'new brand parfums': 'https://pcdesignperfumes.com/new-brand/',
+  // NB Prestige is a sub-line inside the same manufacturer's "NB Collection"
+  // category tree; no separately paged NB-Prestige-only URL was found, so
+  // this points at the collection page that includes it.
+  'new brand prestige': 'https://pcdesignperfumes.com/product-category/new-brand/',
+  // Same manufacturer as the New Brand entries above; its own dedicated Cuba
+  // collection page, not a retailer.
+  'cuba paris': 'https://pcdesignperfumes.com/cuba/',
+  // ceviperfumes.com is the brand's own storefront (not cevicosmetics.com, an
+  // unrelated business with a similar name) — confirmed by its own product
+  // listings (CEVI X SUBZERO EXTRAIT and others) matching this catalogue's
+  // Cevi Perfumes line.
+  'cevi perfumes': 'https://ceviperfumes.com/',
+  // Saudi house, launched 2023; lebonheurperfumes.com is its own bilingual
+  // site (confirmed by its own /en path and matching product names).
+  'le bonheur': 'https://lebonheurperfumes.com/en',
+  // Indonesian house founded 2024; velixirparfums.com is named directly in
+  // its own "About Us" page as the brand's site.
+  velixir: 'https://velixirparfums.com/',
+  // bhararabeauty.com is the brand's own "House of Niche Fragrance Brands"
+  // site; a separate bhararabeauty.eu also exists (EU storefront, not UK).
+  bharara: 'https://www.bhararabeauty.com/',
+  // UK-marked page found directly (katespade.co.uk), so used instead of the
+  // US katespade.com root.
+  'kate spade': 'https://www.katespade.co.uk/shop/accessories/fragrance',
+  philosophy: 'https://philosophy.com/collections/fragrance',
+  // Cofinluxe (Paris) licenses the Dalí name for fragrance; parfums-
+  // salvadordali.com is Cofinluxe's own dedicated brand site for it, not a
+  // reseller — confirmed via cofinluxe.fr's own brand-page listing.
+  'salvador dali': 'https://www.parfums-salvadordali.com/en/',
+  // UK-marked page found directly (toryburch.com/en-gb/...), so used instead
+  // of the US en-us root.
+  'tory burch': 'https://www.toryburch.com/en-gb/accessories/fragrance/essenceofdreams/',
+  // Lattafa-group house (Dubai); nusukfragrance.com is its own dedicated
+  // site, distinct from the parent "lattafa"/"lattafa perfumes" entries
+  // above.
+  nusuk: 'https://nusukfragrance.com/',
+  // Sterling Perfumes Industries (same manufacturer as the existing "armaf"
+  // and "flavia" entries) — hamidi.ae is its own dedicated Hamidi site.
+  hamidi: 'https://hamidi.ae/',
+  // Genuinely tous.com's UK path — the site orders it region-then-language
+  // ("gb-en") rather than the "en-gb" shape marketOf() reads a path market
+  // from, so officialSiteFor() will still report this as Non-UK; noted here
+  // rather than silently accepted as a false negative.
+  tous: 'https://www.tous.com/gb-en/',
+  'pino silvestre': 'https://pinosilvestre.com/',
+  // French house (Grasse); geparlys.com is its own site.
+  geparlys: 'https://geparlys.com/en-us',
+  // Puig-produced line; only an international path was confirmed, no
+  // UK-specific one.
+  shakira: 'https://www.shakiraperfumes.com/int/en',
+  // Avon's own UK storefront for this fragrance line (avon.uk.com), used in
+  // preference to the US avon.com/brand page. "uk.com" is a UK-market
+  // second-level domain space (avon.uk.com, not a uk. subdomain of avon.com)
+  // that isn't in marketOf()'s MULTI_PART_SUFFIXES list, so officialSiteFor()
+  // will still report this as Non-UK — a false negative, not a wrong link.
+  'far away': 'https://avon.uk.com/collections/far-away',
+  // Same avon.uk.com UK storefront and the same marketOf() false-negative as
+  // "far away" above.
+  'today tomorrow always': 'https://avon.uk.com/collections/today-tomorrow-always',
+
   // Left unresolved this pass — search turned up only third-party retailers
   // and Fragrantica/Parfumo listings, never a confirmed brand-owned domain:
-  // New Brand Parfums, Dkhoon Emirates, Jennifer Lopez (JLo fragrances are
-  // sold only through retailers, no dedicated brand site found), Tonino
-  // Lamborghini (catalogue's plain "Lamborghini" — confirmed by product
-  // names, Classico/Intenso/Prestigio/Acqua/Essenza, to be this house rather
-  // than the separate "Automobili Lamborghini" line), Diane Castel, Cuba
-  // Paris, Taylor of London, Cevi Les Parfums, Salvador Dali, Marvel (sold
-  // via a licensed manufacturer, JADS International, not Marvel's/Disney's
-  // own site), Hello Kitty (sold via a Sanrio license, no dedicated
-  // fragrance-brand site of Sanrio's own found). Ellen Tracy and Liz Claiborne are deliberately left out too:
-  // search surfaced only domains ("ellentracy.com", "lizclaiborns.com" —
-  // note the missing "e", "lizclaiborneperfume.com") that were never
-  // actually present in any search result's own link list, or read as
-  // spammy multi-brand storefronts rather than the house's own site — the
-  // "never invent, never guess" rule this file runs on applies exactly here.
+  // Dkhoon Emirates, Jennifer Lopez (JLo fragrances are sold only through
+  // retailers, no dedicated brand site found), Tonino Lamborghini
+  // (catalogue's plain "Lamborghini" — confirmed by product names,
+  // Classico/Intenso/Prestigio/Acqua/Essenza, to be this house rather than
+  // the separate "Automobili Lamborghini" line), Diane Castel, Taylor of
+  // London, Cevi Les Parfums (a second, differently-spelled Cevi line — not
+  // confirmed to be the same company as "Cevi Perfumes" above, so left
+  // separate and unresolved rather than guessed), Marvel (sold via a
+  // licensed manufacturer, JADS International, not Marvel's/Disney's own
+  // site), Hello Kitty (sold via a Sanrio license, no dedicated
+  // fragrance-brand site of Sanrio's own found), Rotana, Attraction, United
+  // Colors & Prestige Beauty (reads as two brand names concatenated by a
+  // retailer feed, the same "Unbranded"-shaped trap noted above — not
+  // guessed at as either Benetton or a single house). Ellen Tracy and Liz
+  // Claiborne are deliberately left out too: search surfaced only domains
+  // ("ellentracy.com", "lizclaiborns.com" — note the missing "e",
+  // "lizclaiborneperfume.com") that were never actually present in any
+  // search result's own link list, or read as spammy multi-brand
+  // storefronts rather than the house's own site — the "never invent, never
+  // guess" rule this file runs on applies exactly here.
 };
 
 /**
