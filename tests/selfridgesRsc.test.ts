@@ -21,10 +21,9 @@ import { hasRenderedStateParser, parseRenderedState } from '../src/catalogue/ren
  * fixture that quietly drops the fields around the ones being read stops
  * being a capture of what the shop actually sends.
  *
- * All three carry `markdownPrice: null` and `prevMarkdownPrice: null`, which
- * is the case this parser prices. No reduced record has been captured; see
- * the module header for why that gap is handled by declining to price rather
- * than by guessing which field a reduced record would use.
+ * All three carry `markdownPrice: null` and `prevMarkdownPrice: null` — the
+ * unreduced case. REAL_REDUCED_PRODUCTS below is the reduced counterpart,
+ * captured later; see the module header for what settled the two apart.
  */
 const REAL_PRODUCTS = [
   {
@@ -95,6 +94,89 @@ const REAL_PRODUCTS = [
       rating: { __typename: 'Rating', score: 0, totalReviews: 0 },
     },
     id: '4b955d9a-e901-4439-b024-b5254445e2e8',
+  },
+];
+
+/**
+ * Three real, genuinely reduced Selfridges product records, quoted verbatim
+ * from the React Server Components window printed by state probe run
+ * 32540580489, job 96949668662, 2026-08-22T00:31Z, against
+ * /GB/en/cat/beauty/on_sale/?pn=1 — the beauty sale category page, not
+ * fragrance specifically (its grid mixed in massage devices, not perfume),
+ * but the price fields these three carry are the same shop-wide `LowestPrice`
+ * type the fragrance grid uses, so what they settle applies there too.
+ *
+ * Trimmed the same way REAL_PRODUCTS above is. All three carry a non-null
+ * `markdownPrice`, which is the shape no record had captured before this run.
+ */
+const REAL_REDUCED_PRODUCTS = [
+  {
+    __typename: 'Product',
+    name: 'Theragun Pro Plus multi-therapy massage gun',
+    seoKey: 'therabody-theragun-pro-plus-multi-therapy-massage-gun_R04349230',
+    brand: 'THERABODY',
+    defaultImageUrl: '//images.selfridges.com/is/image/selfridges/R04349230_M',
+    productId: 'R04349230',
+    department: { __typename: 'Department', id: 5542, name: 'Therabody' },
+    division: { __typename: 'Division', id: 2751, name: 'Home & Leisure' },
+    lowestPrice: [
+      {
+        __typename: 'LowestPrice',
+        currency: 'GBP',
+        price: 499,
+        markdownPrice: 599,
+        prevMarkdownPrice: null,
+      },
+    ],
+    ratingAndReviews: {
+      __typename: 'RatingAndReviews',
+      rating: { __typename: 'Rating', score: 0, totalReviews: 0 },
+    },
+    id: '8caeab4d-6c73-4d1d-b92f-7c2e6fa4405e',
+  },
+  {
+    __typename: 'Product',
+    name: 'Theragun Relief Massage Gun',
+    seoKey: 'therabody-theragun-relief-massage-gun_R04349247',
+    brand: 'THERABODY',
+    defaultImageUrl: '//images.selfridges.com/is/image/selfridges/R04349247_M',
+    productId: 'R04349247',
+    lowestPrice: [
+      {
+        __typename: 'LowestPrice',
+        currency: 'GBP',
+        price: 99,
+        markdownPrice: 129,
+        prevMarkdownPrice: null,
+      },
+    ],
+    ratingAndReviews: {
+      __typename: 'RatingAndReviews',
+      rating: { __typename: 'Rating', score: 0, totalReviews: 0 },
+    },
+    id: 'be07ce13-d690-4cd1-9e32-a22501220291',
+  },
+  {
+    __typename: 'Product',
+    name: 'TheraFace Pro Hot and Cold rings',
+    seoKey: 'therabody-theraface-pro-hot-and-cold-rings_R03943793',
+    brand: 'THERABODY',
+    defaultImageUrl: '//images.selfridges.com/is/image/selfridges/R03943793_M',
+    productId: 'R03943793',
+    lowestPrice: [
+      {
+        __typename: 'LowestPrice',
+        currency: 'GBP',
+        price: 49,
+        markdownPrice: 79,
+        prevMarkdownPrice: null,
+      },
+    ],
+    ratingAndReviews: {
+      __typename: 'RatingAndReviews',
+      rating: { __typename: 'Rating', score: 0, totalReviews: 0 },
+    },
+    id: '885c4a88-8357-47ee-99c7-d4b54bed185e',
   },
 ];
 
@@ -208,31 +290,57 @@ describe('parseSelfridgesListings, against the captured records', () => {
   });
 });
 
+describe('parseSelfridgesListings, against the three real reduced records', () => {
+  const listings = parseSelfridgesListings(pageWith(REAL_REDUCED_PRODUCTS), {
+    sectionId: 'on-sale',
+    pageUrl: PAGE_URL,
+  });
+
+  it('reads every reduced product, still', () => {
+    expect(listings).toHaveLength(3);
+    expect(listings.map((l) => l.retailerSku)).toEqual(['R04349230', 'R04349247', 'R03943793']);
+  });
+
+  it("prices from `price`, the lower figure and the one the shop's own markup paints as current", () => {
+    // Run 96949668662's painted-markup scan found both numbers on the page
+    // itself for each of these three: "£499.00" and "£599.00" for the first,
+    // "£99.00" and "£129.00" for the second, "£49.00" and "£79.00" for the
+    // third — `price` is the figure a customer actually pays.
+    expect(listings.map((l) => l.priceGbp)).toEqual([499, 99, 49]);
+  });
+
+  it('reads the higher `markdownPrice` figure into wasPriceGbp', () => {
+    expect(listings.map((l) => l.wasPriceGbp)).toEqual([599, 129, 79]);
+  });
+});
+
 describe('parseSelfridgesListings, shapes the capture did not contain', () => {
-  it('will not price a record carrying a markdown whose meaning is unestablished', () => {
-    const reduced = [
+  it('declines a "markdown" that is not actually higher than price', () => {
+    // The invariant every real reduced record has shown is markdownPrice >
+    // price. A record where that fails would contradict the pattern the
+    // reading above rests on, so it is treated as not-yet-understood rather
+    // than trusted — same conservatism as the currency check below.
+    const contradictory = [
       {
-        ...REAL_PRODUCTS[0],
+        ...REAL_REDUCED_PRODUCTS[0],
         lowestPrice: [
           {
             __typename: 'LowestPrice',
             currency: 'GBP',
-            price: 231,
-            markdownPrice: 161.7,
+            price: 499,
+            markdownPrice: 499,
             prevMarkdownPrice: null,
           },
         ],
       },
     ];
-    const [listing] = parseSelfridgesListings(pageWith(reduced), {
-      sectionId: 'fragrance',
+    const [listing] = parseSelfridgesListings(pageWith(contradictory), {
+      sectionId: 'on-sale',
       pageUrl: PAGE_URL,
     });
-    // Still a listing — Selfridges demonstrably sells it — but not a price,
-    // because 231 and 161.70 cannot both be what a customer pays today and
-    // no captured record settles which field means which.
-    expect(listing!.retailerSku).toBe('R04693967');
-    expect(listing!.priceGbp).toBeNull();
+    expect(listing!.retailerSku).toBe('R04349230');
+    expect(listing!.priceGbp).toBe(499);
+    expect(listing!.wasPriceGbp).toBeNull();
   });
 
   it('will not price a record quoted in another currency', () => {
