@@ -338,6 +338,181 @@ const KNOWN_ALIASES: Record<string, string> = {
   [brandKey('Armaf - Venetian')]: 'Armaf',
   [brandKey('Armaf - Ventana')]: 'Armaf',
   [brandKey('Armaf - Voyage')]: 'Armaf',
+
+  // Found 2026-08-22 from a live-site Brands-directory screenshot showing
+  // "Abercrombie & Fitch" and "Abercrombie and Fitch" side by side, and a
+  // follow-up full sweep of the catalogue's 721 distinct raw brand strings
+  // (buildBrandCanon run over demo/catalogue.generated.ts's own CATALOGUE)
+  // for the same shapes. Three distinct shapes, each verified separately:
+  //
+  // (1) "&" vs "and" is a real, mechanical gap in `brandKey` itself: the key
+  // function deletes "&" (it is not a letter or digit) but keeps "and" as
+  // three literal letters, so "X & Y" and "X and Y" hash to different keys
+  // even though they are the same name written two ways. Five pairs found;
+  // every "and"-spelled group was confirmed by its own product names, which
+  // spell the house's name out in full inside the fragrance title (e.g. one
+  // of the 17 "Viktor and Rolf" products is literally named "Viktor & Rolf
+  // BonBon") — the same self-identifying evidence the D&G/Mon Guerlain/Aqua
+  // Kenzo entries above rely on, not a guess from the shape of the string:
+  [brandKey('Viktor and Rolf')]: 'Viktor & Rolf',
+  [brandKey('Dolce and Gabbana')]: 'Dolce & Gabbana',
+  [brandKey('Abercrombie and Fitch')]: 'Abercrombie & Fitch',
+  [brandKey('Tiffany and Co.')]: 'Tiffany & Co',
+  [brandKey('Roger and Gallet')]: 'Roger & Gallet',
+
+  // (2) A trailing "UK" storefront qualifier that names the same house, not
+  // a different one. "ARMAF UK" (5 products: Armaf Infusion, Cloud 9,
+  // Dunescape, Luna, Old Money) is all-caps shouting the same way "ARMAF"
+  // itself was before the 2026-08-21 fold — and three of its five products
+  // ("Infusion", "Dunescape", "Old Money") already appear as identically-
+  // named products under plain "Armaf" (359 products), the same cross-feed
+  // confirmation the 2026-08-21 Armaf commit used. Reported directly by the
+  // owner as a named pair to check, confirmed on this evidence, not folded
+  // on the owner's say-so alone. "French Avenue UK" (109 products) checked
+  // the same way against plain "French Avenue" (209 products): 78 of its
+  // 109 product names — Amber Empire, Azzure Aoud, Cocoa Morado and 75
+  // more — are byte-identical to a product already listed under "French
+  // Avenue", a 72% overlap that leaves no real doubt these are one feed
+  // splitting one house by whether it appended "UK" to the brand field:
+  [brandKey('ARMAF UK')]: 'Armaf',
+  [brandKey('French Avenue UK')]: 'French Avenue',
+
+  // (3) More instances of the "generic descriptor word appended" shape the
+  // 2026-08-11/12 sweeps above already found sixteen of, located by the same
+  // full-catalogue sweep and confirmed the same way — an in-catalogue fact
+  // for each, not the shape of the string:
+  //
+  //   - 'Ahmed Al Maghribi Perfumes' (16 products, e.g. "Ignite Oud by Ahmed
+  //     Al Maghribi", "Kaaf Noir by Ahmed Al Maghribi") against plain 'Ahmed
+  //     Al Maghribi' (64 products): 11 of the 16 either repeat a product
+  //     name already listed under the bare form ("Ignite Oud", "Kaaf Noir",
+  //     "Laathani", "Marj", "Rose Noir", "Summer Oud" among them) or name
+  //     the house in full inside the product title, the same shape as the
+  //     screenshot's own second example pair. This is the exact pair the
+  //     screenshot that started this task showed side by side.
+  //   - 'JO MALONE LONDON' (2 products: Sea Salt & Bergamot, Velvety
+  //     Butternut) against 'Jo Malone' (35 products). "Jo Malone London" is
+  //     the house's own real trading name (confirmed by WebSearch: Velvety
+  //     Butternut Cologne is a genuine 2026 Jo Malone London release sold
+  //     under that exact name at jomalone.com, Harrods and Nordstrom), the
+  //     same "generic-looking suffix that is actually the real name" shape
+  //     as Yardley London and Floris London above — but no shop in this
+  //     catalogue ever published a mixed-case "Jo Malone London" spelling to
+  //     promote to canon (only the all-caps shouting form exists), and this
+  //     module's own rule is to never invent a spelling nobody published, so
+  //     the existing mixed-case "Jo Malone" is kept as canon instead.
+  //   - 'Laurelle London' (2 products) against the house already canonised
+  //     as 'Laurelle Parfums' above: one of the 15 products already listed
+  //     under 'Laurelle Parfums' is itself named "Laurelle London Always
+  //     Forever", which names the "Laurelle London" spelling inside a
+  //     product already grouped under the established canon — the same
+  //     embedded-name evidence as the D&G pair.
+  //   - 'Delroba Parfums' (6 products) against 'Delroba' (6 products): all
+  //     six pair up one-to-one on name alone (Cashmere Bouquet, Emerald
+  //     Haze, Rose Musk, Sweet Amber match after only "For Men"/"For Woman"
+  //     is dropped; "Mystique Mirage" matches byte-for-byte with no edit at
+  //     all) — the strongest form of evidence available, the same shape as
+  //     the Armaf Club De Nuit cross-check.
+  //   - 'Korloff Paris' (1 product, "Cuir Mythique") against 'Korloff' (2
+  //     products, one of which is the identical "Cuir Mythique") — the
+  //     product name matches byte-for-byte across both spellings.
+  //   - 'NOTEBOOK Fragrances' (1 product, "Notebook Bergamot & Sandal Wood
+  //     for Him") against 'Notebook' (1 product, "White Flowers Vanilla") —
+  //     the product's own title names the house in full, the same shape as
+  //     'MyPerfumeShop' and 'Health Pharm' above.
+  //   - 'New Brand Parfums' (28 products) against plain 'New Brand' (46
+  //     products): 7 product names are shared byte-for-byte after stripping
+  //     the repeated "New Brand" prefix ("World Champion", "Free Man" and
+  //     "Ohhh Light" among them), and a direct check confirmed none of those
+  //     three names appears under any OTHER brand anywhere in the catalogue
+  //     — ruling out generic dupe-fragrance naming coincidence. This is a
+  //     narrower, evidenced call than the existing 'New Brand Perfumes' and
+  //     'New Brand Prestige' holdouts immediately below, which is exactly
+  //     why they stay separate: checked against 'New Brand' and against each
+  //     other, zero shared product names in either direction, so they are
+  //     left unmerged rather than swept in on the strength of sharing the
+  //     words "New Brand".
+  [brandKey('Ahmed Al Maghribi Perfumes')]: 'Ahmed Al Maghribi',
+  [brandKey('JO MALONE LONDON')]: 'Jo Malone',
+  [brandKey('Laurelle London')]: 'Laurelle Parfums',
+  [brandKey('Delroba Parfums')]: 'Delroba',
+  [brandKey('Korloff Paris')]: 'Korloff',
+  [brandKey('NOTEBOOK Fragrances')]: 'Notebook',
+  [brandKey('New Brand Parfums')]: 'New Brand',
+
+  // (4) Accent-stripped spellings the same sweep turned up, the identical
+  // blind spot the module doc already names for Estee Lauder/Lancome/Hermes
+  // (`brandKey` is ASCII-only, so an accented letter is deleted rather than
+  // folded, and the two spellings hash to different keys). Each pair below
+  // is the same word sequence with only diacritics differing — not a
+  // judgement call about whether two names are the same house, since an
+  // accent cannot change which house a name refers to:
+  //
+  //   - 'Chloe' / 'Chloé': the fashion house's own name is accented; "Love
+  //     Story" and "Nomade" both already appear, byte-identical, under each
+  //     spelling.
+  //   - 'Courreges' / 'Courrèges': "Seconde Peau" appears under both, and
+  //     one of 'Courreges' two products is itself titled "Courrèges Seconde
+  //     Peau" — the accented spelling named inside the unaccented group.
+  //   - 'Parfums Grès' (1 product, "Gres Cabochard") against 'Gres' (9
+  //     products, including "Cabochard" twice) — a third spelling of the
+  //     house already partly folded above via 'Gres Parfums' -> 'Gres';
+  //     kept on the same un-accented canon already chosen there rather than
+  //     introducing a second, competing canon for one house.
+  //   - 'Le Falconé' / 'Le Falcone': every one of the 12 "Le Falconé"
+  //     products is itself titled with the unaccented "Le Falcone" prefix
+  //     ("Le Falcone Bonita Hot Pink", "Le Falcone Muharib" and so on), and
+  //     "Muharib" and "Juman Precious" both already appear under plain "Le
+  //     Falcone" (22 products) — no independently known "correct" spelling
+  //     for this house the way Chloé or Frédéric Malle have one, so the
+  //     more common, unaccented form is kept as canon.
+  //   - 'Frederic Malle' / 'Frédéric Malle': the niche perfumer's own name
+  //     is accented (Editions de Parfums Frédéric Malle); "Carnal Flower",
+  //     "Lipstick Rose", "Musc Ravageur" and "Portrait of a Lady" all appear
+  //     under both spellings.
+  //   - 'Maurer & Wirtz' (1 product, "Tabac") / 'Mäurer & Wirtz' (56
+  //     products): the German house's own name carries an umlaut, and it
+  //     is the maker of both Tabac and 4711, which is exactly what the 56
+  //     products under the accented spelling are.
+  //   - 'Salle Privee' / 'Salle Privée': "Illegal", "Legal" and "Rialto" all
+  //     appear under both spellings.
+  [brandKey('Chloe')]: 'Chloé',
+  [brandKey('Courreges')]: 'Courrèges',
+  [brandKey('Parfums Grès')]: 'Gres',
+  [brandKey('Le Falconé')]: 'Le Falcone',
+  [brandKey('Frederic Malle')]: 'Frédéric Malle',
+  [brandKey('Maurer & Wirtz')]: 'Mäurer & Wirtz',
+  [brandKey('Salle Privee')]: 'Salle Privée',
+
+  // Checked against the same sweep and held out, not merged:
+  //
+  //   - 'Acqua Di Parisis' (1 product, "Essenza Intensa Musk Sultan"),
+  //     'Acqua Di Pino' (1 product, "Pino Silvestre Acqua Di Pino
+  //     Fougere" — itself Pino Silvestre's own line), 'Acqua Di Parma' (71
+  //     products, an unrelated major luxury house) and 'Acqua Colonia 4711'
+  //     (1 product, a Mäurer & Wirtz line, see above) are four genuinely
+  //     different houses that merely share the words "Acqua Di"/"Acqua
+  //     Colonia" — no product name is shared between any two of them. A
+  //     prefix-shaped rule would have folded these; checking each one's own
+  //     products is what stopped it.
+  //   - 'Avon Cosmetics' (4 products: Cozy Cola, Dragon Fruit Delight,
+  //     Blueberry Party, Pistachio Talk) and 'Avon Kids' (2 products,
+  //     including one literally named "Avon Kids") were reported directly
+  //     for this check. WebSearch confirms Avon Kids is a real, separately
+  //     marketed line — dermatologist- and ophthalmologist-tested cologne
+  //     formulated for ages 6-9, sold at its own avon.uk.com/products/avon-
+  //     kids-* pages — while Cozy Cola, Dragon Fruit Delight and Blueberry
+  //     Party are 2025-launch fragrances Fragrantica lists as ordinary Avon
+  //     releases "for women and men", sold as plain Avon products rather
+  //     than under the Kids label. That is a genuine distinct line, the
+  //     same shape as Emporio Armani against Armani above, not decoration
+  //     to fold away.
+  //   - 'New Brand Perfumes' (2 products) and 'New Brand Prestige' (33
+  //     products): checked against plain 'New Brand', against 'New Brand
+  //     Parfums' (folded above) and against each other — zero shared
+  //     product names in every direction. No in-catalogue evidence either
+  //     way, so both stay separate rather than being swept in on the
+  //     strength of sharing the words "New Brand".
 };
 
 /** True when a string uses ordinary mixed case rather than shouting or whispering. */
