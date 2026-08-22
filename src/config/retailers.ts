@@ -1268,12 +1268,25 @@ export const RETAILERS: readonly Retailer[] = [
     // category pages use.
     //
     // src/catalogue/selfridgesRsc.ts reads it, registered in
-    // src/catalogue/renderedState.ts. Two limits, both argued in that
-    // module's header: stock is always null, because the stream never states
-    // availability anywhere in its 459,936 characters, and a record carrying
-    // a markdown is stored unpriced, because no captured record establishes
-    // whether a reduced product's current price is in `price` or in
-    // `markdownPrice`.
+    // src/catalogue/renderedState.ts. One limit, argued in that module's
+    // header: stock is always null, because the stream never states
+    // availability anywhere in its 459,936 characters.
+    //
+    // ── The markdown question, settled 2026-08-22 ───────────────────────────
+    // A record carrying a markdown used to be stored unpriced, because no
+    // captured record established whether a reduced product's current price
+    // is in `price` or in `markdownPrice`. State probe run 32540580489, job
+    // 96949668662, 00:31Z, one rendered page of /GB/en/cat/beauty/on_sale/
+    // ?pn=1, settles it with three genuinely reduced records — a Theragun Pro
+    // Plus at price 499 / markdownPrice 599, a Theragun Relief at 99 / 129, a
+    // TheraFace Pro at 49 / 79 — and the same run's painted-markup scan found
+    // both figures written on the page itself for all three ("£499.00" and
+    // "£599.00" among them). `price` is the lower figure and the one the shop
+    // paints as today's buyable price; `markdownPrice`, when set and higher
+    // than `price`, is the pre-reduction reference figure. The parser now
+    // reads both: `priceGbp` from `price` unconditionally, `wasPriceGbp` from
+    // `markdownPrice` only where it exceeds `price`. `prevMarkdownPrice`
+    // remains unread — no captured record has ever set it.
     //
     // This shop stays as it is below. Extraction is proven; currency
     // confirmation is a separate step and has not been done here.
@@ -3075,6 +3088,33 @@ export const RETAILERS: readonly Retailer[] = [
     // own too, added in the same commit as this note for the next run. What is
     // ruled out already is the timer bug, a bot wall, an empty render, and any
     // need for a second extraction format here.
+    //
+    // ── Settled 2026-08-22: priced, not merely listed ───────────────────────
+    // `npm run harvest --shop=zara --dry-run --allow-metered` was run first,
+    // locally, with no APIFY_TOKEN in that environment: the free route alone
+    // gets `https://www.zara.com/sitemap.xml: HTTP 403`, 0 urls, 0 priced —
+    // the same IP-level refusal this entry already documents, and no answer
+    // to the open question, exactly as expected without the metered tiers.
+    //
+    // So the state probe was re-dispatched with the priced-count line added
+    // above. State probe run 32540501204, job 96949453791, 00:30Z, one
+    // rendered page of woman-beauty-perfumes-l1415:
+    //
+    //     rendered 2,759,211 bytes
+    //     JSON-LD blocks: 1; parseListings(): 8 listing(s), 8 priced —
+    //         first: LOOK at 118.92
+    //     "£" price-shaped strings in the rendered markup: 0 (0 distinct)
+    //
+    // All 8 listings this render's `parseListings()` found carry a price
+    // (schema.org `offers.price`, read the same way as every other JSON-LD
+    // shop). The page still paints no "£" string — the price is written as a
+    // bare number with currency stated structurally, not visually — which is
+    // exactly the "written some other way" this entry already predicted and
+    // is why the £-scan reads zero while the parser reads eight priced. Zara's
+    // catalogue is priced. This commit does not enable the shop: currency
+    // confirmation (is the 118.92 actually GBP, not a mislabelled EUR from a
+    // shared template) is the separate step this entry has always deferred,
+    // and still is.
     catalogue: {
       searchUrlTemplate: 'https://www.zara.com/uk/en/search?searchTerm={q}',
       sections: [

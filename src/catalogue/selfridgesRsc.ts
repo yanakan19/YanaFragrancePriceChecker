@@ -62,21 +62,42 @@ import type { RawListing } from './types.js';
  * from all 459,936 characters of that stream — this grid does not publish
  * availability, and null is what "not published" means. It is not "in stock".
  *
- * A product carrying a markdown is stored UNPRICED, and this is the one
- * decision here most likely to need revisiting. `lowestPrice[0]` has three
- * money fields — `price`, `markdownPrice`, `prevMarkdownPrice` — and in every
- * record captured so far the second and third are null, which fixes the
- * meaning of `price` only for unreduced products. Whether a reduced product
- * puts today's price in `price` or in `markdownPrice` is unobserved, and the
- * two readings differ by exactly the size of the discount. Reading `price`
- * regardless would show the pre-sale figure as the shelf price on every
- * reduced item, which is the single worst error a price-comparison site can
- * make. So a record with either markdown field set is carried as a listing
- * with `priceGbp: null` until one real markdown record settles it — the same
- * shape John Lewis's variant ranges are handled in, for the same reason.
+ * ── The markdown question, settled 2026-08-22 ─────────────────────────────
+ * A product carrying a markdown used to be stored UNPRICED, because every
+ * record captured up to that point had `markdownPrice: null` and
+ * `prevMarkdownPrice: null`, which fixed the meaning of `price` only for
+ * unreduced products. State probe run 32540580489, job 96949668662,
+ * 2026-08-22T00:31Z, one rendered page of /GB/en/cat/beauty/on_sale/?pn=1,
+ * settles it with three genuinely reduced records in one window:
  *
- * `wasPriceGbp` stays null for the same reason: a reference price cannot be
- * read off fields whose roles are not yet established.
+ *     "name":"Theragun Pro Plus multi-therapy massage gun", …
+ *       "lowestPrice":[{"currency":"GBP","price":499,"markdownPrice":599,…}]
+ *     "name":"Theragun Relief Massage Gun", …
+ *       "lowestPrice":[{"currency":"GBP","price":99,"markdownPrice":129,…}]
+ *     "name":"TheraFace Pro Hot and Cold rings", …
+ *       "lowestPrice":[{"currency":"GBP","price":49,"markdownPrice":79,…}]
+ *
+ * `price` is the lower figure in all three, and the same run's painted-markup
+ * scan — independent of the flight stream — found both numbers written on
+ * the page itself: "£499.00" and "£599.00" among the "£" strings for the
+ * first product, "£99.00" and "£129.00" for the second, "£49.00" and "£79.00"
+ * for the third. That is direct confirmation, not inference from the field
+ * name: `price` is what the shop paints as today's buyable figure whether or
+ * not a markdown is in effect, and `markdownPrice`, when set, is the
+ * pre-reduction reference figure — a was-price. Combined with the three
+ * unreduced records already captured (markdownPrice null, price the only
+ * figure and the one the page paints there too), `price` has now been
+ * observed to mean the same thing — the current shelf price — in every one
+ * of six real records, reduced or not.
+ *
+ * So `price` is read unconditionally once currency is confirmed GBP, and
+ * `markdownPrice` is read into `wasPriceGbp` — but only when it is strictly
+ * greater than `price`, the invariant this run measured. A future record
+ * where a "markdown" is not actually higher would contradict the pattern
+ * this decision rests on, and gets `wasPriceGbp: null` rather than a saving
+ * that is not real. `prevMarkdownPrice` stays unread; no captured record has
+ * ever set it, so its role — most plausibly an earlier markdown stage, prior
+ * to the current one — remains unobserved and nothing here guesses at it.
  *
  * `ean` stays null; nothing in the record carries a GTIN. `ratingAndReviews`
  * does carry `rating.score` and `rating.totalReviews`, which RawListing now
@@ -215,6 +236,8 @@ export function parseSelfridgesListings(
     const url = absolute(`/GB/en/product/${seoKey}/`, options.pageUrl);
     if (!url) continue;
 
+    const { priceGbp, wasPriceGbp } = sterlingPrice(product.lowestPrice);
+
     listings.push({
       retailerSku: sku,
       url,
@@ -222,8 +245,8 @@ export function parseSelfridgesListings(
       rawBrand: str(product.brand),
       ean: null,
       imageUrl: absolute(str(product.defaultImageUrl), options.pageUrl),
-      priceGbp: unreducedSterlingPrice(product.lowestPrice),
-      wasPriceGbp: null,
+      priceGbp,
+      wasPriceGbp,
       promoEndsAt: null,
       // Nothing in this payload states availability. See the header.
       inStock: null,
@@ -235,20 +258,28 @@ export function parseSelfridgesListings(
 }
 
 /**
- * The price, only where the record states GBP and carries no markdown whose
- * meaning has not been established. See this module's header.
+ * Today's price, and — where a markdown is in effect — the reference price
+ * it was marked down from. See this module's header for the three reduced
+ * and three unreduced real records this reading is measured against, and for
+ * why `prevMarkdownPrice` is left unread.
  */
-function unreducedSterlingPrice(lowestPrice: unknown): number | null {
-  if (!Array.isArray(lowestPrice) || lowestPrice.length === 0) return null;
+function sterlingPrice(lowestPrice: unknown): { priceGbp: number | null; wasPriceGbp: number | null } {
+  if (!Array.isArray(lowestPrice) || lowestPrice.length === 0) return { priceGbp: null, wasPriceGbp: null };
   const entry = lowestPrice[0];
-  if (!entry || typeof entry !== 'object') return null;
+  if (!entry || typeof entry !== 'object') return { priceGbp: null, wasPriceGbp: null };
   const row = entry as Record<string, unknown>;
 
-  if (row['currency'] !== 'GBP') return null;
-  if (row['markdownPrice'] != null || row['prevMarkdownPrice'] != null) return null;
+  if (row['currency'] !== 'GBP') return { priceGbp: null, wasPriceGbp: null };
 
   const price = row['price'];
-  return typeof price === 'number' && Number.isFinite(price) && price > 0 ? price : null;
+  const priceGbp = typeof price === 'number' && Number.isFinite(price) && price > 0 ? price : null;
+  if (priceGbp === null) return { priceGbp: null, wasPriceGbp: null };
+
+  const markdown = row['markdownPrice'];
+  const wasPriceGbp =
+    typeof markdown === 'number' && Number.isFinite(markdown) && markdown > priceGbp ? markdown : null;
+
+  return { priceGbp, wasPriceGbp };
 }
 
 function str(value: unknown): string | null {
