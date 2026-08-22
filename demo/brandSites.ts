@@ -873,6 +873,26 @@ export const BRAND_SITES: Record<string, string> = {
   // Same avon.uk.com UK storefront and the same marketOf() false-negative as
   // "far away" above.
   'today tomorrow always': 'https://avon.uk.com/collections/today-tomorrow-always',
+  // French niche house founded 2022; delrobaparfums.com is its own site.
+  delroba: 'https://delrobaparfums.com/',
+  // Amsterdam house (Anna Hegeman & Patrick Munsters, founded 2018);
+  // salle-privee.com carries its own dedicated /pages/fragrance and
+  // /pages/about pages.
+  'salle privee': 'https://www.salle-privee.com/pages/fragrance',
+  // British house; hackett.com/uk/... is its own UK site (fragrance line is
+  // Tailored Perfumes-produced, same shape as the existing "reebok" and
+  // "disney" entries, but the page itself was confirmed live).
+  'hackett london': 'https://www.hackett.com/uk/en_gb/men/accessories/fragrances-and-personal-care/',
+  // British house since 1894; barbour.com/gb/all-fragrance is its own
+  // UK-marked fragrance page.
+  barbour: 'https://www.barbour.com/gb/all-fragrance',
+  // Sterling Perfumes Industries (same manufacturer as the existing "armaf",
+  // "hamidi" and "flavia" entries) — its own site carries a dedicated
+  // /brand/fragrance/just-jack page.
+  'just jack': 'https://www.sterlingparfums.com/brand/fragrance/just-jack',
+  // Same manufacturer page as "just jack" above — catalogue also carries
+  // this house under a pluralised misspelling.
+  'just jacks': 'https://www.sterlingparfums.com/brand/fragrance/just-jack',
 
   // Left unresolved this pass — search turned up only third-party retailers
   // and Fragrantica/Parfumo listings, never a confirmed brand-owned domain:
@@ -895,7 +915,15 @@ export const BRAND_SITES: Record<string, string> = {
   // "lizclaiborneperfume.com") that were never actually present in any
   // search result's own link list, or read as spammy multi-brand
   // storefronts rather than the house's own site — the "never invent, never
-  // guess" rule this file runs on applies exactly here.
+  // guess" rule this file runs on applies exactly here. Also left
+  // unresolved: Brandy Designs (distributed by I&K IMPEX; no dedicated
+  // brand-owned domain found, only the distributor and third-party
+  // retailers), Parfums des Champs (its "Champs" line is credited to a
+  // Belgium-based "New Brand" business in search results, distinct from the
+  // Paris-based PC Design Perfumes SARL this file's own "new brand" entry
+  // above resolves to — not folded together on that ambiguity), Aubusson,
+  // Daniel Hechter, Attar & Co (only fineperfumery.com's own collection
+  // page turned up, a retailer rather than the house).
 };
 
 /**
