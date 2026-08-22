@@ -122,4 +122,89 @@ describe('buildBrandCanon', () => {
     const canon = buildBrandCanon(['Armaf', 'Armaf Online Shop']);
     expect(canon.get('Armaf Online Shop')).toBe('Armaf Online Shop');
   });
+
+  // Found 2026-08-22 from a live-site Brands-directory screenshot plus a
+  // follow-up sweep of the catalogue's brand strings — see the KNOWN_ALIASES
+  // comment above this table for the full per-pair product evidence.
+  it('folds "&" and "and" spellings of the same house name (brandKey does not fold this on its own)', () => {
+    expect(brandKey('Viktor & Rolf')).not.toBe(brandKey('Viktor and Rolf'));
+    const canon = buildBrandCanon([
+      'Viktor & Rolf', 'Viktor and Rolf',
+      'Dolce & Gabbana', 'Dolce and Gabbana',
+      'Abercrombie & Fitch', 'Abercrombie and Fitch',
+      'Tiffany & Co', 'Tiffany and Co.',
+      'Roger & Gallet', 'Roger and Gallet',
+    ]);
+    expect(canon.get('Viktor and Rolf')).toBe('Viktor & Rolf');
+    expect(canon.get('Dolce and Gabbana')).toBe('Dolce & Gabbana');
+    expect(canon.get('Abercrombie and Fitch')).toBe('Abercrombie & Fitch');
+    expect(canon.get('Tiffany and Co.')).toBe('Tiffany & Co');
+    expect(canon.get('Roger and Gallet')).toBe('Roger & Gallet');
+  });
+
+  it('folds a trailing "UK" storefront qualifier into the same house', () => {
+    const canon = buildBrandCanon(['Armaf', 'ARMAF UK', 'French Avenue', 'French Avenue UK']);
+    expect(canon.get('ARMAF UK')).toBe('Armaf');
+    expect(canon.get('French Avenue UK')).toBe('French Avenue');
+  });
+
+  it('folds more "generic descriptor word appended" pairs found in the 2026-08-22 sweep', () => {
+    const canon = buildBrandCanon([
+      'Ahmed Al Maghribi', 'Ahmed Al Maghribi Perfumes',
+      'Jo Malone', 'JO MALONE LONDON',
+      'Laurelle Parfums', 'Laurelle London',
+      'Delroba', 'Delroba Parfums',
+      'Korloff', 'Korloff Paris',
+      'Notebook', 'NOTEBOOK Fragrances',
+      'New Brand', 'New Brand Parfums',
+    ]);
+    expect(canon.get('Ahmed Al Maghribi Perfumes')).toBe('Ahmed Al Maghribi');
+    expect(canon.get('JO MALONE LONDON')).toBe('Jo Malone');
+    expect(canon.get('Laurelle London')).toBe('Laurelle Parfums');
+    expect(canon.get('Delroba Parfums')).toBe('Delroba');
+    expect(canon.get('Korloff Paris')).toBe('Korloff');
+    expect(canon.get('NOTEBOOK Fragrances')).toBe('Notebook');
+    expect(canon.get('New Brand Parfums')).toBe('New Brand');
+  });
+
+  it('does not fold "New Brand Perfumes" or "New Brand Prestige" into New Brand — no shared product names found', () => {
+    const canon = buildBrandCanon(['New Brand', 'New Brand Parfums', 'New Brand Perfumes', 'New Brand Prestige']);
+    expect(canon.get('New Brand Perfumes')).toBe('New Brand Perfumes');
+    expect(canon.get('New Brand Prestige')).toBe('New Brand Prestige');
+  });
+
+  it('folds accent-stripped spellings the same way as the existing Estee Lauder/Lancome/Hermes entries', () => {
+    const canon = buildBrandCanon([
+      'Chloe', 'Chloé',
+      'Courreges', 'Courrèges',
+      'Gres', 'Gres Parfums', 'Parfums Grès',
+      'Le Falcone', 'Le Falconé',
+      'Frederic Malle', 'Frédéric Malle',
+      'Maurer & Wirtz', 'Mäurer & Wirtz',
+      'Salle Privee', 'Salle Privée',
+    ]);
+    expect(canon.get('Chloe')).toBe('Chloé');
+    expect(canon.get('Courreges')).toBe('Courrèges');
+    expect(canon.get('Parfums Grès')).toBe('Gres');
+    expect(canon.get('Le Falconé')).toBe('Le Falcone');
+    expect(canon.get('Frederic Malle')).toBe('Frédéric Malle');
+    expect(canon.get('Maurer & Wirtz')).toBe('Mäurer & Wirtz');
+    expect(canon.get('Salle Privee')).toBe('Salle Privée');
+  });
+
+  it('leaves genuinely different houses that merely share a common prefix apart (the "Acqua Di" trap)', () => {
+    const canon = buildBrandCanon([
+      'Acqua Di Parisis', 'Acqua Di Pino', 'Acqua Di Parma', 'Acqua Colonia 4711',
+    ]);
+    expect(canon.get('Acqua Di Parisis')).toBe('Acqua Di Parisis');
+    expect(canon.get('Acqua Di Pino')).toBe('Acqua Di Pino');
+    expect(canon.get('Acqua Di Parma')).toBe('Acqua Di Parma');
+    expect(canon.get('Acqua Colonia 4711')).toBe('Acqua Colonia 4711');
+  });
+
+  it('leaves Avon Kids apart from Avon Cosmetics — a real, separately marketed children\'s line, not decoration', () => {
+    const canon = buildBrandCanon(['Avon Cosmetics', 'Avon Kids']);
+    expect(canon.get('Avon Cosmetics')).toBe('Avon Cosmetics');
+    expect(canon.get('Avon Kids')).toBe('Avon Kids');
+  });
 });
