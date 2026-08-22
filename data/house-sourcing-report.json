@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-22T15:28:36.652Z",
+  "checkedAt": "2026-08-22T17:24:34.935Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -192,9 +192,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 108,
-      "pricedInGbp": 108,
-      "withPhoto": 108,
+      "listings": 114,
+      "pricedInGbp": 114,
+      "withPhoto": 114,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
