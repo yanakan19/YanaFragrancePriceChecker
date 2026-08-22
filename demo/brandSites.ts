@@ -68,9 +68,14 @@ import { marketOf } from '../src/catalogue/brandSiteCheck.js';
 export const BRAND_SITES: Record<string, string> = {
   'calvin klein': 'https://www.calvinklein.co.uk/',
   'dolce gabbana': 'https://www.dolcegabbana.com/en-gb/beauty/',
-  'paco rabanne': 'https://www.rabanne.com/',
-  rabanne: 'https://www.rabanne.com/',
-  'carolina herrera': 'https://www.carolinaherrera.com/',
+  // Job B pass, 2026-08-22: swapped the bare global root for the brand's own
+  // UK-marked fragrance page (rabanne.com/uk/en_GB/...), confirmed live by
+  // search under the same domain.
+  'paco rabanne': 'https://www.rabanne.com/uk/en_GB/fragrance/homepagefragrance',
+  rabanne: 'https://www.rabanne.com/uk/en_GB/fragrance/homepagefragrance',
+  // Job B pass, 2026-08-22: same swap — carolinaherrera.com/uk/en/... is the
+  // brand's own UK-marked page, confirmed live by search.
+  'carolina herrera': 'https://www.carolinaherrera.com/uk/en/c/fragrances',
   'jean paul gaultier': 'https://www.jeanpaulgaultier.com/uk/en/',
 
   // ── Middle Eastern / Arabic houses, resolved 2026-08-05 ──────────────────
@@ -112,7 +117,10 @@ export const BRAND_SITES: Record<string, string> = {
   assaf: 'https://assaf.ae/',
   'gulf orchid': 'https://shop-gulforchid.com/',
   'maison asrar': 'https://maisonasrar.com/',
-  'ahmed al maghribi': 'https://ae.ahmedalmaghribi.com/en',
+  // Job B pass, 2026-08-22: ahmedalmaghribi.uk titles itself "Ahmed Al
+  // Maghribi Perfumes UK – Official Site" directly, replacing the UAE
+  // (ae.) storefront this entry pointed a UK reader to before.
+  'ahmed al maghribi': 'https://www.ahmedalmaghribi.uk/',
   // The CI brand:probe sweep (run 32241839615) flagged this as
   // "redirected-domain" because the runner landed on lattafa-usa.com —
   // search still confirms lattafa.com itself as the brand's official global
@@ -147,7 +155,11 @@ export const BRAND_SITES: Record<string, string> = {
   // The brand's own global site. arabianperfumes.uk is their stated sole UK
   // distributor, which is a shop rather than the brand, so it belongs in the
   // retailer registry if anywhere and not on this button.
-  'swiss arabian': 'https://swissarabian.com/',
+  // Job B pass, 2026-08-22: swapped the bare global root for the brand's own
+  // uk. subdomain (uk.swissarabian.com), confirmed by its own dealer social
+  // account (@SwissArabianUK) and a UK-specific Trustpilot/contact-email
+  // pattern (Customercare@swissarabianuk.co.uk) tying it to the same house.
+  'swiss arabian': 'https://uk.swissarabian.com/',
   'fragrance world': 'https://fragranceworld.ae/',
   ajmal: 'https://www.ajmal.com/',
   dumont: 'https://www.dumontparis.com/',
@@ -187,23 +199,40 @@ export const BRAND_SITES: Record<string, string> = {
   // storefront at a slash path instead (en/gb) — confirmed by search results
   // landing on acquadiparma.com/en/gb/store-locator, /fragrances/... etc.
   'acqua di parma': 'https://www.acquadiparma.com/en/gb/',
-  afnan: 'https://www.afnan.com/',
+  // Job B pass, 2026-08-22: uk.afnan.com is the brand's own UK subdomain
+  // (its own /pages/about-us and /pages/our-stores pages), replacing the
+  // global root.
+  afnan: 'https://uk.afnan.com/',
   chanel: 'https://www.chanel.com/gb/',
   dior: 'https://www.dior.com/en_gb/beauty/fragrance/home',
   gucci: 'https://www.gucci.com/uk/en_gb/',
   // UK-specific fragrance path not separately confirmed; this is the main
   // Hermès site with a general fragrance category.
   'herm s': 'https://www.hermes.com/uk/en/',
-  'tom ford': 'https://www.tomfordbeauty.com/',
-  'yves saint laurent': 'https://www.yslbeauty.com/int/fragrances.html',
+  // Job B pass, 2026-08-22: tomfordbeauty.co.uk is the brand's own UK store
+  // (its own /store-locator and /products/fragrance pages), replacing the
+  // US .com root.
+  'tom ford': 'https://www.tomfordbeauty.co.uk/products/fragrance',
+  // Job B pass, 2026-08-22: yslbeauty.co.uk is the brand's own UK store
+  // (Trustpilot lists it as a distinct reviewed site from the .com/.co.uk
+  // pair the way lancome.co.uk does elsewhere in this file), replacing the
+  // international path.
+  'yves saint laurent': 'https://www.yslbeauty.co.uk/',
   // Only the US beauty domain turned up in search; no UK-specific one found.
   'giorgio armani': 'https://www.giorgioarmanibeauty-usa.com/',
   // Emporio Armani fragrances are produced and sold through the same Giorgio
   // Armani Beauty business, not a separate storefront.
   'emporio armani': 'https://www.giorgioarmanibeauty-usa.com/',
   burberry: 'https://uk.burberry.com/',
-  bvlgari: 'https://www.bulgari.com/',
-  prada: 'https://www.prada-beauty.com/',
+  // Job B pass, 2026-08-22: bulgari.com/en-gb/fragrances is the brand's own
+  // UK-marked fragrance page, confirmed live by search under the same
+  // domain, replacing the bare global root.
+  bvlgari: 'https://www.bulgari.com/en-gb/fragrances',
+  // Job B pass, 2026-08-22: prada.com/gb/en/... is the brand's own UK site
+  // (prada.com itself, not the separate pradabeauty.co.uk storefront —
+  // that domain's ownership by Prada was not independently confirmed the
+  // way prada.com/gb/en was), replacing the beauty-only global root.
+  prada: 'https://www.prada.com/gb/en/perfumes-and-beauty/fragrances/c/10566EU',
   // Updated 2026-08-19: a UK storefront does exist after all
   // (uk.louisvuitton.com/eng-gb/), confirmed live by search (perfumes,
   // stories and product pages all resolving under it) — the earlier note
@@ -315,7 +344,12 @@ export const BRAND_SITES: Record<string, string> = {
   'parfums de marly': 'https://parfums-de-marly.com/',
   phlur: 'https://phlur.com/',
   'ralph lauren': 'https://www.ralphlauren.co.uk/',
-  rasasi: 'https://www.rasasi.com/',
+  // Job B pass, 2026-08-22: rasasistore.co.uk is the same Rasasi Perfumes
+  // Industry LLC storefront chain as the global rasasistore.com (which
+  // itself carries the same "Rasasi Perfumes 1979 - UAE" branding as the
+  // corporate rasasi.com this entry pointed to before) with a UK-marked
+  // domain and next-day UK delivery, rather than a third-party stockist.
+  rasasi: 'https://rasasistore.co.uk/',
   // Roja Dove's own brand is sold as Roja Parfums at rojalondon.com;
   // rojadoveperfumery.com is a separate multi-brand boutique he also runs.
   'roja dove': 'https://rojalondon.com/',
@@ -450,7 +484,11 @@ export const BRAND_SITES: Record<string, string> = {
   // regex parses as market "en", not "uk"; the subdomain is unambiguous where
   // the path would have been silently wrong.
   police: 'https://uk.policelifestyle.com/',
-  'louis cardin': 'https://www.louiscardin.com/',
+  // Job B pass, 2026-08-22: louiscardin.co.uk, not .com — the brand is a UK
+  // company (203 Manningham Lane, Bradford, West Yorkshire, per its own
+  // About Us page), so the .co.uk is the primary site, not a regional
+  // mirror of a foreign one.
+  'louis cardin': 'https://louiscardin.co.uk/',
   escentric: 'https://www.escentric.com/', // catalogue also carries this brand bare as "Escentric"
   'escentric molecule': 'https://www.escentric.com/', // singular spelling variant
   'escentric molecules': 'https://www.escentric.com/',
@@ -482,7 +520,10 @@ export const BRAND_SITES: Record<string, string> = {
   // British house, but dunhill.com itself carries no UK marker (no UK-specific
   // path turned up in search) — Non-UK here for the same reason as Floris
   // London above.
-  dunhill: 'https://www.dunhill.com/',
+  // Job B pass, 2026-08-22: dunhill.com/en-gb/ is the brand's own UK site
+  // (British house; confirmed live by search, including a /gb/fragrance
+  // product path on the same domain), replacing the bare global root.
+  dunhill: 'https://www.dunhill.com/en-gb/',
   'alfred dunhill': 'https://www.dunhill.com/', // full trading name a few feeds use
   // Catalogue's canonical spelling is plain "Maison Margiela"; the existing
   // "maison martin margiela" key above already points here under the fuller
@@ -497,8 +538,13 @@ export const BRAND_SITES: Record<string, string> = {
   // rather than assumed.
   risala: 'https://risala.ae/',
   escada: 'https://www.escada.com/',
-  'nina ricci': 'https://www.ninaricci.com/',
-  'roberto cavalli': 'https://www.robertocavalli.com/',
+  // Job B pass, 2026-08-22: ninaricci.com/en-uk is the brand's own UK-marked
+  // path, confirmed live by search under the same domain.
+  'nina ricci': 'https://www.ninaricci.com/en-uk',
+  // Job B pass, 2026-08-22: robertocavalli.com/en-gb/... is the brand's own
+  // UK-marked fragrance page, confirmed live by search under the same
+  // domain.
+  'roberto cavalli': 'https://www.robertocavalli.com/en-gb/explore-perfume',
   lanvin: 'https://www.lanvin.com/',
   'laurent mazzone': 'https://www.lmparfums.com/en-us',
   caron: 'https://www.parfumscaron.com/en',

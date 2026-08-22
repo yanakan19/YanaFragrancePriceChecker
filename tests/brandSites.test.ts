@@ -49,7 +49,12 @@ describe('officialSiteFor', () => {
     });
   });
 
+  // Carolina Herrera used to be this file's example of a plain global .com
+  // with no UK-marked page — a Job B pass (2026-08-22) found one
+  // (carolinaherrera.com/uk/en/...) and swapped it in, so Lattafa (whose
+  // own entry documents the same "no UK-marked page found" conclusion) is
+  // the example now.
   it('labels a plain global .com as non-UK rather than guessing', () => {
-    expect(officialSiteFor('Carolina Herrera')?.uk).toBe(false);
+    expect(officialSiteFor('Lattafa')?.uk).toBe(false);
   });
 });
