@@ -24,7 +24,7 @@ import type { StoredListing } from '../src/catalogue/types.js';
 import { RETAILERS } from '../src/config/retailers.js';
 import type { Retailer } from '../src/types/retailer.js';
 import { HOUSES } from '../src/config/houses.js';
-import { buildBrandCanon } from '../src/catalogue/brandName.js';
+import { buildBrandCanon, armafLineName } from '../src/catalogue/brandName.js';
 import {
   findDuplicateGroups,
   untrustworthyEans as computeUntrustworthyEans,
@@ -38,7 +38,7 @@ import {
   repairMojibake,
   NOT_A_FRAGRANCE,
 } from '../src/catalogue/fragranceId.js';
-import { concentration, displayName, stripRedundantSize } from '../src/catalogue/productName.js';
+import { concentration, displayName, stripRedundantSize, reattachArmafLine } from '../src/catalogue/productName.js';
 
 /**
  * Retailers whose product photos may be displayed, and on what grounds.
@@ -131,6 +131,17 @@ interface Product {
   sizeMl: number;
   ean: string | null;
   offers: Offer[];
+  /**
+   * The Armaf sub-line this product's own originating raw brand string named
+   * before the 2026-08-21 fold ('Armaf - Landi' -> 'Landi'), or null for
+   * every product the fold does not touch — see armafLineName in
+   * brandName.ts. Carried on the record itself, the same way `ean` is,
+   * because the merge step below (findDuplicateGroups) can absorb this
+   * product into a different shop's canonical record or vice versa, and this
+   * fact has to survive that merge to reach the final reattachArmafLine pass
+   * regardless of which side of the merge it started on.
+   */
+  armafLine: string | null;
 }
 
 /**
@@ -636,6 +647,11 @@ for (const { retailer, listings } of eligible) {
         // the same failure this file exists to prevent, one step downstream.
         ean: trustworthyEan(l, untrustworthyEans),
         offers: [offer],
+        // See armafLineName's own comment: null for every product outside
+        // the reviewed 51 "Armaf - <line>" strings, in which case this is
+        // exactly the same 'Unbranded'-style no-op it always was before this
+        // field existed.
+        armafLine: armafLineName(effectiveRawBrand),
       });
     }
   }
@@ -654,10 +670,34 @@ for (const { canonical, absorbed } of duplicateGroups) {
     canonical.offers.push(...dupe.offers);
     // The barcode is worth keeping if the canonical record lacked one.
     canonical.ean ??= dupe.ean;
+    // Same reasoning as ean just above: if the absorbed record was the one
+    // sourced from an "Armaf - <line>" raw brand, that fact must not vanish
+    // just because a different shop's record won the merge — see
+    // reattachArmafLine's own comment for why this has to run after every
+    // merge is already settled, on the surviving record's final name.
+    canonical.armafLine ??= dupe.armafLine;
     products.delete(dupe.id);
   }
 }
 const mergedProducts = duplicateGroups.reduce((n, g) => n + g.absorbed.length, 0);
+
+/* ── put back the Armaf sub-line name the fold above throws away ────────────
+   src/catalogue/brandName.ts's Armaf alias block folds 51 "Armaf - <line>"
+   brand strings into plain "Armaf" and flags, without fixing, that roughly a
+   quarter of the 178 products that applies to never mention their own
+   sub-line anywhere in their own `name` field — the line word existed only
+   in the brand string just folded away. Run once here, after every same-
+   bottle merge above has already happened (never inside displayName, and
+   never before the merge): two shops selling the identical Armaf bottle are
+   folded together by matching brand, size, concentration and the exact set
+   of words in the name (productMatch.ts's matchKey), and prepending a
+   sub-line name to only one shop's copy of that name before the merge runs
+   would change its word set and silently stop it matching the other shop's
+   otherwise-identical listing — see reattachArmafLine's own comment in
+   productName.ts for the full reasoning. */
+for (const product of products.values()) {
+  product.name = reattachArmafLine(product.name, product.armafLine);
+}
 
 /* ── a shop whose whole price list is on the wrong scale ────────────────────
    Escentual published 2,542 offers here at about 1.44× what it charges, and

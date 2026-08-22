@@ -884,3 +884,82 @@ export function stripRedundantSize(name: string, sizeMl: number | null): string 
     .trim();
   return stripped || name;
 }
+
+/**
+ * Letters and digits only, diacritics folded first, for a loose "does this
+ * text already say that word" check — the same normalisation brandTitleEnds
+ * above uses to compare on brandKey rather than an exact spelling, reused
+ * here for the identical reason: a shop's own title spells a sub-line's
+ * apostrophe, spacing or accent inconsistently, and a byte-for-byte
+ * containment check would miss "L'Homme" sitting in a name as "LHomme" or
+ * "L Homme".
+ */
+const containsKey = (s: string): string => foldDiacritics(s).toLowerCase().replace(/[^a-z0-9]+/g, '');
+
+/**
+ * Put back an Armaf sub-line name a product's own `name` field never stated
+ * in the first place — the gap the 2026-08-21 "Fold the 51 'Armaf - <line>'
+ * brand strings" commit flagged rather than fixed (see the comment on
+ * brandName.ts's Armaf alias block, and armafLineName just above it, for the
+ * full reasoning and the exact 51-string list this only ever fires for).
+ *
+ * `line` is armafLineName's return for the product's own originating raw
+ * brand string — null for every product that fold did not touch, in which
+ * case this is a no-op. Where it is a real sub-line name, this only prepends
+ * it when the name does not already say so: most of the 178 products this
+ * fold applies to already carry their sub-line in their own title ("Club De
+ * Nuit Intense Man" already says Club De Nuit), and prepending it there too
+ * would double it up rather than restore something missing. The remaining
+ * ~24 (Delicacy's, Landi's, Miss Armaf's, Oros Pure's and one of Le
+ * Parfait's, at the 2026-08-21 measurement — see
+ * tests/productName.test.ts for the live re-measurement this is pinned to)
+ * never mention the line at all — "Cotton Candy" under Delicacy, "Affecte"
+ * under Oros Pure — and it is those that gain the prefix.
+ *
+ * Deliberately called once, after every same-bottle merge has already
+ * happened (scripts/build-demo-catalogue.ts calls this only on the final,
+ * post-merge product record) rather than inline in displayName above: two
+ * shops selling the identical Armaf bottle are folded together by matching
+ * brand, size, concentration and the *exact* set of words in the name
+ * (src/catalogue/productMatch.ts's matchKey) — prepending a sub-line name to
+ * only one shop's copy of that name before the merge runs would change its
+ * word set and silently stop it matching the other shop's otherwise-identical
+ * listing, un-merging a product that correctly merges today. Reattaching only
+ * the final, already-merged name has no such effect: nothing after this point
+ * reads `name` to decide whether two things are the same product.
+ *
+ * Format matches how the majority of Armaf sub-lines that already state
+ * their own name do it — the line name first, then the rest ("Club De Nuit
+ * Intense Man", "Club De Nuit Bling"), not appended or bracketed — so
+ * "Cotton Candy" under Delicacy becomes "Delicacy Cotton Candy", the same
+ * shape as every already-correct Armaf product beside it.
+ *
+ * One sub-line's own name is itself two words that share one with the
+ * product names under it: "Miss Armaf". A shop that shortens "Miss Armaf
+ * Attitude" drops "Armaf" and keeps "Miss" — Armaf's own titles read "Miss
+ * Attitude", "Miss Chic", "Miss Voce Vive" — rather than dropping the whole
+ * line, unlike every other affected line here (Delicacy, Delights, Landi,
+ * Oros Pure, Tennis), where the shop's shortened title keeps none of the
+ * line's own words at all. Confirmed against three other shops selling the
+ * identical products under their full name verbatim — "Miss Armaf Attitude
+ * Eau De Parfum 100ml" (data/catalogue/mybeauty-boutique.json,
+ * perfume-click.json), "Armaf Miss Armaf Grandeur Eau De Parfum 100ml Spray"
+ * (beautybase.json) — never once "Miss Armaf Miss Attitude". Prepending the
+ * line unconditionally would double that shared word, a form no shop
+ * anywhere actually uses; dropping the leading word only when it is the same
+ * word the line itself starts with is narrow enough that it can never fire
+ * for the other five lines, none of which share a leading word with any of
+ * their own affected product names.
+ */
+export function reattachArmafLine(name: string, line: string | null): string {
+  if (!line) return name;
+  const key = containsKey(line);
+  if (!key || containsKey(name).includes(key)) return name;
+  const lineWords = line.split(/\s+/);
+  const nameWords = name.split(/\s+/);
+  const rest =
+    nameWords.length > 1 && lineWords[0]!.toLowerCase() === nameWords[0]!.toLowerCase()
+      ? nameWords.slice(1).join(' ')
+      : name;
+  return `${line} ${rest}`.trim();
+}

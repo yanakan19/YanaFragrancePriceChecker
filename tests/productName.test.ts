@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import {
   CONCENTRATION_NOT_STATED, brandTitleOpens, brandTitleEnds, brandTitleEndsWithHouse, concentration, displayName,
-  stripRedundantSize,
+  stripRedundantSize, reattachArmafLine,
 } from '../src/catalogue/productName.js';
+import { armafLineName } from '../src/catalogue/brandName.js';
 
 /**
  * What a reader sees under a product photo: the name, with the brand, size and
@@ -776,5 +777,161 @@ describe('concentration: perfume oil is a form the shops already name', () => {
   it('does not let the word attar outrank a stated concentration', () => {
     expect(concentration('Attar & Co Arabian Oud Intense Parfum 100ml Spray')).toBe('Parfum');
     expect(concentration('Ahsan Attar Full Eau De Parfum 100ml Spray')).toBe('Eau de Parfum');
+  });
+});
+
+describe('reattachArmafLine: putting a lost Armaf sub-line back on the product name', () => {
+  // The gap the 2026-08-21 "Fold the 51 'Armaf - <line>' brand strings"
+  // commit (0199234) flagged rather than fixed in brandName.ts: for a
+  // measured slice of the 178 products that fold applies to, the sub-line
+  // word ("Delicacy", "Landi", "Oros Pure"...) existed only in the brand
+  // string being folded away, nowhere in the product's own `name` — "Cotton
+  // Candy" under Delicacy, "Affecte" under Oros Pure, both cited verbatim in
+  // that commit's own message.
+  //
+  // A no-op wherever the name already says the line, whatever line is
+  // handed in — most Armaf products, including every product any other of
+  // the 51 sub-lines names, already do.
+  it.each([
+    ['Club De Nuit Intense Man', 'Club De Nuit'],
+    ['Club De Nuit Bling', 'Club De Nuit'],
+    ['Le Parfait Pour Femme', 'Le Parfait'],
+  ])('leaves %s alone when it already says %s', (name, line) => {
+    expect(reattachArmafLine(name, line)).toBe(name);
+  });
+
+  // Never fires with no line at all — every one of the 127-ish unaffected
+  // Armaf products from the other 50 sub-lines, and every non-Armaf product
+  // in the catalogue, passes null here.
+  it('is a no-op with no line', () => {
+    expect(reattachArmafLine('Sillage Homme', null)).toBe('Sillage Homme');
+  });
+
+  // The two named examples from commit 0199234's own message, pinned exactly.
+  it('prepends the line where the name never mentioned it', () => {
+    expect(reattachArmafLine('Cotton Candy', 'Delicacy')).toBe('Delicacy Cotton Candy');
+    expect(reattachArmafLine('Affecte', 'Oros Pure')).toBe('Oros Pure Affecte');
+  });
+
+  // "Miss Armaf" is the one sub-line whose own name shares a word ("Miss")
+  // with the shortened titles Armaf's own feed uses for products under it —
+  // "Miss Attitude", "Miss Chic", "Miss Voce Vive" — unlike Delicacy,
+  // Delights, Landi, Oros Pure and Tennis, whose shortened titles keep none
+  // of the line's own words. Prepending "Miss Armaf" unconditionally would
+  // double that shared word ("Miss Armaf Miss Attitude"), a form no shop
+  // anywhere actually uses: three other shops sell the identical products
+  // under their full name verbatim — "Miss Armaf Attitude Eau De Parfum
+  // 100ml" (data/catalogue/mybeauty-boutique.json, perfume-click.json),
+  // "Armaf Miss Armaf Grandeur Eau De Parfum 100ml Spray"
+  // (beautybase.json) — never "Miss Armaf Miss Attitude". Only the leading
+  // word is dropped, and only when it matches the line's own leading word.
+  it('does not double "Miss" when reattaching the Miss Armaf line', () => {
+    expect(reattachArmafLine('Miss Attitude', 'Miss Armaf')).toBe('Miss Armaf Attitude');
+    expect(reattachArmafLine('Miss Chic', 'Miss Armaf')).toBe('Miss Armaf Chic');
+    expect(reattachArmafLine('Miss Voce Vive', 'Miss Armaf')).toBe('Miss Armaf Voce Vive');
+  });
+
+  // The leading-word drop is specific to an actual match, not a blanket "drop
+  // the first word" rule: a name that happens to start with some other word
+  // keeps it.
+  it('only drops the leading word when it actually matches the line', () => {
+    expect(reattachArmafLine('Sacre Bleu', 'Oros Pure')).toBe('Oros Pure Sacre Bleu');
+  });
+
+  // The exact, live-measured set this fold's follow-up task actually
+  // touches, re-measured 2026-08-22 against the same live data
+  // 0199234 measured against, since re-harvested several times since that
+  // commit landed (see git log -- data/catalogue/armaf.json):
+  //
+  //   1. npm run catalogue:demo, before this code change, saved aside
+  //   2. the code change in this commit
+  //   3. npm run catalogue:demo again
+  //   4. compare every product's (brand, name) by its stable `id` field
+  //      between the two builds — 32 changed, 0 ids added or removed
+  //
+  // 32, not the 24 commit 0199234 flagged (Delicacy's 2, Delights' 4,
+  // Landi's 11, Oros Pure's 6, 1 of Le Parfait's 4). The difference is real
+  // catalogue drift across the "Harvest: real prices 2026-08-21" commits
+  // between 0199234 and this one, not a different measurement method: Le
+  // Parfait's one flagged product now states "Le Parfait" in its own title
+  // (0 of its 4 need reattaching today, all four verbatim: "Le Parfait
+  // Pour Femme", "Le Parfait Azure", "Le Parfait Pour Homme", "Le Parfait
+  // Miniature Discovery Set"), while two sub-lines not mentioned in 0199234
+  // at all — Miss Armaf (7) and Tennis (2) — now have live, active listings
+  // that do not. 24 - 1 + 7 + 2 = 32.
+  it('fixes exactly 32 products today, re-measured against the live catalogue, not 24', () => {
+    const cases: Array<[string, string, string]> = [
+      ['Sacre Bleu', 'Oros Pure', 'Oros Pure Sacre Bleu'],
+      ['Miss Mistique', 'Miss Armaf', 'Miss Armaf Mistique'],
+      ['Miss Dazzling', 'Miss Armaf', 'Miss Armaf Dazzling'],
+      ['Miss Chic', 'Miss Armaf', 'Miss Armaf Chic'],
+      ['Miss Attitude', 'Miss Armaf', 'Miss Armaf Attitude'],
+      ['Miss Magnifiq', 'Miss Armaf', 'Miss Armaf Magnifiq'],
+      ['Miss Voce Vive', 'Miss Armaf', 'Miss Armaf Voce Vive'],
+      ['Miss Grandeur', 'Miss Armaf', 'Miss Armaf Grandeur'],
+      ["Profumi D'Art 01, Acqua Mia", 'Landi', "Landi Profumi D'Art 01, Acqua Mia"],
+      ["Profumi D'Art 02, Voglie Di Mare", 'Landi', "Landi Profumi D'Art 02, Voglie Di Mare"],
+      ["Profumi D'Art 03, Legni Dolci Bruciati", 'Landi', "Landi Profumi D'Art 03, Legni Dolci Bruciati"],
+      ["Profumi D'Art 07, Rosa Del Deserto", 'Landi', "Landi Profumi D'Art 07, Rosa Del Deserto"],
+      ["Profumi D'Art 10, Belin Che Cana", 'Landi', "Landi Profumi D'Art 10, Belin Che Cana"],
+      ["Profumi D'Art 11, Acqua Tua", 'Landi', "Landi Profumi D'Art 11, Acqua Tua"],
+      ["Profumi D'Art 12, Per Me Ma", 'Landi', "Landi Profumi D'Art 12, Per Me Ma"],
+      ["Profumi D'Art 13, E Tanta Roba", 'Landi', "Landi Profumi D'Art 13, E Tanta Roba"],
+      ["Profumi D'Art 14, Latte Di Tuberosa", 'Landi', "Landi Profumi D'Art 14, Latte Di Tuberosa"],
+      ["Profumi D'Art 04, Only Oud", 'Landi', "Landi Profumi D'Art 04, Only Oud"],
+      ["Profumi D'Art 06, Vaniglia Esotica", 'Landi', "Landi Profumi D'Art 06, Vaniglia Esotica"],
+      ['Cloisonne', 'Oros Pure', 'Oros Pure Cloisonne'],
+      ['Blooming Maguey', 'Oros Pure', 'Oros Pure Blooming Maguey'],
+      ['Evening Rose', 'Oros Pure', 'Oros Pure Evening Rose'],
+      ['Affecte', 'Oros Pure', 'Oros Pure Affecte'],
+      ['Twist Debois', 'Oros Pure', 'Oros Pure Twist Debois'],
+      ['Cotton Candy', 'Delicacy', 'Delicacy Cotton Candy'],
+      ['Island Bliss', 'Delights', 'Delights Island Bliss'],
+      ['Yum Yum', 'Delights', 'Delights Yum Yum'],
+      ['Cool Ace', 'Tennis', 'Tennis Cool Ace'],
+      ['Match Point', 'Tennis', 'Tennis Match Point'],
+      ['Bon Bon', 'Delights', 'Delights Bon Bon'],
+      ['Island Breeze', 'Delights', 'Delights Island Breeze'],
+      ['Red Velvet', 'Delicacy', 'Delicacy Red Velvet'],
+    ];
+    expect(cases).toHaveLength(32);
+    for (const [before, line, after] of cases) expect(reattachArmafLine(before, line)).toBe(after);
+  });
+});
+
+describe('armafLineName: which sub-line a raw Armaf brand string named', () => {
+  // A sample of the 51 reviewed strings brandName.ts's KNOWN_ALIASES table
+  // already folds to plain "Armaf" — reading the same table, never a fresh
+  // regex over the shape of the string, so the two can never drift apart.
+  it.each([
+    ['Armaf - Delicacy', 'Delicacy'],
+    ['Armaf - Landi', 'Landi'],
+    ['Armaf - Oros Pure', 'Oros Pure'],
+    ['Armaf - Miss Armaf', 'Miss Armaf'],
+    ['Armaf - Tennis', 'Tennis'],
+    ['Armaf - Delights', 'Delights'],
+    ['Armaf - Le Parfait', 'Le Parfait'],
+    ["Armaf - L'Homme", "L'Homme"],
+    ['Armaf -Club De Nuit', 'Club De Nuit'],
+  ])('%s -> %s', (rawBrand, line) => {
+    expect(armafLineName(rawBrand)).toBe(line);
+  });
+
+  // Never a guess: bare "Armaf" has no line to extract, and a string that
+  // merely starts with "Armaf" but is not one of the 51 reviewed lines (an
+  // unrelated brand, or a hypothetical future "Armaf - <line>" nobody has
+  // checked yet) returns null rather than inventing a line from the shape of
+  // the string alone.
+  it.each([
+    'Armaf',
+    'Armaf Online Shop',
+    'Armaf - Some New Line Nobody Has Reviewed',
+  ])('%s has no reviewed line', (rawBrand) => {
+    expect(armafLineName(rawBrand)).toBeNull();
+  });
+
+  it('is null for no brand at all', () => {
+    expect(armafLineName(null)).toBeNull();
+    expect(armafLineName(undefined)).toBeNull();
   });
 });

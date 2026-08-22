@@ -515,6 +515,37 @@ const KNOWN_ALIASES: Record<string, string> = {
   //     strength of sharing the words "New Brand".
 };
 
+/**
+ * The Armaf sub-line a raw brand string named before the fold above — 'Armaf
+ * - Landi' -> 'Landi', 'Armaf - Oros Pure' -> 'Oros Pure' — for exactly the
+ * 51 strings the block above already reviewed and blessed as real, documented
+ * Armaf sub-lines, never for a superficially similar 'Armaf - <line>' string
+ * a future feed might introduce that nobody has checked yet.
+ *
+ * This is what lets scripts/build-demo-catalogue.ts reattach a sub-line name
+ * to a product's own `name` field for the ~24 of the 178 products (see the
+ * comment on the alias block above) where that line word appeared only in
+ * the brand string the fold throws away, nowhere in the product's own name —
+ * "Cotton Candy" under Delicacy, "Affecte" under Oros Pure. It deliberately
+ * reads the same KNOWN_ALIASES table the fold itself uses, rather than
+ * re-deriving "which strings count" from a fresh regex over the shape of the
+ * string: the two must never be able to drift apart, one folding a brand
+ * this function does not also recognise as a reviewed Armaf line.
+ *
+ * Returns null for anything not in that reviewed set, including bare 'Armaf'
+ * (no ' - ' at all) and an unrelated brand that merely starts with the same
+ * five letters ('Armaf Online Shop' has no ' - ' either, so it never reaches
+ * the KNOWN_ALIASES check at all).
+ */
+export function armafLineName(rawBrand: string | null | undefined): string | null {
+  if (!rawBrand) return null;
+  const trimmed = rawBrand.trim();
+  const m = /^Armaf\s*-\s*(.+)$/i.exec(trimmed);
+  if (!m) return null;
+  if (KNOWN_ALIASES[brandKey(trimmed)] !== 'Armaf') return null;
+  return m[1]!.trim();
+}
+
 /** True when a string uses ordinary mixed case rather than shouting or whispering. */
 function isMixedCase(name: string): boolean {
   const letters = name.replace(/[^A-Za-z]/g, '');
