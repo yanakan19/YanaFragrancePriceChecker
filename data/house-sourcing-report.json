@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-23T02:03:47.196Z",
+  "checkedAt": "2026-08-23T04:12:02.130Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -483,9 +483,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 669,
+      "listings": 671,
       "pricedInGbp": 0,
-      "withPhoto": 669,
+      "withPhoto": 671,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
