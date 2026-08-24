@@ -581,7 +581,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342306134",
     "shops": 6,
-    "image": "https://allbeauty.com/cdn/shop/files/513983.jpg?v=1755874708&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14381884006_xl.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -611,7 +611,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "8411061056752",
     "shops": 6,
-    "image": "https://bgstatic.net/photos/168516_ml.jpg",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/164.jpg",
     "notes": {
       "top": [
         "Mandarin Oil"
@@ -664,7 +664,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "027131006534",
     "shops": 6,
-    "image": "https://allbeauty.com/cdn/shop/files/3965.jpg?v=1755875306&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/407.jpg",
     "notes": {
       "top": [
         "Mimosa",
@@ -708,7 +708,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 67,
     "ean": "027131017752",
     "shops": 6,
-    "image": "https://allbeauty.com/cdn/shop/files/3550_979c3385-e84b-435e-8b2a-6bfef54f8af1.jpg?v=1764687672&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/9/099.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -958,7 +958,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3423470311365",
     "shops": 6,
-    "image": "https://www.justmylook.com/cdn/shop/files/leau-dissey-pour-homme-eau-de-toilette-125ml-p20378-65064_image.jpg?v=1721322243&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/723.jpg",
     "notes": {
       "top": [
         "Lemon",
@@ -991,7 +991,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460048118",
     "shops": 6,
-    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0002.png?v=1738168658&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/834.jpg",
     "notes": null
   },
   {
@@ -1002,7 +1002,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460129879",
     "shops": 6,
-    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0058.png?v=1741178528&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/e/perfume_21nov_25282450.jpg",
     "notes": {
       "top": [
         "Pink Peppercorn"
@@ -1520,7 +1520,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273521307",
     "shops": 5,
-    "image": "https://www.justmylook.com/cdn/shop/files/azzaro-the-most-wanted-intense-eau-de-parfum-100ml-p31705-86829_image.jpg?v=1721322166&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/t/h/themost.jpg",
     "notes": {
       "top": [
         "Cardamom"
@@ -1834,7 +1834,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "027131595045",
     "shops": 5,
-    "image": "https://allbeauty.com/cdn/shop/files/11116_bad96f3f-4f6c-4da5-97d6-75ee10501a9a.jpg?v=1764680702&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/4/1/413.jpg",
     "notes": {
       "top": [
         "Lily",
@@ -2148,7 +2148,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "737052925073",
     "shops": 5,
-    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0050_434a5d64-e5e3-4c98-8765-5ce837bb7ec4.png?v=1775142592&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/1677181408_874110-d5b71fe697dd851ade05fb5d6021.jpg",
     "notes": null
   },
   {
@@ -2279,7 +2279,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3423470485448",
     "shops": 5,
-    "image": "https://www.justmylook.com/cdn/shop/files/leau-dissey-pour-homme-eau-de-toilette-200ml-p20379-44627_image.jpg?v=1721322241&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/729.jpg",
     "notes": null
   },
   {
@@ -2290,7 +2290,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423474867158",
     "shops": 5,
-    "image": "https://www.justmylook.com/cdn/shop/files/leau-dissey-pour-homme-sport-eau-de-toilette-100ml-p31961-88143_image.jpg?v=1721322239&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/721.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -2342,7 +2342,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3386460048125",
     "shops": 5,
-    "image": "https://www.justmylook.com/cdn/shop/files/JIMC0001.png?v=1738168658&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460048125.png",
     "notes": null
   },
   {
@@ -2353,7 +2353,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 40,
     "ean": "3386460119276",
     "shops": 5,
-    "image": "https://www.justmylook.com/cdn/shop/files/jimmy-choo-i-want-choo-eau-de-parfum-40ml-p22634-65755_image.jpg?v=1721322250&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/182_1.jpg",
     "notes": null
   },
   {
@@ -2441,7 +2441,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460064118",
     "shops": 5,
-    "image": "https://www.justmylook.com/cdn/shop/files/jimmy-choo-man-eau-de-toilette-100ml-p30377-83403_image.jpg?v=1721322246&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/877.jpg",
     "notes": {
       "top": [
         "Mandarin"
@@ -2462,7 +2462,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460067508",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1530198568-35094500.png?v=1763388974&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14691276-1675265767319063.jpg",
     "notes": {
       "top": [
         "Clary Sage",
@@ -2496,7 +2496,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3414206000059",
     "shops": 5,
-    "image": "https://allbeauty.com/cdn/shop/files/4533.jpg?v=1755875274&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/901.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -3644,7 +3644,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "888066000062",
     "shops": 5,
-    "image": "https://allbeauty.com/cdn/shop/files/101945.jpg?v=1770290421&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1330.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -3759,7 +3759,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3607342166875",
     "shops": 5,
-    "image": "https://allbeauty.com/cdn/shop/files/446963.jpg?v=1755874726&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/e/vera_wang_lovestruck_100ml_eau_de_parfum.jpg",
     "notes": null
   },
   {
@@ -3880,7 +3880,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614273987936",
     "shops": 5,
-    "image": "https://www.justmylook.com/cdn/shop/files/VIK0062.jpg?v=1738255240&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_flowerbomb_extreme_intense_edp_100ml_.jpg",
     "notes": null
   },
   {
@@ -3913,7 +3913,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614272191556",
     "shops": 5,
-    "image": "https://www.beautybase.com/cdn/shop/files/1554976773-32818200.jpg?v=1763389183&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_spice_bomb_night_vision_edt_90ml_.jpg",
     "notes": null
   },
   {
@@ -4055,7 +4055,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8028713210020",
     "shops": 4,
-    "image": "https://allbeauty.com/cdn/shop/files/81493.jpg?v=1764781658&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/n/intensa.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -5260,7 +5260,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3614225358463",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1534347326-42520500.png?v=1763389042&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/x/gxp-11099.jpg",
     "notes": null
   },
   {
@@ -5413,7 +5413,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614223111565",
     "shops": 4,
-    "image": "https://www.justmylook.com/cdn/shop/files/CHL0014_0172e228-c621-45fc-a895-882d1e6862b3.png?v=1766569598&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shop-pf-02160-02-nomade-edp---chlo---50ml--1.jpg",
     "notes": null
   },
   {
@@ -5424,7 +5424,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3614223113347",
     "shops": 4,
-    "image": "https://www.justmylook.com/cdn/shop/files/CHL0015.png?v=1765452235&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614223113347-chloe-nomade-edp-75-ml--750x750.jpg",
     "notes": null
   },
   {
@@ -5688,7 +5688,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "763511100019",
     "shops": 4,
-    "image": "https://allbeauty.com/cdn/shop/files/3619.jpg?v=1755875347&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/054.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -6976,7 +6976,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460097321",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1626792824-89623800.jpg?v=1763389032&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460097321.png",
     "notes": null
   },
   {
@@ -7247,7 +7247,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3607345809915",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737386568-01791000.jpg?v=1763393780&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/903.jpg",
     "notes": null
   },
   {
@@ -7492,7 +7492,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386461515619",
     "shops": 4,
-    "image": "https://allbeauty.com/cdn/shop/files/5936.jpg?v=1766142031&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/973.jpg",
     "notes": null
   },
   {
@@ -8849,7 +8849,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3616305187307",
     "shops": 4,
-    "image": "https://www.justmylook.com/cdn/shop/files/MJ0049.jpg?v=1736953625&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_perfect_elixir_eau_de_parfum_30ml_spray.jpg",
     "notes": null
   },
   {
@@ -9243,17 +9243,6 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3423478807655",
-    "brand": "Narciso Rodriguez",
-    "name": "For Him Bleu Noir",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3423478807655",
-    "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/1736864103-42347400.jpg?v=1763393840&width=1920",
-    "notes": null
-  },
-  {
     "id": "ean-3137370207016",
     "brand": "Nina Ricci",
     "name": "L'Air Du Temps",
@@ -9313,7 +9302,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "8435137782949",
     "shops": 4,
-    "image": "https://www.beautybase.com/cdn/shop/files/black.jpg?v=1773331404&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1270.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -9613,7 +9602,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3349668630110",
     "shops": 4,
-    "image": "https://www.justmylook.com/cdn/shop/files/PAC0118.png?v=1766583607&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1180.jpg",
     "notes": null
   },
   {
@@ -9624,7 +9613,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668630448",
     "shops": 4,
-    "image": "https://www.justmylook.com/cdn/shop/files/PAC0119.png?v=1766583607&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1184.jpg",
     "notes": null
   },
   {
@@ -9676,7 +9665,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3349668627547",
     "shops": 4,
-    "image": "https://www.justmylook.com/cdn/shop/files/PAC0112_12deab50-7b30-41f8-a6ee-88882ee90ecb.png?v=1741178531&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668627547.png",
     "notes": null
   },
   {
@@ -10574,10 +10563,7 @@ const CATALOGUE_CHUNK_0: CatalogueEntry[] = [
     "shops": 4,
     "image": "https://bgstatic.net/photos/179836_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8011003890804",
     "brand": "Versace",
@@ -10588,7 +10574,10 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 4,
     "image": "https://bgstatic.net/photos/183960_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
   {
     "id": "ean-8011003890811",
     "brand": "Versace",
@@ -15349,7 +15338,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3614228174275",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1738924156-82768600.jpg?v=1763393738&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/d/a/davidoff-cool-water-intense-eau-de-parfum-uomo-125-ml.jpg",
     "notes": null
   },
   {
@@ -17817,7 +17806,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 150,
     "ean": "3614271992727",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1531477588-61748100.png?v=1763389014&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/3/9/394.jpg",
     "notes": null
   },
   {
@@ -18164,7 +18153,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3274872456334",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1727445655-74656200.jpg?v=1763393750&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/509.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -18478,7 +18467,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "8005610328256",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/GUCC0051.png?v=1776075219&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/122.jpg",
     "notes": null
   },
   {
@@ -19023,7 +19012,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "737052130729",
     "shops": 3,
-    "image": "https://allbeauty.com/cdn/shop/files/8620.jpg?v=1755875078&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/i/m/images.jpeg",
     "notes": null
   },
   {
@@ -19342,10 +19331,7 @@ const CATALOGUE_CHUNK_1: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://bgstatic.net/photos/177265_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3423474884155",
     "brand": "Issey Miyake",
@@ -19356,7 +19342,10 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://bgstatic.net/photos/112938_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
   {
     "id": "ean-3423473949954",
     "brand": "Issey Miyake",
@@ -21046,7 +21035,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3607345849867",
     "shops": 3,
-    "image": "https://allbeauty.com/cdn/shop/files/958854.jpg?v=1755874603&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/905.jpg",
     "notes": null
   },
   {
@@ -24069,17 +24058,6 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3616301776024",
-    "brand": "Marc Jacobs",
-    "name": "Daisy Eau So Intense",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3616301776024",
-    "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/992.jpg",
-    "notes": null
-  },
-  {
     "id": "ean-3616303423841",
     "brand": "Marc Jacobs",
     "name": "Daisy Ever So Fresh",
@@ -24157,17 +24135,6 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43661688321&a=3026001&m=106925"
       }
     }
-  },
-  {
-    "id": "ean-3616303466060",
-    "brand": "Marc Jacobs",
-    "name": "Daisy Wild",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 100,
-    "ean": "3616303466060",
-    "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_de_parfum_100ml_spray_.jpg",
-    "notes": null
   },
   {
     "id": "ean-3616305033055",
@@ -24550,7 +24517,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3386460124195",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/MON0060.png?v=1766583608&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1061.jpg",
     "notes": null
   },
   {
@@ -24913,7 +24880,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 60,
     "ean": "3614273927925",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1692702668-98615300.jpg?v=1763393716&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1079.jpg",
     "notes": null
   },
   {
@@ -25212,7 +25179,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3423222012700",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1736862974-93465500.jpg?v=1763393624&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1114.jpg",
     "notes": null
   },
   {
@@ -25257,6 +25224,17 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "ean": "3423222056063",
     "shops": 3,
     "image": "https://bgstatic.net/photos/165894_ml.jpg",
+    "notes": null
+  },
+  {
+    "id": "ean-3423478807655",
+    "brand": "Narciso Rodriguez",
+    "name": "For Him Bleu Noir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3423478807655",
+    "shops": 3,
+    "image": "https://www.beautybase.com/cdn/shop/files/1736864103-42347400.jpg?v=1763393840&width=1920",
     "notes": null
   },
   {
@@ -25368,7 +25346,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3423478840652",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1736863704-85150300.jpg?v=1763393842&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1125.jpg",
     "notes": null
   },
   {
@@ -26266,17 +26244,6 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "ean-3349668614530",
-    "brand": "Rabanne",
-    "name": "Invictus Victory Elixir Intense",
-    "concentration": "Parfum",
-    "sizeMl": 200,
-    "ean": "3349668614530",
-    "shops": 3,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3kst02bp80n4kgfr57k1-b1799f8d-ba9d-411a-967f-c43353c1145c.jpg",
-    "notes": null
-  },
-  {
     "id": "ean-3349668630264",
     "brand": "Rabanne",
     "name": "Million Gold For Her",
@@ -26403,7 +26370,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3349668630035",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/PAC0115_d7828207-3a69-4ee3-a590-987d9c11a01c.png?v=1741178531&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1223.jpg",
     "notes": null
   },
   {
@@ -28420,7 +28387,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "688575001778",
     "shops": 3,
-    "image": "https://allbeauty.com/cdn/shop/files/7015.jpg?v=1755875129&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1428.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -28617,10 +28584,7 @@ const CATALOGUE_CHUNK_2: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://bgstatic.net/photos/104833_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8011003997015",
     "brand": "Versace",
@@ -28665,7 +28629,10 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 3,
     "image": "https://bgstatic.net/photos/81973_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
   {
     "id": "ean-3614274760552",
     "brand": "Viktor & Rolf",
@@ -28740,7 +28707,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "3614274158151",
     "shops": 3,
-    "image": "https://www.justmylook.com/cdn/shop/files/VIK0060.jpg?v=1738255239&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1340_1.jpg",
     "notes": null
   },
   {
@@ -28857,7 +28824,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3614273919999",
     "shops": 3,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737385360-23076800.jpg?v=1763393754&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_good_fortune_elixir_intense_eau_de_parfum_50ml_spray_.jpg",
     "notes": null
   },
   {
@@ -36092,7 +36059,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3386460036405",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/27825.jpg?v=1766143869&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/o/boucheron_pour_homme_100ml_eau_de_toilette.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -37384,10 +37351,7 @@ const CATALOGUE_CHUNK_3: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_london_eau_de_parfum_50ml_spray_.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338181095561-44927004672137",
     "brand": "Burberry",
@@ -37420,7 +37384,10 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/87548_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
   {
     "id": "ean-5045497416274",
     "brand": "Burberry",
@@ -38195,7 +38162,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 50,
     "ean": "3616302016716",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1737380189-83911500.jpg?v=1763393710&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_defy_eau_de_parfum_50ml_spray_.jpg",
     "notes": null
   },
   {
@@ -39793,7 +39760,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3607346232385",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/CHL0021_70c5cced-c7f5-4b4d-8ec7-ca8a3038774a.png?v=1765452235&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_75ml_eau_de_parfum.jpg",
     "notes": null
   },
   {
@@ -44153,10 +44120,7 @@ const CATALOGUE_CHUNK_4: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/102590_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-est0007",
     "brand": "Estée Lauder",
@@ -44189,7 +44153,10 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/176684_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
   {
     "id": "ean-4013670508406",
     "brand": "Etienne Aigner",
@@ -48086,7 +48053,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274870012136",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/987905.jpg?v=1755874526&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy-gentlemen-only-edt-100ml-2023-1.jpg",
     "notes": null
   },
   {
@@ -48282,7 +48249,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "3274870303166",
     "shops": 2,
-    "image": "https://allbeauty.com/cdn/shop/files/3058.jpg?v=1755875401&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/110_1.jpg",
     "notes": null
   },
   {
@@ -50522,7 +50489,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 100,
     "ean": "730870196885",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/HB0146.png?v=1736413457&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/743_perfume-hugo-boss-the-scent-fem-100ml---730870196885.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -52327,7 +52294,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 75,
     "ean": "3423470311358",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/issey-miyake-leau-dissey-pour-homme-eau-de-toilette-75ml-p20380-65065_image.jpg?v=1721322243&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12263769-1605185921623162.jpg",
     "notes": {
       "top": [
         "Bergamot",
@@ -52763,7 +52730,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "sizeMl": 200,
     "ean": "3423470475852",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/JPG0007.png?v=1753445104&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/8/786.jpg",
     "notes": null
   },
   {
@@ -52886,10 +52853,7 @@ const CATALOGUE_CHUNK_5: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/793.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
+  },
   {
     "id": "ean-8435415059084",
     "brand": "Jean Paul Gaultier",
@@ -52922,7 +52886,10 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/614zORhu5mL.jpg?v=1767983299",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338358468745-44927278743689",
     "brand": "Jean Paul Gaultier",
@@ -54179,7 +54146,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
     "sizeMl": 125,
     "ean": "3614228858045",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/JOOP0023_1f8c8cf0-85fb-42bd-961e-5192d9447b4d.png?v=1770982485&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_homme_eau_de_parfum_125ml_spray_.jpg",
     "notes": null
   },
   {
@@ -60974,10 +60941,7 @@ const CATALOGUE_CHUNK_6: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43661688231&a=3026001&m=106925"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-9839899509085-default-title",
     "brand": "Maison Alhambra",
@@ -61067,7 +61031,10 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/coffee-blend-maison-asrar"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
   {
     "id": "ean-6290362161776",
     "brand": "Maison Asrar",
@@ -61729,6 +61696,17 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3616301776024",
+    "brand": "Marc Jacobs",
+    "name": "Daisy Eau So Intense",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3616301776024",
+    "shops": 2,
+    "image": "https://bgstatic.net/photos/142866_ml.jpg",
+    "notes": null
+  },
+  {
     "id": "ean-3616303423834",
     "brand": "Marc Jacobs",
     "name": "Daisy Ever So Fresh",
@@ -61759,6 +61737,17 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "ean": "3614227372375",
     "shops": 2,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/product_2025-491.png",
+    "notes": null
+  },
+  {
+    "id": "ean-3616303466060",
+    "brand": "Marc Jacobs",
+    "name": "Daisy Wild",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": "3616303466060",
+    "shops": 2,
+    "image": "https://www.justmylook.com/cdn/shop/files/MJ0101.png?v=1754569753&width=1000",
     "notes": null
   },
   {
@@ -63719,7 +63708,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "sizeMl": 90,
     "ean": "3614273927932",
     "shops": 2,
-    "image": "https://www.beautybase.com/cdn/shop/files/1736786408-83958300.jpg?v=1763393720&width=1920",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_supra_florale_eau_de_parfum_90ml_spray.jpg",
     "notes": {
       "top": [],
       "middle": [
@@ -67911,10 +67900,7 @@ const CATALOGUE_CHUNK_7: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/141417_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3349668593996",
     "brand": "Rabanne",
@@ -67925,7 +67911,10 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 2,
     "image": "https://bgstatic.net/photos/150790_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
   {
     "id": "ean-3349668641826",
     "brand": "Rabanne",
@@ -68002,7 +67991,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 80,
     "ean": "3349668592371",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/PAC0111.png?v=1755521026&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_lady_million_fabulous_eau_de_parfum_80ml_spray.jpg",
     "notes": null
   },
   {
@@ -72180,7 +72169,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "sizeMl": 30,
     "ean": "888066050685",
     "shops": 2,
-    "image": "https://www.justmylook.com/cdn/shop/files/FORD0028.png?v=1769433812&width=1000",
+    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/888066050685-tom-ford-oud-wood-edp-30-ml-1000x1000.jpg",
     "notes": null
   },
   {
@@ -75335,10 +75324,7 @@ const CATALOGUE_CHUNK_8: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/31Vfbp_fsgL.jpg?v=1763134755",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338116575369-44926933172361",
     "brand": "101 Dalmatians",
@@ -75349,7 +75335,10 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/disney-101-dalmatians-parfum-50ml-678-r114x.jpg?v=1763134777",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
   {
     "id": "ean-4011700748945",
     "brand": "4711",
@@ -84291,10 +84280,7 @@ const CATALOGUE_CHUNK_9: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
+  },
   {
     "id": "al-haramain-ahp1629-oos",
     "brand": "Al Haramain",
@@ -84341,7 +84327,10 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
         "url": "https://alharamainperfumes.co.uk/products/maze-spray-40ml"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
   {
     "id": "al-haramain-ahp1379s",
     "brand": "Al Haramain",
@@ -94124,10 +94113,7 @@ const CATALOGUE_CHUNK_10: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-8839515636061-default-title",
     "brand": "Ard Al Zaafaran",
@@ -94152,7 +94138,10 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/oud-24-hours-majestic-gold-100ml-ard-al-zaafaran"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
   {
     "id": "ean-6295199793008",
     "brand": "Ard Al Zaafaran",
@@ -101975,10 +101964,7 @@ const CATALOGUE_CHUNK_11: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsukdk2-39654",
     "brand": "Bharara",
@@ -101989,7 +101975,10 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "ean-0850050062370",
     "brand": "Bharara Beauty",
@@ -103181,7 +103170,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "perfumeo-after-swim-brandy-designs-perfumes",
     "brand": "Brandy Designs",
-    "name": "After Swim by Brandy | Brandy | Perfumeo UK",
+    "name": "After Swim by Brandy | Perfumeo",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -103357,7 +103346,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "perfumeo-diplomat-brandy-designs-perfumes",
     "brand": "Brandy Designs",
-    "name": "Diplomat by Brandy | Brandy | Perfumeo UK",
+    "name": "Diplomat by Brandy | Perfumeo",
     "concentration": "Eau de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -103390,8 +103379,8 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "perfumeo-fiorum-brandy-designs-perfumes",
     "brand": "Brandy Designs",
-    "name": "Fiorum by Brandy Prestige | Brandy | Perfumeo UK",
-    "concentration": "Extrait de Parfum",
+    "name": "Fiorum by Brandy Prestige | Perfumeo",
+    "concentration": "Extrait",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -103412,7 +103401,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "perfumeo-good-girl-killer-brandy-designs-perfumes",
     "brand": "Brandy Designs",
-    "name": "Good Girl Killer by Brandy | Brandy | Perfumeo UK",
+    "name": "Good Girl Killer by Brandy | Perfumeo",
     "concentration": "Eau de Parfum",
     "sizeMl": 75,
     "ean": null,
@@ -103564,17 +103553,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "notes": null
   },
   {
-    "id": "perfumeo-l-atelier-pistache-brandy-designs-perfumes",
-    "brand": "Brandy Designs",
-    "name": "L'Atelier Pistache by Brandy Prestige | Brandy | Perfumeo UK",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
     "id": "perfumeo-le-fleur-pablo-brandy-designs-perfumes",
     "brand": "Brandy Designs",
     "name": "Le Fleur Pablo by Brandy | Brandy | Perfumeo UK",
@@ -103588,8 +103566,8 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "perfumeo-leonor-brandy-designs-perfumes",
     "brand": "Brandy Designs",
-    "name": "Leonor by Brandy Prestige | Brandy | Perfumeo UK",
-    "concentration": "Extrait de Parfum",
+    "name": "Leonor by Brandy Prestige | Perfumeo",
+    "concentration": "Extrait",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -103632,8 +103610,8 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
   {
     "id": "perfumeo-magnus-brandy-designs-perfumes",
     "brand": "Brandy Designs",
-    "name": "Magnus by Brandy Prestige | Brandy | Perfumeo UK",
-    "concentration": "Extrait de Parfum",
+    "name": "Magnus by Brandy Prestige | Perfumeo",
+    "concentration": "Extrait",
     "sizeMl": 100,
     "ean": null,
     "shops": 1,
@@ -103699,17 +103677,6 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "id": "perfumeo-noche-en-paris-pour-homme-black-by-brandy-100ml-extrait-de-parfum",
     "brand": "Brandy Designs",
     "name": "Noche En Paris Pour Homme Black by Brandy | Brandy | Perfumeo UK",
-    "concentration": "Extrait de Parfum",
-    "sizeMl": 100,
-    "ean": null,
-    "shops": 1,
-    "image": null,
-    "notes": null
-  },
-  {
-    "id": "perfumeo-noche-paris-pour-femme-brandy-designs-perfumes",
-    "brand": "Brandy Designs",
-    "name": "Noche Paris Pour Femme by Brandy Prestige | Brandy | Perfumeo UK",
     "concentration": "Extrait de Parfum",
     "sizeMl": 100,
     "ean": null,
@@ -109972,10 +109939,7 @@ const CATALOGUE_CHUNK_12: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/77.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsusdk2-00217",
     "brand": "Bvlgari",
@@ -110025,7 +109989,10 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=44089041702&a=3026001&m=124166"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
   {
     "id": "justmylook-bvlg0019",
     "brand": "Bvlgari",
@@ -116344,10 +116311,7 @@ const CATALOGUE_CHUNK_13: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/58768_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8338369413257-44927292407945",
     "brand": "Chopard",
@@ -116380,7 +116344,10 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
   {
     "id": "ean-7640177366467",
     "brand": "Chopard",
@@ -122931,10 +122898,7 @@ const CATALOGUE_CHUNK_14: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/zayed-perfume-dkhoon-emirates"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
+  },
   {
     "id": "ean-085715950468",
     "brand": "DKNY",
@@ -122967,7 +122931,10 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/189555_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
   {
     "id": "ean-0085715950468",
     "brand": "DKNY",
@@ -129336,10 +129303,7 @@ const CATALOGUE_CHUNK_15: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0855/9220/files/E03_100ml_Solo_St_On_Bottle.jpg?v=1739882195",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
+  },
   {
     "id": "escentric-molecules-e03-30c-unit",
     "brand": "Escentric Molecules",
@@ -129372,7 +129336,10 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0855/9220/files/E04_100ml_Solo_St_On_Bottle.jpg?v=1739882715",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
   {
     "id": "escentric-molecules-e04-30c-unit",
     "brand": "Escentric Molecules",
@@ -140152,10 +140119,7 @@ const CATALOGUE_CHUNK_16: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15438201684317-default-title",
     "brand": "Fragrance World",
@@ -140204,7 +140168,10 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Ophylia-Perfume-50ml-EDP-Fragrance-World-150367596.jpg?v=1729022011",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
   {
     "id": "emirates-oud-8906864820573-default-title",
     "brand": "Fragrance World",
@@ -149957,10 +149924,7 @@ const CATALOGUE_CHUNK_17: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/armani-code-eau-de-parfum-50ml-p38166-121232_image.jpg?v=1721322214&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3360372100515",
     "brand": "Giorgio Armani",
@@ -149993,7 +149957,10 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/184238_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
   {
     "id": "justmylook-arma0063",
     "brand": "Giorgio Armani",
@@ -156730,10 +156697,7 @@ const CATALOGUE_CHUNK_18: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
+  },
   {
     "id": "the-beauty-store-uk-tbsukdk2-00748",
     "brand": "Hermès",
@@ -156766,7 +156730,10 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/112518_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
   {
     "id": "ean-3346130010074",
     "brand": "Hermès",
@@ -161406,17 +161373,6 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     }
   },
   {
-    "id": "ean-8435415081184",
-    "brand": "Jean Paul Gaultier",
-    "name": "Classique Christmas Edition 2024",
-    "concentration": "Eau de Toilette",
-    "sizeMl": 100,
-    "ean": "8435415081184",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415081184.jpg",
-    "notes": null
-  },
-  {
     "id": "ean-8435415041447",
     "brand": "Jean Paul Gaultier",
     "name": "Classique Gaultier Airlines Eau de Parfum",
@@ -161987,17 +161943,6 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "ean": "8435415059077",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1720088896-56853100.jpg?v=1763399409&width=1920",
-    "notes": null
-  },
-  {
-    "id": "ean-8435415006378",
-    "brand": "Jean Paul Gaultier",
-    "name": "Scandal",
-    "concentration": "Eau de Parfum",
-    "sizeMl": 50,
-    "ean": "8435415006378",
-    "shops": 1,
-    "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415006378_1.jpg",
     "notes": null
   },
   {
@@ -163362,10 +163307,7 @@ const CATALOGUE_CHUNK_19: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-jimc0027",
     "brand": "Jimmy Choo",
@@ -163420,7 +163362,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/879.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
   {
     "id": "ean-3386460129824",
     "brand": "Jimmy Choo",
@@ -167429,6 +167374,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-empire-regent-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Empire Regent by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15498607722845-default-title",
     "brand": "Khadlaj",
     "name": "Empire Victor",
@@ -167659,11 +167615,33 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-gaith-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Gaith by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "perfumeo-khadlaj-golden-musk-15ml",
     "brand": "Khadlaj",
     "name": "Golden Musk | Perfumeo",
     "concentration": "Perfume Oil",
     "sizeMl": 15,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "perfumeo-hareem-al-sultan-blue-oil-by-khadlaj-35ml-perfume-oil",
+    "brand": "Khadlaj",
+    "name": "Hareem Al Sultan Blue Oil by",
+    "concentration": "Perfume Oil",
+    "sizeMl": 35,
     "ean": null,
     "shops": 1,
     "image": null,
@@ -167748,6 +167726,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "perfumeo-hareem-al-sultan-gold-oil-by-khadlaj-35ml-perfume-oil",
+    "brand": "Khadlaj",
+    "name": "Hareem Al Sultan Gold Oil by",
+    "concentration": "Perfume Oil",
+    "sizeMl": 35,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15666710380893-default-title",
     "brand": "Khadlaj",
     "name": "Hareem Al Sultan Silver",
@@ -167778,6 +167767,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-hareem-al-sultan-silver-oil-by-khadlaj-35ml-perfume-oil",
+    "brand": "Khadlaj",
+    "name": "Hareem Al Sultan Silver Oil by",
+    "concentration": "Perfume Oil",
+    "sizeMl": 35,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15666707136861-default-title",
     "brand": "Khadlaj",
     "name": "Hareem Sultan",
@@ -167806,6 +167806,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/hareem-sultan-khadlaj"
       }
     }
+  },
+  {
+    "id": "perfumeo-hareem-sultan-by-khadlaj-75ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Hareem Sultan by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 75,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-15777880211805-default-title",
@@ -168002,6 +168013,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-karus-amber-gold-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Karus Amber Gold by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-6291107975856",
     "brand": "Khadlaj",
     "name": "Karus Blu Spice",
@@ -168039,6 +168061,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/karus-blue-spice-khadlaj"
       }
     }
+  },
+  {
+    "id": "perfumeo-karus-blue-spice-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Karus Blue Spice by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "ean-6298043072458",
@@ -168140,6 +168173,28 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-karus-oud-fire-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Karus Oud Fire by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "perfumeo-karus-secret-musk-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Karus Secret Musk by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "fragrancehub-khadlajislandvanilla",
     "brand": "Khadlaj",
     "name": "Khaldaj Island Vanilla Dunes",
@@ -168201,6 +168256,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-la-fede-aura-crisp-flower-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "La Fede Aura Crisp Flower by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15498932650333-default-title",
     "brand": "Khadlaj",
     "name": "La Fede Aura Kiss of Rose",
@@ -168233,6 +168299,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-la-fede-aura-kiss-of-rose-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "La Fede Aura Kiss of Rose by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15498941956445-default-title",
     "brand": "Khadlaj",
     "name": "La Fede Aura Manga",
@@ -168262,6 +168339,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/la-fede-aura-manga-splash-khadlaj"
       }
     }
+  },
+  {
+    "id": "perfumeo-la-fede-aura-manga-splash-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "La Fede Aura Manga by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-16316392866141-default-title",
@@ -168424,6 +168512,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-la-fede-celeste-fleur-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "La Fede Celeste Fleur by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15498972103005-default-title",
     "brand": "Khadlaj",
     "name": "La Fede Celeste Joice",
@@ -168485,6 +168584,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-la-fede-celeste-toffee-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "La Fede Celeste Toffee by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15498922492253-default-title",
     "brand": "Khadlaj",
     "name": "La Fede Choco Brown",
@@ -168514,6 +168624,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/la-fede-choco-brown-khadlaj"
       }
     }
+  },
+  {
+    "id": "perfumeo-la-fede-choco-brown-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "La Fede Choco Brown by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-15666710118749-default-title",
@@ -168602,6 +168723,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-la-fede-crystallia-imperio-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "La Fede Crystallia Imperio by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15666707431773-default-title",
     "brand": "Khadlaj",
     "name": "La Fede Crystallia Primaso",
@@ -168630,6 +168762,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/crystallia-primaso-khadlaj"
       }
     }
+  },
+  {
+    "id": "perfumeo-la-fede-crystallia-primaso-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "La Fede Crystallia Primaso by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-15666707169629-default-title",
@@ -168698,6 +168841,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/la-fede-intoxicate-blue-elixir-khadlaj"
       }
     }
+  },
+  {
+    "id": "perfumeo-la-fede-intoxicate-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "La Fede Intoxicate by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-16181116928349-default-title",
@@ -168769,6 +168923,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-la-fede-symbol-of-love-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "La Fede Symbol of Love by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15498959847773-default-title",
     "brand": "Khadlaj",
     "name": "La Fede Symbol of Power",
@@ -168800,6 +168965,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-la-fede-symbol-of-power-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "La Fede Symbol of Power by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15498923737437-default-title",
     "brand": "Khadlaj",
     "name": "La Fede White Forest Strawberry",
@@ -168827,6 +169003,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/la-fede-white-forest-strawberry-khadlaj"
       }
     }
+  },
+  {
+    "id": "perfumeo-la-fede-white-forest-strawberry-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "La Fede White Forest Strawberry by",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-15666709463389-default-title",
@@ -168886,6 +169073,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-le-prestige-empress-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Le Prestige Empress by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15666706907485-default-title",
     "brand": "Khadlaj",
     "name": "Le Prestige King",
@@ -168911,6 +169109,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/le-prestige-king-khadlaj"
       }
     }
+  },
+  {
+    "id": "perfumeo-le-prestige-king-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Le Prestige King by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-15666707235165-default-title",
@@ -169002,6 +169211,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-maison-lor-noir-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Maison L’or Noir by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "ean-6291107979328",
     "brand": "Khadlaj",
     "name": "Mocha Latte",
@@ -169010,6 +169230,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "ean": "6291107979328",
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1753961808-28003900.jpg?v=1763398627&width=1920",
+    "notes": null
+  },
+  {
+    "id": "perfumeo-mocha-latte-by-khadlaj-100ml-extrait-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Mocha Latte by Khadlaj | Perfumeo",
+    "concentration": "Extrait",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
     "notes": null
   },
   {
@@ -169130,6 +169361,28 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/musk-pour-narcis-khadlaj"
       }
     }
+  },
+  {
+    "id": "perfumeo-nafais-magrib-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Nafais Magrib by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
+    "id": "perfumeo-nafais-sharq-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Nafais Sharq by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-15497574449501-default-title",
@@ -169290,6 +169543,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-oud-pour-klassik-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Oud Pour Klassik by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15890717802845-default-title",
     "brand": "Khadlaj",
     "name": "Panache Angel Dust",
@@ -169377,6 +169641,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-peach-velvet-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Peach Velvet by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15666706776413-default-title",
     "brand": "Khadlaj",
     "name": "Pure Musk",
@@ -169462,6 +169737,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/rasayel-shagaf-khadlaj"
       }
     }
+  },
+  {
+    "id": "perfumeo-rasayel-shagaf-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Rasayel Shagaf by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-15723812389213-default-title",
@@ -169584,6 +169870,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-sawaar-vanille-blanc-by-khadlaj-100ml-extrait-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Sawaar Vanille Blanc by Khadlaj | Perfumeo",
+    "concentration": "Extrait",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15666707104093-default-title",
     "brand": "Khadlaj",
     "name": "Sensuos Night",
@@ -169617,6 +169914,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-sensuos-night-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Sensuos Night by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15498680795485-default-title",
     "brand": "Khadlaj",
     "name": "Shiyaaka Blue",
@@ -169647,6 +169955,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-shiyaaka-blue-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Shiyaaka Blue by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15498683023709-default-title",
     "brand": "Khadlaj",
     "name": "Shiyaaka Gold",
@@ -169675,6 +169994,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/shiyaaka-gold-khadlaj"
       }
     }
+  },
+  {
+    "id": "perfumeo-shiyaaka-gold-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Shiyaaka Gold by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-15498689184093-default-title",
@@ -169766,6 +170096,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-shiyaaka-white-rose-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Shiyaaka White Rose by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15777872773469-default-title",
     "brand": "Khadlaj",
     "name": "Strawberry Shake",
@@ -169801,6 +170142,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-strawberry-shake-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Strawberry Shake by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "fragrancehub-9895757414729-default-title",
     "brand": "Khadlaj",
     "name": "Titan by",
@@ -169830,6 +170182,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://fragrancehub.co.uk/products/titan-100ml-eau-de-parfum-by-khadlaj"
       }
     }
+  },
+  {
+    "id": "perfumeo-titan-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Titan by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-15666706973021-default-title",
@@ -169863,6 +170226,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-valor-chivalry-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Valor Chivalry by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15668412383581-default-title",
     "brand": "Khadlaj",
     "name": "Valor Enigma",
@@ -169889,6 +170263,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/valor-enigma-khadlaj"
       }
     }
+  },
+  {
+    "id": "perfumeo-valor-enigma-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Valor Enigma by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-15666707005789-default-title",
@@ -169918,6 +170303,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     }
   },
   {
+    "id": "perfumeo-valor-honor-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Valor Honor by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
+  },
+  {
     "id": "emirates-oud-15666707038557-default-title",
     "brand": "Khadlaj",
     "name": "Valor Mystique",
@@ -169945,6 +170341,17 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/valor-mystique-khadlaj"
       }
     }
+  },
+  {
+    "id": "perfumeo-valor-mystique-by-khadlaj-100ml-eau-de-parfum",
+    "brand": "Khadlaj",
+    "name": "Valor Mystique by Khadlaj | Perfumeo",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 100,
+    "ean": null,
+    "shops": 1,
+    "image": null,
+    "notes": null
   },
   {
     "id": "emirates-oud-15612461678941-default-title",
@@ -170824,7 +171231,10 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/190295_ml.jpg",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338370920585-44927293980809",
     "brand": "Lacoste",
@@ -171267,10 +171677,7 @@ const CATALOGUE_CHUNK_20: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://images2.productserve.com/noimage.gif",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3386460172691",
     "brand": "Lacoste",
@@ -180397,7 +180804,10 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/41Nk8Kn4rkL.jpg?v=1767983875",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
   {
     "id": "the-beauty-store-uk-tbsukdk2-40800",
     "brand": "Laura Biagiotti",
@@ -180844,10 +181254,7 @@ const CATALOGUE_CHUNK_21: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/51N39NZmvYL.jpg?v=1767983938",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
+  },
   {
     "id": "mybeauty-boutique-shopify-gb-8416716718217-45147091828873",
     "brand": "Laurent Mazzone",
@@ -190123,7 +190530,10 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1748875465-77439700.jpg?v=1763398027&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
   {
     "id": "emirates-oud-15810556133725-default-title",
     "brand": "Maison Asrar",
@@ -190745,10 +191155,7 @@ const CATALOGUE_CHUNK_22: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/MFK0032_79cb327f-decb-4f20-9940-eb4f5aefd908.png?v=1770719496&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3614274226447",
     "brand": "Maison Margiela",
@@ -196361,7 +196768,10 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/71S9akIMwLL.jpg?v=1767984712",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
   {
     "id": "ean-3439600043402",
     "brand": "Mugler",
@@ -197348,10 +197758,7 @@ const CATALOGUE_CHUNK_23: CatalogueEntry[] = [
         "url": "https://fragrancehub.co.uk/products/zimaya-sharaf-the-club-extrait-de-parfum-100ml-spray"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
+  },
   {
     "id": "fragrancehub-supheaven",
     "brand": "My Store",
@@ -203214,7 +203621,10 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.beautybase.com/cdn/shop/files/1729086596-39346900.jpg?v=1763394913&width=1920",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
   {
     "id": "ean-3442151002033",
     "brand": "Paris Bleu",
@@ -204315,10 +204725,7 @@ const CATALOGUE_CHUNK_24: CatalogueEntry[] = [
         "url": "https://emiratesoud.co.uk/products/heer-perfume-paris-corner"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
+  },
   {
     "id": "emirates-oud-15468632506717-default-title",
     "brand": "Paris Corner",
@@ -211511,6 +211918,17 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "notes": null
   },
   {
+    "id": "ean-3349668614530",
+    "brand": "Rabanne",
+    "name": "Invictus Victory Elixir",
+    "concentration": "Eau de Parfum",
+    "sizeMl": 200,
+    "ean": "3349668614530",
+    "shops": 1,
+    "image": "https://bgstatic.net/photos/184620_ml.jpg",
+    "notes": null
+  },
+  {
     "id": "the-beauty-store-uk-tbsukdk2-34515",
     "brand": "Rabanne",
     "name": "Invictus Victory Elixir Intense",
@@ -211519,6 +211937,17 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "ean": null,
     "shops": 1,
     "image": null,
+    "notes": null
+  },
+  {
+    "id": "justmylook-pac0086",
+    "brand": "Rabanne",
+    "name": "Invictus Victory Elixir Intense",
+    "concentration": "Parfum",
+    "sizeMl": 200,
+    "ean": null,
+    "shops": 1,
+    "image": "https://www.justmylook.com/cdn/shop/files/PAC0086.png?v=1766583603&width=1000",
     "notes": null
   },
   {
@@ -212151,7 +212580,10 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/PAC0049_242adb79-2b0e-440e-ba21-58494222c2fb.png?v=1738168806&width=1000",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
   {
     "id": "justmylook-pac0042",
     "brand": "Rabanne",
@@ -212616,10 +213048,7 @@ const CATALOGUE_CHUNK_25: CatalogueEntry[] = [
         "url": "https://thebeautystore.com/products/paco-rabanne-pure-xs-eau-de-parfum-spray-50ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
+  },
   {
     "id": "ean-3349668576173",
     "brand": "Rabanne",
@@ -222075,7 +222504,10 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
         "url": "https://www.awin1.com/pclick.php?p=43157930125&a=3026001&m=106925"
       }
     }
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8338276909193-44927153504393",
     "brand": "Rochas",
@@ -222540,10 +222972,7 @@ const CATALOGUE_CHUNK_26: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://bgstatic.net/photos/184057_ml.jpg",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
+  },
   {
     "id": "ean-6290171074021",
     "brand": "Rue Broca",
@@ -228557,7 +228986,10 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://cdn.shopify.com/s/files/1/0621/6541/8121/files/515Xuwf643L.jpg?v=1767985912",
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
   {
     "id": "ean-3614227728820",
     "brand": "Tiffany & Co",
@@ -229158,10 +229590,7 @@ const CATALOGUE_CHUNK_27: CatalogueEntry[] = [
         "url": "https://avon.uk.com/products/new-tomorrow-eau-de-parfum-purse-spray-10ml"
       }
     }
-  }
-];
-
-const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
+  },
   {
     "id": "ean-5055170216015",
     "brand": "Tom Edward",
@@ -235334,7 +235763,10 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": null,
     "notes": null
-  },
+  }
+];
+
+const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
   {
     "id": "mybeauty-boutique-shopify-gb-8416784908425-45147174273161",
     "brand": "Versace",
@@ -235813,10 +236245,7 @@ const CATALOGUE_CHUNK_28: CatalogueEntry[] = [
     "shops": 1,
     "image": "https://www.justmylook.com/cdn/shop/files/versace-eros-pour-homme-eau-de-parfum-50ml-p21314-45760_image.jpg?v=1721322352&width=1000",
     "notes": null
-  }
-];
-
-const CATALOGUE_CHUNK_29: CatalogueEntry[] = [
+  },
   {
     "id": "justmylook-vers0059",
     "brand": "Versace",
@@ -241363,7 +241792,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041664&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/_/8.jpg",
@@ -241443,7 +241872,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041663&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/_/6.jpg",
@@ -241696,7 +242125,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161237&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14381884006_xl.jpg",
@@ -241776,7 +242205,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041729&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/164.jpg",
@@ -241843,7 +242272,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44785984937&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/230.jpg",
@@ -241939,7 +242368,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041857&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/407.jpg",
@@ -242022,7 +242451,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161241&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/9/099.jpg",
@@ -242418,7 +242847,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041872&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/350_1.jpg",
@@ -242498,7 +242927,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041909&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/487_1.jpg",
@@ -242578,7 +243007,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572475&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8005610481005.jpg",
@@ -242658,7 +243087,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672856&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_flora_gorgeous_magnolia_eau_de_parfum_30ml_spray_b.jpg",
@@ -242738,7 +243167,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042011&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/723.jpg",
@@ -242818,7 +243247,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042071&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/834.jpg",
@@ -242898,7 +243327,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44270807398&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/e/perfume_21nov_25282450.jpg",
@@ -242991,7 +243420,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042134&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/975.jpg",
@@ -243138,7 +243567,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042142&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/250_1.jpg",
@@ -243218,7 +243647,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042154&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1055.jpg",
@@ -243298,7 +243727,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042273&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1275.jpg",
@@ -243378,7 +243807,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042219&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_fame_80ml_eau_de_parfum.jpg",
@@ -243458,7 +243887,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042224&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668508587.jpg",
@@ -243525,7 +243954,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44270807399&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1326.jpg",
@@ -243605,7 +244034,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44270807400&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/888066124287_w_1000_h_1000_.jpg",
@@ -243765,7 +244194,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041644&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/col_100.jpg",
@@ -244518,7 +244947,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44459697978&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273521345.gif",
@@ -244585,7 +245014,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041659&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/h/themost.jpg",
@@ -244652,7 +245081,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041658&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/w/a/wael_1.jpg",
@@ -244853,7 +245282,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041669&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14.jpg",
@@ -244920,7 +245349,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041673&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/25.jpg",
@@ -245137,7 +245566,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368643&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_obsession_for_men_125ml_eau_de_toilette_bot.jpg",
@@ -245736,7 +246165,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041855&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/403.jpg",
@@ -245806,7 +246235,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44426505317&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/1/413.jpg",
@@ -246348,7 +246777,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041871&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/352_1.jpg",
@@ -246482,7 +246911,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45239338236&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_eau_de_toilette_80ml_spray.jpg",
@@ -246549,7 +246978,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854355&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61r_mpn1fsl.jpg",
@@ -246683,7 +247112,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44415357267&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/1677181408_874110-d5b71fe697dd851ade05fb5d6021.jpg",
@@ -246737,7 +247166,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041916&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/112_1.jpg",
@@ -246804,7 +247233,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368449&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_bloom_50ml_edp_spray.png",
@@ -246951,7 +247380,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44642628107&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305169259.png",
@@ -247031,7 +247460,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041979&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/680.jpg",
@@ -247085,7 +247514,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45576608829&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-12T18:57:07.303Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/693.jpg",
@@ -247152,7 +247581,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042009&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-12T18:57:07.303Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/719.jpg",
@@ -247206,7 +247635,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042014&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/729.jpg",
@@ -247286,7 +247715,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042010&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/2/721.jpg",
@@ -247353,7 +247782,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042040&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/770.jpg",
@@ -247407,7 +247836,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042043&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/775.jpg",
@@ -247487,7 +247916,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44415357272&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460048125.png",
@@ -247554,7 +247983,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042073&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/182_1.jpg",
@@ -247621,7 +248050,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042074&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/836_1.jpg",
@@ -247688,7 +248117,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042078&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/858.jpg",
@@ -247956,7 +248385,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042087&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/877.jpg",
@@ -248023,7 +248452,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44272839317&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/14691276-1675265767319063.jpg",
@@ -248090,7 +248519,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042104&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/901.jpg",
@@ -249500,7 +249929,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672854&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_dream_eau_de_toilette_50ml_spray.jpg",
@@ -249567,7 +249996,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042149&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1006.jpg",
@@ -249704,7 +250133,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042155&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1057.jpg",
@@ -249771,7 +250200,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042165&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1051.jpg",
@@ -249838,7 +250267,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44650395346&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/1538foto.jpg",
@@ -249972,7 +250401,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042178&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_hypersense_90ml_eau_de_parfum.jpg",
@@ -250240,7 +250669,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042218&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1173.jpg",
@@ -250361,7 +250790,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45072337641&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_pour_homme_edt-s_100ml.png",
@@ -250428,7 +250857,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234863&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1230.jpg",
@@ -250508,7 +250937,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042233&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1237.jpg",
@@ -250575,7 +251004,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042261&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1246.jpg",
@@ -251044,7 +251473,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042290&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1328.jpg",
@@ -251111,7 +251540,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042291&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1330.jpg",
@@ -251165,7 +251594,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042294&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1332.jpg",
@@ -251245,7 +251674,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042317&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1400.jpg",
@@ -251379,7 +251808,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44273215284&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_100ml_eau_de_parfum_1.jpg",
@@ -251446,7 +251875,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042315&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1394.jpg",
@@ -251593,7 +252022,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042325&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/e/vera_wang_lovestruck_100ml_eau_de_parfum.jpg",
@@ -251848,7 +252277,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042327&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1433.jpg",
@@ -251915,7 +252344,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368684&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_flowerbomb_eau_de_parfum_30ml_spray_.jpg",
@@ -251982,7 +252411,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042329&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1438.jpg",
@@ -252049,7 +252478,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045643&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_flowerbomb_extreme_intense_edp_100ml_.jpg",
@@ -252116,7 +252545,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44252956269&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktorandrolfflowerbombtigerlilyperfume.jpg",
@@ -252183,7 +252612,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854367&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_spicebomb-3605521515629-1.jpg",
@@ -252250,7 +252679,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045636&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_spice_bomb_night_vision_edt_90ml_.jpg",
@@ -252693,7 +253122,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041635&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/co_bot.jpg",
@@ -252760,7 +253189,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45343666194&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/i/n/intensa.jpg",
@@ -253192,7 +253621,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619728&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/a/l/al_haramain_amber_oud_gold_eau_de_parfum_100ml_spray.jpg",
@@ -254367,7 +254796,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619737&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/a/z/azzaro_pour_elle_eau_de_parfum_100ml_spray_.jpg",
@@ -254434,7 +254863,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368638&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/_/3.jpg",
@@ -254566,7 +254995,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 33.49,
       "wasPrice": 79.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43174942320&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -254977,7 +255406,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572458&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/_/7_1.jpg",
@@ -255085,7 +255514,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041680&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/11_1.jpg",
@@ -255126,7 +255555,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041672&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/2/22.jpg",
@@ -255288,7 +255717,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790658&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/man-glacial-essence-783320411946-8945.png",
@@ -255396,7 +255825,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041712&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/84.jpg",
@@ -255476,7 +255905,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041720&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/024.jpg",
@@ -255504,7 +255933,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041708&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/114.jpg",
@@ -255571,7 +256000,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041724&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/028.jpg",
@@ -255625,7 +256054,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44267752991&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/x/gxp-11099.jpg",
@@ -255895,7 +256324,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041731&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/168_1.jpg",
@@ -255949,7 +256378,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041736&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/3/030.jpg",
@@ -256003,7 +256432,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44267752992&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061106228_w_1000_h_1000_.jpg",
@@ -256152,7 +256581,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790661&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shop-pf-02160-02-nomade-edp---chlo---50ml--1.jpg",
@@ -256206,7 +256635,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368644&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614223113347-chloe-nomade-edp-75-ml--750x750.jpg",
@@ -256273,7 +256702,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44197300702&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616303477943.jpg",
@@ -256873,7 +257302,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45209277778&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/coolwater-women-by-davidoff-edt-spray-34-oz-100-ml-3414202011752_2_1.jpg",
@@ -256927,7 +257356,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45354039909&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3k3f00mr80n4sxy4tmrz-c72d75a0-a6a9-4465-bb84-00064bffb2e0.png",
@@ -257102,7 +257531,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041812&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/054.jpg",
@@ -257197,7 +257626,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041837&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/328.jpg",
@@ -257251,7 +257680,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44415357266&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/342.jpg",
@@ -257292,7 +257721,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161240&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/338.jpg",
@@ -257359,7 +257788,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44306495314&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/357_1.jpg",
@@ -257413,7 +257842,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041844&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/361.jpg",
@@ -257454,7 +257883,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45354039912&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/008.jpg",
@@ -257575,7 +258004,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041833&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/371.jpg",
@@ -259045,7 +259474,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44677427244&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614271994844.png",
@@ -259410,7 +259839,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041921&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/535_1.jpg",
@@ -259464,7 +259893,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041920&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/535.jpg",
@@ -259518,7 +259947,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041929&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/555.jpg",
@@ -259747,7 +260176,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041977&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/4/645.jpg",
@@ -259771,7 +260200,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 34.49,
       "wasPrice": 88,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43174943368&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -259855,7 +260284,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041992&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/665.jpg",
@@ -259879,7 +260308,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 41.99,
       "wasPrice": 87.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157930383&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -259909,7 +260338,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041996&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/672.jpg",
@@ -259963,7 +260392,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45519036763&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616301623311_1.jpg",
@@ -260071,7 +260500,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619741&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_l_eau_d_issey_pour_homme_intense_eau_de_toilette_75ml_spray.jpg",
@@ -260395,7 +260824,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042029&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/755.jpg",
@@ -260449,7 +260878,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042052&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/796.jpg",
@@ -260503,7 +260932,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042051&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/794.jpg",
@@ -260570,7 +260999,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042057&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1_2.jpg",
@@ -260598,7 +261027,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042055&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1.jpg",
@@ -261043,7 +261472,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790666&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460097321.png",
@@ -261097,7 +261526,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44260860882&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/o/p/open-box-jimmy-choo-ladies-i-want-choo-edp-spray-34-oz-fragrances-3386460119252.jpg",
@@ -261272,7 +261701,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44327960561&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/i/jimmy-choo-i-want-choo-le-parfum.jpg",
@@ -261354,7 +261783,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45072337619&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/6/863.jpg",
@@ -261529,7 +261958,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042068&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180_1.jpg",
@@ -261583,7 +262012,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045683&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/c/screenshot_2026-05-13_at_15.34.48.png",
@@ -261799,7 +262228,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45351597903&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_homme_eau_de_toilette_125ml_spray_.jpg",
@@ -261853,7 +262282,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042108&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/903.jpg",
@@ -262285,7 +262714,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042121&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/945.jpg",
@@ -262339,7 +262768,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161250&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/942.jpg",
@@ -262447,7 +262876,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042132&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/969.jpg",
@@ -262514,7 +262943,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042133&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/973.jpg",
@@ -263173,7 +263602,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 15.19,
       "wasPrice": 28.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687863&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -264895,7 +265324,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042138&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/984.jpg",
@@ -264949,7 +265378,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130167&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marcj-daisy-eau-so-fresh-edt-125ml-1.jpg",
@@ -265003,7 +265432,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042139&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/990.jpg",
@@ -265057,7 +265486,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619734&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_eau_so_intense_eau_de_parfum_50ml_spray_.jpg",
@@ -265111,7 +265540,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368689&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_de_parfum_30ml_spray.jpg",
@@ -265165,7 +265594,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045734&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_de_parfum_50ml_spray_.jpg",
@@ -265219,7 +265648,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368681&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_perfect_elixir_eau_de_parfum_30ml_spray.jpg",
@@ -265381,7 +265810,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042161&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1027.jpg",
@@ -265435,7 +265864,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042167&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1053.jpg",
@@ -265651,7 +266080,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042171&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1065.jpg",
@@ -265921,7 +266350,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042189&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1068.jpg",
@@ -265975,7 +266404,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45026788448&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1083.jpg",
@@ -266029,7 +266458,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44691827440&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_eau_de_parfum_15ml_refillable_spray_.jpg",
@@ -266083,7 +266512,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45036973930&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12737292-7745268591794907.jpg",
@@ -266137,7 +266566,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042190&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1097.jpg",
@@ -266299,7 +266728,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042196&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1109.jpg",
@@ -266440,60 +266869,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-3423478807655": [
-    {
-      "retailerId": "beautybase",
-      "price": 103,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/narciso-rodriguez-for-him-bleu-noir-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-24T06:42:40.717Z",
-      "firstSeenAt": "2026-08-06T00:01:26.900Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1736864103-42347400.jpg?v=1763393840&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "fragrance-click",
-      "price": 70.5,
-      "wasPrice": 133,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=45255619735&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_him_bleu_noir_eau_de_parfum_100ml_spray_.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 56.05,
-      "wasPrice": 115,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=38765033722&a=3026001&m=6561",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/107528_ml.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 91.99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/narciso-rodriguez-for-him-bleu-noir-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-23T10:27:34.179Z",
-      "firstSeenAt": "2026-08-05T22:56:46.276Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/NR0064.png?v=1763646360&width=1000",
-      "rating": null
-    }
-  ],
   "ean-3137370207016": [
     {
       "retailerId": "beautybase",
@@ -266569,7 +266944,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854364&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435137727087.png",
@@ -266623,7 +266998,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44684670472&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada-la-femme-intense-eau-de-parfum-spray-100ml.jpg",
@@ -266677,7 +267052,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042272&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1270.jpg",
@@ -267068,7 +267443,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042275&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1279.jpg",
@@ -267325,7 +267700,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042243&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1155.jpg",
@@ -267379,7 +267754,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042215&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1168.jpg",
@@ -267433,7 +267808,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042216&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_black_xs_for_her_80ml_eau_de_parfum.jpg",
@@ -267541,7 +267916,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042222&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1180.jpg",
@@ -267595,7 +267970,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042223&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1184.jpg",
@@ -267649,7 +268024,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042251&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1192.jpg",
@@ -267703,7 +268078,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042250&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1190.jpg",
@@ -267757,7 +268132,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45073083553&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668627547.png",
@@ -267798,7 +268173,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44272839337&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/13026064-1894868197593147.jpg",
@@ -268122,7 +268497,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130169&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200_3_1.jpg",
@@ -269100,7 +269475,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042298&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1347.jpg",
@@ -269154,7 +269529,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572513&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/o/tom_ford_noir_extreme_50ml_eau_de_parfum.jpg",
@@ -269316,7 +269691,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042293&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1381.jpg",
@@ -269370,7 +269745,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042313&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1383.jpg",
@@ -269494,7 +269869,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368666&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_born_in_roma_eau_de_parfum_100ml_spray_.jpg",
@@ -269548,7 +269923,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042318&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1408.jpg",
@@ -269602,7 +269977,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042322&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1420.jpg",
@@ -269710,7 +270085,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45036973931&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1423.jpg",
@@ -270723,7 +271098,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45576608850&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-12T18:57:07.303Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1436.jpg",
@@ -270952,7 +271327,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045644&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_good_fortune_edp_90ml_.jpg",
@@ -271030,7 +271405,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 47.99,
       "wasPrice": 66.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157930348&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -271114,7 +271489,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854368&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1450.jpg",
@@ -271587,7 +271962,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042355&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/1514.jpg",
@@ -271980,7 +272355,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041636&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/o/col_100_1.jpg",
@@ -272103,7 +272478,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041639&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/u/pura180.jpg",
@@ -275998,7 +276373,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44268401840&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/u/n/untitled_design_-_2025-10-01t122756.440__08746.png",
@@ -276093,7 +276468,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854348&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273638869.gif",
@@ -277611,7 +277986,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368639&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/_/4_1.jpg",
@@ -277652,7 +278027,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44683851094&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_her_elixir_de_parfum_eau_de_parfum_100ml_spray_.jpg",
@@ -277803,7 +278178,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45077595765&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/_/6_1.jpg",
@@ -277844,7 +278219,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041681&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12_1.jpg",
@@ -278008,7 +278383,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041701&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/1/016.jpg",
@@ -278049,7 +278424,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041689&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/3/73.jpg",
@@ -278090,7 +278465,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854351&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_pour_homme_eau_de_parfum_100ml_.png",
@@ -278131,7 +278506,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45395007820&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_splendida_patchouli_tentation_eau_de_parfum_50ml_spray_.jpg",
@@ -278172,7 +278547,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44437744250&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/83.jpg",
@@ -278973,7 +279348,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041709&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/120.jpg",
@@ -279014,7 +279389,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44437744251&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3607342686229.png",
@@ -279130,7 +279505,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45222048312&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/139.jpg",
@@ -279344,7 +279719,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716548424&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_sheer_beauty_eau_de_toilette_50ml_spray_.jpg",
@@ -279590,7 +279965,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041741&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/150.jpg",
@@ -279726,7 +280101,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041746&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/160.jpg",
@@ -279849,7 +280224,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041745&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154_2.jpg",
@@ -279890,7 +280265,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041743&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154.jpg",
@@ -279931,7 +280306,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44327960557&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/7/171_1.jpg",
@@ -280013,7 +280388,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672832&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-12T12:53:28.433Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/100308_65195954_03.jpg",
@@ -280246,7 +280621,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619729&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/cartier_pasha_de_cartier_edition_noire_sport_eau_de_toilette_100ml_spray_.jpg",
@@ -280546,7 +280921,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045735&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_intense_eau_de_parfum_100ml_spray_.jpg",
@@ -281700,7 +282075,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45209277779&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/a/davidoff-cool-water-intense-eau-de-parfum-uomo-125-ml.jpg",
@@ -281741,7 +282116,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45344356743&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3k3e00mh80n4xqi8i949-fc1f0a15-0aae-4595-9b3c-00e89478b8f9.jpg",
@@ -282343,7 +282718,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041806&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/312.jpg",
@@ -282684,7 +283059,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041817&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/060.jpg",
@@ -283081,7 +283456,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041840&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/006.jpg",
@@ -283135,7 +283510,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041843&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/340.jpg",
@@ -283204,7 +283579,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234844&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/23836foto.jpg",
@@ -283422,7 +283797,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041831&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/367.jpg",
@@ -283573,7 +283948,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041849&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/380.jpg",
@@ -283614,7 +283989,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790663&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_the_one_for_men_100ml_eau_de_parfum.jpg",
@@ -283655,7 +284030,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041848&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/375.jpg",
@@ -283832,7 +284207,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44478466390&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/385.jpg",
@@ -287089,7 +287464,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44197300673&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/product_2025-389.png",
@@ -287335,7 +287710,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041876&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/t/str.jpg",
@@ -287376,7 +287751,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041877&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/9/394.jpg",
@@ -287499,7 +287874,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041912&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494.jpg",
@@ -287540,7 +287915,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44426505318&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/e/gentleman_reserve_privee.png",
@@ -287622,7 +287997,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45223969093&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_gentleman_society_ambree_eau_de_parfum_100ml_spray_.jpg",
@@ -287663,7 +288038,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45223969058&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494_1.jpg",
@@ -287691,7 +288066,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45343666196&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/490_1.jpg",
@@ -287773,7 +288148,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44691827441&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_irresistible_nude_velvet_eau_de_parfum_80ml_spray_.jpg",
@@ -287868,7 +288243,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041897&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/507.jpg",
@@ -287950,7 +288325,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45223969094&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_parfum_80ml_spray.jpg",
@@ -287991,7 +288366,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041898&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_absolu_35ml_eau_de_parfum_intense.jpg",
@@ -288032,7 +288407,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44773367235&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/_/l_interdit_intense_35ml_.png",
@@ -288060,7 +288435,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041900&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/105_1.jpg",
@@ -288101,7 +288476,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572474&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_rouge_50ml_eau_de_parfum.jpg",
@@ -288142,7 +288517,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619730&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_rouge_eau_de_parfum_80ml_spray_.jpg",
@@ -288196,7 +288571,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041901&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/509.jpg",
@@ -288237,7 +288612,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041896&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/505.jpg",
@@ -288552,7 +288927,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45519036762&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616302514298_1.jpg",
@@ -288757,7 +289132,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44422437675&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci-guilty-absolute-pour-femme-eau-de-parfum-spray-90ml8005610524177guccilookincredible-808533__56789.jpg",
@@ -288798,7 +289173,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041928&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/552.jpg",
@@ -288839,7 +289214,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234848&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucciguiltyhomme90mledp_.jpg",
@@ -288880,7 +289255,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368648&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/558.jpg",
@@ -288921,7 +289296,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619731&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_guilty_pour_homme_parfum_90ml_spray.jpg",
@@ -288962,7 +289337,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041933&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/5/554.jpg",
@@ -289016,7 +289391,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041936&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/122.jpg",
@@ -289152,7 +289527,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44647976301&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/guerlain_la_petite_robe_noire_eau_de_toilette_100ml_spray_.jpg",
@@ -290126,7 +290501,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44370470728&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/660.jpg",
@@ -290208,7 +290583,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572478&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo_boss_boss_bottled_100ml_parfum.jpg",
@@ -290467,7 +290842,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44265156137&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/i/m/images.jpeg",
@@ -290495,7 +290870,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45576608831&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-12T18:57:07.303Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo-boss-orange-man-woda-toaletowa-100ml-spray.jpg",
@@ -290564,7 +290939,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368654&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/707.jpg",
@@ -291520,7 +291895,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042025&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/748.jpg",
@@ -291643,7 +292018,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042031&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/759.jpg",
@@ -291712,7 +292087,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042034&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/6/766.jpg",
@@ -291807,7 +292182,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042041&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/7/170_1.jpg",
@@ -291999,7 +292374,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042053&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/796_1.jpg",
@@ -292094,7 +292469,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042050&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415102353.jpg",
@@ -292176,7 +292551,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042036&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/801.jpg",
@@ -292217,7 +292592,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042037&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/801_1.jpg",
@@ -292286,7 +292661,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042060&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/804.jpg",
@@ -292422,7 +292797,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042062&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/811.jpg",
@@ -292463,7 +292838,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042063&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/812_1.jpg",
@@ -293089,7 +293464,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 10.29,
       "wasPrice": 24.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43174943784&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -293980,7 +294355,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44647976297&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/i/jimmy_choo_i_want_choo_with_love_eau_de_parfum_100ml_spray_.jpg",
@@ -294131,7 +294506,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042069&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/3/830.jpg",
@@ -294595,7 +294970,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042109&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/905.jpg",
@@ -294623,7 +294998,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045634&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_jump_edt_200ml_.jpg",
@@ -294664,7 +295039,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042105&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/204_1_1.jpg",
@@ -294746,7 +295121,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042110&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/900_1.jpg",
@@ -294790,7 +295165,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619733&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/u/juicy_couture_oui_eau_de_parfum_100ml_spray.jpg",
@@ -296648,7 +297023,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042130&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/965.jpg",
@@ -296689,7 +297064,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042126&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/960.jpg",
@@ -296771,7 +297146,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45175037339&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_perfume_women_poeme_eau_de_parfum_edp_100ml.jpg",
@@ -297520,7 +297895,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 20.99,
       "wasPrice": 39.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687859&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -300419,7 +300794,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572489&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_100ml_eau_de_toilette.jpg",
@@ -300514,7 +300889,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042136&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/981.jpg",
@@ -300616,47 +300991,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-3616301776024": [
-    {
-      "retailerId": "beautybase",
-      "price": 99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.beautybase.com/products/marc-jacobs-daisy-eau-so-intense-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-20T16:39:48.052Z",
-      "firstSeenAt": "2026-08-04T16:30:04.615Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1636107194-49861300.jpg?v=1763390475&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "fragrance-click",
-      "price": 54.95,
-      "wasPrice": 105,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=45072337640&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/992.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 71.95,
-      "wasPrice": 117,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44157744254&a=3026001&m=6561",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/142866_ml.jpg",
-      "rating": null
-    }
-  ],
   "ean-3616303423841": [
     {
       "retailerId": "beautybase",
@@ -300678,7 +301012,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042141&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/996.jpg",
@@ -300706,7 +301040,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368452&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616303423858.png",
@@ -300747,7 +301081,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572490&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_love_100ml_eau_de_toilette_.jpg",
@@ -300788,7 +301122,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042143&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/9/998.jpg",
@@ -300821,47 +301155,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-3616303466060": [
-    {
-      "retailerId": "beautybase",
-      "price": 99,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.beautybase.com/products/marc-jacobs-daisy-wild-eau-de-parfum-100ml-spray",
-      "fetchedAt": "2026-08-21T12:33:28.138Z",
-      "firstSeenAt": "2026-08-08T08:38:35.057Z",
-      "isNew": false,
-      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731082584-24647000.jpg?v=1763396224&width=1920",
-      "rating": null
-    },
-    {
-      "retailerId": "fragrance-click",
-      "price": 59.95,
-      "wasPrice": 115,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=45343666241&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_de_parfum_100ml_spray_.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 63.95,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.justmylook.com/products/marc-jacobs-daisy-wild-eau-de-parfum-100ml",
-      "fetchedAt": "2026-08-22T16:16:02.208Z",
-      "firstSeenAt": "2026-08-09T12:46:11.571Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/MJ0101.png?v=1754569753&width=1000",
-      "rating": null
-    }
-  ],
   "ean-3616305033055": [
     {
       "retailerId": "beautybase",
@@ -300883,7 +301176,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368688&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_so_intense_eau_de_parfum_100ml_spray.jpg",
@@ -300993,7 +301286,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042148&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/50bfdc49-e115-4f50-8d37-0a05704f8fd3.jpg",
@@ -301529,7 +301822,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042172&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1023.jpg",
@@ -301829,7 +302122,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042164&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1020_1.jpg",
@@ -301870,7 +302163,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042163&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1031.jpg",
@@ -301952,7 +302245,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042170&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1061.jpg",
@@ -302144,7 +302437,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619742&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/o/montblanc_legend_red_eau_de_parfum_200ml_spray_.png",
@@ -302649,7 +302942,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44691827445&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_eau_de_parfum_15ml_refillable_spray_.jpg",
@@ -302731,7 +303024,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44437744259&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274289473_6.png",
@@ -302895,7 +303188,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042175&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_60ml_eau_de_parfum_intense_bot.jpg",
@@ -302936,7 +303229,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042177&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1079.jpg",
@@ -303087,7 +303380,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572497&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/3439600048162.jpg",
@@ -303264,7 +303557,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619745&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_fantasm_eau_de_parfum_50ml_spray.jpg",
@@ -303305,7 +303598,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161251&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_fantasm_sensuelle_100ml_eau_de_parfum.jpg",
@@ -303374,7 +303667,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44375609590&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso-rodriguez-all-of-me-eau-de-parfum.jpg",
@@ -303456,7 +303749,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44375609593&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso-rodriguez-all-of-me-eau-de-parfum-intense.jpg",
@@ -303497,7 +303790,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572502&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_bleu_noir_for_him_50ml_eau_de_parfum.jpg",
@@ -303579,7 +303872,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368662&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1102.jpg",
@@ -303620,7 +303913,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44647976298&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her_forever_eau_de_parfum_50ml_spray_.jpg",
@@ -303674,7 +303967,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042197&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1116.jpg",
@@ -303715,7 +304008,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368663&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1114.jpg",
@@ -303899,6 +304192,47 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-3423478807655": [
+    {
+      "retailerId": "beautybase",
+      "price": 103,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/narciso-rodriguez-for-him-bleu-noir-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-06T00:01:26.900Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1736864103-42347400.jpg?v=1763393840&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 56.05,
+      "wasPrice": 115,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=38765033722&a=3026001&m=6561",
+      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/107528_ml.jpg",
+      "rating": null
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 91.99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/narciso-rodriguez-for-him-bleu-noir-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-23T10:27:34.179Z",
+      "firstSeenAt": "2026-08-05T22:56:46.276Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/NR0064.png?v=1763646360&width=1000",
+      "rating": null
+    }
+  ],
   "ean-3423222012670": [
     {
       "retailerId": "perfume-click",
@@ -303961,7 +304295,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042199&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1120.jpg",
@@ -304002,7 +304336,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042200&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1122.jpg",
@@ -304043,7 +304377,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042201&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_narciso_cristal_90ml_eau_de_parfum.jpg",
@@ -304084,7 +304418,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042203&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1125.jpg",
@@ -304333,7 +304667,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44252956268&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370302131.png",
@@ -304579,7 +304913,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042263&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1249.jpg",
@@ -305645,7 +305979,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672834&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12271415-2304710348696057.jpg",
@@ -305768,7 +306102,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45026788450&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1277.jpg",
@@ -305973,7 +306307,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042268&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada_paradoxe_intense_90ml_eau_de_parfum.jpg",
@@ -306094,7 +306428,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 26.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43174941970&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -306137,7 +306471,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042255&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1203.jpg",
@@ -306178,7 +306512,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042253&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1200.jpg",
@@ -306329,7 +306663,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042217&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1171.jpg",
@@ -306444,47 +306778,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "ean-3349668614530": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 98.95,
-      "wasPrice": 120,
-      "promoEndsAt": null,
-      "stock": "outOfStock",
-      "url": "https://www.awin1.com/pclick.php?p=45190045579&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3kst02bp80n4kgfr57k1-b1799f8d-ba9d-411a-967f-c43353c1145c.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "perfume-click",
-      "price": 112.9,
-      "wasPrice": 155,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44641644806&a=3026001&m=6561",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
-      "firstSeenAt": "2026-08-14T14:46:16.059Z",
-      "isNew": false,
-      "imageUrl": "https://bgstatic.net/photos/184620_ml.jpg",
-      "rating": null
-    },
-    {
-      "retailerId": "justmylook",
-      "price": 107.5,
-      "wasPrice": null,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.justmylook.com/products/paco-rabanne-invictus-victory-elixir-parfum-intense-200ml",
-      "fetchedAt": "2026-08-23T22:22:59.699Z",
-      "firstSeenAt": "2026-08-07T22:32:57.561Z",
-      "isNew": false,
-      "imageUrl": "https://www.justmylook.com/cdn/shop/files/PAC0086.png?v=1766583603&width=1000",
-      "rating": null
-    }
-  ],
   "ean-3349668630264": [
     {
       "retailerId": "fragrance-click",
@@ -306493,7 +306786,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44265156141&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668630264.png",
@@ -306629,7 +306922,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042231&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1214.jpg",
@@ -306670,7 +306963,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042232&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1216.jpg",
@@ -306698,7 +306991,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042226&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1205.jpg",
@@ -306821,7 +307114,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042257&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1223.jpg",
@@ -306903,7 +307196,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042234&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1240.jpg",
@@ -306944,7 +307237,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042235&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1244.jpg",
@@ -307067,7 +307360,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368665&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1302.jpg",
@@ -307231,7 +307524,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44191431886&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph_lauren_romance_intense_100ml_eau_de_parfum.jpg",
@@ -307285,7 +307578,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45072337644&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph-lauren-safari-eau-de-toilette-for-men-125ml-102729-677588.jpg",
@@ -308792,7 +309085,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44211819130&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/e/rebelle_.jpg",
@@ -308915,7 +309208,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042287&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1317.jpg",
@@ -310186,7 +310479,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130170&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1365.jpg",
@@ -310817,7 +311110,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45232442259&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_born_in_roma_coral_fantasy_eau_de_parfum_50ml_spray_.jpg",
@@ -310899,7 +311192,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042316&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1402.jpg",
@@ -311022,7 +311315,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042319&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1410.jpg",
@@ -311145,7 +311438,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042321&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1418.jpg",
@@ -311186,7 +311479,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042320&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1413.jpg",
@@ -311281,7 +311574,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042324&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1428.jpg",
@@ -311993,7 +312286,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368683&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_flowerbomb_eau_de_parfum_20ml_spray_.jpg",
@@ -312034,7 +312327,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130171&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12740389-1874935031223493.jpg",
@@ -312088,7 +312381,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042330&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1340_1.jpg",
@@ -312129,7 +312422,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854366&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273622639_1-scaled.jpeg",
@@ -312211,7 +312504,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44311195009&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614274158113.jpg",
@@ -312252,7 +312545,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44260860904&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/p/spicebomb_dark_leather_150ml.png",
@@ -312416,7 +312709,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619746&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/i/viktor_rolf_good_fortune_elixir_intense_eau_de_parfum_50ml_spray_.jpg",
@@ -314233,7 +314526,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041632&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/85715163035_bottle.jpg",
@@ -314261,7 +314554,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041633&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/85715163035_bottle_1.jpg",
@@ -314569,7 +314862,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368441&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200.png",
@@ -314625,7 +314918,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368442&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8028713816628_1.png",
@@ -314765,7 +315058,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368438&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/15294401-1335265777176730_1.jpg",
@@ -314821,7 +315114,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45343666193&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/l/club_bot.jpg",
@@ -314933,7 +315226,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423911452&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/o/rosa.jpg",
@@ -314961,7 +315254,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041641&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/o/rosa_1.jpg",
@@ -316921,7 +317214,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234840&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/a/l/al_haramain_amber_oud_tabacco_edition_.png",
@@ -323179,7 +323472,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 48.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928092&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -324077,7 +324370,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572457&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/o/boucheron_pour_homme_100ml_eau_de_toilette.jpg",
@@ -326199,7 +326492,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041684&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/7/27.jpg",
@@ -326298,7 +326591,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041668&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12.jpg",
@@ -326326,7 +326619,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572459&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_goddess_intense_eau_de_parfum_100ml_spray_.jpg",
@@ -326550,7 +326843,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44691827439&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_london_eau_de_parfum_50ml_spray_.jpg",
@@ -326662,7 +326955,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041682&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/15_1.jpg",
@@ -326673,7 +326966,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 79.99,
       "wasPrice": 150.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686439&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -326703,7 +326996,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041674&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/25_1.jpg",
@@ -326815,7 +327108,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45343666195&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/9/29.jpg",
@@ -326942,7 +327235,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45576608826&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-12T18:57:07.303Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/48.jpg",
@@ -327054,7 +327347,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161235&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/50.jpg",
@@ -327306,7 +327599,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45395007819&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_splendida_jasmin_noir_eau_de_parfum_50ml_spray_.jpg",
@@ -327334,7 +327627,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619738&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari_splendida_magnolia_sensuel_eau_de_parfum_50ml_spray_.jpg",
@@ -327362,7 +327655,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045678&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/v/bvlgari-splendida-patchouli-tentation-for-women-edp-50ml-150166-549508.jpg",
@@ -327925,7 +328218,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041704&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/020.jpg",
@@ -328065,7 +328358,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045619&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/k/ck_one_gold_edt_200ml_.jpg",
@@ -328134,7 +328427,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041717&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/101.jpg",
@@ -328233,7 +328526,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041718&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/106.jpg",
@@ -328261,7 +328554,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041719&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/108_1.jpg",
@@ -328302,7 +328595,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44691827442&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_defy_eau_de_parfum_50ml_spray_.jpg",
@@ -328429,7 +328722,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161236&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_eternity_100ml_eau_de_parfum.jpg",
@@ -328485,7 +328778,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572461&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_eternity_200ml_eau_de_parfum.jpg",
@@ -328513,7 +328806,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045642&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/k/ck_eternity_m_parfum_200ml.jpg",
@@ -328541,7 +328834,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041721&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/117.jpg",
@@ -328625,7 +328918,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041722&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/002.jpg",
@@ -328821,7 +329114,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790660&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin-klein-eternity-for-men-eau-de-parfum.jpg",
@@ -328964,7 +329257,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041725&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/129.jpg",
@@ -329446,7 +329739,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041705&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/8/98.jpg",
@@ -329601,7 +329894,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041738&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/140_1.jpg",
@@ -329909,7 +330202,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041728&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/145_1.jpg",
@@ -330230,7 +330523,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44541651458&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061002865.png",
@@ -330284,7 +330577,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 47.49,
       "wasPrice": 89.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686554&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -330469,7 +330762,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672831&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/184251.jpg",
@@ -330510,7 +330803,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041734&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/180.jpg",
@@ -330678,7 +330971,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041737&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/184.jpg",
@@ -330945,7 +331238,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041749&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/187.jpg",
@@ -331029,7 +331322,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041753&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/207.jpg",
@@ -331309,7 +331602,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041757&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_75ml_eau_de_parfum.jpg",
@@ -331561,7 +331854,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045679&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe-nomade-jasmine-naturel-50ml.jpg",
@@ -331645,7 +331938,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368446&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/1/218.jpg",
@@ -333454,7 +333747,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 10.19,
       "wasPrice": 19.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686831&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -333820,7 +334113,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234842&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3607340188602.png",
@@ -334016,7 +334309,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041771&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/4/243.jpg",
@@ -335151,7 +335444,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041805&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/0/306_1.jpg",
@@ -335248,7 +335541,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041808&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/051.jpg",
@@ -335655,7 +335948,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041819&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/064.jpg",
@@ -336131,7 +336424,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045681&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_k_eau_de_toilette_200ml_spray.png",
@@ -336284,7 +336577,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041825&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/5/357.jpg",
@@ -336424,7 +336717,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790662&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_pour_homme_eau_de_toilette_125ml_spray.jpg",
@@ -336648,7 +336941,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041836&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/8/080.jpg",
@@ -336984,7 +337277,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44478466389&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/u/dunhill_icon_racing_blue_edp_100ml_.png",
@@ -337514,7 +337807,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 29.99,
       "wasPrice": 67.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687009&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -340116,7 +340409,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041854&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/400.jpg",
@@ -343964,7 +344257,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368646&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/2/422.jpg",
@@ -344384,7 +344677,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041882&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/3/431.jpg",
@@ -344412,7 +344705,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041875&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prof.jpg",
@@ -344524,7 +344817,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041867&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/a/r/armani_si_passione_eclat_100ml_eau_de_parfum.jpg",
@@ -344677,7 +344970,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45576608827&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-12T18:57:07.303Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/3/434.jpg",
@@ -345097,7 +345390,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45223969092&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/a/r/armani_emporia_armani_power_of_you_eau_de_parfum_90ml_spray_.jpg",
@@ -345125,7 +345418,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041869&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441.jpg",
@@ -345153,7 +345446,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041870&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/4/441_1.jpg",
@@ -345517,7 +345810,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041878&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/9/090.jpg",
@@ -346036,7 +346329,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44327960560&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/e/le_secret50ml.jpg",
@@ -346092,7 +346385,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041891&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/470.jpg",
@@ -346120,7 +346413,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716951905&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/475.jpg",
@@ -346232,7 +346525,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041907&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/486.jpg",
@@ -346260,7 +346553,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45519036761&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/3274872441057_1.jpg",
@@ -346428,7 +346721,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619739&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_gentleman_society_extreme_eau_de_parfum_200ml_spray_.jpg",
@@ -346469,7 +346762,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234846&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy-gentlemen-only-edt-100ml-2023-1.jpg",
@@ -346484,7 +346777,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041894&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/500.jpg",
@@ -346512,7 +346805,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041895&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/0/502.jpg",
@@ -346792,7 +347085,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041903&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/513.jpg",
@@ -346848,7 +347141,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44245158259&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/114774.jpg",
@@ -346889,7 +347182,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041915&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/110_1.jpg",
@@ -346973,7 +347266,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041904&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/515.jpg",
@@ -347268,7 +347561,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368451&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1470388-gucci-flora-gorgeous-jasmine-eau-de-parfum-50-ml.6bc70226.jpg",
@@ -347296,7 +347589,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041919&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/3/533.jpg",
@@ -347324,7 +347617,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234847&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305169266_w_1000_h_1000_.jpg",
@@ -347492,7 +347785,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368647&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/544.jpg",
@@ -347548,7 +347841,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041926&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/548.jpg",
@@ -347589,7 +347882,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041930&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/6/560.jpg",
@@ -347688,7 +347981,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041942&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/6/76296469_o.jpg",
@@ -348052,7 +348345,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45354039913&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shop-pf-01913-03-mon-guerlain-edp---100ml--1.jpg",
@@ -348205,7 +348498,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041946&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shali_edp.jpg",
@@ -348231,7 +348524,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 70.99,
       "wasPrice": 130.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687454&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -349794,7 +350087,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041986&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/650.jpg",
@@ -349891,7 +350184,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041999&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/685.jpg",
@@ -350311,7 +350604,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041989&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/657.jpg",
@@ -350339,7 +350632,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041991&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/662.jpg",
@@ -350395,7 +350688,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041994&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/668.jpg",
@@ -350423,7 +350716,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041993&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/6/667.jpg",
@@ -350451,7 +350744,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042001&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/162_2.jpg",
@@ -350522,7 +350815,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042002&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/690.jpg",
@@ -350563,7 +350856,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368652&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/695.jpg",
@@ -350703,7 +350996,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042003&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/697.jpg",
@@ -350830,7 +351123,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619740&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo_boss_hugo_woman_eau_de_parfum_75ml_spray_.png",
@@ -350942,7 +351235,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042004&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/700.jpg",
@@ -350970,7 +351263,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44691827438&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/h/u/hugo_boss_jeans_eau_de_toilette_125ml_spray_.jpg",
@@ -351039,7 +351332,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041982&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/704.jpg",
@@ -351207,7 +351500,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368651&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/675.jpg",
@@ -351278,7 +351571,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368653&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/743_perfume-hugo-boss-the-scent-fem-100ml---730870196885.jpg",
@@ -351403,7 +351696,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44772989519&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200_3.jpg",
@@ -353126,7 +353419,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619732&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_fusion_d_issey_eau_de_toilette_100ml_spray_.jpg",
@@ -353223,7 +353516,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042008&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/1/716.jpg",
@@ -353350,7 +353643,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45355022309&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/12263769-1605185921623162.jpg",
@@ -354218,7 +354511,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042028&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/753.jpg",
@@ -354246,7 +354539,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042030&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/757.jpg",
@@ -354386,7 +354679,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042048&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/8/786.jpg",
@@ -354554,7 +354847,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042056&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/791_1_1.jpg",
@@ -354610,7 +354903,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042058&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/793.jpg",
@@ -354946,7 +355239,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042039&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/810.jpg",
@@ -356695,7 +356988,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042085&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/874.jpg",
@@ -356835,7 +357128,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042090&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/882.jpg",
@@ -357018,7 +357311,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716548425&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/89332390_o.jpeg",
@@ -357214,7 +357507,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368679&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_homme_eau_de_parfum_125ml_spray_.jpg",
@@ -357242,7 +357535,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042107&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/joop_homme_absolute_for_him_120ml_eau_de_parfum.jpg",
@@ -357525,7 +357818,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45576608832&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-12T18:57:07.303Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/u/juicy-couture-viva-la-juicy-eau-de-parfum.jpg",
@@ -360565,7 +360858,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44429021943&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lacoste-mens-lhomme-edt-spray-33-oz-100-ml-8005610521220_2.jpg",
@@ -360733,7 +361026,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042116&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/2/922.jpg",
@@ -361532,7 +361825,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45223969095&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_la_vie_est_belle_intensement_eau_de_parfum_50ml_spray_.jpg",
@@ -361769,7 +362062,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130115&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome-la-vie-est-belle-rose-extraordinaire-eau-de-parfum.jpg",
@@ -361784,7 +362077,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042131&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lancome_la_vie_est_belle_soleil_cristal_50ml_eau_de_parfum.jpg",
@@ -362133,7 +362426,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130166&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/r/tresor-edp-vapo-50ml-lancome-1.jpg",
@@ -362579,7 +362872,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 18.99,
       "wasPrice": 39.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687883&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -368291,7 +368584,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 16.49,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43174943711&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -369288,7 +369581,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042135&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/7/979.jpg",
@@ -369952,6 +370245,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-3616301776024": [
+    {
+      "retailerId": "beautybase",
+      "price": 99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.beautybase.com/products/marc-jacobs-daisy-eau-so-intense-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-20T16:39:48.052Z",
+      "firstSeenAt": "2026-08-04T16:30:04.615Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1636107194-49861300.jpg?v=1763390475&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "perfume-click",
+      "price": 71.95,
+      "wasPrice": 117,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44157744254&a=3026001&m=6561",
+      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/142866_ml.jpg",
+      "rating": null
+    }
+  ],
   "ean-3616303423834": [
     {
       "retailerId": "perfume-click",
@@ -370016,7 +370337,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790668&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/product_2025-491.png",
@@ -370033,6 +370354,34 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-14T14:46:16.059Z",
       "isNew": false,
       "imageUrl": "https://bgstatic.net/photos/124588_ml.jpg",
+      "rating": null
+    }
+  ],
+  "ean-3616303466060": [
+    {
+      "retailerId": "beautybase",
+      "price": 99,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.beautybase.com/products/marc-jacobs-daisy-wild-eau-de-parfum-100ml-spray",
+      "fetchedAt": "2026-08-21T12:33:28.138Z",
+      "firstSeenAt": "2026-08-08T08:38:35.057Z",
+      "isNew": false,
+      "imageUrl": "https://www.beautybase.com/cdn/shop/files/1731082584-24647000.jpg?v=1763396224&width=1920",
+      "rating": null
+    },
+    {
+      "retailerId": "justmylook",
+      "price": 63.95,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "outOfStock",
+      "url": "https://www.justmylook.com/products/marc-jacobs-daisy-wild-eau-de-parfum-100ml",
+      "fetchedAt": "2026-08-22T16:16:02.208Z",
+      "firstSeenAt": "2026-08-09T12:46:11.571Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/MJ0101.png?v=1754569753&width=1000",
       "rating": null
     }
   ],
@@ -370057,7 +370406,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368680&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_intense_eau_de_parfum_30ml_spray_.jpg",
@@ -370085,7 +370434,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042145&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1002.jpg",
@@ -370240,7 +370589,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368456&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1006_1.jpg",
@@ -373227,7 +373576,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042160&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1025.jpg",
@@ -373438,7 +373787,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042157&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1008.jpg",
@@ -373466,7 +373815,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042151&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1013.jpg",
@@ -373494,7 +373843,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042152&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1019.jpg",
@@ -374291,7 +374640,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042176&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_intense_90ml_eau_de_parfum.jpg",
@@ -374347,7 +374696,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44197300703&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_alien_goddess_supra_florale_eau_de_parfum_90ml_spray.jpg",
@@ -374474,7 +374823,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042183&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/u/mugler_angel_elixir_100ml_eau_de_parfum.jpg",
@@ -374502,7 +374851,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042186&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1093.jpg",
@@ -375090,7 +375439,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368690&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her_intense_eau_de_parfum_50ml_spray_.jpg",
@@ -375146,7 +375495,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042205&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1105.jpg",
@@ -375202,7 +375551,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042198&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1118.jpg",
@@ -375426,7 +375775,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045732&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her50ml.png",
@@ -375454,7 +375803,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44191431883&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/3423222121976.jpg",
@@ -375482,7 +375831,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790669&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3ko0027b80n4kjji0vtz-1f7a25b1-d080-46cc-b96e-1860d8715d5a.jpg",
@@ -375790,7 +376139,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734045733&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/i/nicki_minaj_minajesty_eau_de_parfum_100ml_spray_.jpg",
@@ -376210,7 +376559,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042208&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1130.jpg",
@@ -376238,7 +376587,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042209&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1132.jpg",
@@ -376350,7 +376699,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042210&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1134.jpg",
@@ -377666,7 +378015,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042211&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1136.jpg",
@@ -377750,7 +378099,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45255619736&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/o/s/oscar_de_la_renta_oscar_eau_de_toilette_100ml_spray_.jpg",
@@ -379581,7 +379930,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 12.19,
       "wasPrice": 34.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157930019&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -381123,7 +381472,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45026788449&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61fh-e1rwvl.jpg",
@@ -381166,7 +381515,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672835&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/8/287091-735x735.jpg",
@@ -381403,7 +381752,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44677427254&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/77181991_xxl.jpg",
@@ -382146,7 +382495,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042239&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1146.jpg",
@@ -382174,7 +382523,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042238&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1144.jpg",
@@ -382258,7 +382607,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042244&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1157.jpg",
@@ -382286,7 +382635,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042245&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1161.jpg",
@@ -382818,7 +383167,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45239338231&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_lady_million_fabulous_eau_de_parfum_80ml_spray.jpg",
@@ -383154,7 +383503,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368457&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rose.png",
@@ -383238,7 +383587,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042256&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1221.jpg",
@@ -383447,7 +383796,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45072337642&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1233.jpg",
@@ -383742,7 +384091,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042279&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1285_1.jpg",
@@ -383951,7 +384300,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161255&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph-lauren-ralphs-club-parfum.jpg",
@@ -386162,7 +386511,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042285&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1310.jpg",
@@ -387349,7 +387698,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 67.49,
       "wasPrice": 109.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157930187&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -387618,7 +387967,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44265156143&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1315.jpg",
@@ -387702,7 +388051,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045647&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/o/sol_de_janeiro_cheirosa_68_perfume_mist_240ml_.jpg",
@@ -388945,7 +389294,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 23.49,
       "wasPrice": 34.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43174942246&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -389270,7 +389619,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042289&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/13223.jpg",
@@ -389802,7 +390151,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45231323284&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/f/r/fragrance_click_tom_ford.png",
@@ -389914,7 +390263,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042296&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1340.jpg",
@@ -389981,7 +390330,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 115.49,
       "wasPrice": 238.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661689229&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -390026,7 +390375,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44426505320&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/o/tom-ford-unisex-myrrhe-mystere-edp-spray-17-oz-private-blend-888066150279.jpg",
@@ -390306,7 +390655,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44429021945&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/888066050685-tom-ford-oud-wood-edp-30-ml-1000x1000.jpg",
@@ -390586,7 +390935,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042306&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1373.jpg",
@@ -391862,7 +392211,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44691827435&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_voce_viva_intense_eau_de_parfum_30ml_spray_.jpg",
@@ -393053,7 +393402,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44311195008&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/1440.jpg",
@@ -393234,7 +393583,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44311195010&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3605521820891.jpg",
@@ -397205,7 +397554,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368434&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/a/c/acqua_di_parma_blu_mediterraneo_mandarino_di_sicilia_.png",
@@ -397220,7 +397569,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368440&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/a/c/acqua_di_parma_blu_mediterraneo_mandarino_di_sicilia__1.png",
@@ -397355,7 +397704,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368443&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/15294401-1335265777176730.jpg",
@@ -397505,7 +397854,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041643&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/l/club_bot_1.jpg",
@@ -397640,7 +397989,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041638&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/u/pura.jpg",
@@ -397715,7 +398064,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368669&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/l/blu_mediterraneo_mirto_di_panarea_.png",
@@ -397820,7 +398169,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234838&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8028713830143.jpg",
@@ -403493,7 +403842,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041647&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/f/e/fem200.jpg",
@@ -407880,7 +408229,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 22.49,
       "wasPrice": 40.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686114&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -407940,7 +408289,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 30.99,
       "wasPrice": 57.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686112&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -412932,7 +413281,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 49.99,
       "wasPrice": 93.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686224&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -413294,7 +413643,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/armaf-club-de-nuit-sillage-eau-de-parfum-105ml/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-20T20:35:08.074Z",
       "isNew": true,
       "imageUrl": null,
@@ -417350,7 +417699,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041666&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/_/1_1.jpg",
@@ -417395,7 +417744,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041665&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/10.jpg",
@@ -418698,7 +419047,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 24.99,
       "wasPrice": 69.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928973&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -419688,7 +420037,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 22.99,
       "wasPrice": 123.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928349&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -420440,7 +420789,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/after-swim-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -420635,7 +420984,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/brandy-cherry-gold-eau-de-parfum-85ml/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -420680,7 +421029,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2026-09-30T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/diplomat-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -420725,7 +421074,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2026-09-30T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/fiorum-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -420755,7 +421104,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2026-09-30T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/good-girl-killer-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -420785,7 +421134,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/habibti-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -420860,7 +421209,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/hulmi-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -420957,21 +421306,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
-  "perfumeo-l-atelier-pistache-brandy-designs-perfumes": [
-    {
-      "retailerId": "perfumeo",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": "2026-09-30T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://perfumeo.co.uk/products/l-atelier-pistache-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
-      "firstSeenAt": "2026-08-22T08:36:47.566Z",
-      "isNew": true,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
   "perfumeo-le-fleur-pablo-brandy-designs-perfumes": [
     {
       "retailerId": "perfumeo",
@@ -420980,7 +421314,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/le-fleur-pablo-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -420995,7 +421329,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2026-09-30T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/leonor-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -421055,7 +421389,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2026-09-30T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/magnus-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -421130,7 +421464,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/milly-feukx-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -421147,21 +421481,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/noche-en-paris-pour-homme-black-by-brandy-100ml-extrait-de-parfum/",
       "fetchedAt": "2026-08-21T16:24:54.470Z",
       "firstSeenAt": "2026-08-21T16:24:54.470Z",
-      "isNew": true,
-      "imageUrl": null,
-      "rating": null
-    }
-  ],
-  "perfumeo-noche-paris-pour-femme-brandy-designs-perfumes": [
-    {
-      "retailerId": "perfumeo",
-      "price": 29.99,
-      "wasPrice": null,
-      "promoEndsAt": "2026-09-30T00:00:00.000Z",
-      "stock": "inStock",
-      "url": "https://perfumeo.co.uk/products/noche-paris-pour-femme-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
-      "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
       "rating": null
@@ -421250,7 +421569,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2026-09-30T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/oud-for-excellence-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -421385,7 +421704,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2026-09-30T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/paradise-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -421415,7 +421734,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/pink-musc-black-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -421430,7 +421749,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/pink-musc-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -421445,7 +421764,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2026-09-30T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/qalbi-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -421520,7 +421839,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/sherry-s-angel-brandy-designs-perfumes/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -421550,7 +421869,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/brandy-sweet-peach-eau-de-parfum-85ml/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-22T08:36:47.566Z",
       "isNew": true,
       "imageUrl": null,
@@ -425336,7 +425655,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44191431875&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/burberry_goddess_100ml_parfum.jpg",
@@ -425411,7 +425730,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854349&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/f/c/fcbher.png",
@@ -425636,7 +425955,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041683&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/1/012.jpg",
@@ -425951,7 +426270,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041685&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/31.jpg",
@@ -426266,7 +426585,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041693&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/0/40.jpg",
@@ -426281,7 +426600,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041694&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/2/42.jpg",
@@ -426371,7 +426690,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041695&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/47.jpg",
@@ -426416,7 +426735,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041699&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/9/59.jpg",
@@ -426476,7 +426795,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45354039908&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/u/bulgari-man-wood-essence-150ml-edp-spray-p51784-89584_image.jpg",
@@ -426536,7 +426855,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041687&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/0/60_1.jpg",
@@ -426596,7 +426915,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041686&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/65.jpg",
@@ -426611,7 +426930,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041688&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/70.jpg",
@@ -426671,7 +426990,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041690&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/3/73_1.jpg",
@@ -426701,7 +427020,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041692&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/77.jpg",
@@ -426731,7 +427050,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041691&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/75.jpg",
@@ -426746,7 +427065,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041702&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/80.jpg",
@@ -427664,7 +427983,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041713&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/2/022.jpg",
@@ -427874,7 +428193,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234841&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/3/93.jpg",
@@ -427934,7 +428253,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041715&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/96.jpg",
@@ -428142,7 +428461,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 22.49,
       "wasPrice": 58.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928284&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -428309,7 +428628,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368641&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/104.jpg",
@@ -428420,7 +428739,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44683851082&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/e/defy-3616303442149-1217.png",
@@ -428543,7 +428862,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44478466388&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/8/088300605514.png",
@@ -429119,7 +429438,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041710&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/123.jpg",
@@ -429341,7 +429660,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854352&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_euphoria_100ml_eau_de_parfum.png",
@@ -429389,7 +429708,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45222048326&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_euphoria_bold_elixir_intense_parfum_100ml_spray.jpg",
@@ -429404,7 +429723,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368642&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/135.jpg",
@@ -429434,7 +429753,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45222048327&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/a/calvin_klein_euphoria_solar_elixir_intense_parfum_100ml_spray_.jpg",
@@ -429704,7 +430023,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44244259189&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/141.jpg",
@@ -430343,7 +430662,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041739&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/142_1.jpg",
@@ -430463,7 +430782,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45139538667&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/1/61zeqclalzl.jpg",
@@ -430661,7 +430980,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041742&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/150_1.jpg",
@@ -430721,7 +431040,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041744&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/5/154_1.jpg",
@@ -430736,7 +431055,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041740&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/4/146.jpg",
@@ -430796,7 +431115,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041747&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/162.jpg",
@@ -431354,7 +431673,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572465&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8411061122389.jpg",
@@ -431399,7 +431718,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44642628103&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1197821-carolina-herrera-good-girl-legere-eau-de-parfum-spray-50ml.jpg",
@@ -431444,7 +431763,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041735&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/8/182.jpg",
@@ -432404,7 +432723,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45072337617&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/204.jpg",
@@ -432644,7 +432963,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041754&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/3/032.jpg",
@@ -433334,7 +433653,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45307854233&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/200_1_1.jpg",
@@ -433544,7 +433863,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041755&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/1/210.jpg",
@@ -433799,7 +434118,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45203831824&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614220808840.png",
@@ -433829,7 +434148,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368675&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/h/chloe_chloe_le_parfum_100ml_refillable_spray_.jpg",
@@ -435194,7 +435513,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44785984938&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/3/037.jpg",
@@ -437222,7 +437541,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041768&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/235.jpg",
@@ -437715,7 +438034,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 8.69,
       "wasPrice": 17.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661686828&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -439320,7 +439639,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 41.99,
       "wasPrice": null,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157928639&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -440192,7 +440511,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44647976303&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/dior_forever_ever_eau_de_toilette_50ml_spray_.jpg",
@@ -440447,7 +440766,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041795&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/9/291_1.jpg",
@@ -440477,7 +440796,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44647976288&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/i/dior_joy_eau_de_parfum_50ml_spray_.jpg",
@@ -441797,7 +442116,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041804&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/0/306.jpg",
@@ -441932,7 +442251,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44642628105&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/5/053.jpg",
@@ -441992,7 +442311,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041809&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/315.jpg",
@@ -442187,7 +442506,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368645&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/319.jpg",
@@ -442457,7 +442776,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041813&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/320.jpg",
@@ -442532,7 +442851,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041816&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/310_2.jpg",
@@ -442562,7 +442881,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45747861852&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-24T02:58:02.208Z",
       "isNew": true,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/324.jpg",
@@ -442652,7 +442971,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041815&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/2/326.jpg",
@@ -442742,7 +443061,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45519036760&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8054754403510.jpg",
@@ -442757,7 +443076,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041818&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/063.jpg",
@@ -443207,7 +443526,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041841&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/066.jpg",
@@ -443267,7 +443586,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041838&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/334.jpg",
@@ -443312,7 +443631,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041839&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/0/005.jpg",
@@ -443357,7 +443676,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572484&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/o/dolce_gabbana_k_intense_.jpg",
@@ -443387,7 +443706,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041842&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/6/068.jpg",
@@ -443537,7 +443856,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041824&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/345_1.jpg",
@@ -443597,7 +443916,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041820&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/345.jpg",
@@ -443867,7 +444186,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041827&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/363.jpg",
@@ -443897,7 +444216,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041829&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/0/7/075.jpg",
@@ -444017,7 +444336,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041847&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/365.jpg",
@@ -444107,7 +444426,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041832&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/369.jpg",
@@ -444122,7 +444441,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041830&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/366.jpg",
@@ -444227,7 +444546,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041834&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/372.jpg",
@@ -444347,7 +444666,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041835&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/7/378.jpg",
@@ -444392,7 +444711,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045620&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/_/d_g_the_one_m_edt_150ml_.jpg",
@@ -444497,7 +444816,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041850&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/8/382.jpg",
@@ -446252,7 +446571,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041852&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/9/390.jpg",
@@ -447596,7 +447915,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44647976299&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/e/l/elizabeth_arden_white_tea_eau_de_toilette_100ml_spray_.jpg",
@@ -457274,7 +457593,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/fragrance-world-proud-of-you-absolute-eau-de-parfum-100ml/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-20T20:35:08.074Z",
       "isNew": true,
       "imageUrl": null,
@@ -457337,7 +457656,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/fragrance-world-proud-of-you-intense-eau-de-parfum-100ml/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-20T20:35:08.074Z",
       "isNew": true,
       "imageUrl": null,
@@ -464897,7 +465216,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44191431887&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/e/m/emporio_armani_stronger_with_you_only_eau_de_toilette_150ml_spray.jpg",
@@ -464957,7 +465276,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041886&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/103_1.jpg",
@@ -465122,7 +465441,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572471&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/giorgio_armani_si_150ml_eau_de_parfum_.jpg",
@@ -465287,7 +465606,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45077595766&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/5/450_1.jpg",
@@ -465902,7 +466221,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041888&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/6/462.jpg",
@@ -465992,7 +466311,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041890&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/6/466.jpg",
@@ -466007,7 +466326,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041889&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/6/463.jpg",
@@ -466217,7 +466536,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041905&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/7/473.jpg",
@@ -466247,7 +466566,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041908&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/487.jpg",
@@ -466352,7 +466671,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041906&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/8/480.jpg",
@@ -466412,7 +466731,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041910&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/491.jpg",
@@ -466532,7 +466851,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041914&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/9/494_2.jpg",
@@ -466892,7 +467211,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041899&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/255_1.jpg",
@@ -466907,7 +467226,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44260860880&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/4/1/4101129w_p.jpg",
@@ -466937,7 +467256,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45576608828&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-12T18:57:07.303Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/i/givenchy_l_interdit_absolu_80ml_eau_de_parfum_intense.jpg",
@@ -467012,7 +467331,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041902&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/1/511.jpg",
@@ -467822,7 +468141,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130172&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616307112338.png",
@@ -467867,7 +468186,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854356&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/a/gardenia_150mledp.jpg",
@@ -467897,7 +468216,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368676&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_flora_gorgeous_gardenia_intense_eau_de_parfum_30ml_spray_.jpg",
@@ -467912,7 +468231,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368677&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/u/gucci_flora_gorgeous_gardenia_intense_eau_de_parfum_50ml_spray.jpg",
@@ -467927,7 +468246,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44678355634&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305275745.png",
@@ -467942,7 +468261,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234868&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305838209.jpg",
@@ -467957,7 +468276,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44794234867&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616305278289.png",
@@ -467972,7 +468291,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854357&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/f/df2bdb4da05b6374e4d0d949da7629b109c61d89cd830d229081516b3573ceaa.jpeg",
@@ -468017,7 +468336,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44780657590&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/541.jpg",
@@ -468032,7 +468351,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041924&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/4/543.jpg",
@@ -468510,7 +468829,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 68.49,
       "wasPrice": 120.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43661687441&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -468767,7 +469086,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041938&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/6/563.jpg",
@@ -468797,7 +469116,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041950&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/o/rosa_1_1.jpg",
@@ -469157,7 +469476,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041944&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/o/mon_gs.jpg",
@@ -469247,7 +469566,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041947&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shal_edt.jpg",
@@ -469292,7 +469611,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041945&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shaliamr_gs.jpg",
@@ -472922,7 +473241,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45576608830&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-12T18:57:07.303Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/5/654.jpg",
@@ -472937,7 +473256,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041995&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/7/670.jpg",
@@ -473027,7 +473346,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089041990&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/8005610460598.jpg",
@@ -473312,7 +473631,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161243&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/8/683.jpg",
@@ -473942,7 +474261,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45519036764&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/3/737052006468_.jpg",
@@ -474347,7 +474666,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042006&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/0/705.jpg",
@@ -475230,7 +475549,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 197.99,
       "wasPrice": 234.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43174943003&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -475667,7 +475986,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672850&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/i/s/issey_miyake_.jpg",
@@ -476027,7 +476346,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572479&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/4/3423478501058.jpg",
@@ -476087,7 +476406,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716951914&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/e/le_sel.jpg",
@@ -476972,7 +477291,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042024&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/744.jpg",
@@ -477002,7 +477321,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042020&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/4/742.jpg",
@@ -477032,25 +477351,10 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042021&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/6/168_2.jpg",
-      "rating": null
-    }
-  ],
-  "ean-8435415081184": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 59.95,
-      "wasPrice": 106,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=44089042022&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
-      "firstSeenAt": "2026-08-04T07:59:20.292Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415081184.jpg",
       "rating": null
     }
   ],
@@ -477107,7 +477411,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572487&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/e/jean-paul-gaultier-ladies-divine-gift-set-fragrances-8435415112987.jpg",
@@ -477182,7 +477486,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042026&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/5/750.jpg",
@@ -477287,7 +477591,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45203831826&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415049542.jpg",
@@ -477302,7 +477606,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45237419615&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/e/jean_paul_gaultier_la_belle_rosea_eau_de_parfum_10ml_mini_bab.jpg",
@@ -477407,7 +477711,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45245914424&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/e/jean_paul_gaultier_le_beau_narcisse_eau_de_parfum_7ml_spray_.jpg",
@@ -477467,7 +477771,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042044&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/779.jpg",
@@ -477572,7 +477876,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042046&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/7/773.jpg",
@@ -477587,7 +477891,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042047&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/8/783.jpg",
@@ -477722,7 +478026,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042059&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/7/9/793_1.jpg",
@@ -477741,21 +478045,6 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T21:39:43.387Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1720088896-56853100.jpg?v=1763399409&width=1920",
-      "rating": null
-    }
-  ],
-  "ean-8435415006378": [
-    {
-      "retailerId": "fragrance-click",
-      "price": 60.95,
-      "wasPrice": 74,
-      "promoEndsAt": null,
-      "stock": "inStock",
-      "url": "https://www.awin1.com/pclick.php?p=45519036765&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
-      "firstSeenAt": "2026-08-10T23:22:35.325Z",
-      "isNew": false,
-      "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415006378_1.jpg",
       "rating": null
     }
   ],
@@ -477797,7 +478086,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572488&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/4/8435415098953_bab.jpg",
@@ -477812,7 +478101,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042061&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/0/804_1.jpg",
@@ -477962,7 +478251,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042064&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/815.jpg",
@@ -479252,7 +479541,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042077&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/5/854.jpg",
@@ -479282,7 +479571,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44751385646&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/1/218711.jpg",
@@ -479372,7 +479661,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042089&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/880.jpg",
@@ -479387,7 +479676,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042088&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/879.jpg",
@@ -479417,7 +479706,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042084&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/873.jpg",
@@ -479432,7 +479721,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042083&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/7/870.jpg",
@@ -479447,7 +479736,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716951906&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/882_1.jpg",
@@ -479612,7 +479901,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572480&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/jo_malone_blackberry_bay_100ml_eau_de_cologne.jpg",
@@ -479627,7 +479916,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042093&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/9/190_1.jpg",
@@ -479642,7 +479931,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716548422&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/6/9/690251057016_0.jpg",
@@ -479672,7 +479961,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042094&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/890.jpg",
@@ -479702,7 +479991,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042095&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/893.jpg",
@@ -479747,7 +480036,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716548404&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/2309599_cdetailimage01.jpg",
@@ -479762,7 +480051,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042091&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/897.jpg",
@@ -479777,7 +480066,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042092&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/9/899.jpg",
@@ -479792,7 +480081,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716548405&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/3/2360928_cdetailimage01.jpg",
@@ -479807,7 +480096,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716548403&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/jo_malone_mimosa_cardamom_eau_de_cologne_spray_100ml.png",
@@ -479837,7 +480126,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44716951907&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/0/900.jpg",
@@ -479852,7 +480141,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042099&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/9/196_1.jpg",
@@ -479912,7 +480201,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672842&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/j/o/jo_malone_scarlet_poppy_eau_de_cologne_intense_50ml.jpg",
@@ -479927,7 +480216,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042100&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/9/199.jpg",
@@ -479957,7 +480246,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042101&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/200_1_2.jpg",
@@ -479987,7 +480276,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44562735497&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/204_1.jpg",
@@ -480032,7 +480321,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042103&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/0/201_3_1.jpg",
@@ -480437,7 +480726,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042106&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614222398264.jpg",
@@ -482687,7 +482976,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042113&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/1/914.jpg",
@@ -482897,7 +483186,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45203831827&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/g/x/gxp-11638.jpg",
@@ -483107,7 +483396,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042114&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/1/916.jpg",
@@ -483242,7 +483531,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042115&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/1/918.jpg",
@@ -483782,7 +484071,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/khadlaj-cloud-candy-eau-de-parfum-100ml/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
@@ -483849,6 +484138,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-empire-regent-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/empire-regent-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15498607722845-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -483887,7 +484191,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "inStock",
       "url": "https://perfumeo.co.uk/products/khadlaj-empire-victor-eau-de-parfum-100ml/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
@@ -483947,7 +484251,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": "2027-12-31T00:00:00.000Z",
       "stock": "outOfStock",
       "url": "https://perfumeo.co.uk/products/khadlaj-fursan-white-eau-de-parfum-100ml/",
-      "fetchedAt": "2026-08-22T08:36:47.566Z",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
       "imageUrl": null,
@@ -483984,6 +484288,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-gaith-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 11.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/gaith-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "perfumeo-khadlaj-golden-musk-15ml": [
     {
       "retailerId": "perfumeo",
@@ -483994,6 +484313,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "url": "https://perfumeo.co.uk/products/khadlaj-golden-musk-perfume-oil-15ml/",
       "fetchedAt": "2026-08-22T08:36:47.566Z",
       "firstSeenAt": "2026-08-20T20:35:08.074Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "perfumeo-hareem-al-sultan-blue-oil-by-khadlaj-35ml-perfume-oil": [
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/hareem-al-sultan-blue-oil-by-khadlaj-35ml-perfume-oil/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
       "isNew": true,
       "imageUrl": null,
       "rating": null
@@ -484059,6 +484393,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-hareem-al-sultan-gold-oil-by-khadlaj-35ml-perfume-oil": [
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/hareem-al-sultan-gold-oil-by-khadlaj-35ml-perfume-oil/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15666710380893-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -484074,6 +484423,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-hareem-al-sultan-silver-oil-by-khadlaj-35ml-perfume-oil": [
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/hareem-al-sultan-silver-oil-by-khadlaj-35ml-perfume-oil/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15666707136861-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -484086,6 +484450,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Hareem-Sultan-Perfume-75ml-EDP-Khadlaj-178672122.png?v=1759541811",
+      "rating": null
+    }
+  ],
+  "perfumeo-hareem-sultan-by-khadlaj-75ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/hareem-sultan-by-khadlaj-75ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -484194,6 +484573,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-karus-amber-gold-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/karus-amber-gold-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "ean-6291107975856": [
     {
       "retailerId": "beautybase",
@@ -484221,6 +484615,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Karus-Blue-Spice-Perfume-100ml-EDP-Khadlaj-174005091.jpg?v=1752688589",
+      "rating": null
+    }
+  ],
+  "perfumeo-karus-blue-spice-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/karus-blue-spice-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -484284,6 +484693,36 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-karus-oud-fire-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/karus-oud-fire-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "perfumeo-karus-secret-musk-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/karus-secret-musk-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "fragrancehub-khadlajislandvanilla": [
     {
       "retailerId": "fragrancehub",
@@ -484314,6 +484753,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-la-fede-aura-crisp-flower-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/la-fede-aura-crisp-flower-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15498932650333-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -484329,6 +484783,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-la-fede-aura-kiss-of-rose-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/la-fede-aura-kiss-of-rose-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15498941956445-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -484341,6 +484810,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Fede-Aura-Manga-Splash-Perfume-100ml-EDP-Khadlaj-174012629.jpg?v=1752704921",
+      "rating": null
+    }
+  ],
+  "perfumeo-la-fede-aura-manga-splash-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/la-fede-aura-manga-splash-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -484419,6 +484903,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-la-fede-celeste-fleur-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/la-fede-celeste-fleur-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15498972103005-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -484449,6 +484948,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-la-fede-celeste-toffee-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/la-fede-celeste-toffee-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15498922492253-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -484461,6 +484975,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Fede-Choco-Brown-Perfume-100ml-EDP-Khadlaj-174010625.jpg?v=1752703649",
+      "rating": null
+    }
+  ],
+  "perfumeo-la-fede-choco-brown-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/la-fede-choco-brown-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -484509,6 +485038,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-la-fede-crystallia-imperio-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/la-fede-crystallia-imperio-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15666707431773-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -484521,6 +485065,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Fede-Crystallia-Primaso-Perfume-100ml-EDP-Khadlaj-178671362.png?v=1759541702",
+      "rating": null
+    }
+  ],
+  "perfumeo-la-fede-crystallia-primaso-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/la-fede-crystallia-primaso-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -484551,6 +485110,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Fede-Intoxicate-Blue-Elixir-Perfume-100ml-EDP-Khadlaj-178669994.png?v=1759539071",
+      "rating": null
+    }
+  ],
+  "perfumeo-la-fede-intoxicate-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/la-fede-intoxicate-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -484599,6 +485173,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-la-fede-symbol-of-love-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/la-fede-symbol-of-love-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15498959847773-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -484614,6 +485203,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-la-fede-symbol-of-power-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/la-fede-symbol-of-power-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15498923737437-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -484626,6 +485230,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/La-Fede-White-Forest-Strawberry-Perfume-100ml-EDP-Khadlaj-174011183.jpg?v=1752703785",
+      "rating": null
+    }
+  ],
+  "perfumeo-la-fede-white-forest-strawberry-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 13.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/la-fede-white-forest-strawberry-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -484659,6 +485278,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-le-prestige-empress-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/le-prestige-empress-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15666706907485-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -484671,6 +485305,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Le-Prestige-King-Perfume-100ml-EDP-Khadlaj-178673583.png?v=1759541991",
+      "rating": null
+    }
+  ],
+  "perfumeo-le-prestige-king-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/le-prestige-king-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -484719,6 +485368,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-maison-lor-noir-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 26.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/maison-lor-noir-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "ean-6291107979328": [
     {
       "retailerId": "beautybase",
@@ -484731,6 +485395,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-10T09:18:28.839Z",
       "isNew": false,
       "imageUrl": "https://www.beautybase.com/cdn/shop/files/1753961808-28003900.jpg?v=1763398627&width=1920",
+      "rating": null
+    }
+  ],
+  "perfumeo-mocha-latte-by-khadlaj-100ml-extrait-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/mocha-latte-by-khadlaj-100ml-extrait-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -484791,6 +485470,36 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Musk-Pour-Narcis-Perfume-100ml-EDP-Khadlaj-178674890.png?v=1759542385",
+      "rating": null
+    }
+  ],
+  "perfumeo-nafais-magrib-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/nafais-magrib-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "perfumeo-nafais-sharq-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 28.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/nafais-sharq-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -484884,6 +485593,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-oud-pour-klassik-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 33.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/oud-pour-klassik-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15890717802845-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -484947,6 +485671,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-peach-velvet-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/peach-velvet-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15666706776413-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -484989,6 +485728,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Rasayel-Shagaf-Perfume-100ml-EDP-Khadlaj-178675813.png?v=1759542557",
+      "rating": null
+    }
+  ],
+  "perfumeo-rasayel-shagaf-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/rasayel-shagaf-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -485052,6 +485806,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-sawaar-vanille-blanc-by-khadlaj-100ml-extrait-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 33.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/sawaar-vanille-blanc-by-khadlaj-100ml-extrait-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15666707104093-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -485064,6 +485833,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Sensuos-Night-Perfume-100ml-EDP-Khadlaj-178676249.png?v=1759542596",
+      "rating": null
+    }
+  ],
+  "perfumeo-sensuos-night-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/sensuos-night-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -485082,6 +485866,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-shiyaaka-blue-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/shiyaaka-blue-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15498683023709-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -485094,6 +485893,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Shiyaaka-Gold-Perfume-100ml-EDP-Khadlaj-174004410.jpg?v=1752687605",
+      "rating": null
+    }
+  ],
+  "perfumeo-shiyaaka-gold-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/shiyaaka-gold-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -485175,6 +485989,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-shiyaaka-white-rose-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/shiyaaka-white-rose-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15777872773469-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -485190,6 +486019,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-strawberry-shake-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 18.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/strawberry-shake-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "fragrancehub-9895757414729-default-title": [
     {
       "retailerId": "fragrancehub",
@@ -485201,6 +486045,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "fetchedAt": "2026-08-20T12:29:13.346Z",
       "firstSeenAt": "2026-08-20T12:29:13.346Z",
       "isNew": false,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "perfumeo-titan-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/titan-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
       "imageUrl": null,
       "rating": null
     }
@@ -485220,6 +486079,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-valor-chivalry-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/valor-chivalry-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15668412383581-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -485232,6 +486106,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Valor-Enigma-Perfume-100ml-EDP-Khadlaj-178677428.png?v=1759543471",
+      "rating": null
+    }
+  ],
+  "perfumeo-valor-enigma-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/valor-enigma-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -485250,6 +486139,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "perfumeo-valor-honor-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/valor-honor-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
+      "rating": null
+    }
+  ],
   "emirates-oud-15666707038557-default-title": [
     {
       "retailerId": "emirates-oud",
@@ -485262,6 +486166,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-11T16:50:39.271Z",
       "isNew": false,
       "imageUrl": "https://cdn.shopify.com/s/files/1/0798/6898/5693/files/Valor-Mystique-Perfume-100ml-EDP-Khadlaj-178676856.png?v=1759542677",
+      "rating": null
+    }
+  ],
+  "perfumeo-valor-mystique-by-khadlaj-100ml-eau-de-parfum": [
+    {
+      "retailerId": "perfumeo",
+      "price": 23.99,
+      "wasPrice": null,
+      "promoEndsAt": "2027-12-31T00:00:00.000Z",
+      "stock": "inStock",
+      "url": "https://perfumeo.co.uk/products/valor-mystique-by-khadlaj-100ml-eau-de-parfum/",
+      "fetchedAt": "2026-08-24T06:42:40.717Z",
+      "firstSeenAt": "2026-08-24T06:42:40.717Z",
+      "isNew": true,
+      "imageUrl": null,
       "rating": null
     }
   ],
@@ -487088,7 +488007,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45072337645&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/l/a/lacoste_touch_of_pink_eau_de_toilette_50ml_spray.jpg",
@@ -487103,7 +488022,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042117&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/2/924.jpg",
@@ -487943,7 +488862,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042120&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/944.jpg",
@@ -488273,7 +489192,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042122&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/4/947.jpg",
@@ -488303,7 +489222,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042123&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/5/950.jpg",
@@ -488318,7 +489237,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042124&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/5/953.jpg",
@@ -488438,7 +489357,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042129&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/964.jpg",
@@ -488453,7 +489372,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042128&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/9/6/961.jpg",
@@ -493902,7 +494821,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "price": 37.49,
       "wasPrice": 68.99,
       "promoEndsAt": null,
-      "stock": "inStock",
+      "stock": "outOfStock",
       "url": "https://www.awin1.com/pclick.php?p=43157929545&a=3026001&m=106925",
       "fetchedAt": "2026-08-23T20:15:11.474Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
@@ -503060,7 +503979,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44415357269&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/1/8147329_r_set.jpeg",
@@ -503360,7 +504279,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042144&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1000.jpg",
@@ -503435,7 +504354,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45222048324&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/m/a/marc_jacobs_daisy_wild_eau_so_extra_eau_de_parfum_100ml_spray_.jpg",
@@ -503660,7 +504579,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854369&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616306098343-9.jpg",
@@ -503705,7 +504624,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572493&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3616304105036_bab.jpg",
@@ -507503,7 +508422,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042166&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1052.jpg",
@@ -507758,7 +508677,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042159&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1016.jpg",
@@ -507773,7 +508692,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45598782469&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-14T20:33:18.323Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3386460139311_.jpg",
@@ -507803,7 +508722,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368661&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1021.jpg",
@@ -508463,7 +509382,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042179&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1081.jpg",
@@ -508523,7 +509442,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042174&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1071.jpg",
@@ -508628,7 +509547,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042173&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1070.jpg",
@@ -508673,7 +509592,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042187&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/0/1093_1.jpg",
@@ -509993,7 +510912,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368674&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_for_her_gift_set-3423222121754-2_1_1.png",
@@ -510203,7 +511122,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572500&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/n/a/narciso_rodriguez_narciso_pure_musc_100ml_eau_de_parfum_.jpg",
@@ -512318,7 +513237,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44187409690&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370304388_1.jpg",
@@ -512438,7 +513357,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45307854756&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/1/3137370183914.png",
@@ -514523,7 +515442,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042213&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/o/s/oscar_de_la_renta_oscar_200ml_eau_de_toilette_.jpg",
@@ -514598,7 +515517,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042212&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/2/5/256_1.jpg",
@@ -514874,7 +515793,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44423368453&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paloma-picasso-eau-de-parfum.jpg",
@@ -521054,7 +521973,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44734790671&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada_infusion_de_vetiver_eau_de_parfum_100ml_spray_.jpg",
@@ -521174,7 +522093,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44375609591&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/h/shop-pf-00780-03-luna-rossa-edt---150ml--1.jpg",
@@ -521264,7 +522183,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572509&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/r/prada-mens-luna-rossa-ocean-gift-set-fragrances-3660732649839.jpg",
@@ -521324,7 +522243,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45201368664&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/6/3614273544962.png",
@@ -522269,7 +523188,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042242&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1153.jpg",
@@ -522359,7 +523278,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572507&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668625284_bab.jpg",
@@ -522464,7 +523383,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042247&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1164.jpg",
@@ -522479,7 +523398,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042240&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/1/1148.jpg",
@@ -522554,7 +523473,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44265156140&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349666005330.jpg",
@@ -522614,7 +523533,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44260860903&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/d/4/d417935b-548b-52c2-9f9c-6c53bda68760.jpg",
@@ -522719,7 +523638,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854361&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/-/s-l1200_1.png",
@@ -522944,7 +523863,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572508&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_invictus_200ml_eau_de_toilette_.jpg",
@@ -523004,7 +523923,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042249&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco-rabanne-invictus-edt-spray-100-ml-mini-20-ml-ts.jpg",
@@ -523071,6 +523990,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "rating": null
     }
   ],
+  "ean-3349668614530": [
+    {
+      "retailerId": "perfume-click",
+      "price": 112.9,
+      "wasPrice": 155,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.awin1.com/pclick.php?p=44641644806&a=3026001&m=6561",
+      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "firstSeenAt": "2026-08-14T14:46:16.059Z",
+      "isNew": false,
+      "imageUrl": "https://bgstatic.net/photos/184620_ml.jpg",
+      "rating": null
+    }
+  ],
   "the-beauty-store-uk-tbsukdk2-34515": [
     {
       "retailerId": "the-beauty-store-uk",
@@ -523083,6 +524017,21 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "firstSeenAt": "2026-08-19T18:31:44.382Z",
       "isNew": false,
       "imageUrl": null,
+      "rating": null
+    }
+  ],
+  "justmylook-pac0086": [
+    {
+      "retailerId": "justmylook",
+      "price": 107.5,
+      "wasPrice": null,
+      "promoEndsAt": null,
+      "stock": "inStock",
+      "url": "https://www.justmylook.com/products/paco-rabanne-invictus-victory-elixir-parfum-intense-200ml",
+      "fetchedAt": "2026-08-23T22:22:59.699Z",
+      "firstSeenAt": "2026-08-07T22:32:57.561Z",
+      "isNew": false,
+      "imageUrl": "https://www.justmylook.com/cdn/shop/files/PAC0086.png?v=1766583603&width=1000",
       "rating": null
     }
   ],
@@ -523184,7 +524133,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44475854362&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668508471.png",
@@ -523319,7 +524268,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572505&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668628537.jpg",
@@ -523364,7 +524313,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572506&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668623624_bab.jpg",
@@ -523439,7 +524388,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042254&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1200_1.jpg",
@@ -523469,7 +524418,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042227&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1208.jpg",
@@ -523574,7 +524523,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45519036771&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/3/3/3349668565856.jpg",
@@ -524024,7 +524973,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042236&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/2/1220.jpg",
@@ -524219,7 +525168,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45239338235&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/p/a/paco_rabanne_phantom_parfum_100ml_spray_3pc_set_bab.jpg",
@@ -524444,7 +525393,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45210130168&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/5/2/5233985.jpg",
@@ -524729,7 +525678,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572510&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/r/a/ralph_lauren_polo_big_pony_2_100ml_eau_de_toilette.jpg",
@@ -525164,7 +526113,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45353161252&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/c/m/cmmxy3ksv02ht80n46ssfxgai-46d6787c-19b2-4213-9005-35297cfc8b21.jpg",
@@ -533090,7 +534039,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042286&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1312.jpg",
@@ -533210,7 +534159,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572511&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/a/salvatore_ferragamo_signorina_misteriosa_100ml_eau_de_parfum.jpg",
@@ -534845,7 +535794,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042288&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1319.jpg",
@@ -535535,7 +536484,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44699145080&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/o/sol_de_janeiro_cheirosa_62_perfume_mist_240ml__1.jpg",
@@ -535550,7 +536499,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44569045646&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/s/o/sol_de_janeiro_cheirosa_62_perfume_mist_240ml_.jpg",
@@ -538925,7 +539874,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572512&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/i/tiffany_co_tiffany_75ml_eau_de_parfum.jpg",
@@ -539675,7 +540624,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44204672853&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/b/o/bois_marocain.jpg",
@@ -539690,7 +540639,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042295&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1334.jpg",
@@ -539795,7 +540744,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=45519036773&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-10T23:22:35.325Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/8/8/888066117470.jpg",
@@ -539855,7 +540804,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042299&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1350.jpg",
@@ -539945,7 +540894,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042300&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/t/o/tom_ford_fabulous_100ml_eau_de_parfum.jpg",
@@ -540560,7 +541509,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44089042307&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/1/3/1378.jpg",
@@ -545579,7 +546528,7 @@ export const CRAWLED: Record<string, CrawledOffer[]> = {
       "promoEndsAt": null,
       "stock": "inStock",
       "url": "https://www.awin1.com/pclick.php?p=44105572514&a=3026001&m=124166",
-      "fetchedAt": "2026-08-24T02:58:02.208Z",
+      "fetchedAt": "2026-08-24T08:40:30.835Z",
       "firstSeenAt": "2026-08-04T07:59:20.292Z",
       "isNew": false,
       "imageUrl": "https://www.fragranceclick.co.uk/media/catalog/product/v/a/valentino_donna_100ml_eau_de_parfum.jpg",
@@ -587229,7 +588178,7 @@ const HOUSE_PRODUCTS_CHUNK_5: HouseProduct[] = [
 export const HOUSE_PRODUCTS: HouseProduct[] = [...HOUSE_PRODUCTS_CHUNK_0, ...HOUSE_PRODUCTS_CHUNK_1, ...HOUSE_PRODUCTS_CHUNK_2, ...HOUSE_PRODUCTS_CHUNK_3, ...HOUSE_PRODUCTS_CHUNK_4, ...HOUSE_PRODUCTS_CHUNK_5];
 
 /** When the harvest that produced this data ran. */
-export const CRAWLED_AT = "2026-08-24T06:42:40.717Z";
+export const CRAWLED_AT = "2026-08-24T08:40:30.835Z";
 
 /** How many shops the data came from. */
 export const SHOP_COUNT = 34;
