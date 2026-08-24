@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-24T04:14:21.827Z",
+  "checkedAt": "2026-08-24T05:47:21.837Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -559,7 +559,7 @@
       "errors": [
         "storefront currency could not be established — no sterling price recorded",
         "https://www.lancome.co.uk/products.json?limit=250&page=1: HTTP 403",
-        "https://www.lancome.co.uk/sitemap_0.xml: HTTP 0 TypeError: fetch failed (AggregateError)",
+        "https://www.lancome.co.uk/sitemap_0.xml: HTTP 403",
         "https://www.lancome.ie/sitemap_0.xml: HTTP 403"
       ],
       "blockers": [
