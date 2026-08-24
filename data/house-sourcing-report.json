@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-08-24T13:45:26.737Z",
+  "checkedAt": "2026-08-24T15:51:15.867Z",
   "outcomes": [
     {
       "houseId": "rasasi",
@@ -59,12 +59,11 @@
       "origin": "https://www.pairfum.com",
       "routeUsed": "sitemap-jsonld",
       "currency": null,
-      "listings": 52,
+      "listings": 60,
       "pricedInGbp": 0,
       "withPhoto": 0,
       "errors": [
-        "storefront currency could not be established — no sterling price recorded",
-        "stopped early: exceeded this house's time budget"
+        "storefront currency could not be established — no sterling price recorded"
       ],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -193,9 +192,9 @@
       "origin": "https://pariscorner.ae",
       "routeUsed": "sitemap-jsonld",
       "currency": "AED",
-      "listings": 108,
-      "pricedInGbp": 108,
-      "withPhoto": 108,
+      "listings": 110,
+      "pricedInGbp": 110,
+      "withPhoto": 110,
       "errors": [
         "stopped early: exceeded this house's time budget"
       ],
@@ -468,9 +467,9 @@
       "origin": "https://bdkparfums.com",
       "routeUsed": "shopify-products-json",
       "currency": "EUR",
-      "listings": 143,
+      "listings": 152,
       "pricedInGbp": 0,
-      "withPhoto": 143,
+      "withPhoto": 152,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
@@ -484,9 +483,9 @@
       "origin": "https://soldejaneiro.com",
       "routeUsed": "shopify-products-json",
       "currency": "USD",
-      "listings": 671,
+      "listings": 670,
       "pricedInGbp": 0,
-      "withPhoto": 671,
+      "withPhoto": 670,
       "errors": [],
       "blockers": [
         "storefront currency and UK delivery terms not yet established",
