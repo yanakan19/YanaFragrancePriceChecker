@@ -68,31 +68,111 @@ import type { Browser } from 'playwright';
 export const MAX_LOCAL_RENDER_PAGES_PER_RUN = 12;
 
 /**
- * Wall-clock ceiling on rendering, across the whole run.
+ * Time spent rendering, across the whole run.
  *
- * A page count alone was the wrong unit here, and run #328 showed why: the
- * sitemap harvest hit its own 60-minute cap on that run ("Note an incomplete
- * harvest" fired), which it does routinely. Every second this tier spends is a
- * second taken from shops that were producing listings, so the tier has to be
- * bounded in the unit that is actually scarce.
+ * ── What the previous version of this number got wrong, twice ───────────────
+ * It was 4 minutes and it was measured as wall clock *since the first render
+ * call*, not as time actually spent rendering. Both halves were wrong, and
+ * run #330 (job 97881335331, harvest report committed as 2cd38bf) shows the
+ * cost: John Lewis, Selfridges, Superdrug and The Perfume Shop each came back
+ * with `HTTP 0, 0 bytes, local render time budget of 240s exhausted for this
+ * run` on every one of their section URLs. Eleven section pages, all refused,
+ * nothing rendered.
  *
- * Four minutes is a small enough slice of a 60-minute step to be affordable
- * even on a run that truncates, and at 5-15 seconds a page it still covers the
- * dozen pages the five render-dependent shops configure between them. When it
- * runs out, the remaining URLs are refused the same way a spent page budget
- * refuses them: reported, never silently skipped.
+ * The four shops that did get to render between them managed nine pages —
+ * Notino 4, Boots 1, The Fragrance Shop 3, Harvey Nichols 1 — and the report's
+ * own per-shop timestamps put those four shops at 103.5s, 32.0s, 97.4s and
+ * 3.8s of wall clock, 236.7s in total. Almost all of that was their sitemap
+ * walks, robots probes and timeouts, not rendering at all. A budget measured
+ * as "elapsed since the first render" was therefore being spent by work this
+ * module never did.
+ *
+ * ── The per-page cost, measured ─────────────────────────────────────────────
+ * Measured in this sandbox against a local HTTP server at 120ms of simulated
+ * per-response latency, serving a 697KB catalogue page carrying 2,500 products
+ * and 2,500 images (scratch script, not committed; Chromium
+ * chromium-1194/chrome-linux/chrome, the same build CI installs):
+ *
+ *   strategy                                    plain    lazy-painted  never-idle
+ *   domcontentloaded + networkidle(30s) + 1.5s  32.3s      2.5s          32.7s
+ *   domcontentloaded + networkidle(8s)  + 1.5s  10.4s      2.4s          10.3s
+ *   domcontentloaded + networkidle(5s)  + 1.5s   7.3s      2.4s           7.4s
+ *   load             +                    1.5s  31.7s      2.2s          31.7s
+ *   domcontentloaded +                    1.5s   2.6s      2.1s           2.7s
+ *
+ * `networkidle` waits for 500ms with no connections in flight. A catalogue
+ * page with hundreds of images and any kind of beacon does not reach that
+ * state at all, so the wait ran to its full 30-second timeout on two of the
+ * three page shapes — 12 pages of that is 384s, which a 240s budget could
+ * never have covered even if nothing else had been spending it. That is the
+ * whole of the "far more per page than I assumed" in one number.
+ *
+ * Chromium launch measured at 976ms cold and 331ms warm on the same runs, so
+ * the one-browser-per-run decision this module already made is right and is
+ * not what was expensive.
+ *
+ * ── The budget now ──────────────────────────────────────────────────────────
+ * Six minutes of *rendering*, accumulated across the run, alongside the
+ * unchanged 12-page cap and the new per-shop slice below. It is deliberately
+ * still bounded: at the ceiling one page can cost (30s goto timeout + 5s idle
+ * cap + 1.5s settle ≈ 36.5s) the page cap alone is 7.3 minutes of worst-case
+ * work, so a time bound is what stops a run where every render-dependent shop
+ * hangs. On the measured cost of a page that answers, 12 pages is about 90
+ * seconds and this never binds.
+ *
+ * Not measurable from here: what any of this costs against a real retailer
+ * over a real network. Every figure above is a local server on loopback with
+ * latency simulated by a timer. CI settles the real one.
  */
-export const MAX_LOCAL_RENDER_MS_PER_RUN = 4 * 60_000;
+export const MAX_LOCAL_RENDER_MS_PER_RUN = 6 * 60_000;
+
+/**
+ * Time spent rendering for any one shop.
+ *
+ * The per-run budget alone let the first shops asked spend all of it, which is
+ * exactly what run #330 did: Notino, Boots, The Fragrance Shop and Harvey
+ * Nichols rendered, and the four shops behind them in the sweep were refused
+ * every URL. A budget that only bounds the total silently makes the sweep
+ * order into a priority order, which nobody chose and nothing states.
+ *
+ * `render()` is called once per shop with that shop's section URLs, so one
+ * call is one shop's slice. Two minutes covers the four sections the busiest
+ * shop configures even if three of the four go all the way to their timeouts,
+ * and is about 16x the measured cost of four pages that answer.
+ *
+ * A shop whose robots.txt has to be rendered gets a second call and so a
+ * second slice. That is one extra tiny page, and worth less than the
+ * complexity of tracking slices per retailer id in a module that is handed
+ * URLs rather than shops.
+ */
+export const MAX_LOCAL_RENDER_MS_PER_SHOP = 2 * 60_000;
 
 /** How long one page gets to load before it is abandoned. */
 const PAGE_TIMEOUT_MS = 30_000;
 
 /**
- * Extra settle time after the network goes quiet.
+ * How long to keep waiting for the network to go quiet before giving up on it.
+ *
+ * Was PAGE_TIMEOUT_MS, i.e. 30 seconds, which is what made a page cost 32s
+ * instead of 7s — see the measurement table above. A catalogue page with
+ * hundreds of images or a single open beacon never reaches `networkidle` at
+ * all, so on those pages this wait always runs to its full length and buys
+ * nothing; the only pages it helps are the ones that go quiet, and those go
+ * quiet in well under a second (measured: 0.8-0.9s).
+ *
+ * Five seconds keeps that help — a grid that arrives by XHR a few seconds
+ * after DOMContentLoaded is still caught — while capping what a page that will
+ * never go quiet can cost.
+ */
+const NETWORK_IDLE_TIMEOUT_MS = 5_000;
+
+/**
+ * Extra settle time after the network goes quiet, or after we stop waiting.
  *
  * A grid painted by JavaScript is often one frame behind the last response.
- * `networkidle` plus a short fixed wait is what actually produces markup with
- * the products in it, rather than the skeleton that was there a moment before.
+ * Measured against the local server above, a grid painted 700ms after load is
+ * captured in full by this wait alone, with `networkidle` contributing
+ * nothing: `domcontentloaded` + 1.5s returned all 2,500 products.
  */
 const SETTLE_MS = 1_500;
 
@@ -112,8 +192,15 @@ const RENDER_USER_AGENT =
 export interface LocalBrowserOptions {
   /** Pages this run may render. Defaults to MAX_LOCAL_RENDER_PAGES_PER_RUN. */
   maxTotalPages?: number;
-  /** Wall-clock this run may spend rendering. Defaults to MAX_LOCAL_RENDER_MS_PER_RUN. */
+  /**
+   * Time this run may spend rendering, summed over the pages it renders.
+   *
+   * Deliberately not wall clock since the first call — see
+   * MAX_LOCAL_RENDER_MS_PER_RUN. Defaults to it.
+   */
   maxTotalMs?: number;
+  /** Time any one render() call — i.e. any one shop — may spend. Defaults to MAX_LOCAL_RENDER_MS_PER_SHOP. */
+  maxShopMs?: number;
   /** Minimum delay between two page loads, ms. The caller's politeness gap. */
   gapMs?: number;
   /**
@@ -127,6 +214,8 @@ export interface LocalBrowserOptions {
 export interface LocalRenderer {
   render: (urls: string[]) => Promise<Map<string, HttpResponse>>;
   used: () => number;
+  /** Milliseconds actually spent rendering so far. Named in the end-of-run log. */
+  spentMs: () => number;
   /** Close the browser. Safe to call more than once, and when nothing opened. */
   dispose: () => Promise<void>;
 }
@@ -142,11 +231,18 @@ const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRenderer {
   const maxTotalPages = options.maxTotalPages ?? MAX_LOCAL_RENDER_PAGES_PER_RUN;
   const maxTotalMs = options.maxTotalMs ?? MAX_LOCAL_RENDER_MS_PER_RUN;
+  const maxShopMs = options.maxShopMs ?? MAX_LOCAL_RENDER_MS_PER_SHOP;
   const gapMs = options.gapMs ?? 1_000;
 
   let used = 0;
-  /** Set on the first render call, so a run that never renders starts no clock. */
-  let startedAt: number | null = null;
+  /**
+   * Milliseconds spent inside this module, summed over the pages it rendered.
+   *
+   * Not "now minus the first call": between two render() calls the harvest is
+   * off walking another shop's sitemap, and charging that to this tier is what
+   * spent the whole budget on four shops in run #330.
+   */
+  let spentMs = 0;
   let browser: Browser | null = null;
   /** Set when launching failed, so a broken environment is reported once per URL rather than retried per URL. */
   let launchError: string | null = null;
@@ -202,6 +298,7 @@ export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRe
 
   return {
     used: () => used,
+    spentMs: () => spentMs,
 
     dispose: async () => {
       if (!browser) return;
@@ -215,8 +312,11 @@ export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRe
 
     render: async (urls: string[]): Promise<Map<string, HttpResponse>> => {
       const results = new Map<string, HttpResponse>();
-      if (startedAt === null) startedAt = Date.now();
-      const outOfTime = Date.now() - startedAt >= maxTotalMs;
+      /** Spent by this call — i.e. by this shop. Separate from the run's total. */
+      let shopMs = 0;
+      const runTimeGone = () => spentMs >= maxTotalMs;
+      const shopTimeGone = () => shopMs >= maxShopMs;
+      const outOfTime = runTimeGone();
       const remaining = outOfTime ? 0 : maxTotalPages - used;
 
       if (remaining <= 0) {
@@ -226,7 +326,7 @@ export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRe
             body: '',
             ok: false,
             error: outOfTime
-              ? `local render time budget of ${Math.round(maxTotalMs / 1000)}s exhausted for this run`
+              ? `local render time budget of ${Math.round(maxTotalMs / 1000)}s of rendering exhausted for this run`
               : `local render budget of ${maxTotalPages} pages exhausted for this run`,
           });
         }
@@ -268,22 +368,28 @@ export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRe
       try {
         for (let i = 0; i < capped.length; i++) {
           const url = capped[i]!;
-          if (Date.now() - startedAt >= maxTotalMs) {
+          if (runTimeGone() || shopTimeGone()) {
             // Mid-batch exhaustion. Every URL not reached is reported, never
             // silently dropped: a shop that was skipped for time and a shop
             // that genuinely returned nothing must not look the same.
+            //
+            // Which budget ran out is named, because they mean different
+            // things: the shop's slice says this shop is slow, the run's says
+            // the tier as a whole is spent and every shop behind this one will
+            // be refused too.
+            const reason = runTimeGone()
+              ? `local render time budget of ${Math.round(maxTotalMs / 1000)}s of rendering exhausted for this run`
+              : `this shop's ${Math.round(maxShopMs / 1000)}s render slice exhausted`;
             for (const rest of capped.slice(i)) {
-              results.set(rest, {
-                status: 0,
-                body: '',
-                ok: false,
-                error: `local render time budget of ${Math.round(maxTotalMs / 1000)}s exhausted for this run`,
-              });
+              results.set(rest, { status: 0, body: '', ok: false, error: reason });
             }
             break;
           }
           if (i > 0) await sleep(gapMs);
 
+          // Charged from here, so the politeness gap and the page teardown are
+          // counted as well: they are time the harvest pays for this tier.
+          const pageStartedAt = Date.now();
           const page = await context.newPage();
           try {
             const response = await page.goto(url, {
@@ -291,10 +397,12 @@ export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRe
               timeout: PAGE_TIMEOUT_MS,
             });
 
-            // Best effort: a page that never goes idle (a poller, an ad
-            // carousel) still has its markup read rather than being discarded.
+            // Best effort, and bounded: a page that never goes idle (hundreds
+            // of images, a beacon, an ad carousel) still has its markup read
+            // rather than being discarded, and costs NETWORK_IDLE_TIMEOUT_MS
+            // rather than a full page timeout to find that out.
             await page
-              .waitForLoadState('networkidle', { timeout: PAGE_TIMEOUT_MS })
+              .waitForLoadState('networkidle', { timeout: NETWORK_IDLE_TIMEOUT_MS })
               .catch(() => undefined);
             await sleep(SETTLE_MS);
 
@@ -324,6 +432,9 @@ export function localBrowserRenderer(options: LocalBrowserOptions = {}): LocalRe
             used++;
           } finally {
             await page.close().catch(() => undefined);
+            const cost = Date.now() - pageStartedAt;
+            spentMs += cost;
+            shopMs += cost;
           }
         }
       } finally {
