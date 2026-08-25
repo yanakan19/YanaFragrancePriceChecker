@@ -221,6 +221,27 @@ jobs:
 
       - run: npm ci
 
+      # Chromium for the local render tier — the free replacement for the Apify
+      # actor, see src/catalogue/localBrowser.ts. Playwright was already a
+      # dependency (scripts/generate-og-preview.ts drives it for the site's own
+      # preview image); this installs the browser binary it needs, which the
+      # runner does not ship.
+      #
+      # --with-deps because a bare ubuntu runner is missing several shared
+      # libraries Chromium links against, and --only-shell because nothing here
+      # needs a headed browser. Roughly a minute, cached between runs by the
+      # setup-node npm cache above only for the npm half — the browser download
+      # is its own ~120 MB and is not cached, which is the price of the tier
+      # and still cheaper than the alternative it replaces.
+      #
+      # continue-on-error: a runner that cannot install a browser should lose
+      # the render tier, not the harvest. localBrowser.ts reports an
+      # unavailable browser per URL rather than throwing, so the run degrades
+      # to the free routes exactly as it did before this tier existed.
+      - name: Install Chromium for the local render tier
+        continue-on-error: true
+        run: npx playwright install --with-deps --only-shell chromium
+
       # The crawl must not ship if the reconciliation logic is broken. A bad
       # diff here corrupts firstSeenAt for every listing, and that cannot be
       # recovered from a later run: the NEW badge would be wrong for a week.
