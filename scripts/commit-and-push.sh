@@ -132,6 +132,17 @@ is_raw_snapshot() {
     data/price-verification-report.json|data/storefront-reprice-report.json) return 0 ;;
     data/shipping-discover-marker.txt|data/shipping-discover-state.json) return 0 ;;
     data/feed-sync-marker.txt|data/deals-refresh-marker.txt) return 0 ;;
+    # The harvest's own three, and they were missing. Every one of them is
+    # passed to this script by catalogue-daily.yml's "Commit harvested prices",
+    # every one of them is rewritten by every scheduled harvest, and so every
+    # one of them conflicts the moment two runs overlap — which is what the
+    # retry loop below exists for. Landing in the "neither generated nor a raw
+    # snapshot" branch means refusing to push a harvest that has already
+    # happened, over a bookkeeping file. Same category as the markers above:
+    # machine-written, never hand-edited, and the incoming side is as valid as
+    # ours.
+    data/harvest-report.json|data/harvest-cursor.json) return 0 ;;
+    data/metered-harvest-marker.txt) return 0 ;;
     demo/deals.generated.ts) return 0 ;;
     *) return 1 ;;
   esac

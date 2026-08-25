@@ -43,11 +43,12 @@
  * yielding nothing, whichever tier was tried.
  */
 import { resolve, dirname } from 'node:path';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { RETAILERS } from '../src/config/retailers.js';
 import { CatalogueStore } from '../src/catalogue/store.js';
 import { reconcile } from '../src/catalogue/reconcile.js';
-import { crawlViaSitemap, type SitemapCrawlResult } from '../src/catalogue/sitemapCrawl.js';
+import { crawlViaSitemap, DEFAULT_CRAWL_MS, type SitemapCrawlResult } from '../src/catalogue/sitemapCrawl.js';
 import { crawlViaShopifyProducts } from '../src/catalogue/shopifyProductsCrawl.js';
 import { quarantinePrices } from '../src/catalogue/priceQuarantine.js';
 import { BROWSER_HEADERS, BOT_HEADERS, type Http } from '../src/catalogue/attempt.js';
@@ -76,6 +77,16 @@ import { harvestReportWriter, type HarvestTier } from '../src/catalogue/harvestR
 import {
   renderRefusals, type RenderRefusal, type RenderedPage,
 } from '../src/catalogue/renderRefusal.js';
+import { parseCursor, sweepOrder, withAttempt } from '../src/catalogue/harvestCursor.js';
+
+/** A file that may not exist yet, as text. Absence is not an error here. */
+function readFileIfPresent(path: string): string | null {
+  try {
+    return readFileSync(path, 'utf8');
+  } catch {
+    return null;
+  }
+}
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -122,6 +133,55 @@ const shopMinutes = arg('shop-minutes') ? Number.parseFloat(arg('shop-minutes')!
 // faster than the sweep can come back to them.
 const refreshShare = arg('refresh-share') ? Number.parseFloat(arg('refresh-share')!) : null;
 
+/**
+ * Wall clock for the whole sweep, after which the harvest stops itself.
+ *
+ * ── Why the process has to end itself ───────────────────────────────────────
+ * The workflow step already carries `timeout-minutes: 60`, and that turns out
+ * not to stop this process at all. Run #330 (job 97881335331): the "Harvest
+ * via sitemap" step is recorded as running 16:29:02Z to 17:29:15Z — its full
+ * 60 minutes — and yet data/harvest-report.json from that same run carries
+ * per-shop `finishedAt` stamps running on to 17:42:09Z, and the job's own
+ * cleanup at 17:44:59Z logs:
+ *
+ *   Terminate orphan process: pid (5125) (npm run harvest --max=70 --refresh-share=0.4)
+ *   Terminate orphan process: pid (5170) (chrome-headless-shell)
+ *
+ * So the step cap cancels the *step* and leaves the harvest running. It ran
+ * for 15m44s more, unsupervised, while "Harvest houses direct" and then
+ * "Rebuild the app from harvested prices" ran alongside it — the rebuild
+ * reading data/catalogue while this process was still writing to it, and the
+ * commit step publishing whatever state that race happened to leave. It was
+ * finally killed by the runner's orphan sweep, mid-shop, which is why that
+ * report has `complete: false` and no end-of-run summary.
+ *
+ * A deadline the process enforces itself fixes all of it: the sweep stops on
+ * a shop boundary, the last shop's crawl is capped at whatever is left, the
+ * report is finished properly, the browser is disposed, and the step exits
+ * before its cap with the rebuild getting a catalogue nobody is writing to.
+ *
+ * Unset by default, so an ordinary local `npm run harvest` still runs to
+ * completion however long it takes. The scheduled run passes it — see
+ * .github/workflows/catalogue-daily.yml.
+ */
+const runMinutes = arg('run-minutes') ? Number.parseFloat(arg('run-minutes')!) : null;
+
+/**
+ * The least time worth starting a shop with.
+ *
+ * A shop cut off by the deadline is not wasted — crawlViaSitemap takes the
+ * remaining time as its own budget and whatever it priced is stored on the way
+ * out — so this floor only needs to cover the fixed cost of asking at all: a
+ * robots.txt probe and a sitemap fetch. Measured against run #330's cheapest
+ * shops, which finished whole in 3.8s (Harvey Nichols), 9.3s (IBRAQ) and 14.4s
+ * (French Avenue), 30 seconds is several times that.
+ */
+const MIN_SHOP_BUDGET_MS = 30_000;
+
+if (runMinutes !== null && !(runMinutes > 0)) {
+  console.error(`--run-minutes must be a positive number, got "${arg('run-minutes')}"`);
+  process.exit(1);
+}
 if (shopMinutes !== null && !(shopMinutes > 0)) {
   console.error(`--shop-minutes must be a positive number, got "${arg('shop-minutes')}"`);
   process.exit(1);
@@ -261,28 +321,47 @@ if (askingAboutOneNamedShop && enabledShops.some((r) => !r.enabled)) {
   console.log(`${onlyShop} is disabled in the registry; asking anyway because this is a dry run that writes nothing.\n`);
 }
 
-// ── Registry order starves the shops that need a run most ───────────────────
-// The harvest step in .github/workflows/catalogue-daily.yml is capped at 60
-// minutes and run 261 (job 96314578076) used 60m12s of it — the cap landed
-// mid-sweep, inside Emirates Oud. Every shop after that point in RETAILERS
-// order was never attempted at all: kayali, zara, debenhams, lush,
-// bath-body-works-uk and the rest simply do not appear in that run's output.
-// They had been enabled for days and read as "harvested, found nothing" when
-// the truth was "never asked".
+// ── Any fixed order starves whatever is at the end of it ────────────────────
+// This used to be never-live-first, then registry order. That fixed the
+// symptom it was written for (a never-live shop being unmeasurable) and left
+// the disease: a sweep that cannot finish inside its step cap always stops at
+// the same place, so the same tail is starved every single run.
 //
-// Registry order is alphabetical-ish by when a shop was added, which is
-// unrelated to anything. Ordering by whether a shop has ever produced a live
-// snapshot is not: a shop still on fixtures is the one whose result is
-// unknown, and it is also the cheap one to ask, because a shop with no route
-// fails in seconds while a shop with a working route spends its whole
-// per-shop budget. Putting the unknowns first therefore costs the known-good
-// shops almost nothing and is the difference between a never-live shop being
-// measured every run and never being measured at all.
+// Run #330's report names the eleven it never reached — perfumeo,
+// the-beauty-store-uk, zimaya, kayali, zara, escentric-molecules,
+// fragrancehub, avon, morrisons, bm-stores, home-bargains — and those are
+// exactly the last eleven of that order. avon's snapshot was five days old on
+// a site that harvests twelve times a day.
+//
+// Now: longest-unasked first, from a cursor this run updates as it goes. A
+// shop the run does not reach keeps its old stamp and is first next run, by
+// construction rather than by luck. See src/catalogue/harvestCursor.ts for the
+// arithmetic on why the sweep rotates rather than being made shallower, and
+// for why "asked" rather than "harvested" is the thing recorded.
 const neverLiveYet = (id: string) => store.read(id).source !== 'live';
-const shops = [
-  ...enabledShops.filter((r) => neverLiveYet(r.id)),
-  ...enabledShops.filter((r) => !neverLiveYet(r.id)),
-];
+const cursorPath = resolve(root, 'data/harvest-cursor.json');
+let cursor = parseCursor(readFileIfPresent(cursorPath));
+const shops = sweepOrder(
+  enabledShops.map((r) => ({ ...r, neverLive: neverLiveYet(r.id) })),
+  cursor,
+);
+
+/**
+ * Record that a shop was asked, and put it on disk immediately.
+ *
+ * Written per shop for the same reason the harvest report is: a run that is
+ * killed must not lose the record of what it did reach, or the next run
+ * repeats it and the tail stays starved. Failures are swallowed — a cursor is
+ * an ordering hint and must never be a reason a harvest fails.
+ */
+function recordAttempt(retailerId: string): void {
+  cursor = withAttempt(cursor, retailerId, new Date().toISOString());
+  try {
+    writeFileSync(cursorPath, `${JSON.stringify(cursor, null, 2)}\n`);
+  } catch {
+    // See above: ordering is an optimisation, harvesting is not.
+  }
+}
 
 // Named before the first shop is asked, so a shop that is never reached can
 // be reported as never reached. Nothing can log a line at the moment it fails
@@ -292,9 +371,15 @@ const report = harvestReportWriter(
   shops.map((r) => r.id),
 );
 
+/** Absolute time the sweep must have stopped by, or null for "however long it takes". */
+const runDeadlineAt = runMinutes === null ? null : Date.now() + runMinutes * 60_000;
+/** Set when the sweep stopped on its own deadline rather than running out of shops. */
+let stoppedForTime = false;
+
 console.log(`\nSitemap harvest`);
-console.log(`shops    ${shops.length}`);
+console.log(`shops    ${shops.length}, longest-unasked first`);
 console.log(`budget   ${maxPages} product pages each`);
+if (runMinutes !== null) console.log(`deadline ${runMinutes} minutes for the whole sweep`);
 if (shopMinutes !== null) console.log(`ceiling  ${shopMinutes} minutes each`);
 if (refreshShare !== null) {
   console.log(`refresh  ${Math.round(refreshShare * 100)}% of each budget re-prices listings already held`);
@@ -321,6 +406,21 @@ const zeroThisRun: string[] = [];
 const refusedThisRun: string[] = [];
 
 for (const retailer of shops) {
+  // ── The deadline, checked on a shop boundary ──────────────────────────────
+  // Before the shop rather than during it, because a shop is the unit that
+  // stores something: store.write() fires once, at the end of this iteration.
+  // Stopping here leaves the catalogue in a state the rebuild can read, which
+  // is exactly what the step cap could not do — see runMinutes' own comment
+  // for what run #330's orphaned process did instead.
+  if (runDeadlineAt !== null && runDeadlineAt - Date.now() < MIN_SHOP_BUDGET_MS) {
+    stoppedForTime = true;
+    break;
+  }
+  // Recorded before the shop is asked, not after. A shop that hangs and takes
+  // the run down with it has still been attempted, and must not sort to the
+  // front of the next run and hang that one too.
+  if (!dryRun) recordAttempt(retailer.id);
+
   // Not attempt.ts's `loadRobots`, which only ever asks `www.{domain}`. Two
   // enabled shops in this registry carry a subdomain in `domain`
   // (uk.shopfrenchavenue.com, uk.zimayaperfumes.com), so that address does not
@@ -378,8 +478,25 @@ for (const retailer of shops) {
   // Only override what was actually asked for: an absent flag has to leave
   // crawlViaSitemap's own defaults in place rather than pass undefined through
   // as if it were a value.
+  //
+  // The per-shop ceiling is also whatever is left of the run, so the last shop
+  // of a sweep cannot run past the deadline: without this, a shop started with
+  // 40 seconds to spare would take its full 8-minute default and put the
+  // process back to overrunning its step, which is the whole thing being
+  // fixed. crawlViaSitemap applies maxDurationMs to its sitemap discovery as
+  // well as its fetch loop, so the bound holds for the whole shop.
+  const configuredShopMs = shopMinutes !== null ? Math.round(shopMinutes * 60_000) : DEFAULT_CRAWL_MS;
+  const shopMs =
+    runDeadlineAt === null
+      ? configuredShopMs
+      : Math.min(configuredShopMs, runDeadlineAt - Date.now());
   const sweep = {
-    ...(shopMinutes !== null ? { maxDurationMs: Math.round(shopMinutes * 60_000) } : {}),
+    // Passed unconditionally now. It used to be omitted when --shop-minutes
+    // was absent, leaving crawlViaSitemap's own default in place; that default
+    // is now imported and taken as one half of a min(), so the value passed is
+    // the same number on an ordinary local run and the remaining run budget on
+    // the last shop of a scheduled one.
+    maxDurationMs: shopMs,
     ...(refreshShare !== null ? { refreshShare } : {}),
   };
 
@@ -897,12 +1014,31 @@ if (actorRenderer) {
 // Only reached when the run was not killed. A report whose `complete` is still
 // false is the record of a truncated run, which is exactly the state the log
 // could not describe — see src/catalogue/harvestReport.ts.
-report.finish();
+//
+// "Stopped on its own deadline" is a third state, and it is not the same as
+// either of the two that existed: the run ended in an orderly way, wrote
+// everything it had and disposed its browser, and still did not ask every
+// shop. Recorded as such so nobody reads `complete: true` as "everything was
+// asked", and nobody reads a shop's absence as a failure.
+report.finish(stoppedForTime ? 'deadline' : 'swept-every-shop');
 const finalReport = report.current();
 if (finalReport.notReached.length) {
   console.log(
     `never reached this run: ${finalReport.notReached.join(', ')} — ` +
       'out of time before being asked, keeping their previous prices',
+  );
+  // These are first in line next run, by construction rather than by hope:
+  // the cursor only advances for shops this run actually asked, and the sweep
+  // is ordered longest-unasked-first. See src/catalogue/harvestCursor.ts.
+  console.log(
+    `next run asks them first: the sweep is ordered longest-unasked-first from data/harvest-cursor.json`,
+  );
+}
+if (stoppedForTime) {
+  console.log(
+    `::warning::The sweep stopped on its own ${runMinutes}-minute deadline with ` +
+      `${finalReport.notReached.length} shop(s) unasked. That is the design, not a failure: ` +
+      'everything harvested is stored and committed, and the unasked shops are first in line next run.',
   );
 }
 console.log(`Report: data/harvest-report.json`);

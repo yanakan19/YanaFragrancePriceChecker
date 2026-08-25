@@ -90,6 +90,20 @@ export interface SitemapCrawlResult {
 const SAMPLE_LIMIT = 5;
 
 /**
+ * How long one shop's crawl gets when the caller names no ceiling.
+ *
+ * Generous for a healthy shop and short enough that one slow shop cannot eat
+ * a whole run: the longest shop in run #330 was Debenhams at 392s, and Riiffs
+ * at 390s, both inside this.
+ *
+ * Exported so that a caller which has its own deadline can take the smaller of
+ * the two rather than reimplementing this number. scripts/catalogue-harvest.ts
+ * does exactly that — a shop started with 40 seconds of the run left must get
+ * 40 seconds, not eight minutes.
+ */
+export const DEFAULT_CRAWL_MS = 8 * 60_000;
+
+/**
  * Ceiling on how many product URLs one discovery pass will collect.
  *
  * This is a memory guard, not a cost control — the cost is the twelve sitemap
@@ -369,10 +383,7 @@ export async function crawlViaSitemap(
   const { http, robots, headers, maxPages, gapMs } = options;
   const sleep = options.sleep ?? ((ms: number) => new Promise<void>((r) => setTimeout(r, ms)));
 
-  // Default of 8 minutes: generous for a healthy shop, well short of the CI
-  // job's 45-minute total and short enough that one slow shop cannot eat the
-  // whole run even with progress logging keeping the job itself alive.
-  const deadlineAt = Date.now() + (options.maxDurationMs ?? 8 * 60_000);
+  const deadlineAt = Date.now() + (options.maxDurationMs ?? DEFAULT_CRAWL_MS);
 
   // A dozen sitemap fetches is plenty to find the fragrance aisle.
   const { urls, errors } = await discover(options, 12, deadlineAt);

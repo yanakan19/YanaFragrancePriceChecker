@@ -97,6 +97,31 @@ describe('buildHarvestReport — which tier produced the listings', () => {
     expect(r.notReached).toEqual(['never']);
   });
 
+  it('tells a killed run, a finished sweep and a deliberate stop apart', () => {
+    // Three states, and `complete` alone can only express two. Run #330 was
+    // the first: killed mid-shop, complete:false, 11 shops unasked. A
+    // scheduled run under its own deadline is the third — it ends properly,
+    // writes everything, and still leaves shops unasked on purpose.
+    const killed = buildHarvestReport('T0', ['a', 'b'], [shop('a')], null);
+    expect(killed.complete).toBe(false);
+    expect(killed.endedReason).toBeNull();
+
+    const swept = buildHarvestReport('T0', ['a', 'b'], [shop('a'), shop('b')], 'T1', 'swept-every-shop');
+    expect(swept.endedReason).toBe('swept-every-shop');
+    expect(swept.notReached).toEqual([]);
+
+    const deadline = buildHarvestReport('T0', ['a', 'b'], [shop('a')], 'T1', 'deadline');
+    expect(deadline.complete).toBe(true);
+    expect(deadline.endedReason).toBe('deadline');
+    expect(deadline.notReached).toEqual(['b']);
+  });
+
+  it('never claims a reason for a run that never got to say', () => {
+    // A reason passed alongside a null finishedAt would be a claim about how a
+    // run ended, made by a run that did not end.
+    expect(buildHarvestReport('T0', ['a'], [], null, 'deadline').endedReason).toBeNull();
+  });
+
   it('distinguishes a shop that refused us from one that was simply empty', () => {
     // The third case, and the one run #330 could not report. Boots and a shop
     // with an empty aisle both came out as "0 priced, 0 listings parsed";
