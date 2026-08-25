@@ -96,4 +96,28 @@ describe('buildHarvestReport — which tier produced the listings', () => {
     expect(r.shops[0]?.priced).toBe(0);
     expect(r.notReached).toEqual(['never']);
   });
+
+  it('distinguishes a shop that refused us from one that was simply empty', () => {
+    // The third case, and the one run #330 could not report. Boots and a shop
+    // with an empty aisle both came out as "0 priced, 0 listings parsed";
+    // only one of them is a decision for a human.
+    const r = buildHarvestReport(
+      'T0', ['boots', 'empty'],
+      [
+        shop('boots', {
+          tier: 'none', priced: 0,
+          refusals: [{
+            url: 'https://www.boots.com/fragrance/shop-all-fragrance?pageNo=1',
+            status: 200, bytes: 1199,
+            reason: 'HTTP 200 but only 1199 bytes — a bot wall, not an empty shop',
+          }],
+        }),
+        shop('empty', { tier: 'none', priced: 0 }),
+      ],
+      'T1',
+    );
+
+    expect(r.shops[0]?.refusals?.[0]?.bytes).toBe(1199);
+    expect(r.shops[1]?.refusals).toBeUndefined();
+  });
 });

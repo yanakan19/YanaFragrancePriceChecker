@@ -73,6 +73,9 @@ import {
   MAX_LOCAL_RENDER_MS_PER_SHOP,
 } from '../src/catalogue/localBrowser.js';
 import { harvestReportWriter, type HarvestTier } from '../src/catalogue/harvestReport.js';
+import {
+  renderRefusals, type RenderRefusal, type RenderedPage,
+} from '../src/catalogue/renderRefusal.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -308,6 +311,14 @@ let reached = 0;
 // sat on week-old fixture data with nothing ever surfacing that as a rollup.
 const neverLive: string[] = [];
 const zeroThisRun: string[] = [];
+/**
+ * Shops that answered with a wall rather than a catalogue, rolled up.
+ *
+ * Same reasoning as the two lists above: the per-shop warning scrolls away,
+ * and "which shops are refusing this runner's IP" is a standing question about
+ * the pipeline, not a fact about one shop on one day.
+ */
+const refusedThisRun: string[] = [];
 
 for (const retailer of shops) {
   // Not attempt.ts's `loadRobots`, which only ever asks `www.{domain}`. Two
@@ -475,6 +486,14 @@ for (const retailer of shops) {
   let withPrice = result.listings.filter((l) => l.priceGbp !== null);
   let viaProxy = false;
   let viaActor = false;
+  /**
+   * Pages this shop answered with a wall rather than a catalogue.
+   *
+   * Kept per shop and written to the harvest report, because "the shop refuses
+   * this address" is a different fact from "the shop had nothing" and only one
+   * of them is worth acting on. See src/catalogue/renderRefusal.ts.
+   */
+  const refusals: RenderRefusal[] = [];
   // Set false only by the actor tier below, since that tier deliberately
   // fetches one page per section rather than walking a whole sitemap — see
   // its own comment on why `complete` cannot be allowed to follow from that.
@@ -611,20 +630,42 @@ for (const retailer of shops) {
       console.log(`      ${retailer.name}: rendering ${allowed.length} section page(s) through ${renderTierName}`);
       const rendered = await actorRenderer!.render(allowed.map((t) => t.url));
       let viaRenderedState = 0;
+      // What each rendered page turned out to be, kept per URL so a page that
+      // is a bot wall can be told from a page that is a shop with nothing on
+      // it — see src/catalogue/renderRefusal.ts. Counted here rather than
+      // recomputed later because "how many listings came out of THIS page" is
+      // the disproof of a refusal, and the flatMap is the only place that
+      // knows it.
+      const renderedPages: RenderedPage[] = [];
       const listings = allowed.flatMap(({ id, url }) => {
         const res = rendered.get(url);
-        if (!res?.ok || !res.body) return [];
+        const note = (listingsParsed: number) => {
+          if (res) renderedPages.push({ url, status: res.status, bytes: res.body.length, listingsParsed });
+          return listingsParsed;
+        };
+        if (!res?.ok || !res.body) {
+          note(0);
+          return [];
+        }
 
         const fromJsonLd = parseListings(res.body, { sectionId: id, pageUrl: url });
-        if (fromJsonLd.length > 0) return fromJsonLd;
+        if (fromJsonLd.length > 0) {
+          note(fromJsonLd.length);
+          return fromJsonLd;
+        }
 
         // Only where the parser has already found nothing, and only for a shop
         // that has a reader registered. See src/catalogue/renderedState.ts for
         // why this second reading exists and how narrow it is meant to stay.
         const fromState = parseRenderedState(retailer.id, res.body, { sectionId: id, pageUrl: url });
         viaRenderedState += fromState.length;
+        note(fromState.length);
         return fromState;
       });
+      // Computed whether or not the render produced listings: a shop can serve
+      // one good section and a wall on the next, and that is worth knowing
+      // even on a run this tier counts as a success.
+      refusals.push(...renderRefusals(renderedPages));
       if (viaRenderedState > 0) {
         console.log(
           `      ${retailer.name}: ${viaRenderedState} listing(s) read from the rendered page's own` +
@@ -652,10 +693,15 @@ for (const retailer of shops) {
         );
         for (const { url } of allowed) {
           const res = rendered.get(url);
+          // A refusal is named in the same line rather than left for the
+          // reader to infer from a byte count. "0 listings parsed" and "the
+          // shop served us a challenge page" are not the same finding.
+          const refused = refusals.find((r) => r.url === url);
           result.errors.push(
             `[actor] ${url}: ` +
               (res
-                ? `HTTP ${res.status}, ${res.body.length} bytes${res.error ? `, ${res.error}` : ''}`
+                ? `HTTP ${res.status}, ${res.body.length} bytes${res.error ? `, ${res.error}` : ''}` +
+                  (refused ? ` — REFUSED: ${refused.reason}` : '')
                 : 'no result returned'),
           );
         }
@@ -687,8 +733,18 @@ for (const retailer of shops) {
       (viaProxy ? '  [via Apify proxy]' : '') +
       (viaActor ? `  [via ${renderTierName}]` : '') +
       (sizesRecovered ? `  [${sizesRecovered} sizes read from product URLs]` : '') +
+      (refusals.length ? `  [refused ${refusals.length} page(s)]` : '') +
       (result.errors.length ? `  (${result.errors.length} errors)` : ''),
   );
+  // Raised as a warning rather than left in the body of the log, because it is
+  // the one outcome here that a person has to decide something about: no
+  // amount of re-running fixes a shop that will not serve this address, and
+  // until run #330 this shop reported "0 listings parsed" and read as an empty
+  // catalogue. Deliberately no retry — see src/catalogue/renderRefusal.ts.
+  for (const r of refusals) {
+    console.log(`::warning::${retailer.id} refused this address: ${r.url} — ${r.reason}`);
+  }
+  if (refusals.length > 0) refusedThisRun.push(`${retailer.id} (${refusals.length})`);
   // Metered-tier errors first, then the rest. A shop that failed through
   // every tier accumulates one error per tier and the free tier's come first
   // in the array, so a plain "print the first few" buries exactly the lines
@@ -724,6 +780,7 @@ for (const retailer of shops) {
     errorCount: result.errors.length,
     // Metered first, same ordering and same reasoning as the log above.
     errors: [...metered, ...rest].slice(0, 8),
+    ...(refusals.length > 0 ? { refusals } : {}),
     finishedAt: new Date().toISOString(),
   });
 
@@ -818,6 +875,12 @@ for (const retailer of shops) {
 console.log(`\n${reached} of ${shops.length} shops yielded real priced listings`);
 console.log(`${totalListings} listings total`);
 if (zeroThisRun.length) console.log(`zero this run: ${zeroThisRun.join(', ')}`);
+if (refusedThisRun.length) {
+  console.log(
+    `refused this address: ${refusedThisRun.join(', ')} — a wall or an HTTP refusal, ` +
+      'not an empty catalogue; nothing here is retried',
+  );
+}
 if (neverLive.length) console.log(`never once live: ${neverLive.join(', ')} — still on fixtures, excluded from the site`);
 if (actorRenderer) {
   const renderBudget = localRenderer ? MAX_LOCAL_RENDER_PAGES_PER_RUN : MAX_ACTOR_PAGES_PER_RUN;
