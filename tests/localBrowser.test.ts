@@ -14,6 +14,23 @@ import { localBrowserRenderer, MAX_LOCAL_RENDER_PAGES_PER_RUN } from '../src/cat
  * live storefront's mood is not a test.
  */
 
+/**
+ * Vitest's default 5s is not enough for anything that can reach a real browser.
+ *
+ * Launching Chromium costs a second or two. The case that actually broke the
+ * crawl is the opposite one: a launch pointed at a path that does not exist
+ * takes about five seconds to give up on a GitHub runner, where it returns
+ * almost immediately in a warm local sandbox. Run #327 died on exactly that —
+ * "Test before crawling" went red, so a harvest that would have been fine never
+ * ran and the site's prices went stale for the cycle. The behaviour under test
+ * was correct; only the budget for observing it was wrong.
+ *
+ * Applied to every test here that can launch, not just the one that failed: the
+ * others passed at 1.5-4.7s on that same runner, which is not margin worth
+ * relying on.
+ */
+const BROWSER_TEST_TIMEOUT_MS = 30_000;
+
 const servers: Server[] = [];
 
 afterAll(async () => {
@@ -66,7 +83,7 @@ describe('localBrowserRenderer — the per-run budget', () => {
     // was available for the first one.
     expect(out.get(`${base}/two`)?.error).toContain('budget');
     await r.dispose();
-  });
+  }, BROWSER_TEST_TIMEOUT_MS);
 
   it('caps at a sane default rather than being unbounded', () => {
     // A bug that queued a whole sitemap must not hit a shop thousands of times
@@ -87,14 +104,14 @@ describe('localBrowserRenderer — a browser that will not start', () => {
       expect(res.error).toContain('local browser unavailable');
     }
     await r.dispose();
-  });
+  }, BROWSER_TEST_TIMEOUT_MS);
 
   it('does not count a page it never rendered against the budget', async () => {
     const r = localBrowserRenderer({ executablePath: '/definitely/not/a/browser' });
     await r.render(['https://example.test/a']);
     expect(r.used()).toBe(0);
     await r.dispose();
-  });
+  }, BROWSER_TEST_TIMEOUT_MS);
 
   it('survives dispose() when nothing was ever launched', async () => {
     const r = localBrowserRenderer();
@@ -148,7 +165,7 @@ describe('localBrowserRenderer — rendering', () => {
     expect(res.body).toContain('PAINTED-BY-JS');
     expect(r.used()).toBe(1);
     await r.dispose();
-  });
+  }, BROWSER_TEST_TIMEOUT_MS);
 
   it('reports a real error status rather than calling it a failure to retrieve', async () => {
     const base = await jsPaintedServer();
@@ -167,5 +184,5 @@ describe('localBrowserRenderer — rendering', () => {
     expect(res.ok).toBe(false);
     expect(res.error).toBeUndefined();
     await r.dispose();
-  });
+  }, BROWSER_TEST_TIMEOUT_MS);
 });
