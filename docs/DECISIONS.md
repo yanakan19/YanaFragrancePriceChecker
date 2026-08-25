@@ -193,3 +193,146 @@ If it gets built, three things decide whether it is worth doing:
 
 Treat it as a sibling of the TikTok beta rather than part of the comparison: its
 own table, its own flag, its own disclaimer, and a kill switch.
+
+---
+
+## D10 — The checkout can come up thirteen days stale, and the guard is a guard
+
+**Diagnosed 2026-08-25.** Three times in one session, this container's checkout
+was found at `c9fc2b1` ("Never subtract one currency from another and report the
+difference in pounds", 2026-08-12 23:11) with `git status` clean, thirteen days
+behind origin, working-tree files included.
+
+### It is the container image, and that is established
+
+Four things were read off the machine, not inferred:
+
+1. **No file anywhere on the root filesystem has an mtime between 2026-08-13 and
+   2026-08-25.** `find / -xdev -newermt "2026-08-13" ! -newermt "2026-08-25"`
+   returns nothing at all. A thirteen-day hole in an entire disk's write history
+   is not something a git command can produce.
+2. **The newest pre-restore file on the disk is `.git/COMMIT_EDITMSG`, mtime
+   2026-08-12 23:11:14** — the same second `c9fc2b1` was written, and its commit
+   object carries the same timestamp. The image was frozen immediately after
+   that commit.
+3. **`git reflog` shows the same hole.** It runs to `c9fc2b1` on 2026-08-12
+   23:11:14 and then jumps straight to a manual `reset` on 2026-08-25. Every
+   commit between — `5240fae`, `d35b464`, `bdc252c`, `df0122a`, the harvests —
+   was made somewhere else and reached this checkout only through `origin`. The
+   reflog is a file on that same disk, so it was restored along with everything
+   else.
+4. **The container had been up twelve minutes** when this was read, on a
+   Firecracker guest whose `/opt/env-runner` and session hooks had all been
+   rewritten minutes earlier at provisioning time.
+
+So nothing reverted. This disk has simply never contained the work of the last
+thirteen days: it is a checkpoint captured at 2026-08-12 23:11 and re-applied on
+every resume, and writes made after it have never been persisted back. Claude
+Code's own session-hook documentation describes container state being cached
+after the startup hook completes; this is that cache, stuck.
+
+Two consequences follow, and the second is the dangerous one. Work is never
+lost, because origin always has it. But the restored tree carries the older
+`src/catalogue/awinFeed.ts`, whose header calls `merchant_deep_link` an unmapped
+"known gap" — untrue since `5240fae` mapped it on 2026-08-13. Committing that
+tree would republish a documented falsehood into the file whose purpose is
+recording what has been verified, and the Stop hook asks for uncommitted changes
+to be pushed. Staleness here is a correctness problem, not a convenience one.
+
+### What is *not* established
+
+Why the checkpoint stopped being refreshed on 2026-08-12, and whether it is this
+branch's container or the environment as a whole. Both are outside this
+repository and cannot be seen from inside it. **It needs raising with whoever
+owns the environment — no change in this repo can fix it.**
+
+### The honest limit of the mitigation
+
+`.claude/hooks/session-start.sh` fetches and fast-forwards at session start. It
+cannot rescue the worst case, and it should not be described as if it can: a
+session that boots on the 2026-08-12 image is looking at a tree from *before*
+the hook was committed, so the hook is not on disk to run. Nothing committed
+here can reach a boot that predates the commit. That is the plain shape of it.
+
+What the hook does cover is real and worth having anyway:
+
+- every session that starts from a checkout at or after this commit, which is
+  every session once the checkpoint is refreshed;
+- the ordinary drift, which is not exotic at all — the harvest job pushes to
+  this branch roughly every two hours, so any checkout more than a couple of
+  hours old is already behind. The hook fast-forwarded one such commit on its
+  first live run;
+- the lone phantom diff. When a modified file's contents hash to a blob that
+  same path genuinely had at an earlier commit, the hook says so by name and
+  date. New work does not reproduce an old revision byte for byte, so that is
+  evidence rather than a guess.
+
+### Why it cannot destroy work
+
+The only command in it that writes to the working tree is `git merge --ff-only`.
+No reset, no `checkout --force`, no clean, no stash.
+
+- A fast-forward is refused by git unless HEAD is already an ancestor of the
+  target, so no commit can be dropped; the hook tests that ancestry itself and
+  exits without touching anything when it fails. A diverged checkout is left
+  exactly as it is.
+- `--ff-only` runs the same overwrite check as checkout: an uncommitted edit in
+  the way aborts the merge and leaves the tree alone. Edits to files the
+  incoming commits do not touch are carried across.
+- Untracked and ignored files are never removed.
+
+The one judgement it deliberately refuses to make is which of a phantom diff and
+real uncommitted work it is looking at. `git status` cannot tell them apart, and
+a rule that guesses would eventually guess wrong and delete an afternoon's work
+— far worse than the staleness it was fixing. So it reports and stops. The worst
+outcome available to the hook is that it declines to advance and says why.
+
+`npm install` is deliberately *not* run every session. `package-lock.json` has
+not changed once across the range this staleness spans, so an install has
+nothing to add, and it can normalise the lockfile and leave a modified tracked
+file behind — a hook that manufactures the exact class of phantom diff it exists
+to warn about. It installs only when `node_modules` is missing or the lockfile
+has moved under it, and never lets npm write the lockfile.
+
+---
+
+## D11 — `bdc252c` is mislabelled, and it stays that way
+
+**Decided 2026-08-25.** Commit `bdc252c` is titled "Say what the price contains,
+on every row, and only where it is true". It does not do that. Its diff is
+`demo/head.ts` and `tests/head.test.ts` — browser tab titles.
+
+Its message is `d35b464`'s message verbatim, plus a trailer block; the two were
+compared byte for byte. `d35b464`, immediately before it, is the genuine
+price-note commit (`demo/priceDeliveryNote.ts` and three others) and is fine. The
+cause was `git commit --amend` in a checkout being worked by more than one
+session at once, retitling a commit the amending session had not written. The
+title it should carry, recovered from a reflog in the session where it happened
+and recorded here on that session's word rather than on anything verifiable from
+this checkout, was **"Browser tab titles name the page instead of describing
+it"**.
+
+**Nothing is missing.** The content on origin is correct and complete. Only the
+message is wrong.
+
+It is not being corrected, and the reason is arithmetic rather than principle.
+Changing a published commit message means rewriting every commit after it and
+force-pushing. On this branch that is four commits, three of them harvest
+commits from a job that pushes roughly every two hours, plus four live agent
+worktrees currently sitting on descendants of it. A force-push races that job:
+lose the race and a harvest push is rejected or re-merges the old chain, and
+every worktree is stranded on a commit that no longer exists. The cost of the
+mislabel is that `git log --oneline` shows one title twice in a row — which is
+itself the tell that something went wrong, and takes seconds to resolve by
+looking at the diff. Trading a live branch and four working sessions for that is
+not a good trade.
+
+**If the owner wants it fixed anyway**, it is `git rebase -i d35b464` (or
+`git filter-repo --message-callback`) to reword `bdc252c`, then
+`git push --force-with-lease`. It must be done when the harvest job is not due
+and no agent sessions are live, and every worktree branch has to be rebased onto
+the new SHAs afterwards. That is the owner's call to make, not an agent's.
+
+The general lesson is the one `df0122a` already reaches for in its closing note:
+**`git commit --amend` is not safe in a shared checkout.** Stage by name, commit
+by name, and never amend a commit you did not just write.
