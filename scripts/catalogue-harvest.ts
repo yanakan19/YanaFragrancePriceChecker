@@ -71,6 +71,7 @@ import {
 import {
   localBrowserRenderer, MAX_LOCAL_RENDER_PAGES_PER_RUN,
 } from '../src/catalogue/localBrowser.js';
+import { harvestReportWriter, type HarvestTier } from '../src/catalogue/harvestReport.js';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -274,6 +275,14 @@ const shops = [
   ...enabledShops.filter((r) => neverLiveYet(r.id)),
   ...enabledShops.filter((r) => !neverLiveYet(r.id)),
 ];
+
+// Named before the first shop is asked, so a shop that is never reached can
+// be reported as never reached. Nothing can log a line at the moment it fails
+// to happen — see src/catalogue/harvestReport.ts.
+const report = harvestReportWriter(
+  resolve(root, 'data/harvest-report.json'),
+  shops.map((r) => r.id),
+);
 
 console.log(`\nSitemap harvest`);
 console.log(`shops    ${shops.length}`);
@@ -686,6 +695,33 @@ for (const retailer of shops) {
   const rest = result.errors.filter((e) => !e.startsWith('[actor]'));
   for (const e of [...metered, ...rest].slice(0, 8)) console.log(`      ${e}`);
 
+  // The same facts as the line above, written to disk rather than to a log
+  // that a killed run truncates and nobody can grep afterwards. Recorded here,
+  // per shop, for exactly that reason.
+  //
+  // Tier order matters and is most-escalated-first: a shop that needed a
+  // render also went through the free route and failed there, and the
+  // interesting fact is the tier that finally produced something.
+  const tier: HarvestTier =
+    viaActor ? 'render'
+      : viaProxy ? 'apify-proxy'
+      : viaPatience ? 'patient'
+      : withPrice.length > 0 ? 'free'
+      : 'none';
+  report.record({
+    retailerId: retailer.id,
+    name: retailer.name,
+    urlsDiscovered: result.urlsDiscovered,
+    pagesFetched: result.pagesFetched,
+    priced: withPrice.length,
+    tier,
+    renderer: viaActor ? renderTierName : null,
+    errorCount: result.errors.length,
+    // Metered first, same ordering and same reasoning as the log above.
+    errors: [...metered, ...rest].slice(0, 8),
+    finishedAt: new Date().toISOString(),
+  });
+
   // A shop that fetched its full budget and priced nothing, with no errors to
   // read, is the one failure this log used to be unable to describe. Show what
   // was actually asked for: "70 fetched, 0 priced" against /about-us and
@@ -782,6 +818,19 @@ if (actorRenderer) {
   const renderBudget = localRenderer ? MAX_LOCAL_RENDER_PAGES_PER_RUN : MAX_ACTOR_PAGES_PER_RUN;
   console.log(`${renderTierName} pages rendered this run: ${actorRenderer.used()} of ${renderBudget} budgeted`);
 }
+
+// Only reached when the run was not killed. A report whose `complete` is still
+// false is the record of a truncated run, which is exactly the state the log
+// could not describe — see src/catalogue/harvestReport.ts.
+report.finish();
+const finalReport = report.current();
+if (finalReport.notReached.length) {
+  console.log(
+    `never reached this run: ${finalReport.notReached.join(', ')} — ` +
+      'out of time before being asked, keeping their previous prices',
+  );
+}
+console.log(`Report: data/harvest-report.json`);
 // The local renderer holds a Chromium open for the whole run; nothing else
 // closes it, and a leaked browser keeps the process alive after the harvest
 // has finished reporting.
