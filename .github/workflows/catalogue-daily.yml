@@ -627,12 +627,56 @@ jobs:
           APIFY_PROXY_PASSWORD: ${{ secrets.APIFY_PROXY_PASSWORD }}
           APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
         run: |
+          # ── Why the metered tiers are not offered on every run ─────────────
+          # They used to be: --allow-metered was passed on every scheduled
+          # tick, twelve a day, each one able to spend up to
+          # MAX_ACTOR_PAGES_PER_RUN (10) actor renders. That is a ceiling of
+          # ~120 renders a day against a $5 monthly credit, and it is how that
+          # credit was gone by 2026-08-21 with three weeks of the month left.
+          #
+          # Nothing about those five shops needs that rate. The actor tier
+          # exists for Boots, Selfridges, John Lewis, Superdrug and Zara —
+          # fragrance retailers whose catalogues do not turn over in two hours.
+          # Rendering them once a day keeps the data as current as anything
+          # else on the site (the free sitemap route still runs every tick for
+          # every other shop) at a twelfth of the ceiling.
+          #
+          # Age based rather than clock based, and a marker file rather than a
+          # cron hour, for exactly the reason the deals refresh above is: a
+          # scheduled run starts when a runner is free, so an exact-hour test
+          # skips silently once the drift settles on odd hours. 20 hours, not
+          # 24, so a day's run cannot be pushed out of its slot by accumulated
+          # drift and skipped altogether.
+          #
+          # An explicit allow_metered dispatch always wins — asking for it by
+          # hand is a decision, not a schedule.
+          MARKER=data/metered-harvest-marker.txt
+          NOW=$(date -u +%s)
+          LAST=0
+          if [ -f "$MARKER" ]; then LAST=$(cat "$MARKER" 2>/dev/null || echo 0); fi
+          case "$LAST" in ''|*[!0-9]*) LAST=0 ;; esac
+          AGE=$(( NOW - LAST ))
+          METERED=""
+          if [ "${{ inputs.allow_metered }}" = "true" ]; then
+            METERED="--allow-metered"
+            echo "Metered tiers offered: asked for explicitly by dispatch."
+          elif [ "${{ github.event_name }}" = "schedule" ] && [ "$AGE" -ge 72000 ]; then
+            METERED="--allow-metered"
+            echo "Metered tiers offered: last metered run was $(( AGE / 3600 )) hours ago."
+            echo "$NOW" > "$MARKER"
+          else
+            echo "Metered tiers NOT offered: last metered run was $(( AGE / 3600 ))h ago, under the 20 hour threshold."
+          fi
+          # The harvest still asks Apify what the month has cost before it
+          # spends anything, and declines the tiers itself if the credit is
+          # gone — see src/catalogue/apifyUsage.ts. This gate bounds how often
+          # it is even offered; that one bounds what it may do when it is.
           npm run harvest -- \
             --max=${{ inputs.harvest_max || '70' }} \
             --refresh-share=${{ inputs.harvest_refresh_share || '0.4' }} \
             ${{ inputs.harvest_shop && format('--shop={0}', inputs.harvest_shop) || '' }} \
             ${{ inputs.harvest_gap_min && format('--gap-min={0}', inputs.harvest_gap_min) || '' }} \
-            ${{ (inputs.allow_metered || github.event_name == 'schedule') && '--allow-metered' || '' }}
+            $METERED
 
       # The Middle Eastern houses sell direct rather than through the UK shops
       # above, so nothing in the sitemap harvest reaches them. This reads their
@@ -668,11 +712,17 @@ jobs:
       - name: Commit harvested prices
         if: ${{ inputs.harvest || github.event_name == 'schedule' }}
         run: |
+          # data/metered-harvest-marker.txt rides along deliberately: the
+          # once-a-day gate on the metered tiers is only a gate if the marker
+          # survives the run that set it. Uncommitted, every run would read a
+          # missing marker as "never", offer the tiers every tick, and the
+          # gate would be decorative.
           ./scripts/commit-and-push.sh \
             "Harvest: real prices $(date -u +%Y-%m-%d)" \
             data/catalogue demo/catalogue.generated.ts demo/priceHistory.generated.ts \
             demo/index.html demo/404.html \
-            data/houses data/house-sourcing-report.json
+            data/houses data/house-sourcing-report.json \
+            data/metered-harvest-marker.txt
 
       # Deliberately after the commit above, and deliberately a warning rather
       # than a failure.
