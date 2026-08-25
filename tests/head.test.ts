@@ -202,3 +202,49 @@ describe('unmatched paths', () => {
     expect(matchRoute('/legal/privacy').name).toBe('legal');
   });
 });
+
+/**
+ * A tab title is a label read at a glance in a strip a few characters wide,
+ * not a summary. The owner's screenshot showed the failure: the /deals tab
+ * read "PriceSniffs: fragrance price drops t…" while the page it belonged to
+ * was headed "Today's Deals", so the tab and the page disagreed about the
+ * page's own name — and the tab was the half that got truncated.
+ *
+ * These titles are pinned against the words demo/app.ts actually renders, so
+ * a future edit to one has to be made to both.
+ */
+describe('fixed-route titles name the page, and match what the page shows', () => {
+  it.each([
+    ['deals', 'PriceSniffs: Today’s Deals'],
+    ['brands', 'PriceSniffs: Brands'],
+    ['retailers', 'PriceSniffs: Retailers'],
+    ['notes', 'PriceSniffs: Notes'],
+    ['about', 'PriceSniffs: About'],
+    ['search', 'PriceSniffs: Search'],
+    ['settings', 'PriceSniffs: Settings'],
+  ])('%s -> %s', (name, expected) => {
+    expect(tags({ route: route(name as RouteName) }).title).toBe(expected);
+  });
+
+  it('is short enough to survive a real browser tab, not merely the 60-char cap', () => {
+    // TITLE_MAX exists for search engines. A tab strip is far narrower, which
+    // is the constraint that actually produced the complaint.
+    for (const name of ['deals', 'brands', 'retailers', 'notes', 'about', 'search', 'settings']) {
+      expect(tags({ route: route(name as RouteName) }).title.length).toBeLessThanOrEqual(30);
+    }
+  });
+
+  it('still says PriceSniffs first on every route, and exactly once', () => {
+    for (const name of ['deals', 'brands', 'retailers', 'notes', 'about', 'search', 'settings']) {
+      const title = tags({ route: route(name as RouteName) }).title;
+      expect(title.startsWith('PriceSniffs')).toBe(true);
+      expect(title.split('PriceSniffs').length - 1).toBe(1);
+    }
+  });
+
+  it('keeps the descriptive wording in the description, where it is read in full', () => {
+    // The keywords the short titles gave up were moved, not deleted.
+    expect(tags({ route: route('deals') }).description.length).toBeGreaterThan(60);
+    expect(tags({ route: route('retailers') }).description.length).toBeGreaterThan(60);
+  });
+});
