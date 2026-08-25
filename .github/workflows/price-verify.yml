@@ -30,6 +30,26 @@ name: Price verification
 # request it makes is to a public storefront, so AWIN_FEED_LIST_URL is neither
 # passed nor available here.
 on:
+  # ── Why this has a schedule at all ──────────────────────────────────────────
+  # It did not, and the consequence was measurable: dispatch-only meant it ran
+  # when somebody remembered, and by 2026-08-25 nobody had since the 12th.
+  # data/price-verification-report.json sat thirteen days old while the
+  # catalogue underneath it turned over twelve times a day.
+  #
+  # That is the wrong shape for this particular check. Its whole subject is
+  # drift — the gap between what we publish and what a shop charges — which is
+  # a quantity that grows silently with time and cannot be noticed from inside
+  # the catalogue. A drift measurement nobody runs is a drift measurement that
+  # reports nothing.
+  #
+  # Weekly rather than daily: it reads real storefronts at a deliberate pace
+  # (240s per shop, robots.txt and every registry gap honoured), so it is the
+  # heaviest read-only pass in the repo, and drift is a slow enough quantity
+  # that seven days still catches it long before a reader would. Sunday 04:40
+  # UTC, off the even hours the catalogue cron uses and off the image check's
+  # 03:20, so the three never contend for a runner.
+  schedule:
+    - cron: '40 4 * * 0'
   workflow_dispatch:
     inputs:
       shop:
@@ -248,7 +268,7 @@ jobs:
             --budget-ms=${{ inputs.budget_ms || '240000' }}
 
       - name: Commit the drift report
-        if: ${{ inputs.commit_report && !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe && !inputs.apify_blob_probe && !inputs.amazon_probe }}
+        if: ${{ (inputs.commit_report || github.event_name == 'schedule') && !inputs.reprice_dry_run && !inputs.currency_probe && !inputs.shipping_probe && !inputs.brand_site_probe && !inputs.apify_blob_probe && !inputs.amazon_probe }}
         run: |
           ./scripts/commit-and-push.sh \
             "Price verification: measured drift $(date -u +%Y-%m-%dT%H:%MZ)" \
